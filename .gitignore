@@ -1,4 +1,3 @@
-HELP.md
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
@@ -17,7 +16,6 @@ HELP.md
 *.iml
 *.ipr
 *.log
-*.md
 
 ### NetBeans ###
 /nbproject/private/
@@ -26,6 +24,3 @@ HELP.md
 /nbdist/
 /.nb-gradle/
 /build/
-
-### VS Code ###
-.vscode/
