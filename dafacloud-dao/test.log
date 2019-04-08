@@ -1,0 +1,52 @@
+2019-03-11 09:05:35.898  INFO 29577 --- [main] p.d.DafacloudDaoApplicationTests         : Starting DafacloudDaoApplicationTests on Dukes-MacBook-Pro.local with PID 29577 (started by duke in /Users/duke/Documents/github/dafacloud-dao)
+2019-03-11 09:05:35.899 DEBUG 29577 --- [main] p.d.DafacloudDaoApplicationTests         : Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-03-11 09:05:35.900  INFO 29577 --- [main] p.d.DafacloudDaoApplicationTests         : No active profile set, falling back to default profiles: default
+2019-03-11 09:05:36.532  INFO 29577 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-11 09:05:36.547  INFO 29577 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-03-11 09:05:36.933  INFO 29577 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$708249d3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-11 09:05:37.067 ERROR 29577 --- [main] com.alibaba.druid.filter.FilterManager   : load filter error, filter not found : logback
+2019-03-11 09:05:37.449  INFO 29577 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-03-11 09:05:37.508  INFO 29577 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-11 09:05:37.560  INFO 29577 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-11 09:05:37.561  INFO 29577 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-03-11 09:05:37.699  INFO 29577 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-11 09:05:37.828  INFO 29577 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-03-11 09:05:38.033  INFO 29577 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-11 09:05:38.783  INFO 29577 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-11 09:05:38.834  WARN 29577 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-11 09:05:39.092  INFO 29577 --- [main] p.d.DafacloudDaoApplicationTests         : Started DafacloudDaoApplicationTests in 3.597 seconds (JVM running for 4.326)
+2019-03-11 09:05:39.154 DEBUG 29577 --- [main] p.d.DafacloudDaoApplicationTests         : 这是 debug 日志信息
+2019-03-11 09:05:39.155  INFO 29577 --- [main] p.d.DafacloudDaoApplicationTests         : 这是 info 日志信息
+2019-03-11 09:05:39.155  WARN 29577 --- [main] p.d.DafacloudDaoApplicationTests         : 这是 warn 日志信息
+2019-03-11 09:05:39.155 ERROR 29577 --- [main] p.d.DafacloudDaoApplicationTests         : 这是 error 日志信息
+2019-03-11 09:05:39.162  INFO 29577 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-03-11 09:05:39.163  INFO 29577 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-11 09:05:39.169  INFO 29577 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-03-11 13:21:24.737  INFO 30369 --- [main] p.d.DafacloudDaoApplicationTests         : Starting DafacloudDaoApplicationTests on Dukes-MacBook-Pro.local with PID 30369 (started by duke in /Users/duke/Documents/github/dafacloud-dao)
+2019-03-11 13:21:24.738 DEBUG 30369 --- [main] p.d.DafacloudDaoApplicationTests         : Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
+2019-03-11 13:21:24.739  INFO 30369 --- [main] p.d.DafacloudDaoApplicationTests         : No active profile set, falling back to default profiles: default
+2019-03-11 13:21:25.469  INFO 30369 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-11 13:21:25.487  INFO 30369 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2019-03-11 13:21:25.887  INFO 30369 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$572a4fb0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-11 13:21:26.036 ERROR 30369 --- [main] com.alibaba.druid.filter.FilterManager   : load filter error, filter not found : logback
+2019-03-11 13:21:26.483  INFO 30369 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-03-11 13:21:26.573  INFO 30369 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-03-11 13:21:26.668  INFO 30369 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.7.Final}
+2019-03-11 13:21:26.670  INFO 30369 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-03-11 13:21:26.926  INFO 30369 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-03-11 13:21:27.145  INFO 30369 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2019-03-11 13:21:27.508  INFO 30369 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-11 13:21:28.406  INFO 30369 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-11 13:21:28.470  WARN 30369 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-11 13:21:28.741  INFO 30369 --- [main] p.d.DafacloudDaoApplicationTests         : Started DafacloudDaoApplicationTests in 4.407 seconds (JVM running for 5.207)
+2019-03-11 13:21:28.829 DEBUG 30369 --- [main] p.d.DafacloudDaoApplicationTests         : 这是 debug 日志信息
+2019-03-11 13:21:28.829  INFO 30369 --- [main] p.d.DafacloudDaoApplicationTests         : 这是 info 日志信息
+2019-03-11 13:21:28.829  WARN 30369 --- [main] p.d.DafacloudDaoApplicationTests         : 这是 warn 日志信息
+2019-03-11 13:21:28.829 ERROR 30369 --- [main] p.d.DafacloudDaoApplicationTests         : 这是 error 日志信息
+2019-03-11 13:21:28.838  INFO 30369 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-03-11 13:21:28.839  INFO 30369 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-03-11 13:21:28.845  INFO 30369 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

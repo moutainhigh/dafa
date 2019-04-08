@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weocket</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <style>
+        /*#ycode {
+            width: 500px;
+            height: 100px;
+        }*/
+        #text {
+            width: 1200px;
+            height: 200px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="">
+    <label>send message</label>
+    <!-- <input class="form-control result" id="ycode" placeholder=""> -->
+    <textarea class="form-control" rows="3" id="text"></textarea>
+
+    <div>
+        <input class="btn btn-default submit" type="submit" value="send" onclick="return submitForm()">
+    </div>
+
+
+
+    <script src="/bootstrap-3.3.7-dist/js/jquery.js" type="text/javascript"></script>
+    <script>
+    //发送请求
+    function submitForm() {
+        var text = $('#text').val()
+        console.log(text)
+        $.ajax({
+            url: "/test",
+            type: "post",
+            //data: JSON.stringify(json),
+            data: text,
+            //processData: false,
+            contentType: "text/xml",
+            done: function (res) {
+                alert('finish:' + res);
+            },
+            success: function (res) {
+                // if (res) {
+                //      alert("发送成功！");
+                // }
+                
+                
+
+            },
+            error: function (err) {
+                alert("有错误", err);
+            }
+        });
+
+        return false;
+    }
+    
+    </script>
+
+</div>
+</body>
+
+</html>

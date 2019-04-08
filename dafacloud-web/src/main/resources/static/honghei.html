@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        .cards {
+            width: 800px;
+            height: 230px;
+
+            background-color: #ccc;
+            overflow: hidden;
+
+            border: 1px solid red;
+            border-radius: 5px;
+
+        }
+
+        .cards div {
+            margin-left: 20px;
+        }
+
+        .cards ul {
+            margin-top: 30px;
+        }
+
+        .cards div {
+            width: 800px;
+            height: 20px;
+            position: relative;
+        }
+
+        .cards li {
+            width: 35px;
+            height: 35px;
+            float: left;
+            background-color: #fff;
+            list-style-type: none;
+            border-radius: 50%;
+            margin-left: 5px;
+            text-align: center;
+            /* vertical-align:middle */
+            line-height: 35px;
+            font-weight: 700;
+            color: red;
+            cursor: default;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none
+        }
+
+        .cards .select {
+            color: #fff;
+            background-color: red;
+        }
+
+
+        .fangkuai::before {
+            content: "♦️";
+            color: red;
+        }
+
+        .meihua::before {
+            content: "♣️";
+            color: black;
+        }
+
+        .hongtao::before {
+            content: "♥️";
+            color: red;
+        }
+
+        .heitao::before {
+            content: "♠️";
+            color: black;
+        }
+
+        .cards div:before {
+            left: 15px;
+            top: -12px;
+            position: absolute;
+
+            font-size: 39px;
+
+        }
+
+        #formSubmit {
+            margin-top: 5px;
+        }
+
+        #formSubmit > input {
+            width: 50%;
+        }
+
+        .content {
+            width: 500px;
+            height: 100px;
+            border: 1px solid red;
+            border-radius: 5px;
+            padding-left: 12px;
+            padding-top: 5px;
+        }
+
+        .orderCancel {
+            margin-left: 100px;
+            font-style: normal;
+            color: #ff9600;
+            cursor: pointer;
+        }
+
+        #result {
+            height: 100px;
+            width: 500px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="cards">
+        <div class="fangkuai">
+            <ul>
+                <li>A</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>J</li>
+                <li>Q</li>
+                <li>K</li>
+
+            </ul>
+        </div>
+        <div class="meihua">
+            <ul>
+                <li>A</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>J</li>
+                <li>Q</li>
+                <li>K</li>
+
+            </ul>
+        </div>
+        <div class="hongtao">
+            <ul>
+                <li>A</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>J</li>
+                <li>Q</li>
+                <li>K</li>
+
+            </ul>
+        </div>
+        <div class="heitao">
+            <ul>
+                <li>A</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>J</li>
+                <li>Q</li>
+                <li>K</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- <form action="hello.action" method="post" id="formSubmit" ></form> -->
+    <label for="exampleInputEmail1">预选区</label>
+    <input class="form-control result" id="ycode" placeholder="">
+    <!-- <label for="exampleInputEmail1">确认选择</label> -->
+    <button type="button" class="btn btn-default" id="add">确认选择</button>
+    <div class="content">
+        <table data-toggle="table" data-url="data1.json" id="intable">
+            <tbody></tbody>
+        </table>
+    </div>
+    <!-- <input class="form-control result" id="zhuang1" placeholder=""> -->
+    <!-- <label for="exampleInputEmail1">庄家2</label>
+    <button type="button" class="btn btn-default" id="add2">add</button>
+    <input class="form-control result" id="zhuang2" placeholder=""> -->
+    <div>
+        <input class="btn btn-default submit" type="submit" value="对比" onclick="return submitForm()">
+    </div>
+    <!-- </form> -->
+    <textarea class="form-control" rows="3" id="result"></textarea>
+</div>
+
+<script src="bootstrap-3.3.7-dist/js/jquery.js" type="text/javascript"></script>
+<script>
+    //js 判断class 名是否存在
+    function hasClass(element, cls) {
+        return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+    }
+
+    //便利li添加点击事件
+    // var uls = document.querySelectorAll('ul');
+    // for (var i = 0; i < uls.length; i++) { //遍历ul
+    //     var ulLis = uls[i].querySelectorAll('li')//ul 下面的 li
+
+    //     for (var j = 0; j < ulLis.length; j++) {
+    //         //console.log(i+","+j)
+    //         ulLis[j].index = i;//给ul添加点击事件
+    //         ulLis[j].onclick = function (n) {
+    //             if (hasClass(this, "select")) {
+    //                 this.classList.remove("select")
+    //             } else {
+    //                 this.classList.add("select");
+    //                 console.log(this.index)
+    //                 input.value += ((this.innerText << 2) + (this.index)) + ",";
+    //             }
+    //         }
+    //     }
+    // }
+    //添加号码
+    $('.cards ul>li').on('click', function () {
+        var valueDo = document.getElementById('ycode');//被添加的号码
+        var index = $(this).parent().parent().index();//ul坐标
+        var indexLi = $(this).parent().index();
+        
+
+        var s = ""
+        if ($(this).hasClass('select')) {
+            $(this).removeClass('select')
+
+        } else {
+            $(this).addClass('select')
+            if (valueDo.value == "") {
+                s += index + "-" + $(this).text();
+            } else {
+                s += "," + index + "-" + $(this).text();
+            }
+            var a = $('#ycode').val() + s;
+
+
+            $('#ycode').val(a)
+
+        }
+
+    })
+
+    //确认选择 生成节点
+    var add = document.getElementById('add');
+    add.onclick = function () {
+        var valueDo = document.getElementById('ycode');//被添加的号码
+        var value = valueDo.value;
+        //var valueNoD = value.substring(0, value.length - 1)
+        var a = value.split(",")
+
+        if (a.length != 3) {
+            alert("请选择3张牌");
+            return
+        }
+
+        var tb = document.getElementById("intable").querySelectorAll('tbody')[0];
+        tb.innerHTML = tb.innerHTML +
+            "<tr>" +
+            "                        <td>" + value + "</td>" +
+            "                        <td>\n" +
+            "                            <i class=\"orderCancel\">删除</i>" +
+            "                        </td>\n" +
+            "                    </tr>";
+        valueDo.value = "";
+        $('.cards ul>li').removeClass('select')
+
+    }
+
+    $('#intable').on('click', '.orderCancel', function () {
+        $(this).parent().parent().remove()
+    })
+
+
+    //获取被选择的号码
+    // var add1 = document.getElementById('add1')
+    // var zhuang1 = document.getElementById('zhuang1')
+    // add1.onclick = function () {
+    //     var code = "";
+    //     for (var i = 0; i < uls.length; i++) { //遍历ul
+    //         var ulLis = uls[i].querySelectorAll('li')//ul 下面的 li
+    //         var count = 0;
+    //         for (var j = 0; j < ulLis.length; j++) {
+    //             var li = ulLis[j]
+    //             li.index = i;
+    //             if (hasClass(li, "select")) {
+    //                 console.log(li.innerText)
+    //                 code += li.innerText + " "
+    //                 li.classList.remove("select")
+    //                 count++;
+    //             }
+    //         }
+
+    //         if (count == 0) {
+    //             code += "-"
+    //         } else {
+    //             code = code.substr(0, code.length - 1);
+    //         }
+    //         code += ","
+    //     }
+    //     code = code.substr(0, code.length - 1);
+    //     console.log(code)
+    // }
+
+    //console.log(a.find('li').length)
+    /*
+
+    console.log(lis.length)
+    for (var i = 0; i < lis.length; i++) {
+
+        lis[i].onclick = function (n) {
+            if (hasClass(this, "select")) {
+                this.classList.remove("select")
+
+            } else {
+                this.classList.add("select");
+                input.value += (this.innerText << 2) + ",";
+
+            }
+
+        }
+    }
+    */
+    var submit = document.getElementsByClassName("submit")[0];
+    /*
+    submit[0].onclick = function (n) {
+        for (var i = 0; i < lis.length; i++) {
+            var li = lis[i]
+            if (hasClass(li, "select")) {
+                console.log(li.innerText)
+            }
+        }
+
+    }
+    */
+    /*
+    var data = {
+            userAccount: lock_username,
+            userPasswd:hex_md5(lock_password).toUpperCase()
+    }
+    */
+
+    //处理code
+    function getCode(code) {
+        var arr = code.split(',');
+        var a = ''
+        for (var i = 0; i < arr.length; i++) {
+            var num = arr[i] >> 2;
+            var pnum = arr[i] % 4;
+            if (pnum == 0) {
+                a += '♦️' + num + ',';
+            } else if (pnum == 1) {
+                a += '♣️' + num + ',';
+            } else if (pnum == 2) {
+                a += '♥️' + num + ',';
+            } else if (pnum == 3) {
+                a += '♠️' + num + ',';
+            }
+        }
+
+        return a.substr(0, a.length - 1);
+    }
+
+    function getCodeRe(codeRe) {
+
+        if (codeRe == "BAO_ZI") {
+            return "豹子";
+        } else if (codeRe == "SHUN_JIN") {
+            return "顺金";
+        } else if (codeRe == "JIN_HUA") {
+            return "金花";
+        } else if (codeRe == "SHUN_ZI") {
+            return "顺子";
+        } else if (codeRe == "DUI_ZI") {
+            return "对子";
+        } else if (codeRe == "DAN_ZHAN") {
+            return "单张";
+        }
+
+
+    }
+
+    //发送请求
+    function submitForm() {
+        //生成json数据
+        var json = {}
+        var jsonArray = []
+        $('#intable tr td:even').each(function () {
+            var td = {}
+            td.code = $(this).text()
+            jsonArray.push(td)
+        })
+        //console.log(jsonArray.length)
+        if (jsonArray.length != 2) {
+            alert("请选择2组牌进行对比");
+            return
+        }
+        json.info = jsonArray;
+        //
+        $.ajax({
+            url: "paixing.action",
+            type: "post",
+            data: JSON.stringify(json),
+            //processData: false,
+            contentType: "application/json;charset=UTF-8",
+            done: function (res) {
+                alert('finish:' + res);
+            },
+            success: function (res) {
+                // if (res) {
+                //      alert("发送成功！");
+                // }
+                var resJson = JSON.parse(res);
+                //document.getElementById('result').value = res
+
+                var code1 = getCode(resJson.code1);
+                var code2 = getCode(resJson.code2);
+                var code1re = getCodeRe(resJson.code1re);
+                var code2re = getCodeRe(resJson.code2re);
+                var result = resJson.result;
+                var resultCN1 = ""
+                var resultCN2 = ""
+                if (result == 'true') {
+                    resultCN1 = "大"
+                    resultCN2 = "小"
+                } else if (result == 'false') {
+                    resultCN1 = "小"
+                    resultCN2 = "大"
+                }
+                console.log(code1)
+                console.log(code2)
+                console.log(code1re)
+                console.log(code2re)
+                //console.log(resultCN)
+                var s = code1 + " " + code1re + "   " + resultCN1 + "\r\n VS \r\n" + code2 + " " + code2re + "   " + resultCN2
+                document.getElementById('result').value = s
+
+            },
+            error: function (err) {
+                alert("有错误", err);
+            }
+        });
+
+        return false;
+    }
+
+
+</script>
+</body>
+
+</html>
