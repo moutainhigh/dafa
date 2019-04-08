@@ -1,30 +1,48 @@
 package pers.dafacloud.javaxWebsocket;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pers.dafacloud.concurrent.CallableTemplate;
+import pers.dafacloud.entities.BetGameContent;
 
 import javax.websocket.ContainerProvider;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 import java.net.URI;
+import java.util.List;
 import java.util.Map;
 
 public class SendMessage extends CallableTemplate<Map<String, String>> {
 
-    private static WebSocketContainer container = ContainerProvider.getWebSocketContainer();
 
-    private String uri;
+    private Session session;
+    private ResponceMessage responceMessage;
 
-    public SendMessage(String uri){
-        this.uri=uri;
+    public SendMessage(Session session,ResponceMessage responceMessage ){
+        this.session = session;
+        this.responceMessage = responceMessage;
     }
 
     @Override
     public Map<String, String> process() {
+        //bet内容
+        ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:beans.xml");
+        BetGameContent betGameContent = (BetGameContent) ac.getBean("betGameContent");
+        List<String> listBetContent = betGameContent.getContent();
         try {
-            Session session  = container.connectToServer(ResponceMessage.class, URI.create(uri));
-            session.setMaxTextMessageBufferSize(20480000);
-            session.setMaxBinaryMessageBufferSize(2048000);
-            session.getBasicRemote().sendText("11");
+
+            session.setMaxTextMessageBufferSize(2048000);
+            session.setMaxBinaryMessageBufferSize(204800);
+            int index = (int) (Math.random() * listBetContent.size());
+            Thread.sleep(1000);
+            System.out.println("getIssue："+responceMessage.getIssue());
+            for (int i = 0; i < 50; i++) {
+                String sendMessage = String.format(listBetContent.get(index), responceMessage.getIssue(), responceMessage.getUserRebate());
+                session.getBasicRemote().sendText(sendMessage);
+                Thread.sleep(1000);
+                System.out.println("sendMessage:"+sendMessage);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

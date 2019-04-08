@@ -10,12 +10,17 @@ import pers.dafacloud.constans.Environment;
 import pers.dafacloud.entities.User;
 import pers.dafacloud.loginPage.LoginPage;
 
+import javax.websocket.ContainerProvider;
+import javax.websocket.Session;
+import javax.websocket.WebSocketContainer;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class Testws {
     private static Environment environment = Environment.DEFAULT;
+    private static WebSocketContainer container = ContainerProvider.getWebSocketContainer();
 
     public static void main(String[] args) throws Exception{
 
@@ -28,7 +33,10 @@ public class Testws {
         LoginPage loginPage = new LoginPage();
 
         WebSocket webSocket =null;
-        for (int i = 0; i < 300; i++) {
+        for (int i = 0; i < 200; i++) {
+
+        }
+        for (int i = 0; i < 2; i++) {
             String userName = userList.get(i);
             Cookie cookie = loginPage.getDafaCooike(userList.get(i),"123456");
             String token = loginPage.getGameToken(cookie);
@@ -40,13 +48,16 @@ public class Testws {
 //            mywsClient.creatConnect();
 //            tasks.add(mywsClient);
 
-            SendMessage sendMessage =new SendMessage("ws://"+environment.domain+"/gameServer/?TOKEN="+token+"&gameId=2003");
+            //SendMessage sendMessage =new SendMessage("ws://"+environment.domain+"/gameServer/?TOKEN="+token+"&gameId=2003");
+            ResponceMessage responceMessage =new ResponceMessage();
+            Session session  = container.connectToServer(responceMessage, URI.create("ws://"+environment.domain+"/gameServer/?TOKEN="+token+"&gameId=2003"));
+            SendMessage sendMessage =new SendMessage(session,responceMessage);
+            //sendMessage.process();
             tasks.add(sendMessage);
             //manager.start();
             System.out.println(i+userList.get(i));
         }
-        List<Map<String, String>> results = callableTaskFrameWork
-                .submitsAll(tasks);
+        //List<Map<String, String>> results = callableTaskFrameWork.submitsAll(tasks);
 
 
         try {
