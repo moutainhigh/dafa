@@ -31,12 +31,11 @@ public class SendMessage extends CallableTemplate<Map<String, String>> {
         List<String> listBetContent = betGameContent.getContent();
         try {
 
-            session.setMaxTextMessageBufferSize(2048000);
-            session.setMaxBinaryMessageBufferSize(204800);
+
             int index = (int) (Math.random() * listBetContent.size());
             Thread.sleep(1000);
             System.out.println("getIssue："+responceMessage.getIssue());
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 500; i++) {
                 String sendMessage = String.format(listBetContent.get(index), responceMessage.getIssue(), responceMessage.getUserRebate());
                 session.getBasicRemote().sendText(sendMessage);
                 Thread.sleep(1000);

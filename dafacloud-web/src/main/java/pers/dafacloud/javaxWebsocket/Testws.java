@@ -36,7 +36,7 @@ public class Testws {
         for (int i = 0; i < 200; i++) {
 
         }
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 200; i++) {
             String userName = userList.get(i);
             Cookie cookie = loginPage.getDafaCooike(userList.get(i),"123456");
             String token = loginPage.getGameToken(cookie);
@@ -51,13 +51,15 @@ public class Testws {
             //SendMessage sendMessage =new SendMessage("ws://"+environment.domain+"/gameServer/?TOKEN="+token+"&gameId=2003");
             ResponceMessage responceMessage =new ResponceMessage();
             Session session  = container.connectToServer(responceMessage, URI.create("ws://"+environment.domain+"/gameServer/?TOKEN="+token+"&gameId=2003"));
+            session.setMaxTextMessageBufferSize(2048000);
+            session.setMaxBinaryMessageBufferSize(204800);
             SendMessage sendMessage =new SendMessage(session,responceMessage);
             //sendMessage.process();
             tasks.add(sendMessage);
             //manager.start();
             System.out.println(i+userList.get(i));
         }
-        //List<Map<String, String>> results = callableTaskFrameWork.submitsAll(tasks);
+        List<Map<String, String>> results = callableTaskFrameWork.submitsAll(tasks);
 
 
         try {
