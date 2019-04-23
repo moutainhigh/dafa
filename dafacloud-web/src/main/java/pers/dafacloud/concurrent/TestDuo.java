@@ -45,11 +45,11 @@ public class TestDuo {
         /*Token token = (Token) ac.getBean("token");
         List<String> tokenList = new ArrayList<>();
         for (String tokens : token.getTokenList()){
-            tokenList.add("ws://m.dafacloud-test.com/gameServer/?TOKEN="+tokens+"&gameId=2002");
+            tokenList.add("ws://m.pers.dafacloud-test.com/gameServer/?TOKEN="+tokens+"&gameId=2002");
         }*/
 
         //单线程执行
-        /*WebSocket webSocket =new WebSocket("ws://m.dafacloud-test.com/gameServer/?TOKEN=549e4410ce784c419fcca94f13b5f486&gameId=2002");
+        /*WebSocket webSocket =new WebSocket("ws://m.pers.dafacloud-test.com/gameServer/?TOKEN=549e4410ce784c419fcca94f13b5f486&gameId=2002");
         tasks.add(webSocket);*/
 
 

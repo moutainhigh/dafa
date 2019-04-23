@@ -19,7 +19,7 @@ public class Websocket {
     /*static {
         try {
             client = new MyWebSocketClient(
-                    "ws://m.dafacloud-test.com/gameServer/?TOKEN=kihjEdDrNWbaIklREOc6u8Jjb0+93iSqWop3YHbb6saRLi5yBhmxNs1PBHSpeRK3c7RKYXgIjMdyf6uKTmpl7A&gameId=2001");
+                    "ws://m.pers.dafacloud-test.com/gameServer/?TOKEN=kihjEdDrNWbaIklREOc6u8Jjb0+93iSqWop3YHbb6saRLi5yBhmxNs1PBHSpeRK3c7RKYXgIjMdyf6uKTmpl7A&gameId=2001");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }

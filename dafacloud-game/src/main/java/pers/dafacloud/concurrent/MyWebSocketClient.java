@@ -85,6 +85,9 @@ public class MyWebSocketClient extends WebSocketClient {
             betResponse = data.get("msg").toString();
             //System.out.println(System.currentTimeMillis()+","+count+","+message);
             //logger.info(count+","+userName+","+message);
+            if(betResponse.contains("失败")){
+                logger.info(userName+","+message);
+            }
 
         }else if("710".equals(proto)){ //结算通知
             //timer.cancel();//清楚定时器

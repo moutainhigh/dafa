@@ -23,7 +23,7 @@ public class WebsocketClient {
         try {
             client =
                     new WebSocketClient(
-                            new URI("ws://m.dafacloud-test.com/ws?token=8edd6e45eb827562e4d088c1b463b9e21824c2514d142abe7c581553fee0fff1"), new Draft_6455()) {
+                            new URI("ws://m.pers.dafacloud-test.com/ws?token=8edd6e45eb827562e4d088c1b463b9e21824c2514d142abe7c581553fee0fff1"), new Draft_6455()) {
 
                 @Override
                 public void onOpen(ServerHandshake serverHandshake) {

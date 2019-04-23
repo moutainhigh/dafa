@@ -1,4 +1,4 @@
-2019-03-11 09:05:35.898  INFO 29577 --- [main] p.d.DafacloudDaoApplicationTests         : Starting DafacloudDaoApplicationTests on Dukes-MacBook-Pro.local with PID 29577 (started by duke in /Users/duke/Documents/github/dafacloud-dao)
+2019-03-11 09:05:35.898  INFO 29577 --- [main] p.d.DafacloudDaoApplicationTests         : Starting DafacloudDaoApplicationTests on Dukes-MacBook-Pro.local with PID 29577 (started by duke in /Users/duke/Documents/github/pers.dafacloud-dao)
 2019-03-11 09:05:35.899 DEBUG 29577 --- [main] p.d.DafacloudDaoApplicationTests         : Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
 2019-03-11 09:05:35.900  INFO 29577 --- [main] p.d.DafacloudDaoApplicationTests         : No active profile set, falling back to default profiles: default
 2019-03-11 09:05:36.532  INFO 29577 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
@@ -24,7 +24,7 @@
 2019-03-11 09:05:39.162  INFO 29577 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 2019-03-11 09:05:39.163  INFO 29577 --- [Thread-2] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2019-03-11 09:05:39.169  INFO 29577 --- [Thread-2] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-2019-03-11 13:21:24.737  INFO 30369 --- [main] p.d.DafacloudDaoApplicationTests         : Starting DafacloudDaoApplicationTests on Dukes-MacBook-Pro.local with PID 30369 (started by duke in /Users/duke/Documents/github/dafacloud-dao)
+2019-03-11 13:21:24.737  INFO 30369 --- [main] p.d.DafacloudDaoApplicationTests         : Starting DafacloudDaoApplicationTests on Dukes-MacBook-Pro.local with PID 30369 (started by duke in /Users/duke/Documents/github/pers.dafacloud-dao)
 2019-03-11 13:21:24.738 DEBUG 30369 --- [main] p.d.DafacloudDaoApplicationTests         : Running with Spring Boot v2.1.3.RELEASE, Spring v5.1.5.RELEASE
 2019-03-11 13:21:24.739  INFO 30369 --- [main] p.d.DafacloudDaoApplicationTests         : No active profile set, falling back to default profiles: default
 2019-03-11 13:21:25.469  INFO 30369 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.

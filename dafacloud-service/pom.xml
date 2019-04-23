@@ -4,16 +4,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>pers.dafacloud</groupId>
-        <artifactId>dafacloud</artifactId>
+        <groupId>pers.pers.dafacloud</groupId>
+        <artifactId>pers.dafacloud</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>pers.dafacloud</groupId>
-    <artifactId>dafacloud-service</artifactId>
+    <groupId>pers.pers.dafacloud</groupId>
+    <artifactId>pers.dafacloud-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>dafacloud-service</name>
+    <name>pers.dafacloud-service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

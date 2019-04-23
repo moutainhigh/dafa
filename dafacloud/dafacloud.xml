@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="dafacloud" default="all">
+<project name="pers.dafacloud" default="all">
   
   
-  <property file="dafacloud.properties"/>
+  <property file="pers.dafacloud.properties"/>
   <!-- Uncomment the following property if no tests compilation is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>
@@ -538,21 +538,21 @@
   
   <import file="${basedir}/module_dafacloud.xml"/>
   
-  <import file="${basedir}/../dafacloud-dao/module_dafacloud-dao.xml"/>
+  <import file="${basedir}/../pers.dafacloud-dao/module_dafacloud-dao.xml"/>
   
-  <import file="${basedir}/../dafacloud-service/module_dafacloud-service.xml"/>
+  <import file="${basedir}/../pers.dafacloud-service/module_dafacloud-service.xml"/>
   
-  <import file="${basedir}/../dafacloud-thread/module_dafacloud-thread.xml"/>
+  <import file="${basedir}/../pers.dafacloud-thread/module_dafacloud-thread.xml"/>
   
-  <import file="${basedir}/../dafacloud-web/module_dafacloud-web.xml"/>
+  <import file="${basedir}/../pers.dafacloud-web/module_dafacloud-web.xml"/>
   
   <target name="init" description="Build initialization">
     <!-- Perform any build initialization in this target -->
   </target>
   
-  <target name="clean" depends="clean.module.dafacloud, clean.module.dafacloud-dao, clean.module.dafacloud-service, clean.module.dafacloud-thread, clean.module.dafacloud-web" description="cleanup all"/>
+  <target name="clean" depends="clean.module.pers.dafacloud, clean.module.pers.dafacloud-dao, clean.module.pers.dafacloud-service, clean.module.pers.dafacloud-thread, clean.module.pers.dafacloud-web" description="cleanup all"/>
   
-  <target name="build.modules" depends="init, clean, compile.module.dafacloud, compile.module.dafacloud-dao, compile.module.dafacloud-service, compile.module.dafacloud-thread, compile.module.dafacloud-web" description="build all modules"/>
+  <target name="build.modules" depends="init, clean, compile.module.pers.dafacloud, compile.module.pers.dafacloud-dao, compile.module.pers.dafacloud-service, compile.module.pers.dafacloud-thread, compile.module.pers.dafacloud-web" description="build all modules"/>
   
   <target name="all" depends="build.modules" description="build all"/>
 </project>

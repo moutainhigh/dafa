@@ -16,7 +16,7 @@ public class TestWebsocket {
     static Environment environment = Environment.DEFAULT;
     public static String betContentPathName;
 
-    public static final int stepTime=300;
+    public static final int stepTime=1000;
 
     public static void main(String[] args) throws Exception {
 
@@ -29,7 +29,7 @@ public class TestWebsocket {
 
         //登陆获取user登陆获取token
         //User user = (User) ac.getBean("user");
-        List<String> userList = FileUtils.readfile("D:/user.txt");
+        List<String> userList = FileUtils.readfile("D:/users.txt");
 
         LoginPage loginPage = new LoginPage();
 
@@ -47,7 +47,7 @@ public class TestWebsocket {
             String token = loginPage.getGameToken(cookie);
             //System.out.println(token);
             //tokenList.add("ws://"+environment.domain+"/gameServer/?TOKEN="+token+"&gameId=2002");
-            WebSocketSendTask  webSocketSendTask =new WebSocketSendTask("ws://"+environment.domain+"/gameServer/?TOKEN="+token+"&gameId=2002",userName);
+            WebSocketSendTask  webSocketSendTask =new WebSocketSendTask("ws://"+environment.domain+"/gameServer/?TOKEN="+token+"&gameId=2003",userName);
             tasks.add(webSocketSendTask);
             System.out.println(i+userList.get(i));
         }
@@ -61,11 +61,11 @@ public class TestWebsocket {
         /*Token token = (Token) ac.getBean("token");
         List<String> tokenList = new ArrayList<>();
         for (String tokens : token.getTokenList()){
-            tokenList.add("ws://m.dafacloud-test.com/gameServer/?TOKEN="+tokens+"&gameId=2002");
+            tokenList.add("ws://m.pers.dafacloud-test.com/gameServer/?TOKEN="+tokens+"&gameId=2002");
         }*/
 
         //单线程执行
-        /*WebSocketSendTask webSocketSendTask =new WebSocketSendTask("ws://m.dafacloud-test.com/gameServer/?TOKEN=549e4410ce784c419fcca94f13b5f486&gameId=2002");
+        /*WebSocketSendTask webSocketSendTask =new WebSocketSendTask("ws://m.pers.dafacloud-test.com/gameServer/?TOKEN=549e4410ce784c419fcca94f13b5f486&gameId=2002");
         tasks.add(webSocketSendTask);*/
 
 

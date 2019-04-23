@@ -33,10 +33,8 @@ public class Testws {
         LoginPage loginPage = new LoginPage();
 
         WebSocket webSocket =null;
-        for (int i = 0; i < 200; i++) {
 
-        }
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 500; i++) {
             String userName = userList.get(i);
             Cookie cookie = loginPage.getDafaCooike(userList.get(i),"123456");
             String token = loginPage.getGameToken(cookie);
@@ -53,13 +51,14 @@ public class Testws {
             Session session  = container.connectToServer(responceMessage, URI.create("ws://"+environment.domain+"/gameServer/?TOKEN="+token+"&gameId=2003"));
             session.setMaxTextMessageBufferSize(2048000);
             session.setMaxBinaryMessageBufferSize(204800);
+            //因为是休眠保持连接，所以不能直接
             SendMessage sendMessage =new SendMessage(session,responceMessage);
-            //sendMessage.process();
+            //sendMessage.process();//这里调用会进入单线程
             tasks.add(sendMessage);
             //manager.start();
             System.out.println(i+userList.get(i));
         }
-        List<Map<String, String>> results = callableTaskFrameWork.submitsAll(tasks);
+        List<Map<String, String>> results = callableTaskFrameWork.submitsAll(tasks);//多线程执行
 
 
         try {

@@ -3,7 +3,7 @@ package pers.dafacloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@MapperScan("pers.dafacloud.mapper")
+//@MapperScan("pers.pers.dafacloud.mapper")
 @SpringBootApplication
 public class DafacloudDaoApplication {
 

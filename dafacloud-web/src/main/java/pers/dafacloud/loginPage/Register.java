@@ -13,8 +13,8 @@ public class Register {
 
     public static void main(String[] args) {
 
-        for (int i = 2500; i < 2501 ; i++) {
-            registerMeth("dafap"+String.format("%04d", i));
+        for (int i = 1; i < 10000 ; i++) {
+            registerMeth("dafapd"+String.format("%04d", i));
         }
         /*String password = DigestUtils.md5Hex("dafaj0001" + DigestUtils.md5Hex("123456"));
         System.out.println(password);*/

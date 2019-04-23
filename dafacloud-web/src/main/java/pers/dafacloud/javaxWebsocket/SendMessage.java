@@ -39,7 +39,7 @@ public class SendMessage extends CallableTemplate<Map<String, String>> {
                 String sendMessage = String.format(listBetContent.get(index), responceMessage.getIssue(), responceMessage.getUserRebate());
                 session.getBasicRemote().sendText(sendMessage);
                 Thread.sleep(1000);
-                System.out.println("sendMessage:"+sendMessage);
+                //System.out.println("sendMessage:"+sendMessage);
             }
 
         } catch (Exception e) {

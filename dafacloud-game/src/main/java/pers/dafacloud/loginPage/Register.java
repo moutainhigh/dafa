@@ -12,11 +12,17 @@ public class Register {
 
     public static void main(String[] args) {
         //System.out.println();
-        /*for (int i = 10; i < 2000 ; i++) {
-            registerMeth("dafai"+String.format("%04d", i));
-        }*/
-        String password = DigestUtils.md5Hex("dafai0002" + DigestUtils.md5Hex("123456"));
-        System.out.println(password);
+        for (int i = 20000; i < 30000 ; i++) {
+            try {
+                registerMeth("autoa"+String.format("%05d", i));
+            } catch (Exception e) {
+                System.out.println("注册失败:"+"autoa"+String.format("%04d", i));
+                //e.printStackTrace();
+            }
+
+        }
+        //String password = DigestUtils.md5Hex("dafai0002" + DigestUtils.md5Hex("123456"));
+        //System.out.println(password);
     }
 
 
@@ -26,10 +32,8 @@ public class Register {
         String body = "inviteCode=40924811&userName="+userName+"&password="+password;
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-
         String result = Request.doPostRbody(url,body,headers);
-
-        System.out.println(result);
+        //System.out.print(userName);
     }
 
 

@@ -19,7 +19,7 @@ public class TestSocket {
 
         MyWebSocketClient client =
                 new MyWebSocketClient(
-                        "ws://m.dafacloud-test.com/gameServer/?TOKEN=a435234d86a846509d9fd8ad2d15e3a4&gameId=2002");
+                        "ws://m.pers.dafacloud-test.com/gameServer/?TOKEN=a435234d86a846509d9fd8ad2d15e3a4&gameId=2002");
         client.connect();
         int count = 0;
         while (!client.getReadyState().equals(WebSocket.READYSTATE.OPEN)) {

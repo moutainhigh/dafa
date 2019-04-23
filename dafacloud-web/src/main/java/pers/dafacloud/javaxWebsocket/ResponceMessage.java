@@ -81,7 +81,7 @@ public class ResponceMessage {
 
     @OnMessage
     public void onMessage(String message) {
-        System.out.println(message);
+        //System.out.println(message);
         JSONObject jsonObject = JSONObject.fromObject(message);
         String proto = jsonObject.get("proto").toString();
         JSONObject data = jsonObject.getJSONObject("data");
@@ -97,7 +97,6 @@ public class ResponceMessage {
 
             issue = data.get("issue").toString();
             this.setIssue(data.get("issue").toString());
-            System.out.println("zxczxc");
             stateTime = Integer.parseInt(data.get("stateTime").toString());//倒计时
             status = 1;
         }else if("701".equals(proto)){ //投注回应

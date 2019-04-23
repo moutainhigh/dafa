@@ -15,7 +15,7 @@ public class FileRead {
     public static void main(String[] agrs){
         while (true){
             System.out.println("pointer:"+pointer);
-            String path ="/Users/duke/Documents/github/dafacloud-web/test.log";
+            String path ="/Users/duke/Documents/github/pers.dafacloud-web/test.log";
             randomRed(path);
             try {
                 System.out.println("停顿开始："+System.currentTimeMillis());

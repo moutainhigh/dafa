@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 //import org.springframework.context.ApplicationContext;
 //import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pers.dafacloud.common.FileUtils;
-//import pers.dafacloud.entities.BetGameContent;
+//import pers.pers.dafacloud.entities.BetGameContent;
 
 import java.util.*;
 
@@ -82,7 +82,7 @@ public class WebSocketSendTask extends CallableTemplate<Map<String, String>> {
 //        int[] pos4=new int[20];
 //        int[] pos5=new int[20];
 //        int[] pos6=new int[20];
-        int[] amount=new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,100,100,100,100,100,500,1000};//,5,10,50,100,500,1000,5000
+        int[] amount=new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,100,100,100,100,100,500,1000,5000,10000};//,5,10,50,100,500,1000,5000
 
         StringBuffer sb =new StringBuffer();
 
@@ -92,8 +92,11 @@ public class WebSocketSendTask extends CallableTemplate<Map<String, String>> {
         int count2 = 1;
         while (count2 < 50000000) {
             count2++;
+            //随机休眠
+            //int indexSleep =7+(int)(Math.random()*10);
             try {
                 Thread.sleep(TestWebsocket.stepTime);//投注间隔1秒
+                //Thread.sleep(indexSleep*1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
