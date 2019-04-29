@@ -11,7 +11,7 @@ public enum Environment {
 
     public String url;
     public  String domain;
-    //构造方法
+
     Environment(String url, String domain) {
         this.url = url;
         this.domain = domain;

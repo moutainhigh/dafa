@@ -28,10 +28,10 @@ public class Request {
 
 	static CloseableHttpClient httpclient;
 	static CloseableHttpResponse response = null;
-	static CookieStore cookieStore = null;
+	//static CookieStore cookieStore = null;
 	static HttpPost httpPost = null;
 	static HttpGet httpGet = null;
-	static RequestConfig requestConfig = null;
+	static RequestConfig requestConfig;
 
 	static {
 		// 设置请求超时时间
@@ -49,7 +49,6 @@ public class Request {
 		if (StringUtils.isEmpty(url)) {
             return null;
         }
-
 		httpPost=new HttpPost(url);
 		httpPost.setConfig(requestConfig);
 		if (MapUtils.isNotEmpty(headers)) {
@@ -104,21 +103,17 @@ public class Request {
 	 * 主要用在需要依赖登陆的请求
 	 * */
 	public static String doPost(String url,String body,Map<String, String> headers) {
-//		CookieStore cookieStore =new BasicCookieStore();
-//    	cookieStore.addCookie(cookie);
-		String result = getBody( url, body, headers);
-		return result;
+		return getBody( url, body, headers);
 	}
 	/**
 	 * 3.params : 
 	 * return : body
 	 * 主要用在不需要登陆的请求
 	 * */
-	public static String doPostRbody(String url,String body,Map<String, String> headers) {
-		cookieStore =new BasicCookieStore();
-		String result="";
-		result = getBody( url, body, headers);
-		return result;
+	public static String doPost(String url,String body) {
+		Map<String, String> headers = new HashMap<>();
+		headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+		return getBody( url, body, headers);
 	}
 	
 	/**
@@ -182,26 +177,24 @@ public class Request {
 	}
 	
 	/**
-	 * get请求，需要cookie</br>
+	 * get请求
 	 * params : Cookie</br>
 	 * return : String
 	 * */
-	public static String doGet(String url , Map<String, String> headers,Cookie cookie) {
-		CookieStore cookieStore =new BasicCookieStore();
-		cookieStore.addCookie(cookie);
-		String body=doGetBody(url, headers);
-		return body;
+	public static String doGet(String url , Map<String, String> headers) {
+		return doGetBody(url, headers);
 	}
 	
 	
 	
 	/**
-	 * 执行Get请求，不需要cookie</br>
+	 * 执行Get请求
 	 * params : </br>
 	 * return : String
 	 */
-	public static String doGet(String url , Map<String, String> headers) {
-		String body=doGetBody(url, headers);
-		return body;
+	public static String doGet(String url) {
+		Map<String, String> headers = new HashMap<>();
+		headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+		return doGetBody(url, headers);
 	}
 }

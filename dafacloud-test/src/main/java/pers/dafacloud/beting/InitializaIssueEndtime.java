@@ -12,11 +12,11 @@ import pers.dafacloud.httpUtils.Request;
 import pers.dafacloud.pageLogin.Login;
 
 /**
- *  奖期 和 结束销售时间 工具
+ *  奖期 和 倒计时
  * */
-public class GetIssue {
+public class InitializaIssueEndtime {
 
-	private final static Logger Log = LoggerFactory.getLogger(GetIssue.class);
+	private final static Logger Log = LoggerFactory.getLogger(InitializaIssueEndtime.class);
 	static Path getServerTimeMillisecondPath = Path.getServerTimeMillisecond;
 
 	public static int endTimeOne = 0;
@@ -26,7 +26,7 @@ public class GetIssue {
 	public static long issueFive = 0;
 
 	/**
-	 * 获取奖期，开始销售时间
+	 * 获取服务器时间
 	 * */
 	public static long  getServerTimeMillisecond() {
 		Map<String, String> headers = new HashMap<String, String>();
@@ -39,7 +39,10 @@ public class GetIssue {
 		return l;
 	}
 
-	public static void cTime(){
+	/**
+	 * 初始化奖期和倒计时
+	 * */
+	public static void  executeInitializa(){
 		long currentMillTime = getServerTimeMillisecond();
 		long now = System.currentTimeMillis();
 		long lcMillTime = 0;
@@ -79,11 +82,10 @@ public class GetIssue {
 		System.out.println("5分彩倒计时:" + endFiveM + ":" + endFives);
 	}
 
-
 	public static void main(String[] args) {
 		System.out.println(Long.parseLong("201904271016"));
 		Login login = new Login();
-		login.getDafaCooike("duke01","123456");
-		cTime();
+		login.loginDafaCloud("duke01","123456");
+		executeInitializa();
 	}
 }

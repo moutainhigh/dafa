@@ -1,11 +1,13 @@
 package pers.dafacloud.beting;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.collections.MapUtils;
 
 import pers.dafacloud.common.Log;
+import pers.dafacloud.common.ReadCSV;
 import pers.dafacloud.enums.Path;
 import pers.dafacloud.httpUtils.Request;
 import pers.dafacloud.pageLogin.Login;
@@ -17,7 +19,7 @@ public class Betting {
 	static Path bettingPath = Path.betting;
 
 	/** bet方法 */
-	public static void bet( String body) {
+	public static void bet(String body) {
 		if (body == "") {
 			Log.infoError("body" + body);
 			return;
@@ -29,7 +31,7 @@ public class Betting {
 		String betResult = Request.doPost(bettingPath.value, body, headers);
 		//
 		if (betResult.contains("成功")) {
-			BodyInsertIntoMysql.bodyIntoMysql(bodyAndResult(body, betResult));
+			//BodyInsertIntoMysql.bodyIntoMysql(bodyAndResult(body, betResult));
 			Log.info(betResult);
 			Log.info(body);
 		} else {
@@ -41,16 +43,20 @@ public class Betting {
 	/**
 	 * 投注内容封装，投注内容写入到body中
 	 */
-	public static String body(String lotId, int termNo, Map<String, String> map) {
-		if (termNo == 0) {
-			return "";
+	public static String body() {
+		List<BetContent> contentList = ReadCSV.readCSV(); //初始化投注内容
+		for (int i = 0; i < contentList.size(); i++) {
+			BetContent betContent = contentList.get(i);
+			String lotteryCode = betContent.getLotteryCode();
+			if("123".equals(lotteryCode)){ //根据彩种获取返点
+				betContent.setBettingPoint(GetBetRebate.allRebate.getString(""));
+			}
+			if ("N".equals(InitializaIssueEndtime.issueFive))
+				betContent.setBettingIssue(String.valueOf(InitializaIssueEndtime.issueFive));
+			System.out.println(betContent);
+			Betting.bet(betContent.toString());//执行投注
 		}
-		if (MapUtils.isEmpty(map)) {
-			return "";
-		}
-		String body = String.format("", lotId, termNo, map.get("betCount"), map.get("betAmount"),
-				map.get("betContent"), map.get("betTypes"));
-		return body;
+		return null;
 	}
 
 	/**
@@ -58,29 +64,15 @@ public class Betting {
 	 */
 	public static String bodyAndResult(String body, String betResult) {
 		JSONObject jsonArray = JSONObject.fromObject(betResult);	
-		return body + "&Value=" + jsonArray.get("Value") + "&user=" + Params.user;
+		//return body + "&Value=" + jsonArray.get("Value") + "&user=" + Params.user;
+		return null;
 	}
 
 	public static void main(String[] args) {
 		Login login = new Login();
-		login.getDafaCooike("duke01","123456");
-		//JSONObject allRebate= GetBetRebate.getAllRebate();
-		int bettingCount = 1;//注数
-		double bettingUnit = 1;//金额模式
-		int graduationCount = 1;//倍数
-		double bettingAmount = bettingCount*bettingUnit*graduationCount;
-		BetContent betContent = new BetContent();
-		betContent.setLotteryCode("1205");//彩种
-		betContent.setPlayDetailCode("1205A11");//玩法
-		betContent.setBettingNumber("1,-,-");//号码
-		betContent.setBettingCount(bettingCount);//注数
-		betContent.setBettingAmount(bettingAmount);//金额
-		betContent.setBettingPoint("3");//返点
-		betContent.setBettingUnit(bettingUnit);//金额模式
-		betContent.setBettingIssue("20190426146");//期号
-		betContent.setGraduationCount(graduationCount);//倍数
-		System.out.println(betContent);
-		//Betting.bet("bettingData=[{\"lotteryCode\":\"1205\",\"playDetailCode\":\"1205A11\",\"bettingNumber\":\"1,-,-\",\"bettingCount\":1,\"bettingAmount\":2,\"bettingPoint\":\"3\",\"bettingUnit\":1,\"bettingIssue\":\"20190426124\",\"graduationCount\":1}]");
-		Betting.bet(betContent.toString());
+		login.loginDafaCloud("duke01","123456");
+		InitializaIssueEndtime.executeInitializa();//初始化期数倒计时
+		GetBetRebate.getAllRebate();//初始化返点
+
 	}
 }

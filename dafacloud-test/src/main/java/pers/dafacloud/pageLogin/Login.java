@@ -28,7 +28,7 @@ public class Login {
     public static void main(String[] args) {
         Login loginPage = new Login();
         //使用密码来获取cookie
-        loginPage.getDafaCooike("dukea011","123456");
+        loginPage.loginDafaCloud("dukea011","123456");
         //手动添加cookie
         //Cookie cookie =loginPage.produceCookie("JSESSIONID");
         //System.out.println(cookie.getValue());
@@ -53,35 +53,18 @@ public class Login {
     /**
      * 账号密码登陆 返回cookie
      */
-    public void getDafaCooike(String userName, String password) {
-        //String url = environment.url + "/v1/users/login";
+    public String loginDafaCloud(String userName, String password) {
         String body = getLoginBody(userName, password);
-        // 添加头
-        Map<String, String> headers = new HashMap<String, String>();
-        headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-        headers.put("Origin", environment.url);
         // 获取带cookie的头
-        String result = Request.doPost(loginPath.value, body, headers);
-//        String result = (String) resultMap.get("body");
+        String result = Request.doPost(loginPath.value, body);
         int code  = Integer.parseInt(JSONObject.fromObject(result).get("code").toString());
         System.out.println(result);
         if(code!=1){
-            Log.info("获取cookie失败:"+body);
+            Log.info("登陆失败:"+body);
             Log.info(result);
-            //System.out.println(body);
             System.out.println(result);
         }
-//        List<Cookie> cookies = (List<Cookie>) resultMap.get("cookies");
-//        Cookie cookie = null;
-//        for (int i = 0; i < cookies.size(); i++) {
-//            //System.out.println(i + "-cookies   " + cookies.get(i).getName() + ":" + cookies.get(i).getValue());
-//            if ("JSESSIONID".equals(cookies.get(i).getName())) {
-//                cookie = cookies.get(i);
-//                break;
-//            }
-//        }
-//        return cookie;
-
+        return result;
     }
 
     /**

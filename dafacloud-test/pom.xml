@@ -134,6 +134,18 @@
             <version>r03</version>
         </dependency>
         <!-- 字符串处理 end-->
+        <!-- csv satrt-->
+        <!--<dependency>
+            <groupId>net.sourceforge.javacsv</groupId>
+            <artifactId>javacsv</artifactId>
+            <version>2.1</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>3.3</version>
+        </dependency>
+        <!-- csv end-->
     </dependencies>
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->

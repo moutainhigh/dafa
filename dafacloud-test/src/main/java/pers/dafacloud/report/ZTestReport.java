@@ -31,10 +31,14 @@ import org.testng.xml.XmlSuite;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import pers.dafacloud.enums.Environment;
+
 
 //import parameter.Javamail;
 
 public class ZTestReport implements IReporter {
+
+	static Environment environment = Environment.DEFAULT;
 	
 	//报告存放地址
 	private String path = System.getProperty("user.dir")+File.separator+"report.html";
@@ -153,7 +157,8 @@ public class ZTestReport implements IReporter {
 				listInfo.add(info);
 			}
 			Map<String, Object> result = new HashMap<String, Object>();
-			result.put("testName", name);
+			//result.put("testName", "dafaCloud"+name);
+			result.put("testName",environment.url);
 			result.put("testPass", testsPass);
 			result.put("testFail", testsFail);
 			result.put("testSkip", testsSkip);
