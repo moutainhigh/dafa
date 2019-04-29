@@ -18,11 +18,11 @@ public class BodyInsertIntoMysql {
 	
 	public static void main(String[] args) {
 		String body="action=ok&lotId=2231&termNo=181214042&multiple=1&betCount=3&betAmount=6&termCount=1&betContent=07,10,17;&betTypes=HZ;&termNos=&Multiples=&winStop=FALSE&stopWinCount=1&CouponId=0";
-		bodyIntoMysql(body);
+		//bodyIntoMysql(body);
 	}
 	
 	
-	public static void bodyIntoMysql(String body) {
+	/*public static void bodyIntoMysql(String body) {
 		
 		String[] bodyArray = body.split("&");
 		List<String> list=new ArrayList<>();
@@ -136,5 +136,5 @@ public class BodyInsertIntoMysql {
 			System.out.println("collist数据空");
 		}
 		
-	}
+	}*/
 }

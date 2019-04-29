@@ -3,8 +3,8 @@
 <suite name="Suite">
     <test thread-count="5" name="Test">
         <classes>
-            <class name="pers.dafacloud.testCase.Login"/>
-            <class name="pers.dafacloud.testCase.UserInfo"/>
+            <class name="pers.dafacloud.testCase.user.Login"/>
+            <class name="pers.dafacloud.testCase.user.UserInfo"/>
         </classes>
     </test> <!-- Test -->
 </suite>
