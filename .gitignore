@@ -24,3 +24,7 @@
 /nbdist/
 /.nb-gradle/
 /build/
+/dafacloud-thread/
+/dafacloud-dao/
+/dafacloud-service/
+/dafacloud-web/

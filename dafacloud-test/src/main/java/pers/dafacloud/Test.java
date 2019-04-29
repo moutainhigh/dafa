@@ -10,5 +10,6 @@ public class Test {
         System.out.println(System.getProperty("user.dir"));
         System.out.println(File.separator);
         System.out.println(s);
+        System.out.println("czxcxz");
     }
 }
