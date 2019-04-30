@@ -5,6 +5,8 @@
         <classes>
             <class name="pers.dafacloud.testCase.user.Login"/>
             <class name="pers.dafacloud.testCase.user.UserInfo"/>
+            <class name="pers.dafacloud.testCase.bet.DafaK3"/>
+            <class name="pers.dafacloud.testCase.bet.J01dafak3"/>
         </classes>
     </test> <!-- Test -->
 </suite>

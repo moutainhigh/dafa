@@ -1,36 +1,38 @@
-package pers.dafacloud.loginPage;
+package pers.dafacloud.page.pageLogin;
 
 import net.sf.json.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.cookie.BasicClientCookie;
-import pers.dafacloud.constans.Environment;
+//import pers.dafacloud.utils.common.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import pers.dafacloud.utils.enums.Environment;
+import pers.dafacloud.utils.enums.Path;
 import pers.dafacloud.utils.httpUtils.Request;
 
 import java.util.Base64;
 import java.util.Base64.Encoder;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-//import sun.misc.BASE64Encoder;
 
-public class LoginPage {
+public class Login {
 
+    private final static Logger Log = LoggerFactory.getLogger(Login.class);
 
     static Environment environment = Environment.DEFAULT;
+    static Path loginPath = Path.login;
 
     public static void main(String[] args) {
-
-        LoginPage loginPage = new LoginPage();
-
+        Login loginPage = new Login();
         //使用密码来获取cookie
-        Cookie cookie = loginPage.getDafaCooike("dukepre01","123456");
+        loginPage.loginDafaCloud("dukea011","123456");
         //手动添加cookie
         //Cookie cookie =loginPage.produceCookie("JSESSIONID");
         //System.out.println(cookie.getValue());
         //获取棋牌的cookie
-        String token = loginPage.getGameToken(cookie);
+        String token = loginPage.getGameToken();
         System.out.println(token);
 
     }
@@ -39,10 +41,9 @@ public class LoginPage {
      * 手动添加JSESSIONID生成cookie
      */
     public Cookie produceCookie(String jsessionId) {
-
         BasicClientCookie cookie = new BasicClientCookie("JSESSIONID", jsessionId);
         cookie.setVersion(0);
-        cookie.setDomain(environment.domain); // 设置范围
+        cookie.setDomain(environment.domain); //设置范围
         cookie.setPath("/");
         bet(cookie);
         return cookie;
@@ -51,33 +52,16 @@ public class LoginPage {
     /**
      * 账号密码登陆 返回cookie
      */
-    public Cookie getDafaCooike(String userName, String password) {
-        String url = environment.url + "/v1/users/login";
+    public String loginDafaCloud(String userName, String password) {
         String body = getLoginBody(userName, password);
-        // 添加头
-        Map<String, String> headers = new HashMap<String, String>();
-        headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-        headers.put("Origin", environment.url);
         // 获取带cookie的头
-        Map<String, Object> resultMap = Request.doPost(url, body, headers);
-        String result = (String) resultMap.get("body");
+        String result = Request.doPost(loginPath.value, body);
         int code  = Integer.parseInt(JSONObject.fromObject(result).get("code").toString());
+        Log.info(userName+":"+result);
         if(code!=1){
-            System.out.println(body);
-            System.out.println(result);
-            System.out.println(url);
+            Log.info("登陆失败:"+body);
         }
-        List<Cookie> cookies = (List<Cookie>) resultMap.get("cookies");
-        Cookie cookie = null;
-        for (int i = 0; i < cookies.size(); i++) {
-            //System.out.println(i + "-cookies   " + cookies.get(i).getName() + ":" + cookies.get(i).getValue());
-            if ("JSESSIONID".equals(cookies.get(i).getName())) {
-                cookie = cookies.get(i);
-                break;
-            }
-        }
-        return cookie;
-
+        return result;
     }
 
     /**
@@ -104,14 +88,14 @@ public class LoginPage {
     /**
      * 获取登陆棋牌使用的Token
      */
-    public String getGameToken(Cookie cookie) {
+    public String getGameToken() {
         String url = environment.url + "/v1/game/getGameToken?";
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
         headers.put("Origin", environment.url);
         // 获取带cookie的头
         //Map<String, Object> resultMap = Request.doPost(url, null, headers);
-        String result = Request.doGet(url, null, cookie).replace("\\n", "");
+        String result = Request.doGet(url, null).replace("\\n", "");
 
         //System.out.println(token);//替换调里面\n的字符串
         JSONObject js = JSONObject.fromObject(result);
@@ -129,7 +113,7 @@ public class LoginPage {
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
 
-        String s = Request.doPost(url, body, headers, cookie);
+        String s = Request.doPost(url, body, headers);
         System.out.println(s);
     }
 

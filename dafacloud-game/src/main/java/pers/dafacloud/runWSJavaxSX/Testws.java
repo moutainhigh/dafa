@@ -1,14 +1,12 @@
 package pers.dafacloud.runWSJavaxSX;
 
 import org.apache.http.cookie.Cookie;
-import pers.dafacloud.common.FileUtils;
+import pers.dafacloud.utils.common.FileUtils;
 import pers.dafacloud.concurrent.CallableTaskFrameWork;
 import pers.dafacloud.concurrent.ICallableTaskFrameWork;
 import pers.dafacloud.constans.Environment;
 import pers.dafacloud.loginPage.LoginPage;
 
-import javax.websocket.ContainerProvider;
-import javax.websocket.WebSocketContainer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

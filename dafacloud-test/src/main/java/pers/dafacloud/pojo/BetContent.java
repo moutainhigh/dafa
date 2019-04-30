@@ -21,6 +21,17 @@ public class BetContent {
     //倍数
     private int graduationCount;
 
+    //描述
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getLotteryCode() {
         return lotteryCode;
     }
@@ -108,7 +119,7 @@ public class BetContent {
                 "}]";
     }
     /**
-     * 使用java正则表达式去掉多余的.与0
+     * 使用java正则表达式去掉double多余的.与0
      * @param s
      * @return
      */

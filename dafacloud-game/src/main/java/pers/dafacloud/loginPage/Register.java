@@ -1,7 +1,7 @@
 package pers.dafacloud.loginPage;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import pers.dafacloud.httpUtils.Request;
+import pers.dafacloud.utils.httpUtils.Request;
 
 import java.util.HashMap;
 import java.util.Map;

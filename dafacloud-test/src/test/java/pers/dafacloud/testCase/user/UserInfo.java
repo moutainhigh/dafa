@@ -4,9 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import pers.dafacloud.enums.Environment;
-import pers.dafacloud.httpUtils.Request;
-import pers.dafacloud.report.ZTestReport;
+import pers.dafacloud.utils.enums.Environment;
+import pers.dafacloud.utils.httpUtils.Request;
+import pers.dafacloud.utils.report.ZTestReport;
 import org.testng.Reporter;
 
 @Listeners({ ZTestReport.class })

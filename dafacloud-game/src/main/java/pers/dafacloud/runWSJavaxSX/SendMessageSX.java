@@ -2,9 +2,8 @@ package pers.dafacloud.runWSJavaxSX;
 
 //import org.springframework.context.ApplicationContext;
 //import org.springframework.context.support.ClassPathXmlApplicationContext;
-import pers.dafacloud.common.FileUtils;
+import pers.dafacloud.utils.common.FileUtils;
 import pers.dafacloud.concurrent.CallableTemplate;
-import pers.dafacloud.entities.BetGameContent;
 
 import javax.websocket.ContainerProvider;
 import javax.websocket.Session;

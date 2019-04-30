@@ -12,7 +12,7 @@ import pers.dafacloud.utils.report.ZTestReport;
 import java.util.List;
 
 @Listeners({ ZTestReport.class })
-public class DafaK3 {
+public class {classname} {
 
     static List<BetContent>  listBetContent =  ReadCSV.readCSV();
 
@@ -23,11 +23,4 @@ public class DafaK3 {
     }
 
     //插入文件
-
-    @Test(priority = 1,description ="二码直选")
-    public void testUsersInfo(){
-        BetContent betContent = listBetContent.get(0);
-        betContent.setBettingIssue(String.valueOf(InitializaIssueEndtime.issueFive));
-        Betting.bet(betContent);
-    }
 }

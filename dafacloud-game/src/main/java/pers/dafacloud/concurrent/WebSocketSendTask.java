@@ -3,7 +3,7 @@ package pers.dafacloud.concurrent;
 import org.apache.log4j.Logger;
 //import org.springframework.context.ApplicationContext;
 //import org.springframework.context.support.ClassPathXmlApplicationContext;
-import pers.dafacloud.common.FileUtils;
+import pers.dafacloud.utils.common.FileUtils;
 //import pers.pers.dafacloud.entities.BetGameContent;
 
 import java.util.*;

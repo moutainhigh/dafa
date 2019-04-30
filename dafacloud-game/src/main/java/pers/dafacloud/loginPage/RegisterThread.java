@@ -1,11 +1,5 @@
 package pers.dafacloud.loginPage;
 
-import org.apache.commons.codec.digest.DigestUtils;
-import pers.dafacloud.httpUtils.Request;
-
-import java.util.HashMap;
-import java.util.Map;
-
 public class RegisterThread extends Thread {
 
     private static  final  String url = "http://app.dfcdn5.com/v1/users/register";

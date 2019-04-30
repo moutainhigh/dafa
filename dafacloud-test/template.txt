@@ -6986,7 +6986,7 @@
                         <div class="col-sm-6 b-r" style="height:350px">
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label text-navy">项目名称:</label>
+                                    <label class="col-sm-2 control-label text-navy">测试环境:</label>
                                     <div class="col-sm-5">
                                         <span class="form-control" id="testName"></span>
                                     </div>
