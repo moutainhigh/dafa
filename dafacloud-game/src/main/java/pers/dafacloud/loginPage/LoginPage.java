@@ -4,7 +4,7 @@ import net.sf.json.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.cookie.BasicClientCookie;
-import pers.dafacloud.constans.Environment;
+import pers.dafacloud.utils.enums.Environment;
 import pers.dafacloud.utils.httpUtils.Request;
 
 import java.util.Base64;

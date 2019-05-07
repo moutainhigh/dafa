@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import net.sf.json.JSONObject;
 import org.testng.IReporter;
 import org.testng.IResultMap;
 import org.testng.ISuite;
@@ -44,7 +45,7 @@ public class ZTestReport implements IReporter {
 	private String path = System.getProperty("user.dir")+File.separator+"report.html";
 	
 	//jason参数存放地址
-	private String templatePath = System.getProperty("user.dir")+File.separator+"template.txt";
+	private String templatePath = System.getProperty("user.dir")+File.separator+"reportTemplate.txt";
 	
 	//通过总数
 	private int testsPass = 0;
@@ -135,9 +136,11 @@ public class ZTestReport implements IReporter {
 				totalTime += spendTime;
 				String status = this.getStatus(result.getStatus());
 				List<String> log = Reporter.getOutput(result);
+				//System.out.println(log);
 				for (int i = 0; i < log.size(); i++) {
-					log.set(i, log.get(i).replaceAll("\"", "\\\\\""));
+					log.set(i, log.get(i).replaceAll("\\\\","").replaceAll("\"", "\\\\\""));//把"转义成\"
 				}
+				System.out.println(log);
 				Throwable throwable = result.getThrowable();
 				if(throwable!=null){
 					log.add(throwable.toString().replaceAll("\"", "\\\\\""));
@@ -154,9 +157,13 @@ public class ZTestReport implements IReporter {
 				info.setMethodName(result.getName());
 				info.setDescription(result.getMethod().getDescription());
 				info.setLog(log);
+				//System.out.println(log);
 				listInfo.add(info);
 			}
-			Map<String, Object> result = new HashMap<String, Object>();
+			/*for (int i = 0; i < listInfo.size(); i++) {
+				System.out.println(listInfo.get(i).getLog());
+			}*/
+			Map<String, Object> result = new HashMap<>();
 			//result.put("testName", "dafaCloud"+name);
 			result.put("testName",environment.url);
 			result.put("testPass", testsPass);
@@ -169,9 +176,10 @@ public class ZTestReport implements IReporter {
 			Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
 			String template = this.read(templatePath);
 			BufferedWriter output = new BufferedWriter( new OutputStreamWriter(new FileOutputStream(new File(path)),"UTF-8"));
-			String resultStr=gson.toJson(result).replace("$", "aaaa");//解决下面报错
-			//System.out.println(resultStr);
-			template = template.replaceFirst("\\$\\{resultData\\}", resultStr);			
+			//String resultStr=gson.toJson(result).replace("$", "aaaa");//解决下面报错
+			String resultStr = JSONObject.fromObject(result).toString();
+			System.out.println(resultStr);
+			template = template.replaceFirst("\\$\\{resultData\\}", resultStr);
 			output.write(template);
 			output.flush();
 			output.close();
@@ -179,7 +187,6 @@ public class ZTestReport implements IReporter {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	private String getStatus(int status) {

@@ -4,13 +4,12 @@ import java.util.List;
 
 import org.testng.Assert;
 import pers.dafacloud.utils.common.Log;
-import pers.dafacloud.utils.common.ReadCSV;
+import pers.dafacloud.utils.getBetData.ReadCSV;
 import pers.dafacloud.utils.enums.Path;
 import pers.dafacloud.utils.httpUtils.Request;
 import pers.dafacloud.page.pageLogin.Login;
 import net.sf.json.JSONObject;
 import pers.dafacloud.pojo.BetContent;
-import org.testng.Reporter;
 
 public class Betting {
 
@@ -22,17 +21,19 @@ public class Betting {
 			Log.infoError("body空");
 			return;
 		}
+		if ("N".equals(betContent.getBettingIssue()))
+			betContent.setBettingIssue(String.valueOf(InitializaIssueEndtime.issueFive));
 		String result = Request.doPost(bettingPath.value, betContent.toString());
 		//BodyInsertIntoMysql.bodyIntoMysql(bodyAndResult(body, betResult));
 		Log.info(result);
 		Log.info(betContent.toString());
 		//Reporter.log(result);
-		try {
+		try { //投注间隔2秒
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Assert.assertEquals(true,result.contains("成功"),"获取info失败");
+		Assert.assertEquals(true,result.contains("成功"),"投注失败");
 
 	}
 
@@ -40,7 +41,7 @@ public class Betting {
 	 * 投注内容封装，投注内容写入到body中
 	 */
 	public static String body() {
-		List<BetContent> contentList = ReadCSV.readCSV(); //读取csv文件，初始化投注内容
+		List<BetContent> contentList = ReadCSV.getBetDateFromCSV(); //读取csv文件，初始化投注内容
 		for (int i = 0; i < contentList.size(); i++) {
 			BetContent betContent = contentList.get(i);
 			String lotteryCode = betContent.getLotteryCode();

@@ -10,31 +10,33 @@ import java.util.List;
 public class Time {
 
 	public static void main(String[] args) throws ParseException {
-		/*System.out.println(YYYYMMDD());
-		
-	      SimpleDateFormat simpleDateFormat = 
-	                new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-	      	Date date = new Date();
-	      	Date startDate = simpleDateFormat.parse(simpleDateFormat.format(date));
-	        Date endDate = simpleDateFormat.parse("2018-12-05 11:02:50");
-	 
-	        Time.printDifference(startDate, endDate);*/
-		//System.out.println(year());
-		/*for (int i = 0; i < year().size(); i++) {
-			System.out.println(year().get(i));
-		}*/
-		
-		//System.out.println(Time.YYYYgMMgDD());
-		/*SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-M-dd HH:mm:ss");
-		Date date = new Date();
-		String sfm = simpleDateFormat.format(date);
-		
-		Date endDate = simpleDateFormat.parse("2018-12-05 11:02:50");
-		long l=endDate.getTime();
-		
-		System.out.println(sfm);
-		System.out.println(l);*/
-		System.out.println(YYYYMMDD());
+
+
+
+//		System.out.println(YYYYMMDD());
+
+		/*System.out.println(getMillSecond("2019-05-03 00:00:00"));//
+		long ls = (getMillSecond("2019-05-03 16:42:25")-getMillSecond("2019-05-03 00:00:00"))/1000;
+		long l =ls/(5*60);//期数
+		long s =ls%(5*60);//期数
+		System.out.println((l+1)+":"+s);*/
+
+
+		System.out.println(21*60+49+1);
+
+	}
+
+	public static long  getMillSecond(String date){
+//		String date = "2017-06-27 15-20-00";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//24小时制
+		//SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");//12小时制
+		long time = 0;
+		try {
+			 time = simpleDateFormat.parse(date).getTime();
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+		return time;
 	}
 
 	/**
@@ -50,7 +52,7 @@ public class Time {
 	}
 
 	/**
-	 * 返回年月日，格式20190101
+	 * 返回当前时间年月日，格式20190101
 	 * */
 	public static String YYYYMMDD() {
 		// 获取当前时间字符串

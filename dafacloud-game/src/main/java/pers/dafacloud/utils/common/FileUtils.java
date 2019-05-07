@@ -10,12 +10,23 @@ import java.util.List;
 
 public class FileUtils {
     public static void main(String[] args) {
-        System.out.println(readfile("D:/user.txt"));
+        //
+        //System.out.println(readFile("D:/user.txt"));
+        //测试相对路径
+       // System.out.println(readFile("user.txt"));
+
+
     }
-    public static List<String> readfile(String pathname) {
+
+
+    public static List<String> readFile(String pathname) {
         List<String> userList = new ArrayList<>();
         //String pathname = "D:/user.txt"; // 绝对路径或相对路径都可以，这里是绝对路径，写入文件时演示相对路径a
         File filename = new File(pathname); // 要读取以上路径的input。txt文件
+        if (!filename.exists()){
+            System.out.println("找不到对应文件："+pathname);
+            //return null;
+        }
         try {
             // 建立一个输入流对象reader
             InputStreamReader reader = new InputStreamReader(
