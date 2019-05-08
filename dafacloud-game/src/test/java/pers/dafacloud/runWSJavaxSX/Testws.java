@@ -24,20 +24,20 @@ public class Testws {
     private static  int NN = 0;//牛牛
     private static  int HH = 0;//红黑
     private static  int LH = 0;//龙虎
-    private static  int BJL = 5;//百家乐
+    private static  int BJL = 200;//百家乐
     private static  int BCBM = 0;//奔驰宝马
-    private static  int SBAO = 5;//骰宝
+    private static  int SBAO = 0;//骰宝
 
     //每个用户每次投注筹码数量，例：1,1,5,5,10
-    public static int chipCount = 5;//筹码个数
+    public static int chipCount = 1;//筹码个数
 
     //每种筹码数量，分别对应：1,5,10,50,100,500,1000,5000,10000
-    private static int[] chip = {100, 100, 50, 5, 3, 2, 1, 1, 1};
+    private static int[] chip = {700, 700, 70, 5, 3, 2, 1, 1, 1};
 
     //每个用户每一注间隔时间，
     static boolean ifRandom = true;//是否随机,true表示随机，false表示不随机
     static int minSleep = 300;//随机最小间隔，毫秒
-    static int MaxSleep = 900;//随机最大间隔，毫秒
+    static int MaxSleep = 800;//随机最大间隔，毫秒
     static int defaultSleep = 3000;//不随机时，间隔
 
     static List<BetGameContent> PosThree;
@@ -57,7 +57,7 @@ public class Testws {
         //2.6个盘口，均分,例：牛牛
         PosSix = initializateBetContent(new int[]{1, 1, 1, 1, 1, 1});
         //3.8个盘口，例：奔驰宝马
-        PosEight = initializateBetContent(new int[]{8, 8, 8, 8, 1, 1, 1, 1});
+        PosEight = initializateBetContent(new int[]{1, 1, 1, 1, 8, 8, 8, 8});
         //4.4个盘口，均分，例：骰宝
         PosFour = initializateBetContent(new int[]{1, 1, 1, 1});
 
