@@ -6,6 +6,7 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.cookie.BasicClientCookie;
 import pers.dafacloud.utils.enums.Environment;
 import pers.dafacloud.utils.httpUtils.Request;
+import pers.utils.dafaRequest.DafaRequest;
 
 import java.util.Base64;
 import java.util.Base64.Encoder;
@@ -32,7 +33,6 @@ public class LoginPage {
         //获取棋牌的cookie
         String token = loginPage.getGameToken(cookie);
         System.out.println(token);
-
     }
 
     /**
@@ -57,10 +57,16 @@ public class LoginPage {
         // 添加头
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+        headers.put("User-Agent:", "Mozilla/5.0");
         headers.put("Origin", environment.url);
         // 获取带cookie的头
+//        System.out.println(url);
+//        System.out.println(body);
+//        String s = DafaRequest.post(url, body);
+//        System.out.println(s);
         Map<String, Object> resultMap = Request.doPost(url, body, headers);
         String result = (String) resultMap.get("body");
+        System.out.println(result);
         int code  = Integer.parseInt(JSONObject.fromObject(result).get("code").toString());
         if(code!=1){
             System.out.println(body);
@@ -105,14 +111,17 @@ public class LoginPage {
      * 获取登陆棋牌使用的Token
      */
     public String getGameToken(Cookie cookie) {
-        String url = environment.url + "/v1/game/getGameToken?";
+        String url = environment.url + "/v1/game/getGameToken";
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+        headers.put("User-Agent:", "Mozilla/5.0");
         headers.put("Origin", environment.url);
         // 获取带cookie的头
         //Map<String, Object> resultMap = Request.doPost(url, null, headers);
-        String result = Request.doGet(url, null, cookie).replace("\\n", "");
-
+        String result = Request.doGet(url, headers, cookie).replace("\\n", "");
+        System.out.println(cookie.getValue());
+        System.out.println(url);
+        System.out.println(result);
         //System.out.println(token);//替换调里面\n的字符串
         JSONObject js = JSONObject.fromObject(result);
         int code = Integer.parseInt(js.getString("code"));

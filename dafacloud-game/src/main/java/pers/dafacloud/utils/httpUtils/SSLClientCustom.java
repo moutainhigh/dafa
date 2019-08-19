@@ -40,7 +40,10 @@ public class SSLClientCustom {
                     return true;
                 }
             });
-            sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContextBuilder.build(), new String[]{"SSLv2Hello", "SSLv3", "TLSv1", "TLSv1.2"}, null, NoopHostnameVerifier.INSTANCE);
+            sslConnectionSocketFactory = new SSLConnectionSocketFactory(sslContextBuilder.build(),
+                    new String[]{"SSLv2Hello", "SSLv3", "TLSv1", "TLSv1.2"},
+                    null,
+                    NoopHostnameVerifier.INSTANCE);
             Registry<ConnectionSocketFactory> registryBuilder = RegistryBuilder.<ConnectionSocketFactory>create()
                     .register(HTTP, new PlainConnectionSocketFactory())
                     .register(HTTPS, sslConnectionSocketFactory)
@@ -63,14 +66,14 @@ public class SSLClientCustom {
      * @return
      * @throws Exception
      */
-    public static CloseableHttpClient getHttpClinet() {
-        CookieStore cookieStore = null;
-        CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(cookieStore).setSSLSocketFactory(sslConnectionSocketFactory)
-                .setConnectionManager(poolingHttpClientConnectionManager)
-                .setConnectionManagerShared(true)
-                .build();
-        return httpClient;
-    }
+//    public static CloseableHttpClient getHttpClinet() {
+//        CookieStore cookieStore = null;
+//        CloseableHttpClient httpClient = HttpClients.custom().setDefaultCookieStore(cookieStore).setSSLSocketFactory(sslConnectionSocketFactory)
+//                .setConnectionManager(poolingHttpClientConnectionManager)
+//                .setConnectionManagerShared(true)
+//                .build();
+//        return httpClient;
+//    }
 
     /**
      * 获取连接

@@ -22,11 +22,11 @@ import java.util.*;
 
 public class Request {
 
-    static CloseableHttpClient httpclient = null;
-    static CloseableHttpResponse response = null;
-    static CookieStore cookieStore = null;
-    static HttpPost httpPost = null;
-    static HttpGet httpGet = null;
+    private static CloseableHttpClient httpclient = null;
+    private static CloseableHttpResponse response = null;
+    private static CookieStore cookieStore = null;
+    private static HttpPost httpPost = null;
+    private static HttpGet httpGet = null;
 
     /**
      * post 获取返回body

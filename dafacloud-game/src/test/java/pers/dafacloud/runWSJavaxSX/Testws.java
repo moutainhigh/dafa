@@ -23,22 +23,22 @@ public class Testws {
     //用户
     private static  int NN = 0;//牛牛
     private static  int HH = 0;//红黑
-    private static  int LH = 0;//龙虎
-    private static  int BJL = 200;//百家乐
+    private static  int LH = 10;//龙虎
+    private static  int BJL = 0;//百家乐
     private static  int BCBM = 0;//奔驰宝马
     private static  int SBAO = 0;//骰宝
 
     //每个用户每次投注筹码数量，例：1,1,5,5,10
-    public static int chipCount = 1;//筹码个数
+    public static int chipCount = 2;//筹码个数
 
     //每种筹码数量，分别对应：1,5,10,50,100,500,1000,5000,10000
     private static int[] chip = {700, 700, 70, 5, 3, 2, 1, 1, 1};
 
     //每个用户每一注间隔时间，
-    static boolean ifRandom = true;//是否随机,true表示随机，false表示不随机
-    static int minSleep = 300;//随机最小间隔，毫秒
-    static int MaxSleep = 800;//随机最大间隔，毫秒
-    static int defaultSleep = 3000;//不随机时，间隔
+    static boolean ifRandom = false;//是否随机,true表示随机，false表示不随机
+    static int minSleep = 500;//随机最小间隔，毫秒
+    static int MaxSleep = 1000;//随机最大间隔，毫秒
+    static int defaultSleep = 100;//不随机时，间隔
 
     static List<BetGameContent> PosThree;
     static List<BetGameContent> PosSix;
@@ -70,7 +70,9 @@ public class Testws {
         //用户数量
         for (int i = 0; i < NN + HH + LH + BJL + BCBM + SBAO; i++) {
             //String userName = userList.get(i);
-            String userName = String.format("dafai%04d",i+1);
+//            String userName = String.format("dafai%04d",i+1+1000);
+            String userName = String.format("dafapc%04d",i+1);
+            System.out.println(userName);
             Cookie cookie = loginPage.getDafaCooike(userName, "123456");
             String token = loginPage.getGameToken(cookie);
             SendMessageSX sendMessageSX = null;

@@ -1,7 +1,5 @@
 package pers.dafacloud.runWSJavaxSX;
 
-//import org.springframework.context.ApplicationContext;
-//import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import pers.dafacloud.pojo.BetGameContent;
 import pers.dafacloud.utils.common.FileUtils;
@@ -17,6 +15,7 @@ import java.util.Map;
 
 public class SendMessageSX extends CallableTemplate<Map<String, String>> {
 
+    private static long r = 0;
 
     private String url;
     private String username;
@@ -57,6 +56,12 @@ public class SendMessageSX extends CallableTemplate<Map<String, String>> {
             StringBuffer sb = new StringBuffer();
             //
             for (int i = 0; i < 700000; i++) {
+                System.out.println("status:" + responceMessage.getStatus());
+                if (responceMessage.getStatus() != 1) {
+                    System.out.println("不在投注状态，等待时间：" + responceMessage.getStateTime());
+                    Thread.sleep(responceMessage.getStateTime() * 1000);
+                    continue;
+                }
                 //每一个用户没一次投注间隔时间
                 if (Testws.ifRandom) {
                     int indexSleep = Testws.minSleep + (int) (Math.random() * (Testws.MaxSleep - Testws.minSleep));
@@ -80,7 +85,7 @@ public class SendMessageSX extends CallableTemplate<Map<String, String>> {
                 }*/
 
                 //int indexNiuNiu = (int) (Math.random() * listBetContentNiuNiu.size());
-                BetGameContent betGameContent = null;
+                BetGameContent betGameContent;
                 if (gameID == 2001) { //牛牛
                     int index = (int) (Math.random() * PosSix.size());
                     betGameContent = PosSix.get(index);
@@ -107,19 +112,59 @@ public class SendMessageSX extends CallableTemplate<Map<String, String>> {
                     betGameContent.setBettingAmount(sb.substring(0, sb.length() - 1));
                 }
                 //System.out.println(betGameContent);
-                //发送消息
                 if (session.isOpen())
-                    session.getBasicRemote().sendText(betGameContent.toString());
-                sb.setLength(0);//清空字符流
-                //System.out.println("sendMessage:"+sendMessage);
-            }
+                    session.getBasicRemote().sendText(betGameContent.toString());//发送消息
+                //判断投注成功
+                //1.如果flag是true，则投注成功，如果flag是false，投注失败，数据库写入失败的原因。写入数据库之后将flag改成false。
+                //2。记录数据返回时间，时间一样就还是上比记录，时间一样就不是。
+                //2。加判断数据金额是否一致，不一致可能是不是同一笔订单。
+                //responceMessage.getBetResponse();
+                /*if (r == 0) {//第一次
+                    if (session.isOpen())
+                        session.getBasicRemote().sendText(betGameContent.toString());//发送消息
+                    System.out.println("发送成功：" + betGameContent);
+                    for (int j = 0; j < 3; j++) {
+                        r = responceMessage.getReturnTime();
+                        System.out.println("r1:" + r);
+                        if (r == 0) {
+                            Thread.sleep(1000);
+                            System.out.println("1等待1s");
+                            if (j == 3)
+                                System.out.println("超3秒未获取投注结果1");
+                            continue;
+                        }
+                        System.out.println(responceMessage.getBetResponse());//获取第一次投注返回
+                        break;
+                    }
 
+                } else {
+                    if (session.isOpen())
+                        session.getBasicRemote().sendText(betGameContent.toString());//发送消息
+                    System.out.println("发送成功：" + betGameContent);
+                    for (int j = 0; j < 3; j++) { //获取投注返回值
+                        if (r == responceMessage.getReturnTime()) {//投注结果没有获取到,等待1秒
+                            System.out.println("2等待1s");
+                            Thread.sleep(1000);
+                            if (j == 3)
+                                System.out.println("超3秒未获取投注结果2");
+                            continue;
+                        }
+                        r = responceMessage.getReturnTime();
+                        System.out.println("r3:" + r);
+                        if ("1".equals(responceMessage.getBetResponseCode())) {
+                            System.out.println("投注成功:" + responceMessage.getBetResponse());
+                        } else {
+                            System.out.println("投注失败:" + responceMessage.getBetResponse());
+                        }
+                        break;
+                    }
+                }*/
+                sb.setLength(0);//清空字符流
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-
-
 }
 

@@ -2,7 +2,7 @@
 <project name="pers.dafacloud" default="all">
   
   
-  <property file="pers.dafacloud.properties"/>
+  <property file="dafacloud.properties"/>
   <!-- Uncomment the following property if no tests compilation is needed -->
   <!-- 
   <property name="skip.tests" value="true"/>

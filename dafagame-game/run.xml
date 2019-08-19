@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test name="Test" preserve-order="true">
+        <classes>
+            <!--活动-->
+            <class name="dafagame.testCase.front.Activity.GetActivityList"/>
+            <class name="dafagame.testCase.front.Activity.GetActivityDetails"/>
+            <!--记录-->
+            <class name="dafagame.testCase.front.agentCenter.subGameRecord.FrontAgentBankerGameRecord"/>
+            <class name="dafagame.testCase.front.agentCenter.subGameRecord.FrontAgentBattleGameRecord"/>
+            <class name="dafagame.testCase.front.agentCenter.subGameRecord.FrontAgentFishGameRecord"/>
+            <class name="dafagame.testCase.front.agentCenter.subGameRecord.FrontAgentMultiGameRecord"/>
+            <!--公告-->
+            <class name="dafagame.testCase.front.Announcement.manageFrontMessageList"/>
+            <class name="dafagame.testCase.front.Announcement.queryFrontUsersAnnouncement"/>
+            <!--充值-->
+            <class name="dafagame.testCase.front.chongzhi.FrontAppPaySort"/>
+            <class name="dafagame.testCase.front.chongzhi.FrontBankTransferPayment"/>
+            <class name="dafagame.testCase.front.chongzhi.FrontAlipayPayment"/>
+            <class name="dafagame.testCase.front.chongzhi.FrontQQPayment"/>
+            <class name="dafagame.testCase.front.chongzhi.FrontWechatPayment"/>
+            <class name="dafagame.testCase.front.chongzhi.FrontUnionpayPayment"/>
+            <class name="dafagame.testCase.front.chongzhi.RechargeFrontPaymentRecord"/>
+            <!--大厅-->
+            <class name="dafagame.testCase.front.hall.QueryBalanceFront"/>
+            <class name="dafagame.testCase.front.hall.QueryBaseLoginInfo"/>
+            <class name="dafagame.testCase.front.hall.FrontGameConfig"/>
+            <class name="dafagame.testCase.front.hall.CheckActivityMsg"/>
+
+        </classes>
+        <!--<packages>-->
+        <!--<package name="dafagame.testCase.front.Activity"/>-->
+        <!--<package name="dafagame.testCase.front.agentCenter.subGameRecord"/>-->
+        <!--<package name="dafagame.testCase.front.chongzhi"/>-->
+        <!--</packages>-->
+    </test>
+</suite>

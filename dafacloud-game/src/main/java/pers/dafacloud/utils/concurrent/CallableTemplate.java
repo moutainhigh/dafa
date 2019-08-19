@@ -20,7 +20,7 @@ public abstract class CallableTemplate<V> implements Callable<V> {
      * 处理业务逻辑的方法,需要子类去Override
      * @return
      */
-    public abstract V process();
+    public abstract V process() throws Exception;
     /**
      * 后置处理，子类可以Override该方法
      */

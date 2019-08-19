@@ -19,7 +19,7 @@ public static void main(String[] args) throws Exception{
         List<SendChatRoom> tasks = new ArrayList<>();
 
         SendChatRoom sendChatRoom =new SendChatRoom(
-                "ws://www.dfcdn38.com/v1/broadCast/chat?type=1&key=VmvxQazLRdOTNb+rs5+6b3jRSk1VnFXs5J5Q2P43MoeaFBkRTaW9nu3wx8ZGGqSBPx/f6MMNRpG7jl0oGkeuOUQGlGyYHcdn6e5hdmK4WzQ&password=d41d8cd98f00b204e9800998ecf8427e&roomId=00002&api=/chat&guestCode=");
+                "ws://www.dfcdn38.com/v1/broadCast/chat02?type=1&key=VmvxQazLRdOTNb+rs5+6b3jRSk1VnFXs5J5Q2P43MoeaFBkRTaW9nu3wx8ZGGqSBPx/f6MMNRpG7jl0oGkeuOUQGlGyYHcdn6e5hdmK4WzQ&password=d41d8cd98f00b204e9800998ecf8427e&roomId=00002&api=/chat02&guestCode=");
 
         tasks.add(sendChatRoom);
 

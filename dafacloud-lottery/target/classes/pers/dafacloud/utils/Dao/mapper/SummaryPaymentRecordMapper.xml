@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，用于隔离sql语句的，后续会有重要作用
+	#{} 占位符 相当于jdbc的？
+	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
+-->
+<mapper namespace="pers.dafacloud.utils.Dao.mapper.SummaryPaymentRecordMapper">
+    <!--
+        id 和方法保持一致
+     -->
+    <select id="getRecordCode" resultType="pers.dafacloud.utils.Dao.pojo.SummaryPaymentRecord">
+		SELECT record_code recordCode
+        FROM dafacloud_transaction.summary_payment_record
+        where tenant_code = 'tcp'
+        and diction_id = 106
+        -- and grade = '-1'  -- 又是测试账号又是黑名单，等级是0
+        and is_test = 0  -- is_test  0正式 1測試
+        and gmt_created like '2019-08-12%'
+        -- and amount = '2000'
+        order by gmt_created desc;
+	</select>
+
+</mapper>

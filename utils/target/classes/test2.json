@@ -1,0 +1,217 @@
+{
+  "thirdPartyDetailSettingsVoList": [
+    {
+      "dictionId": 103,
+      "mobileTypeList": "扫码,H5",
+      "fixedAmountList": "1,10,100,1000",
+      "isDecimal": 0,
+      "isFixedAmount": 1,
+      "minRandomDecimal": 0.02
+    },
+    {
+      "dictionId": 104,
+      "mobileTypeList": "WAP,条形码",
+      "fixedAmountList": "",
+      "isDecimal": 0,
+      "isFixedAmount": 0,
+      "minRandomDecimal": 0.01
+    },
+    {
+      "dictionId": 105,
+      "mobileTypeList": "",
+      "fixedAmountList": "",
+      "isDecimal": 0,
+      "isFixedAmount": 0,
+      "minRandomDecimal": 0.01
+    }
+  ],
+  "thirdPartyMobileTypeSettingsVoList": [
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 103,
+      "mobileType": "扫码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 104,
+      "mobileType": "扫码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 105,
+      "mobileType": "扫码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 108,
+      "mobileType": "扫码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 109,
+      "mobileType": "扫码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 107,
+      "mobileType": "扫码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 103,
+      "mobileType": "H5"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 104,
+      "mobileType": "H5"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 105,
+      "mobileType": "H5"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 108,
+      "mobileType": "H5"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 109,
+      "mobileType": "H5"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 107,
+      "mobileType": "H5"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 103,
+      "mobileType": "WAP"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 104,
+      "mobileType": "WAP"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 105,
+      "mobileType": "WAP"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 108,
+      "mobileType": "WAP"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 109,
+      "mobileType": "WAP"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 107,
+      "mobileType": "WAP"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 103,
+      "mobileType": "条形码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 104,
+      "mobileType": "条形码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 105,
+      "mobileType": "条形码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 108,
+      "mobileType": "条形码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 109,
+      "mobileType": "条形码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 107,
+      "mobileType": "条形码"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 103,
+      "mobileType": "银联快捷"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 104,
+      "mobileType": "银联快捷"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 105,
+      "mobileType": "银联快捷"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 108,
+      "mobileType": "银联快捷"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 109,
+      "mobileType": "银联快捷"
+    },
+    {
+      "openType": 2,
+      "style": "",
+      "dictionId": 107,
+      "mobileType": "银联快捷"
+    }
+  ],
+  "thirdPartySettingsVo": {
+    "id": 76,
+    "amountRange": 2,
+    "isEnabled": true,
+    "payLink": "/baidu/payment",
+    "thirdPartyName": "百度支付"
+  }
+}
