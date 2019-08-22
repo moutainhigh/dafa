@@ -2,7 +2,6 @@ package pers.testShaLv;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
-import org.testng.annotations.Test;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.randomIP.RandomIP;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class RegisterUserByIP {
     private static String register = "http://52.76.195.164:8010/v1/users/register";

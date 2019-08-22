@@ -40,7 +40,7 @@ public class HttpClientCustom extends HttpClientBuilder {
      * @return	返回当前对象
      * @throws HttpProcessException	http处理异常
      */
-    /*public HCB pool(int maxTotal, int defaultMaxPerRoute) throws HttpProcessException {
+    public HttpClientCustom pool(int maxTotal, int defaultMaxPerRoute) throws HttpProcessException {
         Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder
                 .<ConnectionSocketFactory> create()
                 .register("http", PlainConnectionSocketFactory.INSTANCE)
@@ -51,8 +51,8 @@ public class HttpClientCustom extends HttpClientBuilder {
         connManager.setDefaultMaxPerRoute(defaultMaxPerRoute);// Increase default max connection per route to $defaultMaxPerRoute
         //connManager.setMaxPerRoute(route, max);// Increase max connections for $route(eg：localhost:80) to 50
         //isSetPool=true;
-        return (HCB) this.setConnectionManager(connManager);
-    }*/
+        return (HttpClientCustom) this.setConnectionManager(connManager);
+    }
 
     /**
      * 设置ssl版本<br>

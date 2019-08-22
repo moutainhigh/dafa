@@ -31,14 +31,14 @@ public class Request {
             //设置代理IP、端口、协议（请分别替换）
             /*HttpHost proxy = new HttpHost("192.168.8.30", 8080, "http");//dafa windows主机
             //HttpHost proxy = new HttpHost("127.0.0.1", 9876, "http");
-            //把代理设置到请求配置
+            //把代理设置到请求配置*/
             RequestConfig defaultRequestConfig = RequestConfig.custom()
-                    .setConnectTimeout(10000)//设置连接超时时间
-                    .setSocketTimeout(10000)//设置读取超时时间
-                    .setProxy(proxy)
-                    .build();*/
-            client4HTTP = HttpClientCustom.custom()
-                    //.setDefaultRequestConfig(defaultRequestConfig)
+                    .setConnectTimeout(60000)//设置连接超时时间
+                    .setSocketTimeout(60000)//设置读取超时时间
+                    //.setProxy(proxy)
+                    .build();
+            client4HTTP = HttpClientCustom.custom().pool(500, 100)
+                    .setDefaultRequestConfig(defaultRequestConfig)
                     .build();
             client4HTTPS = HttpClientCustom.custom().sslpv(SSLProtocolVersion.TLSv1_2).ssl().build();
             httpConfig.headers(HttpHeader.custom()

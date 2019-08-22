@@ -3,8 +3,8 @@ package pers.testShaLv;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.http.Header;
+import org.testng.annotations.Test;
 import pers.utils.ThreadSleep.ThreadSleep;
-import pers.utils.assertUtils.AssertUtil;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpHeader;
@@ -12,13 +12,16 @@ import pers.utils.jsonUtils.JsonArrayBuilder;
 import pers.utils.jsonUtils.JsonObjectBuilder;
 import pers.utils.urlUtils.UrlBuilder;
 
+import java.io.File;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class ThreadTenantLottery {
-
-    private static String url = "http://52.77.207.64:8020//v1/betting/addBetting";
+    //52.76.195.164:8020 1套
+    //52.77.207.64:8020
+    private static String url = "http://52.76.195.164:8020/v1/betting/addBetting";
 
     /**
      * 1418 站長快3
@@ -28,12 +31,11 @@ public class ThreadTenantLottery {
      * 1019 站長5分时时彩
      */
     public static void main(String[] args) {
-
         List<String> user005 = FileUtil.readFile(
                 "/Users/duke/Documents/github/dafa/dafacloud-lottery/src/test/resouces/sv005500.txt"); //
         List<String> betContents = FileUtil.readFile(
-                "/Users/duke/Documents/github/dafa/dafacloud-lottery/src/test/resouces/svBetContent/1418.txt"); //
-        for (int i = 0; i < 200; i++) { //用户
+                 "/Users/duke/Documents/github/dafa/dafacloud-lottery/src/test/resouces/svBetContent/1418.txt"); //
+        for (int i = 0; i < 1; i++) { //用户
             int index = i;
             new Thread(() -> {
                 String[] userArray = user005.get(index).split(",");
@@ -45,7 +47,7 @@ public class ThreadTenantLottery {
                         .other("x-tenant-code", userArray[1])
                         .other("x-user-name", userArray[2])
                         .other("x-source-Id", "1")
-                        //.other("Origin", "http://52.77.207.64")
+                        .other("Origin", "http://52.76.195.164")
                         .build();
                 //投注
                 for (int j = 0; j < 1000; j++) {
@@ -75,11 +77,10 @@ public class ThreadTenantLottery {
                             .put("bettingNumber", betContentArray[2])
                             .put("bettingAmount", betContentArray[3])
                             .put("bettingCount", betContentArray[4])
-                            .put("bettingPoint", "7")
-                            .put("bettingIssue", String.format("%s%04d",currentDate,issueOneNum))
-                            .put("graduationCount",betContentArray[5] )
+                            .put("bettingPoint", "8")
+                            .put("bettingIssue", String.format("%s%04d", currentDate, issueOneNum))
+                            .put("graduationCount", betContentArray[5])
                             .put("bettingUnit", betContentArray[6])
-                            //Double.valueOf(betContentArray[5]).intValue()
                             .bulid();
                     JSONArray orders = JsonArrayBuilder
                             .custom()
@@ -88,9 +89,9 @@ public class ThreadTenantLottery {
                     String bettingData = UrlBuilder.custom().addBuilder("bettingData", orders.toString()).fullBody();
                     //System.out.println(bettingData);
                     String result = DafaRequest.post(url, bettingData, headers);
-                    //ThreadSleep.sleeep(1);
+                    ThreadSleep.sleeep(1);
                     JSONObject jsonResult = JSONObject.fromObject(result);
-                    if(jsonResult.getInt("code")!=1){
+                    if (jsonResult.getInt("code") != 1) {
                         System.out.println(bettingData);
                         System.out.println(result);
                     }
@@ -100,6 +101,4 @@ public class ThreadTenantLottery {
 
 
     }
-
-
 }
