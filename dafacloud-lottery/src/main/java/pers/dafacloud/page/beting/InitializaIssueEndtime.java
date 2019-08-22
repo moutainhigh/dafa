@@ -51,7 +51,8 @@ public class InitializaIssueEndtime {
      * 私彩初始化奖期和倒计时
      */
     public static void executeInitializa() {
-        long currentMillTime = getServerTimeMillisecond();//
+        //long currentMillTime = getServerTimeMillisecond();//
+        long currentMillTime = System.currentTimeMillis();
         long now = System.currentTimeMillis();
         long lcMillTime = 0;
         String currentDate = "";

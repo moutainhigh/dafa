@@ -11,7 +11,6 @@ public class RegisterMoreThread {
     public static void main(String[] args) {
         String password = DigestUtils.md5Hex("duke123");
 
-
         String url = "http://alysiacocosrelease.dafagame-test.com/v1/users/register";
         String phone = "1311234";
         String inviteCode = "9862148";
@@ -74,7 +73,9 @@ public class RegisterMoreThread {
 
     @Test(description = "测试")
     public static void test03() {
-        String url = "http://alysiacocosrelease.dafagame-test.com/v1/users/register";
+        System.out.println(360%60);
     }
+
+
 
 }

@@ -24,7 +24,7 @@ public class TestMD5Password {
         }
     }
 
-    @Test(description = "测试")
+    @Test(description = "简单登陆密码")
     public static void test01() {
         String[] passwords = {
                 "112233",
@@ -61,8 +61,6 @@ public class TestMD5Password {
                 System.out.println(password + "," + s);
             }
         }
-
-
 
 
     }

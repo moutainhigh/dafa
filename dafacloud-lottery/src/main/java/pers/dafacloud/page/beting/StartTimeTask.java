@@ -17,8 +17,8 @@ public class StartTimeTask {
             public void run() {
                 InitializaIssueEndtime.endTimeOne--;
                 while (InitializaIssueEndtime.endTimeOne == 0) {
-                    InitializaIssueEndtime.endTimeOne = 60;
-                    InitializaIssueEndtime.issueOne++;
+                    InitializaIssueEndtime.endTimeOne = 60;//
+                    InitializaIssueEndtime.issueOne++; //期号++
                 }
                 long s = InitializaIssueEndtime.endTimeOne % 60;
                 System.out.println("1分倒计时：" + s);
