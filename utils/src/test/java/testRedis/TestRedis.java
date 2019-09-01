@@ -153,7 +153,7 @@ public class TestRedis {
 
     public void testRedisPool() {
 
-        TestEnvRedis.getJedis().set("newname", "test");
+        TestEnvRedis.getJedis().set("newname", "testCookie");
 
         System.out.println(TestEnvRedis.getJedis().get("newname"));
 

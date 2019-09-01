@@ -10,5 +10,4 @@ public class Md5Test {
         System.out.println(DigestUtils.md5Hex("duke123"));
     }
 
-
 }

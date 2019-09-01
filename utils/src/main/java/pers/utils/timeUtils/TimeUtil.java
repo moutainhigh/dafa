@@ -13,9 +13,8 @@ public class TimeUtil {
         System.out.println(getMillSecond("2019-7-30 12:12:12"));
         System.out.println(getLCMillSecond());
         System.out.println(new Date().getTime());//当前时间戳
-
         System.out.println(getLCTime(-10));
-
+        System.out.println(getMillSecond("2019-08-31 11:32:49"));
     }
 
     /**
@@ -34,20 +33,11 @@ public class TimeUtil {
     }
 
 
-//    /**
-//     * 获取当天时间
-//     **/
-//    public static String getLCTime() {
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
-//        Date date = new Date();
-//        return simpleDateFormat.format(date);
-//    }
-
     /**
-     * 获取时间戳 13位 1564459932000
+     * 获取当前系统时间戳 13位 1564459932000 ， 等价于 System.currentTimeMillis();
+     *
      */
     public static long getMillSecond(String date) {
-//		String date = "2017-06-27 15-20-00";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//24小时制
         //SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");//12小时制
         long time = 0;
@@ -57,14 +47,12 @@ public class TimeUtil {
             e.printStackTrace();
         }
         return time;
-
     }
 
     /**
-     * 毫秒转yyyy-MM-dd HH:mm:ss
+     * 毫秒转日期yyyy-MM-dd HH:mm:ss
      */
     public static String millSecondToDateString(long millSecond) {
-        //long milliSecond = 1551798059000L;
         Date date = new Date();
         date.setTime(millSecond);
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
@@ -82,7 +70,7 @@ public class TimeUtil {
     }
 
     /**
-     * 返回时间，格式 MM-dd HH:mm:ss
+     * 返回时间当前时间，格式 MM-dd HH:mm:ss
      */
     public static String MMDDhms() {
         // 获取当前时间字符串

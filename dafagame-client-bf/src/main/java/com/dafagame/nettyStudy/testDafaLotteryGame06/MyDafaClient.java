@@ -60,7 +60,7 @@ public class MyDafaClient {
                                     .setSessionId("82ceffdc92fc46619cc77cb94c942587")
                                     .setUrl("192.168.8.44:7000")
                                     .setSourceId("2")
-                                    .setTenantCode("test")
+                                    .setTenantCode("testCookie")
                                     .build()
                     ).build();
 

@@ -3,7 +3,7 @@ package pers.dafagame.utils.enums;
 public enum Environment {
 
     //DEFAULT("http://caishen01.com");
-    DEFAULT("http://duke.dafagame-test.com:86");
+    DEFAULT("http://duke.dafagame-testCookie.com:86");
     //DEFAULT("http://m.caishen02.com");
     //DEFAULT("http://2019.dafacloud-admin.com");
     //DEFAULT("http://pt.dafacloud-pre.com");

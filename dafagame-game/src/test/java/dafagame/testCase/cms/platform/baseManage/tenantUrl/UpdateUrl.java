@@ -16,7 +16,7 @@ public class UpdateUrl {
                 .addBuilder("id", "32")
                 .addBuilder("urlId", "2")//1	WEB	前台,2	CMS	后台,3	MAINWEB	官网主域
                 .addBuilder("tenantCode", "duke")
-                .addBuilder("url", "duke.dafagame-test.com")
+                .addBuilder("url", "duke.dafagame-testCookie.com")
                 .addBuilder("remark", "66")
                 .fullBody();
         String result = DafaRequest.post(1, updateUrl, body);

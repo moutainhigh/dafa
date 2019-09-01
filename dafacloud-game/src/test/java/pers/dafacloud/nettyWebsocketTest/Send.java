@@ -102,7 +102,7 @@ public class Send extends CallableTemplate<Map<String, String>> {
 
 //        Thread bina=new Thread(new Runnable() {
 //            public void run() {
-//                File file=new File("C:\\Users\\Administrator\\Desktop\\test.wav");
+//                File file=new File("C:\\Users\\Administrator\\Desktop\\testCookie.wav");
 //                FileInputStream fin= null;
 //                try {
 //                    fin = new FileInputStream(file);

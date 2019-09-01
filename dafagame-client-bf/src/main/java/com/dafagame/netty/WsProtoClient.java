@@ -34,7 +34,7 @@ public class WsProtoClient {
     private Channel channel;
     private Thread thread;
 
-    private static String url = "ws://game-gate.dafagame-test.com/v1/game/gameGate";
+    private static String url = "ws://game-gate.dafagame-testCookie.com/v1/game/gameGate";
 
     //构造器
     public WsProtoClient( String phone) {
@@ -130,7 +130,7 @@ public class WsProtoClient {
 //        loginPage.loginDafaGame("94790768");
 //        loginPage.loginDafaGame("60398442");
 
-//        String url = "ws://game-gate.dafagame-test.com/v1/game/gameGate";
+//        String url = "ws://game-gate.dafagame-testCookie.com/v1/game/gameGate";
 //        WsProtoClient ws1 = new WsProtoClient(url, "44408638159645ab96f1c56e41786c66");
 //        WsProtoClient ws2 = new WsProtoClient(url, "5b238fc95e7a45bd9f1952e996d86cd2");
 //        WsProtoClient ws3 = new WsProtoClient(url, "70aa6bbc142b454db3f19e6ddc77aa57");

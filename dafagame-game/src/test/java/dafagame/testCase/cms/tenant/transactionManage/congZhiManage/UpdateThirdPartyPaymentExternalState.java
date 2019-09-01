@@ -13,7 +13,7 @@ public class UpdateThirdPartyPaymentExternalState {
 
     @Test(description = "第三方充值回调接口")
     public static void test01() {
-        String host = "http://pt.dafagame-test.com";//
+        String host = "http://pt.dafagame-testCookie.com";//
         String body = UrlBuilder.custom()
                 .addBuilder("tenantCode", "cindy")
                 .addBuilder("recordCode", "8010803100026699")

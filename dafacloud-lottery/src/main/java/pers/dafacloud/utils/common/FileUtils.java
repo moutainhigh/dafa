@@ -11,32 +11,8 @@ import java.util.List;
 
 public class FileUtils {
     public static void main(String[] args) {
-        JSONObject job = getLotteryConfig("/Users/duke/Documents/github/dafa/dafacloud-test/src/main/resources/lotteryConfig.json");
-        System.out.println(job.toString());
-    }
-    public static List<String> readfile(String pathname) {
-        List<String> userList = new ArrayList<>();
-        File file = new File(pathname);
-        if (!file.exists())
-            return null;
-        try {
-            // 建立一个输入流对象reader
-            InputStreamReader reader = new InputStreamReader(
-                    new FileInputStream(file));
-            BufferedReader br = new BufferedReader(reader);
-            String line = null;
-            while ((line=br.readLine())!= null) {
-                /*if (!line.equals("")){
-                    System.out.println(line);
-                }*/
-                //System.out.println(line);
-                userList.add(line);
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return userList;
+        //JSONObject job = getLotteryConfig("/Users/duke/Documents/github/dafa/dafacloud-testCookie/src/main/resources/lotteryConfig.json");
+       // System.out.println(job.toString());
     }
 
     public static  JSONObject  getLotteryConfig(String path){

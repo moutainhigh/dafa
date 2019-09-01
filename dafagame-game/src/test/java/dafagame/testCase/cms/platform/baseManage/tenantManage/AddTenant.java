@@ -36,7 +36,7 @@ public class AddTenant {
                 .addPart("admin", new StringBody(name, ContentType.MULTIPART_FORM_DATA))
                 .addPart("password", new StringBody(password, ContentType.MULTIPART_FORM_DATA))
                 .addPart("name", new StringBody("123456", ContentType.MULTIPART_FORM_DATA))
-                .addPart("url", new StringBody("duke01.dafagame-test.com", ContentType.MULTIPART_FORM_DATA))
+                .addPart("url", new StringBody("duke01.dafagame-testCookie.com", ContentType.MULTIPART_FORM_DATA))
                 .addPart("ip", new StringBody("192.168.1.1", ContentType.MULTIPART_FORM_DATA))
                 .addPart("clientName", new StringBody("duke", ContentType.MULTIPART_FORM_DATA))
                 .addPart("hallMusic", new StringBody("001", ContentType.MULTIPART_FORM_DATA))

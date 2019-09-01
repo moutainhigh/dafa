@@ -5,6 +5,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import pers.utils.httpclientUtils.common.Utils;
@@ -21,9 +22,11 @@ public class Request {
     //默认采用的http协议的HttpClient对象
     private static HttpClient client4HTTP;
 
+
     //默认采用的https协议的HttpClient对象
     private static HttpClient client4HTTPS;
     private static HttpConfig httpConfig = HttpConfig.custom();
+    private static RequestConfig defaultRequestConfig;
 
 
     static {
@@ -32,15 +35,12 @@ public class Request {
             /*HttpHost proxy = new HttpHost("192.168.8.30", 8080, "http");//dafa windows主机
             //HttpHost proxy = new HttpHost("127.0.0.1", 9876, "http");
             //把代理设置到请求配置*/
-            RequestConfig defaultRequestConfig = RequestConfig.custom()
+            defaultRequestConfig = RequestConfig.custom()
                     .setConnectTimeout(60000)//设置连接超时时间
                     .setSocketTimeout(60000)//设置读取超时时间
                     //.setProxy(proxy)
                     .build();
-            client4HTTP = HttpClientCustom.custom().pool(500, 100)
-                    .setDefaultRequestConfig(defaultRequestConfig)
-                    .build();
-            client4HTTPS = HttpClientCustom.custom().sslpv(SSLProtocolVersion.TLSv1_2).ssl().build();
+            //
             httpConfig.headers(HttpHeader.custom()
                     .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                     .userAgent("Mozilla/5.0")
@@ -50,11 +50,23 @@ public class Request {
         }
     }
 
-    private static void create(HttpConfig config) {
+    private static void create(HttpConfig config) throws HttpProcessException {
         if (config.client() == null) {//如果为空，设为默认client对象
             if (config.url().toLowerCase().startsWith("https://")) {
-                config.client(client4HTTPS);
+                try {
+                    client4HTTPS = HttpClientCustom.custom().sslpv(SSLProtocolVersion.TLSv1_2).ssl().build();
+                    config.client(client4HTTPS);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } else {
+                HttpClientBuilder httpClientBuilder = HttpClientCustom.custom()
+                        .pool(1000, 800)
+                        .setDefaultRequestConfig(defaultRequestConfig);
+                if (config.cookieStore() != null) {
+                    httpClientBuilder.setDefaultCookieStore(config.cookieStore());
+                }
+                client4HTTP = httpClientBuilder.build();
                 config.client(client4HTTP);
             }
         }
@@ -196,10 +208,13 @@ public class Request {
             }
             //执行请求操作，并拿到结果（同步阻塞）
             resp = (config.context() == null) ? config.client().execute(request) : config.client().execute(request, config.context());
-
-            if (config.isReturnRespHeaders()) {
+            if (config.isReturnRespHeaders()) { //可以添加一个返回值header，返回值header添加到cookie
                 //获取所有response的header信息 //覆盖原有的header
                 config.headers(resp.getAllHeaders());
+                //打印header
+                //for (int i = 0; i < resp.getAllHeaders().length; i++) {
+                //    System.out.println(resp.getAllHeaders()[i].getName() + " : " + resp.getAllHeaders()[i].getValue());
+                //}
             }
             //获取结果实体
             //System.out.println(resp);

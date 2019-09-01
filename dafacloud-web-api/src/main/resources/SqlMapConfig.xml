@@ -13,7 +13,7 @@
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
                 <!--/dafacloud_lottery-->
                 <!--<property name="url" value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com"/>-->
-                <!--<property name="username" value="test-web"/>-->
+                <!--<property name="username" value="testCookie-web"/>-->
                 <!--<property name="password" value="ms168169"/>-->
 
                 <!--线上环境-->

@@ -4,9 +4,8 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpHeader;
-import pers.utils.randomIP.RandomIP;
+import pers.utils.randomNameAddrIP.RandomIP;
 import pers.utils.urlUtils.UrlBuilder;
-import pers.utils.fileUtils.FileUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,80 +13,28 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class RegisterUserByIP {
+
     private static String register = "http://52.76.195.164:8010/v1/users/register";
 
-    //@Test(description = "多个站点通过ip注册账号")
-    //public static void test01() {
-    //    String username = "sv001a0001";
-    //    String tenantCode = "shalv001";
-    //    String inviteCode = "54249031";
-    //
-    //}
-
+    //多线程只能在main方法中运行
     public static void main(String[] args) {
         ExecutorService executor = Executors.newFixedThreadPool(16);
         List<String> users = new ArrayList<>();
-        users.add("shalv005,89201116");
-        users.add("shalv006,48283488");
-        //users.add("shalv007,74888642");
+        //users.add("shalv100,33033033");
+        //users.add("shalv101,57442158");
+        //users.add("shalv102,44392771");
+        //users.add("shalv103,84290029");
+        //users.add("shalv104,11236528");
+        //users.add("shalv105,89361522");
+        users.add("shalv106,57263934");
         for (int i = 0; i < users.size(); i++) {
             String[] userArray = users.get(i).split(",");
-            int ii = i;
-            //new Thread(() -> {
-            //    //String[] userArrayInner = userArray;
-            //    for (int j = 0; j < 100; j++) {
-            //        register(String.format("%sa%04d", userArray[0], j), userArray[1], userArray[0]);
-            //        //if(ii==0||ii==1){
-            //        //    System.out.println(String.format("%sa%04d", userArray[0], j));
-            //        //}
-            //    }
-            //}).run();
             executor.execute(()->{
-                //String[] userArrayInner = userArray;
-                for (int j = 4000; j < 6000; j++) {
+                for (int j = 100; j < 500; j++) {
                     register(String.format("%sa%04d", userArray[0], j), userArray[1], userArray[0]);
-                    //if(ii==0||ii==1){
-                    //    System.out.println(String.format("%sa%04d", userArray[0], j));
-                    //}
-                }
-            });
-            //try {
-            //    Thread.sleep(100);
-            //} catch (InterruptedException e) {
-            //    e.printStackTrace();
-            //}
-        }
-    }
 
-    public static void function01() {
-        ExecutorService executor = Executors.newFixedThreadPool(16);
-        List<String> users = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafacloud-lottery/src/test/resouces/shalvUses.txt");
-        for (int i = 0; i < users.size(); i++) {
-            String[] userArray = users.get(i).split(",");
-            int ii = i;
-            //new Thread(() -> {
-            //    //String[] userArrayInner = userArray;
-            //    for (int j = 0; j < 100; j++) {
-            //        register(String.format("%sa%04d", userArray[0], j), userArray[1], userArray[0]);
-            //        //if(ii==0||ii==1){
-            //        //    System.out.println(String.format("%sa%04d", userArray[0], j));
-            //        //}
-            //    }
-            //}).run();
-            executor.execute(()->{
-                //String[] userArrayInner = userArray;
-                for (int j = 0; j < 100; j++) {
-                    register(String.format("%sa%04d", userArray[0], j), userArray[1], userArray[0]);
-                    //if(ii==0||ii==1){
-                    //    System.out.println(String.format("%sa%04d", userArray[0], j));
-                    //}
                 }
             });
-            //try {
-            //    Thread.sleep(100);
-            //} catch (InterruptedException e) {
-            //    e.printStackTrace();
-            //}
         }
     }
 

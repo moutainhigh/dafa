@@ -64,22 +64,4 @@ public class BettingFromTest {
 		//return body + "&Value=" + jsonArray.get("Value") + "&userCenter=" + Params.userCenter;
 		return null;
 	}
-
-	public static void main(String[] args) {
-		Login login = new Login();
-		login.loginDafaCloud("dukedf0002","123456");
-		//InitializaIssueEndtime.executeInitializa();//初始化期数倒计时
-		//GetBetRebate.getAllRebate();//初始化返点
-		String s = Request.doPost("http://caishen03.com/v1/betting/addChaseBetting", "" +
-				"chaseBettingData={\"isStopAfterWinning\":1," +
-				"\"startIssue\":\"201906031110\",\"lotteryCode\":\"1008\",\"bettingPoint\":\"8\"" +
-				",\"playDetailCode\":\"1008A11\",\"bettingUnit\":1,\"bettingAllAmount\":1800" +
-				",\"chaseCount\":2,\"eachInfo\":[{\"bettingNumber\":\"-,-,-,-,0 1 2 3 4 5 7 8 9\"" +
-				",\"bettingCount\":9}],\"eachOrder\":[{\"bettingIssue\":\"201906031110\"" +
-				",\"graduationCount\":50,\"bettingAmount\":900},{\"bettingIssue\":\"201906031110\"" +
-				",\"graduationCount\":50,\"bettingAmount\":900}]}");
-		System.out.println(s);
-//		bet();
-
-	}
 }

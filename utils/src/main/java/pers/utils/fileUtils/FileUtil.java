@@ -13,9 +13,10 @@ public class FileUtil {
     public static void test01() {
         System.out.println(readFile("/Users/duke/Documents/github/dafa/utils/src/main/resources/b.txt"));
     }
+
     @Test(description = "写文件")
     public static void test02() {
-        writeFile("/Users/duke/Documents/github/dafa/utils/src/main/resources/b.txt","cc");
+        writeFile("/Users/duke/Documents/github/dafa/utils/src/main/resources/b.txt", "cc");
     }
 
     /**
@@ -25,22 +26,18 @@ public class FileUtil {
         List<String> data = new ArrayList<>();
         File file = new File(pathname);
         if (!file.exists()) {
-            System.out.println("找不到文件");
+            System.out.println("readFile:找不到文件");
             return null;
         }
         try {
-            // 建立一个输入流对象reader
             InputStreamReader reader = new InputStreamReader(
-                    new FileInputStream(file));
+                    new FileInputStream(file), "utf-8");
             BufferedReader br = new BufferedReader(reader);
-            String line = null;
+            String line;
             while ((line = br.readLine()) != null) { //可以剔除空行,但不能剔除空格的行
-                /*if (!line.equals("")){
-                    System.out.println(line);
-                }*/
-                //System.out.println(line);
-                if(line!=null||!"".equals(line))
+                if (line != null || !"".equals(line)) {
                     data.add(line);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -49,24 +46,75 @@ public class FileUtil {
     }
 
     /**
-     * 写文件
-     * */
-    public static void writeFile(String path,String content) {
+     * 读文件入参：输入流
+     * java -jar 读取resources文件需要Spring使用流读取，路径无法读取文件
+     */
+    public static List<String> readFile(InputStream inputStream) {
+        List<String> data = new ArrayList<>();
+        try {
+            // 建立一个输入流对象reader
+            InputStreamReader reader = new InputStreamReader(inputStream
+                    , "utf-8");
+            BufferedReader br = new BufferedReader(reader);
+            String line;
+            while ((line = br.readLine()) != null) { //可以剔除空行,但不能剔除空格的行
+                /*if (!line.equals("")){
+                    System.out.println(line);
+                }*/
+                //System.out.println(line);
+                if (line != null || !"".equals(line)) {
+                    data.add(line);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
+
+    /**
+     * 写文件,入参是字符串
+     */
+    public static void writeFile(String path, String content) {
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(path, true);
             fileOutputStream.write(content.getBytes());
             fileOutputStream.write("\r".getBytes());
             fileOutputStream.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-
+    /**
+     * 写文件，入参List<String>,
+     */
+    public static void writeFile(String path, List<String> content, boolean b) {
+        File file = new File(path);
+        if (!file.exists()) {
+            System.out.println("writeFile:找不到文件" + path);
+            return;
+        }
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file, b);//true表示追加
+            for (int i = 0; i < content.size(); i++) {
+                fileOutputStream.write(content.get(i).getBytes());
+                if (i != (content.size() - 1)) {
+                    fileOutputStream.write("\r".getBytes());
+                }
+            }
+            fileOutputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
-    public static JSONObject getLotteryConfig(String path) {
+    /**
+     * 读取json文件
+     */
+    public static JSONObject readJson(String path) {
         StringBuffer sb = new StringBuffer();
         File file = new File(path);
         if (!file.exists())

@@ -4,6 +4,6 @@ public class TestProfile implements Profile {
 
     @Override
     public String gitUrl() {
-        return "http://test.git.com";
+        return "http://testCookie.git.com";
     }
 }

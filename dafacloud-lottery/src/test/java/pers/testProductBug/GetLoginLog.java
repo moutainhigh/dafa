@@ -15,9 +15,10 @@ public class GetLoginLog {
     public static void main(String[] args) {
 
     }
+
     /**
      * 客户管理 》会员管理 》 登陆日志
-     * */
+     */
     @Test(description = "获取用户登陆记录")
     public static void test01() {
         String url = UrlBuilder.custom()
@@ -37,9 +38,10 @@ public class GetLoginLog {
         }
         System.out.println(result);
     }
+
     /**
      * 客户管理 》会员管理 》 登陆日志
-     * */
+     */
     @Test(description = "cms通过ip获取登陆日志")
     public static void test02() {
         //通过ip获取该ip下的登陆用户，有重复
@@ -74,7 +76,7 @@ public class GetLoginLog {
                     .fullUrl();
             String result0 = DafaRequest.get(url0, "F3E38BCFF381DA2C0C54F5D80D156C17");
             JSONArray ja0 = JSONObject.fromObject(result0).getJSONObject("data").getJSONArray("result");
-            System.out.print(usernameListNew.get(i)+"===");
+            System.out.print(usernameListNew.get(i) + "===");
             List<String> loginLocation = new ArrayList<>();
             for (int j = 0; j < ja0.size(); j++) {
                 JSONObject js1 = ja0.getJSONObject(j);

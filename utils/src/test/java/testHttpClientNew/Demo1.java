@@ -17,12 +17,12 @@ public class Demo1 {
         CookieStore cookieStore = new BasicCookieStore();
         BasicClientCookie cookie = new BasicClientCookie("JSESSIONID", "EAD588C1439978E4A169E7C72CC302CA");
         cookie.setVersion(0);
-        cookie.setDomain("pt.dafagame-test.com");//设置范围
+        cookie.setDomain("pt.dafagame-testCookie.com");//设置范围
         cookie.setPath("/");
         cookieStore.addCookie(cookie);
         context.setCookieStore(cookieStore);
         //请求
-        String s = Request.get(HttpConfig.custom().context(context).url("http://pt.dafagame-test.com:83/v1/transactionManage/withdrawRecordList?userName=&grades=&state=-1&pageNum=1&pageSize=20&startTime=2019-07-02&endTime=2019-07-03&startAmount=&endAmount="));
+        String s = Request.get(HttpConfig.custom().context(context).url("http://pt.dafagame-testCookie.com:83/v1/transactionManage/withdrawRecordList?userName=&grades=&state=-1&pageNum=1&pageSize=20&startTime=2019-07-02&endTime=2019-07-03&startAmount=&endAmount="));
         System.out.println(s);
     }
 

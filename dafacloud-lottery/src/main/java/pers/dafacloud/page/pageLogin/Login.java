@@ -12,7 +12,6 @@ public class Login {
 
     private final static Logger Log = LoggerFactory.getLogger(Login.class);
 
-    //static Path loginPath = Path.login;
 
     private static  String loginPath = "/v1/users/login";
 
@@ -70,7 +69,6 @@ public class Login {
         if(code!=1){
             System.out.println(result);
         }
-
         return js.getJSONObject("data").get("token").toString();
     }
 }

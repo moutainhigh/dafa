@@ -1,6 +1,6 @@
 package pers.dafacloud.pojo;
 
-import pers.dafacloud.utils.Dao.pojo.GetBetInfo;
+import pers.dafacloud.Dao.pojo.GetBetInfo;
 
 public class BetConentFromTest {
 

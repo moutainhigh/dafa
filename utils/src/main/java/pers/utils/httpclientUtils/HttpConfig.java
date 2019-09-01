@@ -2,8 +2,11 @@ package pers.utils.httpclientUtils;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.protocol.HttpContext;
 import pers.utils.httpclientUtils.common.Utils;
 
@@ -19,6 +22,21 @@ public class HttpConfig {
     private HttpMethods method = HttpMethods.GET;
     private HttpClient client;
     private String url;
+
+    /**
+     * 设置cookieStory
+     */
+    private CookieStore cookieStore;
+
+    public HttpConfig cookieStore(CookieStore cookieStore) {
+        this.cookieStore = cookieStore;
+        return this;
+    }
+
+    public CookieStore cookieStore() {
+        return this.cookieStore;
+    }
+
 
     /**
      * 设置RequestConfig

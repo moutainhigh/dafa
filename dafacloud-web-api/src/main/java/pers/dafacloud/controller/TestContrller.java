@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestContrller {
 
-    @GetMapping("/test")
+    @GetMapping("/testCookie")
     public String  function01() {
 
         return "helloworld";
 
     }
 
-    @PostMapping("/test")
+    @PostMapping("/testCookie")
     public String  function02() {
 
         return "helloworld";

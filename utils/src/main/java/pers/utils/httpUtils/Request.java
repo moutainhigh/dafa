@@ -53,7 +53,7 @@ public class Request {
         cookie = new BasicClientCookie("JSESSIONID", "495847380F38F4991D72B42D2D46A7E4"); //JSESSIONID
         cookie.setVersion(0);
         try {
-            cookie.setDomain(new URL("http://pt03.dafacloud-test.com").getHost());//设置范围
+            cookie.setDomain(new URL("http://pt03.dafacloud-testCookie.com").getHost());//设置范围
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -236,7 +236,7 @@ public class Request {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
         /*headers.put("x-tenant-type", "1");//1直营,2渠道
-        headers.put("x-tenant-code", "test");//站名test
+        headers.put("x-tenant-code", "testCookie");//站名test
         headers.put("x-manager-name", "55153432");//用户名
         headers.put("x-manager-id", "55153432");//用户id
         headers.put("x-is-system", "1");//平台账号1，其他是0
@@ -295,7 +295,7 @@ public class Request {
     }
 
     public static void main(String[] args) {
-        String url = "http://pt03.dafacloud-test.com/v1/transaction/importManualRecord";
+        String url = "http://pt03.dafacloud-testCookie.com/v1/transaction/importManualRecord";
         Map<String, String> map = new HashMap<>();
         //map.put("Content-Type","multipart/form-data; boundary=----WebKitFormBoundaryUepX1Zeys0Vu54Bk");
         map.put("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36");

@@ -52,8 +52,6 @@ public class KibanaData {
 //                System.out.println(url0);
                 String header = source.getString("header");
                 System.out.println(header);
-
-
             }
         }
         //System.out.println(result);
@@ -69,8 +67,8 @@ public class KibanaData {
         long startTime = TimeUtil.getMillSecond("2019-08-18 00:00:00");
         long endTime = TimeUtil.getMillSecond("2019-08-18 23:59:59");
         String indexEv = "master-access-*";
-
         for (int j= 0; j < users.size(); j++) {
+            //查询条件
             String query = String.format("paramsBody:*%s* AND url:*register*",users.get(j));
             String body0 = "{\"index\":\"{indexEv}\",\"ignore_unavailable\":true,\"timeout\":30000,\"preference\":1564455142933}\n{\"version\":true,\"size\":500,\"sort\":[{\"@timestamp\":{\"order\":\"desc\",\"unmapped_type\":\"boolean\"}}],\"_source\":{\"excludes\":[]},\"aggs\":{\"2\":{\"date_histogram\":{\"field\":\"@timestamp\",\"interval\":\"10m\",\"time_zone\":\"Asia/Shanghai\",\"min_doc_count\":1}}},\"stored_fields\":[\"*\"],\"script_fields\":{},\"docvalue_fields\":[\"@timestamp\"],\"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"{query}\",\"analyze_wildcard\":true,\"default_field\":\"*\"}},{\"range\":{\"@timestamp\":{\"gte\":{startTime},\"lte\":{endTime},\"format\":\"epoch_millis\"}}}],\"filter\":[],\"should\":[],\"must_not\":[]}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}\n";
             String body = body0

@@ -111,6 +111,25 @@ public class DafaRequest {
         }
     }
 
+    public static String get( String url,Header[] headers) {
+        String result;
+        httpConfig.headers(headers);
+        try {
+            if (url.contains("http")) {
+                result = Request.get(httpConfig.url(url.replace(" ", "%20")).context(context));//replaceAll 替换掉url中的空格
+
+            } else {
+                result = Request.get(httpConfig.url(host + url.replace(" ", "%20")).context(context));
+            }
+            //Log.info(String.format("get请求结果返回:%s",result));
+            return result;
+        } catch (Exception e) {
+            Log.info("GET url解析错误"+hostCoCos);
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     /**
      * 默认的httpConfig,覆盖原有默认的cookie,默认的header
      *

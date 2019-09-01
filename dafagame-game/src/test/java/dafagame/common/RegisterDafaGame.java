@@ -8,7 +8,7 @@ import pers.utils.assertUtils.AssertUtil;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
-import pers.utils.randomIP.RandomIP;
+import pers.utils.randomNameAddrIP.RandomIP;
 import pers.utils.urlUtils.UrlBuilder;
 
 
@@ -16,7 +16,7 @@ public class RegisterDafaGame {
 
     //private static  final  String url = "http://192.168.8.193:7010/v1/users/register";
     //private static  final  String url = "http://caishen03.com/v1/users/register"; //lotterypre
-    private static final String url = "http://duke.dafagame-test.com:86";//棋牌系统海棠站
+    private static final String url = "http://duke.dafagame-testCookie.com:86";//棋牌系统海棠站
     private static HttpConfig httpConfig = HttpConfig.custom();
     private static Header[] headers = HttpHeader
             .custom()

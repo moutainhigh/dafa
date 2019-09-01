@@ -95,7 +95,7 @@ public class CreateCase {
         String cases = createTestCase();
         System.out.println(caseTemp.replaceAll("//插入文件", cases));
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("/Users/duke/Documents/github/dafa/dafacloud-test/src/test/java/pers/dafacloud/testCase/bet/" + filename + ".java"));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("/Users/duke/Documents/github/dafa/dafacloud-testCookie/src/testCookie/java/pers/dafacloud/testCase/bet/" + filename + ".java"));
             bufferedWriter.write(caseTemp.replaceAll("//插入文件", cases));
             bufferedWriter.close();
         } catch (Exception e) {

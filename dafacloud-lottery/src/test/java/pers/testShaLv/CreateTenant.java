@@ -25,7 +25,7 @@ public class CreateTenant {
     public static void test01() throws Exception {
         for (int i = 650; i < 652; i++) {
             //创建站点
-            String url = "http://pt03.dafacloud-test.com/v1/management/tenant/addTenant";
+            String url = "http://pt03.dafacloud-testCookie.com/v1/management/tenant/addTenant";
             String name = String.format("shalv%03d",i);
             String nameTest = String.format("shalvtest%03d",i);
             String password = DigestUtils.md5Hex(name + DigestUtils.md5Hex("123456"));

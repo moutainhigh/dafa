@@ -7,10 +7,12 @@ import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.timeUtils.TimeUtil;
 import pers.utils.urlUtils.UrlBuilder;
 
+/**
+ * mq队列测试
+ */
 public class MqDafaCloudData {
 
     private static String host = "http://52.76.195.164:8080";
-
 
     public static void main(String[] args) {
 
@@ -28,7 +30,6 @@ public class MqDafaCloudData {
                 .addBuilder("topic", "balance-api")
                 .fullUrl();
         //明细
-
         String result = DafaRequest.get(body);
         //System.out.println(result);
         JSONObject jsonObject = JSONObject.fromObject(result);
@@ -44,11 +45,6 @@ public class MqDafaCloudData {
             System.out.println(storeTime);
             //getMsgId(msgId);
         }
-    }
-
-    @Test(description = "明细")
-    public static void test02() {
-        getMsgId("");
     }
 
     public static void getMsgId(String getMsgId) {

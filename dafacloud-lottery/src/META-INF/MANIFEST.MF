@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Class-Path: commons-lang-2.6.jar jackson-databind-2.9.9.jar jedis-2.9.
+ 0.jar json-lib-2.4-jdk15.jar logback-core-1.1.7.jar mybatis-3.4.6.jar
+  testng-6.14.3.jar guava-r03.jar spring-core-4.3.4.RELEASE.jar spring
+ -context-4.3.4.RELEASE.jar jackson-annotations-2.9.0.jar bsh-2.0b6.ja
+ r jcommander-1.72.jar protobuf-java-2.6.0.jar commons-codec-1.10.jar 
+ slf4j-api-1.7.21.jar spring-beans-4.3.4.RELEASE.jar commons-pool2-2.4
+ .2.jar logback-classic-1.1.7.jar commons-collections-3.2.2.jar mysql-
+ connector-java-8.0.12.jar spring-aop-4.3.4.RELEASE.jar httpclient-4.5
+ .5.jar httpcore-4.4.9.jar commons-lang3-3.3.2.jar opencsv-3.3.jar htt
+ pmime-4.4.1.jar commons-beanutils-1.9.3.jar commons-logging-1.2.jar j
+ ackson-core-2.9.9.jar ezmorph-1.0.6.jar gson-2.3.jar spring-expressio
+ n-4.3.4.RELEASE.jar
+Main-Class: pers.dafacloud.ThreadTenantLottery1
+

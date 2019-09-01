@@ -21,7 +21,7 @@ public class ReadCSV {
     }
 
     public static  List<BetContent> getBetDateFromCSV() {
-        String srcPath = "/Users/duke/Documents/test/betcontent1.csv";
+        String srcPath = "/Users/duke/Documents/testCookie/betcontent1.csv";
         String charset = "GBK";
 
         try (CSVReader csvReader = new CSVReaderBuilder(new BufferedReader(new InputStreamReader(new FileInputStream(new File(srcPath)), charset))).build()) {
@@ -49,7 +49,7 @@ public class ReadCSV {
                 String  remark = sLine[9];//备注
                 double bettingAmount = bettingCount*graduationCount*bettingUnit*2;//计算后的金额
                 //读取lotteryConfig.json配置文件，获取彩种对应的返点
-                JSONObject jsonObject = FileUtils.getLotteryConfig("/Users/duke/Documents/github/dafa/dafacloud-test/src/main/resources/lotteryConfig.json");
+                JSONObject jsonObject = FileUtils.getLotteryConfig("/Users/duke/Documents/github/dafa/dafacloud-testCookie/src/main/resources/lotteryConfig.json");
                 JSONObject allRebate =  GetBetRebate.allRebate;//获取所有返点json
                 String bettingPoint = allRebate.getString(jsonObject.getJSONObject(lotteryCode).getString("lotteryType"));//1.获取配置文件的lotteryType，再获取allRebate对应的返点
 
@@ -80,7 +80,7 @@ public class ReadCSV {
     }
 
     public static void readCSV2() throws Exception {
-        File file = new File("/Users/duke/Documents/test/betcontent1.csv");
+        File file = new File("/Users/duke/Documents/testCookie/betcontent1.csv");
         //FileReader fReader = new FileReader(file);
         InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "GBK"); //或GB2312,GB18030UTF-8
         BufferedReader read = new BufferedReader(isr);

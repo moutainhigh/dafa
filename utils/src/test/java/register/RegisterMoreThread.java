@@ -11,7 +11,7 @@ public class RegisterMoreThread {
     public static void main(String[] args) {
         String password = DigestUtils.md5Hex("duke123");
 
-        String url = "http://alysiacocosrelease.dafagame-test.com/v1/users/register";
+        String url = "http://alysiacocosrelease.dafagame-testCookie.com/v1/users/register";
         String phone = "1311234";
         String inviteCode = "9862148";
 
@@ -50,7 +50,7 @@ public class RegisterMoreThread {
 
     @Test(description = "测试")
     public static void test01() {
-        String url = "http://alysiacocosrelease.dafagame-test.com/v1/users/register";
+        String url = "http://alysiacocosrelease.dafagame-testCookie.com/v1/users/register";
         String password = DigestUtils.md5Hex("duke123");
         String phone = "1311234";
         for (int i = 0; i < 500; i++) {

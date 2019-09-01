@@ -24,7 +24,7 @@ public class ReadCSV {
     
 
     public static void readCSV2() throws Exception {
-        File file = new File("/Users/duke/Documents/test/betcontent1.csv");
+        File file = new File("/Users/duke/Documents/testCookie/betcontent1.csv");
         //FileReader fReader = new FileReader(file);
         InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "GBK"); //或GB2312,GB18030UTF-8
         BufferedReader read = new BufferedReader(isr);

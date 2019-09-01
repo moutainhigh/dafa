@@ -194,7 +194,7 @@
   
   <target name="compile.module.pers.dafacloud.production" depends="register.custom.compilers" description="Compile module pers.dafacloud; production classes"/>
   
-  <target name="compile.module.pers.dafacloud.tests" depends="register.custom.compilers,compile.module.pers.dafacloud.production" description="compile module pers.dafacloud; test classes" unless="skip.tests"/>
+  <target name="compile.module.pers.dafacloud.tests" depends="register.custom.compilers,compile.module.pers.dafacloud.production" description="compile module pers.dafacloud; testCookie classes" unless="skip.tests"/>
   
   <target name="clean.module.pers.dafacloud" description="cleanup module">
     <delete dir="${pers.dafacloud.output.dir}"/>

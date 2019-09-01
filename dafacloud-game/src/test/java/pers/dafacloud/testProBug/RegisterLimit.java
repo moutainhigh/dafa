@@ -34,7 +34,7 @@ public class RegisterLimit {
 
     @Test(description = "测试")
     public static void test02() {
-        String host = "http://pt03.dafacloud-test.com/v1/users/manageUser";
+        String host = "http://pt03.dafacloud-testCookie.com/v1/users/manageUser";
         String url = UrlBuilder.custom()
                 .url(host)
                 .addBuilder("startTime", "2019-07-27 00:00:00")

@@ -58,7 +58,7 @@ public class ImportManualRecord {
         String body = "dictionId=401&timeStamp=0.123456789";
         Map<String, String> headers = new HashMap<>();
         headers.put("x-tenant-type", "1");//1直营,2渠道
-        headers.put("x-tenant-code", "test");//站名test
+        headers.put("x-tenant-code", "testCookie");//站名test
         headers.put("x-manager-name", "55153320");//用户名
         headers.put("x-manager-id", "55153320");//用户id
         headers.put("x-is-system", "1");//平台账号1，其他是0

@@ -12,18 +12,18 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
                 <!--/dafacloud_lottery-->
-                <!--<property name="url" value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com" />-->
-                <!--<property name="username" value="test-web" />-->
-                <!--<property name="password" value="ms168169" />-->
+                <property name="url" value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com" />
+                <property name="username" value="test-web" />
+                <property name="password" value="ms168169" />
 
                 <!--投注服务-->
                 <!--<property name="url" value="jdbc:mysql://3.0.170.87:23312" />-->
                 <!--<property name="username" value="us31jw9" />-->
                 <!--<property name="password" value="KzrdFtgXILlE" />-->
                 <!--交易服务-->
-                <property name="url" value="jdbc:mysql://3.0.170.87:23316" />
-                <property name="username" value="uovcjfb" />
-                <property name="password" value="5yixMRGuwYRe" />
+                <!--<property name="url" value="jdbc:mysql://3.0.170.87:23316" />-->
+                <!--<property name="username" value="uovcjfb" />-->
+                <!--<property name="password" value="5yixMRGuwYRe" />-->
             </dataSource>
         </environment>
         <environment id="betting">
@@ -74,6 +74,6 @@
             1.接口文件必须和映射文件在同一个目录下面
             2.接口文件的名称必须和映射文件名称一致-->
         <!--<mapper resource="pers/dafacloud/utils/Dao/mapper/LotteryConfigMapper.xml"/>-->
-        <package name="pers.dafacloud.utils.Dao.mapper"/>
+        <package name="pers.dafacloud.Dao.mapper"/>
     </mappers>
 </configuration>

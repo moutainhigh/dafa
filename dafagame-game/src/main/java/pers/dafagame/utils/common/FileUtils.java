@@ -11,7 +11,7 @@ import java.util.List;
 
 public class FileUtils {
     public static void main(String[] args) {
-        JSONObject job = getLotteryConfig("/Users/duke/Documents/github/dafa/dafagame-test/src/main/resources/lotteryConfig.json");
+        JSONObject job = getLotteryConfig("/Users/duke/Documents/github/dafa/dafagame-testCookie/src/main/resources/lotteryConfig.json");
         System.out.println(job.toString());
     }
     public static List<String> readfile(String pathname) {
