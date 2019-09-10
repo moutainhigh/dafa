@@ -4,47 +4,56 @@ import com.dafagame.protocol.gate.Gate;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import net.sf.json.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.bouncycastle.crypto.engines.RC4Engine;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pers.utils.dafaRequest.DafaRequest;
+import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.propertiesUtils.PropertiesUtil;
 import pers.utils.urlUtils.UrlBuilder;
 
 import java.net.URI;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class WsProtoClient {
+    private Logger logger = LoggerFactory.getLogger(WsProtoClient.class);
+    private static String url = "ws://game-gate.dafagame-test.com/v1/game/gameGate";
 
     private static EventLoopGroup group = new NioEventLoopGroup(1);
-    private ChannelInitial initial = new ChannelInitial();
-    //private DafaHandler dafaHandler = new DafaHandler();
-    private BrnnHandler dafaHandler = new BrnnHandler();
-    private ClientHandshaker handShaker;
+    private ChannelInitial channelInitial = new ChannelInitial();
+    //private DdzHandler ddzHandler = new DdzHandler();
+    //private BrnnHandler brnnHandler = new BrnnHandler();
+    //private static Map<Integer, GameHandler> gameHandler = new HashMap<>();
+    private ClientHandshaker clientHandshaker;
+    //private int gameCode;
 
-    private Logger logger = LoggerFactory.getLogger(WsProtoClient.class);
     private Channel channel;
     private Thread thread;
 
-    private static String url = "ws://game-gate.dafagame-testCookie.com/v1/game/gameGate";
 
     //构造器
-    public WsProtoClient( String phone) {
-//        this.host = host;
-//        this.port = port;
-        System.out.println(group);
+    public WsProtoClient(String phone,int gameCode) {
+        //this.host = host;
+        //this.port = port;
+        //System.out.println(group);
         URI uri = URI.create(url);
-        this.handShaker = new ClientHandshaker(uri); //握手
-        this.dafaHandler.setHandshaker(handShaker);//
-        this.initial.setChannelHandler(this.dafaHandler);
+        this.clientHandshaker = new ClientHandshaker(uri); //握手
+        GameHandler handler = GameHandlerFactory.newGameHandler(gameCode);
+        handler.setHandshaker(clientHandshaker);
+        //this.brnnHandler.setHandshaker(handShaker);//
+        //this.ddzHandler.setHandshaker(handShaker);
+        //SimpleChannelInboundHandler handler = gameHandler.get(gameCode);
+        this.channelInitial.setChannelHandler(handler);
+        //this.channelInitial.setChannelHandler(this.ddzHandler);
 
         thread = new Thread(() -> {
             try {
@@ -62,37 +71,38 @@ public class WsProtoClient {
                         .fullBody();
                 HttpConfig httpConfig = HttpConfig
                         .custom()
-                        .url(PropertiesUtil.getProperty("hostCoCos")+"/v1/users/login")
+                        .url(PropertiesUtil.getProperty("hostCoCos") + "/v1/users/login")
                         .body(body);
                 String result = DafaRequest.post(httpConfig);
                 System.out.println(result);
                 String sessionId = JSONObject.fromObject(result).getJSONObject("data").getString("sessionId");
-                dafaHandler.setPhone(phone);
+                handler.setPhone(phone);
                 //ws链接==================================================================
                 Bootstrap bootstrap = new Bootstrap();
                 bootstrap.group(group)
                         .channel(NioSocketChannel.class) //
                         .option(ChannelOption.TCP_NODELAY, true)
                         .option(ChannelOption.SO_KEEPALIVE, true)
-                        .handler(initial);
+                        .handler(channelInitial);
 
                 ChannelFuture f = bootstrap
                         .connect(uri.getHost(), 80)  //链接
                         .sync();
+
                 this.channel = f.channel(); //
                 //logger.info(LogUtil.info(String.format("连接 ip:%s port:%s",host,port)));
-                this.handShaker.setChannel(this.channel);
-                this.handShaker.handlerShakerChannel(this.channel);
+                this.clientHandshaker.setChannel(this.channel);
+                this.clientHandshaker.handlerShakerChannel(this.channel);
                 int counter = 0;
                 while (counter++ <= 0) {
-                    if (this.handShaker.isSuccess()) {
+                    if (this.clientHandshaker.isSuccess()) {
                         Gate.GateReq gateReq = Gate.GateReq.newBuilder()
                                 .setLoginReq(
                                         Gate.LoginReq.newBuilder()
                                                 .setSessionId(sessionId) // sessionId
-                                                .setUrl("192.168.8.44:7000")
+                                                .setUrl("192.168.8.44") //自定义ip
                                                 .setSourceId("2")
-                                                .setTenantCode("cindy")
+                                                .setTenantCode("duke")
                                                 .build()
                                 ).build();
                         Gate.ClientMsg clientMsg = Gate.ClientMsg.newBuilder()
@@ -125,24 +135,28 @@ public class WsProtoClient {
     }
 
     public static void main(String[] args) throws Exception {
-//        Login loginPage = new Login();
-//        loginPage.loginDafaGame("95231885");
-//        loginPage.loginDafaGame("94790768");
-//        loginPage.loginDafaGame("60398442");
+        //String phone = "1311234";
+        //for (int i = 500; i < 600; i++) {
+        //    new WsProtoClient(String.format("%s%s", phone, String.format("%04d", i))).start();
+        //    Thread.sleep(200);
+        //}
+        //new WsProtoClient("92582013").start();
+        List<String> users = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/dukeUser.txt");
+        for (int i = 0; i < users.size(); i++) {
+            new WsProtoClient(users.get(i),102).start();
+            Thread.sleep(200);
+        }
+    }
 
-//        String url = "ws://game-gate.dafagame-testCookie.com/v1/game/gameGate";
-//        WsProtoClient ws1 = new WsProtoClient(url, "44408638159645ab96f1c56e41786c66");
-//        WsProtoClient ws2 = new WsProtoClient(url, "5b238fc95e7a45bd9f1952e996d86cd2");
-//        WsProtoClient ws3 = new WsProtoClient(url, "70aa6bbc142b454db3f19e6ddc77aa57");
-//        ws1.start();
-//        ws2.start();
-//        ws3.start();
-
-//        String phone = "1311234";
-//        for (int i = 500; i < 600; i++) {
-//            new WsProtoClient(String.format("%s%s", phone, String.format("%04d", i))).start();
-//            Thread.sleep(200);
-//        }
-        new WsProtoClient("21539097").start();
+    private static class GameHandlerFactory {
+        public static GameHandler newGameHandler(int gameCode) {
+            switch (gameCode){
+                case 101:
+                    return new DdzHandler();
+                case 102:
+                    return new BrnnHandler();
+            }
+            return null;
+        }
     }
 }

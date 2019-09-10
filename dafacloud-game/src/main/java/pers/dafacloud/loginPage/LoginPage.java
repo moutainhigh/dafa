@@ -39,12 +39,10 @@ public class LoginPage {
      * 手动添加JSESSIONID生成cookie
      */
     public Cookie produceCookie(String jsessionId) {
-
         BasicClientCookie cookie = new BasicClientCookie("JSESSIONID", jsessionId);
         cookie.setVersion(0);
         cookie.setDomain(environment.domain); // 设置范围
         cookie.setPath("/");
-        bet(cookie);
         return cookie;
     }
 
@@ -90,7 +88,7 @@ public class LoginPage {
      * 获取 加密后的loginBody
      * 账号需要转小写
      */
-    public String getLoginBody(String userName, String password) {
+    public static String getLoginBody(String userName, String password) {
         //随机码
         String random = "dafacloud_" + Math.random();
         //md5加密后的密码
@@ -131,29 +129,5 @@ public class LoginPage {
 
         return js.getJSONObject("data").get("token").toString();
     }
-
-    public static void bet(Cookie cookie) {
-        String url = environment.url + "/v1/betting/addBetting";
-        String body = "bettingData=[{\"lotteryCode\":\"1309\",\"playDetailCode\":\"1303A11\",\"bettingNumber\":\"06 07 08 09 10\",\"bettingCount\":5,\"bettingAmount\":10,\"bettingPoint\":\"7\",\"bettingUnit\":0.005,\"bettingIssue\":\"20190318121\",\"graduationCount\":200}]";
-        Map<String, String> headers = new HashMap<String, String>();
-        headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-
-        String s = Request.doPost(url, body, headers, cookie);
-        System.out.println(s);
-    }
-
-
-
-
-    /*public static  void betTest(Cookie cookie){
-        String url = "http://dafacloud-test.com/v1/betting/addBetting";
-        String body = "bettingData=[{\"lotteryCode\":\"1309\",\"playDetailCode\":\"1304B11\",\"bettingNumber\":\"01 03,02 04 05 06\",\"bettingCount\":8,\"bettingAmount\":16,\"bettingPoint\":\"2\",\"bettingUnit\":0.001,\"bettingIssue\":\"20190318114\",\"graduationCount\":1000}]";
-
-        Map<String, String> headers = new HashMap<String, String>();
-        headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-        //headers.put("Origin", "http://m.dafacloud-test.com");
-        String s = Request.doPost(url,body,headers,cookie);
-        System.out.println(s);
-    }*/
 
 }

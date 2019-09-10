@@ -20,16 +20,16 @@ public class Register {
         //String username = "autodf";
         //String inviteCode = "97291515";
 
-        String username = "autodf";
-        String inviteCode = "72562999";//测试环境大发站，正式账号邀请码
-        for (int i = 3; i < 500; i++) {
-            try {
-                registerMeth(url, username + String.format("%05d", i), inviteCode);
-            } catch (Exception e) {
-                System.out.println("==============注册失败:" + username + String.format("%05d", i));
-                //e.printStackTrace();
-            }
-        }
+        //String username = "autodf";
+        //String inviteCode = "72562999";//测试环境大发站，正式账号邀请码
+        //for (int i = 3; i < 500; i++) {
+        //    try {
+        //        registerMeth(url, username + String.format("%05d", i), inviteCode);
+        //    } catch (Exception e) {
+        //        System.out.println("==============注册失败:" + username + String.format("%05d", i));
+        //        //e.printStackTrace();
+        //    }
+        //}
         //registerMeth("dafadfa"+String.format("%05d", 0));
         //String password = DigestUtils.md5Hex("dafai0002" + DigestUtils.md5Hex("123456"));
         //System.out.println(password);

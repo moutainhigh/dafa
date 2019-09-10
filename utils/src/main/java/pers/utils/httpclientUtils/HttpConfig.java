@@ -26,7 +26,7 @@ public class HttpConfig {
     /**
      * 设置cookieStory
      */
-    private CookieStore cookieStore;
+    /*private CookieStore cookieStore;
 
     public HttpConfig cookieStore(CookieStore cookieStore) {
         this.cookieStore = cookieStore;
@@ -35,7 +35,7 @@ public class HttpConfig {
 
     public CookieStore cookieStore() {
         return this.cookieStore;
-    }
+    }*/
 
 
     /**

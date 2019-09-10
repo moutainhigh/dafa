@@ -75,13 +75,13 @@ public class ThreadTenantLottery1 {
 
         List<String> users = FileUtil.
                 readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/ca.txt"));
-        //System.out.println(users.size());
+        System.out.println(users.size());
         List<List<String>> list = new ArrayList<>();
         list.add(betContents1k);
         //list.add(betContents5k);
         list.add(betContents1s);
         //list.add(betContents5s);
-        betting(users, list, 1);
+       // betting(users, list, 1);
 
 
     }
@@ -158,7 +158,7 @@ public class ThreadTenantLottery1 {
                     }
 
                     //System.out.println(betContentIndex + "," + bettingData);
-                    //System.out.println(userArray[1] + "," + userArray[2] + "," + result);
+                    System.out.println(userArray[1] + "," + userArray[2] + "," + result);
                     //System.out.println("----------------------------");
                     ThreadSleep.sleeep(sleepSecond);
                     JSONObject jsonResult = JSONObject.fromObject(result);

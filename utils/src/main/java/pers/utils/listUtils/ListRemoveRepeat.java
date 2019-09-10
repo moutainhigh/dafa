@@ -25,7 +25,7 @@ public class ListRemoveRepeat {
     }
 
     /**
-     * list 去重
+     * list去除重复数据
      */
     public static List<String> removeRepeat(List<String> list) {
         List<String> listNew = new ArrayList<>();
@@ -39,7 +39,7 @@ public class ListRemoveRepeat {
     }
 
     /**
-     * list 去重并且记录次数
+     * list去重并且记录重复次数
      */
     public static List<String> removeRepeatCount(List<String> list) {
         List<String> listNew = new ArrayList<>();

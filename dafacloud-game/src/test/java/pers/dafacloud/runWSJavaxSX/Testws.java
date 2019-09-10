@@ -1,6 +1,7 @@
 package pers.dafacloud.runWSJavaxSX;
 
 import org.apache.http.cookie.Cookie;
+import org.testng.annotations.Test;
 import pers.dafacloud.pojo.BetGameContent;
 import pers.dafacloud.utils.common.FileUtils;
 import pers.dafacloud.utils.concurrent.CallableTaskFrameWork;
@@ -173,4 +174,5 @@ public class Testws {
             System.out.println(betGameContent);*/
 
     }
+
 }

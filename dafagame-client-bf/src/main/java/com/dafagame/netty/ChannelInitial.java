@@ -31,7 +31,7 @@ public class ChannelInitial  extends ChannelInitializer<SocketChannel> {
 
     }
 
-    public <T extends SimpleChannelInboundHandler>void setChannelHandler(T t) {
+    public <T extends GameHandler>void setChannelHandler(T t) {
         this.channelHandler = t;
     }
 

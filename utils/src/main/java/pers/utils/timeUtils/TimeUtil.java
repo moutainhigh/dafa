@@ -9,12 +9,15 @@ import java.util.List;
 
 public class TimeUtil {
 
-    public static void main(String[] args) throws ParseException {
-        System.out.println(getMillSecond("2019-7-30 12:12:12"));
-        System.out.println(getLCMillSecond());
-        System.out.println(new Date().getTime());//当前时间戳
-        System.out.println(getLCTime(-10));
-        System.out.println(getMillSecond("2019-08-31 11:32:49"));
+    public static void main(String[] args) throws Exception {
+
+        System.out.println(new Date().getTime());//当前时间戳，当前1567344514318
+        System.out.println(getLCTime(-10));//当前日期-n天后的凌晨时间：2019-08-22 00:00:00
+        System.out.println(getMillSecond("2019-08-31 11:32:49"));//时间转毫秒，1567222369000
+
+        System.out.println(getDateFormat("YYYY-MM-dd HH:mm:ss"));
+        System.out.println(getDateFormat("YYYYMMdd"));
+
     }
 
     /**
@@ -32,10 +35,21 @@ public class TimeUtil {
         return new SimpleDateFormat("yyyy-MM-dd 00:00:00").format(time);
     }
 
+    /**
+     * 获取凌晨时间戳 13位 1564459932000
+     */
+    /*
+    public static long getLCMillSecond() {
+        long now = System.currentTimeMillis() / 1000l;
+        System.out.println(now);
+        long daySecond = 60 * 60 * 24;
+        long dayTime = now - (now + 8 * 3600) % daySecond;
+        return dayTime * 1000;
+    }
+    */
 
     /**
      * 获取当前系统时间戳 13位 1564459932000 ， 等价于 System.currentTimeMillis();
-     *
      */
     public static long getMillSecond(String date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//24小时制
@@ -58,52 +72,21 @@ public class TimeUtil {
         return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
     }
 
-    /**
-     * 获取凌晨时间戳 13位 1564459932000
-     */
-    public static long getLCMillSecond() {
-        long now = System.currentTimeMillis() / 1000l;
-        System.out.println(now);
-        long daySecond = 60 * 60 * 24;
-        long dayTime = now - (now + 8 * 3600) % daySecond;
-        return dayTime * 1000;
-    }
 
     /**
-     * 返回时间当前时间，格式 MM-dd HH:mm:ss
+     * 入参格式：
+     * YYYY-MM-dd
+     * YYYYMMDD
+     * yyyyMMdd YYYY年底时候回加一年
+     * MM-dd HH:mm:ss
      */
-    public static String MMDDhms() {
-        // 获取当前时间字符串
+    public static String getDateFormat(String dateFormat) {
         SimpleDateFormat simpleDateFormat;
-        simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm:ss");
+        simpleDateFormat = new SimpleDateFormat(dateFormat);
         Date date = new Date();
         String sfm = simpleDateFormat.format(date);
         return sfm;
-    }
 
-    /**
-     * 返回当前时间年月日，格式yyyyMMdd：20190101
-     */
-    public static String YYYYMMDD() {
-        // 获取当前时间字符串
-        SimpleDateFormat simpleDateFormat;
-        simpleDateFormat = new SimpleDateFormat("yyyyMMdd");//YYYY年底时候回加一年
-        Date date = new Date();
-        //System.out.println(date);
-        String sfm = simpleDateFormat.format(date);
-        return sfm;
-    }
-
-    /**
-     * 返回当前时间年月日，YYYY-MM-dd
-     */
-    public static String YYYYgMMgDD() {
-        // 获取当前时间字符串
-        SimpleDateFormat simpleDateFormat;
-        simpleDateFormat = new SimpleDateFormat("YYYY-MM-dd");
-        Date date = new Date();
-        String sfm = simpleDateFormat.format(date);
-        return sfm;
     }
 
     /**

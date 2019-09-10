@@ -1,11 +1,16 @@
 package pers.utils.httpclientUtils;
 
 import org.apache.http.*;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.cookie.Cookie;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 import pers.utils.httpclientUtils.common.Utils;
@@ -14,6 +19,7 @@ import pers.utils.httpclientUtils.SSLClientCustom.SSLProtocolVersion;
 import pers.utils.logUtils.Log;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,12 +28,11 @@ public class Request {
     //默认采用的http协议的HttpClient对象
     private static HttpClient client4HTTP;
 
-
     //默认采用的https协议的HttpClient对象
     private static HttpClient client4HTTPS;
     private static HttpConfig httpConfig = HttpConfig.custom();
     private static RequestConfig defaultRequestConfig;
-
+    //private static HttpClientBuilder httpClientBuilder;
 
     static {
         try {
@@ -36,11 +41,18 @@ public class Request {
             //HttpHost proxy = new HttpHost("127.0.0.1", 9876, "http");
             //把代理设置到请求配置*/
             defaultRequestConfig = RequestConfig.custom()
-                    .setConnectTimeout(60000)//设置连接超时时间
-                    .setSocketTimeout(60000)//设置读取超时时间
-                    //.setProxy(proxy)
+                    .setConnectTimeout(10000)//设置连接超时时间
+                    .setSocketTimeout(10000)//设置读取超时时间
+                    //.setProxy(proxy) //设置代理
                     .build();
-            //
+
+            client4HTTP = HttpClientCustom.custom()
+                    .pool(1000, 800).setDefaultCookieStore(new BasicCookieStore())
+                    .setDefaultRequestConfig(defaultRequestConfig).build();
+
+            //httpClientBuilder.setDefaultCookieStore(config.cookieStore());
+            client4HTTPS = HttpClientCustom.custom().sslpv(SSLProtocolVersion.TLSv1_2).ssl().build();
+
             httpConfig.headers(HttpHeader.custom()
                     .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                     .userAgent("Mozilla/5.0")
@@ -53,20 +65,8 @@ public class Request {
     private static void create(HttpConfig config) throws HttpProcessException {
         if (config.client() == null) {//如果为空，设为默认client对象
             if (config.url().toLowerCase().startsWith("https://")) {
-                try {
-                    client4HTTPS = HttpClientCustom.custom().sslpv(SSLProtocolVersion.TLSv1_2).ssl().build();
-                    config.client(client4HTTPS);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                config.client(client4HTTPS);
             } else {
-                HttpClientBuilder httpClientBuilder = HttpClientCustom.custom()
-                        .pool(1000, 800)
-                        .setDefaultRequestConfig(defaultRequestConfig);
-                if (config.cookieStore() != null) {
-                    httpClientBuilder.setDefaultCookieStore(config.cookieStore());
-                }
-                client4HTTP = httpClientBuilder.build();
                 config.client(client4HTTP);
             }
         }
@@ -208,6 +208,7 @@ public class Request {
             }
             //执行请求操作，并拿到结果（同步阻塞）
             resp = (config.context() == null) ? config.client().execute(request) : config.client().execute(request, config.context());
+
             if (config.isReturnRespHeaders()) { //可以添加一个返回值header，返回值header添加到cookie
                 //获取所有response的header信息 //覆盖原有的header
                 config.headers(resp.getAllHeaders());
@@ -216,6 +217,34 @@ public class Request {
                 //    System.out.println(resp.getAllHeaders()[i].getName() + " : " + resp.getAllHeaders()[i].getValue());
                 //}
             }
+            /*保持登录，如果是单线程可以使用CookieStore cookieStore =new BasicCookieStore();添加到HttpClient
+            HttpClient httpClient= HttpClientCustom.custom()
+                    .pool(1000, 800).setDefaultCookieStore(new BasicCookieStore())
+                    .setDefaultRequestConfig(defaultRequestConfig).build();
+            多线程要使用context,只维护一份httpClient
+                    */
+            /*//返回的cookie添加到HttpClientContext，登录时传入HttpClientContext对象即可，登录自动保存session
+            if (config.context() == null) {
+                Header[] headers = resp.getAllHeaders();
+                for (int i = 0; i < headers.length; i++) {
+                    System.out.println(headers[i].getName() + " : " + headers[i].getValue());
+                    if ("JSESSIONID".equals(headers[i].getName())) {
+                        String[] JSESSIONIDs = headers[i].getValue().split(";")[0].split("=");
+                        BasicClientCookie cookie = new BasicClientCookie(JSESSIONIDs[0], JSESSIONIDs[1]); //JSESSIONID
+                        cookie.setVersion(0);
+                        try {
+                            cookie.setDomain(new URL(config.url()).getHost());//设置范围
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        cookie.setPath("/");
+                        CookieStore cookieStore = new BasicCookieStore();
+                        cookieStore.addCookie(cookie);
+                        HttpClientContext context = new HttpClientContext();
+                        context.setCookieStore(cookieStore);
+                    }
+                }
+            }*/
             //获取结果实体
             //System.out.println(resp);
             return resp;

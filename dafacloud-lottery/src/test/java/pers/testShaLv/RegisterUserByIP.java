@@ -2,7 +2,9 @@ package pers.testShaLv;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
+import org.testng.annotations.Test;
 import pers.utils.dafaRequest.DafaRequest;
+import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.randomNameAddrIP.RandomIP;
 import pers.utils.urlUtils.UrlBuilder;
@@ -18,23 +20,13 @@ public class RegisterUserByIP {
 
     //多线程只能在main方法中运行
     public static void main(String[] args) {
-        ExecutorService executor = Executors.newFixedThreadPool(16);
-        List<String> users = new ArrayList<>();
-        //users.add("shalv100,33033033");
-        //users.add("shalv101,57442158");
-        //users.add("shalv102,44392771");
-        //users.add("shalv103,84290029");
-        //users.add("shalv104,11236528");
-        //users.add("shalv105,89361522");
-        users.add("shalv106,57263934");
-        for (int i = 0; i < users.size(); i++) {
-            String[] userArray = users.get(i).split(",");
-            executor.execute(()->{
-                for (int j = 100; j < 500; j++) {
-                    register(String.format("%sa%04d", userArray[0], j), userArray[1], userArray[0]);
-
-                }
-            });
+        for (int j = 500; j < 501; j++) {
+            String username = String.format("%sa%04d", "duke", j);
+            try {
+                register(username, "28891915", "test");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -57,7 +49,34 @@ public class RegisterUserByIP {
                 .other("x-client-ip", RandomIP.getRandomIp())
                 .other("x-url", "")
                 .build();
-        String result = DafaRequest.post(register, body, headers);
+        HttpConfig httpConfig = HttpConfig.custom().body(body).headers(headers).url(register);
+        String result = DafaRequest.post(httpConfig);
         System.out.println(result);
     }
+
+
+    @Test(description = "测试")
+    public static void test01() {
+        //杀率测试
+        //多线程只能在main方法中运行
+        ExecutorService executor = Executors.newFixedThreadPool(16);
+        List<String> users = new ArrayList<>();
+        //users.add("shalv100,33033033");
+        //users.add("shalv101,57442158");
+        //users.add("shalv102,44392771");
+        //users.add("shalv103,84290029");
+        //users.add("shalv104,11236528");
+        //users.add("shalv105,89361522");
+        users.add("shalv106,57263934");
+        for (int i = 0; i < users.size(); i++) {
+            String[] userArray = users.get(i).split(",");
+            executor.execute(() -> {
+                for (int j = 100; j < 500; j++) {
+                    register(String.format("%sa%04d", userArray[0], j), userArray[1], userArray[0]);
+
+                }
+            });
+        }
+    }
+
 }

@@ -17,10 +17,16 @@ public class TestMD5Password {
     @Test(description = "简单安全密码加密")
     public static void test001() {
         String[] passwords = {"111111", "222222", "333333", "444444", "555555", "666666", "777777",
-                "888888", "999999", "000000", "123456", "654321", "123123"};
+                "888888", "999999", "000000", "123456", "654321", "123123",
+                "020202","010101","112233","223344","334455","445566","556677","667788","778899","987654","876543","765432","010101","121212","232323","343434","454545","565656","676767","787878","898989","111222","222333","333444","444555","555666","666777","777888","888999"};
         for (String s : passwords) {
-            String password = DigestUtils.md5Hex("ch070402" + DigestUtils.md5Hex(s));
-            System.out.println(password);
+            String password = DigestUtils.md5Hex("caike22" + DigestUtils.md5Hex(s));
+            if ("44fb7eaf0342315c39db70cc4d8ae789".equals(password)) {
+                System.out.println(s + "简单安全密码：" + password);
+            } else {
+                System.out.println(password);
+            }
+
         }
     }
 

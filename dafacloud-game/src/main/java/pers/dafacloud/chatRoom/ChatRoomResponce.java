@@ -7,8 +7,8 @@ import javax.websocket.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@ClientEndpoint
-public class ChatRoomResponce {
+@ClientEndpoint(configurator=Config.class)
+public class ChatRoomResponce{
 
     private List<String> list = new ArrayList<>();
     private String issue;//奖期
@@ -18,6 +18,8 @@ public class ChatRoomResponce {
     private int status;
     private  int count=0;
     private String username;
+
+    //private  int code = "";
 
     /*public ChatRoomResponce(String username){
         this.username=username;
@@ -79,6 +81,7 @@ public class ChatRoomResponce {
         this.count = count;
     }
 
+
     @OnOpen
     public void onOpen(Session session) {
         System.out.println("Connected to endpoint: " +username+","+ session.getBasicRemote());
@@ -86,7 +89,11 @@ public class ChatRoomResponce {
 
     @OnMessage
     public void onMessage(String message) {
-        System.out.println("接收消息："+message);
+        //System.out.println("接收消息："+message);
+        //JSONObject jsonObject = JSONObject.fromObject(message);
+        //if(jsonObject.getInt("code")==6){
+        //
+        //}
     }
 
     @OnError

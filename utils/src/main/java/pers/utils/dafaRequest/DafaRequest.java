@@ -34,7 +34,6 @@ public class DafaRequest {
      */
     //默认值
     private static String host = PropertiesUtil.getProperty("host");//"http://cindy.dafagame-test.com";
-
     private static String hostCoCos = PropertiesUtil.getProperty("hostCoCos");//0
     private static String hostCms = PropertiesUtil.getProperty("hostCms");//1
 

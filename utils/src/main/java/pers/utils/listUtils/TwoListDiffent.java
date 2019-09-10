@@ -32,7 +32,9 @@ public class TwoListDiffent {
         return listC;
     }
 
-    // 优化方法3，减少put次数 ，未测试
+    /**
+     * 优化方法3，减少put次数 ，未测试
+     */
     //https://blog.csdn.net/sinat_32133675/article/details/79386072
     private static List<String> getDiffrent(List<String> list1, List<String> list2) {
         List<String> diff = new ArrayList<String>();
@@ -79,13 +81,4 @@ public class TwoListDiffent {
         System.out.println(getDifferListByLoop(a, b));//a有，b没有，b遗漏
         System.out.println(getDifferListByLoop(b, a));//b有，a没有，a遗漏
     }
-
-    @Test(description = "首尾")
-    public static void test02() {
-        String str = " Hello word  ";
-        str = str.trim();
-        System.out.println(str);
-    }
-
-
 }

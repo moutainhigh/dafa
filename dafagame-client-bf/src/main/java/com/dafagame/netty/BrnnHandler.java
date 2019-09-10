@@ -7,6 +7,7 @@ import com.google.protobuf.ByteString;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
@@ -22,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 //import org.springframework.stereotype.Component;
 
 @Data
-public class BrnnHandler extends SimpleChannelInboundHandler {
+public class BrnnHandler extends GameHandler {
     private ClientHandshaker handshaker;
     //    private ClientHandlerManager handlerManager;
     private ProtobufDecoder protobufDecoder = new ProtobufDecoder(Gate.ClientMsg.getDefaultInstance());
@@ -30,7 +31,6 @@ public class BrnnHandler extends SimpleChannelInboundHandler {
     private int uid; //自己的user-id
     private boolean isEnterGame = false;//是否进入游戏
     private boolean isScenesReq = false;//是否进入场景
-    private String phone;
 
     private Brnn.State state;
 
@@ -219,7 +219,7 @@ public class BrnnHandler extends SimpleChannelInboundHandler {
     public void bet(Channel channel) {
         //初始化筹码
         //int[] chip = new int[]{1, 10, 50, 100, 500, 1000};//筹码值
-        int[] chip = new int[]{10, 15, 50, 100, 500, 1000};
+        int[] chip = new int[]{1, 10, 50, 100, 500, 1000};
         int[] count = new int[]{100, 50, 10, 3, 1, 1}; //个数
         int amoutCount = 0;
         for (int i : count) {
