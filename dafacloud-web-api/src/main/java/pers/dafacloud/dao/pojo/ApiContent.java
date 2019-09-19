@@ -17,7 +17,16 @@ public class ApiContent {
     private String project;// 所属项目
     private String description;//接口简介
     private String owner;//所属用户
+    private int pageNum;
+    private int pageSize;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -107,12 +116,20 @@ public class ApiContent {
         this.owner = owner;
     }
 
-    public int getId() {
-        return id;
+    public int getPageNum() {
+        return pageNum;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
     }
 
     @Override

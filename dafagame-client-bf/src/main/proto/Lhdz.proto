@@ -9,9 +9,11 @@ enum GameType{
 }
 //游戏场景的状态
 enum State {
-	Beting = 1;  //游戏状态 下注
-	Lottery = 2;  //开奖状态 发牌亮牌结算
-	Pause = 3;		//暂停
+	Beting = 0;     //游戏状态 下注
+	Stop = 1;
+	SendCards = 2;  //发牌
+	Lottery = 3;    //开奖状态
+	Pause = 4;		//暂停
 }
 
 // 投注盘口枚举
@@ -40,11 +42,11 @@ enum ProtoType{
 
 	BankerListType = 10259;//上庄列表数据
 
-	BankerInfoType =10260;//庄家信息通知
+//	BankerInfoType =10260;//庄家信息通知
 
-	CountReqType = 10261;//输赢结果统计请求
-
-	CountResType = 10262; //赢得次数回应
+//	CountReqType = 10261;//输赢结果统计请求
+//
+//	CountResType = 10262; //赢得次数回应
 
 	StartNtfType = 10263;//游戏开始通知
 
@@ -54,7 +56,7 @@ enum ProtoType{
 
 	EnterPlayerSceneNtfType = 10266;//进入场景的推送信息通知(包括断线重连进来)
 
-	RankSettleNtfType = 10267; //特殊玩家结算通知
+	//RankSettleNtfType = 10267; //特殊玩家结算通知
 
 	PlayResultType = 10268;//输赢结果通知
 
@@ -69,6 +71,18 @@ enum ProtoType{
 	GameMaintainNtfType = 10273;//游戏维护
 
 	GamePauseNtfType = 10274;//游戏暂停
+
+	GameRuleReqType = 10275;
+
+	GameRuleResType = 10276;
+
+	DownBankerReqType = 10277;      //取消上庄
+
+	DownBankerResType = 10278;
+
+	ContinueBetReqType = 10279;		//续投
+
+	ScenesReqType = 10280;
 }
 
 //场次类型
@@ -83,16 +97,27 @@ enum ErrorCode{
 	PosError = 3;  //盘口错误
 	BankerBanBet = 4; //庄家禁止下注
 	StateError = 5;	  //状态错误
-	NoMonery = 6;    //余额不足
-	BankerNoMonery = 7; //庄家钱不够赔
+	NoMoney = 6;    //余额不足
+	BankerNoMoney = 7; //庄家钱不够赔
 	BetFull = 8;     //达到下注限制
 	BankerQueueFull = 9; //上庄列表已满
     InBankerList = 10; //已在上庄列表中
+	NextInningDown = 11;            //上庄中 下局下庄
+	NotInBankerList = 12;           //不在上庄列表中
+	Continued = 13;		//续投过了
+	NoBeted = 14;		//没有投过注
+	ContinueNoMoney = 15;	//续投余额不足
+	ContinueBankerNoMoney = 16; //续投庄家不够赔
+	ContinueOk = 17;		//续成功
+	Failure = 18;			//失败
+	BanPlayerBanker = 19;           //禁止玩家上庄
+	BanRobotBanker = 20;            //禁止机器人上庄
+	TestBanBet = 21;                //玩家上庄测试账号不能下注
 }
 
 //下注请求
 message BetReq {
-	repeated BetInfo bet_info = 1;
+	repeated BetInfo betInfo = 1;
 }
 
 message BetInfo{
@@ -101,15 +126,15 @@ message BetInfo{
 }
 //下注回应
 message BetRes {
-	repeated BetInfo bet_info = 1;
+	repeated BetInfo betInfo = 1;
 	optional int64	total = 3;
-	optional ErrorCode error_code = 2;
+	optional ErrorCode errorCode = 2;
 }
 
 //特殊玩家投注广播
 message SpecialBetNtf{
-	required int32 special_uid = 1;
-	repeated BetInfo bet_info = 2;
+	required int32 userId = 1;
+	repeated BetInfo betInfo = 2;
 }
 
 //抢庄请求
@@ -117,55 +142,56 @@ message GoUpBankerReq {}
 
 //抢庄回应
 message GoUpBankerRes {
-	required ErrorCode error_code = 1;
+	required ErrorCode errorCode = 1;
 	optional string msg = 2;
 }
 
 //上庄列表数据
 message BankerList{
-	required int32 banker_number = 1;   //待上庄人数
-	repeated BankerInfo banker_info = 2;
+	repeated BankerInfo bankerInfo = 1;
+	required bool haveBanker = 2;   //是否有庄家
 }
 
 
 //庄家信息
 message BankerInfo{
-	optional string nick_name = 1;		//庄家昵称
-	optional string banker_money = 2;	//庄家的余额
+	optional string nickName = 1;		//庄家昵称
+	optional string balance = 2;	//庄家的余额
 	optional int32  grade = 3;          //庄家vip等级
 	optional int32 avatar = 4;			//头像
+	optional int32 frame = 5;           //相框
+	optional int32 userId = 6;
+	optional int32 type = 7;            //判断是否是真人 机器人服务用
 }
 
-//输赢结果统计请求
-message CountReq {}
-
-//赢得次数回应
-message CountRes {
-	optional int32 round_count = 1;  //总次数
-	optional string win_count = 2;	//盘口赢得次数统计[100,50,500]
-}
+////输赢结果统计请求
+//message CountReq {}
+//
+////赢得次数回应
+//message CountRes {
+//	optional int32 roundCount = 1;  //总次数
+//	optional string winCount = 2;	//盘口赢得次数统计[100,50,500]
+//}
 
 //游戏开始通知
 message StartNtf {
 	required string inning = 1;            //局号
-	required int32 count_down = 2;       //时间
-	optional BankerInfo banker_info = 3; //庄家信息
+	required int32 countDown = 2;       //时间
+	optional bool canBet = 3;               //是否能投注 机器人服务用
+	//optional BankerInfo bankerInfo = 3; //庄家信息
 }
 
 //结算状态通知
 message LotteryNtf {
-    optional int32 count_down = 1;  //倒计时时间
-	optional string state = 2;  	//输赢 庄家用 正 赢 负 输
-	optional string type = 3;     	//牌型
-	optional string poker = 4;      //扑克牌信息
+    optional int32 countDown = 1;  //倒计时时间
 }
 
 
 //桌子扑克信息通知 包含庄家牌
 message PokerInfoNtf {
-	optional string state = 1;  	//输赢 庄家用 正 赢 负 输
-	optional string type = 2;     	//牌型
-	optional string poker = 3;      //扑克牌信息
+	optional string pokerState = 1;         //输赢 庄家用 正 赢 负 输
+	optional string pokerType = 2;          //牌型
+	optional string poker = 3;              //扑克牌信息
 }
 
 //桌子扑克信息
@@ -179,29 +205,35 @@ message PokerInfoNtf {
 
 // 玩家详细下注信息
 message PlayerBetInfo {
-	repeated int32 bet_list = 2;          // 区域下注明细
+	repeated int32 betList = 2;          // 区域下注明细
 }
 
 //进入场景的推送信息通知(包括断线重连进来)
 message EnterPlayerSceneNtf {
 	required State state = 1;						   //游戏状态
-	optional int32 remaining_time = 2;				   //状态剩余时间
-	repeated string table_record_list = 3;  		   //桌子的走势
-	optional int32 banker_need_money = 4;			   //上庄需要的钱数
-	repeated int64 player_area_bet = 5;					//玩家各区域的投注
-	repeated int64 god_bet = 6;							//神算子下注信息
-	repeated int64 room_area_bet = 7;                   //房间四个盘口的下注金额
-	//repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
-	required string round_type = 9;                     //场次类型
-	required string room_id = 10;                       //房间号
+	optional int32 remainingTime = 2;				   //状态剩余时间
+	repeated string tableRecordList = 3;  		   //桌子的走势
+	optional int32 bankerNeedMoney = 4;			   //上庄需要的钱数
+	repeated int64 playerAreaBet = 5;					//玩家各区域的投注
+	repeated SpeacialPlayerInfo speacialBet = 6;		//特殊玩家下注信息
+	repeated int64 roomAreaBet = 7;                   //房间四个盘口的下注金额
+	repeated int32 stateTime = 8;
+	required string roundType = 9;                     //场次类型
+	required string roomId = 10;                       //房间号
 	required string inning = 11;                         //期号
-	optional string balance = 14;						//玩家的余额
-	optional int32 online_number = 15;					//在线人数
-	optional BankerInfo banker_info = 16;				//庄家信息
-	optional BankerList banker_list = 17;               //庄家列表信息
-	repeated int32 multiple_enum = 18;					//赔率配置
-	repeated int32 chip_enum = 19;						//投注配置
-	optional int32 min_bet_need = 20;					//房间最低下注本金
+	optional bool isAllowBanker = 12;       //是否允许上庄
+	optional string balance = 13;						//玩家的余额
+	optional int32 onlineNumber = 14;					//在线人数
+	optional bool canContinueBet = 15;					//能否续投
+	optional BankerList bankerList = 16;               //庄家列表信息
+	repeated int32 multipleEnum = 17;					//赔率配置
+	repeated int32 chipEnum = 18;						//投注配置
+	optional int32 minBetNeed = 19;					//房间最低下注本金
+	optional string pokerState = 20;  	//输赢 庄家用 正 赢 负 输
+	optional string pokerType = 21;     	//牌型
+	optional string poker = 22;      //扑克牌信息
+	repeated int32 histroyTimes = 23;       //历史次数统计
+	optional int32 bankerTimes = 24;        //上庄次数
 }
 
 
@@ -221,53 +253,66 @@ message EnterPlayerSceneNtf {
 //}
 
 //特殊玩家通知 结算时通知展示特殊玩家收益效果
-message RankSettleNtf {
-	repeated SpecialPlayerResultInfo rank_list = 1;  //玩家排名的通知
-	optional SpecialPlayerResultInfo banker = 2;     //庄稼输赢的分数
-}
+//message RankSettleNtf {
+//	repeated SpeacialPlayerInfo rankList = 1;  //玩家排名的通知
+//	optional SpeacialPlayerInfo banker = 2;     //庄稼输赢的分数
+//}
 
 //特殊玩家输赢的结果
-message SpecialPlayerResultInfo {
-	required int32 player_id = 1;  //玩家id
-	required double win_amount = 2;	  //玩家赢取的金币
-	optional string balance = 3;  //玩家余额
+message SpeacialPlayerInfo {
+	required int32 userId = 1;  	//玩家id
+	optional double winAmount = 2;	//玩家赢取的金币 扣除了服务费
+	optional string balance = 3;  	//玩家余额
+	repeated int64 areaBet = 4;		//各区域下注
+	repeated int64 areaWin = 5;		//各区域赢 没有扣除服务费
 }
 
 
 //玩家输赢结果通知
 message PlayResult {
-	required int64 add_amount = 1;		//金钱变化
-	optional double tax = 2;			//税收
-	repeated int64 add_amount_list = 3;  //四个盘口分别增加的金币的列表
-	required string balance = 4;		//最新余额
+	optional int64 addAmount = 1;		//金钱变化 没有扣除服务费
+	optional double tax = 2;			//服务费
+	repeated int64 addAmountList = 3;  //玩家四个盘口分别增加的金币的列表 没有扣除服务费
+	optional string balance = 4;		//最新余额
+	repeated SpeacialPlayerInfo rankList = 5; //特殊玩家
+	optional SpeacialPlayerInfo banker = 6;    //庄家
+	optional string pokerState = 7;  	//输赢 庄家用 正 赢 负 输
+	optional string pokerType = 8;     	//牌型
+	optional string poker = 9;      	//扑克牌信息
+	optional double otherTotal = 10;	//其他玩家总输赢 扣除服务费 不包含特殊玩家 庄家
 }
 
 //排行榜信息
 message RankNtf{
-	repeated RankInfo rank_list = 1;
+	repeated RankInfo rankList = 1;
 }
 
 //排行榜信息
 message RankInfo{
-	optional int32 user_id = 1;
+	optional int32 userId = 1;
 	optional int32 avatar = 2;
-	optional string nick_name = 3;
+	optional string nickName = 3;
 	optional int32 grade = 4;
 	optional string balance = 5;
-	optional int64 betting_amount = 6;
-	optional int32 win_times = 7;
+	optional int64 bettingAmount = 6;
+	optional int32 winTimes = 7;
 	optional int32 frame = 8;
 }
 
 
 //每桌的投注通知 每秒广播一次 不包含特殊玩家
 message BetNtf {
-	repeated int64 area_amount = 1; //各区域投注统计
-	repeated int32 tian_info = 2; //投注详细
-	repeated int32 di_info = 3; //投注详细
-	repeated int32 xuan_info = 4; //投注详细
-	repeated int32 huang_info = 5; //投注详细
-	optional int32 onlines = 6; //在线人数
+	repeated int64 areaAmount = 1; //各区域投注统计
+	repeated IdAndAmount dragonInfo = 2; //投注详细
+	repeated IdAndAmount tigerInfo = 3; //投注详细
+	repeated IdAndAmount tieInfo = 4; //投注详细
+	optional int32 onlines = 5; //在线人数
+}
+
+
+message IdAndAmount{
+	optional int32 userId = 1;
+	optional int32 amount = 2;
 }
 
 //人数广播
@@ -280,7 +325,7 @@ message AreaBetInfo {
 	// 下注区域
 	required Pos pos = 1;
 	// 对应的筹码列表
-	repeated int32 amount_list = 2;
+	repeated int32 amountList = 2;
 }
 
 message GameMaintainNtf{
@@ -289,4 +334,28 @@ message GameMaintainNtf{
 
 message GamePauseNtf{
 	optional int32 state = 1;//0开启  1 暂停
+}
+
+
+message GameRuleReq{
+}
+
+message GameRuleRes{
+	optional double service = 1;             //服务费
+}
+
+message DownBankerReq{
+
+}
+
+message DownBankerRes{
+	optional ErrorCode code = 1;
+}
+
+message ContinueBetReq{
+
+}
+
+message ScenesReq{
+
 }

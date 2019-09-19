@@ -11,7 +11,7 @@ public class Config extends ClientEndpointConfig.Configurator {
     @Override
     public void beforeRequest(Map<String, List<String>> headers) {
         //headers.put("Pragma", Arrays.asList("no-cache"));
-        headers.put("Origin", Arrays.asList("http://"+TestBug1.host));
+        headers.put("Origin", Arrays.asList("http://"+StartChatRoomWs.host));
         //headers.put("host", Arrays.asList("m.caishen02.com"));
         //headers.put("Accept-Encoding", Arrays.asList("gzip, deflate, br"));
         //headers.put("Accept-Language", Arrays.asList("en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4"));

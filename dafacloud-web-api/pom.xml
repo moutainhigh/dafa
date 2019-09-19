@@ -2,30 +2,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>pers.dafacloud</groupId>
+    <artifactId>dafacloud-web-api</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>dafacloud-web-api</name>
+
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+    <!--
+    spring-boot-starter-parent是当前父依赖
+
+
+    -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>pers.dafacloud</groupId>
-    <artifactId>dafacloud-web-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>dafacloud-web-api</name>
-    <description>Demo project for Spring Boot</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
 
     <dependencies>
-
+        <!--工具模块 start-->
         <dependency>
             <groupId>pers.dafacloud</groupId>
             <artifactId>utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
+        <!--工具模块 end-->
         <!-- mybatis start-->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -46,12 +53,22 @@
 
         <!--spring boot start-->
         <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!--版本号在父依赖已经定义-->
         </dependency>
-
-
         <!--spring boot end-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+            <!--版本号在父依赖已经定义-->
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.mybatis.spring.boot</groupId>-->
+            <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
+            <!--<version>1.2.0</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
 
@@ -67,11 +84,29 @@
         </resources>
 
         <plugins>
+            <!--可以将项目打包成一个jar包运行 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!--用来解决 maven 打包时找不到'程序包lombok不存在'报错，问题依旧报错-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.16.6</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
         </plugins>
+
+
     </build>
 
 </project>

@@ -7,32 +7,35 @@ import com.google.protobuf.ByteString;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
-import io.netty.handler.codec.protobuf.ProtobufDecoder;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import pers.utils.StringUtils.StringBuilders;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 //import org.springframework.stereotype.Component;
 
-@Data
+//@Data
 public class BrnnHandler extends GameHandler {
-    private ClientHandshaker handshaker;
-    //    private ClientHandlerManager handlerManager;
-    private ProtobufDecoder protobufDecoder = new ProtobufDecoder(Gate.ClientMsg.getDefaultInstance());
-
+    //private ClientHandshaker clientHandshaker;
+    //private ClientHandlerManager handlerManager;
+    //private ProtobufDecoder protobufDecoder = new ProtobufDecoder(Gate.ClientMsg.getDefaultInstance());
     private int uid; //自己的user-id
+    @Getter @Setter
     private boolean isEnterGame = false;//是否进入游戏
+    @Getter @Setter
     private boolean isScenesReq = false;//是否进入场景
 
     private Brnn.State state;
+    private List<Integer> chipList;
 
     private final static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
@@ -63,7 +66,7 @@ public class BrnnHandler extends GameHandler {
                         System.out.println("102登陆成功通知：" + Gate.GateRes.parseFrom(clientMsg.getData()).toString().
                                 replaceAll("\n", "").replaceAll("\t", ""));
                         Gate.GateRes gateRes = Gate.GateRes.parseFrom(clientMsg.getData());
-                        uid = gateRes.getLoginRes().getUid();
+                        //uid = gateRes.getLoginRes().getUid();
                         if (!isEnterGame) {
                             World.EnterGameReq enterGameReq = World.EnterGameReq
                                     .newBuilder()
@@ -161,6 +164,8 @@ public class BrnnHandler extends GameHandler {
                         break;
                     case Brnn.ProtoType.EnterPlayerSceneNtfType_VALUE:
                         Brnn.EnterPlayerSceneNtf enterPlayerSceneNtf = Brnn.EnterPlayerSceneNtf.parseFrom(clientMsg.getData());
+                        this.chipList = new ArrayList<>(enterPlayerSceneNtf.getChipEnumList());//获取筹码list
+                        System.out.println(this.chipList);
                         /*System.out.println(
                                 StringBuilders.custom()
                                         .add("10166场景通知")
@@ -217,21 +222,17 @@ public class BrnnHandler extends GameHandler {
     }
 
     public void bet(Channel channel) {
-        //初始化筹码
-        //int[] chip = new int[]{1, 10, 50, 100, 500, 1000};//筹码值
-        int[] chip = new int[]{1, 10, 50, 100, 500, 1000};
-        int[] count = new int[]{100, 50, 10, 3, 1, 1}; //个数
-        int amoutCount = 0;
+        Collections.sort(this.chipList);
+        int[] count = new int[]{770, 770, 50, 20, 1, 1}; //个数
+        int totalCount = 0;
         for (int i : count) {
-            amoutCount += i;
+            totalCount += i;
         }
-        //System.out.println(amoutCount);
-        int[] amout = new int[amoutCount];
-        //System.out.println(amout.length);
+        int[] amout = new int[totalCount];
         int index = 0;
-        for (int i = 0; i < count.length; i++) {
-            for (int j = 0; j < count[i]; j++) {
-                amout[index++] = chip[i];
+        for (int i = 0; i < count.length; i++) {//count长度
+            for (int j = 0; j < count[i]; j++) { //count内的长度
+                amout[index++] = chipList.get(i);
             }
         }
         //投注

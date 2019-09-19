@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，用于隔离sql语句的，后续会有重要作用
+	#{} 占位符 相当于jdbc的？
+	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
+-->
+<mapper namespace="pers.dafacloud.dao.mapper.apiContent.ApiContentMapper">
+    <!--
+        id : sql id;
+        parameterType:入参的数据类型
+        resultType:返回结果数据类型
+     -->
+    <select id="queryApi" parameterType="pers.dafacloud.dao.pojo.ApiContent"  resultType="pers.dafacloud.dao.pojo.ApiContent" flushCache="true" useCache="true">
+        select
+        id id
+        ,name name
+        ,path path
+        ,method method
+        ,body body
+        ,header header
+        ,depend_api_name dependApiName
+        ,module module
+        ,page page
+        ,project project
+        ,description description
+        ,owner owner
+        from dafacloud_lottery_api
+        <where>
+            <if test="name!=null">
+                AND name like CONCAT(CONCAT('%',#{name}),'%')
+            </if>
+            <if test="owner!=null">
+                AND owner = #{owner}
+            </if>
+            <if test="module!=null">
+                AND module = #{module}
+            </if>
+            <if test="page!=null">
+                AND page = #{page}
+            </if>
+            <if test="project!=null">
+                AND project = #{project}
+            </if>
+        </where>
+        order by id asc
+        limit #{pageNum},#{pageSize}
+    </select>
+
+    <select id="queryApiCount"  parameterType="pers.dafacloud.dao.pojo.ApiContent"  resultType="java.lang.Integer" flushCache="true" useCache="true">
+        select count(1) from dafacloud_lottery_api
+        <where>
+            <if test="name!=null">
+                AND name like CONCAT(CONCAT('%',#{name}),'%')
+            </if>
+            <if test="owner!=null">
+                AND owner = #{owner}
+            </if>
+            <if test="module!=null">
+                AND module = #{module}
+            </if>
+            <if test="page!=null">
+                AND page = #{page}
+            </if>
+            <if test="project!=null">
+                AND project = #{project}
+            </if>
+        </where>
+    </select>
+
+    <select id="updateApi" parameterType="pers.dafacloud.dao.pojo.ApiContent">
+		update table set
+		  name = #{name}
+		  ,path = #{path}
+		  ,method = #{method}
+		  ,body = #{body}
+		  ,depend_api_name = #{dependApiName}
+		  ,module = #{module}
+		  ,page = #{page}
+		  ,project = #{project}
+		  ,description = #{description}
+		  ,owner = #{owner}
+		  where id = #{id}
+
+
+	</select>
+
+    <insert id="addApi" parameterType="pers.dafacloud.dao.pojo.ApiContent" keyProperty="id">
+		insert into dafacloud_lottery_api(
+		    name
+            ,path
+            ,method
+            ,body
+            ,header
+            ,depend_api_name
+            ,module
+            ,page
+            ,project
+            ,description
+            ,owner
+		)values (
+			#{name}
+            ,#{path}
+            ,#{method}
+            ,#{body}
+            ,#{header}
+            ,#{dependApiName}
+            ,#{module}
+            ,#{page}
+            ,#{project}
+            ,#{description}
+            ,#{owner}
+		)
+	</insert>
+
+    <delete id="deleteApi" parameterType="int">
+        delete from dafacloud_lottery_api where id = #{id}
+    </delete>
+
+
+</mapper>

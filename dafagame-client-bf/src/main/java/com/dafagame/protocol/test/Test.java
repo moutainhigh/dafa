@@ -19,7 +19,7 @@ public final class Test {
    *区间在100-150
    * </pre>
    *
-   * Protobuf enum {@code com.dafagame.protocol.testCookie.ProtoType}
+   * Protobuf enum {@code com.dafagame.protocol.test.ProtoType}
    */
   public enum ProtoType
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -105,11 +105,11 @@ public final class Test {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.dafagame.protocol.testCookie.ProtoType)
+    // @@protoc_insertion_point(enum_scope:com.dafagame.protocol.test.ProtoType)
   }
 
   public interface TestReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.testCookie.TestReq)
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.test.TestReq)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -135,11 +135,11 @@ public final class Test {
    *客户端发送的消息
    * </pre>
    *
-   * Protobuf type {@code com.dafagame.protocol.testCookie.TestReq}
+   * Protobuf type {@code com.dafagame.protocol.test.TestReq}
    */
   public  static final class TestReq extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.testCookie.TestReq)
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.test.TestReq)
       TestReqOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use TestReq.newBuilder() to construct.
@@ -429,11 +429,11 @@ public final class Test {
      *客户端发送的消息
      * </pre>
      *
-     * Protobuf type {@code com.dafagame.protocol.testCookie.TestReq}
+     * Protobuf type {@code com.dafagame.protocol.test.TestReq}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.testCookie.TestReq)
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.test.TestReq)
         com.dafagame.protocol.test.Test.TestReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -447,7 +447,7 @@ public final class Test {
                 com.dafagame.protocol.test.Test.TestReq.class, com.dafagame.protocol.test.Test.TestReq.Builder.class);
       }
 
-      // Construct using com.dafagame.protocol.testCookie.Test.TestReq.newBuilder()
+      // Construct using com.dafagame.protocol.test.Test.TestReq.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -656,10 +656,10 @@ public final class Test {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.testCookie.TestReq)
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.test.TestReq)
     }
 
-    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.testCookie.TestReq)
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.test.TestReq)
     private static final com.dafagame.protocol.test.Test.TestReq DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.dafagame.protocol.test.Test.TestReq();
@@ -695,7 +695,7 @@ public final class Test {
   }
 
   public interface TestResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.testCookie.TestRes)
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.test.TestRes)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -708,11 +708,11 @@ public final class Test {
     int getCode();
   }
   /**
-   * Protobuf type {@code com.dafagame.protocol.testCookie.TestRes}
+   * Protobuf type {@code com.dafagame.protocol.test.TestRes}
    */
   public  static final class TestRes extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.testCookie.TestRes)
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.test.TestRes)
       TestResOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use TestRes.newBuilder() to construct.
@@ -957,11 +957,11 @@ public final class Test {
       return builder;
     }
     /**
-     * Protobuf type {@code com.dafagame.protocol.testCookie.TestRes}
+     * Protobuf type {@code com.dafagame.protocol.test.TestRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.testCookie.TestRes)
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.test.TestRes)
         com.dafagame.protocol.test.Test.TestResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -975,7 +975,7 @@ public final class Test {
                 com.dafagame.protocol.test.Test.TestRes.class, com.dafagame.protocol.test.Test.TestRes.Builder.class);
       }
 
-      // Construct using com.dafagame.protocol.testCookie.Test.TestRes.newBuilder()
+      // Construct using com.dafagame.protocol.test.Test.TestRes.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1140,10 +1140,10 @@ public final class Test {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.testCookie.TestRes)
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.test.TestRes)
     }
 
-    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.testCookie.TestRes)
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.test.TestRes)
     private static final com.dafagame.protocol.test.Test.TestRes DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.dafagame.protocol.test.Test.TestRes();
@@ -1179,7 +1179,7 @@ public final class Test {
   }
 
   public interface TestIndicationOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.testCookie.TestIndication)
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.test.TestIndication)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -1192,11 +1192,11 @@ public final class Test {
     int getRoomId();
   }
   /**
-   * Protobuf type {@code com.dafagame.protocol.testCookie.TestIndication}
+   * Protobuf type {@code com.dafagame.protocol.test.TestIndication}
    */
   public  static final class TestIndication extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.testCookie.TestIndication)
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.test.TestIndication)
       TestIndicationOrBuilder {
   private static final long serialVersionUID = 0L;
     // Use TestIndication.newBuilder() to construct.
@@ -1441,11 +1441,11 @@ public final class Test {
       return builder;
     }
     /**
-     * Protobuf type {@code com.dafagame.protocol.testCookie.TestIndication}
+     * Protobuf type {@code com.dafagame.protocol.test.TestIndication}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.testCookie.TestIndication)
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.test.TestIndication)
         com.dafagame.protocol.test.Test.TestIndicationOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -1459,7 +1459,7 @@ public final class Test {
                 com.dafagame.protocol.test.Test.TestIndication.class, com.dafagame.protocol.test.Test.TestIndication.Builder.class);
       }
 
-      // Construct using com.dafagame.protocol.testCookie.Test.TestIndication.newBuilder()
+      // Construct using com.dafagame.protocol.test.Test.TestIndication.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1624,10 +1624,10 @@ public final class Test {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.testCookie.TestIndication)
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.test.TestIndication)
     }
 
-    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.testCookie.TestIndication)
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.test.TestIndication)
     private static final com.dafagame.protocol.test.Test.TestIndication DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new com.dafagame.protocol.test.Test.TestIndication();
@@ -1686,7 +1686,7 @@ public final class Test {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nTest.proto\022\032com.dafagame.protocol.testCookie" +
+      "\n\nTest.proto\022\032com.dafagame.protocol.test" +
       "\032\013World.proto\"\'\n\007TestReq\022\014\n\004code\030\001 \002(\005\022\016" +
       "\n\006roomId\030\002 \002(\005\"\027\n\007TestRes\022\014\n\004code\030\001 \002(\005\"" +
       " \n\016TestIndication\022\016\n\006roomId\030\001 \002(\005*-\n\tPro" +

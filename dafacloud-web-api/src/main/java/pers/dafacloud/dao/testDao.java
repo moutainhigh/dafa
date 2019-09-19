@@ -1,7 +1,7 @@
 package pers.dafacloud.dao;
 
 import org.apache.ibatis.session.SqlSession;
-import pers.dafacloud.dao.mapper.ApiContentMapper;
+import pers.dafacloud.dao.mapper.apiContent.ApiContentMapper;
 import pers.dafacloud.dao.pojo.ApiContent;
 
 import java.util.List;

@@ -39,4 +39,9 @@ public class testBettingByIP {
         //System.out.println(DafaRequest.post(url, bettingData, cookie));
     }
 
+    @Test(description = "测试")
+    public static void test02() {
+        System.out.println(6%5);
+    }
+
 }

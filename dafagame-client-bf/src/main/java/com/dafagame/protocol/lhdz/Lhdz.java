@@ -109,25 +109,37 @@ public final class Lhdz {
      *游戏状态 下注
      * </pre>
      *
-     * <code>Beting = 1;</code>
+     * <code>Beting = 0;</code>
      */
-    Beting(1),
+    Beting(0),
+    /**
+     * <code>Stop = 1;</code>
+     */
+    Stop(1),
     /**
      * <pre>
-     *开奖状态 发牌亮牌结算
+     *发牌
      * </pre>
      *
-     * <code>Lottery = 2;</code>
+     * <code>SendCards = 2;</code>
      */
-    Lottery(2),
+    SendCards(2),
+    /**
+     * <pre>
+     *开奖状态
+     * </pre>
+     *
+     * <code>Lottery = 3;</code>
+     */
+    Lottery(3),
     /**
      * <pre>
      *暂停
      * </pre>
      *
-     * <code>Pause = 3;</code>
+     * <code>Pause = 4;</code>
      */
-    Pause(3),
+    Pause(4),
     ;
 
     /**
@@ -135,25 +147,37 @@ public final class Lhdz {
      *游戏状态 下注
      * </pre>
      *
-     * <code>Beting = 1;</code>
+     * <code>Beting = 0;</code>
      */
-    public static final int Beting_VALUE = 1;
+    public static final int Beting_VALUE = 0;
+    /**
+     * <code>Stop = 1;</code>
+     */
+    public static final int Stop_VALUE = 1;
     /**
      * <pre>
-     *开奖状态 发牌亮牌结算
+     *发牌
      * </pre>
      *
-     * <code>Lottery = 2;</code>
+     * <code>SendCards = 2;</code>
      */
-    public static final int Lottery_VALUE = 2;
+    public static final int SendCards_VALUE = 2;
+    /**
+     * <pre>
+     *开奖状态
+     * </pre>
+     *
+     * <code>Lottery = 3;</code>
+     */
+    public static final int Lottery_VALUE = 3;
     /**
      * <pre>
      *暂停
      * </pre>
      *
-     * <code>Pause = 3;</code>
+     * <code>Pause = 4;</code>
      */
-    public static final int Pause_VALUE = 3;
+    public static final int Pause_VALUE = 4;
 
 
     public final int getNumber() {
@@ -170,9 +194,11 @@ public final class Lhdz {
 
     public static State forNumber(int value) {
       switch (value) {
-        case 1: return Beting;
-        case 2: return Lottery;
-        case 3: return Pause;
+        case 0: return Beting;
+        case 1: return Stop;
+        case 2: return SendCards;
+        case 3: return Lottery;
+        case 4: return Pause;
         default: return null;
       }
     }
@@ -506,30 +532,6 @@ public final class Lhdz {
     BankerListType(10259),
     /**
      * <pre>
-     *庄家信息通知
-     * </pre>
-     *
-     * <code>BankerInfoType = 10260;</code>
-     */
-    BankerInfoType(10260),
-    /**
-     * <pre>
-     *输赢结果统计请求
-     * </pre>
-     *
-     * <code>CountReqType = 10261;</code>
-     */
-    CountReqType(10261),
-    /**
-     * <pre>
-     *赢得次数回应
-     * </pre>
-     *
-     * <code>CountResType = 10262;</code>
-     */
-    CountResType(10262),
-    /**
-     * <pre>
      *游戏开始通知
      * </pre>
      *
@@ -560,14 +562,6 @@ public final class Lhdz {
      * <code>EnterPlayerSceneNtfType = 10266;</code>
      */
     EnterPlayerSceneNtfType(10266),
-    /**
-     * <pre>
-     *特殊玩家结算通知
-     * </pre>
-     *
-     * <code>RankSettleNtfType = 10267;</code>
-     */
-    RankSettleNtfType(10267),
     /**
      * <pre>
      *输赢结果通知
@@ -624,6 +618,38 @@ public final class Lhdz {
      * <code>GamePauseNtfType = 10274;</code>
      */
     GamePauseNtfType(10274),
+    /**
+     * <code>GameRuleReqType = 10275;</code>
+     */
+    GameRuleReqType(10275),
+    /**
+     * <code>GameRuleResType = 10276;</code>
+     */
+    GameRuleResType(10276),
+    /**
+     * <pre>
+     *取消上庄
+     * </pre>
+     *
+     * <code>DownBankerReqType = 10277;</code>
+     */
+    DownBankerReqType(10277),
+    /**
+     * <code>DownBankerResType = 10278;</code>
+     */
+    DownBankerResType(10278),
+    /**
+     * <pre>
+     *续投
+     * </pre>
+     *
+     * <code>ContinueBetReqType = 10279;</code>
+     */
+    ContinueBetReqType(10279),
+    /**
+     * <code>ScenesReqType = 10280;</code>
+     */
+    ScenesReqType(10280),
     ;
 
     /**
@@ -668,30 +694,6 @@ public final class Lhdz {
     public static final int BankerListType_VALUE = 10259;
     /**
      * <pre>
-     *庄家信息通知
-     * </pre>
-     *
-     * <code>BankerInfoType = 10260;</code>
-     */
-    public static final int BankerInfoType_VALUE = 10260;
-    /**
-     * <pre>
-     *输赢结果统计请求
-     * </pre>
-     *
-     * <code>CountReqType = 10261;</code>
-     */
-    public static final int CountReqType_VALUE = 10261;
-    /**
-     * <pre>
-     *赢得次数回应
-     * </pre>
-     *
-     * <code>CountResType = 10262;</code>
-     */
-    public static final int CountResType_VALUE = 10262;
-    /**
-     * <pre>
      *游戏开始通知
      * </pre>
      *
@@ -722,14 +724,6 @@ public final class Lhdz {
      * <code>EnterPlayerSceneNtfType = 10266;</code>
      */
     public static final int EnterPlayerSceneNtfType_VALUE = 10266;
-    /**
-     * <pre>
-     *特殊玩家结算通知
-     * </pre>
-     *
-     * <code>RankSettleNtfType = 10267;</code>
-     */
-    public static final int RankSettleNtfType_VALUE = 10267;
     /**
      * <pre>
      *输赢结果通知
@@ -786,6 +780,38 @@ public final class Lhdz {
      * <code>GamePauseNtfType = 10274;</code>
      */
     public static final int GamePauseNtfType_VALUE = 10274;
+    /**
+     * <code>GameRuleReqType = 10275;</code>
+     */
+    public static final int GameRuleReqType_VALUE = 10275;
+    /**
+     * <code>GameRuleResType = 10276;</code>
+     */
+    public static final int GameRuleResType_VALUE = 10276;
+    /**
+     * <pre>
+     *取消上庄
+     * </pre>
+     *
+     * <code>DownBankerReqType = 10277;</code>
+     */
+    public static final int DownBankerReqType_VALUE = 10277;
+    /**
+     * <code>DownBankerResType = 10278;</code>
+     */
+    public static final int DownBankerResType_VALUE = 10278;
+    /**
+     * <pre>
+     *续投
+     * </pre>
+     *
+     * <code>ContinueBetReqType = 10279;</code>
+     */
+    public static final int ContinueBetReqType_VALUE = 10279;
+    /**
+     * <code>ScenesReqType = 10280;</code>
+     */
+    public static final int ScenesReqType_VALUE = 10280;
 
 
     public final int getNumber() {
@@ -807,14 +833,10 @@ public final class Lhdz {
         case 10257: return GoUpBankerReqType;
         case 10258: return GoUpBankerResType;
         case 10259: return BankerListType;
-        case 10260: return BankerInfoType;
-        case 10261: return CountReqType;
-        case 10262: return CountResType;
         case 10263: return StartNtfType;
         case 10264: return PokerInfoNtfType;
         case 10265: return LotteryNtfType;
         case 10266: return EnterPlayerSceneNtfType;
-        case 10267: return RankSettleNtfType;
         case 10268: return PlayResultType;
         case 10269: return RankNtfType;
         case 10270: return BetNtfType;
@@ -822,6 +844,12 @@ public final class Lhdz {
         case 10272: return OnlineNumberNtfType;
         case 10273: return GameMaintainNtfType;
         case 10274: return GamePauseNtfType;
+        case 10275: return GameRuleReqType;
+        case 10276: return GameRuleResType;
+        case 10277: return DownBankerReqType;
+        case 10278: return DownBankerResType;
+        case 10279: return ContinueBetReqType;
+        case 10280: return ScenesReqType;
         default: return null;
       }
     }
@@ -1013,17 +1041,17 @@ public final class Lhdz {
      *余额不足
      * </pre>
      *
-     * <code>NoMonery = 6;</code>
+     * <code>NoMoney = 6;</code>
      */
-    NoMonery(6),
+    NoMoney(6),
     /**
      * <pre>
      *庄家钱不够赔
      * </pre>
      *
-     * <code>BankerNoMonery = 7;</code>
+     * <code>BankerNoMoney = 7;</code>
      */
-    BankerNoMonery(7),
+    BankerNoMoney(7),
     /**
      * <pre>
      *达到下注限制
@@ -1048,6 +1076,94 @@ public final class Lhdz {
      * <code>InBankerList = 10;</code>
      */
     InBankerList(10),
+    /**
+     * <pre>
+     *上庄中 下局下庄
+     * </pre>
+     *
+     * <code>NextInningDown = 11;</code>
+     */
+    NextInningDown(11),
+    /**
+     * <pre>
+     *不在上庄列表中
+     * </pre>
+     *
+     * <code>NotInBankerList = 12;</code>
+     */
+    NotInBankerList(12),
+    /**
+     * <pre>
+     *续投过了
+     * </pre>
+     *
+     * <code>Continued = 13;</code>
+     */
+    Continued(13),
+    /**
+     * <pre>
+     *没有投过注
+     * </pre>
+     *
+     * <code>NoBeted = 14;</code>
+     */
+    NoBeted(14),
+    /**
+     * <pre>
+     *续投余额不足
+     * </pre>
+     *
+     * <code>ContinueNoMoney = 15;</code>
+     */
+    ContinueNoMoney(15),
+    /**
+     * <pre>
+     *续投庄家不够赔
+     * </pre>
+     *
+     * <code>ContinueBankerNoMoney = 16;</code>
+     */
+    ContinueBankerNoMoney(16),
+    /**
+     * <pre>
+     *续成功
+     * </pre>
+     *
+     * <code>ContinueOk = 17;</code>
+     */
+    ContinueOk(17),
+    /**
+     * <pre>
+     *失败
+     * </pre>
+     *
+     * <code>Failure = 18;</code>
+     */
+    Failure(18),
+    /**
+     * <pre>
+     *禁止玩家上庄
+     * </pre>
+     *
+     * <code>BanPlayerBanker = 19;</code>
+     */
+    BanPlayerBanker(19),
+    /**
+     * <pre>
+     *禁止机器人上庄
+     * </pre>
+     *
+     * <code>BanRobotBanker = 20;</code>
+     */
+    BanRobotBanker(20),
+    /**
+     * <pre>
+     *玩家上庄测试账号不能下注
+     * </pre>
+     *
+     * <code>TestBanBet = 21;</code>
+     */
+    TestBanBet(21),
     ;
 
     /**
@@ -1091,17 +1207,17 @@ public final class Lhdz {
      *余额不足
      * </pre>
      *
-     * <code>NoMonery = 6;</code>
+     * <code>NoMoney = 6;</code>
      */
-    public static final int NoMonery_VALUE = 6;
+    public static final int NoMoney_VALUE = 6;
     /**
      * <pre>
      *庄家钱不够赔
      * </pre>
      *
-     * <code>BankerNoMonery = 7;</code>
+     * <code>BankerNoMoney = 7;</code>
      */
-    public static final int BankerNoMonery_VALUE = 7;
+    public static final int BankerNoMoney_VALUE = 7;
     /**
      * <pre>
      *达到下注限制
@@ -1126,6 +1242,94 @@ public final class Lhdz {
      * <code>InBankerList = 10;</code>
      */
     public static final int InBankerList_VALUE = 10;
+    /**
+     * <pre>
+     *上庄中 下局下庄
+     * </pre>
+     *
+     * <code>NextInningDown = 11;</code>
+     */
+    public static final int NextInningDown_VALUE = 11;
+    /**
+     * <pre>
+     *不在上庄列表中
+     * </pre>
+     *
+     * <code>NotInBankerList = 12;</code>
+     */
+    public static final int NotInBankerList_VALUE = 12;
+    /**
+     * <pre>
+     *续投过了
+     * </pre>
+     *
+     * <code>Continued = 13;</code>
+     */
+    public static final int Continued_VALUE = 13;
+    /**
+     * <pre>
+     *没有投过注
+     * </pre>
+     *
+     * <code>NoBeted = 14;</code>
+     */
+    public static final int NoBeted_VALUE = 14;
+    /**
+     * <pre>
+     *续投余额不足
+     * </pre>
+     *
+     * <code>ContinueNoMoney = 15;</code>
+     */
+    public static final int ContinueNoMoney_VALUE = 15;
+    /**
+     * <pre>
+     *续投庄家不够赔
+     * </pre>
+     *
+     * <code>ContinueBankerNoMoney = 16;</code>
+     */
+    public static final int ContinueBankerNoMoney_VALUE = 16;
+    /**
+     * <pre>
+     *续成功
+     * </pre>
+     *
+     * <code>ContinueOk = 17;</code>
+     */
+    public static final int ContinueOk_VALUE = 17;
+    /**
+     * <pre>
+     *失败
+     * </pre>
+     *
+     * <code>Failure = 18;</code>
+     */
+    public static final int Failure_VALUE = 18;
+    /**
+     * <pre>
+     *禁止玩家上庄
+     * </pre>
+     *
+     * <code>BanPlayerBanker = 19;</code>
+     */
+    public static final int BanPlayerBanker_VALUE = 19;
+    /**
+     * <pre>
+     *禁止机器人上庄
+     * </pre>
+     *
+     * <code>BanRobotBanker = 20;</code>
+     */
+    public static final int BanRobotBanker_VALUE = 20;
+    /**
+     * <pre>
+     *玩家上庄测试账号不能下注
+     * </pre>
+     *
+     * <code>TestBanBet = 21;</code>
+     */
+    public static final int TestBanBet_VALUE = 21;
 
 
     public final int getNumber() {
@@ -1147,11 +1351,22 @@ public final class Lhdz {
         case 3: return PosError;
         case 4: return BankerBanBet;
         case 5: return StateError;
-        case 6: return NoMonery;
-        case 7: return BankerNoMonery;
+        case 6: return NoMoney;
+        case 7: return BankerNoMoney;
         case 8: return BetFull;
         case 9: return BankerQueueFull;
         case 10: return InBankerList;
+        case 11: return NextInningDown;
+        case 12: return NotInBankerList;
+        case 13: return Continued;
+        case 14: return NoBeted;
+        case 15: return ContinueNoMoney;
+        case 16: return ContinueBankerNoMoney;
+        case 17: return ContinueOk;
+        case 18: return Failure;
+        case 19: return BanPlayerBanker;
+        case 20: return BanRobotBanker;
+        case 21: return TestBanBet;
         default: return null;
       }
     }
@@ -1206,25 +1421,25 @@ public final class Lhdz {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> 
         getBetInfoList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BetInfo getBetInfo(int index);
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     int getBetInfoCount();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> 
         getBetInfoOrBuilderList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder getBetInfoOrBuilder(
         int index);
@@ -1313,35 +1528,35 @@ public final class Lhdz {
               com.dafagame.protocol.lhdz.Lhdz.BetReq.class, com.dafagame.protocol.lhdz.Lhdz.BetReq.Builder.class);
     }
 
-    public static final int BET_INFO_FIELD_NUMBER = 1;
+    public static final int BETINFO_FIELD_NUMBER = 1;
     private java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> betInfo_;
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> getBetInfoList() {
       return betInfo_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> 
         getBetInfoOrBuilderList() {
       return betInfo_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public int getBetInfoCount() {
       return betInfo_.size();
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BetInfo getBetInfo(int index) {
       return betInfo_.get(index);
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder getBetInfoOrBuilder(
         int index) {
@@ -1411,7 +1626,7 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (getBetInfoCount() > 0) {
-        hash = (37 * hash) + BET_INFO_FIELD_NUMBER;
+        hash = (37 * hash) + BETINFO_FIELD_NUMBER;
         hash = (53 * hash) + getBetInfoList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
@@ -1699,7 +1914,7 @@ public final class Lhdz {
           com.dafagame.protocol.lhdz.Lhdz.BetInfo, com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> betInfoBuilder_;
 
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> getBetInfoList() {
         if (betInfoBuilder_ == null) {
@@ -1709,7 +1924,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public int getBetInfoCount() {
         if (betInfoBuilder_ == null) {
@@ -1719,7 +1934,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo getBetInfo(int index) {
         if (betInfoBuilder_ == null) {
@@ -1729,7 +1944,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder setBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo value) {
@@ -1746,7 +1961,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder setBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder builderForValue) {
@@ -1760,7 +1975,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addBetInfo(com.dafagame.protocol.lhdz.Lhdz.BetInfo value) {
         if (betInfoBuilder_ == null) {
@@ -1776,7 +1991,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo value) {
@@ -1793,7 +2008,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addBetInfo(
           com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder builderForValue) {
@@ -1807,7 +2022,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder builderForValue) {
@@ -1821,7 +2036,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addAllBetInfo(
           java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfo> values) {
@@ -1836,7 +2051,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder clearBetInfo() {
         if (betInfoBuilder_ == null) {
@@ -1849,7 +2064,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder removeBetInfo(int index) {
         if (betInfoBuilder_ == null) {
@@ -1862,14 +2077,14 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder getBetInfoBuilder(
           int index) {
         return getBetInfoFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder getBetInfoOrBuilder(
           int index) {
@@ -1879,7 +2094,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> 
            getBetInfoOrBuilderList() {
@@ -1890,14 +2105,14 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder addBetInfoBuilder() {
         return getBetInfoFieldBuilder().addBuilder(
             com.dafagame.protocol.lhdz.Lhdz.BetInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder addBetInfoBuilder(
           int index) {
@@ -1905,7 +2120,7 @@ public final class Lhdz {
             index, com.dafagame.protocol.lhdz.Lhdz.BetInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder> 
            getBetInfoBuilderList() {
@@ -2718,25 +2933,25 @@ public final class Lhdz {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> 
         getBetInfoList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BetInfo getBetInfo(int index);
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     int getBetInfoCount();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> 
         getBetInfoOrBuilderList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder getBetInfoOrBuilder(
         int index);
@@ -2751,11 +2966,11 @@ public final class Lhdz {
     long getTotal();
 
     /**
-     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode error_code = 2;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode errorCode = 2;</code>
      */
     boolean hasErrorCode();
     /**
-     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode error_code = 2;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode errorCode = 2;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.ErrorCode getErrorCode();
   }
@@ -2862,35 +3077,35 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int BET_INFO_FIELD_NUMBER = 1;
+    public static final int BETINFO_FIELD_NUMBER = 1;
     private java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> betInfo_;
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> getBetInfoList() {
       return betInfo_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> 
         getBetInfoOrBuilderList() {
       return betInfo_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public int getBetInfoCount() {
       return betInfo_.size();
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BetInfo getBetInfo(int index) {
       return betInfo_.get(index);
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder getBetInfoOrBuilder(
         int index) {
@@ -2912,16 +3127,16 @@ public final class Lhdz {
       return total_;
     }
 
-    public static final int ERROR_CODE_FIELD_NUMBER = 2;
+    public static final int ERRORCODE_FIELD_NUMBER = 2;
     private int errorCode_;
     /**
-     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode error_code = 2;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode errorCode = 2;</code>
      */
     public boolean hasErrorCode() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode error_code = 2;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode errorCode = 2;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.ErrorCode getErrorCode() {
       com.dafagame.protocol.lhdz.Lhdz.ErrorCode result = com.dafagame.protocol.lhdz.Lhdz.ErrorCode.valueOf(errorCode_);
@@ -3014,7 +3229,7 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (getBetInfoCount() > 0) {
-        hash = (37 * hash) + BET_INFO_FIELD_NUMBER;
+        hash = (37 * hash) + BETINFO_FIELD_NUMBER;
         hash = (53 * hash) + getBetInfoList().hashCode();
       }
       if (hasTotal()) {
@@ -3023,7 +3238,7 @@ public final class Lhdz {
             getTotal());
       }
       if (hasErrorCode()) {
-        hash = (37 * hash) + ERROR_CODE_FIELD_NUMBER;
+        hash = (37 * hash) + ERRORCODE_FIELD_NUMBER;
         hash = (53 * hash) + errorCode_;
       }
       hash = (29 * hash) + unknownFields.hashCode();
@@ -3331,7 +3546,7 @@ public final class Lhdz {
           com.dafagame.protocol.lhdz.Lhdz.BetInfo, com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> betInfoBuilder_;
 
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> getBetInfoList() {
         if (betInfoBuilder_ == null) {
@@ -3341,7 +3556,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public int getBetInfoCount() {
         if (betInfoBuilder_ == null) {
@@ -3351,7 +3566,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo getBetInfo(int index) {
         if (betInfoBuilder_ == null) {
@@ -3361,7 +3576,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder setBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo value) {
@@ -3378,7 +3593,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder setBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder builderForValue) {
@@ -3392,7 +3607,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addBetInfo(com.dafagame.protocol.lhdz.Lhdz.BetInfo value) {
         if (betInfoBuilder_ == null) {
@@ -3408,7 +3623,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo value) {
@@ -3425,7 +3640,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addBetInfo(
           com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder builderForValue) {
@@ -3439,7 +3654,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder builderForValue) {
@@ -3453,7 +3668,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder addAllBetInfo(
           java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfo> values) {
@@ -3468,7 +3683,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder clearBetInfo() {
         if (betInfoBuilder_ == null) {
@@ -3481,7 +3696,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public Builder removeBetInfo(int index) {
         if (betInfoBuilder_ == null) {
@@ -3494,14 +3709,14 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder getBetInfoBuilder(
           int index) {
         return getBetInfoFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder getBetInfoOrBuilder(
           int index) {
@@ -3511,7 +3726,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> 
            getBetInfoOrBuilderList() {
@@ -3522,14 +3737,14 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder addBetInfoBuilder() {
         return getBetInfoFieldBuilder().addBuilder(
             com.dafagame.protocol.lhdz.Lhdz.BetInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder addBetInfoBuilder(
           int index) {
@@ -3537,7 +3752,7 @@ public final class Lhdz {
             index, com.dafagame.protocol.lhdz.Lhdz.BetInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 1;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder> 
            getBetInfoBuilderList() {
@@ -3592,20 +3807,20 @@ public final class Lhdz {
 
       private int errorCode_ = 1;
       /**
-       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode error_code = 2;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode errorCode = 2;</code>
        */
       public boolean hasErrorCode() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode error_code = 2;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode errorCode = 2;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.ErrorCode getErrorCode() {
         com.dafagame.protocol.lhdz.Lhdz.ErrorCode result = com.dafagame.protocol.lhdz.Lhdz.ErrorCode.valueOf(errorCode_);
         return result == null ? com.dafagame.protocol.lhdz.Lhdz.ErrorCode.OK : result;
       }
       /**
-       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode error_code = 2;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode errorCode = 2;</code>
        */
       public Builder setErrorCode(com.dafagame.protocol.lhdz.Lhdz.ErrorCode value) {
         if (value == null) {
@@ -3617,7 +3832,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode error_code = 2;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode errorCode = 2;</code>
        */
       public Builder clearErrorCode() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -3679,34 +3894,34 @@ public final class Lhdz {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 special_uid = 1;</code>
+     * <code>required int32 userId = 1;</code>
      */
-    boolean hasSpecialUid();
+    boolean hasUserId();
     /**
-     * <code>required int32 special_uid = 1;</code>
+     * <code>required int32 userId = 1;</code>
      */
-    int getSpecialUid();
+    int getUserId();
 
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> 
         getBetInfoList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BetInfo getBetInfo(int index);
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     int getBetInfoCount();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> 
         getBetInfoOrBuilderList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder getBetInfoOrBuilder(
         int index);
@@ -3728,7 +3943,7 @@ public final class Lhdz {
       super(builder);
     }
     private SpecialBetNtf() {
-      specialUid_ = 0;
+      userId_ = 0;
       betInfo_ = java.util.Collections.emptyList();
     }
 
@@ -3762,7 +3977,7 @@ public final class Lhdz {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              specialUid_ = input.readInt32();
+              userId_ = input.readInt32();
               break;
             }
             case 18: {
@@ -3802,50 +4017,50 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int SPECIAL_UID_FIELD_NUMBER = 1;
-    private int specialUid_;
+    public static final int USERID_FIELD_NUMBER = 1;
+    private int userId_;
     /**
-     * <code>required int32 special_uid = 1;</code>
+     * <code>required int32 userId = 1;</code>
      */
-    public boolean hasSpecialUid() {
+    public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 special_uid = 1;</code>
+     * <code>required int32 userId = 1;</code>
      */
-    public int getSpecialUid() {
-      return specialUid_;
+    public int getUserId() {
+      return userId_;
     }
 
-    public static final int BET_INFO_FIELD_NUMBER = 2;
+    public static final int BETINFO_FIELD_NUMBER = 2;
     private java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> betInfo_;
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> getBetInfoList() {
       return betInfo_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> 
         getBetInfoOrBuilderList() {
       return betInfo_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     public int getBetInfoCount() {
       return betInfo_.size();
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BetInfo getBetInfo(int index) {
       return betInfo_.get(index);
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder getBetInfoOrBuilder(
         int index) {
@@ -3858,7 +4073,7 @@ public final class Lhdz {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasSpecialUid()) {
+      if (!hasUserId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3875,7 +4090,7 @@ public final class Lhdz {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, specialUid_);
+        output.writeInt32(1, userId_);
       }
       for (int i = 0; i < betInfo_.size(); i++) {
         output.writeMessage(2, betInfo_.get(i));
@@ -3890,7 +4105,7 @@ public final class Lhdz {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, specialUid_);
+          .computeInt32Size(1, userId_);
       }
       for (int i = 0; i < betInfo_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -3912,10 +4127,10 @@ public final class Lhdz {
       com.dafagame.protocol.lhdz.Lhdz.SpecialBetNtf other = (com.dafagame.protocol.lhdz.Lhdz.SpecialBetNtf) obj;
 
       boolean result = true;
-      result = result && (hasSpecialUid() == other.hasSpecialUid());
-      if (hasSpecialUid()) {
-        result = result && (getSpecialUid()
-            == other.getSpecialUid());
+      result = result && (hasUserId() == other.hasUserId());
+      if (hasUserId()) {
+        result = result && (getUserId()
+            == other.getUserId());
       }
       result = result && getBetInfoList()
           .equals(other.getBetInfoList());
@@ -3930,12 +4145,12 @@ public final class Lhdz {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasSpecialUid()) {
-        hash = (37 * hash) + SPECIAL_UID_FIELD_NUMBER;
-        hash = (53 * hash) + getSpecialUid();
+      if (hasUserId()) {
+        hash = (37 * hash) + USERID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId();
       }
       if (getBetInfoCount() > 0) {
-        hash = (37 * hash) + BET_INFO_FIELD_NUMBER;
+        hash = (37 * hash) + BETINFO_FIELD_NUMBER;
         hash = (53 * hash) + getBetInfoList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
@@ -4072,7 +4287,7 @@ public final class Lhdz {
       }
       public Builder clear() {
         super.clear();
-        specialUid_ = 0;
+        userId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (betInfoBuilder_ == null) {
           betInfo_ = java.util.Collections.emptyList();
@@ -4107,7 +4322,7 @@ public final class Lhdz {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.specialUid_ = specialUid_;
+        result.userId_ = userId_;
         if (betInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002)) {
             betInfo_ = java.util.Collections.unmodifiableList(betInfo_);
@@ -4159,8 +4374,8 @@ public final class Lhdz {
 
       public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.SpecialBetNtf other) {
         if (other == com.dafagame.protocol.lhdz.Lhdz.SpecialBetNtf.getDefaultInstance()) return this;
-        if (other.hasSpecialUid()) {
-          setSpecialUid(other.getSpecialUid());
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
         }
         if (betInfoBuilder_ == null) {
           if (!other.betInfo_.isEmpty()) {
@@ -4194,7 +4409,7 @@ public final class Lhdz {
       }
 
       public final boolean isInitialized() {
-        if (!hasSpecialUid()) {
+        if (!hasUserId()) {
           return false;
         }
         for (int i = 0; i < getBetInfoCount(); i++) {
@@ -4224,34 +4439,34 @@ public final class Lhdz {
       }
       private int bitField0_;
 
-      private int specialUid_ ;
+      private int userId_ ;
       /**
-       * <code>required int32 special_uid = 1;</code>
+       * <code>required int32 userId = 1;</code>
        */
-      public boolean hasSpecialUid() {
+      public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 special_uid = 1;</code>
+       * <code>required int32 userId = 1;</code>
        */
-      public int getSpecialUid() {
-        return specialUid_;
+      public int getUserId() {
+        return userId_;
       }
       /**
-       * <code>required int32 special_uid = 1;</code>
+       * <code>required int32 userId = 1;</code>
        */
-      public Builder setSpecialUid(int value) {
+      public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
-        specialUid_ = value;
+        userId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 special_uid = 1;</code>
+       * <code>required int32 userId = 1;</code>
        */
-      public Builder clearSpecialUid() {
+      public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        specialUid_ = 0;
+        userId_ = 0;
         onChanged();
         return this;
       }
@@ -4269,7 +4484,7 @@ public final class Lhdz {
           com.dafagame.protocol.lhdz.Lhdz.BetInfo, com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> betInfoBuilder_;
 
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo> getBetInfoList() {
         if (betInfoBuilder_ == null) {
@@ -4279,7 +4494,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public int getBetInfoCount() {
         if (betInfoBuilder_ == null) {
@@ -4289,7 +4504,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo getBetInfo(int index) {
         if (betInfoBuilder_ == null) {
@@ -4299,7 +4514,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public Builder setBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo value) {
@@ -4316,7 +4531,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public Builder setBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder builderForValue) {
@@ -4330,7 +4545,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public Builder addBetInfo(com.dafagame.protocol.lhdz.Lhdz.BetInfo value) {
         if (betInfoBuilder_ == null) {
@@ -4346,7 +4561,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public Builder addBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo value) {
@@ -4363,7 +4578,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public Builder addBetInfo(
           com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder builderForValue) {
@@ -4377,7 +4592,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public Builder addBetInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder builderForValue) {
@@ -4391,7 +4606,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public Builder addAllBetInfo(
           java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfo> values) {
@@ -4406,7 +4621,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public Builder clearBetInfo() {
         if (betInfoBuilder_ == null) {
@@ -4419,7 +4634,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public Builder removeBetInfo(int index) {
         if (betInfoBuilder_ == null) {
@@ -4432,14 +4647,14 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder getBetInfoBuilder(
           int index) {
         return getBetInfoFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder getBetInfoOrBuilder(
           int index) {
@@ -4449,7 +4664,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BetInfoOrBuilder> 
            getBetInfoOrBuilderList() {
@@ -4460,14 +4675,14 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder addBetInfoBuilder() {
         return getBetInfoFieldBuilder().addBuilder(
             com.dafagame.protocol.lhdz.Lhdz.BetInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder addBetInfoBuilder(
           int index) {
@@ -4475,7 +4690,7 @@ public final class Lhdz {
             index, com.dafagame.protocol.lhdz.Lhdz.BetInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo bet_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BetInfo betInfo = 2;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BetInfo.Builder> 
            getBetInfoBuilderList() {
@@ -4941,11 +5156,11 @@ public final class Lhdz {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .com.dafagame.protocol.lhdz.ErrorCode error_code = 1;</code>
+     * <code>required .com.dafagame.protocol.lhdz.ErrorCode errorCode = 1;</code>
      */
     boolean hasErrorCode();
     /**
-     * <code>required .com.dafagame.protocol.lhdz.ErrorCode error_code = 1;</code>
+     * <code>required .com.dafagame.protocol.lhdz.ErrorCode errorCode = 1;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.ErrorCode getErrorCode();
 
@@ -5054,16 +5269,16 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int ERROR_CODE_FIELD_NUMBER = 1;
+    public static final int ERRORCODE_FIELD_NUMBER = 1;
     private int errorCode_;
     /**
-     * <code>required .com.dafagame.protocol.lhdz.ErrorCode error_code = 1;</code>
+     * <code>required .com.dafagame.protocol.lhdz.ErrorCode errorCode = 1;</code>
      */
     public boolean hasErrorCode() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .com.dafagame.protocol.lhdz.ErrorCode error_code = 1;</code>
+     * <code>required .com.dafagame.protocol.lhdz.ErrorCode errorCode = 1;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.ErrorCode getErrorCode() {
       com.dafagame.protocol.lhdz.Lhdz.ErrorCode result = com.dafagame.protocol.lhdz.Lhdz.ErrorCode.valueOf(errorCode_);
@@ -5186,7 +5401,7 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasErrorCode()) {
-        hash = (37 * hash) + ERROR_CODE_FIELD_NUMBER;
+        hash = (37 * hash) + ERRORCODE_FIELD_NUMBER;
         hash = (53 * hash) + errorCode_;
       }
       if (hasMsg()) {
@@ -5445,20 +5660,20 @@ public final class Lhdz {
 
       private int errorCode_ = 1;
       /**
-       * <code>required .com.dafagame.protocol.lhdz.ErrorCode error_code = 1;</code>
+       * <code>required .com.dafagame.protocol.lhdz.ErrorCode errorCode = 1;</code>
        */
       public boolean hasErrorCode() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .com.dafagame.protocol.lhdz.ErrorCode error_code = 1;</code>
+       * <code>required .com.dafagame.protocol.lhdz.ErrorCode errorCode = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.ErrorCode getErrorCode() {
         com.dafagame.protocol.lhdz.Lhdz.ErrorCode result = com.dafagame.protocol.lhdz.Lhdz.ErrorCode.valueOf(errorCode_);
         return result == null ? com.dafagame.protocol.lhdz.Lhdz.ErrorCode.OK : result;
       }
       /**
-       * <code>required .com.dafagame.protocol.lhdz.ErrorCode error_code = 1;</code>
+       * <code>required .com.dafagame.protocol.lhdz.ErrorCode errorCode = 1;</code>
        */
       public Builder setErrorCode(com.dafagame.protocol.lhdz.Lhdz.ErrorCode value) {
         if (value == null) {
@@ -5470,7 +5685,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>required .com.dafagame.protocol.lhdz.ErrorCode error_code = 1;</code>
+       * <code>required .com.dafagame.protocol.lhdz.ErrorCode errorCode = 1;</code>
        */
       public Builder clearErrorCode() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -5608,45 +5823,45 @@ public final class Lhdz {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     *待上庄人数
-     * </pre>
-     *
-     * <code>required int32 banker_number = 1;</code>
-     */
-    boolean hasBankerNumber();
-    /**
-     * <pre>
-     *待上庄人数
-     * </pre>
-     *
-     * <code>required int32 banker_number = 1;</code>
-     */
-    int getBankerNumber();
-
-    /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     java.util.List<com.dafagame.protocol.lhdz.Lhdz.BankerInfo> 
         getBankerInfoList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BankerInfo getBankerInfo(int index);
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     int getBankerInfoCount();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder> 
         getBankerInfoOrBuilderList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder getBankerInfoOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     *是否有庄家
+     * </pre>
+     *
+     * <code>required bool haveBanker = 2;</code>
+     */
+    boolean hasHaveBanker();
+    /**
+     * <pre>
+     *是否有庄家
+     * </pre>
+     *
+     * <code>required bool haveBanker = 2;</code>
+     */
+    boolean getHaveBanker();
   }
   /**
    * <pre>
@@ -5665,8 +5880,8 @@ public final class Lhdz {
       super(builder);
     }
     private BankerList() {
-      bankerNumber_ = 0;
       bankerInfo_ = java.util.Collections.emptyList();
+      haveBanker_ = false;
     }
 
     @java.lang.Override
@@ -5697,18 +5912,18 @@ public final class Lhdz {
               }
               break;
             }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              bankerNumber_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 bankerInfo_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.BankerInfo>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000001;
               }
               bankerInfo_.add(
                   input.readMessage(com.dafagame.protocol.lhdz.Lhdz.BankerInfo.PARSER, extensionRegistry));
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000001;
+              haveBanker_ = input.readBool();
               break;
             }
           }
@@ -5719,7 +5934,7 @@ public final class Lhdz {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           bankerInfo_ = java.util.Collections.unmodifiableList(bankerInfo_);
         }
         this.unknownFields = unknownFields.build();
@@ -5739,62 +5954,62 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int BANKER_NUMBER_FIELD_NUMBER = 1;
-    private int bankerNumber_;
-    /**
-     * <pre>
-     *待上庄人数
-     * </pre>
-     *
-     * <code>required int32 banker_number = 1;</code>
-     */
-    public boolean hasBankerNumber() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <pre>
-     *待上庄人数
-     * </pre>
-     *
-     * <code>required int32 banker_number = 1;</code>
-     */
-    public int getBankerNumber() {
-      return bankerNumber_;
-    }
-
-    public static final int BANKER_INFO_FIELD_NUMBER = 2;
+    public static final int BANKERINFO_FIELD_NUMBER = 1;
     private java.util.List<com.dafagame.protocol.lhdz.Lhdz.BankerInfo> bankerInfo_;
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BankerInfo> getBankerInfoList() {
       return bankerInfo_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder> 
         getBankerInfoOrBuilderList() {
       return bankerInfo_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     public int getBankerInfoCount() {
       return bankerInfo_.size();
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BankerInfo getBankerInfo(int index) {
       return bankerInfo_.get(index);
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder getBankerInfoOrBuilder(
         int index) {
       return bankerInfo_.get(index);
+    }
+
+    public static final int HAVEBANKER_FIELD_NUMBER = 2;
+    private boolean haveBanker_;
+    /**
+     * <pre>
+     *是否有庄家
+     * </pre>
+     *
+     * <code>required bool haveBanker = 2;</code>
+     */
+    public boolean hasHaveBanker() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *是否有庄家
+     * </pre>
+     *
+     * <code>required bool haveBanker = 2;</code>
+     */
+    public boolean getHaveBanker() {
+      return haveBanker_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5803,7 +6018,7 @@ public final class Lhdz {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasBankerNumber()) {
+      if (!hasHaveBanker()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -5813,11 +6028,11 @@ public final class Lhdz {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, bankerNumber_);
-      }
       for (int i = 0; i < bankerInfo_.size(); i++) {
-        output.writeMessage(2, bankerInfo_.get(i));
+        output.writeMessage(1, bankerInfo_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(2, haveBanker_);
       }
       unknownFields.writeTo(output);
     }
@@ -5827,13 +6042,13 @@ public final class Lhdz {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, bankerNumber_);
-      }
       for (int i = 0; i < bankerInfo_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, bankerInfo_.get(i));
+          .computeMessageSize(1, bankerInfo_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, haveBanker_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5851,13 +6066,13 @@ public final class Lhdz {
       com.dafagame.protocol.lhdz.Lhdz.BankerList other = (com.dafagame.protocol.lhdz.Lhdz.BankerList) obj;
 
       boolean result = true;
-      result = result && (hasBankerNumber() == other.hasBankerNumber());
-      if (hasBankerNumber()) {
-        result = result && (getBankerNumber()
-            == other.getBankerNumber());
-      }
       result = result && getBankerInfoList()
           .equals(other.getBankerInfoList());
+      result = result && (hasHaveBanker() == other.hasHaveBanker());
+      if (hasHaveBanker()) {
+        result = result && (getHaveBanker()
+            == other.getHaveBanker());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5869,13 +6084,14 @@ public final class Lhdz {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasBankerNumber()) {
-        hash = (37 * hash) + BANKER_NUMBER_FIELD_NUMBER;
-        hash = (53 * hash) + getBankerNumber();
-      }
       if (getBankerInfoCount() > 0) {
-        hash = (37 * hash) + BANKER_INFO_FIELD_NUMBER;
+        hash = (37 * hash) + BANKERINFO_FIELD_NUMBER;
         hash = (53 * hash) + getBankerInfoList().hashCode();
+      }
+      if (hasHaveBanker()) {
+        hash = (37 * hash) + HAVEBANKER_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getHaveBanker());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -6011,14 +6227,14 @@ public final class Lhdz {
       }
       public Builder clear() {
         super.clear();
-        bankerNumber_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (bankerInfoBuilder_ == null) {
           bankerInfo_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
           bankerInfoBuilder_.clear();
         }
+        haveBanker_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -6043,19 +6259,19 @@ public final class Lhdz {
         com.dafagame.protocol.lhdz.Lhdz.BankerList result = new com.dafagame.protocol.lhdz.Lhdz.BankerList(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.bankerNumber_ = bankerNumber_;
         if (bankerInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
             bankerInfo_ = java.util.Collections.unmodifiableList(bankerInfo_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.bankerInfo_ = bankerInfo_;
         } else {
           result.bankerInfo_ = bankerInfoBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.haveBanker_ = haveBanker_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6098,14 +6314,11 @@ public final class Lhdz {
 
       public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.BankerList other) {
         if (other == com.dafagame.protocol.lhdz.Lhdz.BankerList.getDefaultInstance()) return this;
-        if (other.hasBankerNumber()) {
-          setBankerNumber(other.getBankerNumber());
-        }
         if (bankerInfoBuilder_ == null) {
           if (!other.bankerInfo_.isEmpty()) {
             if (bankerInfo_.isEmpty()) {
               bankerInfo_ = other.bankerInfo_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureBankerInfoIsMutable();
               bankerInfo_.addAll(other.bankerInfo_);
@@ -6118,7 +6331,7 @@ public final class Lhdz {
               bankerInfoBuilder_.dispose();
               bankerInfoBuilder_ = null;
               bankerInfo_ = other.bankerInfo_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
               bankerInfoBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getBankerInfoFieldBuilder() : null;
@@ -6127,13 +6340,16 @@ public final class Lhdz {
             }
           }
         }
+        if (other.hasHaveBanker()) {
+          setHaveBanker(other.getHaveBanker());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasBankerNumber()) {
+        if (!hasHaveBanker()) {
           return false;
         }
         return true;
@@ -6158,60 +6374,12 @@ public final class Lhdz {
       }
       private int bitField0_;
 
-      private int bankerNumber_ ;
-      /**
-       * <pre>
-       *待上庄人数
-       * </pre>
-       *
-       * <code>required int32 banker_number = 1;</code>
-       */
-      public boolean hasBankerNumber() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <pre>
-       *待上庄人数
-       * </pre>
-       *
-       * <code>required int32 banker_number = 1;</code>
-       */
-      public int getBankerNumber() {
-        return bankerNumber_;
-      }
-      /**
-       * <pre>
-       *待上庄人数
-       * </pre>
-       *
-       * <code>required int32 banker_number = 1;</code>
-       */
-      public Builder setBankerNumber(int value) {
-        bitField0_ |= 0x00000001;
-        bankerNumber_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *待上庄人数
-       * </pre>
-       *
-       * <code>required int32 banker_number = 1;</code>
-       */
-      public Builder clearBankerNumber() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        bankerNumber_ = 0;
-        onChanged();
-        return this;
-      }
-
       private java.util.List<com.dafagame.protocol.lhdz.Lhdz.BankerInfo> bankerInfo_ =
         java.util.Collections.emptyList();
       private void ensureBankerInfoIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
           bankerInfo_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.BankerInfo>(bankerInfo_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000001;
          }
       }
 
@@ -6219,7 +6387,7 @@ public final class Lhdz {
           com.dafagame.protocol.lhdz.Lhdz.BankerInfo, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder> bankerInfoBuilder_;
 
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BankerInfo> getBankerInfoList() {
         if (bankerInfoBuilder_ == null) {
@@ -6229,7 +6397,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public int getBankerInfoCount() {
         if (bankerInfoBuilder_ == null) {
@@ -6239,7 +6407,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BankerInfo getBankerInfo(int index) {
         if (bankerInfoBuilder_ == null) {
@@ -6249,7 +6417,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public Builder setBankerInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BankerInfo value) {
@@ -6266,7 +6434,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public Builder setBankerInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder builderForValue) {
@@ -6280,7 +6448,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public Builder addBankerInfo(com.dafagame.protocol.lhdz.Lhdz.BankerInfo value) {
         if (bankerInfoBuilder_ == null) {
@@ -6296,7 +6464,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public Builder addBankerInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BankerInfo value) {
@@ -6313,7 +6481,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public Builder addBankerInfo(
           com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder builderForValue) {
@@ -6327,7 +6495,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public Builder addBankerInfo(
           int index, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder builderForValue) {
@@ -6341,7 +6509,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public Builder addAllBankerInfo(
           java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.BankerInfo> values) {
@@ -6356,12 +6524,12 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public Builder clearBankerInfo() {
         if (bankerInfoBuilder_ == null) {
           bankerInfo_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           bankerInfoBuilder_.clear();
@@ -6369,7 +6537,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public Builder removeBankerInfo(int index) {
         if (bankerInfoBuilder_ == null) {
@@ -6382,14 +6550,14 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder getBankerInfoBuilder(
           int index) {
         return getBankerInfoFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder getBankerInfoOrBuilder(
           int index) {
@@ -6399,7 +6567,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder> 
            getBankerInfoOrBuilderList() {
@@ -6410,14 +6578,14 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder addBankerInfoBuilder() {
         return getBankerInfoFieldBuilder().addBuilder(
             com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder addBankerInfoBuilder(
           int index) {
@@ -6425,7 +6593,7 @@ public final class Lhdz {
             index, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo banker_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.BankerInfo bankerInfo = 1;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder> 
            getBankerInfoBuilderList() {
@@ -6438,12 +6606,60 @@ public final class Lhdz {
           bankerInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.dafagame.protocol.lhdz.Lhdz.BankerInfo, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder>(
                   bankerInfo_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
           bankerInfo_ = null;
         }
         return bankerInfoBuilder_;
+      }
+
+      private boolean haveBanker_ ;
+      /**
+       * <pre>
+       *是否有庄家
+       * </pre>
+       *
+       * <code>required bool haveBanker = 2;</code>
+       */
+      public boolean hasHaveBanker() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *是否有庄家
+       * </pre>
+       *
+       * <code>required bool haveBanker = 2;</code>
+       */
+      public boolean getHaveBanker() {
+        return haveBanker_;
+      }
+      /**
+       * <pre>
+       *是否有庄家
+       * </pre>
+       *
+       * <code>required bool haveBanker = 2;</code>
+       */
+      public Builder setHaveBanker(boolean value) {
+        bitField0_ |= 0x00000002;
+        haveBanker_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *是否有庄家
+       * </pre>
+       *
+       * <code>required bool haveBanker = 2;</code>
+       */
+      public Builder clearHaveBanker() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        haveBanker_ = false;
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6503,7 +6719,7 @@ public final class Lhdz {
      *庄家昵称
      * </pre>
      *
-     * <code>optional string nick_name = 1;</code>
+     * <code>optional string nickName = 1;</code>
      */
     boolean hasNickName();
     /**
@@ -6511,7 +6727,7 @@ public final class Lhdz {
      *庄家昵称
      * </pre>
      *
-     * <code>optional string nick_name = 1;</code>
+     * <code>optional string nickName = 1;</code>
      */
     java.lang.String getNickName();
     /**
@@ -6519,7 +6735,7 @@ public final class Lhdz {
      *庄家昵称
      * </pre>
      *
-     * <code>optional string nick_name = 1;</code>
+     * <code>optional string nickName = 1;</code>
      */
     com.google.protobuf.ByteString
         getNickNameBytes();
@@ -6529,26 +6745,26 @@ public final class Lhdz {
      *庄家的余额
      * </pre>
      *
-     * <code>optional string banker_money = 2;</code>
+     * <code>optional string balance = 2;</code>
      */
-    boolean hasBankerMoney();
+    boolean hasBalance();
     /**
      * <pre>
      *庄家的余额
      * </pre>
      *
-     * <code>optional string banker_money = 2;</code>
+     * <code>optional string balance = 2;</code>
      */
-    java.lang.String getBankerMoney();
+    java.lang.String getBalance();
     /**
      * <pre>
      *庄家的余额
      * </pre>
      *
-     * <code>optional string banker_money = 2;</code>
+     * <code>optional string balance = 2;</code>
      */
     com.google.protobuf.ByteString
-        getBankerMoneyBytes();
+        getBalanceBytes();
 
     /**
      * <pre>
@@ -6583,6 +6799,49 @@ public final class Lhdz {
      * <code>optional int32 avatar = 4;</code>
      */
     int getAvatar();
+
+    /**
+     * <pre>
+     *相框
+     * </pre>
+     *
+     * <code>optional int32 frame = 5;</code>
+     */
+    boolean hasFrame();
+    /**
+     * <pre>
+     *相框
+     * </pre>
+     *
+     * <code>optional int32 frame = 5;</code>
+     */
+    int getFrame();
+
+    /**
+     * <code>optional int32 userId = 6;</code>
+     */
+    boolean hasUserId();
+    /**
+     * <code>optional int32 userId = 6;</code>
+     */
+    int getUserId();
+
+    /**
+     * <pre>
+     *判断是否是真人 机器人服务用
+     * </pre>
+     *
+     * <code>optional int32 type = 7;</code>
+     */
+    boolean hasType();
+    /**
+     * <pre>
+     *判断是否是真人 机器人服务用
+     * </pre>
+     *
+     * <code>optional int32 type = 7;</code>
+     */
+    int getType();
   }
   /**
    * <pre>
@@ -6602,9 +6861,12 @@ public final class Lhdz {
     }
     private BankerInfo() {
       nickName_ = "";
-      bankerMoney_ = "";
+      balance_ = "";
       grade_ = 0;
       avatar_ = 0;
+      frame_ = 0;
+      userId_ = 0;
+      type_ = 0;
     }
 
     @java.lang.Override
@@ -6644,7 +6906,7 @@ public final class Lhdz {
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              bankerMoney_ = bs;
+              balance_ = bs;
               break;
             }
             case 24: {
@@ -6655,6 +6917,21 @@ public final class Lhdz {
             case 32: {
               bitField0_ |= 0x00000008;
               avatar_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              frame_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              userId_ = input.readInt32();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              type_ = input.readInt32();
               break;
             }
           }
@@ -6682,14 +6959,14 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int NICK_NAME_FIELD_NUMBER = 1;
+    public static final int NICKNAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object nickName_;
     /**
      * <pre>
      *庄家昵称
      * </pre>
      *
-     * <code>optional string nick_name = 1;</code>
+     * <code>optional string nickName = 1;</code>
      */
     public boolean hasNickName() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -6699,7 +6976,7 @@ public final class Lhdz {
      *庄家昵称
      * </pre>
      *
-     * <code>optional string nick_name = 1;</code>
+     * <code>optional string nickName = 1;</code>
      */
     public java.lang.String getNickName() {
       java.lang.Object ref = nickName_;
@@ -6720,7 +6997,7 @@ public final class Lhdz {
      *庄家昵称
      * </pre>
      *
-     * <code>optional string nick_name = 1;</code>
+     * <code>optional string nickName = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNickNameBytes() {
@@ -6736,16 +7013,16 @@ public final class Lhdz {
       }
     }
 
-    public static final int BANKER_MONEY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object bankerMoney_;
+    public static final int BALANCE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object balance_;
     /**
      * <pre>
      *庄家的余额
      * </pre>
      *
-     * <code>optional string banker_money = 2;</code>
+     * <code>optional string balance = 2;</code>
      */
-    public boolean hasBankerMoney() {
+    public boolean hasBalance() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
@@ -6753,10 +7030,10 @@ public final class Lhdz {
      *庄家的余额
      * </pre>
      *
-     * <code>optional string banker_money = 2;</code>
+     * <code>optional string balance = 2;</code>
      */
-    public java.lang.String getBankerMoney() {
-      java.lang.Object ref = bankerMoney_;
+    public java.lang.String getBalance() {
+      java.lang.Object ref = balance_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -6764,7 +7041,7 @@ public final class Lhdz {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          bankerMoney_ = s;
+          balance_ = s;
         }
         return s;
       }
@@ -6774,16 +7051,16 @@ public final class Lhdz {
      *庄家的余额
      * </pre>
      *
-     * <code>optional string banker_money = 2;</code>
+     * <code>optional string balance = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getBankerMoneyBytes() {
-      java.lang.Object ref = bankerMoney_;
+        getBalanceBytes() {
+      java.lang.Object ref = balance_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        bankerMoney_ = b;
+        balance_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -6836,6 +7113,67 @@ public final class Lhdz {
       return avatar_;
     }
 
+    public static final int FRAME_FIELD_NUMBER = 5;
+    private int frame_;
+    /**
+     * <pre>
+     *相框
+     * </pre>
+     *
+     * <code>optional int32 frame = 5;</code>
+     */
+    public boolean hasFrame() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     *相框
+     * </pre>
+     *
+     * <code>optional int32 frame = 5;</code>
+     */
+    public int getFrame() {
+      return frame_;
+    }
+
+    public static final int USERID_FIELD_NUMBER = 6;
+    private int userId_;
+    /**
+     * <code>optional int32 userId = 6;</code>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional int32 userId = 6;</code>
+     */
+    public int getUserId() {
+      return userId_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 7;
+    private int type_;
+    /**
+     * <pre>
+     *判断是否是真人 机器人服务用
+     * </pre>
+     *
+     * <code>optional int32 type = 7;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     *判断是否是真人 机器人服务用
+     * </pre>
+     *
+     * <code>optional int32 type = 7;</code>
+     */
+    public int getType() {
+      return type_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -6852,13 +7190,22 @@ public final class Lhdz {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, nickName_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, bankerMoney_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, balance_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, grade_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, avatar_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, frame_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt32(6, userId_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt32(7, type_);
       }
       unknownFields.writeTo(output);
     }
@@ -6872,7 +7219,7 @@ public final class Lhdz {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, nickName_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, bankerMoney_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, balance_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -6881,6 +7228,18 @@ public final class Lhdz {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, avatar_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, frame_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, userId_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, type_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6903,10 +7262,10 @@ public final class Lhdz {
         result = result && getNickName()
             .equals(other.getNickName());
       }
-      result = result && (hasBankerMoney() == other.hasBankerMoney());
-      if (hasBankerMoney()) {
-        result = result && getBankerMoney()
-            .equals(other.getBankerMoney());
+      result = result && (hasBalance() == other.hasBalance());
+      if (hasBalance()) {
+        result = result && getBalance()
+            .equals(other.getBalance());
       }
       result = result && (hasGrade() == other.hasGrade());
       if (hasGrade()) {
@@ -6917,6 +7276,21 @@ public final class Lhdz {
       if (hasAvatar()) {
         result = result && (getAvatar()
             == other.getAvatar());
+      }
+      result = result && (hasFrame() == other.hasFrame());
+      if (hasFrame()) {
+        result = result && (getFrame()
+            == other.getFrame());
+      }
+      result = result && (hasUserId() == other.hasUserId());
+      if (hasUserId()) {
+        result = result && (getUserId()
+            == other.getUserId());
+      }
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && (getType()
+            == other.getType());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -6930,12 +7304,12 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasNickName()) {
-        hash = (37 * hash) + NICK_NAME_FIELD_NUMBER;
+        hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
         hash = (53 * hash) + getNickName().hashCode();
       }
-      if (hasBankerMoney()) {
-        hash = (37 * hash) + BANKER_MONEY_FIELD_NUMBER;
-        hash = (53 * hash) + getBankerMoney().hashCode();
+      if (hasBalance()) {
+        hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+        hash = (53 * hash) + getBalance().hashCode();
       }
       if (hasGrade()) {
         hash = (37 * hash) + GRADE_FIELD_NUMBER;
@@ -6944,6 +7318,18 @@ public final class Lhdz {
       if (hasAvatar()) {
         hash = (37 * hash) + AVATAR_FIELD_NUMBER;
         hash = (53 * hash) + getAvatar();
+      }
+      if (hasFrame()) {
+        hash = (37 * hash) + FRAME_FIELD_NUMBER;
+        hash = (53 * hash) + getFrame();
+      }
+      if (hasUserId()) {
+        hash = (37 * hash) + USERID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId();
+      }
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getType();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -7080,12 +7466,18 @@ public final class Lhdz {
         super.clear();
         nickName_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        bankerMoney_ = "";
+        balance_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         grade_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         avatar_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
+        frame_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        userId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        type_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -7117,7 +7509,7 @@ public final class Lhdz {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.bankerMoney_ = bankerMoney_;
+        result.balance_ = balance_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -7126,6 +7518,18 @@ public final class Lhdz {
           to_bitField0_ |= 0x00000008;
         }
         result.avatar_ = avatar_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.frame_ = frame_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.type_ = type_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7173,9 +7577,9 @@ public final class Lhdz {
           nickName_ = other.nickName_;
           onChanged();
         }
-        if (other.hasBankerMoney()) {
+        if (other.hasBalance()) {
           bitField0_ |= 0x00000002;
-          bankerMoney_ = other.bankerMoney_;
+          balance_ = other.balance_;
           onChanged();
         }
         if (other.hasGrade()) {
@@ -7183,6 +7587,15 @@ public final class Lhdz {
         }
         if (other.hasAvatar()) {
           setAvatar(other.getAvatar());
+        }
+        if (other.hasFrame()) {
+          setFrame(other.getFrame());
+        }
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasType()) {
+          setType(other.getType());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7218,7 +7631,7 @@ public final class Lhdz {
        *庄家昵称
        * </pre>
        *
-       * <code>optional string nick_name = 1;</code>
+       * <code>optional string nickName = 1;</code>
        */
       public boolean hasNickName() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -7228,7 +7641,7 @@ public final class Lhdz {
        *庄家昵称
        * </pre>
        *
-       * <code>optional string nick_name = 1;</code>
+       * <code>optional string nickName = 1;</code>
        */
       public java.lang.String getNickName() {
         java.lang.Object ref = nickName_;
@@ -7249,7 +7662,7 @@ public final class Lhdz {
        *庄家昵称
        * </pre>
        *
-       * <code>optional string nick_name = 1;</code>
+       * <code>optional string nickName = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNickNameBytes() {
@@ -7269,7 +7682,7 @@ public final class Lhdz {
        *庄家昵称
        * </pre>
        *
-       * <code>optional string nick_name = 1;</code>
+       * <code>optional string nickName = 1;</code>
        */
       public Builder setNickName(
           java.lang.String value) {
@@ -7286,7 +7699,7 @@ public final class Lhdz {
        *庄家昵称
        * </pre>
        *
-       * <code>optional string nick_name = 1;</code>
+       * <code>optional string nickName = 1;</code>
        */
       public Builder clearNickName() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -7299,7 +7712,7 @@ public final class Lhdz {
        *庄家昵称
        * </pre>
        *
-       * <code>optional string nick_name = 1;</code>
+       * <code>optional string nickName = 1;</code>
        */
       public Builder setNickNameBytes(
           com.google.protobuf.ByteString value) {
@@ -7312,15 +7725,15 @@ public final class Lhdz {
         return this;
       }
 
-      private java.lang.Object bankerMoney_ = "";
+      private java.lang.Object balance_ = "";
       /**
        * <pre>
        *庄家的余额
        * </pre>
        *
-       * <code>optional string banker_money = 2;</code>
+       * <code>optional string balance = 2;</code>
        */
-      public boolean hasBankerMoney() {
+      public boolean hasBalance() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
@@ -7328,16 +7741,16 @@ public final class Lhdz {
        *庄家的余额
        * </pre>
        *
-       * <code>optional string banker_money = 2;</code>
+       * <code>optional string balance = 2;</code>
        */
-      public java.lang.String getBankerMoney() {
-        java.lang.Object ref = bankerMoney_;
+      public java.lang.String getBalance() {
+        java.lang.Object ref = balance_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            bankerMoney_ = s;
+            balance_ = s;
           }
           return s;
         } else {
@@ -7349,16 +7762,16 @@ public final class Lhdz {
        *庄家的余额
        * </pre>
        *
-       * <code>optional string banker_money = 2;</code>
+       * <code>optional string balance = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getBankerMoneyBytes() {
-        java.lang.Object ref = bankerMoney_;
+          getBalanceBytes() {
+        java.lang.Object ref = balance_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          bankerMoney_ = b;
+          balance_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -7369,15 +7782,15 @@ public final class Lhdz {
        *庄家的余额
        * </pre>
        *
-       * <code>optional string banker_money = 2;</code>
+       * <code>optional string balance = 2;</code>
        */
-      public Builder setBankerMoney(
+      public Builder setBalance(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        bankerMoney_ = value;
+        balance_ = value;
         onChanged();
         return this;
       }
@@ -7386,11 +7799,11 @@ public final class Lhdz {
        *庄家的余额
        * </pre>
        *
-       * <code>optional string banker_money = 2;</code>
+       * <code>optional string balance = 2;</code>
        */
-      public Builder clearBankerMoney() {
+      public Builder clearBalance() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        bankerMoney_ = getDefaultInstance().getBankerMoney();
+        balance_ = getDefaultInstance().getBalance();
         onChanged();
         return this;
       }
@@ -7399,15 +7812,15 @@ public final class Lhdz {
        *庄家的余额
        * </pre>
        *
-       * <code>optional string banker_money = 2;</code>
+       * <code>optional string balance = 2;</code>
        */
-      public Builder setBankerMoneyBytes(
+      public Builder setBalanceBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        bankerMoney_ = value;
+        balance_ = value;
         onChanged();
         return this;
       }
@@ -7507,6 +7920,134 @@ public final class Lhdz {
         onChanged();
         return this;
       }
+
+      private int frame_ ;
+      /**
+       * <pre>
+       *相框
+       * </pre>
+       *
+       * <code>optional int32 frame = 5;</code>
+       */
+      public boolean hasFrame() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       *相框
+       * </pre>
+       *
+       * <code>optional int32 frame = 5;</code>
+       */
+      public int getFrame() {
+        return frame_;
+      }
+      /**
+       * <pre>
+       *相框
+       * </pre>
+       *
+       * <code>optional int32 frame = 5;</code>
+       */
+      public Builder setFrame(int value) {
+        bitField0_ |= 0x00000010;
+        frame_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *相框
+       * </pre>
+       *
+       * <code>optional int32 frame = 5;</code>
+       */
+      public Builder clearFrame() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        frame_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int userId_ ;
+      /**
+       * <code>optional int32 userId = 6;</code>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int32 userId = 6;</code>
+       */
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>optional int32 userId = 6;</code>
+       */
+      public Builder setUserId(int value) {
+        bitField0_ |= 0x00000020;
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 userId = 6;</code>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        userId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int type_ ;
+      /**
+       * <pre>
+       *判断是否是真人 机器人服务用
+       * </pre>
+       *
+       * <code>optional int32 type = 7;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <pre>
+       *判断是否是真人 机器人服务用
+       * </pre>
+       *
+       * <code>optional int32 type = 7;</code>
+       */
+      public int getType() {
+        return type_;
+      }
+      /**
+       * <pre>
+       *判断是否是真人 机器人服务用
+       * </pre>
+       *
+       * <code>optional int32 type = 7;</code>
+       */
+      public Builder setType(int value) {
+        bitField0_ |= 0x00000040;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *判断是否是真人 机器人服务用
+       * </pre>
+       *
+       * <code>optional int32 type = 7;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -7556,1128 +8097,6 @@ public final class Lhdz {
 
   }
 
-  public interface CountReqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.CountReq)
-      com.google.protobuf.MessageOrBuilder {
-  }
-  /**
-   * <pre>
-   *输赢结果统计请求
-   * </pre>
-   *
-   * Protobuf type {@code com.dafagame.protocol.lhdz.CountReq}
-   */
-  public  static final class CountReq extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.CountReq)
-      CountReqOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use CountReq.newBuilder() to construct.
-    private CountReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private CountReq() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private CountReq(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountReq_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountReq_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.lhdz.Lhdz.CountReq.class, com.dafagame.protocol.lhdz.Lhdz.CountReq.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.CountReq)) {
-        return super.equals(obj);
-      }
-      com.dafagame.protocol.lhdz.Lhdz.CountReq other = (com.dafagame.protocol.lhdz.Lhdz.CountReq) obj;
-
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.CountReq prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *输赢结果统计请求
-     * </pre>
-     *
-     * Protobuf type {@code com.dafagame.protocol.lhdz.CountReq}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.CountReq)
-        com.dafagame.protocol.lhdz.Lhdz.CountReqOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountReq_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountReq_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.lhdz.Lhdz.CountReq.class, com.dafagame.protocol.lhdz.Lhdz.CountReq.Builder.class);
-      }
-
-      // Construct using com.dafagame.protocol.lhdz.Lhdz.CountReq.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountReq_descriptor;
-      }
-
-      public com.dafagame.protocol.lhdz.Lhdz.CountReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.lhdz.Lhdz.CountReq.getDefaultInstance();
-      }
-
-      public com.dafagame.protocol.lhdz.Lhdz.CountReq build() {
-        com.dafagame.protocol.lhdz.Lhdz.CountReq result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.dafagame.protocol.lhdz.Lhdz.CountReq buildPartial() {
-        com.dafagame.protocol.lhdz.Lhdz.CountReq result = new com.dafagame.protocol.lhdz.Lhdz.CountReq(this);
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.CountReq) {
-          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.CountReq)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.CountReq other) {
-        if (other == com.dafagame.protocol.lhdz.Lhdz.CountReq.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.dafagame.protocol.lhdz.Lhdz.CountReq parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.CountReq) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.CountReq)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.CountReq)
-    private static final com.dafagame.protocol.lhdz.Lhdz.CountReq DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.CountReq();
-    }
-
-    public static com.dafagame.protocol.lhdz.Lhdz.CountReq getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CountReq>
-        PARSER = new com.google.protobuf.AbstractParser<CountReq>() {
-      public CountReq parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CountReq(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<CountReq> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<CountReq> getParserForType() {
-      return PARSER;
-    }
-
-    public com.dafagame.protocol.lhdz.Lhdz.CountReq getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface CountResOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.CountRes)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *总次数
-     * </pre>
-     *
-     * <code>optional int32 round_count = 1;</code>
-     */
-    boolean hasRoundCount();
-    /**
-     * <pre>
-     *总次数
-     * </pre>
-     *
-     * <code>optional int32 round_count = 1;</code>
-     */
-    int getRoundCount();
-
-    /**
-     * <pre>
-     *盘口赢得次数统计[100,50,500]
-     * </pre>
-     *
-     * <code>optional string win_count = 2;</code>
-     */
-    boolean hasWinCount();
-    /**
-     * <pre>
-     *盘口赢得次数统计[100,50,500]
-     * </pre>
-     *
-     * <code>optional string win_count = 2;</code>
-     */
-    java.lang.String getWinCount();
-    /**
-     * <pre>
-     *盘口赢得次数统计[100,50,500]
-     * </pre>
-     *
-     * <code>optional string win_count = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getWinCountBytes();
-  }
-  /**
-   * <pre>
-   *赢得次数回应
-   * </pre>
-   *
-   * Protobuf type {@code com.dafagame.protocol.lhdz.CountRes}
-   */
-  public  static final class CountRes extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.CountRes)
-      CountResOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use CountRes.newBuilder() to construct.
-    private CountRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private CountRes() {
-      roundCount_ = 0;
-      winCount_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private CountRes(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              roundCount_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              winCount_ = bs;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountRes_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountRes_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.lhdz.Lhdz.CountRes.class, com.dafagame.protocol.lhdz.Lhdz.CountRes.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int ROUND_COUNT_FIELD_NUMBER = 1;
-    private int roundCount_;
-    /**
-     * <pre>
-     *总次数
-     * </pre>
-     *
-     * <code>optional int32 round_count = 1;</code>
-     */
-    public boolean hasRoundCount() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <pre>
-     *总次数
-     * </pre>
-     *
-     * <code>optional int32 round_count = 1;</code>
-     */
-    public int getRoundCount() {
-      return roundCount_;
-    }
-
-    public static final int WIN_COUNT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object winCount_;
-    /**
-     * <pre>
-     *盘口赢得次数统计[100,50,500]
-     * </pre>
-     *
-     * <code>optional string win_count = 2;</code>
-     */
-    public boolean hasWinCount() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <pre>
-     *盘口赢得次数统计[100,50,500]
-     * </pre>
-     *
-     * <code>optional string win_count = 2;</code>
-     */
-    public java.lang.String getWinCount() {
-      java.lang.Object ref = winCount_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          winCount_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *盘口赢得次数统计[100,50,500]
-     * </pre>
-     *
-     * <code>optional string win_count = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getWinCountBytes() {
-      java.lang.Object ref = winCount_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        winCount_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, roundCount_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, winCount_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, roundCount_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, winCount_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.CountRes)) {
-        return super.equals(obj);
-      }
-      com.dafagame.protocol.lhdz.Lhdz.CountRes other = (com.dafagame.protocol.lhdz.Lhdz.CountRes) obj;
-
-      boolean result = true;
-      result = result && (hasRoundCount() == other.hasRoundCount());
-      if (hasRoundCount()) {
-        result = result && (getRoundCount()
-            == other.getRoundCount());
-      }
-      result = result && (hasWinCount() == other.hasWinCount());
-      if (hasWinCount()) {
-        result = result && getWinCount()
-            .equals(other.getWinCount());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasRoundCount()) {
-        hash = (37 * hash) + ROUND_COUNT_FIELD_NUMBER;
-        hash = (53 * hash) + getRoundCount();
-      }
-      if (hasWinCount()) {
-        hash = (37 * hash) + WIN_COUNT_FIELD_NUMBER;
-        hash = (53 * hash) + getWinCount().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.CountRes prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *赢得次数回应
-     * </pre>
-     *
-     * Protobuf type {@code com.dafagame.protocol.lhdz.CountRes}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.CountRes)
-        com.dafagame.protocol.lhdz.Lhdz.CountResOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountRes_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountRes_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.lhdz.Lhdz.CountRes.class, com.dafagame.protocol.lhdz.Lhdz.CountRes.Builder.class);
-      }
-
-      // Construct using com.dafagame.protocol.lhdz.Lhdz.CountRes.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        roundCount_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        winCount_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_CountRes_descriptor;
-      }
-
-      public com.dafagame.protocol.lhdz.Lhdz.CountRes getDefaultInstanceForType() {
-        return com.dafagame.protocol.lhdz.Lhdz.CountRes.getDefaultInstance();
-      }
-
-      public com.dafagame.protocol.lhdz.Lhdz.CountRes build() {
-        com.dafagame.protocol.lhdz.Lhdz.CountRes result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.dafagame.protocol.lhdz.Lhdz.CountRes buildPartial() {
-        com.dafagame.protocol.lhdz.Lhdz.CountRes result = new com.dafagame.protocol.lhdz.Lhdz.CountRes(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.roundCount_ = roundCount_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.winCount_ = winCount_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.CountRes) {
-          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.CountRes)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.CountRes other) {
-        if (other == com.dafagame.protocol.lhdz.Lhdz.CountRes.getDefaultInstance()) return this;
-        if (other.hasRoundCount()) {
-          setRoundCount(other.getRoundCount());
-        }
-        if (other.hasWinCount()) {
-          bitField0_ |= 0x00000002;
-          winCount_ = other.winCount_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.dafagame.protocol.lhdz.Lhdz.CountRes parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.CountRes) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private int roundCount_ ;
-      /**
-       * <pre>
-       *总次数
-       * </pre>
-       *
-       * <code>optional int32 round_count = 1;</code>
-       */
-      public boolean hasRoundCount() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <pre>
-       *总次数
-       * </pre>
-       *
-       * <code>optional int32 round_count = 1;</code>
-       */
-      public int getRoundCount() {
-        return roundCount_;
-      }
-      /**
-       * <pre>
-       *总次数
-       * </pre>
-       *
-       * <code>optional int32 round_count = 1;</code>
-       */
-      public Builder setRoundCount(int value) {
-        bitField0_ |= 0x00000001;
-        roundCount_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *总次数
-       * </pre>
-       *
-       * <code>optional int32 round_count = 1;</code>
-       */
-      public Builder clearRoundCount() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        roundCount_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object winCount_ = "";
-      /**
-       * <pre>
-       *盘口赢得次数统计[100,50,500]
-       * </pre>
-       *
-       * <code>optional string win_count = 2;</code>
-       */
-      public boolean hasWinCount() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <pre>
-       *盘口赢得次数统计[100,50,500]
-       * </pre>
-       *
-       * <code>optional string win_count = 2;</code>
-       */
-      public java.lang.String getWinCount() {
-        java.lang.Object ref = winCount_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            winCount_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *盘口赢得次数统计[100,50,500]
-       * </pre>
-       *
-       * <code>optional string win_count = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getWinCountBytes() {
-        java.lang.Object ref = winCount_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          winCount_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *盘口赢得次数统计[100,50,500]
-       * </pre>
-       *
-       * <code>optional string win_count = 2;</code>
-       */
-      public Builder setWinCount(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        winCount_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *盘口赢得次数统计[100,50,500]
-       * </pre>
-       *
-       * <code>optional string win_count = 2;</code>
-       */
-      public Builder clearWinCount() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        winCount_ = getDefaultInstance().getWinCount();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *盘口赢得次数统计[100,50,500]
-       * </pre>
-       *
-       * <code>optional string win_count = 2;</code>
-       */
-      public Builder setWinCountBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        winCount_ = value;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.CountRes)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.CountRes)
-    private static final com.dafagame.protocol.lhdz.Lhdz.CountRes DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.CountRes();
-    }
-
-    public static com.dafagame.protocol.lhdz.Lhdz.CountRes getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CountRes>
-        PARSER = new com.google.protobuf.AbstractParser<CountRes>() {
-      public CountRes parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CountRes(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<CountRes> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<CountRes> getParserForType() {
-      return PARSER;
-    }
-
-    public com.dafagame.protocol.lhdz.Lhdz.CountRes getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface StartNtfOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.StartNtf)
       com.google.protobuf.MessageOrBuilder {
@@ -8713,7 +8132,7 @@ public final class Lhdz {
      *时间
      * </pre>
      *
-     * <code>required int32 count_down = 2;</code>
+     * <code>required int32 countDown = 2;</code>
      */
     boolean hasCountDown();
     /**
@@ -8721,34 +8140,26 @@ public final class Lhdz {
      *时间
      * </pre>
      *
-     * <code>required int32 count_down = 2;</code>
+     * <code>required int32 countDown = 2;</code>
      */
     int getCountDown();
 
     /**
      * <pre>
-     *庄家信息
+     *是否能投注 机器人服务用
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
+     * <code>optional bool canBet = 3;</code>
      */
-    boolean hasBankerInfo();
+    boolean hasCanBet();
     /**
      * <pre>
-     *庄家信息
+     *是否能投注 机器人服务用
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
+     * <code>optional bool canBet = 3;</code>
      */
-    com.dafagame.protocol.lhdz.Lhdz.BankerInfo getBankerInfo();
-    /**
-     * <pre>
-     *庄家信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
-     */
-    com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder getBankerInfoOrBuilder();
+    boolean getCanBet();
   }
   /**
    * <pre>
@@ -8769,6 +8180,7 @@ public final class Lhdz {
     private StartNtf() {
       inning_ = "";
       countDown_ = 0;
+      canBet_ = false;
     }
 
     @java.lang.Override
@@ -8810,17 +8222,9 @@ public final class Lhdz {
               countDown_ = input.readInt32();
               break;
             }
-            case 26: {
-              com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = bankerInfo_.toBuilder();
-              }
-              bankerInfo_ = input.readMessage(com.dafagame.protocol.lhdz.Lhdz.BankerInfo.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(bankerInfo_);
-                bankerInfo_ = subBuilder.buildPartial();
-              }
+            case 24: {
               bitField0_ |= 0x00000004;
+              canBet_ = input.readBool();
               break;
             }
           }
@@ -8902,14 +8306,14 @@ public final class Lhdz {
       }
     }
 
-    public static final int COUNT_DOWN_FIELD_NUMBER = 2;
+    public static final int COUNTDOWN_FIELD_NUMBER = 2;
     private int countDown_;
     /**
      * <pre>
      *时间
      * </pre>
      *
-     * <code>required int32 count_down = 2;</code>
+     * <code>required int32 countDown = 2;</code>
      */
     public boolean hasCountDown() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -8919,43 +8323,33 @@ public final class Lhdz {
      *时间
      * </pre>
      *
-     * <code>required int32 count_down = 2;</code>
+     * <code>required int32 countDown = 2;</code>
      */
     public int getCountDown() {
       return countDown_;
     }
 
-    public static final int BANKER_INFO_FIELD_NUMBER = 3;
-    private com.dafagame.protocol.lhdz.Lhdz.BankerInfo bankerInfo_;
+    public static final int CANBET_FIELD_NUMBER = 3;
+    private boolean canBet_;
     /**
      * <pre>
-     *庄家信息
+     *是否能投注 机器人服务用
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
+     * <code>optional bool canBet = 3;</code>
      */
-    public boolean hasBankerInfo() {
+    public boolean hasCanBet() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <pre>
-     *庄家信息
+     *是否能投注 机器人服务用
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
+     * <code>optional bool canBet = 3;</code>
      */
-    public com.dafagame.protocol.lhdz.Lhdz.BankerInfo getBankerInfo() {
-      return bankerInfo_ == null ? com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance() : bankerInfo_;
-    }
-    /**
-     * <pre>
-     *庄家信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
-     */
-    public com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder getBankerInfoOrBuilder() {
-      return bankerInfo_ == null ? com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance() : bankerInfo_;
+    public boolean getCanBet() {
+      return canBet_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8985,7 +8379,7 @@ public final class Lhdz {
         output.writeInt32(2, countDown_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, getBankerInfo());
+        output.writeBool(3, canBet_);
       }
       unknownFields.writeTo(output);
     }
@@ -9004,7 +8398,7 @@ public final class Lhdz {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getBankerInfo());
+          .computeBoolSize(3, canBet_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -9032,10 +8426,10 @@ public final class Lhdz {
         result = result && (getCountDown()
             == other.getCountDown());
       }
-      result = result && (hasBankerInfo() == other.hasBankerInfo());
-      if (hasBankerInfo()) {
-        result = result && getBankerInfo()
-            .equals(other.getBankerInfo());
+      result = result && (hasCanBet() == other.hasCanBet());
+      if (hasCanBet()) {
+        result = result && (getCanBet()
+            == other.getCanBet());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -9053,12 +8447,13 @@ public final class Lhdz {
         hash = (53 * hash) + getInning().hashCode();
       }
       if (hasCountDown()) {
-        hash = (37 * hash) + COUNT_DOWN_FIELD_NUMBER;
+        hash = (37 * hash) + COUNTDOWN_FIELD_NUMBER;
         hash = (53 * hash) + getCountDown();
       }
-      if (hasBankerInfo()) {
-        hash = (37 * hash) + BANKER_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getBankerInfo().hashCode();
+      if (hasCanBet()) {
+        hash = (37 * hash) + CANBET_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getCanBet());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -9189,7 +8584,6 @@ public final class Lhdz {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getBankerInfoFieldBuilder();
         }
       }
       public Builder clear() {
@@ -9198,11 +8592,7 @@ public final class Lhdz {
         bitField0_ = (bitField0_ & ~0x00000001);
         countDown_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        if (bankerInfoBuilder_ == null) {
-          bankerInfo_ = null;
-        } else {
-          bankerInfoBuilder_.clear();
-        }
+        canBet_ = false;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -9239,11 +8629,7 @@ public final class Lhdz {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        if (bankerInfoBuilder_ == null) {
-          result.bankerInfo_ = bankerInfo_;
-        } else {
-          result.bankerInfo_ = bankerInfoBuilder_.build();
-        }
+        result.canBet_ = canBet_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -9294,8 +8680,8 @@ public final class Lhdz {
         if (other.hasCountDown()) {
           setCountDown(other.getCountDown());
         }
-        if (other.hasBankerInfo()) {
-          mergeBankerInfo(other.getBankerInfo());
+        if (other.hasCanBet()) {
+          setCanBet(other.getCanBet());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9437,7 +8823,7 @@ public final class Lhdz {
        *时间
        * </pre>
        *
-       * <code>required int32 count_down = 2;</code>
+       * <code>required int32 countDown = 2;</code>
        */
       public boolean hasCountDown() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -9447,7 +8833,7 @@ public final class Lhdz {
        *时间
        * </pre>
        *
-       * <code>required int32 count_down = 2;</code>
+       * <code>required int32 countDown = 2;</code>
        */
       public int getCountDown() {
         return countDown_;
@@ -9457,7 +8843,7 @@ public final class Lhdz {
        *时间
        * </pre>
        *
-       * <code>required int32 count_down = 2;</code>
+       * <code>required int32 countDown = 2;</code>
        */
       public Builder setCountDown(int value) {
         bitField0_ |= 0x00000002;
@@ -9470,7 +8856,7 @@ public final class Lhdz {
        *时间
        * </pre>
        *
-       * <code>required int32 count_down = 2;</code>
+       * <code>required int32 countDown = 2;</code>
        */
       public Builder clearCountDown() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -9479,158 +8865,52 @@ public final class Lhdz {
         return this;
       }
 
-      private com.dafagame.protocol.lhdz.Lhdz.BankerInfo bankerInfo_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.lhdz.Lhdz.BankerInfo, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder> bankerInfoBuilder_;
+      private boolean canBet_ ;
       /**
        * <pre>
-       *庄家信息
+       *是否能投注 机器人服务用
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
+       * <code>optional bool canBet = 3;</code>
        */
-      public boolean hasBankerInfo() {
+      public boolean hasCanBet() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <pre>
-       *庄家信息
+       *是否能投注 机器人服务用
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
+       * <code>optional bool canBet = 3;</code>
        */
-      public com.dafagame.protocol.lhdz.Lhdz.BankerInfo getBankerInfo() {
-        if (bankerInfoBuilder_ == null) {
-          return bankerInfo_ == null ? com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance() : bankerInfo_;
-        } else {
-          return bankerInfoBuilder_.getMessage();
-        }
+      public boolean getCanBet() {
+        return canBet_;
       }
       /**
        * <pre>
-       *庄家信息
+       *是否能投注 机器人服务用
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
+       * <code>optional bool canBet = 3;</code>
        */
-      public Builder setBankerInfo(com.dafagame.protocol.lhdz.Lhdz.BankerInfo value) {
-        if (bankerInfoBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          bankerInfo_ = value;
-          onChanged();
-        } else {
-          bankerInfoBuilder_.setMessage(value);
-        }
+      public Builder setCanBet(boolean value) {
         bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
-       */
-      public Builder setBankerInfo(
-          com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder builderForValue) {
-        if (bankerInfoBuilder_ == null) {
-          bankerInfo_ = builderForValue.build();
-          onChanged();
-        } else {
-          bankerInfoBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
-       */
-      public Builder mergeBankerInfo(com.dafagame.protocol.lhdz.Lhdz.BankerInfo value) {
-        if (bankerInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              bankerInfo_ != null &&
-              bankerInfo_ != com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance()) {
-            bankerInfo_ =
-              com.dafagame.protocol.lhdz.Lhdz.BankerInfo.newBuilder(bankerInfo_).mergeFrom(value).buildPartial();
-          } else {
-            bankerInfo_ = value;
-          }
-          onChanged();
-        } else {
-          bankerInfoBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
-       */
-      public Builder clearBankerInfo() {
-        if (bankerInfoBuilder_ == null) {
-          bankerInfo_ = null;
-          onChanged();
-        } else {
-          bankerInfoBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder getBankerInfoBuilder() {
-        bitField0_ |= 0x00000004;
+        canBet_ = value;
         onChanged();
-        return getBankerInfoFieldBuilder().getBuilder();
+        return this;
       }
       /**
        * <pre>
-       *庄家信息
+       *是否能投注 机器人服务用
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
+       * <code>optional bool canBet = 3;</code>
        */
-      public com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder getBankerInfoOrBuilder() {
-        if (bankerInfoBuilder_ != null) {
-          return bankerInfoBuilder_.getMessageOrBuilder();
-        } else {
-          return bankerInfo_ == null ?
-              com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance() : bankerInfo_;
-        }
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.lhdz.Lhdz.BankerInfo, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder> 
-          getBankerInfoFieldBuilder() {
-        if (bankerInfoBuilder_ == null) {
-          bankerInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.lhdz.Lhdz.BankerInfo, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder>(
-                  getBankerInfo(),
-                  getParentForChildren(),
-                  isClean());
-          bankerInfo_ = null;
-        }
-        return bankerInfoBuilder_;
+      public Builder clearCanBet() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        canBet_ = false;
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9690,7 +8970,7 @@ public final class Lhdz {
      *倒计时时间
      * </pre>
      *
-     * <code>optional int32 count_down = 1;</code>
+     * <code>optional int32 countDown = 1;</code>
      */
     boolean hasCountDown();
     /**
@@ -9698,87 +8978,9 @@ public final class Lhdz {
      *倒计时时间
      * </pre>
      *
-     * <code>optional int32 count_down = 1;</code>
+     * <code>optional int32 countDown = 1;</code>
      */
     int getCountDown();
-
-    /**
-     * <pre>
-     *输赢 庄家用 正 赢 负 输
-     * </pre>
-     *
-     * <code>optional string state = 2;</code>
-     */
-    boolean hasState();
-    /**
-     * <pre>
-     *输赢 庄家用 正 赢 负 输
-     * </pre>
-     *
-     * <code>optional string state = 2;</code>
-     */
-    java.lang.String getState();
-    /**
-     * <pre>
-     *输赢 庄家用 正 赢 负 输
-     * </pre>
-     *
-     * <code>optional string state = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getStateBytes();
-
-    /**
-     * <pre>
-     *牌型
-     * </pre>
-     *
-     * <code>optional string type = 3;</code>
-     */
-    boolean hasType();
-    /**
-     * <pre>
-     *牌型
-     * </pre>
-     *
-     * <code>optional string type = 3;</code>
-     */
-    java.lang.String getType();
-    /**
-     * <pre>
-     *牌型
-     * </pre>
-     *
-     * <code>optional string type = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getTypeBytes();
-
-    /**
-     * <pre>
-     *扑克牌信息
-     * </pre>
-     *
-     * <code>optional string poker = 4;</code>
-     */
-    boolean hasPoker();
-    /**
-     * <pre>
-     *扑克牌信息
-     * </pre>
-     *
-     * <code>optional string poker = 4;</code>
-     */
-    java.lang.String getPoker();
-    /**
-     * <pre>
-     *扑克牌信息
-     * </pre>
-     *
-     * <code>optional string poker = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getPokerBytes();
   }
   /**
    * <pre>
@@ -9798,9 +9000,6 @@ public final class Lhdz {
     }
     private LotteryNtf() {
       countDown_ = 0;
-      state_ = "";
-      type_ = "";
-      poker_ = "";
     }
 
     @java.lang.Override
@@ -9836,24 +9035,6 @@ public final class Lhdz {
               countDown_ = input.readInt32();
               break;
             }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
-              state_ = bs;
-              break;
-            }
-            case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000004;
-              type_ = bs;
-              break;
-            }
-            case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000008;
-              poker_ = bs;
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9879,14 +9060,14 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int COUNT_DOWN_FIELD_NUMBER = 1;
+    public static final int COUNTDOWN_FIELD_NUMBER = 1;
     private int countDown_;
     /**
      * <pre>
      *倒计时时间
      * </pre>
      *
-     * <code>optional int32 count_down = 1;</code>
+     * <code>optional int32 countDown = 1;</code>
      */
     public boolean hasCountDown() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -9896,172 +9077,10 @@ public final class Lhdz {
      *倒计时时间
      * </pre>
      *
-     * <code>optional int32 count_down = 1;</code>
+     * <code>optional int32 countDown = 1;</code>
      */
     public int getCountDown() {
       return countDown_;
-    }
-
-    public static final int STATE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object state_;
-    /**
-     * <pre>
-     *输赢 庄家用 正 赢 负 输
-     * </pre>
-     *
-     * <code>optional string state = 2;</code>
-     */
-    public boolean hasState() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <pre>
-     *输赢 庄家用 正 赢 负 输
-     * </pre>
-     *
-     * <code>optional string state = 2;</code>
-     */
-    public java.lang.String getState() {
-      java.lang.Object ref = state_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          state_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *输赢 庄家用 正 赢 负 输
-     * </pre>
-     *
-     * <code>optional string state = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStateBytes() {
-      java.lang.Object ref = state_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        state_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int TYPE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object type_;
-    /**
-     * <pre>
-     *牌型
-     * </pre>
-     *
-     * <code>optional string type = 3;</code>
-     */
-    public boolean hasType() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <pre>
-     *牌型
-     * </pre>
-     *
-     * <code>optional string type = 3;</code>
-     */
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          type_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *牌型
-     * </pre>
-     *
-     * <code>optional string type = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        type_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int POKER_FIELD_NUMBER = 4;
-    private volatile java.lang.Object poker_;
-    /**
-     * <pre>
-     *扑克牌信息
-     * </pre>
-     *
-     * <code>optional string poker = 4;</code>
-     */
-    public boolean hasPoker() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <pre>
-     *扑克牌信息
-     * </pre>
-     *
-     * <code>optional string poker = 4;</code>
-     */
-    public java.lang.String getPoker() {
-      java.lang.Object ref = poker_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          poker_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     *扑克牌信息
-     * </pre>
-     *
-     * <code>optional string poker = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPokerBytes() {
-      java.lang.Object ref = poker_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        poker_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10079,15 +9098,6 @@ public final class Lhdz {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, countDown_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, state_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, type_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, poker_);
-      }
       unknownFields.writeTo(output);
     }
 
@@ -10099,15 +9109,6 @@ public final class Lhdz {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, countDown_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, state_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, type_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, poker_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10130,21 +9131,6 @@ public final class Lhdz {
         result = result && (getCountDown()
             == other.getCountDown());
       }
-      result = result && (hasState() == other.hasState());
-      if (hasState()) {
-        result = result && getState()
-            .equals(other.getState());
-      }
-      result = result && (hasType() == other.hasType());
-      if (hasType()) {
-        result = result && getType()
-            .equals(other.getType());
-      }
-      result = result && (hasPoker() == other.hasPoker());
-      if (hasPoker()) {
-        result = result && getPoker()
-            .equals(other.getPoker());
-      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10157,20 +9143,8 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCountDown()) {
-        hash = (37 * hash) + COUNT_DOWN_FIELD_NUMBER;
+        hash = (37 * hash) + COUNTDOWN_FIELD_NUMBER;
         hash = (53 * hash) + getCountDown();
-      }
-      if (hasState()) {
-        hash = (37 * hash) + STATE_FIELD_NUMBER;
-        hash = (53 * hash) + getState().hashCode();
-      }
-      if (hasType()) {
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getType().hashCode();
-      }
-      if (hasPoker()) {
-        hash = (37 * hash) + POKER_FIELD_NUMBER;
-        hash = (53 * hash) + getPoker().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -10307,12 +9281,6 @@ public final class Lhdz {
         super.clear();
         countDown_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        state_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        type_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
-        poker_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -10341,18 +9309,6 @@ public final class Lhdz {
           to_bitField0_ |= 0x00000001;
         }
         result.countDown_ = countDown_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.state_ = state_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.type_ = type_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.poker_ = poker_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10398,21 +9354,6 @@ public final class Lhdz {
         if (other.hasCountDown()) {
           setCountDown(other.getCountDown());
         }
-        if (other.hasState()) {
-          bitField0_ |= 0x00000002;
-          state_ = other.state_;
-          onChanged();
-        }
-        if (other.hasType()) {
-          bitField0_ |= 0x00000004;
-          type_ = other.type_;
-          onChanged();
-        }
-        if (other.hasPoker()) {
-          bitField0_ |= 0x00000008;
-          poker_ = other.poker_;
-          onChanged();
-        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -10447,7 +9388,7 @@ public final class Lhdz {
        *倒计时时间
        * </pre>
        *
-       * <code>optional int32 count_down = 1;</code>
+       * <code>optional int32 countDown = 1;</code>
        */
       public boolean hasCountDown() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -10457,7 +9398,7 @@ public final class Lhdz {
        *倒计时时间
        * </pre>
        *
-       * <code>optional int32 count_down = 1;</code>
+       * <code>optional int32 countDown = 1;</code>
        */
       public int getCountDown() {
         return countDown_;
@@ -10467,7 +9408,7 @@ public final class Lhdz {
        *倒计时时间
        * </pre>
        *
-       * <code>optional int32 count_down = 1;</code>
+       * <code>optional int32 countDown = 1;</code>
        */
       public Builder setCountDown(int value) {
         bitField0_ |= 0x00000001;
@@ -10480,311 +9421,11 @@ public final class Lhdz {
        *倒计时时间
        * </pre>
        *
-       * <code>optional int32 count_down = 1;</code>
+       * <code>optional int32 countDown = 1;</code>
        */
       public Builder clearCountDown() {
         bitField0_ = (bitField0_ & ~0x00000001);
         countDown_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object state_ = "";
-      /**
-       * <pre>
-       *输赢 庄家用 正 赢 负 输
-       * </pre>
-       *
-       * <code>optional string state = 2;</code>
-       */
-      public boolean hasState() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <pre>
-       *输赢 庄家用 正 赢 负 输
-       * </pre>
-       *
-       * <code>optional string state = 2;</code>
-       */
-      public java.lang.String getState() {
-        java.lang.Object ref = state_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            state_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *输赢 庄家用 正 赢 负 输
-       * </pre>
-       *
-       * <code>optional string state = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getStateBytes() {
-        java.lang.Object ref = state_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          state_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *输赢 庄家用 正 赢 负 输
-       * </pre>
-       *
-       * <code>optional string state = 2;</code>
-       */
-      public Builder setState(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        state_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *输赢 庄家用 正 赢 负 输
-       * </pre>
-       *
-       * <code>optional string state = 2;</code>
-       */
-      public Builder clearState() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        state_ = getDefaultInstance().getState();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *输赢 庄家用 正 赢 负 输
-       * </pre>
-       *
-       * <code>optional string state = 2;</code>
-       */
-      public Builder setStateBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        state_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object type_ = "";
-      /**
-       * <pre>
-       *牌型
-       * </pre>
-       *
-       * <code>optional string type = 3;</code>
-       */
-      public boolean hasType() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <pre>
-       *牌型
-       * </pre>
-       *
-       * <code>optional string type = 3;</code>
-       */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            type_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *牌型
-       * </pre>
-       *
-       * <code>optional string type = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          type_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *牌型
-       * </pre>
-       *
-       * <code>optional string type = 3;</code>
-       */
-      public Builder setType(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *牌型
-       * </pre>
-       *
-       * <code>optional string type = 3;</code>
-       */
-      public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        type_ = getDefaultInstance().getType();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *牌型
-       * </pre>
-       *
-       * <code>optional string type = 3;</code>
-       */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        type_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object poker_ = "";
-      /**
-       * <pre>
-       *扑克牌信息
-       * </pre>
-       *
-       * <code>optional string poker = 4;</code>
-       */
-      public boolean hasPoker() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <pre>
-       *扑克牌信息
-       * </pre>
-       *
-       * <code>optional string poker = 4;</code>
-       */
-      public java.lang.String getPoker() {
-        java.lang.Object ref = poker_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            poker_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <pre>
-       *扑克牌信息
-       * </pre>
-       *
-       * <code>optional string poker = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getPokerBytes() {
-        java.lang.Object ref = poker_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          poker_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       *扑克牌信息
-       * </pre>
-       *
-       * <code>optional string poker = 4;</code>
-       */
-      public Builder setPoker(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        poker_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *扑克牌信息
-       * </pre>
-       *
-       * <code>optional string poker = 4;</code>
-       */
-      public Builder clearPoker() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        poker_ = getDefaultInstance().getPoker();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *扑克牌信息
-       * </pre>
-       *
-       * <code>optional string poker = 4;</code>
-       */
-      public Builder setPokerBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        poker_ = value;
         onChanged();
         return this;
       }
@@ -10846,52 +9487,52 @@ public final class Lhdz {
      *输赢 庄家用 正 赢 负 输
      * </pre>
      *
-     * <code>optional string state = 1;</code>
+     * <code>optional string pokerState = 1;</code>
      */
-    boolean hasState();
+    boolean hasPokerState();
     /**
      * <pre>
      *输赢 庄家用 正 赢 负 输
      * </pre>
      *
-     * <code>optional string state = 1;</code>
+     * <code>optional string pokerState = 1;</code>
      */
-    java.lang.String getState();
+    java.lang.String getPokerState();
     /**
      * <pre>
      *输赢 庄家用 正 赢 负 输
      * </pre>
      *
-     * <code>optional string state = 1;</code>
+     * <code>optional string pokerState = 1;</code>
      */
     com.google.protobuf.ByteString
-        getStateBytes();
+        getPokerStateBytes();
 
     /**
      * <pre>
      *牌型
      * </pre>
      *
-     * <code>optional string type = 2;</code>
+     * <code>optional string pokerType = 2;</code>
      */
-    boolean hasType();
+    boolean hasPokerType();
     /**
      * <pre>
      *牌型
      * </pre>
      *
-     * <code>optional string type = 2;</code>
+     * <code>optional string pokerType = 2;</code>
      */
-    java.lang.String getType();
+    java.lang.String getPokerType();
     /**
      * <pre>
      *牌型
      * </pre>
      *
-     * <code>optional string type = 2;</code>
+     * <code>optional string pokerType = 2;</code>
      */
     com.google.protobuf.ByteString
-        getTypeBytes();
+        getPokerTypeBytes();
 
     /**
      * <pre>
@@ -10936,8 +9577,8 @@ public final class Lhdz {
       super(builder);
     }
     private PokerInfoNtf() {
-      state_ = "";
-      type_ = "";
+      pokerState_ = "";
+      pokerType_ = "";
       poker_ = "";
     }
 
@@ -10972,13 +9613,13 @@ public final class Lhdz {
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              state_ = bs;
+              pokerState_ = bs;
               break;
             }
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              type_ = bs;
+              pokerType_ = bs;
               break;
             }
             case 26: {
@@ -11012,16 +9653,16 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int STATE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object state_;
+    public static final int POKERSTATE_FIELD_NUMBER = 1;
+    private volatile java.lang.Object pokerState_;
     /**
      * <pre>
      *输赢 庄家用 正 赢 负 输
      * </pre>
      *
-     * <code>optional string state = 1;</code>
+     * <code>optional string pokerState = 1;</code>
      */
-    public boolean hasState() {
+    public boolean hasPokerState() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
@@ -11029,10 +9670,10 @@ public final class Lhdz {
      *输赢 庄家用 正 赢 负 输
      * </pre>
      *
-     * <code>optional string state = 1;</code>
+     * <code>optional string pokerState = 1;</code>
      */
-    public java.lang.String getState() {
-      java.lang.Object ref = state_;
+    public java.lang.String getPokerState() {
+      java.lang.Object ref = pokerState_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -11040,7 +9681,7 @@ public final class Lhdz {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          state_ = s;
+          pokerState_ = s;
         }
         return s;
       }
@@ -11050,32 +9691,32 @@ public final class Lhdz {
      *输赢 庄家用 正 赢 负 输
      * </pre>
      *
-     * <code>optional string state = 1;</code>
+     * <code>optional string pokerState = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getStateBytes() {
-      java.lang.Object ref = state_;
+        getPokerStateBytes() {
+      java.lang.Object ref = pokerState_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        state_ = b;
+        pokerState_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    public static final int TYPE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object type_;
+    public static final int POKERTYPE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object pokerType_;
     /**
      * <pre>
      *牌型
      * </pre>
      *
-     * <code>optional string type = 2;</code>
+     * <code>optional string pokerType = 2;</code>
      */
-    public boolean hasType() {
+    public boolean hasPokerType() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
@@ -11083,10 +9724,10 @@ public final class Lhdz {
      *牌型
      * </pre>
      *
-     * <code>optional string type = 2;</code>
+     * <code>optional string pokerType = 2;</code>
      */
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
+    public java.lang.String getPokerType() {
+      java.lang.Object ref = pokerType_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -11094,7 +9735,7 @@ public final class Lhdz {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          type_ = s;
+          pokerType_ = s;
         }
         return s;
       }
@@ -11104,16 +9745,16 @@ public final class Lhdz {
      *牌型
      * </pre>
      *
-     * <code>optional string type = 2;</code>
+     * <code>optional string pokerType = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
+        getPokerTypeBytes() {
+      java.lang.Object ref = pokerType_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        type_ = b;
+        pokerType_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -11187,10 +9828,10 @@ public final class Lhdz {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, state_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, pokerState_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, type_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, pokerType_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, poker_);
@@ -11204,10 +9845,10 @@ public final class Lhdz {
 
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, state_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, pokerState_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, type_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, pokerType_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, poker_);
@@ -11228,15 +9869,15 @@ public final class Lhdz {
       com.dafagame.protocol.lhdz.Lhdz.PokerInfoNtf other = (com.dafagame.protocol.lhdz.Lhdz.PokerInfoNtf) obj;
 
       boolean result = true;
-      result = result && (hasState() == other.hasState());
-      if (hasState()) {
-        result = result && getState()
-            .equals(other.getState());
+      result = result && (hasPokerState() == other.hasPokerState());
+      if (hasPokerState()) {
+        result = result && getPokerState()
+            .equals(other.getPokerState());
       }
-      result = result && (hasType() == other.hasType());
-      if (hasType()) {
-        result = result && getType()
-            .equals(other.getType());
+      result = result && (hasPokerType() == other.hasPokerType());
+      if (hasPokerType()) {
+        result = result && getPokerType()
+            .equals(other.getPokerType());
       }
       result = result && (hasPoker() == other.hasPoker());
       if (hasPoker()) {
@@ -11254,13 +9895,13 @@ public final class Lhdz {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasState()) {
-        hash = (37 * hash) + STATE_FIELD_NUMBER;
-        hash = (53 * hash) + getState().hashCode();
+      if (hasPokerState()) {
+        hash = (37 * hash) + POKERSTATE_FIELD_NUMBER;
+        hash = (53 * hash) + getPokerState().hashCode();
       }
-      if (hasType()) {
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getType().hashCode();
+      if (hasPokerType()) {
+        hash = (37 * hash) + POKERTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getPokerType().hashCode();
       }
       if (hasPoker()) {
         hash = (37 * hash) + POKER_FIELD_NUMBER;
@@ -11399,9 +10040,9 @@ public final class Lhdz {
       }
       public Builder clear() {
         super.clear();
-        state_ = "";
+        pokerState_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = "";
+        pokerType_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         poker_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -11432,11 +10073,11 @@ public final class Lhdz {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.state_ = state_;
+        result.pokerState_ = pokerState_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.type_ = type_;
+        result.pokerType_ = pokerType_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
@@ -11483,14 +10124,14 @@ public final class Lhdz {
 
       public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.PokerInfoNtf other) {
         if (other == com.dafagame.protocol.lhdz.Lhdz.PokerInfoNtf.getDefaultInstance()) return this;
-        if (other.hasState()) {
+        if (other.hasPokerState()) {
           bitField0_ |= 0x00000001;
-          state_ = other.state_;
+          pokerState_ = other.pokerState_;
           onChanged();
         }
-        if (other.hasType()) {
+        if (other.hasPokerType()) {
           bitField0_ |= 0x00000002;
-          type_ = other.type_;
+          pokerType_ = other.pokerType_;
           onChanged();
         }
         if (other.hasPoker()) {
@@ -11526,15 +10167,15 @@ public final class Lhdz {
       }
       private int bitField0_;
 
-      private java.lang.Object state_ = "";
+      private java.lang.Object pokerState_ = "";
       /**
        * <pre>
        *输赢 庄家用 正 赢 负 输
        * </pre>
        *
-       * <code>optional string state = 1;</code>
+       * <code>optional string pokerState = 1;</code>
        */
-      public boolean hasState() {
+      public boolean hasPokerState() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
@@ -11542,16 +10183,16 @@ public final class Lhdz {
        *输赢 庄家用 正 赢 负 输
        * </pre>
        *
-       * <code>optional string state = 1;</code>
+       * <code>optional string pokerState = 1;</code>
        */
-      public java.lang.String getState() {
-        java.lang.Object ref = state_;
+      public java.lang.String getPokerState() {
+        java.lang.Object ref = pokerState_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            state_ = s;
+            pokerState_ = s;
           }
           return s;
         } else {
@@ -11563,16 +10204,16 @@ public final class Lhdz {
        *输赢 庄家用 正 赢 负 输
        * </pre>
        *
-       * <code>optional string state = 1;</code>
+       * <code>optional string pokerState = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getStateBytes() {
-        java.lang.Object ref = state_;
+          getPokerStateBytes() {
+        java.lang.Object ref = pokerState_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          state_ = b;
+          pokerState_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -11583,15 +10224,15 @@ public final class Lhdz {
        *输赢 庄家用 正 赢 负 输
        * </pre>
        *
-       * <code>optional string state = 1;</code>
+       * <code>optional string pokerState = 1;</code>
        */
-      public Builder setState(
+      public Builder setPokerState(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        state_ = value;
+        pokerState_ = value;
         onChanged();
         return this;
       }
@@ -11600,11 +10241,11 @@ public final class Lhdz {
        *输赢 庄家用 正 赢 负 输
        * </pre>
        *
-       * <code>optional string state = 1;</code>
+       * <code>optional string pokerState = 1;</code>
        */
-      public Builder clearState() {
+      public Builder clearPokerState() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        state_ = getDefaultInstance().getState();
+        pokerState_ = getDefaultInstance().getPokerState();
         onChanged();
         return this;
       }
@@ -11613,28 +10254,28 @@ public final class Lhdz {
        *输赢 庄家用 正 赢 负 输
        * </pre>
        *
-       * <code>optional string state = 1;</code>
+       * <code>optional string pokerState = 1;</code>
        */
-      public Builder setStateBytes(
+      public Builder setPokerStateBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        state_ = value;
+        pokerState_ = value;
         onChanged();
         return this;
       }
 
-      private java.lang.Object type_ = "";
+      private java.lang.Object pokerType_ = "";
       /**
        * <pre>
        *牌型
        * </pre>
        *
-       * <code>optional string type = 2;</code>
+       * <code>optional string pokerType = 2;</code>
        */
-      public boolean hasType() {
+      public boolean hasPokerType() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
@@ -11642,16 +10283,16 @@ public final class Lhdz {
        *牌型
        * </pre>
        *
-       * <code>optional string type = 2;</code>
+       * <code>optional string pokerType = 2;</code>
        */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
+      public java.lang.String getPokerType() {
+        java.lang.Object ref = pokerType_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            type_ = s;
+            pokerType_ = s;
           }
           return s;
         } else {
@@ -11663,16 +10304,16 @@ public final class Lhdz {
        *牌型
        * </pre>
        *
-       * <code>optional string type = 2;</code>
+       * <code>optional string pokerType = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
+          getPokerTypeBytes() {
+        java.lang.Object ref = pokerType_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          type_ = b;
+          pokerType_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -11683,15 +10324,15 @@ public final class Lhdz {
        *牌型
        * </pre>
        *
-       * <code>optional string type = 2;</code>
+       * <code>optional string pokerType = 2;</code>
        */
-      public Builder setType(
+      public Builder setPokerType(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        type_ = value;
+        pokerType_ = value;
         onChanged();
         return this;
       }
@@ -11700,11 +10341,11 @@ public final class Lhdz {
        *牌型
        * </pre>
        *
-       * <code>optional string type = 2;</code>
+       * <code>optional string pokerType = 2;</code>
        */
-      public Builder clearType() {
+      public Builder clearPokerType() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        type_ = getDefaultInstance().getType();
+        pokerType_ = getDefaultInstance().getPokerType();
         onChanged();
         return this;
       }
@@ -11713,15 +10354,15 @@ public final class Lhdz {
        *牌型
        * </pre>
        *
-       * <code>optional string type = 2;</code>
+       * <code>optional string pokerType = 2;</code>
        */
-      public Builder setTypeBytes(
+      public Builder setPokerTypeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        type_ = value;
+        pokerType_ = value;
         onChanged();
         return this;
       }
@@ -11883,7 +10524,7 @@ public final class Lhdz {
      * 区域下注明细
      * </pre>
      *
-     * <code>repeated int32 bet_list = 2;</code>
+     * <code>repeated int32 betList = 2;</code>
      */
     java.util.List<java.lang.Integer> getBetListList();
     /**
@@ -11891,7 +10532,7 @@ public final class Lhdz {
      * 区域下注明细
      * </pre>
      *
-     * <code>repeated int32 bet_list = 2;</code>
+     * <code>repeated int32 betList = 2;</code>
      */
     int getBetListCount();
     /**
@@ -11899,7 +10540,7 @@ public final class Lhdz {
      * 区域下注明细
      * </pre>
      *
-     * <code>repeated int32 bet_list = 2;</code>
+     * <code>repeated int32 betList = 2;</code>
      */
     int getBetList(int index);
   }
@@ -11999,14 +10640,14 @@ public final class Lhdz {
               com.dafagame.protocol.lhdz.Lhdz.PlayerBetInfo.class, com.dafagame.protocol.lhdz.Lhdz.PlayerBetInfo.Builder.class);
     }
 
-    public static final int BET_LIST_FIELD_NUMBER = 2;
+    public static final int BETLIST_FIELD_NUMBER = 2;
     private java.util.List<java.lang.Integer> betList_;
     /**
      * <pre>
      * 区域下注明细
      * </pre>
      *
-     * <code>repeated int32 bet_list = 2;</code>
+     * <code>repeated int32 betList = 2;</code>
      */
     public java.util.List<java.lang.Integer>
         getBetListList() {
@@ -12017,7 +10658,7 @@ public final class Lhdz {
      * 区域下注明细
      * </pre>
      *
-     * <code>repeated int32 bet_list = 2;</code>
+     * <code>repeated int32 betList = 2;</code>
      */
     public int getBetListCount() {
       return betList_.size();
@@ -12027,7 +10668,7 @@ public final class Lhdz {
      * 区域下注明细
      * </pre>
      *
-     * <code>repeated int32 bet_list = 2;</code>
+     * <code>repeated int32 betList = 2;</code>
      */
     public int getBetList(int index) {
       return betList_.get(index);
@@ -12095,7 +10736,7 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (getBetListCount() > 0) {
-        hash = (37 * hash) + BET_LIST_FIELD_NUMBER;
+        hash = (37 * hash) + BETLIST_FIELD_NUMBER;
         hash = (53 * hash) + getBetListList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
@@ -12352,7 +10993,7 @@ public final class Lhdz {
        * 区域下注明细
        * </pre>
        *
-       * <code>repeated int32 bet_list = 2;</code>
+       * <code>repeated int32 betList = 2;</code>
        */
       public java.util.List<java.lang.Integer>
           getBetListList() {
@@ -12363,7 +11004,7 @@ public final class Lhdz {
        * 区域下注明细
        * </pre>
        *
-       * <code>repeated int32 bet_list = 2;</code>
+       * <code>repeated int32 betList = 2;</code>
        */
       public int getBetListCount() {
         return betList_.size();
@@ -12373,7 +11014,7 @@ public final class Lhdz {
        * 区域下注明细
        * </pre>
        *
-       * <code>repeated int32 bet_list = 2;</code>
+       * <code>repeated int32 betList = 2;</code>
        */
       public int getBetList(int index) {
         return betList_.get(index);
@@ -12383,7 +11024,7 @@ public final class Lhdz {
        * 区域下注明细
        * </pre>
        *
-       * <code>repeated int32 bet_list = 2;</code>
+       * <code>repeated int32 betList = 2;</code>
        */
       public Builder setBetList(
           int index, int value) {
@@ -12397,7 +11038,7 @@ public final class Lhdz {
        * 区域下注明细
        * </pre>
        *
-       * <code>repeated int32 bet_list = 2;</code>
+       * <code>repeated int32 betList = 2;</code>
        */
       public Builder addBetList(int value) {
         ensureBetListIsMutable();
@@ -12410,7 +11051,7 @@ public final class Lhdz {
        * 区域下注明细
        * </pre>
        *
-       * <code>repeated int32 bet_list = 2;</code>
+       * <code>repeated int32 betList = 2;</code>
        */
       public Builder addAllBetList(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -12425,7 +11066,7 @@ public final class Lhdz {
        * 区域下注明细
        * </pre>
        *
-       * <code>repeated int32 bet_list = 2;</code>
+       * <code>repeated int32 betList = 2;</code>
        */
       public Builder clearBetList() {
         betList_ = java.util.Collections.emptyList();
@@ -12508,7 +11149,7 @@ public final class Lhdz {
      *状态剩余时间
      * </pre>
      *
-     * <code>optional int32 remaining_time = 2;</code>
+     * <code>optional int32 remainingTime = 2;</code>
      */
     boolean hasRemainingTime();
     /**
@@ -12516,7 +11157,7 @@ public final class Lhdz {
      *状态剩余时间
      * </pre>
      *
-     * <code>optional int32 remaining_time = 2;</code>
+     * <code>optional int32 remainingTime = 2;</code>
      */
     int getRemainingTime();
 
@@ -12525,7 +11166,7 @@ public final class Lhdz {
      *桌子的走势
      * </pre>
      *
-     * <code>repeated string table_record_list = 3;</code>
+     * <code>repeated string tableRecordList = 3;</code>
      */
     java.util.List<java.lang.String>
         getTableRecordListList();
@@ -12534,7 +11175,7 @@ public final class Lhdz {
      *桌子的走势
      * </pre>
      *
-     * <code>repeated string table_record_list = 3;</code>
+     * <code>repeated string tableRecordList = 3;</code>
      */
     int getTableRecordListCount();
     /**
@@ -12542,7 +11183,7 @@ public final class Lhdz {
      *桌子的走势
      * </pre>
      *
-     * <code>repeated string table_record_list = 3;</code>
+     * <code>repeated string tableRecordList = 3;</code>
      */
     java.lang.String getTableRecordList(int index);
     /**
@@ -12550,7 +11191,7 @@ public final class Lhdz {
      *桌子的走势
      * </pre>
      *
-     * <code>repeated string table_record_list = 3;</code>
+     * <code>repeated string tableRecordList = 3;</code>
      */
     com.google.protobuf.ByteString
         getTableRecordListBytes(int index);
@@ -12560,7 +11201,7 @@ public final class Lhdz {
      *上庄需要的钱数
      * </pre>
      *
-     * <code>optional int32 banker_need_money = 4;</code>
+     * <code>optional int32 bankerNeedMoney = 4;</code>
      */
     boolean hasBankerNeedMoney();
     /**
@@ -12568,7 +11209,7 @@ public final class Lhdz {
      *上庄需要的钱数
      * </pre>
      *
-     * <code>optional int32 banker_need_money = 4;</code>
+     * <code>optional int32 bankerNeedMoney = 4;</code>
      */
     int getBankerNeedMoney();
 
@@ -12577,7 +11218,7 @@ public final class Lhdz {
      *玩家各区域的投注
      * </pre>
      *
-     * <code>repeated int64 player_area_bet = 5;</code>
+     * <code>repeated int64 playerAreaBet = 5;</code>
      */
     java.util.List<java.lang.Long> getPlayerAreaBetList();
     /**
@@ -12585,7 +11226,7 @@ public final class Lhdz {
      *玩家各区域的投注
      * </pre>
      *
-     * <code>repeated int64 player_area_bet = 5;</code>
+     * <code>repeated int64 playerAreaBet = 5;</code>
      */
     int getPlayerAreaBetCount();
     /**
@@ -12593,41 +11234,60 @@ public final class Lhdz {
      *玩家各区域的投注
      * </pre>
      *
-     * <code>repeated int64 player_area_bet = 5;</code>
+     * <code>repeated int64 playerAreaBet = 5;</code>
      */
     long getPlayerAreaBet(int index);
 
     /**
      * <pre>
-     *神算子下注信息
+     *特殊玩家下注信息
      * </pre>
      *
-     * <code>repeated int64 god_bet = 6;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
      */
-    java.util.List<java.lang.Long> getGodBetList();
+    java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> 
+        getSpeacialBetList();
     /**
      * <pre>
-     *神算子下注信息
+     *特殊玩家下注信息
      * </pre>
      *
-     * <code>repeated int64 god_bet = 6;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
      */
-    int getGodBetCount();
+    com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getSpeacialBet(int index);
     /**
      * <pre>
-     *神算子下注信息
+     *特殊玩家下注信息
      * </pre>
      *
-     * <code>repeated int64 god_bet = 6;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
      */
-    long getGodBet(int index);
+    int getSpeacialBetCount();
+    /**
+     * <pre>
+     *特殊玩家下注信息
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+     */
+    java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> 
+        getSpeacialBetOrBuilderList();
+    /**
+     * <pre>
+     *特殊玩家下注信息
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+     */
+    com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder getSpeacialBetOrBuilder(
+        int index);
 
     /**
      * <pre>
      *房间四个盘口的下注金额
      * </pre>
      *
-     * <code>repeated int64 room_area_bet = 7;</code>
+     * <code>repeated int64 roomAreaBet = 7;</code>
      */
     java.util.List<java.lang.Long> getRoomAreaBetList();
     /**
@@ -12635,7 +11295,7 @@ public final class Lhdz {
      *房间四个盘口的下注金额
      * </pre>
      *
-     * <code>repeated int64 room_area_bet = 7;</code>
+     * <code>repeated int64 roomAreaBet = 7;</code>
      */
     int getRoomAreaBetCount();
     /**
@@ -12643,32 +11303,45 @@ public final class Lhdz {
      *房间四个盘口的下注金额
      * </pre>
      *
-     * <code>repeated int64 room_area_bet = 7;</code>
+     * <code>repeated int64 roomAreaBet = 7;</code>
      */
     long getRoomAreaBet(int index);
 
     /**
+     * <code>repeated int32 stateTime = 8;</code>
+     */
+    java.util.List<java.lang.Integer> getStateTimeList();
+    /**
+     * <code>repeated int32 stateTime = 8;</code>
+     */
+    int getStateTimeCount();
+    /**
+     * <code>repeated int32 stateTime = 8;</code>
+     */
+    int getStateTime(int index);
+
+    /**
      * <pre>
-     *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+     *场次类型
      * </pre>
      *
-     * <code>required string round_type = 9;</code>
+     * <code>required string roundType = 9;</code>
      */
     boolean hasRoundType();
     /**
      * <pre>
-     *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+     *场次类型
      * </pre>
      *
-     * <code>required string round_type = 9;</code>
+     * <code>required string roundType = 9;</code>
      */
     java.lang.String getRoundType();
     /**
      * <pre>
-     *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+     *场次类型
      * </pre>
      *
-     * <code>required string round_type = 9;</code>
+     * <code>required string roundType = 9;</code>
      */
     com.google.protobuf.ByteString
         getRoundTypeBytes();
@@ -12678,7 +11351,7 @@ public final class Lhdz {
      *房间号
      * </pre>
      *
-     * <code>required string room_id = 10;</code>
+     * <code>required string roomId = 10;</code>
      */
     boolean hasRoomId();
     /**
@@ -12686,7 +11359,7 @@ public final class Lhdz {
      *房间号
      * </pre>
      *
-     * <code>required string room_id = 10;</code>
+     * <code>required string roomId = 10;</code>
      */
     java.lang.String getRoomId();
     /**
@@ -12694,7 +11367,7 @@ public final class Lhdz {
      *房间号
      * </pre>
      *
-     * <code>required string room_id = 10;</code>
+     * <code>required string roomId = 10;</code>
      */
     com.google.protobuf.ByteString
         getRoomIdBytes();
@@ -12727,10 +11400,27 @@ public final class Lhdz {
 
     /**
      * <pre>
+     *是否允许上庄
+     * </pre>
+     *
+     * <code>optional bool isAllowBanker = 12;</code>
+     */
+    boolean hasIsAllowBanker();
+    /**
+     * <pre>
+     *是否允许上庄
+     * </pre>
+     *
+     * <code>optional bool isAllowBanker = 12;</code>
+     */
+    boolean getIsAllowBanker();
+
+    /**
+     * <pre>
      *玩家的余额
      * </pre>
      *
-     * <code>optional string balance = 14;</code>
+     * <code>optional string balance = 13;</code>
      */
     boolean hasBalance();
     /**
@@ -12738,7 +11428,7 @@ public final class Lhdz {
      *玩家的余额
      * </pre>
      *
-     * <code>optional string balance = 14;</code>
+     * <code>optional string balance = 13;</code>
      */
     java.lang.String getBalance();
     /**
@@ -12746,7 +11436,7 @@ public final class Lhdz {
      *玩家的余额
      * </pre>
      *
-     * <code>optional string balance = 14;</code>
+     * <code>optional string balance = 13;</code>
      */
     com.google.protobuf.ByteString
         getBalanceBytes();
@@ -12756,7 +11446,7 @@ public final class Lhdz {
      *在线人数
      * </pre>
      *
-     * <code>optional int32 online_number = 15;</code>
+     * <code>optional int32 onlineNumber = 14;</code>
      */
     boolean hasOnlineNumber();
     /**
@@ -12764,41 +11454,33 @@ public final class Lhdz {
      *在线人数
      * </pre>
      *
-     * <code>optional int32 online_number = 15;</code>
+     * <code>optional int32 onlineNumber = 14;</code>
      */
     int getOnlineNumber();
 
     /**
      * <pre>
-     *庄家信息
+     *能否续投
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
+     * <code>optional bool canContinueBet = 15;</code>
      */
-    boolean hasBankerInfo();
+    boolean hasCanContinueBet();
     /**
      * <pre>
-     *庄家信息
+     *能否续投
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
+     * <code>optional bool canContinueBet = 15;</code>
      */
-    com.dafagame.protocol.lhdz.Lhdz.BankerInfo getBankerInfo();
-    /**
-     * <pre>
-     *庄家信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
-     */
-    com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder getBankerInfoOrBuilder();
+    boolean getCanContinueBet();
 
     /**
      * <pre>
      *庄家列表信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
      */
     boolean hasBankerList();
     /**
@@ -12806,7 +11488,7 @@ public final class Lhdz {
      *庄家列表信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BankerList getBankerList();
     /**
@@ -12814,7 +11496,7 @@ public final class Lhdz {
      *庄家列表信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.BankerListOrBuilder getBankerListOrBuilder();
 
@@ -12823,7 +11505,7 @@ public final class Lhdz {
      *赔率配置
      * </pre>
      *
-     * <code>repeated int32 multiple_enum = 18;</code>
+     * <code>repeated int32 multipleEnum = 17;</code>
      */
     java.util.List<java.lang.Integer> getMultipleEnumList();
     /**
@@ -12831,7 +11513,7 @@ public final class Lhdz {
      *赔率配置
      * </pre>
      *
-     * <code>repeated int32 multiple_enum = 18;</code>
+     * <code>repeated int32 multipleEnum = 17;</code>
      */
     int getMultipleEnumCount();
     /**
@@ -12839,7 +11521,7 @@ public final class Lhdz {
      *赔率配置
      * </pre>
      *
-     * <code>repeated int32 multiple_enum = 18;</code>
+     * <code>repeated int32 multipleEnum = 17;</code>
      */
     int getMultipleEnum(int index);
 
@@ -12848,7 +11530,7 @@ public final class Lhdz {
      *投注配置
      * </pre>
      *
-     * <code>repeated int32 chip_enum = 19;</code>
+     * <code>repeated int32 chipEnum = 18;</code>
      */
     java.util.List<java.lang.Integer> getChipEnumList();
     /**
@@ -12856,7 +11538,7 @@ public final class Lhdz {
      *投注配置
      * </pre>
      *
-     * <code>repeated int32 chip_enum = 19;</code>
+     * <code>repeated int32 chipEnum = 18;</code>
      */
     int getChipEnumCount();
     /**
@@ -12864,7 +11546,7 @@ public final class Lhdz {
      *投注配置
      * </pre>
      *
-     * <code>repeated int32 chip_enum = 19;</code>
+     * <code>repeated int32 chipEnum = 18;</code>
      */
     int getChipEnum(int index);
 
@@ -12873,7 +11555,7 @@ public final class Lhdz {
      *房间最低下注本金
      * </pre>
      *
-     * <code>optional int32 min_bet_need = 20;</code>
+     * <code>optional int32 minBetNeed = 19;</code>
      */
     boolean hasMinBetNeed();
     /**
@@ -12881,9 +11563,129 @@ public final class Lhdz {
      *房间最低下注本金
      * </pre>
      *
-     * <code>optional int32 min_bet_need = 20;</code>
+     * <code>optional int32 minBetNeed = 19;</code>
      */
     int getMinBetNeed();
+
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 20;</code>
+     */
+    boolean hasPokerState();
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 20;</code>
+     */
+    java.lang.String getPokerState();
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 20;</code>
+     */
+    com.google.protobuf.ByteString
+        getPokerStateBytes();
+
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 21;</code>
+     */
+    boolean hasPokerType();
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 21;</code>
+     */
+    java.lang.String getPokerType();
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 21;</code>
+     */
+    com.google.protobuf.ByteString
+        getPokerTypeBytes();
+
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 22;</code>
+     */
+    boolean hasPoker();
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 22;</code>
+     */
+    java.lang.String getPoker();
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 22;</code>
+     */
+    com.google.protobuf.ByteString
+        getPokerBytes();
+
+    /**
+     * <pre>
+     *历史次数统计
+     * </pre>
+     *
+     * <code>repeated int32 histroyTimes = 23;</code>
+     */
+    java.util.List<java.lang.Integer> getHistroyTimesList();
+    /**
+     * <pre>
+     *历史次数统计
+     * </pre>
+     *
+     * <code>repeated int32 histroyTimes = 23;</code>
+     */
+    int getHistroyTimesCount();
+    /**
+     * <pre>
+     *历史次数统计
+     * </pre>
+     *
+     * <code>repeated int32 histroyTimes = 23;</code>
+     */
+    int getHistroyTimes(int index);
+
+    /**
+     * <pre>
+     *上庄次数
+     * </pre>
+     *
+     * <code>optional int32 bankerTimes = 24;</code>
+     */
+    boolean hasBankerTimes();
+    /**
+     * <pre>
+     *上庄次数
+     * </pre>
+     *
+     * <code>optional int32 bankerTimes = 24;</code>
+     */
+    int getBankerTimes();
   }
   /**
    * <pre>
@@ -12902,21 +11704,29 @@ public final class Lhdz {
       super(builder);
     }
     private EnterPlayerSceneNtf() {
-      state_ = 1;
+      state_ = 0;
       remainingTime_ = 0;
       tableRecordList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bankerNeedMoney_ = 0;
       playerAreaBet_ = java.util.Collections.emptyList();
-      godBet_ = java.util.Collections.emptyList();
+      speacialBet_ = java.util.Collections.emptyList();
       roomAreaBet_ = java.util.Collections.emptyList();
+      stateTime_ = java.util.Collections.emptyList();
       roundType_ = "";
       roomId_ = "";
       inning_ = "";
+      isAllowBanker_ = false;
       balance_ = "";
       onlineNumber_ = 0;
+      canContinueBet_ = false;
       multipleEnum_ = java.util.Collections.emptyList();
       chipEnum_ = java.util.Collections.emptyList();
       minBetNeed_ = 0;
+      pokerState_ = "";
+      pokerType_ = "";
+      poker_ = "";
+      histroyTimes_ = java.util.Collections.emptyList();
+      bankerTimes_ = 0;
     }
 
     @java.lang.Override
@@ -12998,25 +11808,13 @@ public final class Lhdz {
               input.popLimit(limit);
               break;
             }
-            case 48: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                godBet_ = new java.util.ArrayList<java.lang.Long>();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              godBet_.add(input.readInt64());
-              break;
-            }
             case 50: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020) && input.getBytesUntilLimit() > 0) {
-                godBet_ = new java.util.ArrayList<java.lang.Long>();
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                speacialBet_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo>();
                 mutable_bitField0_ |= 0x00000020;
               }
-              while (input.getBytesUntilLimit() > 0) {
-                godBet_.add(input.readInt64());
-              }
-              input.popLimit(limit);
+              speacialBet_.add(
+                  input.readMessage(com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.PARSER, extensionRegistry));
               break;
             }
             case 56: {
@@ -13040,6 +11838,27 @@ public final class Lhdz {
               input.popLimit(limit);
               break;
             }
+            case 64: {
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                stateTime_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              stateTime_.add(input.readInt32());
+              break;
+            }
+            case 66: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080) && input.getBytesUntilLimit() > 0) {
+                stateTime_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                stateTime_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
             case 74: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
@@ -13058,33 +11877,30 @@ public final class Lhdz {
               inning_ = bs;
               break;
             }
-            case 114: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 96: {
               bitField0_ |= 0x00000040;
+              isAllowBanker_ = input.readBool();
+              break;
+            }
+            case 106: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000080;
               balance_ = bs;
               break;
             }
-            case 120: {
-              bitField0_ |= 0x00000080;
+            case 112: {
+              bitField0_ |= 0x00000100;
               onlineNumber_ = input.readInt32();
               break;
             }
-            case 130: {
-              com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000100) == 0x00000100)) {
-                subBuilder = bankerInfo_.toBuilder();
-              }
-              bankerInfo_ = input.readMessage(com.dafagame.protocol.lhdz.Lhdz.BankerInfo.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(bankerInfo_);
-                bankerInfo_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000100;
+            case 120: {
+              bitField0_ |= 0x00000200;
+              canContinueBet_ = input.readBool();
               break;
             }
-            case 138: {
+            case 130: {
               com.dafagame.protocol.lhdz.Lhdz.BankerList.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000200) == 0x00000200)) {
+              if (((bitField0_ & 0x00000400) == 0x00000400)) {
                 subBuilder = bankerList_.toBuilder();
               }
               bankerList_ = input.readMessage(com.dafagame.protocol.lhdz.Lhdz.BankerList.PARSER, extensionRegistry);
@@ -13092,23 +11908,23 @@ public final class Lhdz {
                 subBuilder.mergeFrom(bankerList_);
                 bankerList_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000400;
               break;
             }
-            case 144: {
-              if (!((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
+            case 136: {
+              if (!((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
                 multipleEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00004000;
+                mutable_bitField0_ |= 0x00010000;
               }
               multipleEnum_.add(input.readInt32());
               break;
             }
-            case 146: {
+            case 138: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00004000) == 0x00004000) && input.getBytesUntilLimit() > 0) {
+              if (!((mutable_bitField0_ & 0x00010000) == 0x00010000) && input.getBytesUntilLimit() > 0) {
                 multipleEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00004000;
+                mutable_bitField0_ |= 0x00010000;
               }
               while (input.getBytesUntilLimit() > 0) {
                 multipleEnum_.add(input.readInt32());
@@ -13116,20 +11932,20 @@ public final class Lhdz {
               input.popLimit(limit);
               break;
             }
-            case 152: {
-              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+            case 144: {
+              if (!((mutable_bitField0_ & 0x00020000) == 0x00020000)) {
                 chipEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00008000;
+                mutable_bitField0_ |= 0x00020000;
               }
               chipEnum_.add(input.readInt32());
               break;
             }
-            case 154: {
+            case 146: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000) && input.getBytesUntilLimit() > 0) {
+              if (!((mutable_bitField0_ & 0x00020000) == 0x00020000) && input.getBytesUntilLimit() > 0) {
                 chipEnum_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00008000;
+                mutable_bitField0_ |= 0x00020000;
               }
               while (input.getBytesUntilLimit() > 0) {
                 chipEnum_.add(input.readInt32());
@@ -13137,9 +11953,53 @@ public final class Lhdz {
               input.popLimit(limit);
               break;
             }
-            case 160: {
-              bitField0_ |= 0x00000400;
+            case 152: {
+              bitField0_ |= 0x00000800;
               minBetNeed_ = input.readInt32();
+              break;
+            }
+            case 162: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00001000;
+              pokerState_ = bs;
+              break;
+            }
+            case 170: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00002000;
+              pokerType_ = bs;
+              break;
+            }
+            case 178: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00004000;
+              poker_ = bs;
+              break;
+            }
+            case 184: {
+              if (!((mutable_bitField0_ & 0x00400000) == 0x00400000)) {
+                histroyTimes_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00400000;
+              }
+              histroyTimes_.add(input.readInt32());
+              break;
+            }
+            case 186: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00400000) == 0x00400000) && input.getBytesUntilLimit() > 0) {
+                histroyTimes_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00400000;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                histroyTimes_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 192: {
+              bitField0_ |= 0x00008000;
+              bankerTimes_ = input.readInt32();
               break;
             }
           }
@@ -13157,16 +12017,22 @@ public final class Lhdz {
           playerAreaBet_ = java.util.Collections.unmodifiableList(playerAreaBet_);
         }
         if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-          godBet_ = java.util.Collections.unmodifiableList(godBet_);
+          speacialBet_ = java.util.Collections.unmodifiableList(speacialBet_);
         }
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           roomAreaBet_ = java.util.Collections.unmodifiableList(roomAreaBet_);
         }
-        if (((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          stateTime_ = java.util.Collections.unmodifiableList(stateTime_);
+        }
+        if (((mutable_bitField0_ & 0x00010000) == 0x00010000)) {
           multipleEnum_ = java.util.Collections.unmodifiableList(multipleEnum_);
         }
-        if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+        if (((mutable_bitField0_ & 0x00020000) == 0x00020000)) {
           chipEnum_ = java.util.Collections.unmodifiableList(chipEnum_);
+        }
+        if (((mutable_bitField0_ & 0x00400000) == 0x00400000)) {
+          histroyTimes_ = java.util.Collections.unmodifiableList(histroyTimes_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -13209,14 +12075,14 @@ public final class Lhdz {
       return result == null ? com.dafagame.protocol.lhdz.Lhdz.State.Beting : result;
     }
 
-    public static final int REMAINING_TIME_FIELD_NUMBER = 2;
+    public static final int REMAININGTIME_FIELD_NUMBER = 2;
     private int remainingTime_;
     /**
      * <pre>
      *状态剩余时间
      * </pre>
      *
-     * <code>optional int32 remaining_time = 2;</code>
+     * <code>optional int32 remainingTime = 2;</code>
      */
     public boolean hasRemainingTime() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -13226,20 +12092,20 @@ public final class Lhdz {
      *状态剩余时间
      * </pre>
      *
-     * <code>optional int32 remaining_time = 2;</code>
+     * <code>optional int32 remainingTime = 2;</code>
      */
     public int getRemainingTime() {
       return remainingTime_;
     }
 
-    public static final int TABLE_RECORD_LIST_FIELD_NUMBER = 3;
+    public static final int TABLERECORDLIST_FIELD_NUMBER = 3;
     private com.google.protobuf.LazyStringList tableRecordList_;
     /**
      * <pre>
      *桌子的走势
      * </pre>
      *
-     * <code>repeated string table_record_list = 3;</code>
+     * <code>repeated string tableRecordList = 3;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getTableRecordListList() {
@@ -13250,7 +12116,7 @@ public final class Lhdz {
      *桌子的走势
      * </pre>
      *
-     * <code>repeated string table_record_list = 3;</code>
+     * <code>repeated string tableRecordList = 3;</code>
      */
     public int getTableRecordListCount() {
       return tableRecordList_.size();
@@ -13260,7 +12126,7 @@ public final class Lhdz {
      *桌子的走势
      * </pre>
      *
-     * <code>repeated string table_record_list = 3;</code>
+     * <code>repeated string tableRecordList = 3;</code>
      */
     public java.lang.String getTableRecordList(int index) {
       return tableRecordList_.get(index);
@@ -13270,21 +12136,21 @@ public final class Lhdz {
      *桌子的走势
      * </pre>
      *
-     * <code>repeated string table_record_list = 3;</code>
+     * <code>repeated string tableRecordList = 3;</code>
      */
     public com.google.protobuf.ByteString
         getTableRecordListBytes(int index) {
       return tableRecordList_.getByteString(index);
     }
 
-    public static final int BANKER_NEED_MONEY_FIELD_NUMBER = 4;
+    public static final int BANKERNEEDMONEY_FIELD_NUMBER = 4;
     private int bankerNeedMoney_;
     /**
      * <pre>
      *上庄需要的钱数
      * </pre>
      *
-     * <code>optional int32 banker_need_money = 4;</code>
+     * <code>optional int32 bankerNeedMoney = 4;</code>
      */
     public boolean hasBankerNeedMoney() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -13294,20 +12160,20 @@ public final class Lhdz {
      *上庄需要的钱数
      * </pre>
      *
-     * <code>optional int32 banker_need_money = 4;</code>
+     * <code>optional int32 bankerNeedMoney = 4;</code>
      */
     public int getBankerNeedMoney() {
       return bankerNeedMoney_;
     }
 
-    public static final int PLAYER_AREA_BET_FIELD_NUMBER = 5;
+    public static final int PLAYERAREABET_FIELD_NUMBER = 5;
     private java.util.List<java.lang.Long> playerAreaBet_;
     /**
      * <pre>
      *玩家各区域的投注
      * </pre>
      *
-     * <code>repeated int64 player_area_bet = 5;</code>
+     * <code>repeated int64 playerAreaBet = 5;</code>
      */
     public java.util.List<java.lang.Long>
         getPlayerAreaBetList() {
@@ -13318,7 +12184,7 @@ public final class Lhdz {
      *玩家各区域的投注
      * </pre>
      *
-     * <code>repeated int64 player_area_bet = 5;</code>
+     * <code>repeated int64 playerAreaBet = 5;</code>
      */
     public int getPlayerAreaBetCount() {
       return playerAreaBet_.size();
@@ -13328,54 +12194,75 @@ public final class Lhdz {
      *玩家各区域的投注
      * </pre>
      *
-     * <code>repeated int64 player_area_bet = 5;</code>
+     * <code>repeated int64 playerAreaBet = 5;</code>
      */
     public long getPlayerAreaBet(int index) {
       return playerAreaBet_.get(index);
     }
 
-    public static final int GOD_BET_FIELD_NUMBER = 6;
-    private java.util.List<java.lang.Long> godBet_;
+    public static final int SPEACIALBET_FIELD_NUMBER = 6;
+    private java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> speacialBet_;
     /**
      * <pre>
-     *神算子下注信息
+     *特殊玩家下注信息
      * </pre>
      *
-     * <code>repeated int64 god_bet = 6;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
      */
-    public java.util.List<java.lang.Long>
-        getGodBetList() {
-      return godBet_;
+    public java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> getSpeacialBetList() {
+      return speacialBet_;
     }
     /**
      * <pre>
-     *神算子下注信息
+     *特殊玩家下注信息
      * </pre>
      *
-     * <code>repeated int64 god_bet = 6;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
      */
-    public int getGodBetCount() {
-      return godBet_.size();
+    public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> 
+        getSpeacialBetOrBuilderList() {
+      return speacialBet_;
     }
     /**
      * <pre>
-     *神算子下注信息
+     *特殊玩家下注信息
      * </pre>
      *
-     * <code>repeated int64 god_bet = 6;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
      */
-    public long getGodBet(int index) {
-      return godBet_.get(index);
+    public int getSpeacialBetCount() {
+      return speacialBet_.size();
+    }
+    /**
+     * <pre>
+     *特殊玩家下注信息
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+     */
+    public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getSpeacialBet(int index) {
+      return speacialBet_.get(index);
+    }
+    /**
+     * <pre>
+     *特殊玩家下注信息
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+     */
+    public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder getSpeacialBetOrBuilder(
+        int index) {
+      return speacialBet_.get(index);
     }
 
-    public static final int ROOM_AREA_BET_FIELD_NUMBER = 7;
+    public static final int ROOMAREABET_FIELD_NUMBER = 7;
     private java.util.List<java.lang.Long> roomAreaBet_;
     /**
      * <pre>
      *房间四个盘口的下注金额
      * </pre>
      *
-     * <code>repeated int64 room_area_bet = 7;</code>
+     * <code>repeated int64 roomAreaBet = 7;</code>
      */
     public java.util.List<java.lang.Long>
         getRoomAreaBetList() {
@@ -13386,7 +12273,7 @@ public final class Lhdz {
      *房间四个盘口的下注金额
      * </pre>
      *
-     * <code>repeated int64 room_area_bet = 7;</code>
+     * <code>repeated int64 roomAreaBet = 7;</code>
      */
     public int getRoomAreaBetCount() {
       return roomAreaBet_.size();
@@ -13396,30 +12283,52 @@ public final class Lhdz {
      *房间四个盘口的下注金额
      * </pre>
      *
-     * <code>repeated int64 room_area_bet = 7;</code>
+     * <code>repeated int64 roomAreaBet = 7;</code>
      */
     public long getRoomAreaBet(int index) {
       return roomAreaBet_.get(index);
     }
 
-    public static final int ROUND_TYPE_FIELD_NUMBER = 9;
+    public static final int STATETIME_FIELD_NUMBER = 8;
+    private java.util.List<java.lang.Integer> stateTime_;
+    /**
+     * <code>repeated int32 stateTime = 8;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getStateTimeList() {
+      return stateTime_;
+    }
+    /**
+     * <code>repeated int32 stateTime = 8;</code>
+     */
+    public int getStateTimeCount() {
+      return stateTime_.size();
+    }
+    /**
+     * <code>repeated int32 stateTime = 8;</code>
+     */
+    public int getStateTime(int index) {
+      return stateTime_.get(index);
+    }
+
+    public static final int ROUNDTYPE_FIELD_NUMBER = 9;
     private volatile java.lang.Object roundType_;
     /**
      * <pre>
-     *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+     *场次类型
      * </pre>
      *
-     * <code>required string round_type = 9;</code>
+     * <code>required string roundType = 9;</code>
      */
     public boolean hasRoundType() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <pre>
-     *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+     *场次类型
      * </pre>
      *
-     * <code>required string round_type = 9;</code>
+     * <code>required string roundType = 9;</code>
      */
     public java.lang.String getRoundType() {
       java.lang.Object ref = roundType_;
@@ -13437,10 +12346,10 @@ public final class Lhdz {
     }
     /**
      * <pre>
-     *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+     *场次类型
      * </pre>
      *
-     * <code>required string round_type = 9;</code>
+     * <code>required string roundType = 9;</code>
      */
     public com.google.protobuf.ByteString
         getRoundTypeBytes() {
@@ -13456,14 +12365,14 @@ public final class Lhdz {
       }
     }
 
-    public static final int ROOM_ID_FIELD_NUMBER = 10;
+    public static final int ROOMID_FIELD_NUMBER = 10;
     private volatile java.lang.Object roomId_;
     /**
      * <pre>
      *房间号
      * </pre>
      *
-     * <code>required string room_id = 10;</code>
+     * <code>required string roomId = 10;</code>
      */
     public boolean hasRoomId() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
@@ -13473,7 +12382,7 @@ public final class Lhdz {
      *房间号
      * </pre>
      *
-     * <code>required string room_id = 10;</code>
+     * <code>required string roomId = 10;</code>
      */
     public java.lang.String getRoomId() {
       java.lang.Object ref = roomId_;
@@ -13494,7 +12403,7 @@ public final class Lhdz {
      *房间号
      * </pre>
      *
-     * <code>required string room_id = 10;</code>
+     * <code>required string roomId = 10;</code>
      */
     public com.google.protobuf.ByteString
         getRoomIdBytes() {
@@ -13564,24 +12473,47 @@ public final class Lhdz {
       }
     }
 
-    public static final int BALANCE_FIELD_NUMBER = 14;
+    public static final int ISALLOWBANKER_FIELD_NUMBER = 12;
+    private boolean isAllowBanker_;
+    /**
+     * <pre>
+     *是否允许上庄
+     * </pre>
+     *
+     * <code>optional bool isAllowBanker = 12;</code>
+     */
+    public boolean hasIsAllowBanker() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     *是否允许上庄
+     * </pre>
+     *
+     * <code>optional bool isAllowBanker = 12;</code>
+     */
+    public boolean getIsAllowBanker() {
+      return isAllowBanker_;
+    }
+
+    public static final int BALANCE_FIELD_NUMBER = 13;
     private volatile java.lang.Object balance_;
     /**
      * <pre>
      *玩家的余额
      * </pre>
      *
-     * <code>optional string balance = 14;</code>
+     * <code>optional string balance = 13;</code>
      */
     public boolean hasBalance() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
      * <pre>
      *玩家的余额
      * </pre>
      *
-     * <code>optional string balance = 14;</code>
+     * <code>optional string balance = 13;</code>
      */
     public java.lang.String getBalance() {
       java.lang.Object ref = balance_;
@@ -13602,7 +12534,7 @@ public final class Lhdz {
      *玩家的余额
      * </pre>
      *
-     * <code>optional string balance = 14;</code>
+     * <code>optional string balance = 13;</code>
      */
     public com.google.protobuf.ByteString
         getBalanceBytes() {
@@ -13618,80 +12550,70 @@ public final class Lhdz {
       }
     }
 
-    public static final int ONLINE_NUMBER_FIELD_NUMBER = 15;
+    public static final int ONLINENUMBER_FIELD_NUMBER = 14;
     private int onlineNumber_;
     /**
      * <pre>
      *在线人数
      * </pre>
      *
-     * <code>optional int32 online_number = 15;</code>
+     * <code>optional int32 onlineNumber = 14;</code>
      */
     public boolean hasOnlineNumber() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
      * <pre>
      *在线人数
      * </pre>
      *
-     * <code>optional int32 online_number = 15;</code>
+     * <code>optional int32 onlineNumber = 14;</code>
      */
     public int getOnlineNumber() {
       return onlineNumber_;
     }
 
-    public static final int BANKER_INFO_FIELD_NUMBER = 16;
-    private com.dafagame.protocol.lhdz.Lhdz.BankerInfo bankerInfo_;
+    public static final int CANCONTINUEBET_FIELD_NUMBER = 15;
+    private boolean canContinueBet_;
     /**
      * <pre>
-     *庄家信息
+     *能否续投
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
+     * <code>optional bool canContinueBet = 15;</code>
      */
-    public boolean hasBankerInfo() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+    public boolean hasCanContinueBet() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
      * <pre>
-     *庄家信息
+     *能否续投
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
+     * <code>optional bool canContinueBet = 15;</code>
      */
-    public com.dafagame.protocol.lhdz.Lhdz.BankerInfo getBankerInfo() {
-      return bankerInfo_ == null ? com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance() : bankerInfo_;
-    }
-    /**
-     * <pre>
-     *庄家信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
-     */
-    public com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder getBankerInfoOrBuilder() {
-      return bankerInfo_ == null ? com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance() : bankerInfo_;
+    public boolean getCanContinueBet() {
+      return canContinueBet_;
     }
 
-    public static final int BANKER_LIST_FIELD_NUMBER = 17;
+    public static final int BANKERLIST_FIELD_NUMBER = 16;
     private com.dafagame.protocol.lhdz.Lhdz.BankerList bankerList_;
     /**
      * <pre>
      *庄家列表信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
      */
     public boolean hasBankerList() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
      * <pre>
      *庄家列表信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BankerList getBankerList() {
       return bankerList_ == null ? com.dafagame.protocol.lhdz.Lhdz.BankerList.getDefaultInstance() : bankerList_;
@@ -13701,20 +12623,20 @@ public final class Lhdz {
      *庄家列表信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+     * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.BankerListOrBuilder getBankerListOrBuilder() {
       return bankerList_ == null ? com.dafagame.protocol.lhdz.Lhdz.BankerList.getDefaultInstance() : bankerList_;
     }
 
-    public static final int MULTIPLE_ENUM_FIELD_NUMBER = 18;
+    public static final int MULTIPLEENUM_FIELD_NUMBER = 17;
     private java.util.List<java.lang.Integer> multipleEnum_;
     /**
      * <pre>
      *赔率配置
      * </pre>
      *
-     * <code>repeated int32 multiple_enum = 18;</code>
+     * <code>repeated int32 multipleEnum = 17;</code>
      */
     public java.util.List<java.lang.Integer>
         getMultipleEnumList() {
@@ -13725,7 +12647,7 @@ public final class Lhdz {
      *赔率配置
      * </pre>
      *
-     * <code>repeated int32 multiple_enum = 18;</code>
+     * <code>repeated int32 multipleEnum = 17;</code>
      */
     public int getMultipleEnumCount() {
       return multipleEnum_.size();
@@ -13735,20 +12657,20 @@ public final class Lhdz {
      *赔率配置
      * </pre>
      *
-     * <code>repeated int32 multiple_enum = 18;</code>
+     * <code>repeated int32 multipleEnum = 17;</code>
      */
     public int getMultipleEnum(int index) {
       return multipleEnum_.get(index);
     }
 
-    public static final int CHIP_ENUM_FIELD_NUMBER = 19;
+    public static final int CHIPENUM_FIELD_NUMBER = 18;
     private java.util.List<java.lang.Integer> chipEnum_;
     /**
      * <pre>
      *投注配置
      * </pre>
      *
-     * <code>repeated int32 chip_enum = 19;</code>
+     * <code>repeated int32 chipEnum = 18;</code>
      */
     public java.util.List<java.lang.Integer>
         getChipEnumList() {
@@ -13759,7 +12681,7 @@ public final class Lhdz {
      *投注配置
      * </pre>
      *
-     * <code>repeated int32 chip_enum = 19;</code>
+     * <code>repeated int32 chipEnum = 18;</code>
      */
     public int getChipEnumCount() {
       return chipEnum_.size();
@@ -13769,33 +12691,252 @@ public final class Lhdz {
      *投注配置
      * </pre>
      *
-     * <code>repeated int32 chip_enum = 19;</code>
+     * <code>repeated int32 chipEnum = 18;</code>
      */
     public int getChipEnum(int index) {
       return chipEnum_.get(index);
     }
 
-    public static final int MIN_BET_NEED_FIELD_NUMBER = 20;
+    public static final int MINBETNEED_FIELD_NUMBER = 19;
     private int minBetNeed_;
     /**
      * <pre>
      *房间最低下注本金
      * </pre>
      *
-     * <code>optional int32 min_bet_need = 20;</code>
+     * <code>optional int32 minBetNeed = 19;</code>
      */
     public boolean hasMinBetNeed() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
      * <pre>
      *房间最低下注本金
      * </pre>
      *
-     * <code>optional int32 min_bet_need = 20;</code>
+     * <code>optional int32 minBetNeed = 19;</code>
      */
     public int getMinBetNeed() {
       return minBetNeed_;
+    }
+
+    public static final int POKERSTATE_FIELD_NUMBER = 20;
+    private volatile java.lang.Object pokerState_;
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 20;</code>
+     */
+    public boolean hasPokerState() {
+      return ((bitField0_ & 0x00001000) == 0x00001000);
+    }
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 20;</code>
+     */
+    public java.lang.String getPokerState() {
+      java.lang.Object ref = pokerState_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          pokerState_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 20;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPokerStateBytes() {
+      java.lang.Object ref = pokerState_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pokerState_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int POKERTYPE_FIELD_NUMBER = 21;
+    private volatile java.lang.Object pokerType_;
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 21;</code>
+     */
+    public boolean hasPokerType() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 21;</code>
+     */
+    public java.lang.String getPokerType() {
+      java.lang.Object ref = pokerType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          pokerType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 21;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPokerTypeBytes() {
+      java.lang.Object ref = pokerType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pokerType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int POKER_FIELD_NUMBER = 22;
+    private volatile java.lang.Object poker_;
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 22;</code>
+     */
+    public boolean hasPoker() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 22;</code>
+     */
+    public java.lang.String getPoker() {
+      java.lang.Object ref = poker_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          poker_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 22;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPokerBytes() {
+      java.lang.Object ref = poker_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        poker_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int HISTROYTIMES_FIELD_NUMBER = 23;
+    private java.util.List<java.lang.Integer> histroyTimes_;
+    /**
+     * <pre>
+     *历史次数统计
+     * </pre>
+     *
+     * <code>repeated int32 histroyTimes = 23;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getHistroyTimesList() {
+      return histroyTimes_;
+    }
+    /**
+     * <pre>
+     *历史次数统计
+     * </pre>
+     *
+     * <code>repeated int32 histroyTimes = 23;</code>
+     */
+    public int getHistroyTimesCount() {
+      return histroyTimes_.size();
+    }
+    /**
+     * <pre>
+     *历史次数统计
+     * </pre>
+     *
+     * <code>repeated int32 histroyTimes = 23;</code>
+     */
+    public int getHistroyTimes(int index) {
+      return histroyTimes_.get(index);
+    }
+
+    public static final int BANKERTIMES_FIELD_NUMBER = 24;
+    private int bankerTimes_;
+    /**
+     * <pre>
+     *上庄次数
+     * </pre>
+     *
+     * <code>optional int32 bankerTimes = 24;</code>
+     */
+    public boolean hasBankerTimes() {
+      return ((bitField0_ & 0x00008000) == 0x00008000);
+    }
+    /**
+     * <pre>
+     *上庄次数
+     * </pre>
+     *
+     * <code>optional int32 bankerTimes = 24;</code>
+     */
+    public int getBankerTimes() {
+      return bankerTimes_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -13819,6 +12960,12 @@ public final class Lhdz {
       if (!hasInning()) {
         memoizedIsInitialized = 0;
         return false;
+      }
+      for (int i = 0; i < getSpeacialBetCount(); i++) {
+        if (!getSpeacialBet(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       if (hasBankerList()) {
         if (!getBankerList().isInitialized()) {
@@ -13847,11 +12994,14 @@ public final class Lhdz {
       for (int i = 0; i < playerAreaBet_.size(); i++) {
         output.writeInt64(5, playerAreaBet_.get(i));
       }
-      for (int i = 0; i < godBet_.size(); i++) {
-        output.writeInt64(6, godBet_.get(i));
+      for (int i = 0; i < speacialBet_.size(); i++) {
+        output.writeMessage(6, speacialBet_.get(i));
       }
       for (int i = 0; i < roomAreaBet_.size(); i++) {
         output.writeInt64(7, roomAreaBet_.get(i));
+      }
+      for (int i = 0; i < stateTime_.size(); i++) {
+        output.writeInt32(8, stateTime_.get(i));
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 9, roundType_);
@@ -13863,25 +13013,43 @@ public final class Lhdz {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, inning_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, balance_);
+        output.writeBool(12, isAllowBanker_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeInt32(15, onlineNumber_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, balance_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeMessage(16, getBankerInfo());
+        output.writeInt32(14, onlineNumber_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeMessage(17, getBankerList());
-      }
-      for (int i = 0; i < multipleEnum_.size(); i++) {
-        output.writeInt32(18, multipleEnum_.get(i));
-      }
-      for (int i = 0; i < chipEnum_.size(); i++) {
-        output.writeInt32(19, chipEnum_.get(i));
+        output.writeBool(15, canContinueBet_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeInt32(20, minBetNeed_);
+        output.writeMessage(16, getBankerList());
+      }
+      for (int i = 0; i < multipleEnum_.size(); i++) {
+        output.writeInt32(17, multipleEnum_.get(i));
+      }
+      for (int i = 0; i < chipEnum_.size(); i++) {
+        output.writeInt32(18, chipEnum_.get(i));
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeInt32(19, minBetNeed_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 20, pokerState_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 21, pokerType_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 22, poker_);
+      }
+      for (int i = 0; i < histroyTimes_.size(); i++) {
+        output.writeInt32(23, histroyTimes_.get(i));
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        output.writeInt32(24, bankerTimes_);
       }
       unknownFields.writeTo(output);
     }
@@ -13920,14 +13088,9 @@ public final class Lhdz {
         size += dataSize;
         size += 1 * getPlayerAreaBetList().size();
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < godBet_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt64SizeNoTag(godBet_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getGodBetList().size();
+      for (int i = 0; i < speacialBet_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, speacialBet_.get(i));
       }
       {
         int dataSize = 0;
@@ -13937,6 +13100,15 @@ public final class Lhdz {
         }
         size += dataSize;
         size += 1 * getRoomAreaBetList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < stateTime_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(stateTime_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getStateTimeList().size();
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, roundType_);
@@ -13948,19 +13120,23 @@ public final class Lhdz {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, inning_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, balance_);
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(12, isAllowBanker_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(15, onlineNumber_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, balance_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(16, getBankerInfo());
+          .computeInt32Size(14, onlineNumber_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(17, getBankerList());
+          .computeBoolSize(15, canContinueBet_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(16, getBankerList());
       }
       {
         int dataSize = 0;
@@ -13980,9 +13156,31 @@ public final class Lhdz {
         size += dataSize;
         size += 2 * getChipEnumList().size();
       }
-      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(20, minBetNeed_);
+          .computeInt32Size(19, minBetNeed_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, pokerState_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(21, pokerType_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, poker_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < histroyTimes_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(histroyTimes_.get(i));
+        }
+        size += dataSize;
+        size += 2 * getHistroyTimesList().size();
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(24, bankerTimes_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14018,10 +13216,12 @@ public final class Lhdz {
       }
       result = result && getPlayerAreaBetList()
           .equals(other.getPlayerAreaBetList());
-      result = result && getGodBetList()
-          .equals(other.getGodBetList());
+      result = result && getSpeacialBetList()
+          .equals(other.getSpeacialBetList());
       result = result && getRoomAreaBetList()
           .equals(other.getRoomAreaBetList());
+      result = result && getStateTimeList()
+          .equals(other.getStateTimeList());
       result = result && (hasRoundType() == other.hasRoundType());
       if (hasRoundType()) {
         result = result && getRoundType()
@@ -14037,6 +13237,11 @@ public final class Lhdz {
         result = result && getInning()
             .equals(other.getInning());
       }
+      result = result && (hasIsAllowBanker() == other.hasIsAllowBanker());
+      if (hasIsAllowBanker()) {
+        result = result && (getIsAllowBanker()
+            == other.getIsAllowBanker());
+      }
       result = result && (hasBalance() == other.hasBalance());
       if (hasBalance()) {
         result = result && getBalance()
@@ -14047,10 +13252,10 @@ public final class Lhdz {
         result = result && (getOnlineNumber()
             == other.getOnlineNumber());
       }
-      result = result && (hasBankerInfo() == other.hasBankerInfo());
-      if (hasBankerInfo()) {
-        result = result && getBankerInfo()
-            .equals(other.getBankerInfo());
+      result = result && (hasCanContinueBet() == other.hasCanContinueBet());
+      if (hasCanContinueBet()) {
+        result = result && (getCanContinueBet()
+            == other.getCanContinueBet());
       }
       result = result && (hasBankerList() == other.hasBankerList());
       if (hasBankerList()) {
@@ -14065,6 +13270,28 @@ public final class Lhdz {
       if (hasMinBetNeed()) {
         result = result && (getMinBetNeed()
             == other.getMinBetNeed());
+      }
+      result = result && (hasPokerState() == other.hasPokerState());
+      if (hasPokerState()) {
+        result = result && getPokerState()
+            .equals(other.getPokerState());
+      }
+      result = result && (hasPokerType() == other.hasPokerType());
+      if (hasPokerType()) {
+        result = result && getPokerType()
+            .equals(other.getPokerType());
+      }
+      result = result && (hasPoker() == other.hasPoker());
+      if (hasPoker()) {
+        result = result && getPoker()
+            .equals(other.getPoker());
+      }
+      result = result && getHistroyTimesList()
+          .equals(other.getHistroyTimesList());
+      result = result && (hasBankerTimes() == other.hasBankerTimes());
+      if (hasBankerTimes()) {
+        result = result && (getBankerTimes()
+            == other.getBankerTimes());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -14082,68 +13309,98 @@ public final class Lhdz {
         hash = (53 * hash) + state_;
       }
       if (hasRemainingTime()) {
-        hash = (37 * hash) + REMAINING_TIME_FIELD_NUMBER;
+        hash = (37 * hash) + REMAININGTIME_FIELD_NUMBER;
         hash = (53 * hash) + getRemainingTime();
       }
       if (getTableRecordListCount() > 0) {
-        hash = (37 * hash) + TABLE_RECORD_LIST_FIELD_NUMBER;
+        hash = (37 * hash) + TABLERECORDLIST_FIELD_NUMBER;
         hash = (53 * hash) + getTableRecordListList().hashCode();
       }
       if (hasBankerNeedMoney()) {
-        hash = (37 * hash) + BANKER_NEED_MONEY_FIELD_NUMBER;
+        hash = (37 * hash) + BANKERNEEDMONEY_FIELD_NUMBER;
         hash = (53 * hash) + getBankerNeedMoney();
       }
       if (getPlayerAreaBetCount() > 0) {
-        hash = (37 * hash) + PLAYER_AREA_BET_FIELD_NUMBER;
+        hash = (37 * hash) + PLAYERAREABET_FIELD_NUMBER;
         hash = (53 * hash) + getPlayerAreaBetList().hashCode();
       }
-      if (getGodBetCount() > 0) {
-        hash = (37 * hash) + GOD_BET_FIELD_NUMBER;
-        hash = (53 * hash) + getGodBetList().hashCode();
+      if (getSpeacialBetCount() > 0) {
+        hash = (37 * hash) + SPEACIALBET_FIELD_NUMBER;
+        hash = (53 * hash) + getSpeacialBetList().hashCode();
       }
       if (getRoomAreaBetCount() > 0) {
-        hash = (37 * hash) + ROOM_AREA_BET_FIELD_NUMBER;
+        hash = (37 * hash) + ROOMAREABET_FIELD_NUMBER;
         hash = (53 * hash) + getRoomAreaBetList().hashCode();
       }
+      if (getStateTimeCount() > 0) {
+        hash = (37 * hash) + STATETIME_FIELD_NUMBER;
+        hash = (53 * hash) + getStateTimeList().hashCode();
+      }
       if (hasRoundType()) {
-        hash = (37 * hash) + ROUND_TYPE_FIELD_NUMBER;
+        hash = (37 * hash) + ROUNDTYPE_FIELD_NUMBER;
         hash = (53 * hash) + getRoundType().hashCode();
       }
       if (hasRoomId()) {
-        hash = (37 * hash) + ROOM_ID_FIELD_NUMBER;
+        hash = (37 * hash) + ROOMID_FIELD_NUMBER;
         hash = (53 * hash) + getRoomId().hashCode();
       }
       if (hasInning()) {
         hash = (37 * hash) + INNING_FIELD_NUMBER;
         hash = (53 * hash) + getInning().hashCode();
       }
+      if (hasIsAllowBanker()) {
+        hash = (37 * hash) + ISALLOWBANKER_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getIsAllowBanker());
+      }
       if (hasBalance()) {
         hash = (37 * hash) + BALANCE_FIELD_NUMBER;
         hash = (53 * hash) + getBalance().hashCode();
       }
       if (hasOnlineNumber()) {
-        hash = (37 * hash) + ONLINE_NUMBER_FIELD_NUMBER;
+        hash = (37 * hash) + ONLINENUMBER_FIELD_NUMBER;
         hash = (53 * hash) + getOnlineNumber();
       }
-      if (hasBankerInfo()) {
-        hash = (37 * hash) + BANKER_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getBankerInfo().hashCode();
+      if (hasCanContinueBet()) {
+        hash = (37 * hash) + CANCONTINUEBET_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getCanContinueBet());
       }
       if (hasBankerList()) {
-        hash = (37 * hash) + BANKER_LIST_FIELD_NUMBER;
+        hash = (37 * hash) + BANKERLIST_FIELD_NUMBER;
         hash = (53 * hash) + getBankerList().hashCode();
       }
       if (getMultipleEnumCount() > 0) {
-        hash = (37 * hash) + MULTIPLE_ENUM_FIELD_NUMBER;
+        hash = (37 * hash) + MULTIPLEENUM_FIELD_NUMBER;
         hash = (53 * hash) + getMultipleEnumList().hashCode();
       }
       if (getChipEnumCount() > 0) {
-        hash = (37 * hash) + CHIP_ENUM_FIELD_NUMBER;
+        hash = (37 * hash) + CHIPENUM_FIELD_NUMBER;
         hash = (53 * hash) + getChipEnumList().hashCode();
       }
       if (hasMinBetNeed()) {
-        hash = (37 * hash) + MIN_BET_NEED_FIELD_NUMBER;
+        hash = (37 * hash) + MINBETNEED_FIELD_NUMBER;
         hash = (53 * hash) + getMinBetNeed();
+      }
+      if (hasPokerState()) {
+        hash = (37 * hash) + POKERSTATE_FIELD_NUMBER;
+        hash = (53 * hash) + getPokerState().hashCode();
+      }
+      if (hasPokerType()) {
+        hash = (37 * hash) + POKERTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getPokerType().hashCode();
+      }
+      if (hasPoker()) {
+        hash = (37 * hash) + POKER_FIELD_NUMBER;
+        hash = (53 * hash) + getPoker().hashCode();
+      }
+      if (getHistroyTimesCount() > 0) {
+        hash = (37 * hash) + HISTROYTIMES_FIELD_NUMBER;
+        hash = (53 * hash) + getHistroyTimesList().hashCode();
+      }
+      if (hasBankerTimes()) {
+        hash = (37 * hash) + BANKERTIMES_FIELD_NUMBER;
+        hash = (53 * hash) + getBankerTimes();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -14274,13 +13531,13 @@ public final class Lhdz {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getBankerInfoFieldBuilder();
+          getSpeacialBetFieldBuilder();
           getBankerListFieldBuilder();
         }
       }
       public Builder clear() {
         super.clear();
-        state_ = 1;
+        state_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         remainingTime_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -14290,38 +13547,52 @@ public final class Lhdz {
         bitField0_ = (bitField0_ & ~0x00000008);
         playerAreaBet_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
-        godBet_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        if (speacialBetBuilder_ == null) {
+          speacialBet_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          speacialBetBuilder_.clear();
+        }
         roomAreaBet_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000040);
-        roundType_ = "";
+        stateTime_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000080);
-        roomId_ = "";
+        roundType_ = "";
         bitField0_ = (bitField0_ & ~0x00000100);
-        inning_ = "";
+        roomId_ = "";
         bitField0_ = (bitField0_ & ~0x00000200);
-        balance_ = "";
+        inning_ = "";
         bitField0_ = (bitField0_ & ~0x00000400);
-        onlineNumber_ = 0;
+        isAllowBanker_ = false;
         bitField0_ = (bitField0_ & ~0x00000800);
-        if (bankerInfoBuilder_ == null) {
-          bankerInfo_ = null;
-        } else {
-          bankerInfoBuilder_.clear();
-        }
+        balance_ = "";
         bitField0_ = (bitField0_ & ~0x00001000);
+        onlineNumber_ = 0;
+        bitField0_ = (bitField0_ & ~0x00002000);
+        canContinueBet_ = false;
+        bitField0_ = (bitField0_ & ~0x00004000);
         if (bankerListBuilder_ == null) {
           bankerList_ = null;
         } else {
           bankerListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00002000);
-        multipleEnum_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00004000);
-        chipEnum_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00008000);
-        minBetNeed_ = 0;
+        multipleEnum_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00010000);
+        chipEnum_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00020000);
+        minBetNeed_ = 0;
+        bitField0_ = (bitField0_ & ~0x00040000);
+        pokerState_ = "";
+        bitField0_ = (bitField0_ & ~0x00080000);
+        pokerType_ = "";
+        bitField0_ = (bitField0_ & ~0x00100000);
+        poker_ = "";
+        bitField0_ = (bitField0_ & ~0x00200000);
+        histroyTimes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00400000);
+        bankerTimes_ = 0;
+        bitField0_ = (bitField0_ & ~0x00800000);
         return this;
       }
 
@@ -14368,66 +13639,96 @@ public final class Lhdz {
           bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.playerAreaBet_ = playerAreaBet_;
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
-          godBet_ = java.util.Collections.unmodifiableList(godBet_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+        if (speacialBetBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            speacialBet_ = java.util.Collections.unmodifiableList(speacialBet_);
+            bitField0_ = (bitField0_ & ~0x00000020);
+          }
+          result.speacialBet_ = speacialBet_;
+        } else {
+          result.speacialBet_ = speacialBetBuilder_.build();
         }
-        result.godBet_ = godBet_;
         if (((bitField0_ & 0x00000040) == 0x00000040)) {
           roomAreaBet_ = java.util.Collections.unmodifiableList(roomAreaBet_);
           bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.roomAreaBet_ = roomAreaBet_;
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          stateTime_ = java.util.Collections.unmodifiableList(stateTime_);
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.stateTime_ = stateTime_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000008;
         }
         result.roundType_ = roundType_;
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
           to_bitField0_ |= 0x00000010;
         }
         result.roomId_ = roomId_;
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
           to_bitField0_ |= 0x00000020;
         }
         result.inning_ = inning_;
-        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.balance_ = balance_;
-        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+        result.isAllowBanker_ = isAllowBanker_;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.onlineNumber_ = onlineNumber_;
-        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+        result.balance_ = balance_;
+        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
           to_bitField0_ |= 0x00000100;
         }
-        if (bankerInfoBuilder_ == null) {
-          result.bankerInfo_ = bankerInfo_;
-        } else {
-          result.bankerInfo_ = bankerInfoBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+        result.onlineNumber_ = onlineNumber_;
+        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
           to_bitField0_ |= 0x00000200;
+        }
+        result.canContinueBet_ = canContinueBet_;
+        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
+          to_bitField0_ |= 0x00000400;
         }
         if (bankerListBuilder_ == null) {
           result.bankerList_ = bankerList_;
         } else {
           result.bankerList_ = bankerListBuilder_.build();
         }
-        if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        if (((bitField0_ & 0x00010000) == 0x00010000)) {
           multipleEnum_ = java.util.Collections.unmodifiableList(multipleEnum_);
-          bitField0_ = (bitField0_ & ~0x00004000);
+          bitField0_ = (bitField0_ & ~0x00010000);
         }
         result.multipleEnum_ = multipleEnum_;
-        if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        if (((bitField0_ & 0x00020000) == 0x00020000)) {
           chipEnum_ = java.util.Collections.unmodifiableList(chipEnum_);
-          bitField0_ = (bitField0_ & ~0x00008000);
+          bitField0_ = (bitField0_ & ~0x00020000);
         }
         result.chipEnum_ = chipEnum_;
-        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
-          to_bitField0_ |= 0x00000400;
+        if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
+          to_bitField0_ |= 0x00000800;
         }
         result.minBetNeed_ = minBetNeed_;
+        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        result.pokerState_ = pokerState_;
+        if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.pokerType_ = pokerType_;
+        if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
+          to_bitField0_ |= 0x00004000;
+        }
+        result.poker_ = poker_;
+        if (((bitField0_ & 0x00400000) == 0x00400000)) {
+          histroyTimes_ = java.util.Collections.unmodifiableList(histroyTimes_);
+          bitField0_ = (bitField0_ & ~0x00400000);
+        }
+        result.histroyTimes_ = histroyTimes_;
+        if (((from_bitField0_ & 0x00800000) == 0x00800000)) {
+          to_bitField0_ |= 0x00008000;
+        }
+        result.bankerTimes_ = bankerTimes_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -14499,15 +13800,31 @@ public final class Lhdz {
           }
           onChanged();
         }
-        if (!other.godBet_.isEmpty()) {
-          if (godBet_.isEmpty()) {
-            godBet_ = other.godBet_;
-            bitField0_ = (bitField0_ & ~0x00000020);
-          } else {
-            ensureGodBetIsMutable();
-            godBet_.addAll(other.godBet_);
+        if (speacialBetBuilder_ == null) {
+          if (!other.speacialBet_.isEmpty()) {
+            if (speacialBet_.isEmpty()) {
+              speacialBet_ = other.speacialBet_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+            } else {
+              ensureSpeacialBetIsMutable();
+              speacialBet_.addAll(other.speacialBet_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.speacialBet_.isEmpty()) {
+            if (speacialBetBuilder_.isEmpty()) {
+              speacialBetBuilder_.dispose();
+              speacialBetBuilder_ = null;
+              speacialBet_ = other.speacialBet_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              speacialBetBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getSpeacialBetFieldBuilder() : null;
+            } else {
+              speacialBetBuilder_.addAllMessages(other.speacialBet_);
+            }
+          }
         }
         if (!other.roomAreaBet_.isEmpty()) {
           if (roomAreaBet_.isEmpty()) {
@@ -14519,31 +13836,44 @@ public final class Lhdz {
           }
           onChanged();
         }
+        if (!other.stateTime_.isEmpty()) {
+          if (stateTime_.isEmpty()) {
+            stateTime_ = other.stateTime_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensureStateTimeIsMutable();
+            stateTime_.addAll(other.stateTime_);
+          }
+          onChanged();
+        }
         if (other.hasRoundType()) {
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000100;
           roundType_ = other.roundType_;
           onChanged();
         }
         if (other.hasRoomId()) {
-          bitField0_ |= 0x00000100;
+          bitField0_ |= 0x00000200;
           roomId_ = other.roomId_;
           onChanged();
         }
         if (other.hasInning()) {
-          bitField0_ |= 0x00000200;
+          bitField0_ |= 0x00000400;
           inning_ = other.inning_;
           onChanged();
         }
+        if (other.hasIsAllowBanker()) {
+          setIsAllowBanker(other.getIsAllowBanker());
+        }
         if (other.hasBalance()) {
-          bitField0_ |= 0x00000400;
+          bitField0_ |= 0x00001000;
           balance_ = other.balance_;
           onChanged();
         }
         if (other.hasOnlineNumber()) {
           setOnlineNumber(other.getOnlineNumber());
         }
-        if (other.hasBankerInfo()) {
-          mergeBankerInfo(other.getBankerInfo());
+        if (other.hasCanContinueBet()) {
+          setCanContinueBet(other.getCanContinueBet());
         }
         if (other.hasBankerList()) {
           mergeBankerList(other.getBankerList());
@@ -14551,7 +13881,7 @@ public final class Lhdz {
         if (!other.multipleEnum_.isEmpty()) {
           if (multipleEnum_.isEmpty()) {
             multipleEnum_ = other.multipleEnum_;
-            bitField0_ = (bitField0_ & ~0x00004000);
+            bitField0_ = (bitField0_ & ~0x00010000);
           } else {
             ensureMultipleEnumIsMutable();
             multipleEnum_.addAll(other.multipleEnum_);
@@ -14561,7 +13891,7 @@ public final class Lhdz {
         if (!other.chipEnum_.isEmpty()) {
           if (chipEnum_.isEmpty()) {
             chipEnum_ = other.chipEnum_;
-            bitField0_ = (bitField0_ & ~0x00008000);
+            bitField0_ = (bitField0_ & ~0x00020000);
           } else {
             ensureChipEnumIsMutable();
             chipEnum_.addAll(other.chipEnum_);
@@ -14570,6 +13900,34 @@ public final class Lhdz {
         }
         if (other.hasMinBetNeed()) {
           setMinBetNeed(other.getMinBetNeed());
+        }
+        if (other.hasPokerState()) {
+          bitField0_ |= 0x00080000;
+          pokerState_ = other.pokerState_;
+          onChanged();
+        }
+        if (other.hasPokerType()) {
+          bitField0_ |= 0x00100000;
+          pokerType_ = other.pokerType_;
+          onChanged();
+        }
+        if (other.hasPoker()) {
+          bitField0_ |= 0x00200000;
+          poker_ = other.poker_;
+          onChanged();
+        }
+        if (!other.histroyTimes_.isEmpty()) {
+          if (histroyTimes_.isEmpty()) {
+            histroyTimes_ = other.histroyTimes_;
+            bitField0_ = (bitField0_ & ~0x00400000);
+          } else {
+            ensureHistroyTimesIsMutable();
+            histroyTimes_.addAll(other.histroyTimes_);
+          }
+          onChanged();
+        }
+        if (other.hasBankerTimes()) {
+          setBankerTimes(other.getBankerTimes());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -14588,6 +13946,11 @@ public final class Lhdz {
         }
         if (!hasInning()) {
           return false;
+        }
+        for (int i = 0; i < getSpeacialBetCount(); i++) {
+          if (!getSpeacialBet(i).isInitialized()) {
+            return false;
+          }
         }
         if (hasBankerList()) {
           if (!getBankerList().isInitialized()) {
@@ -14616,7 +13979,7 @@ public final class Lhdz {
       }
       private int bitField0_;
 
-      private int state_ = 1;
+      private int state_ = 0;
       /**
        * <pre>
        *游戏状态
@@ -14663,7 +14026,7 @@ public final class Lhdz {
        */
       public Builder clearState() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        state_ = 1;
+        state_ = 0;
         onChanged();
         return this;
       }
@@ -14674,7 +14037,7 @@ public final class Lhdz {
        *状态剩余时间
        * </pre>
        *
-       * <code>optional int32 remaining_time = 2;</code>
+       * <code>optional int32 remainingTime = 2;</code>
        */
       public boolean hasRemainingTime() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
@@ -14684,7 +14047,7 @@ public final class Lhdz {
        *状态剩余时间
        * </pre>
        *
-       * <code>optional int32 remaining_time = 2;</code>
+       * <code>optional int32 remainingTime = 2;</code>
        */
       public int getRemainingTime() {
         return remainingTime_;
@@ -14694,7 +14057,7 @@ public final class Lhdz {
        *状态剩余时间
        * </pre>
        *
-       * <code>optional int32 remaining_time = 2;</code>
+       * <code>optional int32 remainingTime = 2;</code>
        */
       public Builder setRemainingTime(int value) {
         bitField0_ |= 0x00000002;
@@ -14707,7 +14070,7 @@ public final class Lhdz {
        *状态剩余时间
        * </pre>
        *
-       * <code>optional int32 remaining_time = 2;</code>
+       * <code>optional int32 remainingTime = 2;</code>
        */
       public Builder clearRemainingTime() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -14728,7 +14091,7 @@ public final class Lhdz {
        *桌子的走势
        * </pre>
        *
-       * <code>repeated string table_record_list = 3;</code>
+       * <code>repeated string tableRecordList = 3;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getTableRecordListList() {
@@ -14739,7 +14102,7 @@ public final class Lhdz {
        *桌子的走势
        * </pre>
        *
-       * <code>repeated string table_record_list = 3;</code>
+       * <code>repeated string tableRecordList = 3;</code>
        */
       public int getTableRecordListCount() {
         return tableRecordList_.size();
@@ -14749,7 +14112,7 @@ public final class Lhdz {
        *桌子的走势
        * </pre>
        *
-       * <code>repeated string table_record_list = 3;</code>
+       * <code>repeated string tableRecordList = 3;</code>
        */
       public java.lang.String getTableRecordList(int index) {
         return tableRecordList_.get(index);
@@ -14759,7 +14122,7 @@ public final class Lhdz {
        *桌子的走势
        * </pre>
        *
-       * <code>repeated string table_record_list = 3;</code>
+       * <code>repeated string tableRecordList = 3;</code>
        */
       public com.google.protobuf.ByteString
           getTableRecordListBytes(int index) {
@@ -14770,7 +14133,7 @@ public final class Lhdz {
        *桌子的走势
        * </pre>
        *
-       * <code>repeated string table_record_list = 3;</code>
+       * <code>repeated string tableRecordList = 3;</code>
        */
       public Builder setTableRecordList(
           int index, java.lang.String value) {
@@ -14787,7 +14150,7 @@ public final class Lhdz {
        *桌子的走势
        * </pre>
        *
-       * <code>repeated string table_record_list = 3;</code>
+       * <code>repeated string tableRecordList = 3;</code>
        */
       public Builder addTableRecordList(
           java.lang.String value) {
@@ -14804,7 +14167,7 @@ public final class Lhdz {
        *桌子的走势
        * </pre>
        *
-       * <code>repeated string table_record_list = 3;</code>
+       * <code>repeated string tableRecordList = 3;</code>
        */
       public Builder addAllTableRecordList(
           java.lang.Iterable<java.lang.String> values) {
@@ -14819,7 +14182,7 @@ public final class Lhdz {
        *桌子的走势
        * </pre>
        *
-       * <code>repeated string table_record_list = 3;</code>
+       * <code>repeated string tableRecordList = 3;</code>
        */
       public Builder clearTableRecordList() {
         tableRecordList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -14832,7 +14195,7 @@ public final class Lhdz {
        *桌子的走势
        * </pre>
        *
-       * <code>repeated string table_record_list = 3;</code>
+       * <code>repeated string tableRecordList = 3;</code>
        */
       public Builder addTableRecordListBytes(
           com.google.protobuf.ByteString value) {
@@ -14851,7 +14214,7 @@ public final class Lhdz {
        *上庄需要的钱数
        * </pre>
        *
-       * <code>optional int32 banker_need_money = 4;</code>
+       * <code>optional int32 bankerNeedMoney = 4;</code>
        */
       public boolean hasBankerNeedMoney() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
@@ -14861,7 +14224,7 @@ public final class Lhdz {
        *上庄需要的钱数
        * </pre>
        *
-       * <code>optional int32 banker_need_money = 4;</code>
+       * <code>optional int32 bankerNeedMoney = 4;</code>
        */
       public int getBankerNeedMoney() {
         return bankerNeedMoney_;
@@ -14871,7 +14234,7 @@ public final class Lhdz {
        *上庄需要的钱数
        * </pre>
        *
-       * <code>optional int32 banker_need_money = 4;</code>
+       * <code>optional int32 bankerNeedMoney = 4;</code>
        */
       public Builder setBankerNeedMoney(int value) {
         bitField0_ |= 0x00000008;
@@ -14884,7 +14247,7 @@ public final class Lhdz {
        *上庄需要的钱数
        * </pre>
        *
-       * <code>optional int32 banker_need_money = 4;</code>
+       * <code>optional int32 bankerNeedMoney = 4;</code>
        */
       public Builder clearBankerNeedMoney() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -14905,7 +14268,7 @@ public final class Lhdz {
        *玩家各区域的投注
        * </pre>
        *
-       * <code>repeated int64 player_area_bet = 5;</code>
+       * <code>repeated int64 playerAreaBet = 5;</code>
        */
       public java.util.List<java.lang.Long>
           getPlayerAreaBetList() {
@@ -14916,7 +14279,7 @@ public final class Lhdz {
        *玩家各区域的投注
        * </pre>
        *
-       * <code>repeated int64 player_area_bet = 5;</code>
+       * <code>repeated int64 playerAreaBet = 5;</code>
        */
       public int getPlayerAreaBetCount() {
         return playerAreaBet_.size();
@@ -14926,7 +14289,7 @@ public final class Lhdz {
        *玩家各区域的投注
        * </pre>
        *
-       * <code>repeated int64 player_area_bet = 5;</code>
+       * <code>repeated int64 playerAreaBet = 5;</code>
        */
       public long getPlayerAreaBet(int index) {
         return playerAreaBet_.get(index);
@@ -14936,7 +14299,7 @@ public final class Lhdz {
        *玩家各区域的投注
        * </pre>
        *
-       * <code>repeated int64 player_area_bet = 5;</code>
+       * <code>repeated int64 playerAreaBet = 5;</code>
        */
       public Builder setPlayerAreaBet(
           int index, long value) {
@@ -14950,7 +14313,7 @@ public final class Lhdz {
        *玩家各区域的投注
        * </pre>
        *
-       * <code>repeated int64 player_area_bet = 5;</code>
+       * <code>repeated int64 playerAreaBet = 5;</code>
        */
       public Builder addPlayerAreaBet(long value) {
         ensurePlayerAreaBetIsMutable();
@@ -14963,7 +14326,7 @@ public final class Lhdz {
        *玩家各区域的投注
        * </pre>
        *
-       * <code>repeated int64 player_area_bet = 5;</code>
+       * <code>repeated int64 playerAreaBet = 5;</code>
        */
       public Builder addAllPlayerAreaBet(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -14978,7 +14341,7 @@ public final class Lhdz {
        *玩家各区域的投注
        * </pre>
        *
-       * <code>repeated int64 player_area_bet = 5;</code>
+       * <code>repeated int64 playerAreaBet = 5;</code>
        */
       public Builder clearPlayerAreaBet() {
         playerAreaBet_ = java.util.Collections.emptyList();
@@ -14987,98 +14350,316 @@ public final class Lhdz {
         return this;
       }
 
-      private java.util.List<java.lang.Long> godBet_ = java.util.Collections.emptyList();
-      private void ensureGodBetIsMutable() {
+      private java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> speacialBet_ =
+        java.util.Collections.emptyList();
+      private void ensureSpeacialBetIsMutable() {
         if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          godBet_ = new java.util.ArrayList<java.lang.Long>(godBet_);
+          speacialBet_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo>(speacialBet_);
           bitField0_ |= 0x00000020;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> speacialBetBuilder_;
+
       /**
        * <pre>
-       *神算子下注信息
+       *特殊玩家下注信息
        * </pre>
        *
-       * <code>repeated int64 god_bet = 6;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
        */
-      public java.util.List<java.lang.Long>
-          getGodBetList() {
-        return java.util.Collections.unmodifiableList(godBet_);
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> getSpeacialBetList() {
+        if (speacialBetBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(speacialBet_);
+        } else {
+          return speacialBetBuilder_.getMessageList();
+        }
       }
       /**
        * <pre>
-       *神算子下注信息
+       *特殊玩家下注信息
        * </pre>
        *
-       * <code>repeated int64 god_bet = 6;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
        */
-      public int getGodBetCount() {
-        return godBet_.size();
+      public int getSpeacialBetCount() {
+        if (speacialBetBuilder_ == null) {
+          return speacialBet_.size();
+        } else {
+          return speacialBetBuilder_.getCount();
+        }
       }
       /**
        * <pre>
-       *神算子下注信息
+       *特殊玩家下注信息
        * </pre>
        *
-       * <code>repeated int64 god_bet = 6;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
        */
-      public long getGodBet(int index) {
-        return godBet_.get(index);
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getSpeacialBet(int index) {
+        if (speacialBetBuilder_ == null) {
+          return speacialBet_.get(index);
+        } else {
+          return speacialBetBuilder_.getMessage(index);
+        }
       }
       /**
        * <pre>
-       *神算子下注信息
+       *特殊玩家下注信息
        * </pre>
        *
-       * <code>repeated int64 god_bet = 6;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
        */
-      public Builder setGodBet(
-          int index, long value) {
-        ensureGodBetIsMutable();
-        godBet_.set(index, value);
-        onChanged();
+      public Builder setSpeacialBet(
+          int index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo value) {
+        if (speacialBetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSpeacialBetIsMutable();
+          speacialBet_.set(index, value);
+          onChanged();
+        } else {
+          speacialBetBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
        * <pre>
-       *神算子下注信息
+       *特殊玩家下注信息
        * </pre>
        *
-       * <code>repeated int64 god_bet = 6;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
        */
-      public Builder addGodBet(long value) {
-        ensureGodBetIsMutable();
-        godBet_.add(value);
-        onChanged();
+      public Builder setSpeacialBet(
+          int index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder builderForValue) {
+        if (speacialBetBuilder_ == null) {
+          ensureSpeacialBetIsMutable();
+          speacialBet_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          speacialBetBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
        * <pre>
-       *神算子下注信息
+       *特殊玩家下注信息
        * </pre>
        *
-       * <code>repeated int64 god_bet = 6;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
        */
-      public Builder addAllGodBet(
-          java.lang.Iterable<? extends java.lang.Long> values) {
-        ensureGodBetIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, godBet_);
-        onChanged();
+      public Builder addSpeacialBet(com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo value) {
+        if (speacialBetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSpeacialBetIsMutable();
+          speacialBet_.add(value);
+          onChanged();
+        } else {
+          speacialBetBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
        * <pre>
-       *神算子下注信息
+       *特殊玩家下注信息
        * </pre>
        *
-       * <code>repeated int64 god_bet = 6;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
        */
-      public Builder clearGodBet() {
-        godBet_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
-        onChanged();
+      public Builder addSpeacialBet(
+          int index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo value) {
+        if (speacialBetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureSpeacialBetIsMutable();
+          speacialBet_.add(index, value);
+          onChanged();
+        } else {
+          speacialBetBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public Builder addSpeacialBet(
+          com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder builderForValue) {
+        if (speacialBetBuilder_ == null) {
+          ensureSpeacialBetIsMutable();
+          speacialBet_.add(builderForValue.build());
+          onChanged();
+        } else {
+          speacialBetBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public Builder addSpeacialBet(
+          int index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder builderForValue) {
+        if (speacialBetBuilder_ == null) {
+          ensureSpeacialBetIsMutable();
+          speacialBet_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          speacialBetBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public Builder addAllSpeacialBet(
+          java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> values) {
+        if (speacialBetBuilder_ == null) {
+          ensureSpeacialBetIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, speacialBet_);
+          onChanged();
+        } else {
+          speacialBetBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public Builder clearSpeacialBet() {
+        if (speacialBetBuilder_ == null) {
+          speacialBet_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+          onChanged();
+        } else {
+          speacialBetBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public Builder removeSpeacialBet(int index) {
+        if (speacialBetBuilder_ == null) {
+          ensureSpeacialBetIsMutable();
+          speacialBet_.remove(index);
+          onChanged();
+        } else {
+          speacialBetBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder getSpeacialBetBuilder(
+          int index) {
+        return getSpeacialBetFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder getSpeacialBetOrBuilder(
+          int index) {
+        if (speacialBetBuilder_ == null) {
+          return speacialBet_.get(index);  } else {
+          return speacialBetBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> 
+           getSpeacialBetOrBuilderList() {
+        if (speacialBetBuilder_ != null) {
+          return speacialBetBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(speacialBet_);
+        }
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder addSpeacialBetBuilder() {
+        return getSpeacialBetFieldBuilder().addBuilder(
+            com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder addSpeacialBetBuilder(
+          int index) {
+        return getSpeacialBetFieldBuilder().addBuilder(
+            index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *特殊玩家下注信息
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo speacialBet = 6;</code>
+       */
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder> 
+           getSpeacialBetBuilderList() {
+        return getSpeacialBetFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> 
+          getSpeacialBetFieldBuilder() {
+        if (speacialBetBuilder_ == null) {
+          speacialBetBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder>(
+                  speacialBet_,
+                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  getParentForChildren(),
+                  isClean());
+          speacialBet_ = null;
+        }
+        return speacialBetBuilder_;
       }
 
       private java.util.List<java.lang.Long> roomAreaBet_ = java.util.Collections.emptyList();
@@ -15093,7 +14674,7 @@ public final class Lhdz {
        *房间四个盘口的下注金额
        * </pre>
        *
-       * <code>repeated int64 room_area_bet = 7;</code>
+       * <code>repeated int64 roomAreaBet = 7;</code>
        */
       public java.util.List<java.lang.Long>
           getRoomAreaBetList() {
@@ -15104,7 +14685,7 @@ public final class Lhdz {
        *房间四个盘口的下注金额
        * </pre>
        *
-       * <code>repeated int64 room_area_bet = 7;</code>
+       * <code>repeated int64 roomAreaBet = 7;</code>
        */
       public int getRoomAreaBetCount() {
         return roomAreaBet_.size();
@@ -15114,7 +14695,7 @@ public final class Lhdz {
        *房间四个盘口的下注金额
        * </pre>
        *
-       * <code>repeated int64 room_area_bet = 7;</code>
+       * <code>repeated int64 roomAreaBet = 7;</code>
        */
       public long getRoomAreaBet(int index) {
         return roomAreaBet_.get(index);
@@ -15124,7 +14705,7 @@ public final class Lhdz {
        *房间四个盘口的下注金额
        * </pre>
        *
-       * <code>repeated int64 room_area_bet = 7;</code>
+       * <code>repeated int64 roomAreaBet = 7;</code>
        */
       public Builder setRoomAreaBet(
           int index, long value) {
@@ -15138,7 +14719,7 @@ public final class Lhdz {
        *房间四个盘口的下注金额
        * </pre>
        *
-       * <code>repeated int64 room_area_bet = 7;</code>
+       * <code>repeated int64 roomAreaBet = 7;</code>
        */
       public Builder addRoomAreaBet(long value) {
         ensureRoomAreaBetIsMutable();
@@ -15151,7 +14732,7 @@ public final class Lhdz {
        *房间四个盘口的下注金额
        * </pre>
        *
-       * <code>repeated int64 room_area_bet = 7;</code>
+       * <code>repeated int64 roomAreaBet = 7;</code>
        */
       public Builder addAllRoomAreaBet(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -15166,7 +14747,7 @@ public final class Lhdz {
        *房间四个盘口的下注金额
        * </pre>
        *
-       * <code>repeated int64 room_area_bet = 7;</code>
+       * <code>repeated int64 roomAreaBet = 7;</code>
        */
       public Builder clearRoomAreaBet() {
         roomAreaBet_ = java.util.Collections.emptyList();
@@ -15175,23 +14756,89 @@ public final class Lhdz {
         return this;
       }
 
+      private java.util.List<java.lang.Integer> stateTime_ = java.util.Collections.emptyList();
+      private void ensureStateTimeIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          stateTime_ = new java.util.ArrayList<java.lang.Integer>(stateTime_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+      /**
+       * <code>repeated int32 stateTime = 8;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getStateTimeList() {
+        return java.util.Collections.unmodifiableList(stateTime_);
+      }
+      /**
+       * <code>repeated int32 stateTime = 8;</code>
+       */
+      public int getStateTimeCount() {
+        return stateTime_.size();
+      }
+      /**
+       * <code>repeated int32 stateTime = 8;</code>
+       */
+      public int getStateTime(int index) {
+        return stateTime_.get(index);
+      }
+      /**
+       * <code>repeated int32 stateTime = 8;</code>
+       */
+      public Builder setStateTime(
+          int index, int value) {
+        ensureStateTimeIsMutable();
+        stateTime_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 stateTime = 8;</code>
+       */
+      public Builder addStateTime(int value) {
+        ensureStateTimeIsMutable();
+        stateTime_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 stateTime = 8;</code>
+       */
+      public Builder addAllStateTime(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureStateTimeIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, stateTime_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 stateTime = 8;</code>
+       */
+      public Builder clearStateTime() {
+        stateTime_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object roundType_ = "";
       /**
        * <pre>
-       *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+       *场次类型
        * </pre>
        *
-       * <code>required string round_type = 9;</code>
+       * <code>required string roundType = 9;</code>
        */
       public boolean hasRoundType() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
        * <pre>
-       *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+       *场次类型
        * </pre>
        *
-       * <code>required string round_type = 9;</code>
+       * <code>required string roundType = 9;</code>
        */
       public java.lang.String getRoundType() {
         java.lang.Object ref = roundType_;
@@ -15209,10 +14856,10 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+       *场次类型
        * </pre>
        *
-       * <code>required string round_type = 9;</code>
+       * <code>required string roundType = 9;</code>
        */
       public com.google.protobuf.ByteString
           getRoundTypeBytes() {
@@ -15229,47 +14876,47 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+       *场次类型
        * </pre>
        *
-       * <code>required string round_type = 9;</code>
+       * <code>required string roundType = 9;</code>
        */
       public Builder setRoundType(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         roundType_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+       *场次类型
        * </pre>
        *
-       * <code>required string round_type = 9;</code>
+       * <code>required string roundType = 9;</code>
        */
       public Builder clearRoundType() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         roundType_ = getDefaultInstance().getRoundType();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *repeated PlayerBetInfo bet_info = 8;                //进入玩家具体筹码的分布情况
+       *场次类型
        * </pre>
        *
-       * <code>required string round_type = 9;</code>
+       * <code>required string roundType = 9;</code>
        */
       public Builder setRoundTypeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000080;
+  bitField0_ |= 0x00000100;
         roundType_ = value;
         onChanged();
         return this;
@@ -15281,17 +14928,17 @@ public final class Lhdz {
        *房间号
        * </pre>
        *
-       * <code>required string room_id = 10;</code>
+       * <code>required string roomId = 10;</code>
        */
       public boolean hasRoomId() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
        * <pre>
        *房间号
        * </pre>
        *
-       * <code>required string room_id = 10;</code>
+       * <code>required string roomId = 10;</code>
        */
       public java.lang.String getRoomId() {
         java.lang.Object ref = roomId_;
@@ -15312,7 +14959,7 @@ public final class Lhdz {
        *房间号
        * </pre>
        *
-       * <code>required string room_id = 10;</code>
+       * <code>required string roomId = 10;</code>
        */
       public com.google.protobuf.ByteString
           getRoomIdBytes() {
@@ -15332,14 +14979,14 @@ public final class Lhdz {
        *房间号
        * </pre>
        *
-       * <code>required string room_id = 10;</code>
+       * <code>required string roomId = 10;</code>
        */
       public Builder setRoomId(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000200;
         roomId_ = value;
         onChanged();
         return this;
@@ -15349,10 +14996,10 @@ public final class Lhdz {
        *房间号
        * </pre>
        *
-       * <code>required string room_id = 10;</code>
+       * <code>required string roomId = 10;</code>
        */
       public Builder clearRoomId() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         roomId_ = getDefaultInstance().getRoomId();
         onChanged();
         return this;
@@ -15362,14 +15009,14 @@ public final class Lhdz {
        *房间号
        * </pre>
        *
-       * <code>required string room_id = 10;</code>
+       * <code>required string roomId = 10;</code>
        */
       public Builder setRoomIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000100;
+  bitField0_ |= 0x00000200;
         roomId_ = value;
         onChanged();
         return this;
@@ -15384,7 +15031,7 @@ public final class Lhdz {
        * <code>required string inning = 11;</code>
        */
       public boolean hasInning() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
        * <pre>
@@ -15439,7 +15086,7 @@ public final class Lhdz {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000200;
+  bitField0_ |= 0x00000400;
         inning_ = value;
         onChanged();
         return this;
@@ -15452,7 +15099,7 @@ public final class Lhdz {
        * <code>required string inning = 11;</code>
        */
       public Builder clearInning() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         inning_ = getDefaultInstance().getInning();
         onChanged();
         return this;
@@ -15469,8 +15116,56 @@ public final class Lhdz {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000200;
+  bitField0_ |= 0x00000400;
         inning_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean isAllowBanker_ ;
+      /**
+       * <pre>
+       *是否允许上庄
+       * </pre>
+       *
+       * <code>optional bool isAllowBanker = 12;</code>
+       */
+      public boolean hasIsAllowBanker() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <pre>
+       *是否允许上庄
+       * </pre>
+       *
+       * <code>optional bool isAllowBanker = 12;</code>
+       */
+      public boolean getIsAllowBanker() {
+        return isAllowBanker_;
+      }
+      /**
+       * <pre>
+       *是否允许上庄
+       * </pre>
+       *
+       * <code>optional bool isAllowBanker = 12;</code>
+       */
+      public Builder setIsAllowBanker(boolean value) {
+        bitField0_ |= 0x00000800;
+        isAllowBanker_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *是否允许上庄
+       * </pre>
+       *
+       * <code>optional bool isAllowBanker = 12;</code>
+       */
+      public Builder clearIsAllowBanker() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        isAllowBanker_ = false;
         onChanged();
         return this;
       }
@@ -15481,17 +15176,17 @@ public final class Lhdz {
        *玩家的余额
        * </pre>
        *
-       * <code>optional string balance = 14;</code>
+       * <code>optional string balance = 13;</code>
        */
       public boolean hasBalance() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
        * <pre>
        *玩家的余额
        * </pre>
        *
-       * <code>optional string balance = 14;</code>
+       * <code>optional string balance = 13;</code>
        */
       public java.lang.String getBalance() {
         java.lang.Object ref = balance_;
@@ -15512,7 +15207,7 @@ public final class Lhdz {
        *玩家的余额
        * </pre>
        *
-       * <code>optional string balance = 14;</code>
+       * <code>optional string balance = 13;</code>
        */
       public com.google.protobuf.ByteString
           getBalanceBytes() {
@@ -15532,14 +15227,14 @@ public final class Lhdz {
        *玩家的余额
        * </pre>
        *
-       * <code>optional string balance = 14;</code>
+       * <code>optional string balance = 13;</code>
        */
       public Builder setBalance(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000400;
+  bitField0_ |= 0x00001000;
         balance_ = value;
         onChanged();
         return this;
@@ -15549,10 +15244,10 @@ public final class Lhdz {
        *玩家的余额
        * </pre>
        *
-       * <code>optional string balance = 14;</code>
+       * <code>optional string balance = 13;</code>
        */
       public Builder clearBalance() {
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00001000);
         balance_ = getDefaultInstance().getBalance();
         onChanged();
         return this;
@@ -15562,14 +15257,14 @@ public final class Lhdz {
        *玩家的余额
        * </pre>
        *
-       * <code>optional string balance = 14;</code>
+       * <code>optional string balance = 13;</code>
        */
       public Builder setBalanceBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000400;
+  bitField0_ |= 0x00001000;
         balance_ = value;
         onChanged();
         return this;
@@ -15581,17 +15276,17 @@ public final class Lhdz {
        *在线人数
        * </pre>
        *
-       * <code>optional int32 online_number = 15;</code>
+       * <code>optional int32 onlineNumber = 14;</code>
        */
       public boolean hasOnlineNumber() {
-        return ((bitField0_ & 0x00000800) == 0x00000800);
+        return ((bitField0_ & 0x00002000) == 0x00002000);
       }
       /**
        * <pre>
        *在线人数
        * </pre>
        *
-       * <code>optional int32 online_number = 15;</code>
+       * <code>optional int32 onlineNumber = 14;</code>
        */
       public int getOnlineNumber() {
         return onlineNumber_;
@@ -15601,10 +15296,10 @@ public final class Lhdz {
        *在线人数
        * </pre>
        *
-       * <code>optional int32 online_number = 15;</code>
+       * <code>optional int32 onlineNumber = 14;</code>
        */
       public Builder setOnlineNumber(int value) {
-        bitField0_ |= 0x00000800;
+        bitField0_ |= 0x00002000;
         onlineNumber_ = value;
         onChanged();
         return this;
@@ -15614,167 +15309,61 @@ public final class Lhdz {
        *在线人数
        * </pre>
        *
-       * <code>optional int32 online_number = 15;</code>
+       * <code>optional int32 onlineNumber = 14;</code>
        */
       public Builder clearOnlineNumber() {
-        bitField0_ = (bitField0_ & ~0x00000800);
+        bitField0_ = (bitField0_ & ~0x00002000);
         onlineNumber_ = 0;
         onChanged();
         return this;
       }
 
-      private com.dafagame.protocol.lhdz.Lhdz.BankerInfo bankerInfo_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.lhdz.Lhdz.BankerInfo, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder> bankerInfoBuilder_;
+      private boolean canContinueBet_ ;
       /**
        * <pre>
-       *庄家信息
+       *能否续投
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
+       * <code>optional bool canContinueBet = 15;</code>
        */
-      public boolean hasBankerInfo() {
-        return ((bitField0_ & 0x00001000) == 0x00001000);
+      public boolean hasCanContinueBet() {
+        return ((bitField0_ & 0x00004000) == 0x00004000);
       }
       /**
        * <pre>
-       *庄家信息
+       *能否续投
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
+       * <code>optional bool canContinueBet = 15;</code>
        */
-      public com.dafagame.protocol.lhdz.Lhdz.BankerInfo getBankerInfo() {
-        if (bankerInfoBuilder_ == null) {
-          return bankerInfo_ == null ? com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance() : bankerInfo_;
-        } else {
-          return bankerInfoBuilder_.getMessage();
-        }
+      public boolean getCanContinueBet() {
+        return canContinueBet_;
       }
       /**
        * <pre>
-       *庄家信息
+       *能否续投
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
+       * <code>optional bool canContinueBet = 15;</code>
        */
-      public Builder setBankerInfo(com.dafagame.protocol.lhdz.Lhdz.BankerInfo value) {
-        if (bankerInfoBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          bankerInfo_ = value;
-          onChanged();
-        } else {
-          bankerInfoBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00001000;
-        return this;
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
-       */
-      public Builder setBankerInfo(
-          com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder builderForValue) {
-        if (bankerInfoBuilder_ == null) {
-          bankerInfo_ = builderForValue.build();
-          onChanged();
-        } else {
-          bankerInfoBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00001000;
-        return this;
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
-       */
-      public Builder mergeBankerInfo(com.dafagame.protocol.lhdz.Lhdz.BankerInfo value) {
-        if (bankerInfoBuilder_ == null) {
-          if (((bitField0_ & 0x00001000) == 0x00001000) &&
-              bankerInfo_ != null &&
-              bankerInfo_ != com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance()) {
-            bankerInfo_ =
-              com.dafagame.protocol.lhdz.Lhdz.BankerInfo.newBuilder(bankerInfo_).mergeFrom(value).buildPartial();
-          } else {
-            bankerInfo_ = value;
-          }
-          onChanged();
-        } else {
-          bankerInfoBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00001000;
-        return this;
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
-       */
-      public Builder clearBankerInfo() {
-        if (bankerInfoBuilder_ == null) {
-          bankerInfo_ = null;
-          onChanged();
-        } else {
-          bankerInfoBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00001000);
-        return this;
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder getBankerInfoBuilder() {
-        bitField0_ |= 0x00001000;
+      public Builder setCanContinueBet(boolean value) {
+        bitField0_ |= 0x00004000;
+        canContinueBet_ = value;
         onChanged();
-        return getBankerInfoFieldBuilder().getBuilder();
+        return this;
       }
       /**
        * <pre>
-       *庄家信息
+       *能否续投
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
+       * <code>optional bool canContinueBet = 15;</code>
        */
-      public com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder getBankerInfoOrBuilder() {
-        if (bankerInfoBuilder_ != null) {
-          return bankerInfoBuilder_.getMessageOrBuilder();
-        } else {
-          return bankerInfo_ == null ?
-              com.dafagame.protocol.lhdz.Lhdz.BankerInfo.getDefaultInstance() : bankerInfo_;
-        }
-      }
-      /**
-       * <pre>
-       *庄家信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerInfo banker_info = 16;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.lhdz.Lhdz.BankerInfo, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder> 
-          getBankerInfoFieldBuilder() {
-        if (bankerInfoBuilder_ == null) {
-          bankerInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.lhdz.Lhdz.BankerInfo, com.dafagame.protocol.lhdz.Lhdz.BankerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.BankerInfoOrBuilder>(
-                  getBankerInfo(),
-                  getParentForChildren(),
-                  isClean());
-          bankerInfo_ = null;
-        }
-        return bankerInfoBuilder_;
+      public Builder clearCanContinueBet() {
+        bitField0_ = (bitField0_ & ~0x00004000);
+        canContinueBet_ = false;
+        onChanged();
+        return this;
       }
 
       private com.dafagame.protocol.lhdz.Lhdz.BankerList bankerList_ = null;
@@ -15785,17 +15374,17 @@ public final class Lhdz {
        *庄家列表信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
        */
       public boolean hasBankerList() {
-        return ((bitField0_ & 0x00002000) == 0x00002000);
+        return ((bitField0_ & 0x00008000) == 0x00008000);
       }
       /**
        * <pre>
        *庄家列表信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BankerList getBankerList() {
         if (bankerListBuilder_ == null) {
@@ -15809,7 +15398,7 @@ public final class Lhdz {
        *庄家列表信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
        */
       public Builder setBankerList(com.dafagame.protocol.lhdz.Lhdz.BankerList value) {
         if (bankerListBuilder_ == null) {
@@ -15821,7 +15410,7 @@ public final class Lhdz {
         } else {
           bankerListBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -15829,7 +15418,7 @@ public final class Lhdz {
        *庄家列表信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
        */
       public Builder setBankerList(
           com.dafagame.protocol.lhdz.Lhdz.BankerList.Builder builderForValue) {
@@ -15839,7 +15428,7 @@ public final class Lhdz {
         } else {
           bankerListBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -15847,11 +15436,11 @@ public final class Lhdz {
        *庄家列表信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
        */
       public Builder mergeBankerList(com.dafagame.protocol.lhdz.Lhdz.BankerList value) {
         if (bankerListBuilder_ == null) {
-          if (((bitField0_ & 0x00002000) == 0x00002000) &&
+          if (((bitField0_ & 0x00008000) == 0x00008000) &&
               bankerList_ != null &&
               bankerList_ != com.dafagame.protocol.lhdz.Lhdz.BankerList.getDefaultInstance()) {
             bankerList_ =
@@ -15863,7 +15452,7 @@ public final class Lhdz {
         } else {
           bankerListBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -15871,7 +15460,7 @@ public final class Lhdz {
        *庄家列表信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
        */
       public Builder clearBankerList() {
         if (bankerListBuilder_ == null) {
@@ -15880,7 +15469,7 @@ public final class Lhdz {
         } else {
           bankerListBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00002000);
+        bitField0_ = (bitField0_ & ~0x00008000);
         return this;
       }
       /**
@@ -15888,10 +15477,10 @@ public final class Lhdz {
        *庄家列表信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BankerList.Builder getBankerListBuilder() {
-        bitField0_ |= 0x00002000;
+        bitField0_ |= 0x00008000;
         onChanged();
         return getBankerListFieldBuilder().getBuilder();
       }
@@ -15900,7 +15489,7 @@ public final class Lhdz {
        *庄家列表信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.BankerListOrBuilder getBankerListOrBuilder() {
         if (bankerListBuilder_ != null) {
@@ -15915,7 +15504,7 @@ public final class Lhdz {
        *庄家列表信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.lhdz.BankerList banker_list = 17;</code>
+       * <code>optional .com.dafagame.protocol.lhdz.BankerList bankerList = 16;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.dafagame.protocol.lhdz.Lhdz.BankerList, com.dafagame.protocol.lhdz.Lhdz.BankerList.Builder, com.dafagame.protocol.lhdz.Lhdz.BankerListOrBuilder> 
@@ -15933,9 +15522,9 @@ public final class Lhdz {
 
       private java.util.List<java.lang.Integer> multipleEnum_ = java.util.Collections.emptyList();
       private void ensureMultipleEnumIsMutable() {
-        if (!((bitField0_ & 0x00004000) == 0x00004000)) {
+        if (!((bitField0_ & 0x00010000) == 0x00010000)) {
           multipleEnum_ = new java.util.ArrayList<java.lang.Integer>(multipleEnum_);
-          bitField0_ |= 0x00004000;
+          bitField0_ |= 0x00010000;
          }
       }
       /**
@@ -15943,7 +15532,7 @@ public final class Lhdz {
        *赔率配置
        * </pre>
        *
-       * <code>repeated int32 multiple_enum = 18;</code>
+       * <code>repeated int32 multipleEnum = 17;</code>
        */
       public java.util.List<java.lang.Integer>
           getMultipleEnumList() {
@@ -15954,7 +15543,7 @@ public final class Lhdz {
        *赔率配置
        * </pre>
        *
-       * <code>repeated int32 multiple_enum = 18;</code>
+       * <code>repeated int32 multipleEnum = 17;</code>
        */
       public int getMultipleEnumCount() {
         return multipleEnum_.size();
@@ -15964,7 +15553,7 @@ public final class Lhdz {
        *赔率配置
        * </pre>
        *
-       * <code>repeated int32 multiple_enum = 18;</code>
+       * <code>repeated int32 multipleEnum = 17;</code>
        */
       public int getMultipleEnum(int index) {
         return multipleEnum_.get(index);
@@ -15974,7 +15563,7 @@ public final class Lhdz {
        *赔率配置
        * </pre>
        *
-       * <code>repeated int32 multiple_enum = 18;</code>
+       * <code>repeated int32 multipleEnum = 17;</code>
        */
       public Builder setMultipleEnum(
           int index, int value) {
@@ -15988,7 +15577,7 @@ public final class Lhdz {
        *赔率配置
        * </pre>
        *
-       * <code>repeated int32 multiple_enum = 18;</code>
+       * <code>repeated int32 multipleEnum = 17;</code>
        */
       public Builder addMultipleEnum(int value) {
         ensureMultipleEnumIsMutable();
@@ -16001,7 +15590,7 @@ public final class Lhdz {
        *赔率配置
        * </pre>
        *
-       * <code>repeated int32 multiple_enum = 18;</code>
+       * <code>repeated int32 multipleEnum = 17;</code>
        */
       public Builder addAllMultipleEnum(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -16016,20 +15605,20 @@ public final class Lhdz {
        *赔率配置
        * </pre>
        *
-       * <code>repeated int32 multiple_enum = 18;</code>
+       * <code>repeated int32 multipleEnum = 17;</code>
        */
       public Builder clearMultipleEnum() {
         multipleEnum_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00004000);
+        bitField0_ = (bitField0_ & ~0x00010000);
         onChanged();
         return this;
       }
 
       private java.util.List<java.lang.Integer> chipEnum_ = java.util.Collections.emptyList();
       private void ensureChipEnumIsMutable() {
-        if (!((bitField0_ & 0x00008000) == 0x00008000)) {
+        if (!((bitField0_ & 0x00020000) == 0x00020000)) {
           chipEnum_ = new java.util.ArrayList<java.lang.Integer>(chipEnum_);
-          bitField0_ |= 0x00008000;
+          bitField0_ |= 0x00020000;
          }
       }
       /**
@@ -16037,7 +15626,7 @@ public final class Lhdz {
        *投注配置
        * </pre>
        *
-       * <code>repeated int32 chip_enum = 19;</code>
+       * <code>repeated int32 chipEnum = 18;</code>
        */
       public java.util.List<java.lang.Integer>
           getChipEnumList() {
@@ -16048,7 +15637,7 @@ public final class Lhdz {
        *投注配置
        * </pre>
        *
-       * <code>repeated int32 chip_enum = 19;</code>
+       * <code>repeated int32 chipEnum = 18;</code>
        */
       public int getChipEnumCount() {
         return chipEnum_.size();
@@ -16058,7 +15647,7 @@ public final class Lhdz {
        *投注配置
        * </pre>
        *
-       * <code>repeated int32 chip_enum = 19;</code>
+       * <code>repeated int32 chipEnum = 18;</code>
        */
       public int getChipEnum(int index) {
         return chipEnum_.get(index);
@@ -16068,7 +15657,7 @@ public final class Lhdz {
        *投注配置
        * </pre>
        *
-       * <code>repeated int32 chip_enum = 19;</code>
+       * <code>repeated int32 chipEnum = 18;</code>
        */
       public Builder setChipEnum(
           int index, int value) {
@@ -16082,7 +15671,7 @@ public final class Lhdz {
        *投注配置
        * </pre>
        *
-       * <code>repeated int32 chip_enum = 19;</code>
+       * <code>repeated int32 chipEnum = 18;</code>
        */
       public Builder addChipEnum(int value) {
         ensureChipEnumIsMutable();
@@ -16095,7 +15684,7 @@ public final class Lhdz {
        *投注配置
        * </pre>
        *
-       * <code>repeated int32 chip_enum = 19;</code>
+       * <code>repeated int32 chipEnum = 18;</code>
        */
       public Builder addAllChipEnum(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -16110,11 +15699,11 @@ public final class Lhdz {
        *投注配置
        * </pre>
        *
-       * <code>repeated int32 chip_enum = 19;</code>
+       * <code>repeated int32 chipEnum = 18;</code>
        */
       public Builder clearChipEnum() {
         chipEnum_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00008000);
+        bitField0_ = (bitField0_ & ~0x00020000);
         onChanged();
         return this;
       }
@@ -16125,17 +15714,17 @@ public final class Lhdz {
        *房间最低下注本金
        * </pre>
        *
-       * <code>optional int32 min_bet_need = 20;</code>
+       * <code>optional int32 minBetNeed = 19;</code>
        */
       public boolean hasMinBetNeed() {
-        return ((bitField0_ & 0x00010000) == 0x00010000);
+        return ((bitField0_ & 0x00040000) == 0x00040000);
       }
       /**
        * <pre>
        *房间最低下注本金
        * </pre>
        *
-       * <code>optional int32 min_bet_need = 20;</code>
+       * <code>optional int32 minBetNeed = 19;</code>
        */
       public int getMinBetNeed() {
         return minBetNeed_;
@@ -16145,10 +15734,10 @@ public final class Lhdz {
        *房间最低下注本金
        * </pre>
        *
-       * <code>optional int32 min_bet_need = 20;</code>
+       * <code>optional int32 minBetNeed = 19;</code>
        */
       public Builder setMinBetNeed(int value) {
-        bitField0_ |= 0x00010000;
+        bitField0_ |= 0x00040000;
         minBetNeed_ = value;
         onChanged();
         return this;
@@ -16158,11 +15747,453 @@ public final class Lhdz {
        *房间最低下注本金
        * </pre>
        *
-       * <code>optional int32 min_bet_need = 20;</code>
+       * <code>optional int32 minBetNeed = 19;</code>
        */
       public Builder clearMinBetNeed() {
-        bitField0_ = (bitField0_ & ~0x00010000);
+        bitField0_ = (bitField0_ & ~0x00040000);
         minBetNeed_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object pokerState_ = "";
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 20;</code>
+       */
+      public boolean hasPokerState() {
+        return ((bitField0_ & 0x00080000) == 0x00080000);
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 20;</code>
+       */
+      public java.lang.String getPokerState() {
+        java.lang.Object ref = pokerState_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            pokerState_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 20;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPokerStateBytes() {
+        java.lang.Object ref = pokerState_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pokerState_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 20;</code>
+       */
+      public Builder setPokerState(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00080000;
+        pokerState_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 20;</code>
+       */
+      public Builder clearPokerState() {
+        bitField0_ = (bitField0_ & ~0x00080000);
+        pokerState_ = getDefaultInstance().getPokerState();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 20;</code>
+       */
+      public Builder setPokerStateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00080000;
+        pokerState_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object pokerType_ = "";
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 21;</code>
+       */
+      public boolean hasPokerType() {
+        return ((bitField0_ & 0x00100000) == 0x00100000);
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 21;</code>
+       */
+      public java.lang.String getPokerType() {
+        java.lang.Object ref = pokerType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            pokerType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 21;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPokerTypeBytes() {
+        java.lang.Object ref = pokerType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pokerType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 21;</code>
+       */
+      public Builder setPokerType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00100000;
+        pokerType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 21;</code>
+       */
+      public Builder clearPokerType() {
+        bitField0_ = (bitField0_ & ~0x00100000);
+        pokerType_ = getDefaultInstance().getPokerType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 21;</code>
+       */
+      public Builder setPokerTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00100000;
+        pokerType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object poker_ = "";
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 22;</code>
+       */
+      public boolean hasPoker() {
+        return ((bitField0_ & 0x00200000) == 0x00200000);
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 22;</code>
+       */
+      public java.lang.String getPoker() {
+        java.lang.Object ref = poker_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            poker_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 22;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPokerBytes() {
+        java.lang.Object ref = poker_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          poker_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 22;</code>
+       */
+      public Builder setPoker(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00200000;
+        poker_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 22;</code>
+       */
+      public Builder clearPoker() {
+        bitField0_ = (bitField0_ & ~0x00200000);
+        poker_ = getDefaultInstance().getPoker();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 22;</code>
+       */
+      public Builder setPokerBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00200000;
+        poker_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> histroyTimes_ = java.util.Collections.emptyList();
+      private void ensureHistroyTimesIsMutable() {
+        if (!((bitField0_ & 0x00400000) == 0x00400000)) {
+          histroyTimes_ = new java.util.ArrayList<java.lang.Integer>(histroyTimes_);
+          bitField0_ |= 0x00400000;
+         }
+      }
+      /**
+       * <pre>
+       *历史次数统计
+       * </pre>
+       *
+       * <code>repeated int32 histroyTimes = 23;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getHistroyTimesList() {
+        return java.util.Collections.unmodifiableList(histroyTimes_);
+      }
+      /**
+       * <pre>
+       *历史次数统计
+       * </pre>
+       *
+       * <code>repeated int32 histroyTimes = 23;</code>
+       */
+      public int getHistroyTimesCount() {
+        return histroyTimes_.size();
+      }
+      /**
+       * <pre>
+       *历史次数统计
+       * </pre>
+       *
+       * <code>repeated int32 histroyTimes = 23;</code>
+       */
+      public int getHistroyTimes(int index) {
+        return histroyTimes_.get(index);
+      }
+      /**
+       * <pre>
+       *历史次数统计
+       * </pre>
+       *
+       * <code>repeated int32 histroyTimes = 23;</code>
+       */
+      public Builder setHistroyTimes(
+          int index, int value) {
+        ensureHistroyTimesIsMutable();
+        histroyTimes_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *历史次数统计
+       * </pre>
+       *
+       * <code>repeated int32 histroyTimes = 23;</code>
+       */
+      public Builder addHistroyTimes(int value) {
+        ensureHistroyTimesIsMutable();
+        histroyTimes_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *历史次数统计
+       * </pre>
+       *
+       * <code>repeated int32 histroyTimes = 23;</code>
+       */
+      public Builder addAllHistroyTimes(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureHistroyTimesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, histroyTimes_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *历史次数统计
+       * </pre>
+       *
+       * <code>repeated int32 histroyTimes = 23;</code>
+       */
+      public Builder clearHistroyTimes() {
+        histroyTimes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00400000);
+        onChanged();
+        return this;
+      }
+
+      private int bankerTimes_ ;
+      /**
+       * <pre>
+       *上庄次数
+       * </pre>
+       *
+       * <code>optional int32 bankerTimes = 24;</code>
+       */
+      public boolean hasBankerTimes() {
+        return ((bitField0_ & 0x00800000) == 0x00800000);
+      }
+      /**
+       * <pre>
+       *上庄次数
+       * </pre>
+       *
+       * <code>optional int32 bankerTimes = 24;</code>
+       */
+      public int getBankerTimes() {
+        return bankerTimes_;
+      }
+      /**
+       * <pre>
+       *上庄次数
+       * </pre>
+       *
+       * <code>optional int32 bankerTimes = 24;</code>
+       */
+      public Builder setBankerTimes(int value) {
+        bitField0_ |= 0x00800000;
+        bankerTimes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *上庄次数
+       * </pre>
+       *
+       * <code>optional int32 bankerTimes = 24;</code>
+       */
+      public Builder clearBankerTimes() {
+        bitField0_ = (bitField0_ & ~0x00800000);
+        bankerTimes_ = 0;
         onChanged();
         return this;
       }
@@ -16215,1166 +16246,8 @@ public final class Lhdz {
 
   }
 
-  public interface RankSettleNtfOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.RankSettleNtf)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo> 
-        getRankListList();
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo getRankList(int index);
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    int getRankListCount();
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder> 
-        getRankListOrBuilderList();
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder getRankListOrBuilder(
-        int index);
-
-    /**
-     * <pre>
-     *庄稼输赢的分数
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-     */
-    boolean hasBanker();
-    /**
-     * <pre>
-     *庄稼输赢的分数
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-     */
-    com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo getBanker();
-    /**
-     * <pre>
-     *庄稼输赢的分数
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-     */
-    com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder getBankerOrBuilder();
-  }
-  /**
-   * <pre>
-   *特殊玩家通知 结算时通知展示特殊玩家收益效果
-   * </pre>
-   *
-   * Protobuf type {@code com.dafagame.protocol.lhdz.RankSettleNtf}
-   */
-  public  static final class RankSettleNtf extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.RankSettleNtf)
-      RankSettleNtfOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use RankSettleNtf.newBuilder() to construct.
-    private RankSettleNtf(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private RankSettleNtf() {
-      rankList_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private RankSettleNtf(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                rankList_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              rankList_.add(
-                  input.readMessage(com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.PARSER, extensionRegistry));
-              break;
-            }
-            case 18: {
-              com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = banker_.toBuilder();
-              }
-              banker_ = input.readMessage(com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(banker_);
-                banker_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          rankList_ = java.util.Collections.unmodifiableList(rankList_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf.class, com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int RANK_LIST_FIELD_NUMBER = 1;
-    private java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo> rankList_;
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    public java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo> getRankListList() {
-      return rankList_;
-    }
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder> 
-        getRankListOrBuilderList() {
-      return rankList_;
-    }
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    public int getRankListCount() {
-      return rankList_.size();
-    }
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo getRankList(int index) {
-      return rankList_.get(index);
-    }
-    /**
-     * <pre>
-     *玩家排名的通知
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-     */
-    public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder getRankListOrBuilder(
-        int index) {
-      return rankList_.get(index);
-    }
-
-    public static final int BANKER_FIELD_NUMBER = 2;
-    private com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo banker_;
-    /**
-     * <pre>
-     *庄稼输赢的分数
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-     */
-    public boolean hasBanker() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <pre>
-     *庄稼输赢的分数
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-     */
-    public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo getBanker() {
-      return banker_ == null ? com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.getDefaultInstance() : banker_;
-    }
-    /**
-     * <pre>
-     *庄稼输赢的分数
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-     */
-    public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder getBankerOrBuilder() {
-      return banker_ == null ? com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.getDefaultInstance() : banker_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      for (int i = 0; i < getRankListCount(); i++) {
-        if (!getRankList(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      if (hasBanker()) {
-        if (!getBanker().isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < rankList_.size(); i++) {
-        output.writeMessage(1, rankList_.get(i));
-      }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(2, getBanker());
-      }
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (int i = 0; i < rankList_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, rankList_.get(i));
-      }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getBanker());
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf)) {
-        return super.equals(obj);
-      }
-      com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf other = (com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf) obj;
-
-      boolean result = true;
-      result = result && getRankListList()
-          .equals(other.getRankListList());
-      result = result && (hasBanker() == other.hasBanker());
-      if (hasBanker()) {
-        result = result && getBanker()
-            .equals(other.getBanker());
-      }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getRankListCount() > 0) {
-        hash = (37 * hash) + RANK_LIST_FIELD_NUMBER;
-        hash = (53 * hash) + getRankListList().hashCode();
-      }
-      if (hasBanker()) {
-        hash = (37 * hash) + BANKER_FIELD_NUMBER;
-        hash = (53 * hash) + getBanker().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     *特殊玩家通知 结算时通知展示特殊玩家收益效果
-     * </pre>
-     *
-     * Protobuf type {@code com.dafagame.protocol.lhdz.RankSettleNtf}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.RankSettleNtf)
-        com.dafagame.protocol.lhdz.Lhdz.RankSettleNtfOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf.class, com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf.Builder.class);
-      }
-
-      // Construct using com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRankListFieldBuilder();
-          getBankerFieldBuilder();
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        if (rankListBuilder_ == null) {
-          rankList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          rankListBuilder_.clear();
-        }
-        if (bankerBuilder_ == null) {
-          banker_ = null;
-        } else {
-          bankerBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_descriptor;
-      }
-
-      public com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf.getDefaultInstance();
-      }
-
-      public com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf build() {
-        com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf buildPartial() {
-        com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf result = new com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (rankListBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            rankList_ = java.util.Collections.unmodifiableList(rankList_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.rankList_ = rankList_;
-        } else {
-          result.rankList_ = rankListBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        if (bankerBuilder_ == null) {
-          result.banker_ = banker_;
-        } else {
-          result.banker_ = bankerBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf) {
-          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf other) {
-        if (other == com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf.getDefaultInstance()) return this;
-        if (rankListBuilder_ == null) {
-          if (!other.rankList_.isEmpty()) {
-            if (rankList_.isEmpty()) {
-              rankList_ = other.rankList_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureRankListIsMutable();
-              rankList_.addAll(other.rankList_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.rankList_.isEmpty()) {
-            if (rankListBuilder_.isEmpty()) {
-              rankListBuilder_.dispose();
-              rankListBuilder_ = null;
-              rankList_ = other.rankList_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              rankListBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRankListFieldBuilder() : null;
-            } else {
-              rankListBuilder_.addAllMessages(other.rankList_);
-            }
-          }
-        }
-        if (other.hasBanker()) {
-          mergeBanker(other.getBanker());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        for (int i = 0; i < getRankListCount(); i++) {
-          if (!getRankList(i).isInitialized()) {
-            return false;
-          }
-        }
-        if (hasBanker()) {
-          if (!getBanker().isInitialized()) {
-            return false;
-          }
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo> rankList_ =
-        java.util.Collections.emptyList();
-      private void ensureRankListIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          rankList_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo>(rankList_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder> rankListBuilder_;
-
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo> getRankListList() {
-        if (rankListBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(rankList_);
-        } else {
-          return rankListBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public int getRankListCount() {
-        if (rankListBuilder_ == null) {
-          return rankList_.size();
-        } else {
-          return rankListBuilder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo getRankList(int index) {
-        if (rankListBuilder_ == null) {
-          return rankList_.get(index);
-        } else {
-          return rankListBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public Builder setRankList(
-          int index, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo value) {
-        if (rankListBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRankListIsMutable();
-          rankList_.set(index, value);
-          onChanged();
-        } else {
-          rankListBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public Builder setRankList(
-          int index, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder builderForValue) {
-        if (rankListBuilder_ == null) {
-          ensureRankListIsMutable();
-          rankList_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          rankListBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public Builder addRankList(com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo value) {
-        if (rankListBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRankListIsMutable();
-          rankList_.add(value);
-          onChanged();
-        } else {
-          rankListBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public Builder addRankList(
-          int index, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo value) {
-        if (rankListBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureRankListIsMutable();
-          rankList_.add(index, value);
-          onChanged();
-        } else {
-          rankListBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public Builder addRankList(
-          com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder builderForValue) {
-        if (rankListBuilder_ == null) {
-          ensureRankListIsMutable();
-          rankList_.add(builderForValue.build());
-          onChanged();
-        } else {
-          rankListBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public Builder addRankList(
-          int index, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder builderForValue) {
-        if (rankListBuilder_ == null) {
-          ensureRankListIsMutable();
-          rankList_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          rankListBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public Builder addAllRankList(
-          java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo> values) {
-        if (rankListBuilder_ == null) {
-          ensureRankListIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, rankList_);
-          onChanged();
-        } else {
-          rankListBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public Builder clearRankList() {
-        if (rankListBuilder_ == null) {
-          rankList_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          rankListBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public Builder removeRankList(int index) {
-        if (rankListBuilder_ == null) {
-          ensureRankListIsMutable();
-          rankList_.remove(index);
-          onChanged();
-        } else {
-          rankListBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder getRankListBuilder(
-          int index) {
-        return getRankListFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder getRankListOrBuilder(
-          int index) {
-        if (rankListBuilder_ == null) {
-          return rankList_.get(index);  } else {
-          return rankListBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder> 
-           getRankListOrBuilderList() {
-        if (rankListBuilder_ != null) {
-          return rankListBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(rankList_);
-        }
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder addRankListBuilder() {
-        return getRankListFieldBuilder().addBuilder(
-            com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder addRankListBuilder(
-          int index) {
-        return getRankListFieldBuilder().addBuilder(
-            index, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       *玩家排名的通知
-       * </pre>
-       *
-       * <code>repeated .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo rank_list = 1;</code>
-       */
-      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder> 
-           getRankListBuilderList() {
-        return getRankListFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder> 
-          getRankListFieldBuilder() {
-        if (rankListBuilder_ == null) {
-          rankListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder>(
-                  rankList_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          rankList_ = null;
-        }
-        return rankListBuilder_;
-      }
-
-      private com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo banker_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder> bankerBuilder_;
-      /**
-       * <pre>
-       *庄稼输赢的分数
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-       */
-      public boolean hasBanker() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <pre>
-       *庄稼输赢的分数
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo getBanker() {
-        if (bankerBuilder_ == null) {
-          return banker_ == null ? com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.getDefaultInstance() : banker_;
-        } else {
-          return bankerBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       *庄稼输赢的分数
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-       */
-      public Builder setBanker(com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo value) {
-        if (bankerBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          banker_ = value;
-          onChanged();
-        } else {
-          bankerBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       * <pre>
-       *庄稼输赢的分数
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-       */
-      public Builder setBanker(
-          com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder builderForValue) {
-        if (bankerBuilder_ == null) {
-          banker_ = builderForValue.build();
-          onChanged();
-        } else {
-          bankerBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       * <pre>
-       *庄稼输赢的分数
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-       */
-      public Builder mergeBanker(com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo value) {
-        if (bankerBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              banker_ != null &&
-              banker_ != com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.getDefaultInstance()) {
-            banker_ =
-              com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.newBuilder(banker_).mergeFrom(value).buildPartial();
-          } else {
-            banker_ = value;
-          }
-          onChanged();
-        } else {
-          bankerBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-      /**
-       * <pre>
-       *庄稼输赢的分数
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-       */
-      public Builder clearBanker() {
-        if (bankerBuilder_ == null) {
-          banker_ = null;
-          onChanged();
-        } else {
-          bankerBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-      /**
-       * <pre>
-       *庄稼输赢的分数
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder getBankerBuilder() {
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return getBankerFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       *庄稼输赢的分数
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-       */
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder getBankerOrBuilder() {
-        if (bankerBuilder_ != null) {
-          return bankerBuilder_.getMessageOrBuilder();
-        } else {
-          return banker_ == null ?
-              com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.getDefaultInstance() : banker_;
-        }
-      }
-      /**
-       * <pre>
-       *庄稼输赢的分数
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.lhdz.SpecialPlayerResultInfo banker = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder> 
-          getBankerFieldBuilder() {
-        if (bankerBuilder_ == null) {
-          bankerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder>(
-                  getBanker(),
-                  getParentForChildren(),
-                  isClean());
-          banker_ = null;
-        }
-        return bankerBuilder_;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.RankSettleNtf)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.RankSettleNtf)
-    private static final com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf();
-    }
-
-    public static com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RankSettleNtf>
-        PARSER = new com.google.protobuf.AbstractParser<RankSettleNtf>() {
-      public RankSettleNtf parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RankSettleNtf(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<RankSettleNtf> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<RankSettleNtf> getParserForType() {
-      return PARSER;
-    }
-
-    public com.dafagame.protocol.lhdz.Lhdz.RankSettleNtf getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface SpecialPlayerResultInfoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.SpecialPlayerResultInfo)
+  public interface SpeacialPlayerInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.SpeacialPlayerInfo)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -17382,32 +16255,32 @@ public final class Lhdz {
      *玩家id
      * </pre>
      *
-     * <code>required int32 player_id = 1;</code>
+     * <code>required int32 userId = 1;</code>
      */
-    boolean hasPlayerId();
+    boolean hasUserId();
     /**
      * <pre>
      *玩家id
      * </pre>
      *
-     * <code>required int32 player_id = 1;</code>
+     * <code>required int32 userId = 1;</code>
      */
-    int getPlayerId();
+    int getUserId();
 
     /**
      * <pre>
-     *玩家赢取的金币
+     *玩家赢取的金币 扣除了服务费
      * </pre>
      *
-     * <code>required double win_amount = 2;</code>
+     * <code>optional double winAmount = 2;</code>
      */
     boolean hasWinAmount();
     /**
      * <pre>
-     *玩家赢取的金币
+     *玩家赢取的金币 扣除了服务费
      * </pre>
      *
-     * <code>required double win_amount = 2;</code>
+     * <code>optional double winAmount = 2;</code>
      */
     double getWinAmount();
 
@@ -17436,27 +16309,79 @@ public final class Lhdz {
      */
     com.google.protobuf.ByteString
         getBalanceBytes();
+
+    /**
+     * <pre>
+     *各区域下注
+     * </pre>
+     *
+     * <code>repeated int64 areaBet = 4;</code>
+     */
+    java.util.List<java.lang.Long> getAreaBetList();
+    /**
+     * <pre>
+     *各区域下注
+     * </pre>
+     *
+     * <code>repeated int64 areaBet = 4;</code>
+     */
+    int getAreaBetCount();
+    /**
+     * <pre>
+     *各区域下注
+     * </pre>
+     *
+     * <code>repeated int64 areaBet = 4;</code>
+     */
+    long getAreaBet(int index);
+
+    /**
+     * <pre>
+     *各区域赢 没有扣除服务费
+     * </pre>
+     *
+     * <code>repeated int64 areaWin = 5;</code>
+     */
+    java.util.List<java.lang.Long> getAreaWinList();
+    /**
+     * <pre>
+     *各区域赢 没有扣除服务费
+     * </pre>
+     *
+     * <code>repeated int64 areaWin = 5;</code>
+     */
+    int getAreaWinCount();
+    /**
+     * <pre>
+     *各区域赢 没有扣除服务费
+     * </pre>
+     *
+     * <code>repeated int64 areaWin = 5;</code>
+     */
+    long getAreaWin(int index);
   }
   /**
    * <pre>
    *特殊玩家输赢的结果
    * </pre>
    *
-   * Protobuf type {@code com.dafagame.protocol.lhdz.SpecialPlayerResultInfo}
+   * Protobuf type {@code com.dafagame.protocol.lhdz.SpeacialPlayerInfo}
    */
-  public  static final class SpecialPlayerResultInfo extends
+  public  static final class SpeacialPlayerInfo extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.SpecialPlayerResultInfo)
-      SpecialPlayerResultInfoOrBuilder {
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.SpeacialPlayerInfo)
+      SpeacialPlayerInfoOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use SpecialPlayerResultInfo.newBuilder() to construct.
-    private SpecialPlayerResultInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use SpeacialPlayerInfo.newBuilder() to construct.
+    private SpeacialPlayerInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private SpecialPlayerResultInfo() {
-      playerId_ = 0;
+    private SpeacialPlayerInfo() {
+      userId_ = 0;
       winAmount_ = 0D;
       balance_ = "";
+      areaBet_ = java.util.Collections.emptyList();
+      areaWin_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -17464,7 +16389,7 @@ public final class Lhdz {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SpecialPlayerResultInfo(
+    private SpeacialPlayerInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -17489,7 +16414,7 @@ public final class Lhdz {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              playerId_ = input.readInt32();
+              userId_ = input.readInt32();
               break;
             }
             case 17: {
@@ -17503,6 +16428,48 @@ public final class Lhdz {
               balance_ = bs;
               break;
             }
+            case 32: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                areaBet_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              areaBet_.add(input.readInt64());
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
+                areaBet_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                areaBet_.add(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 40: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                areaWin_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              areaWin_.add(input.readInt64());
+              break;
+            }
+            case 42: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
+                areaWin_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                areaWin_.add(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -17511,33 +16478,39 @@ public final class Lhdz {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          areaBet_ = java.util.Collections.unmodifiableList(areaBet_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          areaWin_ = java.util.Collections.unmodifiableList(areaWin_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_descriptor;
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_fieldAccessorTable
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.class, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder.class);
+              com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.class, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder.class);
     }
 
     private int bitField0_;
-    public static final int PLAYER_ID_FIELD_NUMBER = 1;
-    private int playerId_;
+    public static final int USERID_FIELD_NUMBER = 1;
+    private int userId_;
     /**
      * <pre>
      *玩家id
      * </pre>
      *
-     * <code>required int32 player_id = 1;</code>
+     * <code>required int32 userId = 1;</code>
      */
-    public boolean hasPlayerId() {
+    public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
@@ -17545,30 +16518,30 @@ public final class Lhdz {
      *玩家id
      * </pre>
      *
-     * <code>required int32 player_id = 1;</code>
+     * <code>required int32 userId = 1;</code>
      */
-    public int getPlayerId() {
-      return playerId_;
+    public int getUserId() {
+      return userId_;
     }
 
-    public static final int WIN_AMOUNT_FIELD_NUMBER = 2;
+    public static final int WINAMOUNT_FIELD_NUMBER = 2;
     private double winAmount_;
     /**
      * <pre>
-     *玩家赢取的金币
+     *玩家赢取的金币 扣除了服务费
      * </pre>
      *
-     * <code>required double win_amount = 2;</code>
+     * <code>optional double winAmount = 2;</code>
      */
     public boolean hasWinAmount() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <pre>
-     *玩家赢取的金币
+     *玩家赢取的金币 扣除了服务费
      * </pre>
      *
-     * <code>required double win_amount = 2;</code>
+     * <code>optional double winAmount = 2;</code>
      */
     public double getWinAmount() {
       return winAmount_;
@@ -17628,17 +16601,81 @@ public final class Lhdz {
       }
     }
 
+    public static final int AREABET_FIELD_NUMBER = 4;
+    private java.util.List<java.lang.Long> areaBet_;
+    /**
+     * <pre>
+     *各区域下注
+     * </pre>
+     *
+     * <code>repeated int64 areaBet = 4;</code>
+     */
+    public java.util.List<java.lang.Long>
+        getAreaBetList() {
+      return areaBet_;
+    }
+    /**
+     * <pre>
+     *各区域下注
+     * </pre>
+     *
+     * <code>repeated int64 areaBet = 4;</code>
+     */
+    public int getAreaBetCount() {
+      return areaBet_.size();
+    }
+    /**
+     * <pre>
+     *各区域下注
+     * </pre>
+     *
+     * <code>repeated int64 areaBet = 4;</code>
+     */
+    public long getAreaBet(int index) {
+      return areaBet_.get(index);
+    }
+
+    public static final int AREAWIN_FIELD_NUMBER = 5;
+    private java.util.List<java.lang.Long> areaWin_;
+    /**
+     * <pre>
+     *各区域赢 没有扣除服务费
+     * </pre>
+     *
+     * <code>repeated int64 areaWin = 5;</code>
+     */
+    public java.util.List<java.lang.Long>
+        getAreaWinList() {
+      return areaWin_;
+    }
+    /**
+     * <pre>
+     *各区域赢 没有扣除服务费
+     * </pre>
+     *
+     * <code>repeated int64 areaWin = 5;</code>
+     */
+    public int getAreaWinCount() {
+      return areaWin_.size();
+    }
+    /**
+     * <pre>
+     *各区域赢 没有扣除服务费
+     * </pre>
+     *
+     * <code>repeated int64 areaWin = 5;</code>
+     */
+    public long getAreaWin(int index) {
+      return areaWin_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasPlayerId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasWinAmount()) {
+      if (!hasUserId()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -17649,13 +16686,19 @@ public final class Lhdz {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, playerId_);
+        output.writeInt32(1, userId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeDouble(2, winAmount_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, balance_);
+      }
+      for (int i = 0; i < areaBet_.size(); i++) {
+        output.writeInt64(4, areaBet_.get(i));
+      }
+      for (int i = 0; i < areaWin_.size(); i++) {
+        output.writeInt64(5, areaWin_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -17667,7 +16710,7 @@ public final class Lhdz {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, playerId_);
+          .computeInt32Size(1, userId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -17675,6 +16718,24 @@ public final class Lhdz {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, balance_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < areaBet_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(areaBet_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getAreaBetList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < areaWin_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(areaWin_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getAreaWinList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -17686,16 +16747,16 @@ public final class Lhdz {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo)) {
+      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo other = (com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo) obj;
+      com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo other = (com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo) obj;
 
       boolean result = true;
-      result = result && (hasPlayerId() == other.hasPlayerId());
-      if (hasPlayerId()) {
-        result = result && (getPlayerId()
-            == other.getPlayerId());
+      result = result && (hasUserId() == other.hasUserId());
+      if (hasUserId()) {
+        result = result && (getUserId()
+            == other.getUserId());
       }
       result = result && (hasWinAmount() == other.hasWinAmount());
       if (hasWinAmount()) {
@@ -17709,6 +16770,10 @@ public final class Lhdz {
         result = result && getBalance()
             .equals(other.getBalance());
       }
+      result = result && getAreaBetList()
+          .equals(other.getAreaBetList());
+      result = result && getAreaWinList()
+          .equals(other.getAreaWinList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -17720,12 +16785,12 @@ public final class Lhdz {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasPlayerId()) {
-        hash = (37 * hash) + PLAYER_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getPlayerId();
+      if (hasUserId()) {
+        hash = (37 * hash) + USERID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId();
       }
       if (hasWinAmount()) {
-        hash = (37 * hash) + WIN_AMOUNT_FIELD_NUMBER;
+        hash = (37 * hash) + WINAMOUNT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getWinAmount()));
       }
@@ -17733,74 +16798,82 @@ public final class Lhdz {
         hash = (37 * hash) + BALANCE_FIELD_NUMBER;
         hash = (53 * hash) + getBalance().hashCode();
       }
+      if (getAreaBetCount() > 0) {
+        hash = (37 * hash) + AREABET_FIELD_NUMBER;
+        hash = (53 * hash) + getAreaBetList().hashCode();
+      }
+      if (getAreaWinCount() > 0) {
+        hash = (37 * hash) + AREAWIN_FIELD_NUMBER;
+        hash = (53 * hash) + getAreaWinList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(byte[] data)
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(java.io.InputStream input)
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseDelimitedFrom(java.io.InputStream input)
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseDelimitedFrom(
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parseFrom(
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -17812,7 +16885,7 @@ public final class Lhdz {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo prototype) {
+    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -17831,25 +16904,25 @@ public final class Lhdz {
      *特殊玩家输赢的结果
      * </pre>
      *
-     * Protobuf type {@code com.dafagame.protocol.lhdz.SpecialPlayerResultInfo}
+     * Protobuf type {@code com.dafagame.protocol.lhdz.SpeacialPlayerInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.SpecialPlayerResultInfo)
-        com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfoOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.SpeacialPlayerInfo)
+        com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_descriptor;
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_fieldAccessorTable
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.class, com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.Builder.class);
+                com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.class, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder.class);
       }
 
-      // Construct using com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.newBuilder()
+      // Construct using com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -17866,40 +16939,44 @@ public final class Lhdz {
       }
       public Builder clear() {
         super.clear();
-        playerId_ = 0;
+        userId_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         winAmount_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000002);
         balance_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        areaBet_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        areaWin_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_descriptor;
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_descriptor;
       }
 
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo getDefaultInstanceForType() {
-        return com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.getDefaultInstance();
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getDefaultInstanceForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo build() {
-        com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo result = buildPartial();
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo build() {
+        com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo buildPartial() {
-        com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo result = new com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo(this);
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo buildPartial() {
+        com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo result = new com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.playerId_ = playerId_;
+        result.userId_ = userId_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -17908,6 +16985,16 @@ public final class Lhdz {
           to_bitField0_ |= 0x00000004;
         }
         result.balance_ = balance_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          areaBet_ = java.util.Collections.unmodifiableList(areaBet_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.areaBet_ = areaBet_;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          areaWin_ = java.util.Collections.unmodifiableList(areaWin_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.areaWin_ = areaWin_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -17940,18 +17027,18 @@ public final class Lhdz {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo) {
-          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo)other);
+        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo) {
+          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo other) {
-        if (other == com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo.getDefaultInstance()) return this;
-        if (other.hasPlayerId()) {
-          setPlayerId(other.getPlayerId());
+      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo other) {
+        if (other == com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
         }
         if (other.hasWinAmount()) {
           setWinAmount(other.getWinAmount());
@@ -17961,16 +17048,33 @@ public final class Lhdz {
           balance_ = other.balance_;
           onChanged();
         }
+        if (!other.areaBet_.isEmpty()) {
+          if (areaBet_.isEmpty()) {
+            areaBet_ = other.areaBet_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureAreaBetIsMutable();
+            areaBet_.addAll(other.areaBet_);
+          }
+          onChanged();
+        }
+        if (!other.areaWin_.isEmpty()) {
+          if (areaWin_.isEmpty()) {
+            areaWin_ = other.areaWin_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureAreaWinIsMutable();
+            areaWin_.addAll(other.areaWin_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasPlayerId()) {
-          return false;
-        }
-        if (!hasWinAmount()) {
+        if (!hasUserId()) {
           return false;
         }
         return true;
@@ -17980,11 +17084,11 @@ public final class Lhdz {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo parsedMessage = null;
+        com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo) e.getUnfinishedMessage();
+          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -17995,15 +17099,15 @@ public final class Lhdz {
       }
       private int bitField0_;
 
-      private int playerId_ ;
+      private int userId_ ;
       /**
        * <pre>
        *玩家id
        * </pre>
        *
-       * <code>required int32 player_id = 1;</code>
+       * <code>required int32 userId = 1;</code>
        */
-      public boolean hasPlayerId() {
+      public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
@@ -18011,21 +17115,21 @@ public final class Lhdz {
        *玩家id
        * </pre>
        *
-       * <code>required int32 player_id = 1;</code>
+       * <code>required int32 userId = 1;</code>
        */
-      public int getPlayerId() {
-        return playerId_;
+      public int getUserId() {
+        return userId_;
       }
       /**
        * <pre>
        *玩家id
        * </pre>
        *
-       * <code>required int32 player_id = 1;</code>
+       * <code>required int32 userId = 1;</code>
        */
-      public Builder setPlayerId(int value) {
+      public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
-        playerId_ = value;
+        userId_ = value;
         onChanged();
         return this;
       }
@@ -18034,11 +17138,11 @@ public final class Lhdz {
        *玩家id
        * </pre>
        *
-       * <code>required int32 player_id = 1;</code>
+       * <code>required int32 userId = 1;</code>
        */
-      public Builder clearPlayerId() {
+      public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        playerId_ = 0;
+        userId_ = 0;
         onChanged();
         return this;
       }
@@ -18046,30 +17150,30 @@ public final class Lhdz {
       private double winAmount_ ;
       /**
        * <pre>
-       *玩家赢取的金币
+       *玩家赢取的金币 扣除了服务费
        * </pre>
        *
-       * <code>required double win_amount = 2;</code>
+       * <code>optional double winAmount = 2;</code>
        */
       public boolean hasWinAmount() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <pre>
-       *玩家赢取的金币
+       *玩家赢取的金币 扣除了服务费
        * </pre>
        *
-       * <code>required double win_amount = 2;</code>
+       * <code>optional double winAmount = 2;</code>
        */
       public double getWinAmount() {
         return winAmount_;
       }
       /**
        * <pre>
-       *玩家赢取的金币
+       *玩家赢取的金币 扣除了服务费
        * </pre>
        *
-       * <code>required double win_amount = 2;</code>
+       * <code>optional double winAmount = 2;</code>
        */
       public Builder setWinAmount(double value) {
         bitField0_ |= 0x00000002;
@@ -18079,10 +17183,10 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *玩家赢取的金币
+       *玩家赢取的金币 扣除了服务费
        * </pre>
        *
-       * <code>required double win_amount = 2;</code>
+       * <code>optional double winAmount = 2;</code>
        */
       public Builder clearWinAmount() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -18190,6 +17294,194 @@ public final class Lhdz {
         onChanged();
         return this;
       }
+
+      private java.util.List<java.lang.Long> areaBet_ = java.util.Collections.emptyList();
+      private void ensureAreaBetIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          areaBet_ = new java.util.ArrayList<java.lang.Long>(areaBet_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <pre>
+       *各区域下注
+       * </pre>
+       *
+       * <code>repeated int64 areaBet = 4;</code>
+       */
+      public java.util.List<java.lang.Long>
+          getAreaBetList() {
+        return java.util.Collections.unmodifiableList(areaBet_);
+      }
+      /**
+       * <pre>
+       *各区域下注
+       * </pre>
+       *
+       * <code>repeated int64 areaBet = 4;</code>
+       */
+      public int getAreaBetCount() {
+        return areaBet_.size();
+      }
+      /**
+       * <pre>
+       *各区域下注
+       * </pre>
+       *
+       * <code>repeated int64 areaBet = 4;</code>
+       */
+      public long getAreaBet(int index) {
+        return areaBet_.get(index);
+      }
+      /**
+       * <pre>
+       *各区域下注
+       * </pre>
+       *
+       * <code>repeated int64 areaBet = 4;</code>
+       */
+      public Builder setAreaBet(
+          int index, long value) {
+        ensureAreaBetIsMutable();
+        areaBet_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *各区域下注
+       * </pre>
+       *
+       * <code>repeated int64 areaBet = 4;</code>
+       */
+      public Builder addAreaBet(long value) {
+        ensureAreaBetIsMutable();
+        areaBet_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *各区域下注
+       * </pre>
+       *
+       * <code>repeated int64 areaBet = 4;</code>
+       */
+      public Builder addAllAreaBet(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureAreaBetIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, areaBet_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *各区域下注
+       * </pre>
+       *
+       * <code>repeated int64 areaBet = 4;</code>
+       */
+      public Builder clearAreaBet() {
+        areaBet_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Long> areaWin_ = java.util.Collections.emptyList();
+      private void ensureAreaWinIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          areaWin_ = new java.util.ArrayList<java.lang.Long>(areaWin_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <pre>
+       *各区域赢 没有扣除服务费
+       * </pre>
+       *
+       * <code>repeated int64 areaWin = 5;</code>
+       */
+      public java.util.List<java.lang.Long>
+          getAreaWinList() {
+        return java.util.Collections.unmodifiableList(areaWin_);
+      }
+      /**
+       * <pre>
+       *各区域赢 没有扣除服务费
+       * </pre>
+       *
+       * <code>repeated int64 areaWin = 5;</code>
+       */
+      public int getAreaWinCount() {
+        return areaWin_.size();
+      }
+      /**
+       * <pre>
+       *各区域赢 没有扣除服务费
+       * </pre>
+       *
+       * <code>repeated int64 areaWin = 5;</code>
+       */
+      public long getAreaWin(int index) {
+        return areaWin_.get(index);
+      }
+      /**
+       * <pre>
+       *各区域赢 没有扣除服务费
+       * </pre>
+       *
+       * <code>repeated int64 areaWin = 5;</code>
+       */
+      public Builder setAreaWin(
+          int index, long value) {
+        ensureAreaWinIsMutable();
+        areaWin_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *各区域赢 没有扣除服务费
+       * </pre>
+       *
+       * <code>repeated int64 areaWin = 5;</code>
+       */
+      public Builder addAreaWin(long value) {
+        ensureAreaWinIsMutable();
+        areaWin_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *各区域赢 没有扣除服务费
+       * </pre>
+       *
+       * <code>repeated int64 areaWin = 5;</code>
+       */
+      public Builder addAllAreaWin(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureAreaWinIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, areaWin_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *各区域赢 没有扣除服务费
+       * </pre>
+       *
+       * <code>repeated int64 areaWin = 5;</code>
+       */
+      public Builder clearAreaWin() {
+        areaWin_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -18201,39 +17493,39 @@ public final class Lhdz {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.SpecialPlayerResultInfo)
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.SpeacialPlayerInfo)
     }
 
-    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.SpecialPlayerResultInfo)
-    private static final com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.SpeacialPlayerInfo)
+    private static final com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo();
+      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo();
     }
 
-    public static com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo getDefaultInstance() {
+    public static com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<SpecialPlayerResultInfo>
-        PARSER = new com.google.protobuf.AbstractParser<SpecialPlayerResultInfo>() {
-      public SpecialPlayerResultInfo parsePartialFrom(
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<SpeacialPlayerInfo>
+        PARSER = new com.google.protobuf.AbstractParser<SpeacialPlayerInfo>() {
+      public SpeacialPlayerInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SpecialPlayerResultInfo(input, extensionRegistry);
+          return new SpeacialPlayerInfo(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<SpecialPlayerResultInfo> parser() {
+    public static com.google.protobuf.Parser<SpeacialPlayerInfo> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<SpecialPlayerResultInfo> getParserForType() {
+    public com.google.protobuf.Parser<SpeacialPlayerInfo> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.lhdz.Lhdz.SpecialPlayerResultInfo getDefaultInstanceForType() {
+    public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18245,24 +17537,24 @@ public final class Lhdz {
 
     /**
      * <pre>
-     *金钱变化
+     *金钱变化 没有扣除服务费
      * </pre>
      *
-     * <code>required int64 add_amount = 1;</code>
+     * <code>optional int64 addAmount = 1;</code>
      */
     boolean hasAddAmount();
     /**
      * <pre>
-     *金钱变化
+     *金钱变化 没有扣除服务费
      * </pre>
      *
-     * <code>required int64 add_amount = 1;</code>
+     * <code>optional int64 addAmount = 1;</code>
      */
     long getAddAmount();
 
     /**
      * <pre>
-     *税收
+     *服务费
      * </pre>
      *
      * <code>optional double tax = 2;</code>
@@ -18270,7 +17562,7 @@ public final class Lhdz {
     boolean hasTax();
     /**
      * <pre>
-     *税收
+     *服务费
      * </pre>
      *
      * <code>optional double tax = 2;</code>
@@ -18279,26 +17571,26 @@ public final class Lhdz {
 
     /**
      * <pre>
-     *四个盘口分别增加的金币的列表
+     *玩家四个盘口分别增加的金币的列表 没有扣除服务费
      * </pre>
      *
-     * <code>repeated int64 add_amount_list = 3;</code>
+     * <code>repeated int64 addAmountList = 3;</code>
      */
     java.util.List<java.lang.Long> getAddAmountListList();
     /**
      * <pre>
-     *四个盘口分别增加的金币的列表
+     *玩家四个盘口分别增加的金币的列表 没有扣除服务费
      * </pre>
      *
-     * <code>repeated int64 add_amount_list = 3;</code>
+     * <code>repeated int64 addAmountList = 3;</code>
      */
     int getAddAmountListCount();
     /**
      * <pre>
-     *四个盘口分别增加的金币的列表
+     *玩家四个盘口分别增加的金币的列表 没有扣除服务费
      * </pre>
      *
-     * <code>repeated int64 add_amount_list = 3;</code>
+     * <code>repeated int64 addAmountList = 3;</code>
      */
     long getAddAmountList(int index);
 
@@ -18307,7 +17599,7 @@ public final class Lhdz {
      *最新余额
      * </pre>
      *
-     * <code>required string balance = 4;</code>
+     * <code>optional string balance = 4;</code>
      */
     boolean hasBalance();
     /**
@@ -18315,7 +17607,7 @@ public final class Lhdz {
      *最新余额
      * </pre>
      *
-     * <code>required string balance = 4;</code>
+     * <code>optional string balance = 4;</code>
      */
     java.lang.String getBalance();
     /**
@@ -18323,10 +17615,174 @@ public final class Lhdz {
      *最新余额
      * </pre>
      *
-     * <code>required string balance = 4;</code>
+     * <code>optional string balance = 4;</code>
      */
     com.google.protobuf.ByteString
         getBalanceBytes();
+
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> 
+        getRankListList();
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getRankList(int index);
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    int getRankListCount();
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> 
+        getRankListOrBuilderList();
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder getRankListOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+     */
+    boolean hasBanker();
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+     */
+    com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getBanker();
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+     */
+    com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder getBankerOrBuilder();
+
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 7;</code>
+     */
+    boolean hasPokerState();
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 7;</code>
+     */
+    java.lang.String getPokerState();
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getPokerStateBytes();
+
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 8;</code>
+     */
+    boolean hasPokerType();
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 8;</code>
+     */
+    java.lang.String getPokerType();
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getPokerTypeBytes();
+
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 9;</code>
+     */
+    boolean hasPoker();
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 9;</code>
+     */
+    java.lang.String getPoker();
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getPokerBytes();
+
+    /**
+     * <pre>
+     *其他玩家总输赢 扣除服务费 不包含特殊玩家 庄家
+     * </pre>
+     *
+     * <code>optional double otherTotal = 10;</code>
+     */
+    boolean hasOtherTotal();
+    /**
+     * <pre>
+     *其他玩家总输赢 扣除服务费 不包含特殊玩家 庄家
+     * </pre>
+     *
+     * <code>optional double otherTotal = 10;</code>
+     */
+    double getOtherTotal();
   }
   /**
    * <pre>
@@ -18349,6 +17805,11 @@ public final class Lhdz {
       tax_ = 0D;
       addAmountList_ = java.util.Collections.emptyList();
       balance_ = "";
+      rankList_ = java.util.Collections.emptyList();
+      pokerState_ = "";
+      pokerType_ = "";
+      poker_ = "";
+      otherTotal_ = 0D;
     }
 
     @java.lang.Override
@@ -18416,6 +17877,51 @@ public final class Lhdz {
               balance_ = bs;
               break;
             }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                rankList_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              rankList_.add(
+                  input.readMessage(com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.PARSER, extensionRegistry));
+              break;
+            }
+            case 50: {
+              com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = banker_.toBuilder();
+              }
+              banker_ = input.readMessage(com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(banker_);
+                banker_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
+              pokerState_ = bs;
+              break;
+            }
+            case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              pokerType_ = bs;
+              break;
+            }
+            case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              poker_ = bs;
+              break;
+            }
+            case 81: {
+              bitField0_ |= 0x00000080;
+              otherTotal_ = input.readDouble();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -18426,6 +17932,9 @@ public final class Lhdz {
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           addAmountList_ = java.util.Collections.unmodifiableList(addAmountList_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          rankList_ = java.util.Collections.unmodifiableList(rankList_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -18444,24 +17953,24 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int ADD_AMOUNT_FIELD_NUMBER = 1;
+    public static final int ADDAMOUNT_FIELD_NUMBER = 1;
     private long addAmount_;
     /**
      * <pre>
-     *金钱变化
+     *金钱变化 没有扣除服务费
      * </pre>
      *
-     * <code>required int64 add_amount = 1;</code>
+     * <code>optional int64 addAmount = 1;</code>
      */
     public boolean hasAddAmount() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <pre>
-     *金钱变化
+     *金钱变化 没有扣除服务费
      * </pre>
      *
-     * <code>required int64 add_amount = 1;</code>
+     * <code>optional int64 addAmount = 1;</code>
      */
     public long getAddAmount() {
       return addAmount_;
@@ -18471,7 +17980,7 @@ public final class Lhdz {
     private double tax_;
     /**
      * <pre>
-     *税收
+     *服务费
      * </pre>
      *
      * <code>optional double tax = 2;</code>
@@ -18481,7 +17990,7 @@ public final class Lhdz {
     }
     /**
      * <pre>
-     *税收
+     *服务费
      * </pre>
      *
      * <code>optional double tax = 2;</code>
@@ -18490,14 +17999,14 @@ public final class Lhdz {
       return tax_;
     }
 
-    public static final int ADD_AMOUNT_LIST_FIELD_NUMBER = 3;
+    public static final int ADDAMOUNTLIST_FIELD_NUMBER = 3;
     private java.util.List<java.lang.Long> addAmountList_;
     /**
      * <pre>
-     *四个盘口分别增加的金币的列表
+     *玩家四个盘口分别增加的金币的列表 没有扣除服务费
      * </pre>
      *
-     * <code>repeated int64 add_amount_list = 3;</code>
+     * <code>repeated int64 addAmountList = 3;</code>
      */
     public java.util.List<java.lang.Long>
         getAddAmountListList() {
@@ -18505,20 +18014,20 @@ public final class Lhdz {
     }
     /**
      * <pre>
-     *四个盘口分别增加的金币的列表
+     *玩家四个盘口分别增加的金币的列表 没有扣除服务费
      * </pre>
      *
-     * <code>repeated int64 add_amount_list = 3;</code>
+     * <code>repeated int64 addAmountList = 3;</code>
      */
     public int getAddAmountListCount() {
       return addAmountList_.size();
     }
     /**
      * <pre>
-     *四个盘口分别增加的金币的列表
+     *玩家四个盘口分别增加的金币的列表 没有扣除服务费
      * </pre>
      *
-     * <code>repeated int64 add_amount_list = 3;</code>
+     * <code>repeated int64 addAmountList = 3;</code>
      */
     public long getAddAmountList(int index) {
       return addAmountList_.get(index);
@@ -18531,7 +18040,7 @@ public final class Lhdz {
      *最新余额
      * </pre>
      *
-     * <code>required string balance = 4;</code>
+     * <code>optional string balance = 4;</code>
      */
     public boolean hasBalance() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -18541,7 +18050,7 @@ public final class Lhdz {
      *最新余额
      * </pre>
      *
-     * <code>required string balance = 4;</code>
+     * <code>optional string balance = 4;</code>
      */
     public java.lang.String getBalance() {
       java.lang.Object ref = balance_;
@@ -18562,7 +18071,7 @@ public final class Lhdz {
      *最新余额
      * </pre>
      *
-     * <code>required string balance = 4;</code>
+     * <code>optional string balance = 4;</code>
      */
     public com.google.protobuf.ByteString
         getBalanceBytes() {
@@ -18578,19 +18087,296 @@ public final class Lhdz {
       }
     }
 
+    public static final int RANKLIST_FIELD_NUMBER = 5;
+    private java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> rankList_;
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    public java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> getRankListList() {
+      return rankList_;
+    }
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> 
+        getRankListOrBuilderList() {
+      return rankList_;
+    }
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    public int getRankListCount() {
+      return rankList_.size();
+    }
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getRankList(int index) {
+      return rankList_.get(index);
+    }
+    /**
+     * <pre>
+     *特殊玩家
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+     */
+    public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder getRankListOrBuilder(
+        int index) {
+      return rankList_.get(index);
+    }
+
+    public static final int BANKER_FIELD_NUMBER = 6;
+    private com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo banker_;
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+     */
+    public boolean hasBanker() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+     */
+    public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getBanker() {
+      return banker_ == null ? com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance() : banker_;
+    }
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+     */
+    public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder getBankerOrBuilder() {
+      return banker_ == null ? com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance() : banker_;
+    }
+
+    public static final int POKERSTATE_FIELD_NUMBER = 7;
+    private volatile java.lang.Object pokerState_;
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 7;</code>
+     */
+    public boolean hasPokerState() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 7;</code>
+     */
+    public java.lang.String getPokerState() {
+      java.lang.Object ref = pokerState_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          pokerState_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *输赢 庄家用 正 赢 负 输
+     * </pre>
+     *
+     * <code>optional string pokerState = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPokerStateBytes() {
+      java.lang.Object ref = pokerState_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pokerState_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int POKERTYPE_FIELD_NUMBER = 8;
+    private volatile java.lang.Object pokerType_;
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 8;</code>
+     */
+    public boolean hasPokerType() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 8;</code>
+     */
+    public java.lang.String getPokerType() {
+      java.lang.Object ref = pokerType_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          pokerType_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *牌型
+     * </pre>
+     *
+     * <code>optional string pokerType = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPokerTypeBytes() {
+      java.lang.Object ref = pokerType_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pokerType_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int POKER_FIELD_NUMBER = 9;
+    private volatile java.lang.Object poker_;
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 9;</code>
+     */
+    public boolean hasPoker() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 9;</code>
+     */
+    public java.lang.String getPoker() {
+      java.lang.Object ref = poker_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          poker_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *扑克牌信息
+     * </pre>
+     *
+     * <code>optional string poker = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPokerBytes() {
+      java.lang.Object ref = poker_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        poker_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OTHERTOTAL_FIELD_NUMBER = 10;
+    private double otherTotal_;
+    /**
+     * <pre>
+     *其他玩家总输赢 扣除服务费 不包含特殊玩家 庄家
+     * </pre>
+     *
+     * <code>optional double otherTotal = 10;</code>
+     */
+    public boolean hasOtherTotal() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <pre>
+     *其他玩家总输赢 扣除服务费 不包含特殊玩家 庄家
+     * </pre>
+     *
+     * <code>optional double otherTotal = 10;</code>
+     */
+    public double getOtherTotal() {
+      return otherTotal_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasAddAmount()) {
-        memoizedIsInitialized = 0;
-        return false;
+      for (int i = 0; i < getRankListCount(); i++) {
+        if (!getRankList(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
-      if (!hasBalance()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasBanker()) {
+        if (!getBanker().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       memoizedIsInitialized = 1;
       return true;
@@ -18609,6 +18395,24 @@ public final class Lhdz {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, balance_);
+      }
+      for (int i = 0; i < rankList_.size(); i++) {
+        output.writeMessage(5, rankList_.get(i));
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(6, getBanker());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, pokerState_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, pokerType_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, poker_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeDouble(10, otherTotal_);
       }
       unknownFields.writeTo(output);
     }
@@ -18637,6 +18441,27 @@ public final class Lhdz {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, balance_);
+      }
+      for (int i = 0; i < rankList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, rankList_.get(i));
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getBanker());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, pokerState_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, pokerType_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, poker_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(10, otherTotal_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -18673,6 +18498,35 @@ public final class Lhdz {
         result = result && getBalance()
             .equals(other.getBalance());
       }
+      result = result && getRankListList()
+          .equals(other.getRankListList());
+      result = result && (hasBanker() == other.hasBanker());
+      if (hasBanker()) {
+        result = result && getBanker()
+            .equals(other.getBanker());
+      }
+      result = result && (hasPokerState() == other.hasPokerState());
+      if (hasPokerState()) {
+        result = result && getPokerState()
+            .equals(other.getPokerState());
+      }
+      result = result && (hasPokerType() == other.hasPokerType());
+      if (hasPokerType()) {
+        result = result && getPokerType()
+            .equals(other.getPokerType());
+      }
+      result = result && (hasPoker() == other.hasPoker());
+      if (hasPoker()) {
+        result = result && getPoker()
+            .equals(other.getPoker());
+      }
+      result = result && (hasOtherTotal() == other.hasOtherTotal());
+      if (hasOtherTotal()) {
+        result = result && (
+            java.lang.Double.doubleToLongBits(getOtherTotal())
+            == java.lang.Double.doubleToLongBits(
+                other.getOtherTotal()));
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -18685,7 +18539,7 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasAddAmount()) {
-        hash = (37 * hash) + ADD_AMOUNT_FIELD_NUMBER;
+        hash = (37 * hash) + ADDAMOUNT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getAddAmount());
       }
@@ -18695,12 +18549,37 @@ public final class Lhdz {
             java.lang.Double.doubleToLongBits(getTax()));
       }
       if (getAddAmountListCount() > 0) {
-        hash = (37 * hash) + ADD_AMOUNT_LIST_FIELD_NUMBER;
+        hash = (37 * hash) + ADDAMOUNTLIST_FIELD_NUMBER;
         hash = (53 * hash) + getAddAmountListList().hashCode();
       }
       if (hasBalance()) {
         hash = (37 * hash) + BALANCE_FIELD_NUMBER;
         hash = (53 * hash) + getBalance().hashCode();
+      }
+      if (getRankListCount() > 0) {
+        hash = (37 * hash) + RANKLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getRankListList().hashCode();
+      }
+      if (hasBanker()) {
+        hash = (37 * hash) + BANKER_FIELD_NUMBER;
+        hash = (53 * hash) + getBanker().hashCode();
+      }
+      if (hasPokerState()) {
+        hash = (37 * hash) + POKERSTATE_FIELD_NUMBER;
+        hash = (53 * hash) + getPokerState().hashCode();
+      }
+      if (hasPokerType()) {
+        hash = (37 * hash) + POKERTYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getPokerType().hashCode();
+      }
+      if (hasPoker()) {
+        hash = (37 * hash) + POKER_FIELD_NUMBER;
+        hash = (53 * hash) + getPoker().hashCode();
+      }
+      if (hasOtherTotal()) {
+        hash = (37 * hash) + OTHERTOTAL_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getOtherTotal()));
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -18831,6 +18710,8 @@ public final class Lhdz {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getRankListFieldBuilder();
+          getBankerFieldBuilder();
         }
       }
       public Builder clear() {
@@ -18843,6 +18724,26 @@ public final class Lhdz {
         bitField0_ = (bitField0_ & ~0x00000004);
         balance_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (rankListBuilder_ == null) {
+          rankList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          rankListBuilder_.clear();
+        }
+        if (bankerBuilder_ == null) {
+          banker_ = null;
+        } else {
+          bankerBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        pokerState_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        pokerType_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        poker_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
+        otherTotal_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
@@ -18884,6 +18785,39 @@ public final class Lhdz {
           to_bitField0_ |= 0x00000004;
         }
         result.balance_ = balance_;
+        if (rankListBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            rankList_ = java.util.Collections.unmodifiableList(rankList_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.rankList_ = rankList_;
+        } else {
+          result.rankList_ = rankListBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (bankerBuilder_ == null) {
+          result.banker_ = banker_;
+        } else {
+          result.banker_ = bankerBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.pokerState_ = pokerState_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.pokerType_ = pokerType_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.poker_ = poker_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.otherTotal_ = otherTotal_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -18947,17 +18881,68 @@ public final class Lhdz {
           balance_ = other.balance_;
           onChanged();
         }
+        if (rankListBuilder_ == null) {
+          if (!other.rankList_.isEmpty()) {
+            if (rankList_.isEmpty()) {
+              rankList_ = other.rankList_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureRankListIsMutable();
+              rankList_.addAll(other.rankList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rankList_.isEmpty()) {
+            if (rankListBuilder_.isEmpty()) {
+              rankListBuilder_.dispose();
+              rankListBuilder_ = null;
+              rankList_ = other.rankList_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              rankListBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRankListFieldBuilder() : null;
+            } else {
+              rankListBuilder_.addAllMessages(other.rankList_);
+            }
+          }
+        }
+        if (other.hasBanker()) {
+          mergeBanker(other.getBanker());
+        }
+        if (other.hasPokerState()) {
+          bitField0_ |= 0x00000040;
+          pokerState_ = other.pokerState_;
+          onChanged();
+        }
+        if (other.hasPokerType()) {
+          bitField0_ |= 0x00000080;
+          pokerType_ = other.pokerType_;
+          onChanged();
+        }
+        if (other.hasPoker()) {
+          bitField0_ |= 0x00000100;
+          poker_ = other.poker_;
+          onChanged();
+        }
+        if (other.hasOtherTotal()) {
+          setOtherTotal(other.getOtherTotal());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasAddAmount()) {
-          return false;
+        for (int i = 0; i < getRankListCount(); i++) {
+          if (!getRankList(i).isInitialized()) {
+            return false;
+          }
         }
-        if (!hasBalance()) {
-          return false;
+        if (hasBanker()) {
+          if (!getBanker().isInitialized()) {
+            return false;
+          }
         }
         return true;
       }
@@ -18984,30 +18969,30 @@ public final class Lhdz {
       private long addAmount_ ;
       /**
        * <pre>
-       *金钱变化
+       *金钱变化 没有扣除服务费
        * </pre>
        *
-       * <code>required int64 add_amount = 1;</code>
+       * <code>optional int64 addAmount = 1;</code>
        */
       public boolean hasAddAmount() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <pre>
-       *金钱变化
+       *金钱变化 没有扣除服务费
        * </pre>
        *
-       * <code>required int64 add_amount = 1;</code>
+       * <code>optional int64 addAmount = 1;</code>
        */
       public long getAddAmount() {
         return addAmount_;
       }
       /**
        * <pre>
-       *金钱变化
+       *金钱变化 没有扣除服务费
        * </pre>
        *
-       * <code>required int64 add_amount = 1;</code>
+       * <code>optional int64 addAmount = 1;</code>
        */
       public Builder setAddAmount(long value) {
         bitField0_ |= 0x00000001;
@@ -19017,10 +19002,10 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *金钱变化
+       *金钱变化 没有扣除服务费
        * </pre>
        *
-       * <code>required int64 add_amount = 1;</code>
+       * <code>optional int64 addAmount = 1;</code>
        */
       public Builder clearAddAmount() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -19032,7 +19017,7 @@ public final class Lhdz {
       private double tax_ ;
       /**
        * <pre>
-       *税收
+       *服务费
        * </pre>
        *
        * <code>optional double tax = 2;</code>
@@ -19042,7 +19027,7 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *税收
+       *服务费
        * </pre>
        *
        * <code>optional double tax = 2;</code>
@@ -19052,7 +19037,7 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *税收
+       *服务费
        * </pre>
        *
        * <code>optional double tax = 2;</code>
@@ -19065,7 +19050,7 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *税收
+       *服务费
        * </pre>
        *
        * <code>optional double tax = 2;</code>
@@ -19086,10 +19071,10 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *四个盘口分别增加的金币的列表
+       *玩家四个盘口分别增加的金币的列表 没有扣除服务费
        * </pre>
        *
-       * <code>repeated int64 add_amount_list = 3;</code>
+       * <code>repeated int64 addAmountList = 3;</code>
        */
       public java.util.List<java.lang.Long>
           getAddAmountListList() {
@@ -19097,30 +19082,30 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *四个盘口分别增加的金币的列表
+       *玩家四个盘口分别增加的金币的列表 没有扣除服务费
        * </pre>
        *
-       * <code>repeated int64 add_amount_list = 3;</code>
+       * <code>repeated int64 addAmountList = 3;</code>
        */
       public int getAddAmountListCount() {
         return addAmountList_.size();
       }
       /**
        * <pre>
-       *四个盘口分别增加的金币的列表
+       *玩家四个盘口分别增加的金币的列表 没有扣除服务费
        * </pre>
        *
-       * <code>repeated int64 add_amount_list = 3;</code>
+       * <code>repeated int64 addAmountList = 3;</code>
        */
       public long getAddAmountList(int index) {
         return addAmountList_.get(index);
       }
       /**
        * <pre>
-       *四个盘口分别增加的金币的列表
+       *玩家四个盘口分别增加的金币的列表 没有扣除服务费
        * </pre>
        *
-       * <code>repeated int64 add_amount_list = 3;</code>
+       * <code>repeated int64 addAmountList = 3;</code>
        */
       public Builder setAddAmountList(
           int index, long value) {
@@ -19131,10 +19116,10 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *四个盘口分别增加的金币的列表
+       *玩家四个盘口分别增加的金币的列表 没有扣除服务费
        * </pre>
        *
-       * <code>repeated int64 add_amount_list = 3;</code>
+       * <code>repeated int64 addAmountList = 3;</code>
        */
       public Builder addAddAmountList(long value) {
         ensureAddAmountListIsMutable();
@@ -19144,10 +19129,10 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *四个盘口分别增加的金币的列表
+       *玩家四个盘口分别增加的金币的列表 没有扣除服务费
        * </pre>
        *
-       * <code>repeated int64 add_amount_list = 3;</code>
+       * <code>repeated int64 addAmountList = 3;</code>
        */
       public Builder addAllAddAmountList(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -19159,10 +19144,10 @@ public final class Lhdz {
       }
       /**
        * <pre>
-       *四个盘口分别增加的金币的列表
+       *玩家四个盘口分别增加的金币的列表 没有扣除服务费
        * </pre>
        *
-       * <code>repeated int64 add_amount_list = 3;</code>
+       * <code>repeated int64 addAmountList = 3;</code>
        */
       public Builder clearAddAmountList() {
         addAmountList_ = java.util.Collections.emptyList();
@@ -19177,7 +19162,7 @@ public final class Lhdz {
        *最新余额
        * </pre>
        *
-       * <code>required string balance = 4;</code>
+       * <code>optional string balance = 4;</code>
        */
       public boolean hasBalance() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
@@ -19187,7 +19172,7 @@ public final class Lhdz {
        *最新余额
        * </pre>
        *
-       * <code>required string balance = 4;</code>
+       * <code>optional string balance = 4;</code>
        */
       public java.lang.String getBalance() {
         java.lang.Object ref = balance_;
@@ -19208,7 +19193,7 @@ public final class Lhdz {
        *最新余额
        * </pre>
        *
-       * <code>required string balance = 4;</code>
+       * <code>optional string balance = 4;</code>
        */
       public com.google.protobuf.ByteString
           getBalanceBytes() {
@@ -19228,7 +19213,7 @@ public final class Lhdz {
        *最新余额
        * </pre>
        *
-       * <code>required string balance = 4;</code>
+       * <code>optional string balance = 4;</code>
        */
       public Builder setBalance(
           java.lang.String value) {
@@ -19245,7 +19230,7 @@ public final class Lhdz {
        *最新余额
        * </pre>
        *
-       * <code>required string balance = 4;</code>
+       * <code>optional string balance = 4;</code>
        */
       public Builder clearBalance() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -19258,7 +19243,7 @@ public final class Lhdz {
        *最新余额
        * </pre>
        *
-       * <code>required string balance = 4;</code>
+       * <code>optional string balance = 4;</code>
        */
       public Builder setBalanceBytes(
           com.google.protobuf.ByteString value) {
@@ -19267,6 +19252,820 @@ public final class Lhdz {
   }
   bitField0_ |= 0x00000008;
         balance_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> rankList_ =
+        java.util.Collections.emptyList();
+      private void ensureRankListIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          rankList_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo>(rankList_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> rankListBuilder_;
+
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> getRankListList() {
+        if (rankListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rankList_);
+        } else {
+          return rankListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public int getRankListCount() {
+        if (rankListBuilder_ == null) {
+          return rankList_.size();
+        } else {
+          return rankListBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getRankList(int index) {
+        if (rankListBuilder_ == null) {
+          return rankList_.get(index);
+        } else {
+          return rankListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public Builder setRankList(
+          int index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo value) {
+        if (rankListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRankListIsMutable();
+          rankList_.set(index, value);
+          onChanged();
+        } else {
+          rankListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public Builder setRankList(
+          int index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder builderForValue) {
+        if (rankListBuilder_ == null) {
+          ensureRankListIsMutable();
+          rankList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rankListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public Builder addRankList(com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo value) {
+        if (rankListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRankListIsMutable();
+          rankList_.add(value);
+          onChanged();
+        } else {
+          rankListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public Builder addRankList(
+          int index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo value) {
+        if (rankListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRankListIsMutable();
+          rankList_.add(index, value);
+          onChanged();
+        } else {
+          rankListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public Builder addRankList(
+          com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder builderForValue) {
+        if (rankListBuilder_ == null) {
+          ensureRankListIsMutable();
+          rankList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rankListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public Builder addRankList(
+          int index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder builderForValue) {
+        if (rankListBuilder_ == null) {
+          ensureRankListIsMutable();
+          rankList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rankListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public Builder addAllRankList(
+          java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo> values) {
+        if (rankListBuilder_ == null) {
+          ensureRankListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, rankList_);
+          onChanged();
+        } else {
+          rankListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public Builder clearRankList() {
+        if (rankListBuilder_ == null) {
+          rankList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          rankListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public Builder removeRankList(int index) {
+        if (rankListBuilder_ == null) {
+          ensureRankListIsMutable();
+          rankList_.remove(index);
+          onChanged();
+        } else {
+          rankListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder getRankListBuilder(
+          int index) {
+        return getRankListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder getRankListOrBuilder(
+          int index) {
+        if (rankListBuilder_ == null) {
+          return rankList_.get(index);  } else {
+          return rankListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> 
+           getRankListOrBuilderList() {
+        if (rankListBuilder_ != null) {
+          return rankListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rankList_);
+        }
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder addRankListBuilder() {
+        return getRankListFieldBuilder().addBuilder(
+            com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder addRankListBuilder(
+          int index) {
+        return getRankListFieldBuilder().addBuilder(
+            index, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *特殊玩家
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.SpeacialPlayerInfo rankList = 5;</code>
+       */
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder> 
+           getRankListBuilderList() {
+        return getRankListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> 
+          getRankListFieldBuilder() {
+        if (rankListBuilder_ == null) {
+          rankListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder>(
+                  rankList_,
+                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  getParentForChildren(),
+                  isClean());
+          rankList_ = null;
+        }
+        return rankListBuilder_;
+      }
+
+      private com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo banker_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> bankerBuilder_;
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+       */
+      public boolean hasBanker() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo getBanker() {
+        if (bankerBuilder_ == null) {
+          return banker_ == null ? com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance() : banker_;
+        } else {
+          return bankerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+       */
+      public Builder setBanker(com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo value) {
+        if (bankerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          banker_ = value;
+          onChanged();
+        } else {
+          bankerBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+       */
+      public Builder setBanker(
+          com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder builderForValue) {
+        if (bankerBuilder_ == null) {
+          banker_ = builderForValue.build();
+          onChanged();
+        } else {
+          bankerBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+       */
+      public Builder mergeBanker(com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo value) {
+        if (bankerBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+              banker_ != null &&
+              banker_ != com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance()) {
+            banker_ =
+              com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.newBuilder(banker_).mergeFrom(value).buildPartial();
+          } else {
+            banker_ = value;
+          }
+          onChanged();
+        } else {
+          bankerBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+       */
+      public Builder clearBanker() {
+        if (bankerBuilder_ == null) {
+          banker_ = null;
+          onChanged();
+        } else {
+          bankerBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder getBankerBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getBankerFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder getBankerOrBuilder() {
+        if (bankerBuilder_ != null) {
+          return bankerBuilder_.getMessageOrBuilder();
+        } else {
+          return banker_ == null ?
+              com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.getDefaultInstance() : banker_;
+        }
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.lhdz.SpeacialPlayerInfo banker = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder> 
+          getBankerFieldBuilder() {
+        if (bankerBuilder_ == null) {
+          bankerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.SpeacialPlayerInfoOrBuilder>(
+                  getBanker(),
+                  getParentForChildren(),
+                  isClean());
+          banker_ = null;
+        }
+        return bankerBuilder_;
+      }
+
+      private java.lang.Object pokerState_ = "";
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 7;</code>
+       */
+      public boolean hasPokerState() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 7;</code>
+       */
+      public java.lang.String getPokerState() {
+        java.lang.Object ref = pokerState_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            pokerState_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPokerStateBytes() {
+        java.lang.Object ref = pokerState_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pokerState_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 7;</code>
+       */
+      public Builder setPokerState(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        pokerState_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 7;</code>
+       */
+      public Builder clearPokerState() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        pokerState_ = getDefaultInstance().getPokerState();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *输赢 庄家用 正 赢 负 输
+       * </pre>
+       *
+       * <code>optional string pokerState = 7;</code>
+       */
+      public Builder setPokerStateBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        pokerState_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object pokerType_ = "";
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 8;</code>
+       */
+      public boolean hasPokerType() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 8;</code>
+       */
+      public java.lang.String getPokerType() {
+        java.lang.Object ref = pokerType_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            pokerType_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPokerTypeBytes() {
+        java.lang.Object ref = pokerType_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pokerType_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 8;</code>
+       */
+      public Builder setPokerType(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        pokerType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 8;</code>
+       */
+      public Builder clearPokerType() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        pokerType_ = getDefaultInstance().getPokerType();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *牌型
+       * </pre>
+       *
+       * <code>optional string pokerType = 8;</code>
+       */
+      public Builder setPokerTypeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        pokerType_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object poker_ = "";
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 9;</code>
+       */
+      public boolean hasPoker() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 9;</code>
+       */
+      public java.lang.String getPoker() {
+        java.lang.Object ref = poker_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            poker_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPokerBytes() {
+        java.lang.Object ref = poker_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          poker_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 9;</code>
+       */
+      public Builder setPoker(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        poker_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 9;</code>
+       */
+      public Builder clearPoker() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        poker_ = getDefaultInstance().getPoker();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *扑克牌信息
+       * </pre>
+       *
+       * <code>optional string poker = 9;</code>
+       */
+      public Builder setPokerBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        poker_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double otherTotal_ ;
+      /**
+       * <pre>
+       *其他玩家总输赢 扣除服务费 不包含特殊玩家 庄家
+       * </pre>
+       *
+       * <code>optional double otherTotal = 10;</code>
+       */
+      public boolean hasOtherTotal() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <pre>
+       *其他玩家总输赢 扣除服务费 不包含特殊玩家 庄家
+       * </pre>
+       *
+       * <code>optional double otherTotal = 10;</code>
+       */
+      public double getOtherTotal() {
+        return otherTotal_;
+      }
+      /**
+       * <pre>
+       *其他玩家总输赢 扣除服务费 不包含特殊玩家 庄家
+       * </pre>
+       *
+       * <code>optional double otherTotal = 10;</code>
+       */
+      public Builder setOtherTotal(double value) {
+        bitField0_ |= 0x00000200;
+        otherTotal_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *其他玩家总输赢 扣除服务费 不包含特殊玩家 庄家
+       * </pre>
+       *
+       * <code>optional double otherTotal = 10;</code>
+       */
+      public Builder clearOtherTotal() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        otherTotal_ = 0D;
         onChanged();
         return this;
       }
@@ -19324,25 +20123,25 @@ public final class Lhdz {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     java.util.List<com.dafagame.protocol.lhdz.Lhdz.RankInfo> 
         getRankListList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.RankInfo getRankList(int index);
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     int getRankListCount();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.RankInfoOrBuilder> 
         getRankListOrBuilderList();
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     com.dafagame.protocol.lhdz.Lhdz.RankInfoOrBuilder getRankListOrBuilder(
         int index);
@@ -19431,35 +20230,35 @@ public final class Lhdz {
               com.dafagame.protocol.lhdz.Lhdz.RankNtf.class, com.dafagame.protocol.lhdz.Lhdz.RankNtf.Builder.class);
     }
 
-    public static final int RANK_LIST_FIELD_NUMBER = 1;
+    public static final int RANKLIST_FIELD_NUMBER = 1;
     private java.util.List<com.dafagame.protocol.lhdz.Lhdz.RankInfo> rankList_;
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     public java.util.List<com.dafagame.protocol.lhdz.Lhdz.RankInfo> getRankListList() {
       return rankList_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.RankInfoOrBuilder> 
         getRankListOrBuilderList() {
       return rankList_;
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     public int getRankListCount() {
       return rankList_.size();
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.RankInfo getRankList(int index) {
       return rankList_.get(index);
     }
     /**
-     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
      */
     public com.dafagame.protocol.lhdz.Lhdz.RankInfoOrBuilder getRankListOrBuilder(
         int index) {
@@ -19523,7 +20322,7 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (getRankListCount() > 0) {
-        hash = (37 * hash) + RANK_LIST_FIELD_NUMBER;
+        hash = (37 * hash) + RANKLIST_FIELD_NUMBER;
         hash = (53 * hash) + getRankListList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
@@ -19806,7 +20605,7 @@ public final class Lhdz {
           com.dafagame.protocol.lhdz.Lhdz.RankInfo, com.dafagame.protocol.lhdz.Lhdz.RankInfo.Builder, com.dafagame.protocol.lhdz.Lhdz.RankInfoOrBuilder> rankListBuilder_;
 
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.RankInfo> getRankListList() {
         if (rankListBuilder_ == null) {
@@ -19816,7 +20615,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public int getRankListCount() {
         if (rankListBuilder_ == null) {
@@ -19826,7 +20625,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.RankInfo getRankList(int index) {
         if (rankListBuilder_ == null) {
@@ -19836,7 +20635,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public Builder setRankList(
           int index, com.dafagame.protocol.lhdz.Lhdz.RankInfo value) {
@@ -19853,7 +20652,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public Builder setRankList(
           int index, com.dafagame.protocol.lhdz.Lhdz.RankInfo.Builder builderForValue) {
@@ -19867,7 +20666,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public Builder addRankList(com.dafagame.protocol.lhdz.Lhdz.RankInfo value) {
         if (rankListBuilder_ == null) {
@@ -19883,7 +20682,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public Builder addRankList(
           int index, com.dafagame.protocol.lhdz.Lhdz.RankInfo value) {
@@ -19900,7 +20699,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public Builder addRankList(
           com.dafagame.protocol.lhdz.Lhdz.RankInfo.Builder builderForValue) {
@@ -19914,7 +20713,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public Builder addRankList(
           int index, com.dafagame.protocol.lhdz.Lhdz.RankInfo.Builder builderForValue) {
@@ -19928,7 +20727,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public Builder addAllRankList(
           java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.RankInfo> values) {
@@ -19943,7 +20742,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public Builder clearRankList() {
         if (rankListBuilder_ == null) {
@@ -19956,7 +20755,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public Builder removeRankList(int index) {
         if (rankListBuilder_ == null) {
@@ -19969,14 +20768,14 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.RankInfo.Builder getRankListBuilder(
           int index) {
         return getRankListFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.RankInfoOrBuilder getRankListOrBuilder(
           int index) {
@@ -19986,7 +20785,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.RankInfoOrBuilder> 
            getRankListOrBuilderList() {
@@ -19997,14 +20796,14 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.RankInfo.Builder addRankListBuilder() {
         return getRankListFieldBuilder().addBuilder(
             com.dafagame.protocol.lhdz.Lhdz.RankInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public com.dafagame.protocol.lhdz.Lhdz.RankInfo.Builder addRankListBuilder(
           int index) {
@@ -20012,7 +20811,7 @@ public final class Lhdz {
             index, com.dafagame.protocol.lhdz.Lhdz.RankInfo.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rank_list = 1;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.RankInfo rankList = 1;</code>
        */
       public java.util.List<com.dafagame.protocol.lhdz.Lhdz.RankInfo.Builder> 
            getRankListBuilderList() {
@@ -20086,11 +20885,11 @@ public final class Lhdz {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int32 user_id = 1;</code>
+     * <code>optional int32 userId = 1;</code>
      */
     boolean hasUserId();
     /**
-     * <code>optional int32 user_id = 1;</code>
+     * <code>optional int32 userId = 1;</code>
      */
     int getUserId();
 
@@ -20104,15 +20903,15 @@ public final class Lhdz {
     int getAvatar();
 
     /**
-     * <code>optional string nick_name = 3;</code>
+     * <code>optional string nickName = 3;</code>
      */
     boolean hasNickName();
     /**
-     * <code>optional string nick_name = 3;</code>
+     * <code>optional string nickName = 3;</code>
      */
     java.lang.String getNickName();
     /**
-     * <code>optional string nick_name = 3;</code>
+     * <code>optional string nickName = 3;</code>
      */
     com.google.protobuf.ByteString
         getNickNameBytes();
@@ -20141,20 +20940,20 @@ public final class Lhdz {
         getBalanceBytes();
 
     /**
-     * <code>optional int64 betting_amount = 6;</code>
+     * <code>optional int64 bettingAmount = 6;</code>
      */
     boolean hasBettingAmount();
     /**
-     * <code>optional int64 betting_amount = 6;</code>
+     * <code>optional int64 bettingAmount = 6;</code>
      */
     long getBettingAmount();
 
     /**
-     * <code>optional int32 win_times = 7;</code>
+     * <code>optional int32 winTimes = 7;</code>
      */
     boolean hasWinTimes();
     /**
-     * <code>optional int32 win_times = 7;</code>
+     * <code>optional int32 winTimes = 7;</code>
      */
     int getWinTimes();
 
@@ -20289,16 +21088,16 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int USER_ID_FIELD_NUMBER = 1;
+    public static final int USERID_FIELD_NUMBER = 1;
     private int userId_;
     /**
-     * <code>optional int32 user_id = 1;</code>
+     * <code>optional int32 userId = 1;</code>
      */
     public boolean hasUserId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional int32 user_id = 1;</code>
+     * <code>optional int32 userId = 1;</code>
      */
     public int getUserId() {
       return userId_;
@@ -20319,16 +21118,16 @@ public final class Lhdz {
       return avatar_;
     }
 
-    public static final int NICK_NAME_FIELD_NUMBER = 3;
+    public static final int NICKNAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object nickName_;
     /**
-     * <code>optional string nick_name = 3;</code>
+     * <code>optional string nickName = 3;</code>
      */
     public boolean hasNickName() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional string nick_name = 3;</code>
+     * <code>optional string nickName = 3;</code>
      */
     public java.lang.String getNickName() {
       java.lang.Object ref = nickName_;
@@ -20345,7 +21144,7 @@ public final class Lhdz {
       }
     }
     /**
-     * <code>optional string nick_name = 3;</code>
+     * <code>optional string nickName = 3;</code>
      */
     public com.google.protobuf.ByteString
         getNickNameBytes() {
@@ -20418,31 +21217,31 @@ public final class Lhdz {
       }
     }
 
-    public static final int BETTING_AMOUNT_FIELD_NUMBER = 6;
+    public static final int BETTINGAMOUNT_FIELD_NUMBER = 6;
     private long bettingAmount_;
     /**
-     * <code>optional int64 betting_amount = 6;</code>
+     * <code>optional int64 bettingAmount = 6;</code>
      */
     public boolean hasBettingAmount() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>optional int64 betting_amount = 6;</code>
+     * <code>optional int64 bettingAmount = 6;</code>
      */
     public long getBettingAmount() {
       return bettingAmount_;
     }
 
-    public static final int WIN_TIMES_FIELD_NUMBER = 7;
+    public static final int WINTIMES_FIELD_NUMBER = 7;
     private int winTimes_;
     /**
-     * <code>optional int32 win_times = 7;</code>
+     * <code>optional int32 winTimes = 7;</code>
      */
     public boolean hasWinTimes() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional int32 win_times = 7;</code>
+     * <code>optional int32 winTimes = 7;</code>
      */
     public int getWinTimes() {
       return winTimes_;
@@ -20605,7 +21404,7 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUserId()) {
-        hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+        hash = (37 * hash) + USERID_FIELD_NUMBER;
         hash = (53 * hash) + getUserId();
       }
       if (hasAvatar()) {
@@ -20613,7 +21412,7 @@ public final class Lhdz {
         hash = (53 * hash) + getAvatar();
       }
       if (hasNickName()) {
-        hash = (37 * hash) + NICK_NAME_FIELD_NUMBER;
+        hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
         hash = (53 * hash) + getNickName().hashCode();
       }
       if (hasGrade()) {
@@ -20625,12 +21424,12 @@ public final class Lhdz {
         hash = (53 * hash) + getBalance().hashCode();
       }
       if (hasBettingAmount()) {
-        hash = (37 * hash) + BETTING_AMOUNT_FIELD_NUMBER;
+        hash = (37 * hash) + BETTINGAMOUNT_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getBettingAmount());
       }
       if (hasWinTimes()) {
-        hash = (37 * hash) + WIN_TIMES_FIELD_NUMBER;
+        hash = (37 * hash) + WINTIMES_FIELD_NUMBER;
         hash = (53 * hash) + getWinTimes();
       }
       if (hasFrame()) {
@@ -20942,19 +21741,19 @@ public final class Lhdz {
 
       private int userId_ ;
       /**
-       * <code>optional int32 user_id = 1;</code>
+       * <code>optional int32 userId = 1;</code>
        */
       public boolean hasUserId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional int32 user_id = 1;</code>
+       * <code>optional int32 userId = 1;</code>
        */
       public int getUserId() {
         return userId_;
       }
       /**
-       * <code>optional int32 user_id = 1;</code>
+       * <code>optional int32 userId = 1;</code>
        */
       public Builder setUserId(int value) {
         bitField0_ |= 0x00000001;
@@ -20963,7 +21762,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>optional int32 user_id = 1;</code>
+       * <code>optional int32 userId = 1;</code>
        */
       public Builder clearUserId() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -21006,13 +21805,13 @@ public final class Lhdz {
 
       private java.lang.Object nickName_ = "";
       /**
-       * <code>optional string nick_name = 3;</code>
+       * <code>optional string nickName = 3;</code>
        */
       public boolean hasNickName() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional string nick_name = 3;</code>
+       * <code>optional string nickName = 3;</code>
        */
       public java.lang.String getNickName() {
         java.lang.Object ref = nickName_;
@@ -21029,7 +21828,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>optional string nick_name = 3;</code>
+       * <code>optional string nickName = 3;</code>
        */
       public com.google.protobuf.ByteString
           getNickNameBytes() {
@@ -21045,7 +21844,7 @@ public final class Lhdz {
         }
       }
       /**
-       * <code>optional string nick_name = 3;</code>
+       * <code>optional string nickName = 3;</code>
        */
       public Builder setNickName(
           java.lang.String value) {
@@ -21058,7 +21857,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>optional string nick_name = 3;</code>
+       * <code>optional string nickName = 3;</code>
        */
       public Builder clearNickName() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -21067,7 +21866,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>optional string nick_name = 3;</code>
+       * <code>optional string nickName = 3;</code>
        */
       public Builder setNickNameBytes(
           com.google.protobuf.ByteString value) {
@@ -21190,19 +21989,19 @@ public final class Lhdz {
 
       private long bettingAmount_ ;
       /**
-       * <code>optional int64 betting_amount = 6;</code>
+       * <code>optional int64 bettingAmount = 6;</code>
        */
       public boolean hasBettingAmount() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional int64 betting_amount = 6;</code>
+       * <code>optional int64 bettingAmount = 6;</code>
        */
       public long getBettingAmount() {
         return bettingAmount_;
       }
       /**
-       * <code>optional int64 betting_amount = 6;</code>
+       * <code>optional int64 bettingAmount = 6;</code>
        */
       public Builder setBettingAmount(long value) {
         bitField0_ |= 0x00000020;
@@ -21211,7 +22010,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>optional int64 betting_amount = 6;</code>
+       * <code>optional int64 bettingAmount = 6;</code>
        */
       public Builder clearBettingAmount() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -21222,19 +22021,19 @@ public final class Lhdz {
 
       private int winTimes_ ;
       /**
-       * <code>optional int32 win_times = 7;</code>
+       * <code>optional int32 winTimes = 7;</code>
        */
       public boolean hasWinTimes() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional int32 win_times = 7;</code>
+       * <code>optional int32 winTimes = 7;</code>
        */
       public int getWinTimes() {
         return winTimes_;
       }
       /**
-       * <code>optional int32 win_times = 7;</code>
+       * <code>optional int32 winTimes = 7;</code>
        */
       public Builder setWinTimes(int value) {
         bitField0_ |= 0x00000040;
@@ -21243,7 +22042,7 @@ public final class Lhdz {
         return this;
       }
       /**
-       * <code>optional int32 win_times = 7;</code>
+       * <code>optional int32 winTimes = 7;</code>
        */
       public Builder clearWinTimes() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -21341,7 +22140,7 @@ public final class Lhdz {
      *各区域投注统计
      * </pre>
      *
-     * <code>repeated int64 area_amount = 1;</code>
+     * <code>repeated int64 areaAmount = 1;</code>
      */
     java.util.List<java.lang.Long> getAreaAmountList();
     /**
@@ -21349,7 +22148,7 @@ public final class Lhdz {
      *各区域投注统计
      * </pre>
      *
-     * <code>repeated int64 area_amount = 1;</code>
+     * <code>repeated int64 areaAmount = 1;</code>
      */
     int getAreaAmountCount();
     /**
@@ -21357,7 +22156,7 @@ public final class Lhdz {
      *各区域投注统计
      * </pre>
      *
-     * <code>repeated int64 area_amount = 1;</code>
+     * <code>repeated int64 areaAmount = 1;</code>
      */
     long getAreaAmount(int index);
 
@@ -21366,107 +22165,139 @@ public final class Lhdz {
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 tian_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
      */
-    java.util.List<java.lang.Integer> getTianInfoList();
+    java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> 
+        getDragonInfoList();
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 tian_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
      */
-    int getTianInfoCount();
+    com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getDragonInfo(int index);
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 tian_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
      */
-    int getTianInfo(int index);
+    int getDragonInfoCount();
+    /**
+     * <pre>
+     *投注详细
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+     */
+    java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+        getDragonInfoOrBuilderList();
+    /**
+     * <pre>
+     *投注详细
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+     */
+    com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder getDragonInfoOrBuilder(
+        int index);
 
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 di_info = 3;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
      */
-    java.util.List<java.lang.Integer> getDiInfoList();
+    java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> 
+        getTigerInfoList();
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 di_info = 3;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
      */
-    int getDiInfoCount();
+    com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getTigerInfo(int index);
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 di_info = 3;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
      */
-    int getDiInfo(int index);
+    int getTigerInfoCount();
+    /**
+     * <pre>
+     *投注详细
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+     */
+    java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+        getTigerInfoOrBuilderList();
+    /**
+     * <pre>
+     *投注详细
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+     */
+    com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder getTigerInfoOrBuilder(
+        int index);
 
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 xuan_info = 4;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
      */
-    java.util.List<java.lang.Integer> getXuanInfoList();
+    java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> 
+        getTieInfoList();
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 xuan_info = 4;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
      */
-    int getXuanInfoCount();
+    com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getTieInfo(int index);
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 xuan_info = 4;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
      */
-    int getXuanInfo(int index);
-
+    int getTieInfoCount();
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 huang_info = 5;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
      */
-    java.util.List<java.lang.Integer> getHuangInfoList();
+    java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+        getTieInfoOrBuilderList();
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 huang_info = 5;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
      */
-    int getHuangInfoCount();
-    /**
-     * <pre>
-     *投注详细
-     * </pre>
-     *
-     * <code>repeated int32 huang_info = 5;</code>
-     */
-    int getHuangInfo(int index);
+    com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder getTieInfoOrBuilder(
+        int index);
 
     /**
      * <pre>
      *在线人数
      * </pre>
      *
-     * <code>optional int32 onlines = 6;</code>
+     * <code>optional int32 onlines = 5;</code>
      */
     boolean hasOnlines();
     /**
@@ -21474,7 +22305,7 @@ public final class Lhdz {
      *在线人数
      * </pre>
      *
-     * <code>optional int32 onlines = 6;</code>
+     * <code>optional int32 onlines = 5;</code>
      */
     int getOnlines();
   }
@@ -21496,10 +22327,9 @@ public final class Lhdz {
     }
     private BetNtf() {
       areaAmount_ = java.util.Collections.emptyList();
-      tianInfo_ = java.util.Collections.emptyList();
-      diInfo_ = java.util.Collections.emptyList();
-      xuanInfo_ = java.util.Collections.emptyList();
-      huangInfo_ = java.util.Collections.emptyList();
+      dragonInfo_ = java.util.Collections.emptyList();
+      tigerInfo_ = java.util.Collections.emptyList();
+      tieInfo_ = java.util.Collections.emptyList();
       onlines_ = 0;
     }
 
@@ -21552,91 +22382,34 @@ public final class Lhdz {
               input.popLimit(limit);
               break;
             }
-            case 16: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                tianInfo_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              tianInfo_.add(input.readInt32());
-              break;
-            }
             case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
-                tianInfo_ = new java.util.ArrayList<java.lang.Integer>();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                dragonInfo_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              while (input.getBytesUntilLimit() > 0) {
-                tianInfo_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 24: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                diInfo_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              diInfo_.add(input.readInt32());
+              dragonInfo_.add(
+                  input.readMessage(com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.PARSER, extensionRegistry));
               break;
             }
             case 26: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-                diInfo_ = new java.util.ArrayList<java.lang.Integer>();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                tigerInfo_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              while (input.getBytesUntilLimit() > 0) {
-                diInfo_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 32: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                xuanInfo_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              xuanInfo_.add(input.readInt32());
+              tigerInfo_.add(
+                  input.readMessage(com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.PARSER, extensionRegistry));
               break;
             }
             case 34: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
-                xuanInfo_ = new java.util.ArrayList<java.lang.Integer>();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                tieInfo_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount>();
                 mutable_bitField0_ |= 0x00000008;
               }
-              while (input.getBytesUntilLimit() > 0) {
-                xuanInfo_.add(input.readInt32());
-              }
-              input.popLimit(limit);
+              tieInfo_.add(
+                  input.readMessage(com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.PARSER, extensionRegistry));
               break;
             }
             case 40: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                huangInfo_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              huangInfo_.add(input.readInt32());
-              break;
-            }
-            case 42: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
-                huangInfo_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                huangInfo_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 48: {
               bitField0_ |= 0x00000001;
               onlines_ = input.readInt32();
               break;
@@ -21653,16 +22426,13 @@ public final class Lhdz {
           areaAmount_ = java.util.Collections.unmodifiableList(areaAmount_);
         }
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          tianInfo_ = java.util.Collections.unmodifiableList(tianInfo_);
+          dragonInfo_ = java.util.Collections.unmodifiableList(dragonInfo_);
         }
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          diInfo_ = java.util.Collections.unmodifiableList(diInfo_);
+          tigerInfo_ = java.util.Collections.unmodifiableList(tigerInfo_);
         }
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          xuanInfo_ = java.util.Collections.unmodifiableList(xuanInfo_);
-        }
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          huangInfo_ = java.util.Collections.unmodifiableList(huangInfo_);
+          tieInfo_ = java.util.Collections.unmodifiableList(tieInfo_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -21681,14 +22451,14 @@ public final class Lhdz {
     }
 
     private int bitField0_;
-    public static final int AREA_AMOUNT_FIELD_NUMBER = 1;
+    public static final int AREAAMOUNT_FIELD_NUMBER = 1;
     private java.util.List<java.lang.Long> areaAmount_;
     /**
      * <pre>
      *各区域投注统计
      * </pre>
      *
-     * <code>repeated int64 area_amount = 1;</code>
+     * <code>repeated int64 areaAmount = 1;</code>
      */
     public java.util.List<java.lang.Long>
         getAreaAmountList() {
@@ -21699,7 +22469,7 @@ public final class Lhdz {
      *各区域投注统计
      * </pre>
      *
-     * <code>repeated int64 area_amount = 1;</code>
+     * <code>repeated int64 areaAmount = 1;</code>
      */
     public int getAreaAmountCount() {
       return areaAmount_.size();
@@ -21709,156 +22479,185 @@ public final class Lhdz {
      *各区域投注统计
      * </pre>
      *
-     * <code>repeated int64 area_amount = 1;</code>
+     * <code>repeated int64 areaAmount = 1;</code>
      */
     public long getAreaAmount(int index) {
       return areaAmount_.get(index);
     }
 
-    public static final int TIAN_INFO_FIELD_NUMBER = 2;
-    private java.util.List<java.lang.Integer> tianInfo_;
+    public static final int DRAGONINFO_FIELD_NUMBER = 2;
+    private java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> dragonInfo_;
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 tian_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
      */
-    public java.util.List<java.lang.Integer>
-        getTianInfoList() {
-      return tianInfo_;
+    public java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> getDragonInfoList() {
+      return dragonInfo_;
     }
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 tian_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
      */
-    public int getTianInfoCount() {
-      return tianInfo_.size();
+    public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+        getDragonInfoOrBuilderList() {
+      return dragonInfo_;
     }
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 tian_info = 2;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
      */
-    public int getTianInfo(int index) {
-      return tianInfo_.get(index);
-    }
-
-    public static final int DI_INFO_FIELD_NUMBER = 3;
-    private java.util.List<java.lang.Integer> diInfo_;
-    /**
-     * <pre>
-     *投注详细
-     * </pre>
-     *
-     * <code>repeated int32 di_info = 3;</code>
-     */
-    public java.util.List<java.lang.Integer>
-        getDiInfoList() {
-      return diInfo_;
+    public int getDragonInfoCount() {
+      return dragonInfo_.size();
     }
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 di_info = 3;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
      */
-    public int getDiInfoCount() {
-      return diInfo_.size();
+    public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getDragonInfo(int index) {
+      return dragonInfo_.get(index);
     }
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 di_info = 3;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
      */
-    public int getDiInfo(int index) {
-      return diInfo_.get(index);
+    public com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder getDragonInfoOrBuilder(
+        int index) {
+      return dragonInfo_.get(index);
     }
 
-    public static final int XUAN_INFO_FIELD_NUMBER = 4;
-    private java.util.List<java.lang.Integer> xuanInfo_;
+    public static final int TIGERINFO_FIELD_NUMBER = 3;
+    private java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> tigerInfo_;
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 xuan_info = 4;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
      */
-    public java.util.List<java.lang.Integer>
-        getXuanInfoList() {
-      return xuanInfo_;
+    public java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> getTigerInfoList() {
+      return tigerInfo_;
     }
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 xuan_info = 4;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
      */
-    public int getXuanInfoCount() {
-      return xuanInfo_.size();
+    public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+        getTigerInfoOrBuilderList() {
+      return tigerInfo_;
     }
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 xuan_info = 4;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
      */
-    public int getXuanInfo(int index) {
-      return xuanInfo_.get(index);
-    }
-
-    public static final int HUANG_INFO_FIELD_NUMBER = 5;
-    private java.util.List<java.lang.Integer> huangInfo_;
-    /**
-     * <pre>
-     *投注详细
-     * </pre>
-     *
-     * <code>repeated int32 huang_info = 5;</code>
-     */
-    public java.util.List<java.lang.Integer>
-        getHuangInfoList() {
-      return huangInfo_;
+    public int getTigerInfoCount() {
+      return tigerInfo_.size();
     }
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 huang_info = 5;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
      */
-    public int getHuangInfoCount() {
-      return huangInfo_.size();
+    public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getTigerInfo(int index) {
+      return tigerInfo_.get(index);
     }
     /**
      * <pre>
      *投注详细
      * </pre>
      *
-     * <code>repeated int32 huang_info = 5;</code>
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
      */
-    public int getHuangInfo(int index) {
-      return huangInfo_.get(index);
+    public com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder getTigerInfoOrBuilder(
+        int index) {
+      return tigerInfo_.get(index);
     }
 
-    public static final int ONLINES_FIELD_NUMBER = 6;
+    public static final int TIEINFO_FIELD_NUMBER = 4;
+    private java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> tieInfo_;
+    /**
+     * <pre>
+     *投注详细
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+     */
+    public java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> getTieInfoList() {
+      return tieInfo_;
+    }
+    /**
+     * <pre>
+     *投注详细
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+     */
+    public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+        getTieInfoOrBuilderList() {
+      return tieInfo_;
+    }
+    /**
+     * <pre>
+     *投注详细
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+     */
+    public int getTieInfoCount() {
+      return tieInfo_.size();
+    }
+    /**
+     * <pre>
+     *投注详细
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+     */
+    public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getTieInfo(int index) {
+      return tieInfo_.get(index);
+    }
+    /**
+     * <pre>
+     *投注详细
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+     */
+    public com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder getTieInfoOrBuilder(
+        int index) {
+      return tieInfo_.get(index);
+    }
+
+    public static final int ONLINES_FIELD_NUMBER = 5;
     private int onlines_;
     /**
      * <pre>
      *在线人数
      * </pre>
      *
-     * <code>optional int32 onlines = 6;</code>
+     * <code>optional int32 onlines = 5;</code>
      */
     public boolean hasOnlines() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
@@ -21868,7 +22667,7 @@ public final class Lhdz {
      *在线人数
      * </pre>
      *
-     * <code>optional int32 onlines = 6;</code>
+     * <code>optional int32 onlines = 5;</code>
      */
     public int getOnlines() {
       return onlines_;
@@ -21889,20 +22688,17 @@ public final class Lhdz {
       for (int i = 0; i < areaAmount_.size(); i++) {
         output.writeInt64(1, areaAmount_.get(i));
       }
-      for (int i = 0; i < tianInfo_.size(); i++) {
-        output.writeInt32(2, tianInfo_.get(i));
+      for (int i = 0; i < dragonInfo_.size(); i++) {
+        output.writeMessage(2, dragonInfo_.get(i));
       }
-      for (int i = 0; i < diInfo_.size(); i++) {
-        output.writeInt32(3, diInfo_.get(i));
+      for (int i = 0; i < tigerInfo_.size(); i++) {
+        output.writeMessage(3, tigerInfo_.get(i));
       }
-      for (int i = 0; i < xuanInfo_.size(); i++) {
-        output.writeInt32(4, xuanInfo_.get(i));
-      }
-      for (int i = 0; i < huangInfo_.size(); i++) {
-        output.writeInt32(5, huangInfo_.get(i));
+      for (int i = 0; i < tieInfo_.size(); i++) {
+        output.writeMessage(4, tieInfo_.get(i));
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(6, onlines_);
+        output.writeInt32(5, onlines_);
       }
       unknownFields.writeTo(output);
     }
@@ -21921,45 +22717,21 @@ public final class Lhdz {
         size += dataSize;
         size += 1 * getAreaAmountList().size();
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < tianInfo_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(tianInfo_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getTianInfoList().size();
+      for (int i = 0; i < dragonInfo_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, dragonInfo_.get(i));
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < diInfo_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(diInfo_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getDiInfoList().size();
+      for (int i = 0; i < tigerInfo_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, tigerInfo_.get(i));
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < xuanInfo_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(xuanInfo_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getXuanInfoList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < huangInfo_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(huangInfo_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getHuangInfoList().size();
+      for (int i = 0; i < tieInfo_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, tieInfo_.get(i));
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, onlines_);
+          .computeInt32Size(5, onlines_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -21979,14 +22751,12 @@ public final class Lhdz {
       boolean result = true;
       result = result && getAreaAmountList()
           .equals(other.getAreaAmountList());
-      result = result && getTianInfoList()
-          .equals(other.getTianInfoList());
-      result = result && getDiInfoList()
-          .equals(other.getDiInfoList());
-      result = result && getXuanInfoList()
-          .equals(other.getXuanInfoList());
-      result = result && getHuangInfoList()
-          .equals(other.getHuangInfoList());
+      result = result && getDragonInfoList()
+          .equals(other.getDragonInfoList());
+      result = result && getTigerInfoList()
+          .equals(other.getTigerInfoList());
+      result = result && getTieInfoList()
+          .equals(other.getTieInfoList());
       result = result && (hasOnlines() == other.hasOnlines());
       if (hasOnlines()) {
         result = result && (getOnlines()
@@ -22004,24 +22774,20 @@ public final class Lhdz {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       if (getAreaAmountCount() > 0) {
-        hash = (37 * hash) + AREA_AMOUNT_FIELD_NUMBER;
+        hash = (37 * hash) + AREAAMOUNT_FIELD_NUMBER;
         hash = (53 * hash) + getAreaAmountList().hashCode();
       }
-      if (getTianInfoCount() > 0) {
-        hash = (37 * hash) + TIAN_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getTianInfoList().hashCode();
+      if (getDragonInfoCount() > 0) {
+        hash = (37 * hash) + DRAGONINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getDragonInfoList().hashCode();
       }
-      if (getDiInfoCount() > 0) {
-        hash = (37 * hash) + DI_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getDiInfoList().hashCode();
+      if (getTigerInfoCount() > 0) {
+        hash = (37 * hash) + TIGERINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getTigerInfoList().hashCode();
       }
-      if (getXuanInfoCount() > 0) {
-        hash = (37 * hash) + XUAN_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getXuanInfoList().hashCode();
-      }
-      if (getHuangInfoCount() > 0) {
-        hash = (37 * hash) + HUANG_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getHuangInfoList().hashCode();
+      if (getTieInfoCount() > 0) {
+        hash = (37 * hash) + TIEINFO_FIELD_NUMBER;
+        hash = (53 * hash) + getTieInfoList().hashCode();
       }
       if (hasOnlines()) {
         hash = (37 * hash) + ONLINES_FIELD_NUMBER;
@@ -22156,22 +22922,35 @@ public final class Lhdz {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getDragonInfoFieldBuilder();
+          getTigerInfoFieldBuilder();
+          getTieInfoFieldBuilder();
         }
       }
       public Builder clear() {
         super.clear();
         areaAmount_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
-        tianInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        diInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        xuanInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        huangInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        if (dragonInfoBuilder_ == null) {
+          dragonInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          dragonInfoBuilder_.clear();
+        }
+        if (tigerInfoBuilder_ == null) {
+          tigerInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          tigerInfoBuilder_.clear();
+        }
+        if (tieInfoBuilder_ == null) {
+          tieInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          tieInfoBuilder_.clear();
+        }
         onlines_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -22201,27 +22980,34 @@ public final class Lhdz {
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.areaAmount_ = areaAmount_;
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          tianInfo_ = java.util.Collections.unmodifiableList(tianInfo_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+        if (dragonInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            dragonInfo_ = java.util.Collections.unmodifiableList(dragonInfo_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.dragonInfo_ = dragonInfo_;
+        } else {
+          result.dragonInfo_ = dragonInfoBuilder_.build();
         }
-        result.tianInfo_ = tianInfo_;
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          diInfo_ = java.util.Collections.unmodifiableList(diInfo_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+        if (tigerInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            tigerInfo_ = java.util.Collections.unmodifiableList(tigerInfo_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.tigerInfo_ = tigerInfo_;
+        } else {
+          result.tigerInfo_ = tigerInfoBuilder_.build();
         }
-        result.diInfo_ = diInfo_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          xuanInfo_ = java.util.Collections.unmodifiableList(xuanInfo_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+        if (tieInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            tieInfo_ = java.util.Collections.unmodifiableList(tieInfo_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.tieInfo_ = tieInfo_;
+        } else {
+          result.tieInfo_ = tieInfoBuilder_.build();
         }
-        result.xuanInfo_ = xuanInfo_;
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          huangInfo_ = java.util.Collections.unmodifiableList(huangInfo_);
-          bitField0_ = (bitField0_ & ~0x00000010);
-        }
-        result.huangInfo_ = huangInfo_;
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000001;
         }
         result.onlines_ = onlines_;
@@ -22277,45 +23063,83 @@ public final class Lhdz {
           }
           onChanged();
         }
-        if (!other.tianInfo_.isEmpty()) {
-          if (tianInfo_.isEmpty()) {
-            tianInfo_ = other.tianInfo_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureTianInfoIsMutable();
-            tianInfo_.addAll(other.tianInfo_);
+        if (dragonInfoBuilder_ == null) {
+          if (!other.dragonInfo_.isEmpty()) {
+            if (dragonInfo_.isEmpty()) {
+              dragonInfo_ = other.dragonInfo_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureDragonInfoIsMutable();
+              dragonInfo_.addAll(other.dragonInfo_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.dragonInfo_.isEmpty()) {
+            if (dragonInfoBuilder_.isEmpty()) {
+              dragonInfoBuilder_.dispose();
+              dragonInfoBuilder_ = null;
+              dragonInfo_ = other.dragonInfo_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              dragonInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDragonInfoFieldBuilder() : null;
+            } else {
+              dragonInfoBuilder_.addAllMessages(other.dragonInfo_);
+            }
+          }
         }
-        if (!other.diInfo_.isEmpty()) {
-          if (diInfo_.isEmpty()) {
-            diInfo_ = other.diInfo_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureDiInfoIsMutable();
-            diInfo_.addAll(other.diInfo_);
+        if (tigerInfoBuilder_ == null) {
+          if (!other.tigerInfo_.isEmpty()) {
+            if (tigerInfo_.isEmpty()) {
+              tigerInfo_ = other.tigerInfo_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureTigerInfoIsMutable();
+              tigerInfo_.addAll(other.tigerInfo_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.tigerInfo_.isEmpty()) {
+            if (tigerInfoBuilder_.isEmpty()) {
+              tigerInfoBuilder_.dispose();
+              tigerInfoBuilder_ = null;
+              tigerInfo_ = other.tigerInfo_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              tigerInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTigerInfoFieldBuilder() : null;
+            } else {
+              tigerInfoBuilder_.addAllMessages(other.tigerInfo_);
+            }
+          }
         }
-        if (!other.xuanInfo_.isEmpty()) {
-          if (xuanInfo_.isEmpty()) {
-            xuanInfo_ = other.xuanInfo_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureXuanInfoIsMutable();
-            xuanInfo_.addAll(other.xuanInfo_);
+        if (tieInfoBuilder_ == null) {
+          if (!other.tieInfo_.isEmpty()) {
+            if (tieInfo_.isEmpty()) {
+              tieInfo_ = other.tieInfo_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureTieInfoIsMutable();
+              tieInfo_.addAll(other.tieInfo_);
+            }
+            onChanged();
           }
-          onChanged();
-        }
-        if (!other.huangInfo_.isEmpty()) {
-          if (huangInfo_.isEmpty()) {
-            huangInfo_ = other.huangInfo_;
-            bitField0_ = (bitField0_ & ~0x00000010);
-          } else {
-            ensureHuangInfoIsMutable();
-            huangInfo_.addAll(other.huangInfo_);
+        } else {
+          if (!other.tieInfo_.isEmpty()) {
+            if (tieInfoBuilder_.isEmpty()) {
+              tieInfoBuilder_.dispose();
+              tieInfoBuilder_ = null;
+              tieInfo_ = other.tieInfo_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              tieInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTieInfoFieldBuilder() : null;
+            } else {
+              tieInfoBuilder_.addAllMessages(other.tieInfo_);
+            }
           }
-          onChanged();
         }
         if (other.hasOnlines()) {
           setOnlines(other.getOnlines());
@@ -22360,7 +23184,7 @@ public final class Lhdz {
        *各区域投注统计
        * </pre>
        *
-       * <code>repeated int64 area_amount = 1;</code>
+       * <code>repeated int64 areaAmount = 1;</code>
        */
       public java.util.List<java.lang.Long>
           getAreaAmountList() {
@@ -22371,7 +23195,7 @@ public final class Lhdz {
        *各区域投注统计
        * </pre>
        *
-       * <code>repeated int64 area_amount = 1;</code>
+       * <code>repeated int64 areaAmount = 1;</code>
        */
       public int getAreaAmountCount() {
         return areaAmount_.size();
@@ -22381,7 +23205,7 @@ public final class Lhdz {
        *各区域投注统计
        * </pre>
        *
-       * <code>repeated int64 area_amount = 1;</code>
+       * <code>repeated int64 areaAmount = 1;</code>
        */
       public long getAreaAmount(int index) {
         return areaAmount_.get(index);
@@ -22391,7 +23215,7 @@ public final class Lhdz {
        *各区域投注统计
        * </pre>
        *
-       * <code>repeated int64 area_amount = 1;</code>
+       * <code>repeated int64 areaAmount = 1;</code>
        */
       public Builder setAreaAmount(
           int index, long value) {
@@ -22405,7 +23229,7 @@ public final class Lhdz {
        *各区域投注统计
        * </pre>
        *
-       * <code>repeated int64 area_amount = 1;</code>
+       * <code>repeated int64 areaAmount = 1;</code>
        */
       public Builder addAreaAmount(long value) {
         ensureAreaAmountIsMutable();
@@ -22418,7 +23242,7 @@ public final class Lhdz {
        *各区域投注统计
        * </pre>
        *
-       * <code>repeated int64 area_amount = 1;</code>
+       * <code>repeated int64 areaAmount = 1;</code>
        */
       public Builder addAllAreaAmount(
           java.lang.Iterable<? extends java.lang.Long> values) {
@@ -22433,7 +23257,7 @@ public final class Lhdz {
        *各区域投注统计
        * </pre>
        *
-       * <code>repeated int64 area_amount = 1;</code>
+       * <code>repeated int64 areaAmount = 1;</code>
        */
       public Builder clearAreaAmount() {
         areaAmount_ = java.util.Collections.emptyList();
@@ -22442,56 +23266,79 @@ public final class Lhdz {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> tianInfo_ = java.util.Collections.emptyList();
-      private void ensureTianInfoIsMutable() {
+      private java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> dragonInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureDragonInfoIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          tianInfo_ = new java.util.ArrayList<java.lang.Integer>(tianInfo_);
+          dragonInfo_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount>(dragonInfo_);
           bitField0_ |= 0x00000002;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.IdAndAmount, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder, com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> dragonInfoBuilder_;
+
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 tian_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
        */
-      public java.util.List<java.lang.Integer>
-          getTianInfoList() {
-        return java.util.Collections.unmodifiableList(tianInfo_);
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> getDragonInfoList() {
+        if (dragonInfoBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(dragonInfo_);
+        } else {
+          return dragonInfoBuilder_.getMessageList();
+        }
       }
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 tian_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
        */
-      public int getTianInfoCount() {
-        return tianInfo_.size();
+      public int getDragonInfoCount() {
+        if (dragonInfoBuilder_ == null) {
+          return dragonInfo_.size();
+        } else {
+          return dragonInfoBuilder_.getCount();
+        }
       }
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 tian_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
        */
-      public int getTianInfo(int index) {
-        return tianInfo_.get(index);
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getDragonInfo(int index) {
+        if (dragonInfoBuilder_ == null) {
+          return dragonInfo_.get(index);
+        } else {
+          return dragonInfoBuilder_.getMessage(index);
+        }
       }
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 tian_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
        */
-      public Builder setTianInfo(
-          int index, int value) {
-        ensureTianInfoIsMutable();
-        tianInfo_.set(index, value);
-        onChanged();
+      public Builder setDragonInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount value) {
+        if (dragonInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDragonInfoIsMutable();
+          dragonInfo_.set(index, value);
+          onChanged();
+        } else {
+          dragonInfoBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
@@ -22499,12 +23346,17 @@ public final class Lhdz {
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 tian_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
        */
-      public Builder addTianInfo(int value) {
-        ensureTianInfoIsMutable();
-        tianInfo_.add(value);
-        onChanged();
+      public Builder setDragonInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder builderForValue) {
+        if (dragonInfoBuilder_ == null) {
+          ensureDragonInfoIsMutable();
+          dragonInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          dragonInfoBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
@@ -22512,14 +23364,19 @@ public final class Lhdz {
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 tian_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
        */
-      public Builder addAllTianInfo(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureTianInfoIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tianInfo_);
-        onChanged();
+      public Builder addDragonInfo(com.dafagame.protocol.lhdz.Lhdz.IdAndAmount value) {
+        if (dragonInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDragonInfoIsMutable();
+          dragonInfo_.add(value);
+          onChanged();
+        } else {
+          dragonInfoBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
@@ -22527,65 +23384,273 @@ public final class Lhdz {
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 tian_info = 2;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
        */
-      public Builder clearTianInfo() {
-        tianInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
+      public Builder addDragonInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount value) {
+        if (dragonInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDragonInfoIsMutable();
+          dragonInfo_.add(index, value);
+          onChanged();
+        } else {
+          dragonInfoBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public Builder addDragonInfo(
+          com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder builderForValue) {
+        if (dragonInfoBuilder_ == null) {
+          ensureDragonInfoIsMutable();
+          dragonInfo_.add(builderForValue.build());
+          onChanged();
+        } else {
+          dragonInfoBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public Builder addDragonInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder builderForValue) {
+        if (dragonInfoBuilder_ == null) {
+          ensureDragonInfoIsMutable();
+          dragonInfo_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          dragonInfoBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public Builder addAllDragonInfo(
+          java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> values) {
+        if (dragonInfoBuilder_ == null) {
+          ensureDragonInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, dragonInfo_);
+          onChanged();
+        } else {
+          dragonInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public Builder clearDragonInfo() {
+        if (dragonInfoBuilder_ == null) {
+          dragonInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          dragonInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public Builder removeDragonInfo(int index) {
+        if (dragonInfoBuilder_ == null) {
+          ensureDragonInfoIsMutable();
+          dragonInfo_.remove(index);
+          onChanged();
+        } else {
+          dragonInfoBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder getDragonInfoBuilder(
+          int index) {
+        return getDragonInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder getDragonInfoOrBuilder(
+          int index) {
+        if (dragonInfoBuilder_ == null) {
+          return dragonInfo_.get(index);  } else {
+          return dragonInfoBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+           getDragonInfoOrBuilderList() {
+        if (dragonInfoBuilder_ != null) {
+          return dragonInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(dragonInfo_);
+        }
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder addDragonInfoBuilder() {
+        return getDragonInfoFieldBuilder().addBuilder(
+            com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder addDragonInfoBuilder(
+          int index) {
+        return getDragonInfoFieldBuilder().addBuilder(
+            index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount dragonInfo = 2;</code>
+       */
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder> 
+           getDragonInfoBuilderList() {
+        return getDragonInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.IdAndAmount, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder, com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+          getDragonInfoFieldBuilder() {
+        if (dragonInfoBuilder_ == null) {
+          dragonInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.dafagame.protocol.lhdz.Lhdz.IdAndAmount, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder, com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder>(
+                  dragonInfo_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          dragonInfo_ = null;
+        }
+        return dragonInfoBuilder_;
       }
 
-      private java.util.List<java.lang.Integer> diInfo_ = java.util.Collections.emptyList();
-      private void ensureDiInfoIsMutable() {
+      private java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> tigerInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureTigerInfoIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          diInfo_ = new java.util.ArrayList<java.lang.Integer>(diInfo_);
+          tigerInfo_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount>(tigerInfo_);
           bitField0_ |= 0x00000004;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.IdAndAmount, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder, com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> tigerInfoBuilder_;
+
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 di_info = 3;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
        */
-      public java.util.List<java.lang.Integer>
-          getDiInfoList() {
-        return java.util.Collections.unmodifiableList(diInfo_);
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> getTigerInfoList() {
+        if (tigerInfoBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tigerInfo_);
+        } else {
+          return tigerInfoBuilder_.getMessageList();
+        }
       }
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 di_info = 3;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
        */
-      public int getDiInfoCount() {
-        return diInfo_.size();
+      public int getTigerInfoCount() {
+        if (tigerInfoBuilder_ == null) {
+          return tigerInfo_.size();
+        } else {
+          return tigerInfoBuilder_.getCount();
+        }
       }
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 di_info = 3;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
        */
-      public int getDiInfo(int index) {
-        return diInfo_.get(index);
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getTigerInfo(int index) {
+        if (tigerInfoBuilder_ == null) {
+          return tigerInfo_.get(index);
+        } else {
+          return tigerInfoBuilder_.getMessage(index);
+        }
       }
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 di_info = 3;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
        */
-      public Builder setDiInfo(
-          int index, int value) {
-        ensureDiInfoIsMutable();
-        diInfo_.set(index, value);
-        onChanged();
+      public Builder setTigerInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount value) {
+        if (tigerInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTigerInfoIsMutable();
+          tigerInfo_.set(index, value);
+          onChanged();
+        } else {
+          tigerInfoBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
@@ -22593,12 +23658,17 @@ public final class Lhdz {
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 di_info = 3;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
        */
-      public Builder addDiInfo(int value) {
-        ensureDiInfoIsMutable();
-        diInfo_.add(value);
-        onChanged();
+      public Builder setTigerInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder builderForValue) {
+        if (tigerInfoBuilder_ == null) {
+          ensureTigerInfoIsMutable();
+          tigerInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tigerInfoBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
@@ -22606,14 +23676,19 @@ public final class Lhdz {
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 di_info = 3;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
        */
-      public Builder addAllDiInfo(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureDiInfoIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, diInfo_);
-        onChanged();
+      public Builder addTigerInfo(com.dafagame.protocol.lhdz.Lhdz.IdAndAmount value) {
+        if (tigerInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTigerInfoIsMutable();
+          tigerInfo_.add(value);
+          onChanged();
+        } else {
+          tigerInfoBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
@@ -22621,159 +23696,273 @@ public final class Lhdz {
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 di_info = 3;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
        */
-      public Builder clearDiInfo() {
-        diInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
+      public Builder addTigerInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount value) {
+        if (tigerInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTigerInfoIsMutable();
+          tigerInfo_.add(index, value);
+          onChanged();
+        } else {
+          tigerInfoBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public Builder addTigerInfo(
+          com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder builderForValue) {
+        if (tigerInfoBuilder_ == null) {
+          ensureTigerInfoIsMutable();
+          tigerInfo_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tigerInfoBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public Builder addTigerInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder builderForValue) {
+        if (tigerInfoBuilder_ == null) {
+          ensureTigerInfoIsMutable();
+          tigerInfo_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tigerInfoBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public Builder addAllTigerInfo(
+          java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> values) {
+        if (tigerInfoBuilder_ == null) {
+          ensureTigerInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tigerInfo_);
+          onChanged();
+        } else {
+          tigerInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public Builder clearTigerInfo() {
+        if (tigerInfoBuilder_ == null) {
+          tigerInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          tigerInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public Builder removeTigerInfo(int index) {
+        if (tigerInfoBuilder_ == null) {
+          ensureTigerInfoIsMutable();
+          tigerInfo_.remove(index);
+          onChanged();
+        } else {
+          tigerInfoBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder getTigerInfoBuilder(
+          int index) {
+        return getTigerInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder getTigerInfoOrBuilder(
+          int index) {
+        if (tigerInfoBuilder_ == null) {
+          return tigerInfo_.get(index);  } else {
+          return tigerInfoBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+           getTigerInfoOrBuilderList() {
+        if (tigerInfoBuilder_ != null) {
+          return tigerInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tigerInfo_);
+        }
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder addTigerInfoBuilder() {
+        return getTigerInfoFieldBuilder().addBuilder(
+            com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder addTigerInfoBuilder(
+          int index) {
+        return getTigerInfoFieldBuilder().addBuilder(
+            index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tigerInfo = 3;</code>
+       */
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder> 
+           getTigerInfoBuilderList() {
+        return getTigerInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.IdAndAmount, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder, com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+          getTigerInfoFieldBuilder() {
+        if (tigerInfoBuilder_ == null) {
+          tigerInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.dafagame.protocol.lhdz.Lhdz.IdAndAmount, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder, com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder>(
+                  tigerInfo_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          tigerInfo_ = null;
+        }
+        return tigerInfoBuilder_;
       }
 
-      private java.util.List<java.lang.Integer> xuanInfo_ = java.util.Collections.emptyList();
-      private void ensureXuanInfoIsMutable() {
+      private java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> tieInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureTieInfoIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          xuanInfo_ = new java.util.ArrayList<java.lang.Integer>(xuanInfo_);
+          tieInfo_ = new java.util.ArrayList<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount>(tieInfo_);
           bitField0_ |= 0x00000008;
          }
       }
-      /**
-       * <pre>
-       *投注详细
-       * </pre>
-       *
-       * <code>repeated int32 xuan_info = 4;</code>
-       */
-      public java.util.List<java.lang.Integer>
-          getXuanInfoList() {
-        return java.util.Collections.unmodifiableList(xuanInfo_);
-      }
-      /**
-       * <pre>
-       *投注详细
-       * </pre>
-       *
-       * <code>repeated int32 xuan_info = 4;</code>
-       */
-      public int getXuanInfoCount() {
-        return xuanInfo_.size();
-      }
-      /**
-       * <pre>
-       *投注详细
-       * </pre>
-       *
-       * <code>repeated int32 xuan_info = 4;</code>
-       */
-      public int getXuanInfo(int index) {
-        return xuanInfo_.get(index);
-      }
-      /**
-       * <pre>
-       *投注详细
-       * </pre>
-       *
-       * <code>repeated int32 xuan_info = 4;</code>
-       */
-      public Builder setXuanInfo(
-          int index, int value) {
-        ensureXuanInfoIsMutable();
-        xuanInfo_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *投注详细
-       * </pre>
-       *
-       * <code>repeated int32 xuan_info = 4;</code>
-       */
-      public Builder addXuanInfo(int value) {
-        ensureXuanInfoIsMutable();
-        xuanInfo_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *投注详细
-       * </pre>
-       *
-       * <code>repeated int32 xuan_info = 4;</code>
-       */
-      public Builder addAllXuanInfo(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureXuanInfoIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, xuanInfo_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *投注详细
-       * </pre>
-       *
-       * <code>repeated int32 xuan_info = 4;</code>
-       */
-      public Builder clearXuanInfo() {
-        xuanInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
 
-      private java.util.List<java.lang.Integer> huangInfo_ = java.util.Collections.emptyList();
-      private void ensureHuangInfoIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          huangInfo_ = new java.util.ArrayList<java.lang.Integer>(huangInfo_);
-          bitField0_ |= 0x00000010;
-         }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.IdAndAmount, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder, com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> tieInfoBuilder_;
+
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> getTieInfoList() {
+        if (tieInfoBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tieInfo_);
+        } else {
+          return tieInfoBuilder_.getMessageList();
+        }
       }
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 huang_info = 5;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
        */
-      public java.util.List<java.lang.Integer>
-          getHuangInfoList() {
-        return java.util.Collections.unmodifiableList(huangInfo_);
+      public int getTieInfoCount() {
+        if (tieInfoBuilder_ == null) {
+          return tieInfo_.size();
+        } else {
+          return tieInfoBuilder_.getCount();
+        }
       }
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 huang_info = 5;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
        */
-      public int getHuangInfoCount() {
-        return huangInfo_.size();
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getTieInfo(int index) {
+        if (tieInfoBuilder_ == null) {
+          return tieInfo_.get(index);
+        } else {
+          return tieInfoBuilder_.getMessage(index);
+        }
       }
       /**
        * <pre>
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 huang_info = 5;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
        */
-      public int getHuangInfo(int index) {
-        return huangInfo_.get(index);
-      }
-      /**
-       * <pre>
-       *投注详细
-       * </pre>
-       *
-       * <code>repeated int32 huang_info = 5;</code>
-       */
-      public Builder setHuangInfo(
-          int index, int value) {
-        ensureHuangInfoIsMutable();
-        huangInfo_.set(index, value);
-        onChanged();
+      public Builder setTieInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount value) {
+        if (tieInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTieInfoIsMutable();
+          tieInfo_.set(index, value);
+          onChanged();
+        } else {
+          tieInfoBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
@@ -22781,12 +23970,17 @@ public final class Lhdz {
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 huang_info = 5;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
        */
-      public Builder addHuangInfo(int value) {
-        ensureHuangInfoIsMutable();
-        huangInfo_.add(value);
-        onChanged();
+      public Builder setTieInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder builderForValue) {
+        if (tieInfoBuilder_ == null) {
+          ensureTieInfoIsMutable();
+          tieInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tieInfoBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
@@ -22794,14 +23988,19 @@ public final class Lhdz {
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 huang_info = 5;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
        */
-      public Builder addAllHuangInfo(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureHuangInfoIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, huangInfo_);
-        onChanged();
+      public Builder addTieInfo(com.dafagame.protocol.lhdz.Lhdz.IdAndAmount value) {
+        if (tieInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTieInfoIsMutable();
+          tieInfo_.add(value);
+          onChanged();
+        } else {
+          tieInfoBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
@@ -22809,13 +24008,198 @@ public final class Lhdz {
        *投注详细
        * </pre>
        *
-       * <code>repeated int32 huang_info = 5;</code>
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
        */
-      public Builder clearHuangInfo() {
-        huangInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
-        onChanged();
+      public Builder addTieInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount value) {
+        if (tieInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTieInfoIsMutable();
+          tieInfo_.add(index, value);
+          onChanged();
+        } else {
+          tieInfoBuilder_.addMessage(index, value);
+        }
         return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public Builder addTieInfo(
+          com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder builderForValue) {
+        if (tieInfoBuilder_ == null) {
+          ensureTieInfoIsMutable();
+          tieInfo_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tieInfoBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public Builder addTieInfo(
+          int index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder builderForValue) {
+        if (tieInfoBuilder_ == null) {
+          ensureTieInfoIsMutable();
+          tieInfo_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tieInfoBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public Builder addAllTieInfo(
+          java.lang.Iterable<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmount> values) {
+        if (tieInfoBuilder_ == null) {
+          ensureTieInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tieInfo_);
+          onChanged();
+        } else {
+          tieInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public Builder clearTieInfo() {
+        if (tieInfoBuilder_ == null) {
+          tieInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          tieInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public Builder removeTieInfo(int index) {
+        if (tieInfoBuilder_ == null) {
+          ensureTieInfoIsMutable();
+          tieInfo_.remove(index);
+          onChanged();
+        } else {
+          tieInfoBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder getTieInfoBuilder(
+          int index) {
+        return getTieInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder getTieInfoOrBuilder(
+          int index) {
+        if (tieInfoBuilder_ == null) {
+          return tieInfo_.get(index);  } else {
+          return tieInfoBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public java.util.List<? extends com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+           getTieInfoOrBuilderList() {
+        if (tieInfoBuilder_ != null) {
+          return tieInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tieInfo_);
+        }
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder addTieInfoBuilder() {
+        return getTieInfoFieldBuilder().addBuilder(
+            com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder addTieInfoBuilder(
+          int index) {
+        return getTieInfoFieldBuilder().addBuilder(
+            index, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *投注详细
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.lhdz.IdAndAmount tieInfo = 4;</code>
+       */
+      public java.util.List<com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder> 
+           getTieInfoBuilderList() {
+        return getTieInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.dafagame.protocol.lhdz.Lhdz.IdAndAmount, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder, com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder> 
+          getTieInfoFieldBuilder() {
+        if (tieInfoBuilder_ == null) {
+          tieInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.dafagame.protocol.lhdz.Lhdz.IdAndAmount, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder, com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder>(
+                  tieInfo_,
+                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  getParentForChildren(),
+                  isClean());
+          tieInfo_ = null;
+        }
+        return tieInfoBuilder_;
       }
 
       private int onlines_ ;
@@ -22824,17 +24208,17 @@ public final class Lhdz {
        *在线人数
        * </pre>
        *
-       * <code>optional int32 onlines = 6;</code>
+       * <code>optional int32 onlines = 5;</code>
        */
       public boolean hasOnlines() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <pre>
        *在线人数
        * </pre>
        *
-       * <code>optional int32 onlines = 6;</code>
+       * <code>optional int32 onlines = 5;</code>
        */
       public int getOnlines() {
         return onlines_;
@@ -22844,10 +24228,10 @@ public final class Lhdz {
        *在线人数
        * </pre>
        *
-       * <code>optional int32 onlines = 6;</code>
+       * <code>optional int32 onlines = 5;</code>
        */
       public Builder setOnlines(int value) {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000010;
         onlines_ = value;
         onChanged();
         return this;
@@ -22857,10 +24241,10 @@ public final class Lhdz {
        *在线人数
        * </pre>
        *
-       * <code>optional int32 onlines = 6;</code>
+       * <code>optional int32 onlines = 5;</code>
        */
       public Builder clearOnlines() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onlines_ = 0;
         onChanged();
         return this;
@@ -22909,6 +24293,570 @@ public final class Lhdz {
     }
 
     public com.dafagame.protocol.lhdz.Lhdz.BetNtf getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface IdAndAmountOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.IdAndAmount)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 userId = 1;</code>
+     */
+    boolean hasUserId();
+    /**
+     * <code>optional int32 userId = 1;</code>
+     */
+    int getUserId();
+
+    /**
+     * <code>optional int32 amount = 2;</code>
+     */
+    boolean hasAmount();
+    /**
+     * <code>optional int32 amount = 2;</code>
+     */
+    int getAmount();
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.lhdz.IdAndAmount}
+   */
+  public  static final class IdAndAmount extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.IdAndAmount)
+      IdAndAmountOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use IdAndAmount.newBuilder() to construct.
+    private IdAndAmount(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IdAndAmount() {
+      userId_ = 0;
+      amount_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private IdAndAmount(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              userId_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              amount_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_IdAndAmount_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_IdAndAmount_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.class, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int USERID_FIELD_NUMBER = 1;
+    private int userId_;
+    /**
+     * <code>optional int32 userId = 1;</code>
+     */
+    public boolean hasUserId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional int32 userId = 1;</code>
+     */
+    public int getUserId() {
+      return userId_;
+    }
+
+    public static final int AMOUNT_FIELD_NUMBER = 2;
+    private int amount_;
+    /**
+     * <code>optional int32 amount = 2;</code>
+     */
+    public boolean hasAmount() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 amount = 2;</code>
+     */
+    public int getAmount() {
+      return amount_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, amount_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, userId_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, amount_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.IdAndAmount)) {
+        return super.equals(obj);
+      }
+      com.dafagame.protocol.lhdz.Lhdz.IdAndAmount other = (com.dafagame.protocol.lhdz.Lhdz.IdAndAmount) obj;
+
+      boolean result = true;
+      result = result && (hasUserId() == other.hasUserId());
+      if (hasUserId()) {
+        result = result && (getUserId()
+            == other.getUserId());
+      }
+      result = result && (hasAmount() == other.hasAmount());
+      if (hasAmount()) {
+        result = result && (getAmount()
+            == other.getAmount());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUserId()) {
+        hash = (37 * hash) + USERID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId();
+      }
+      if (hasAmount()) {
+        hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getAmount();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.IdAndAmount prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.lhdz.IdAndAmount}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.IdAndAmount)
+        com.dafagame.protocol.lhdz.Lhdz.IdAndAmountOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_IdAndAmount_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_IdAndAmount_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.class, com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        userId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        amount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_IdAndAmount_descriptor;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getDefaultInstanceForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.getDefaultInstance();
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount build() {
+        com.dafagame.protocol.lhdz.Lhdz.IdAndAmount result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount buildPartial() {
+        com.dafagame.protocol.lhdz.Lhdz.IdAndAmount result = new com.dafagame.protocol.lhdz.Lhdz.IdAndAmount(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.userId_ = userId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.amount_ = amount_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.IdAndAmount) {
+          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.IdAndAmount)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.IdAndAmount other) {
+        if (other == com.dafagame.protocol.lhdz.Lhdz.IdAndAmount.getDefaultInstance()) return this;
+        if (other.hasUserId()) {
+          setUserId(other.getUserId());
+        }
+        if (other.hasAmount()) {
+          setAmount(other.getAmount());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.dafagame.protocol.lhdz.Lhdz.IdAndAmount parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.IdAndAmount) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int userId_ ;
+      /**
+       * <code>optional int32 userId = 1;</code>
+       */
+      public boolean hasUserId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 userId = 1;</code>
+       */
+      public int getUserId() {
+        return userId_;
+      }
+      /**
+       * <code>optional int32 userId = 1;</code>
+       */
+      public Builder setUserId(int value) {
+        bitField0_ |= 0x00000001;
+        userId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 userId = 1;</code>
+       */
+      public Builder clearUserId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        userId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int amount_ ;
+      /**
+       * <code>optional int32 amount = 2;</code>
+       */
+      public boolean hasAmount() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 amount = 2;</code>
+       */
+      public int getAmount() {
+        return amount_;
+      }
+      /**
+       * <code>optional int32 amount = 2;</code>
+       */
+      public Builder setAmount(int value) {
+        bitField0_ |= 0x00000002;
+        amount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 amount = 2;</code>
+       */
+      public Builder clearAmount() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        amount_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.IdAndAmount)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.IdAndAmount)
+    private static final com.dafagame.protocol.lhdz.Lhdz.IdAndAmount DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.IdAndAmount();
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<IdAndAmount>
+        PARSER = new com.google.protobuf.AbstractParser<IdAndAmount>() {
+      public IdAndAmount parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new IdAndAmount(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<IdAndAmount> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IdAndAmount> getParserForType() {
+      return PARSER;
+    }
+
+    public com.dafagame.protocol.lhdz.Lhdz.IdAndAmount getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -23457,7 +25405,7 @@ public final class Lhdz {
      * 对应的筹码列表
      * </pre>
      *
-     * <code>repeated int32 amount_list = 2;</code>
+     * <code>repeated int32 amountList = 2;</code>
      */
     java.util.List<java.lang.Integer> getAmountListList();
     /**
@@ -23465,7 +25413,7 @@ public final class Lhdz {
      * 对应的筹码列表
      * </pre>
      *
-     * <code>repeated int32 amount_list = 2;</code>
+     * <code>repeated int32 amountList = 2;</code>
      */
     int getAmountListCount();
     /**
@@ -23473,7 +25421,7 @@ public final class Lhdz {
      * 对应的筹码列表
      * </pre>
      *
-     * <code>repeated int32 amount_list = 2;</code>
+     * <code>repeated int32 amountList = 2;</code>
      */
     int getAmountList(int index);
   }
@@ -23609,14 +25557,14 @@ public final class Lhdz {
       return result == null ? com.dafagame.protocol.lhdz.Lhdz.Pos.Dragon : result;
     }
 
-    public static final int AMOUNT_LIST_FIELD_NUMBER = 2;
+    public static final int AMOUNTLIST_FIELD_NUMBER = 2;
     private java.util.List<java.lang.Integer> amountList_;
     /**
      * <pre>
      * 对应的筹码列表
      * </pre>
      *
-     * <code>repeated int32 amount_list = 2;</code>
+     * <code>repeated int32 amountList = 2;</code>
      */
     public java.util.List<java.lang.Integer>
         getAmountListList() {
@@ -23627,7 +25575,7 @@ public final class Lhdz {
      * 对应的筹码列表
      * </pre>
      *
-     * <code>repeated int32 amount_list = 2;</code>
+     * <code>repeated int32 amountList = 2;</code>
      */
     public int getAmountListCount() {
       return amountList_.size();
@@ -23637,7 +25585,7 @@ public final class Lhdz {
      * 对应的筹码列表
      * </pre>
      *
-     * <code>repeated int32 amount_list = 2;</code>
+     * <code>repeated int32 amountList = 2;</code>
      */
     public int getAmountList(int index) {
       return amountList_.get(index);
@@ -23724,7 +25672,7 @@ public final class Lhdz {
         hash = (53 * hash) + pos_;
       }
       if (getAmountListCount() > 0) {
-        hash = (37 * hash) + AMOUNT_LIST_FIELD_NUMBER;
+        hash = (37 * hash) + AMOUNTLIST_FIELD_NUMBER;
         hash = (53 * hash) + getAmountListList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
@@ -24046,7 +25994,7 @@ public final class Lhdz {
        * 对应的筹码列表
        * </pre>
        *
-       * <code>repeated int32 amount_list = 2;</code>
+       * <code>repeated int32 amountList = 2;</code>
        */
       public java.util.List<java.lang.Integer>
           getAmountListList() {
@@ -24057,7 +26005,7 @@ public final class Lhdz {
        * 对应的筹码列表
        * </pre>
        *
-       * <code>repeated int32 amount_list = 2;</code>
+       * <code>repeated int32 amountList = 2;</code>
        */
       public int getAmountListCount() {
         return amountList_.size();
@@ -24067,7 +26015,7 @@ public final class Lhdz {
        * 对应的筹码列表
        * </pre>
        *
-       * <code>repeated int32 amount_list = 2;</code>
+       * <code>repeated int32 amountList = 2;</code>
        */
       public int getAmountList(int index) {
         return amountList_.get(index);
@@ -24077,7 +26025,7 @@ public final class Lhdz {
        * 对应的筹码列表
        * </pre>
        *
-       * <code>repeated int32 amount_list = 2;</code>
+       * <code>repeated int32 amountList = 2;</code>
        */
       public Builder setAmountList(
           int index, int value) {
@@ -24091,7 +26039,7 @@ public final class Lhdz {
        * 对应的筹码列表
        * </pre>
        *
-       * <code>repeated int32 amount_list = 2;</code>
+       * <code>repeated int32 amountList = 2;</code>
        */
       public Builder addAmountList(int value) {
         ensureAmountListIsMutable();
@@ -24104,7 +26052,7 @@ public final class Lhdz {
        * 对应的筹码列表
        * </pre>
        *
-       * <code>repeated int32 amount_list = 2;</code>
+       * <code>repeated int32 amountList = 2;</code>
        */
       public Builder addAllAmountList(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -24119,7 +26067,7 @@ public final class Lhdz {
        * 对应的筹码列表
        * </pre>
        *
-       * <code>repeated int32 amount_list = 2;</code>
+       * <code>repeated int32 amountList = 2;</code>
        */
       public Builder clearAmountList() {
         amountList_ = java.util.Collections.emptyList();
@@ -25194,6 +27142,2541 @@ public final class Lhdz {
 
   }
 
+  public interface GameRuleReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.GameRuleReq)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.lhdz.GameRuleReq}
+   */
+  public  static final class GameRuleReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.GameRuleReq)
+      GameRuleReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GameRuleReq.newBuilder() to construct.
+    private GameRuleReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GameRuleReq() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GameRuleReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleReq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.dafagame.protocol.lhdz.Lhdz.GameRuleReq.class, com.dafagame.protocol.lhdz.Lhdz.GameRuleReq.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.GameRuleReq)) {
+        return super.equals(obj);
+      }
+      com.dafagame.protocol.lhdz.Lhdz.GameRuleReq other = (com.dafagame.protocol.lhdz.Lhdz.GameRuleReq) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.GameRuleReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.lhdz.GameRuleReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.GameRuleReq)
+        com.dafagame.protocol.lhdz.Lhdz.GameRuleReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleReq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.dafagame.protocol.lhdz.Lhdz.GameRuleReq.class, com.dafagame.protocol.lhdz.Lhdz.GameRuleReq.Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.lhdz.Lhdz.GameRuleReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleReq_descriptor;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.GameRuleReq getDefaultInstanceForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.GameRuleReq.getDefaultInstance();
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.GameRuleReq build() {
+        com.dafagame.protocol.lhdz.Lhdz.GameRuleReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.GameRuleReq buildPartial() {
+        com.dafagame.protocol.lhdz.Lhdz.GameRuleReq result = new com.dafagame.protocol.lhdz.Lhdz.GameRuleReq(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.GameRuleReq) {
+          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.GameRuleReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.GameRuleReq other) {
+        if (other == com.dafagame.protocol.lhdz.Lhdz.GameRuleReq.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.dafagame.protocol.lhdz.Lhdz.GameRuleReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.GameRuleReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.GameRuleReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.GameRuleReq)
+    private static final com.dafagame.protocol.lhdz.Lhdz.GameRuleReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.GameRuleReq();
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<GameRuleReq>
+        PARSER = new com.google.protobuf.AbstractParser<GameRuleReq>() {
+      public GameRuleReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GameRuleReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GameRuleReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GameRuleReq> getParserForType() {
+      return PARSER;
+    }
+
+    public com.dafagame.protocol.lhdz.Lhdz.GameRuleReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GameRuleResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.GameRuleRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *服务费
+     * </pre>
+     *
+     * <code>optional double service = 1;</code>
+     */
+    boolean hasService();
+    /**
+     * <pre>
+     *服务费
+     * </pre>
+     *
+     * <code>optional double service = 1;</code>
+     */
+    double getService();
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.lhdz.GameRuleRes}
+   */
+  public  static final class GameRuleRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.GameRuleRes)
+      GameRuleResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GameRuleRes.newBuilder() to construct.
+    private GameRuleRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GameRuleRes() {
+      service_ = 0D;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GameRuleRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 9: {
+              bitField0_ |= 0x00000001;
+              service_ = input.readDouble();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleRes_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.dafagame.protocol.lhdz.Lhdz.GameRuleRes.class, com.dafagame.protocol.lhdz.Lhdz.GameRuleRes.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SERVICE_FIELD_NUMBER = 1;
+    private double service_;
+    /**
+     * <pre>
+     *服务费
+     * </pre>
+     *
+     * <code>optional double service = 1;</code>
+     */
+    public boolean hasService() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *服务费
+     * </pre>
+     *
+     * <code>optional double service = 1;</code>
+     */
+    public double getService() {
+      return service_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeDouble(1, service_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(1, service_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.GameRuleRes)) {
+        return super.equals(obj);
+      }
+      com.dafagame.protocol.lhdz.Lhdz.GameRuleRes other = (com.dafagame.protocol.lhdz.Lhdz.GameRuleRes) obj;
+
+      boolean result = true;
+      result = result && (hasService() == other.hasService());
+      if (hasService()) {
+        result = result && (
+            java.lang.Double.doubleToLongBits(getService())
+            == java.lang.Double.doubleToLongBits(
+                other.getService()));
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasService()) {
+        hash = (37 * hash) + SERVICE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            java.lang.Double.doubleToLongBits(getService()));
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.GameRuleRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.lhdz.GameRuleRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.GameRuleRes)
+        com.dafagame.protocol.lhdz.Lhdz.GameRuleResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleRes_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.dafagame.protocol.lhdz.Lhdz.GameRuleRes.class, com.dafagame.protocol.lhdz.Lhdz.GameRuleRes.Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.lhdz.Lhdz.GameRuleRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        service_ = 0D;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_GameRuleRes_descriptor;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.GameRuleRes getDefaultInstanceForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.GameRuleRes.getDefaultInstance();
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.GameRuleRes build() {
+        com.dafagame.protocol.lhdz.Lhdz.GameRuleRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.GameRuleRes buildPartial() {
+        com.dafagame.protocol.lhdz.Lhdz.GameRuleRes result = new com.dafagame.protocol.lhdz.Lhdz.GameRuleRes(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.service_ = service_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.GameRuleRes) {
+          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.GameRuleRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.GameRuleRes other) {
+        if (other == com.dafagame.protocol.lhdz.Lhdz.GameRuleRes.getDefaultInstance()) return this;
+        if (other.hasService()) {
+          setService(other.getService());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.dafagame.protocol.lhdz.Lhdz.GameRuleRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.GameRuleRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private double service_ ;
+      /**
+       * <pre>
+       *服务费
+       * </pre>
+       *
+       * <code>optional double service = 1;</code>
+       */
+      public boolean hasService() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *服务费
+       * </pre>
+       *
+       * <code>optional double service = 1;</code>
+       */
+      public double getService() {
+        return service_;
+      }
+      /**
+       * <pre>
+       *服务费
+       * </pre>
+       *
+       * <code>optional double service = 1;</code>
+       */
+      public Builder setService(double value) {
+        bitField0_ |= 0x00000001;
+        service_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *服务费
+       * </pre>
+       *
+       * <code>optional double service = 1;</code>
+       */
+      public Builder clearService() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        service_ = 0D;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.GameRuleRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.GameRuleRes)
+    private static final com.dafagame.protocol.lhdz.Lhdz.GameRuleRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.GameRuleRes();
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.GameRuleRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<GameRuleRes>
+        PARSER = new com.google.protobuf.AbstractParser<GameRuleRes>() {
+      public GameRuleRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GameRuleRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GameRuleRes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GameRuleRes> getParserForType() {
+      return PARSER;
+    }
+
+    public com.dafagame.protocol.lhdz.Lhdz.GameRuleRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DownBankerReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.DownBankerReq)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.lhdz.DownBankerReq}
+   */
+  public  static final class DownBankerReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.DownBankerReq)
+      DownBankerReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DownBankerReq.newBuilder() to construct.
+    private DownBankerReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DownBankerReq() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DownBankerReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerReq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.dafagame.protocol.lhdz.Lhdz.DownBankerReq.class, com.dafagame.protocol.lhdz.Lhdz.DownBankerReq.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.DownBankerReq)) {
+        return super.equals(obj);
+      }
+      com.dafagame.protocol.lhdz.Lhdz.DownBankerReq other = (com.dafagame.protocol.lhdz.Lhdz.DownBankerReq) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.DownBankerReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.lhdz.DownBankerReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.DownBankerReq)
+        com.dafagame.protocol.lhdz.Lhdz.DownBankerReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerReq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.dafagame.protocol.lhdz.Lhdz.DownBankerReq.class, com.dafagame.protocol.lhdz.Lhdz.DownBankerReq.Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.lhdz.Lhdz.DownBankerReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerReq_descriptor;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.DownBankerReq getDefaultInstanceForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.DownBankerReq.getDefaultInstance();
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.DownBankerReq build() {
+        com.dafagame.protocol.lhdz.Lhdz.DownBankerReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.DownBankerReq buildPartial() {
+        com.dafagame.protocol.lhdz.Lhdz.DownBankerReq result = new com.dafagame.protocol.lhdz.Lhdz.DownBankerReq(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.DownBankerReq) {
+          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.DownBankerReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.DownBankerReq other) {
+        if (other == com.dafagame.protocol.lhdz.Lhdz.DownBankerReq.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.dafagame.protocol.lhdz.Lhdz.DownBankerReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.DownBankerReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.DownBankerReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.DownBankerReq)
+    private static final com.dafagame.protocol.lhdz.Lhdz.DownBankerReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.DownBankerReq();
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<DownBankerReq>
+        PARSER = new com.google.protobuf.AbstractParser<DownBankerReq>() {
+      public DownBankerReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new DownBankerReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DownBankerReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DownBankerReq> getParserForType() {
+      return PARSER;
+    }
+
+    public com.dafagame.protocol.lhdz.Lhdz.DownBankerReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DownBankerResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.DownBankerRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode code = 1;</code>
+     */
+    boolean hasCode();
+    /**
+     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode code = 1;</code>
+     */
+    com.dafagame.protocol.lhdz.Lhdz.ErrorCode getCode();
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.lhdz.DownBankerRes}
+   */
+  public  static final class DownBankerRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.DownBankerRes)
+      DownBankerResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use DownBankerRes.newBuilder() to construct.
+    private DownBankerRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DownBankerRes() {
+      code_ = 1;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DownBankerRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+              com.dafagame.protocol.lhdz.Lhdz.ErrorCode value = com.dafagame.protocol.lhdz.Lhdz.ErrorCode.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                code_ = rawValue;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerRes_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.dafagame.protocol.lhdz.Lhdz.DownBankerRes.class, com.dafagame.protocol.lhdz.Lhdz.DownBankerRes.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode code = 1;</code>
+     */
+    public boolean hasCode() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional .com.dafagame.protocol.lhdz.ErrorCode code = 1;</code>
+     */
+    public com.dafagame.protocol.lhdz.Lhdz.ErrorCode getCode() {
+      com.dafagame.protocol.lhdz.Lhdz.ErrorCode result = com.dafagame.protocol.lhdz.Lhdz.ErrorCode.valueOf(code_);
+      return result == null ? com.dafagame.protocol.lhdz.Lhdz.ErrorCode.OK : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeEnum(1, code_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, code_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.DownBankerRes)) {
+        return super.equals(obj);
+      }
+      com.dafagame.protocol.lhdz.Lhdz.DownBankerRes other = (com.dafagame.protocol.lhdz.Lhdz.DownBankerRes) obj;
+
+      boolean result = true;
+      result = result && (hasCode() == other.hasCode());
+      if (hasCode()) {
+        result = result && code_ == other.code_;
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCode()) {
+        hash = (37 * hash) + CODE_FIELD_NUMBER;
+        hash = (53 * hash) + code_;
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.DownBankerRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.lhdz.DownBankerRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.DownBankerRes)
+        com.dafagame.protocol.lhdz.Lhdz.DownBankerResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerRes_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.dafagame.protocol.lhdz.Lhdz.DownBankerRes.class, com.dafagame.protocol.lhdz.Lhdz.DownBankerRes.Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.lhdz.Lhdz.DownBankerRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        code_ = 1;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_DownBankerRes_descriptor;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.DownBankerRes getDefaultInstanceForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.DownBankerRes.getDefaultInstance();
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.DownBankerRes build() {
+        com.dafagame.protocol.lhdz.Lhdz.DownBankerRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.DownBankerRes buildPartial() {
+        com.dafagame.protocol.lhdz.Lhdz.DownBankerRes result = new com.dafagame.protocol.lhdz.Lhdz.DownBankerRes(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.code_ = code_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.DownBankerRes) {
+          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.DownBankerRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.DownBankerRes other) {
+        if (other == com.dafagame.protocol.lhdz.Lhdz.DownBankerRes.getDefaultInstance()) return this;
+        if (other.hasCode()) {
+          setCode(other.getCode());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.dafagame.protocol.lhdz.Lhdz.DownBankerRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.DownBankerRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int code_ = 1;
+      /**
+       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode code = 1;</code>
+       */
+      public boolean hasCode() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode code = 1;</code>
+       */
+      public com.dafagame.protocol.lhdz.Lhdz.ErrorCode getCode() {
+        com.dafagame.protocol.lhdz.Lhdz.ErrorCode result = com.dafagame.protocol.lhdz.Lhdz.ErrorCode.valueOf(code_);
+        return result == null ? com.dafagame.protocol.lhdz.Lhdz.ErrorCode.OK : result;
+      }
+      /**
+       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode code = 1;</code>
+       */
+      public Builder setCode(com.dafagame.protocol.lhdz.Lhdz.ErrorCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000001;
+        code_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .com.dafagame.protocol.lhdz.ErrorCode code = 1;</code>
+       */
+      public Builder clearCode() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        code_ = 1;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.DownBankerRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.DownBankerRes)
+    private static final com.dafagame.protocol.lhdz.Lhdz.DownBankerRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.DownBankerRes();
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.DownBankerRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<DownBankerRes>
+        PARSER = new com.google.protobuf.AbstractParser<DownBankerRes>() {
+      public DownBankerRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new DownBankerRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DownBankerRes> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DownBankerRes> getParserForType() {
+      return PARSER;
+    }
+
+    public com.dafagame.protocol.lhdz.Lhdz.DownBankerRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ContinueBetReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.ContinueBetReq)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.lhdz.ContinueBetReq}
+   */
+  public  static final class ContinueBetReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.ContinueBetReq)
+      ContinueBetReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ContinueBetReq.newBuilder() to construct.
+    private ContinueBetReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ContinueBetReq() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ContinueBetReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq.class, com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq)) {
+        return super.equals(obj);
+      }
+      com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq other = (com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.lhdz.ContinueBetReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.ContinueBetReq)
+        com.dafagame.protocol.lhdz.Lhdz.ContinueBetReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq.class, com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq.Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_descriptor;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq getDefaultInstanceForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq.getDefaultInstance();
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq build() {
+        com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq buildPartial() {
+        com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq result = new com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq) {
+          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq other) {
+        if (other == com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.ContinueBetReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.ContinueBetReq)
+    private static final com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq();
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ContinueBetReq>
+        PARSER = new com.google.protobuf.AbstractParser<ContinueBetReq>() {
+      public ContinueBetReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ContinueBetReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ContinueBetReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ContinueBetReq> getParserForType() {
+      return PARSER;
+    }
+
+    public com.dafagame.protocol.lhdz.Lhdz.ContinueBetReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ScenesReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.lhdz.ScenesReq)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.lhdz.ScenesReq}
+   */
+  public  static final class ScenesReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.lhdz.ScenesReq)
+      ScenesReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ScenesReq.newBuilder() to construct.
+    private ScenesReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ScenesReq() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ScenesReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ScenesReq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ScenesReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.dafagame.protocol.lhdz.Lhdz.ScenesReq.class, com.dafagame.protocol.lhdz.Lhdz.ScenesReq.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.dafagame.protocol.lhdz.Lhdz.ScenesReq)) {
+        return super.equals(obj);
+      }
+      com.dafagame.protocol.lhdz.Lhdz.ScenesReq other = (com.dafagame.protocol.lhdz.Lhdz.ScenesReq) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.dafagame.protocol.lhdz.Lhdz.ScenesReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.lhdz.ScenesReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.lhdz.ScenesReq)
+        com.dafagame.protocol.lhdz.Lhdz.ScenesReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ScenesReq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ScenesReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.dafagame.protocol.lhdz.Lhdz.ScenesReq.class, com.dafagame.protocol.lhdz.Lhdz.ScenesReq.Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.lhdz.Lhdz.ScenesReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.internal_static_com_dafagame_protocol_lhdz_ScenesReq_descriptor;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.ScenesReq getDefaultInstanceForType() {
+        return com.dafagame.protocol.lhdz.Lhdz.ScenesReq.getDefaultInstance();
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.ScenesReq build() {
+        com.dafagame.protocol.lhdz.Lhdz.ScenesReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.dafagame.protocol.lhdz.Lhdz.ScenesReq buildPartial() {
+        com.dafagame.protocol.lhdz.Lhdz.ScenesReq result = new com.dafagame.protocol.lhdz.Lhdz.ScenesReq(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.dafagame.protocol.lhdz.Lhdz.ScenesReq) {
+          return mergeFrom((com.dafagame.protocol.lhdz.Lhdz.ScenesReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.dafagame.protocol.lhdz.Lhdz.ScenesReq other) {
+        if (other == com.dafagame.protocol.lhdz.Lhdz.ScenesReq.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.dafagame.protocol.lhdz.Lhdz.ScenesReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.dafagame.protocol.lhdz.Lhdz.ScenesReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.lhdz.ScenesReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.lhdz.ScenesReq)
+    private static final com.dafagame.protocol.lhdz.Lhdz.ScenesReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.dafagame.protocol.lhdz.Lhdz.ScenesReq();
+    }
+
+    public static com.dafagame.protocol.lhdz.Lhdz.ScenesReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ScenesReq>
+        PARSER = new com.google.protobuf.AbstractParser<ScenesReq>() {
+      public ScenesReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ScenesReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ScenesReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ScenesReq> getParserForType() {
+      return PARSER;
+    }
+
+    public com.dafagame.protocol.lhdz.Lhdz.ScenesReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_dafagame_protocol_lhdz_BetReq_descriptor;
   private static final 
@@ -25235,16 +29718,6 @@ public final class Lhdz {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dafagame_protocol_lhdz_BankerInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_dafagame_protocol_lhdz_CountReq_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_dafagame_protocol_lhdz_CountReq_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_dafagame_protocol_lhdz_CountRes_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_dafagame_protocol_lhdz_CountRes_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_dafagame_protocol_lhdz_StartNtf_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -25270,15 +29743,10 @@ public final class Lhdz {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dafagame_protocol_lhdz_EnterPlayerSceneNtf_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_descriptor;
+    internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_fieldAccessorTable;
+      internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_dafagame_protocol_lhdz_PlayResult_descriptor;
   private static final 
@@ -25300,6 +29768,11 @@ public final class Lhdz {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dafagame_protocol_lhdz_BetNtf_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_lhdz_IdAndAmount_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_lhdz_IdAndAmount_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_dafagame_protocol_lhdz_OnlineNumberNtf_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -25319,6 +29792,36 @@ public final class Lhdz {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dafagame_protocol_lhdz_GamePauseNtf_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_lhdz_GameRuleReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_lhdz_GameRuleReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_lhdz_GameRuleRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_lhdz_GameRuleRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_lhdz_DownBankerReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_lhdz_DownBankerReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_lhdz_DownBankerRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_lhdz_DownBankerRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_lhdz_ScenesReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_lhdz_ScenesReq_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -25329,85 +29832,102 @@ public final class Lhdz {
   static {
     java.lang.String[] descriptorData = {
       "\n\nLhdz.proto\022\032com.dafagame.protocol.lhdz" +
-      "\"?\n\006BetReq\0225\n\010bet_info\030\001 \003(\0132#.com.dafag" +
-      "ame.protocol.lhdz.BetInfo\"G\n\007BetInfo\022,\n\003" +
-      "pos\030\001 \002(\0162\037.com.dafagame.protocol.lhdz.P" +
-      "os\022\016\n\006amount\030\002 \003(\005\"\211\001\n\006BetRes\0225\n\010bet_inf" +
-      "o\030\001 \003(\0132#.com.dafagame.protocol.lhdz.Bet" +
-      "Info\022\r\n\005total\030\003 \001(\003\0229\n\nerror_code\030\002 \001(\0162" +
-      "%.com.dafagame.protocol.lhdz.ErrorCode\"[" +
-      "\n\rSpecialBetNtf\022\023\n\013special_uid\030\001 \002(\005\0225\n\010" +
-      "bet_info\030\002 \003(\0132#.com.dafagame.protocol.l",
-      "hdz.BetInfo\"\017\n\rGoUpBankerReq\"W\n\rGoUpBank" +
-      "erRes\0229\n\nerror_code\030\001 \002(\0162%.com.dafagame" +
-      ".protocol.lhdz.ErrorCode\022\013\n\003msg\030\002 \001(\t\"`\n" +
-      "\nBankerList\022\025\n\rbanker_number\030\001 \002(\005\022;\n\013ba" +
-      "nker_info\030\002 \003(\0132&.com.dafagame.protocol." +
-      "lhdz.BankerInfo\"T\n\nBankerInfo\022\021\n\tnick_na" +
-      "me\030\001 \001(\t\022\024\n\014banker_money\030\002 \001(\t\022\r\n\005grade\030" +
-      "\003 \001(\005\022\016\n\006avatar\030\004 \001(\005\"\n\n\010CountReq\"2\n\010Cou" +
-      "ntRes\022\023\n\013round_count\030\001 \001(\005\022\021\n\twin_count\030" +
-      "\002 \001(\t\"k\n\010StartNtf\022\016\n\006inning\030\001 \002(\t\022\022\n\ncou",
-      "nt_down\030\002 \002(\005\022;\n\013banker_info\030\003 \001(\0132&.com" +
-      ".dafagame.protocol.lhdz.BankerInfo\"L\n\nLo" +
-      "tteryNtf\022\022\n\ncount_down\030\001 \001(\005\022\r\n\005state\030\002 " +
-      "\001(\t\022\014\n\004type\030\003 \001(\t\022\r\n\005poker\030\004 \001(\t\":\n\014Poke" +
-      "rInfoNtf\022\r\n\005state\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\022\r\n" +
-      "\005poker\030\003 \001(\t\"!\n\rPlayerBetInfo\022\020\n\010bet_lis" +
-      "t\030\002 \003(\005\"\355\003\n\023EnterPlayerSceneNtf\0220\n\005state" +
-      "\030\001 \002(\0162!.com.dafagame.protocol.lhdz.Stat" +
-      "e\022\026\n\016remaining_time\030\002 \001(\005\022\031\n\021table_recor" +
-      "d_list\030\003 \003(\t\022\031\n\021banker_need_money\030\004 \001(\005\022",
-      "\027\n\017player_area_bet\030\005 \003(\003\022\017\n\007god_bet\030\006 \003(" +
-      "\003\022\025\n\rroom_area_bet\030\007 \003(\003\022\022\n\nround_type\030\t" +
-      " \002(\t\022\017\n\007room_id\030\n \002(\t\022\016\n\006inning\030\013 \002(\t\022\017\n" +
-      "\007balance\030\016 \001(\t\022\025\n\ronline_number\030\017 \001(\005\022;\n" +
-      "\013banker_info\030\020 \001(\0132&.com.dafagame.protoc" +
-      "ol.lhdz.BankerInfo\022;\n\013banker_list\030\021 \001(\0132" +
-      "&.com.dafagame.protocol.lhdz.BankerList\022" +
-      "\025\n\rmultiple_enum\030\022 \003(\005\022\021\n\tchip_enum\030\023 \003(" +
-      "\005\022\024\n\014min_bet_need\030\024 \001(\005\"\234\001\n\rRankSettleNt" +
-      "f\022F\n\trank_list\030\001 \003(\01323.com.dafagame.prot",
-      "ocol.lhdz.SpecialPlayerResultInfo\022C\n\006ban" +
-      "ker\030\002 \001(\01323.com.dafagame.protocol.lhdz.S" +
-      "pecialPlayerResultInfo\"Q\n\027SpecialPlayerR" +
-      "esultInfo\022\021\n\tplayer_id\030\001 \002(\005\022\022\n\nwin_amou" +
-      "nt\030\002 \002(\001\022\017\n\007balance\030\003 \001(\t\"W\n\nPlayResult\022" +
-      "\022\n\nadd_amount\030\001 \002(\003\022\013\n\003tax\030\002 \001(\001\022\027\n\017add_" +
-      "amount_list\030\003 \003(\003\022\017\n\007balance\030\004 \002(\t\"B\n\007Ra" +
-      "nkNtf\0227\n\trank_list\030\001 \003(\0132$.com.dafagame." +
-      "protocol.lhdz.RankInfo\"\230\001\n\010RankInfo\022\017\n\007u" +
-      "ser_id\030\001 \001(\005\022\016\n\006avatar\030\002 \001(\005\022\021\n\tnick_nam",
-      "e\030\003 \001(\t\022\r\n\005grade\030\004 \001(\005\022\017\n\007balance\030\005 \001(\t\022" +
-      "\026\n\016betting_amount\030\006 \001(\003\022\021\n\twin_times\030\007 \001" +
-      "(\005\022\r\n\005frame\030\010 \001(\005\"y\n\006BetNtf\022\023\n\013area_amou" +
-      "nt\030\001 \003(\003\022\021\n\ttian_info\030\002 \003(\005\022\017\n\007di_info\030\003" +
-      " \003(\005\022\021\n\txuan_info\030\004 \003(\005\022\022\n\nhuang_info\030\005 " +
-      "\003(\005\022\017\n\007onlines\030\006 \001(\005\"!\n\017OnlineNumberNtf\022" +
-      "\016\n\006number\030\001 \001(\005\"P\n\013AreaBetInfo\022,\n\003pos\030\001 " +
-      "\002(\0162\037.com.dafagame.protocol.lhdz.Pos\022\023\n\013" +
-      "amount_list\030\002 \003(\005\" \n\017GameMaintainNtf\022\r\n\005" +
-      "state\030\001 \001(\005\"\035\n\014GamePauseNtf\022\r\n\005state\030\001 \001",
-      "(\005*\024\n\010GameType\022\010\n\004LHDZ\020f*+\n\005State\022\n\n\006Bet" +
-      "ing\020\001\022\013\n\007Lottery\020\002\022\t\n\005Pause\020\003*%\n\003Pos\022\n\n\006" +
-      "Dragon\020\000\022\t\n\005Tiger\020\001\022\007\n\003Tie\020\002* \n\013ResultSt" +
-      "ate\022\010\n\004Lose\020\001\022\007\n\003Win\020\002*\275\003\n\tProtoType\022\017\n\n" +
-      "BetReqType\020\217P\022\017\n\nBetResType\020\220P\022\026\n\021GoUpBa" +
-      "nkerReqType\020\221P\022\026\n\021GoUpBankerResType\020\222P\022\023" +
-      "\n\016BankerListType\020\223P\022\023\n\016BankerInfoType\020\224P" +
-      "\022\021\n\014CountReqType\020\225P\022\021\n\014CountResType\020\226P\022\021" +
+      "\">\n\006BetReq\0224\n\007betInfo\030\001 \003(\0132#.com.dafaga" +
+      "me.protocol.lhdz.BetInfo\"G\n\007BetInfo\022,\n\003p" +
+      "os\030\001 \002(\0162\037.com.dafagame.protocol.lhdz.Po" +
+      "s\022\016\n\006amount\030\002 \003(\005\"\207\001\n\006BetRes\0224\n\007betInfo\030" +
+      "\001 \003(\0132#.com.dafagame.protocol.lhdz.BetIn" +
+      "fo\022\r\n\005total\030\003 \001(\003\0228\n\terrorCode\030\002 \001(\0162%.c" +
+      "om.dafagame.protocol.lhdz.ErrorCode\"U\n\rS" +
+      "pecialBetNtf\022\016\n\006userId\030\001 \002(\005\0224\n\007betInfo\030" +
+      "\002 \003(\0132#.com.dafagame.protocol.lhdz.BetIn",
+      "fo\"\017\n\rGoUpBankerReq\"V\n\rGoUpBankerRes\0228\n\t" +
+      "errorCode\030\001 \002(\0162%.com.dafagame.protocol." +
+      "lhdz.ErrorCode\022\013\n\003msg\030\002 \001(\t\"\\\n\nBankerLis" +
+      "t\022:\n\nbankerInfo\030\001 \003(\0132&.com.dafagame.pro" +
+      "tocol.lhdz.BankerInfo\022\022\n\nhaveBanker\030\002 \002(" +
+      "\010\"{\n\nBankerInfo\022\020\n\010nickName\030\001 \001(\t\022\017\n\007bal" +
+      "ance\030\002 \001(\t\022\r\n\005grade\030\003 \001(\005\022\016\n\006avatar\030\004 \001(" +
+      "\005\022\r\n\005frame\030\005 \001(\005\022\016\n\006userId\030\006 \001(\005\022\014\n\004type" +
+      "\030\007 \001(\005\"=\n\010StartNtf\022\016\n\006inning\030\001 \002(\t\022\021\n\tco" +
+      "untDown\030\002 \002(\005\022\016\n\006canBet\030\003 \001(\010\"\037\n\nLottery",
+      "Ntf\022\021\n\tcountDown\030\001 \001(\005\"D\n\014PokerInfoNtf\022\022" +
+      "\n\npokerState\030\001 \001(\t\022\021\n\tpokerType\030\002 \001(\t\022\r\n" +
+      "\005poker\030\003 \001(\t\" \n\rPlayerBetInfo\022\017\n\007betList" +
+      "\030\002 \003(\005\"\366\004\n\023EnterPlayerSceneNtf\0220\n\005state\030" +
+      "\001 \002(\0162!.com.dafagame.protocol.lhdz.State" +
+      "\022\025\n\rremainingTime\030\002 \001(\005\022\027\n\017tableRecordLi" +
+      "st\030\003 \003(\t\022\027\n\017bankerNeedMoney\030\004 \001(\005\022\025\n\rpla" +
+      "yerAreaBet\030\005 \003(\003\022C\n\013speacialBet\030\006 \003(\0132.." +
+      "com.dafagame.protocol.lhdz.SpeacialPlaye" +
+      "rInfo\022\023\n\013roomAreaBet\030\007 \003(\003\022\021\n\tstateTime\030",
+      "\010 \003(\005\022\021\n\troundType\030\t \002(\t\022\016\n\006roomId\030\n \002(\t" +
+      "\022\016\n\006inning\030\013 \002(\t\022\025\n\risAllowBanker\030\014 \001(\010\022" +
+      "\017\n\007balance\030\r \001(\t\022\024\n\014onlineNumber\030\016 \001(\005\022\026" +
+      "\n\016canContinueBet\030\017 \001(\010\022:\n\nbankerList\030\020 \001" +
+      "(\0132&.com.dafagame.protocol.lhdz.BankerLi" +
+      "st\022\024\n\014multipleEnum\030\021 \003(\005\022\020\n\010chipEnum\030\022 \003" +
+      "(\005\022\022\n\nminBetNeed\030\023 \001(\005\022\022\n\npokerState\030\024 \001" +
+      "(\t\022\021\n\tpokerType\030\025 \001(\t\022\r\n\005poker\030\026 \001(\t\022\024\n\014" +
+      "histroyTimes\030\027 \003(\005\022\023\n\013bankerTimes\030\030 \001(\005\"" +
+      "j\n\022SpeacialPlayerInfo\022\016\n\006userId\030\001 \002(\005\022\021\n",
+      "\twinAmount\030\002 \001(\001\022\017\n\007balance\030\003 \001(\t\022\017\n\007are" +
+      "aBet\030\004 \003(\003\022\017\n\007areaWin\030\005 \003(\003\"\240\002\n\nPlayResu" +
+      "lt\022\021\n\taddAmount\030\001 \001(\003\022\013\n\003tax\030\002 \001(\001\022\025\n\rad" +
+      "dAmountList\030\003 \003(\003\022\017\n\007balance\030\004 \001(\t\022@\n\010ra" +
+      "nkList\030\005 \003(\0132..com.dafagame.protocol.lhd" +
+      "z.SpeacialPlayerInfo\022>\n\006banker\030\006 \001(\0132..c" +
+      "om.dafagame.protocol.lhdz.SpeacialPlayer" +
+      "Info\022\022\n\npokerState\030\007 \001(\t\022\021\n\tpokerType\030\010 " +
+      "\001(\t\022\r\n\005poker\030\t \001(\t\022\022\n\notherTotal\030\n \001(\001\"A" +
+      "\n\007RankNtf\0226\n\010rankList\030\001 \003(\0132$.com.dafaga",
+      "me.protocol.lhdz.RankInfo\"\224\001\n\010RankInfo\022\016" +
+      "\n\006userId\030\001 \001(\005\022\016\n\006avatar\030\002 \001(\005\022\020\n\010nickNa" +
+      "me\030\003 \001(\t\022\r\n\005grade\030\004 \001(\005\022\017\n\007balance\030\005 \001(\t" +
+      "\022\025\n\rbettingAmount\030\006 \001(\003\022\020\n\010winTimes\030\007 \001(" +
+      "\005\022\r\n\005frame\030\010 \001(\005\"\340\001\n\006BetNtf\022\022\n\nareaAmoun" +
+      "t\030\001 \003(\003\022;\n\ndragonInfo\030\002 \003(\0132\'.com.dafaga" +
+      "me.protocol.lhdz.IdAndAmount\022:\n\ttigerInf" +
+      "o\030\003 \003(\0132\'.com.dafagame.protocol.lhdz.IdA" +
+      "ndAmount\0228\n\007tieInfo\030\004 \003(\0132\'.com.dafagame" +
+      ".protocol.lhdz.IdAndAmount\022\017\n\007onlines\030\005 ",
+      "\001(\005\"-\n\013IdAndAmount\022\016\n\006userId\030\001 \001(\005\022\016\n\006am" +
+      "ount\030\002 \001(\005\"!\n\017OnlineNumberNtf\022\016\n\006number\030" +
+      "\001 \001(\005\"O\n\013AreaBetInfo\022,\n\003pos\030\001 \002(\0162\037.com." +
+      "dafagame.protocol.lhdz.Pos\022\022\n\namountList" +
+      "\030\002 \003(\005\" \n\017GameMaintainNtf\022\r\n\005state\030\001 \001(\005" +
+      "\"\035\n\014GamePauseNtf\022\r\n\005state\030\001 \001(\005\"\r\n\013GameR" +
+      "uleReq\"\036\n\013GameRuleRes\022\017\n\007service\030\001 \001(\001\"\017" +
+      "\n\rDownBankerReq\"D\n\rDownBankerRes\0223\n\004code" +
+      "\030\001 \001(\0162%.com.dafagame.protocol.lhdz.Erro" +
+      "rCode\"\020\n\016ContinueBetReq\"\013\n\tScenesReq*\024\n\010",
+      "GameType\022\010\n\004LHDZ\020f*D\n\005State\022\n\n\006Beting\020\000\022" +
+      "\010\n\004Stop\020\001\022\r\n\tSendCards\020\002\022\013\n\007Lottery\020\003\022\t\n" +
+      "\005Pause\020\004*%\n\003Pos\022\n\n\006Dragon\020\000\022\t\n\005Tiger\020\001\022\007" +
+      "\n\003Tie\020\002* \n\013ResultState\022\010\n\004Lose\020\001\022\007\n\003Win\020" +
+      "\002*\363\003\n\tProtoType\022\017\n\nBetReqType\020\217P\022\017\n\nBetR" +
+      "esType\020\220P\022\026\n\021GoUpBankerReqType\020\221P\022\026\n\021GoU" +
+      "pBankerResType\020\222P\022\023\n\016BankerListType\020\223P\022\021" +
       "\n\014StartNtfType\020\227P\022\025\n\020PokerInfoNtfType\020\230P" +
-      "\022\023\n\016LotteryNtfType\020\231P\022\034\n\027EnterPlayerScen",
-      "eNtfType\020\232P\022\026\n\021RankSettleNtfType\020\233P\022\023\n\016P" +
-      "layResultType\020\234P\022\020\n\013RankNtfType\020\235P\022\017\n\nBe" +
-      "tNtfType\020\236P\022\026\n\021SpecialBetNtfType\020\237P\022\030\n\023O" +
-      "nlineNumberNtfType\020\240P\022\030\n\023GameMaintainNtf" +
-      "Type\020\241P\022\025\n\020GamePauseNtfType\020\242P*\027\n\tRoundT" +
-      "ype\022\n\n\006Round1\020e*\250\001\n\tErrorCode\022\006\n\002OK\020\001\022\r\n" +
-      "\tChipError\020\002\022\014\n\010PosError\020\003\022\020\n\014BankerBanB" +
-      "et\020\004\022\016\n\nStateError\020\005\022\014\n\010NoMonery\020\006\022\022\n\016Ba" +
-      "nkerNoMonery\020\007\022\013\n\007BetFull\020\010\022\023\n\017BankerQue" +
-      "ueFull\020\t\022\020\n\014InBankerList\020\n"
+      "\022\023\n\016LotteryNtfType\020\231P\022\034\n\027EnterPlayerScen" +
+      "eNtfType\020\232P\022\023\n\016PlayResultType\020\234P\022\020\n\013Rank",
+      "NtfType\020\235P\022\017\n\nBetNtfType\020\236P\022\026\n\021SpecialBe" +
+      "tNtfType\020\237P\022\030\n\023OnlineNumberNtfType\020\240P\022\030\n" +
+      "\023GameMaintainNtfType\020\241P\022\025\n\020GamePauseNtfT" +
+      "ype\020\242P\022\024\n\017GameRuleReqType\020\243P\022\024\n\017GameRule" +
+      "ResType\020\244P\022\026\n\021DownBankerReqType\020\245P\022\026\n\021Do" +
+      "wnBankerResType\020\246P\022\027\n\022ContinueBetReqType" +
+      "\020\247P\022\022\n\rScenesReqType\020\250P*\027\n\tRoundType\022\n\n\006" +
+      "Round1\020e*\361\002\n\tErrorCode\022\006\n\002OK\020\001\022\r\n\tChipEr" +
+      "ror\020\002\022\014\n\010PosError\020\003\022\020\n\014BankerBanBet\020\004\022\016\n" +
+      "\nStateError\020\005\022\013\n\007NoMoney\020\006\022\021\n\rBankerNoMo",
+      "ney\020\007\022\013\n\007BetFull\020\010\022\023\n\017BankerQueueFull\020\t\022" +
+      "\020\n\014InBankerList\020\n\022\022\n\016NextInningDown\020\013\022\023\n" +
+      "\017NotInBankerList\020\014\022\r\n\tContinued\020\r\022\013\n\007NoB" +
+      "eted\020\016\022\023\n\017ContinueNoMoney\020\017\022\031\n\025ContinueB" +
+      "ankerNoMoney\020\020\022\016\n\nContinueOk\020\021\022\013\n\007Failur" +
+      "e\020\022\022\023\n\017BanPlayerBanker\020\023\022\022\n\016BanRobotBank" +
+      "er\020\024\022\016\n\nTestBanBet\020\025"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25444,7 +29964,7 @@ public final class Lhdz {
     internal_static_com_dafagame_protocol_lhdz_SpecialBetNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_SpecialBetNtf_descriptor,
-        new java.lang.String[] { "SpecialUid", "BetInfo", });
+        new java.lang.String[] { "UserId", "BetInfo", });
     internal_static_com_dafagame_protocol_lhdz_GoUpBankerReq_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_com_dafagame_protocol_lhdz_GoUpBankerReq_fieldAccessorTable = new
@@ -25462,115 +29982,139 @@ public final class Lhdz {
     internal_static_com_dafagame_protocol_lhdz_BankerList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_BankerList_descriptor,
-        new java.lang.String[] { "BankerNumber", "BankerInfo", });
+        new java.lang.String[] { "BankerInfo", "HaveBanker", });
     internal_static_com_dafagame_protocol_lhdz_BankerInfo_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_com_dafagame_protocol_lhdz_BankerInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_BankerInfo_descriptor,
-        new java.lang.String[] { "NickName", "BankerMoney", "Grade", "Avatar", });
-    internal_static_com_dafagame_protocol_lhdz_CountReq_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_com_dafagame_protocol_lhdz_CountReq_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_dafagame_protocol_lhdz_CountReq_descriptor,
-        new java.lang.String[] { });
-    internal_static_com_dafagame_protocol_lhdz_CountRes_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_com_dafagame_protocol_lhdz_CountRes_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_dafagame_protocol_lhdz_CountRes_descriptor,
-        new java.lang.String[] { "RoundCount", "WinCount", });
+        new java.lang.String[] { "NickName", "Balance", "Grade", "Avatar", "Frame", "UserId", "Type", });
     internal_static_com_dafagame_protocol_lhdz_StartNtf_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_dafagame_protocol_lhdz_StartNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_StartNtf_descriptor,
-        new java.lang.String[] { "Inning", "CountDown", "BankerInfo", });
+        new java.lang.String[] { "Inning", "CountDown", "CanBet", });
     internal_static_com_dafagame_protocol_lhdz_LotteryNtf_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_dafagame_protocol_lhdz_LotteryNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_LotteryNtf_descriptor,
-        new java.lang.String[] { "CountDown", "State", "Type", "Poker", });
+        new java.lang.String[] { "CountDown", });
     internal_static_com_dafagame_protocol_lhdz_PokerInfoNtf_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_dafagame_protocol_lhdz_PokerInfoNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_PokerInfoNtf_descriptor,
-        new java.lang.String[] { "State", "Type", "Poker", });
+        new java.lang.String[] { "PokerState", "PokerType", "Poker", });
     internal_static_com_dafagame_protocol_lhdz_PlayerBetInfo_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_dafagame_protocol_lhdz_PlayerBetInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_PlayerBetInfo_descriptor,
         new java.lang.String[] { "BetList", });
     internal_static_com_dafagame_protocol_lhdz_EnterPlayerSceneNtf_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_dafagame_protocol_lhdz_EnterPlayerSceneNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_EnterPlayerSceneNtf_descriptor,
-        new java.lang.String[] { "State", "RemainingTime", "TableRecordList", "BankerNeedMoney", "PlayerAreaBet", "GodBet", "RoomAreaBet", "RoundType", "RoomId", "Inning", "Balance", "OnlineNumber", "BankerInfo", "BankerList", "MultipleEnum", "ChipEnum", "MinBetNeed", });
-    internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_descriptor =
-      getDescriptor().getMessageTypes().get(15);
-    internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_fieldAccessorTable = new
+        new java.lang.String[] { "State", "RemainingTime", "TableRecordList", "BankerNeedMoney", "PlayerAreaBet", "SpeacialBet", "RoomAreaBet", "StateTime", "RoundType", "RoomId", "Inning", "IsAllowBanker", "Balance", "OnlineNumber", "CanContinueBet", "BankerList", "MultipleEnum", "ChipEnum", "MinBetNeed", "PokerState", "PokerType", "Poker", "HistroyTimes", "BankerTimes", });
+    internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_dafagame_protocol_lhdz_RankSettleNtf_descriptor,
-        new java.lang.String[] { "RankList", "Banker", });
-    internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_descriptor =
-      getDescriptor().getMessageTypes().get(16);
-    internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_dafagame_protocol_lhdz_SpecialPlayerResultInfo_descriptor,
-        new java.lang.String[] { "PlayerId", "WinAmount", "Balance", });
+        internal_static_com_dafagame_protocol_lhdz_SpeacialPlayerInfo_descriptor,
+        new java.lang.String[] { "UserId", "WinAmount", "Balance", "AreaBet", "AreaWin", });
     internal_static_com_dafagame_protocol_lhdz_PlayResult_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_dafagame_protocol_lhdz_PlayResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_PlayResult_descriptor,
-        new java.lang.String[] { "AddAmount", "Tax", "AddAmountList", "Balance", });
+        new java.lang.String[] { "AddAmount", "Tax", "AddAmountList", "Balance", "RankList", "Banker", "PokerState", "PokerType", "Poker", "OtherTotal", });
     internal_static_com_dafagame_protocol_lhdz_RankNtf_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_dafagame_protocol_lhdz_RankNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_RankNtf_descriptor,
         new java.lang.String[] { "RankList", });
     internal_static_com_dafagame_protocol_lhdz_RankInfo_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_com_dafagame_protocol_lhdz_RankInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_RankInfo_descriptor,
         new java.lang.String[] { "UserId", "Avatar", "NickName", "Grade", "Balance", "BettingAmount", "WinTimes", "Frame", });
     internal_static_com_dafagame_protocol_lhdz_BetNtf_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_dafagame_protocol_lhdz_BetNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_BetNtf_descriptor,
-        new java.lang.String[] { "AreaAmount", "TianInfo", "DiInfo", "XuanInfo", "HuangInfo", "Onlines", });
+        new java.lang.String[] { "AreaAmount", "DragonInfo", "TigerInfo", "TieInfo", "Onlines", });
+    internal_static_com_dafagame_protocol_lhdz_IdAndAmount_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_com_dafagame_protocol_lhdz_IdAndAmount_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_lhdz_IdAndAmount_descriptor,
+        new java.lang.String[] { "UserId", "Amount", });
     internal_static_com_dafagame_protocol_lhdz_OnlineNumberNtf_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_com_dafagame_protocol_lhdz_OnlineNumberNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_OnlineNumberNtf_descriptor,
         new java.lang.String[] { "Number", });
     internal_static_com_dafagame_protocol_lhdz_AreaBetInfo_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_com_dafagame_protocol_lhdz_AreaBetInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_AreaBetInfo_descriptor,
         new java.lang.String[] { "Pos", "AmountList", });
     internal_static_com_dafagame_protocol_lhdz_GameMaintainNtf_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_com_dafagame_protocol_lhdz_GameMaintainNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_GameMaintainNtf_descriptor,
         new java.lang.String[] { "State", });
     internal_static_com_dafagame_protocol_lhdz_GamePauseNtf_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_com_dafagame_protocol_lhdz_GamePauseNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_lhdz_GamePauseNtf_descriptor,
         new java.lang.String[] { "State", });
+    internal_static_com_dafagame_protocol_lhdz_GameRuleReq_descriptor =
+      getDescriptor().getMessageTypes().get(23);
+    internal_static_com_dafagame_protocol_lhdz_GameRuleReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_lhdz_GameRuleReq_descriptor,
+        new java.lang.String[] { });
+    internal_static_com_dafagame_protocol_lhdz_GameRuleRes_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_com_dafagame_protocol_lhdz_GameRuleRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_lhdz_GameRuleRes_descriptor,
+        new java.lang.String[] { "Service", });
+    internal_static_com_dafagame_protocol_lhdz_DownBankerReq_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_com_dafagame_protocol_lhdz_DownBankerReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_lhdz_DownBankerReq_descriptor,
+        new java.lang.String[] { });
+    internal_static_com_dafagame_protocol_lhdz_DownBankerRes_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_com_dafagame_protocol_lhdz_DownBankerRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_lhdz_DownBankerRes_descriptor,
+        new java.lang.String[] { "Code", });
+    internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_lhdz_ContinueBetReq_descriptor,
+        new java.lang.String[] { });
+    internal_static_com_dafagame_protocol_lhdz_ScenesReq_descriptor =
+      getDescriptor().getMessageTypes().get(28);
+    internal_static_com_dafagame_protocol_lhdz_ScenesReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_lhdz_ScenesReq_descriptor,
+        new java.lang.String[] { });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

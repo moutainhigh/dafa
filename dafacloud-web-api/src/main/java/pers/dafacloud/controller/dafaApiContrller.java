@@ -1,20 +1,26 @@
 package pers.dafacloud.controller;
 
+
+import lombok.Data;
+import lombok.ToString;
+import net.sf.json.JSONObject;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.dafacloud.dao.SqlSessionFactoryUtils;
-import pers.dafacloud.dao.mapper.ApiContentMapper;
+import pers.dafacloud.dao.mapper.apiContent.ApiContentMapper;
+import pers.dafacloud.dao.mapper.userMapper.UserMapper;
 import pers.dafacloud.dao.pojo.ApiContent;
 import pers.utils.dafaRequest.DafaRequest;
-import pers.utils.jsonUtils.JsonOfObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class dafaApiContrller {
+
     SqlSession sqlSession = SqlSessionFactoryUtils.openSqlSession();
     ApiContentMapper apiContentMapper = sqlSession.getMapper(ApiContentMapper.class);
-
     //配置
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(@RequestParam(value = "name", required = false) String name,
@@ -58,17 +64,16 @@ public class dafaApiContrller {
     }
 
     @RequestMapping(value = "query", method = RequestMethod.GET)
-    public String query(@RequestParam(value = "name", required = false) String name,
-                        //@RequestParam("path") String path,
-                        //@RequestParam("mothod") String mothod,
-                        //@RequestParam("body") String body,
-                        //@RequestParam("header") String header,
+    public Response query(@RequestParam(value = "name", required = false) String name,
                         @RequestParam(value = "dependApiName", required = false) String dependApiName,
                         @RequestParam(value = "module", required = false) String module,
                         @RequestParam(value = "page", required = false) String page,
                         @RequestParam(value = "project", required = false) String project,
-                        @RequestParam(value = "owner", required = false) String owner
-                        //,@RequestParam("description") String description
+                        @RequestParam(value = "owner", required = false) String owner,
+                        @RequestParam(value = "pageNum", required = false,defaultValue = "1") int pageNum,
+                          @RequestParam(value = "pageSize", required = false,defaultValue = "1") int pageSize
+
+                          //,@RequestParam("description") String description
     ) {
         ApiContent apiContent = new ApiContent();
         apiContent.setName(name);
@@ -77,9 +82,15 @@ public class dafaApiContrller {
         apiContent.setPage(page);
         apiContent.setProject(project);
         apiContent.setOwner(owner);
+        apiContent.setPageNum((pageNum-1)*pageSize);
+        apiContent.setPageSize(pageSize);
         List<ApiContent> list = apiContentMapper.queryApi(apiContent);
-        return JsonOfObject.objToJson(fillResponse(JsonOfObject.objToJson(list)));
-        //{"code":1,"data",}
+        int count=apiContentMapper.queryApiCount(apiContent);
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("total",count);
+        jsonObject.put("list",list);
+        return fillResponse(jsonObject);
+        //格式：{"code":1,"data",}
     }
 
     @PostMapping("/update")
@@ -106,7 +117,7 @@ public class dafaApiContrller {
     }
 
 
-    public final Response fillResponse(String data) {
+    public final static Response fillResponse(Object data) {
         Response response = new Response();
         response.code = 1;
         response.data = data;
@@ -115,8 +126,22 @@ public class dafaApiContrller {
     }
 
 
-    public class Response {
+
+    public static void main(String[] args) {
+        List<JSONObject> list = new ArrayList<>();
+        JSONObject json = new JSONObject();
+        json.put("aa", "bb");
+
+        list.add(json);
+
+        Response res = fillResponse(list);
+        System.out.println(res);
+    }
+
+    @Data
+    @ToString
+    public static class Response {
         private int code;
-        private String data;
+        private Object data;
     }
 }

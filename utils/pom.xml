@@ -10,6 +10,13 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
+        <!--@Data 自动生成get set方法 start-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+        </dependency>
+        <!--@Data 自动生成get set方法 end -->
         <!-- httpclient start -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>

@@ -20,7 +20,7 @@ public class RegisterUserByIP {
 
     //多线程只能在main方法中运行
     public static void main(String[] args) {
-        for (int j = 500; j < 501; j++) {
+        for (int j = 501; j < 1501; j++) {
             String username = String.format("%sa%04d", "duke", j);
             try {
                 register(username, "28891915", "test");

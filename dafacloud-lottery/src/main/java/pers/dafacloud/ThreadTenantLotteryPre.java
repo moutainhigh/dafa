@@ -30,7 +30,7 @@ import java.util.List;
 public class ThreadTenantLotteryPre {
     //52.76.195.164:8020 1套
     //52.77.207.64:8020
-    private static String host = "http://caishen02.com";
+    private static String host = "http://dafacloud-pre.com";
     private static String addBettingUrl = host + "/v1/betting/addBetting";
     private static String loginUrl = host + "/v1/users/login";
     //private static String getServerTimeMillisecond = "http://52.76.195.164:8020/v1/betting/getServerTimeMillisecond";
@@ -62,23 +62,23 @@ public class ThreadTenantLotteryPre {
 
 
         List<String> user1k = new ArrayList<>();
-        //user1k.add("dukepre01");
-        user1k.add("dafai0001");
-        betting(user1k, betContents1k, 60);
+        user1k.add("dukepre01");
+        //user1k.add("dafai0001");
+        betting(user1k, betContents1k, 2);
 
         List<String> user5k = new ArrayList<>();
-        //user5k.add("dukepre02");
-        user5k.add("dafai0002");
-        betting(user5k, betContents5k, 300);
+        user5k.add("dukepre02");
+        //user5k.add("dafai0002");
+        betting(user5k, betContents5k, 10);
 
         List<String> user1s = new ArrayList<>();
-        //user1s.add("dukepre03");
-        user1s.add("dafai0003");
-        betting(user1s, betContents1s, 60);
+        user1s.add("dukepre03");
+        //user1s.add("dafai0003");
+        betting(user1s, betContents1s, 2);
 
-        //List<String> user5s = new ArrayList<>();
-        //user5s.add("50352539");
-        //betting(user5s, betContents5s, 300);
+        List<String> user5s = new ArrayList<>();
+        user5s.add("dukepre05");
+        betting(user5s, betContents5s, 10);
 
     }
 
@@ -138,7 +138,7 @@ public class ThreadTenantLotteryPre {
                             .put("bettingNumber", betContentArray[2])
                             .put("bettingAmount", betContentArray[3])
                             .put("bettingCount", betContentArray[4])
-                            .put("bettingPoint", "8")
+                            .put("bettingPoint", "5")
                             //.put("bettingIssue", String.format("%s%04d", currentDate, issueOneNum))
                             .put("graduationCount", betContentArray[5])
                             .put("bettingUnit", betContentArray[6]);
