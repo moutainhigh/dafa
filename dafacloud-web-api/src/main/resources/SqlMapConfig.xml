@@ -22,7 +22,7 @@
                 <!--<property name="password" value="KzrdFtgXILlE" />-->
 
                 <!--本地环境-->
-                <property name="url" value="jdbc:mysql://localhost:3306/dafa-cloud" />
+                <property name="url" value="jdbc:mysql://localhost:3306/dafa-cloud?serverTimezone=UTC"/>
                 <property name="username" value="root" />
                 <property name="password" value="123456" />
 

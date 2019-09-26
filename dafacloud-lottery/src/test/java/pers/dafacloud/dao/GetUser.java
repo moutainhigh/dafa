@@ -3,7 +3,7 @@ package pers.dafacloud.dao;
 import org.apache.ibatis.session.SqlSession;
 import org.testng.annotations.Test;
 import pers.dafacloud.Dao.SqlSessionFactoryUtils;
-import pers.dafacloud.Dao.mapper.UserMapper;
+import pers.dafacloud.Dao.mapper.user.UserMapper;
 import pers.dafacloud.Dao.pojo.User;
 
 import java.util.List;

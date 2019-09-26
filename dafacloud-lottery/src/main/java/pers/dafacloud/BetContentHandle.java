@@ -19,7 +19,7 @@ public class BetContentHandle {
      * */
     public static void main(String[] args) throws Exception {
         List<String> data = new ArrayList<>();
-        File file = new File("/Users/duke/Documents/github/dafa/dafacloud-lottery/src/main/resources/svBetContent/1418.txt");
+        File file = new File("/Users/duke/Documents/github/dafa/dafacloud-lottery/src/main/resources/svBetContent/1407.txt");
         if (!file.exists()) {
             System.out.println("readFile:找不到文件");
             return;
@@ -53,7 +53,7 @@ public class BetContentHandle {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        FileOutputStream fileOutputStream = new FileOutputStream("/Users/duke/Documents/github/dafa/dafacloud-lottery/src/main/resources/svBetContent/1418.txt", false);
+        FileOutputStream fileOutputStream = new FileOutputStream("/Users/duke/Documents/github/dafa/dafacloud-lottery/src/main/resources/svBetContent/1407.txt", false);
         for (int i = 0; i < data.size(); i++) {
             fileOutputStream.write(data.get(i).getBytes());
             fileOutputStream.write("\r".getBytes());

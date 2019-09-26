@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，用于隔离sql语句的，后续会有重要作用
+	#{} 占位符 相当于jdbc的？
+	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
+-->
+<mapper namespace="pers.dafacloud.dao.mapper.betRecord.BetRecordMapper">
+    <!--
+        id : sql id;
+        parameterType:入参的数据类型
+        resultType:返回结果数据类型
+     -->
+    <!-- 六合彩杀率测试
+       statementType="STATEMENT"
+    -->
+    <select id="getRecordByIssue" resultType="pers.dafacloud.dao.pojo.GetBetInfo" >
+		select
+		lottery_code lotteryCode,
+		play_detail_code playDetailCode,
+		record_code recordCode,
+		betting_number bettingNumber,
+		betting_amount bettingAmount,
+		betting_count bettingCount,
+		graduation_count graduationCount,
+		betting_unit bettingUnit
+		from dafacloud_betting.a_betting_lhc
+		where issue = #{issue}
+		 and betting_state in (1,2)
+	</select>
+
+</mapper>

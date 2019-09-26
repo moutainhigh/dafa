@@ -16,7 +16,7 @@ public class RegisterDafaGame {
 
     //private static  final  String url = "http://192.168.8.193:7010/v1/users/register";
     //private static  final  String url = "http://caishen03.com/v1/users/register"; //lotterypre
-    private static final String url = "http://duke.dafagame-testCookie.com:86";//棋牌系统海棠站
+    private static final String url = "http://dukecocosrelease.dafagame-test.com";//棋牌系统海棠站
     private static HttpConfig httpConfig = HttpConfig.custom();
     private static Header[] headers = HttpHeader
             .custom()
@@ -57,7 +57,7 @@ public class RegisterDafaGame {
                 .addBuilder("code", code)
                 .addBuilder("inviteCode", inviteCode)
                 .fullBody();
-        httpConfig.url(url + "/v1/users/register?");//要加body棋牌是要加body
+        httpConfig.url(url + "/v1/users/register");//要加body棋牌是要加body
         String result = DafaRequest.post(httpConfig.body(body).headers(headers));
         System.out.println("result:" + result);
     }

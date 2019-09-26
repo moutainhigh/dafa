@@ -9,11 +9,11 @@ public class ApiContent {
     private String name; //接口名称
     private String path;//接口路径
     private String method;// 请求方法
-    private String body;//post参数
-    private String header;// 请求头
+    private String reqParameters;//post参数
+    private String headerData;// 请求头
     private String dependApiName;// 依赖接口
     private String module;// 所属模块
-    private String page;//所属页面
+    private String cmsFront;//所属页面
     private String project;// 所属项目
     private String description;//接口简介
     private String owner;//所属用户
@@ -52,20 +52,20 @@ public class ApiContent {
         this.method = method;
     }
 
-    public String getBody() {
-        return body;
+    public String getReqParameters() {
+        return reqParameters;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setReqParameters(String reqParameters) {
+        this.reqParameters = reqParameters;
     }
 
-    public String getHeader() {
-        return header;
+    public String getHeaderData() {
+        return headerData;
     }
 
-    public void setHeader(String header) {
-        this.header = header;
+    public void setHeaderData(String headerData) {
+        this.headerData = headerData;
     }
 
     public String getDependApiName() {
@@ -84,12 +84,12 @@ public class ApiContent {
         this.module = module;
     }
 
-    public String getPage() {
-        return page;
+    public String getCmsFront() {
+        return cmsFront;
     }
 
-    public void setPage(String page) {
-        this.page = page;
+    public void setCmsFront(String cmsFront) {
+        this.cmsFront = cmsFront;
     }
 
     public String getProject() {
@@ -132,21 +132,21 @@ public class ApiContent {
         this.pageSize = pageSize;
     }
 
-    @Override
-    public String toString() {
-        return "ApiContent{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", path='" + path + '\'' +
-                ", method='" + method + '\'' +
-                ", body='" + body + '\'' +
-                ", header='" + header + '\'' +
-                ", dependApiName='" + dependApiName + '\'' +
-                ", module='" + module + '\'' +
-                ", page='" + page + '\'' +
-                ", project='" + project + '\'' +
-                ", description='" + description + '\'' +
-                ", owner='" + owner + '\'' +
-                '}';
-    }
+    //@Override
+    //public String toString() {
+    //    return "ApiContent{" +
+    //            "id=" + id +
+    //            ", name='" + name + '\'' +
+    //            ", path='" + path + '\'' +
+    //            ", method='" + method + '\'' +
+    //            ", body='" + body + '\'' +
+    //            ", header='" + header + '\'' +
+    //            ", dependApiName='" + dependApiName + '\'' +
+    //            ", module='" + module + '\'' +
+    //            ", page='" + cmsFront + '\'' +
+    //            ", project='" + project + '\'' +
+    //            ", description='" + description + '\'' +
+    //            ", owner='" + owner + '\'' +
+    //            '}';
+    //}
 }

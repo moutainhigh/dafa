@@ -4,7 +4,7 @@ package pers.dafacloud.Dao;
 import net.sf.json.JSONObject;
 import org.apache.ibatis.session.SqlSession;
 import pers.dafacloud.Dao.pojo.LotteryConfigPojo;
-import pers.dafacloud.Dao.mapper.LotteryConfigMapper;
+import pers.dafacloud.Dao.mapper.lotteryConfig.LotteryConfigMapper;
 
 import java.util.List;
 

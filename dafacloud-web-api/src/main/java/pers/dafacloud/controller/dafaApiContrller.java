@@ -5,11 +5,9 @@ import lombok.Data;
 import lombok.ToString;
 import net.sf.json.JSONObject;
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.dafacloud.dao.SqlSessionFactoryUtils;
 import pers.dafacloud.dao.mapper.apiContent.ApiContentMapper;
-import pers.dafacloud.dao.mapper.userMapper.UserMapper;
 import pers.dafacloud.dao.pojo.ApiContent;
 import pers.utils.dafaRequest.DafaRequest;
 
@@ -26,8 +24,8 @@ public class dafaApiContrller {
     public String add(@RequestParam(value = "name", required = false) String name,
                       @RequestParam(value = "path", required = false) String path,
                       @RequestParam(value = "mothod", required = false) String mothod,
-                      @RequestParam(value = "body", required = false) String body,
-                      @RequestParam(value = "header", required = false) String header,
+                      @RequestParam(value = "reqParameters", required = false) String body,
+                      @RequestParam(value = "headerData", required = false) String header,
                       @RequestParam(value = "dependApiName", required = false) String dependApiName,
                       @RequestParam(value = "module", required = false) String module,
                       @RequestParam(value = "page", required = false) String page,
@@ -38,11 +36,11 @@ public class dafaApiContrller {
         apiContent.setName(name);
         apiContent.setPath(path);
         apiContent.setMethod(mothod);
-        apiContent.setBody(body);
-        apiContent.setHeader(header);
+        apiContent.setReqParameters(body);
+        apiContent.setHeaderData(header);
         apiContent.setDependApiName(dependApiName);
         apiContent.setModule(module);
-        apiContent.setPage(page);
+        apiContent.setCmsFront(page);
         apiContent.setProject(project);
         apiContent.setDescription(description);
         apiContent.setOwner(owner);
@@ -67,7 +65,7 @@ public class dafaApiContrller {
     public Response query(@RequestParam(value = "name", required = false) String name,
                         @RequestParam(value = "dependApiName", required = false) String dependApiName,
                         @RequestParam(value = "module", required = false) String module,
-                        @RequestParam(value = "page", required = false) String page,
+                        @RequestParam(value = "cmsFront", required = false) String cmsFront,
                         @RequestParam(value = "project", required = false) String project,
                         @RequestParam(value = "owner", required = false) String owner,
                         @RequestParam(value = "pageNum", required = false,defaultValue = "1") int pageNum,
@@ -79,7 +77,7 @@ public class dafaApiContrller {
         apiContent.setName(name);
         apiContent.setDependApiName(dependApiName);
         apiContent.setModule(module);
-        apiContent.setPage(page);
+        apiContent.setCmsFront(cmsFront);
         apiContent.setProject(project);
         apiContent.setOwner(owner);
         apiContent.setPageNum((pageNum-1)*pageSize);
@@ -90,7 +88,7 @@ public class dafaApiContrller {
         jsonObject.put("total",count);
         jsonObject.put("list",list);
         return fillResponse(jsonObject);
-        //格式：{"code":1,"data",}
+
     }
 
     @PostMapping("/update")

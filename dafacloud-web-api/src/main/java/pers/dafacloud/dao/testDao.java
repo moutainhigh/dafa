@@ -16,11 +16,11 @@ public class testDao {
         apiContent.setName("login");
         apiContent.setPath("/v1/userCenter/login");
         apiContent.setMethod("get");
-        apiContent.setBody("inviteCode=&accountNumber=qwerty&password=b4e82b683394b50b679dc2b51a79d987&userType=1&random=12");
+        //apiContent.setBody("inviteCode=&accountNumber=qwerty&password=b4e82b683394b50b679dc2b51a79d987&userType=1&random=12");
         //apiContent.setHeader("");
         //apiContent.setDependApiName("");
         apiContent.setModule("用户");
-        apiContent.setPage("登陆页");
+        apiContent.setCmsFront("登陆页");
         apiContent.setProject("彩票");
         apiContent.setDescription("登陆");
         apiContent.setOwner("alysia");

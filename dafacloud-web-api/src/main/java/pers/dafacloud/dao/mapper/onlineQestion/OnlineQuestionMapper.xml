@@ -33,7 +33,7 @@
             <if test="type!=null and type != '' and type != -1 or type == 0">
                 AND type = #{type}
             </if>
-            <if test="tester!=null and tester != '' ">
+            <if test="tester!=null and tester != '-1'.toString() and tester != '' ">
                 AND on_duty like CONCAT(CONCAT('%',#{tester}),'%')
             </if>
             <if test="questionName!=null and questionName != '' ">
@@ -54,17 +54,18 @@
             <if test="isSolve != null and isSolve != '' and isSolve!=-1 or isSolve == 0  ">
                 AND is_solve = #{isSolve}
             </if>
-            <if test="tester!=null and tester != '' ">
-                AND on_duty like CONCAT(CONCAT('%',#{tester}),'%')
-            </if>
-            <if test="questionDate!=null and questionDate != '' ">
-                AND question_date like CONCAT(CONCAT('%',#{questionDate}),'%')
-            </if>
             <if test="type!=null and type != '' and type != -1 or type == 0">
                 AND type = #{type}
             </if>
-            <if test="questionDate!=null and questionDate != ''">
-                AND DATE_FORMAT(question_date,'%Y-%m-%d') = #{questionDate}
+            <if test="tester!=null and tester != '-1'.toString() and tester != '' ">
+                AND on_duty like CONCAT(CONCAT('%',#{tester}),'%')
+            </if>
+            <if test="questionName!=null and questionName != '' ">
+                AND question_name like CONCAT(CONCAT('%',#{questionName}),'%')
+            </if>
+
+            <if test="startQuestionDate!=null and startQuestionDate != '' and endQuestionDate!=null and endQuestionDate != '' ">
+                AND DATE_FORMAT(question_date,'%Y-%m-%d') between #{startQuestionDate} and #{endQuestionDate}
             </if>
         </where>
     </select>

@@ -5,6 +5,6 @@ import java.util.Map;
 
 public interface TenantOpenMessageMapper {
 
-    List<Map> getOpenNumber(int lotteryCode);
+    List<Map> getOpenNumber(Map map);
 
 }

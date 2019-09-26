@@ -31,13 +31,13 @@ public class ThreadTenantLottery1 {
     //private static String getServerTimeMillisecond = "http://52.76.195.164:8020/v1/betting/getServerTimeMillisecond";
 
     //static List<String> betContents1k = FileUtil.
-    //        readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1418.txt"));
+    //        readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1407.txt"));
     //static List<String> betContents5k = FileUtil.
     //        readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1419.txt"));
     //static List<String> betContents1s = FileUtil.
     //        readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1018.txt"));
     //static List<String> betContents5s = FileUtil.
-    //        readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1019.txt"));
+    //        readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1009.txt"));
 
     /**
      * 1418 站長快3
@@ -71,7 +71,7 @@ public class ThreadTenantLottery1 {
         List<String> betContents1s = FileUtil.
                 readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1018.txt"));
         //List<String> betContents5s = FileUtil.
-        //        readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1019.txt"));
+        //        readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1009.txt"));
 
         List<String> users = FileUtil.
                 readFile(ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/ca.txt"));

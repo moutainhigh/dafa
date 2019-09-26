@@ -3,6 +3,8 @@ package pers.dafacloud;
 //import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 
 /**
  *@SpringBootApplication 引导类，是spring boot项目
@@ -20,6 +22,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * */
 
 @SpringBootApplication
+
 //@MapperScan(value = {"pers.dafacloud.dao.mapper"}) //不用每个mapper添加注解
 public class DafacloudWebApiApplication {
 

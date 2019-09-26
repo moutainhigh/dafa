@@ -12,11 +12,12 @@
         parameterType:入参的数据类型
         resultType:返回结果数据类型
      -->
-    <select id="getOpenNumber"  parameterType="java.lang.Integer" resultType="Map">
+    <select id="getOpenNumber" parameterType="Map" resultType="Map">
 		select
 		open_number  openNumber
 		from dafacloud_lottery.tenant_open_message
 		where lottery_code = #{lotteryCode}
+		and tenant_code = #{tenantCode}
 		order  by  id desc
 		limit 60
 	</select>

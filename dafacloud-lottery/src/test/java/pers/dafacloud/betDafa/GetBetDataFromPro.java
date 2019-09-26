@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.testng.annotations.Test;
 import pers.dafacloud.pojo.BetConentFromTest;
 import pers.dafacloud.Dao.SqlSessionFactoryUtils;
-import pers.dafacloud.Dao.mapper.GetBetInfoMapper;
+import pers.dafacloud.Dao.mapper.getBetInfo.GetBetInfoMapper;
 import pers.dafacloud.Dao.pojo.GetBetInfo;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;
@@ -113,8 +113,8 @@ public class GetBetDataFromPro {
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
                 .other("x-user-id", "50352461")
-                .other("x-tenant-code", "shalv010")
                 .other("x-user-name", "shalv010a0002")
+                .other("x-tenant-code", "shalv010")
                 .other("x-source-Id", "1")
                 .other("Origin", "http://52.76.195.164")
                 .build();

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置mybatis的环境信息，与spring整合，该信息由spring来管理 -->
+    <environments default="development">
+        <environment id="dev">
+            <!-- 配置JDBC事务控制，由mybatis进行管理 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置数据源，采用mybatis连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <!--/dafacloud_lottery-->
+                <property name="url" value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com" />
+                <property name="username" value="test-web" />
+                <property name="password" value="ms168169" />
+
+                <!--投注服务-->
+                <!--<property name="url" value="jdbc:mysql://3.0.170.87:23312" />-->
+                <!--<property name="username" value="us31jw9" />-->
+                <!--<property name="password" value="KzrdFtgXILlE" />-->
+                <!--交易服务-->
+                <!--<property name="url" value="jdbc:mysql://3.0.170.87:23316" />-->
+                <!--<property name="username" value="uovcjfb" />-->
+                <!--<property name="password" value="5yixMRGuwYRe" />-->
+            </dataSource>
+        </environment>
+        <environment id="betting">
+            <!-- 配置JDBC事务控制，由mybatis进行管理 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置数据源，采用mybatis连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://3.0.170.87:23312" />
+                <property name="username" value="us31jw9" />
+                <property name="password" value="KzrdFtgXILlE" />
+            </dataSource>
+        </environment>
+        <environment id="transaction">
+            <!-- 配置JDBC事务控制，由mybatis进行管理 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置数据源，采用mybatis连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://3.0.170.87:23316" />
+                <property name="username" value="uovcjfb" />
+                <property name="password" value="5yixMRGuwYRe" />
+            </dataSource>
+        </environment>
+        <environment id="report">
+            <!-- 配置JDBC事务控制，由mybatis进行管理 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置数据源，采用mybatis连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://3.0.170.87:23306" />
+                <property name="username" value="ulbet14" />
+                <property name="password" value="bAmlLafciJRQ" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--<mappers>-->
+        <!--<mapper resource="mybatis/userCenter.xml"/>-->
+    <!--</mappers>-->
+    <mappers>
+        <!--<mapper resource="mybatis/userCenter.xml"/>-->
+        <!--<mapper resource="mybatis/userMapper.xml"/> -->
+        <!-- 1.接口文件必须和映射文件在同一个目录下面
+            2.接口文件的名称必须和映射文件名称一致 -->
+        <!-- <mapper class="com.pers.mybatis.d1.dao.UserMapper"/>-->
+        <!-- 映射文件包扫描器 推荐方式
+            1.接口文件必须和映射文件在同一个目录下面
+            2.接口文件的名称必须和映射文件名称一致-->
+        <!--<mapper resource="pers/dafacloud/utils/Dao/mapper/LotteryConfigMapper.xml"/>-->
+        <package name="pers.dafacloud.dao.mapper"/>
+    </mappers>
+</configuration>

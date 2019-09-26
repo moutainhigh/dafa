@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ListSplit {
     /**
-     * list拆分成n个list
+     * list拆分，每个list长度是count
      */
     public static <T> List<List<T>> split(List<T> resList, int count) {
         if (resList == null || count < 1)

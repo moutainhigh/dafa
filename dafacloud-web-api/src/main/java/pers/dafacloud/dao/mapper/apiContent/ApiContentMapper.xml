@@ -12,17 +12,18 @@
         parameterType:入参的数据类型
         resultType:返回结果数据类型
      -->
-    <select id="queryApi" parameterType="pers.dafacloud.dao.pojo.ApiContent"  resultType="pers.dafacloud.dao.pojo.ApiContent" flushCache="true" useCache="true">
+    <select id="queryApi" parameterType="pers.dafacloud.dao.pojo.ApiContent"
+            resultType="pers.dafacloud.dao.pojo.ApiContent" flushCache="true" useCache="true">
         select
         id id
         ,name name
         ,path path
         ,method method
-        ,body body
-        ,header header
+        ,body reqParameters
+        ,header headerData
         ,depend_api_name dependApiName
         ,module module
-        ,page page
+        ,cms_front cmsFront
         ,project project
         ,description description
         ,owner owner
@@ -37,8 +38,8 @@
             <if test="module!=null">
                 AND module = #{module}
             </if>
-            <if test="page!=null">
-                AND page = #{page}
+            <if test="cmsFront!=null and cmsFront != '' and  cmsFront!=-1">
+                AND cms_front = #{cmsFront}
             </if>
             <if test="project!=null">
                 AND project = #{project}
@@ -48,7 +49,8 @@
         limit #{pageNum},#{pageSize}
     </select>
 
-    <select id="queryApiCount"  parameterType="pers.dafacloud.dao.pojo.ApiContent"  resultType="java.lang.Integer" flushCache="true" useCache="true">
+    <select id="queryApiCount" parameterType="pers.dafacloud.dao.pojo.ApiContent" resultType="java.lang.Integer"
+            flushCache="true" useCache="true">
         select count(1) from dafacloud_lottery_api
         <where>
             <if test="name!=null">
@@ -60,8 +62,8 @@
             <if test="module!=null">
                 AND module = #{module}
             </if>
-            <if test="page!=null">
-                AND page = #{page}
+            <if test="cmsFront!=null and cmsFront != '' and  cmsFront!=-1">
+                AND cms_front = #{cmsFront}
             </if>
             <if test="project!=null">
                 AND project = #{project}
