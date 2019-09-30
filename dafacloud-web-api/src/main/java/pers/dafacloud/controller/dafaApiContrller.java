@@ -53,7 +53,7 @@ public class dafaApiContrller {
     @RequestMapping(value = "addDafaApi", method = RequestMethod.POST)
     public String add(@RequestParam(value = "apiName", required = false) String apiName,
                       @RequestParam(value = "path", required = false) String path,
-                      @RequestParam(value = "mothod", required = false) String mothod,
+                      @RequestParam(value = "method", required = false) String method,
                       @RequestParam(value = "reqParametersArray", required = false) String reqParametersArray,
                       @RequestParam(value = "headerArray", required = false) String headerArray,
                       @RequestParam(value = "dependApiName", required = false) String dependApiName,
@@ -66,7 +66,7 @@ public class dafaApiContrller {
         ApiContent apiContent = new ApiContent();
         apiContent.setApiName(apiName);
         apiContent.setPath(path);
-        apiContent.setMethod(mothod);
+        apiContent.setMethod(method);
         apiContent.setReqParametersArray(reqParametersArray);
         apiContent.setHeaderArray(headerArray);
         apiContent.setDependApiName(dependApiName);
@@ -100,7 +100,7 @@ public class dafaApiContrller {
     @PostMapping("/updateDafaApi")
     public String update(@RequestParam(value = "apiName", required = false) String apiName,
                          @RequestParam(value = "path", required = false) String path,
-                         @RequestParam(value = "mothod", required = false) String mothod,
+                         @RequestParam(value = "method", required = false) String method,
                          @RequestParam(value = "reqParametersArray", required = false) String reqParametersArray,
                          @RequestParam(value = "headerArray", required = false) String headerArray,
                          @RequestParam(value = "dependApiName", required = false) String dependApiName,
@@ -114,7 +114,7 @@ public class dafaApiContrller {
         apiContent.setId(id);
         apiContent.setApiName(apiName);
         apiContent.setPath(path);
-        apiContent.setMethod(mothod);
+        apiContent.setMethod(method);
         apiContent.setReqParametersArray(reqParametersArray);
         apiContent.setHeaderArray(headerArray);
         apiContent.setDependApiName(dependApiName);
