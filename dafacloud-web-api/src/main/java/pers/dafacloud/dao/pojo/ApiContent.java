@@ -3,14 +3,12 @@ package pers.dafacloud.dao.pojo;
 
 public class ApiContent {
 
-
-
     private int id; //id自增主键
-    private String name; //接口名称
+    private String apiName; //接口名称
     private String path;//接口路径
     private String method;// 请求方法
-    private String reqParameters;//post参数
-    private String headerData;// 请求头
+    private String reqParametersArray;//post参数
+    private String headerArray;// 请求头
     private String dependApiName;// 依赖接口
     private String module;// 所属模块
     private String cmsFront;//所属页面
@@ -28,12 +26,12 @@ public class ApiContent {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getApiName() {
+        return apiName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setApiName(String apiName) {
+        this.apiName = apiName;
     }
 
     public String getPath() {
@@ -52,20 +50,20 @@ public class ApiContent {
         this.method = method;
     }
 
-    public String getReqParameters() {
-        return reqParameters;
+    public String getReqParametersArray() {
+        return reqParametersArray;
     }
 
-    public void setReqParameters(String reqParameters) {
-        this.reqParameters = reqParameters;
+    public void setReqParametersArray(String reqParametersArray) {
+        this.reqParametersArray = reqParametersArray;
     }
 
-    public String getHeaderData() {
-        return headerData;
+    public String getHeaderArray() {
+        return headerArray;
     }
 
-    public void setHeaderData(String headerData) {
-        this.headerData = headerData;
+    public void setHeaderArray(String headerArray) {
+        this.headerArray = headerArray;
     }
 
     public String getDependApiName() {

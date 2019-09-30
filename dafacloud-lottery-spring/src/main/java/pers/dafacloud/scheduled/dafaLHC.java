@@ -56,7 +56,7 @@ public class dafaLHC {
 
     public static void splitTask(List<String> users1, List<GetBetInfo> betContents, String issueCurrent) {
         if (betContents != null) {
-            List<List<GetBetInfo>> listnew = ListSplit.split(betContents, 20);
+            List<List<GetBetInfo>> listnew = ListSplit.split(betContents, 20);//每个子list长度20，每个用户投注20单
             CountDownLatch cdl = new CountDownLatch(listnew.size());
             System.out.println("线程数：" + listnew.size());
             for (int i = 0; i < listnew.size(); i++) {
@@ -72,19 +72,7 @@ public class dafaLHC {
             }
 
 
-            //for (int i = 0; i < userSize; i++) {
-            //    int attri = i;
-            //    List<GetBetInfo> subList = betContents1.subList(attri * singleThreadCount, attri * singleThreadCount + singleThreadCount);
-            //    excutors.execute(() -> {
-            //        bet(users1.get(attri), subList);
-            //        cdl.countDown();
-            //    });
-            //}
-            //
-            //try {
-            //    cdl.await();
-            //} catch (Exception e) {
-            //}
+
 
             System.out.println();
 
@@ -106,18 +94,18 @@ public class dafaLHC {
         long lcMillTime = 0;
 
         for (GetBetInfo betInfo : getBetInfos) {
-            String currentDate = "";
-            try {
-                SimpleDateFormat sdfOne = new SimpleDateFormat("yyyyMMdd");
-                lcMillTime = sdfOne.parse(sdfOne.format(now)).getTime();
-                Date date = new Date();
-                currentDate = sdfOne.format(date);
-                //System.out.println(currentDate);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            int second = (int) (now - lcMillTime) / 1000;//距离今日凌晨秒数
-            int issueOneNum = second / 60 + 1;//期数
+            //String currentDate = "";
+            //try {
+            //    SimpleDateFormat sdfOne = new SimpleDateFormat("yyyyMMdd");
+            //    lcMillTime = sdfOne.parse(sdfOne.format(now)).getTime();
+            //    Date date = new Date();
+            //    currentDate = sdfOne.format(date);
+            //    //System.out.println(currentDate);
+            //} catch (Exception e) {
+            //    e.printStackTrace();
+            //}
+            //int second = (int) (now - lcMillTime) / 1000;//距离今日凌晨秒数
+            //int issueOneNum = second / 60 + 1;//期数
 
             JsonObjectBuilder order1 = JsonObjectBuilder.custom()
                     .put("lotteryCode", betInfo.getLotteryCode())

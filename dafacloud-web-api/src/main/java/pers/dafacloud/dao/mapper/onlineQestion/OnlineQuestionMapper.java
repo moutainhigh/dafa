@@ -1,7 +1,6 @@
 package pers.dafacloud.dao.mapper.onlineQestion;
 
-import com.sun.xml.internal.bind.v2.model.core.ID;
-import org.springframework.stereotype.Component;
+import pers.dafacloud.dao.pojo.OnlineQuestion;
 
 import java.util.List;
 import java.util.Map;
@@ -12,6 +11,8 @@ public interface OnlineQuestionMapper {
     List<Map> getQuestion(Map map);
 
     int getQuestionCount(Map map);
+
+    List<OnlineQuestion> exportQuestion(Map map);
 
     int addQuestion(Map map);
 

@@ -15,10 +15,10 @@ public class RegisterMoreThreadCP {
         String username0 = "dukedua";
         String inviteCode = "72562999";
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1000; i++) {
             new Thread(() -> {
                 for (int j = 0; j < 1; j++) {
-                    int index = (int) (Math.random() * 100000);
+                    int index = (int) (Math.random() * 1000000);
                     String username = String.format("%s%s", username0 , index);//String.format("%04d", index)
                     String password = DigestUtils.md5Hex(username + DigestUtils.md5Hex("123456"));
                     String body = UrlBuilder.custom()

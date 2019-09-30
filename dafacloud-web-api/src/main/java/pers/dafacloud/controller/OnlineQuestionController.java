@@ -2,12 +2,17 @@ package pers.dafacloud.controller;
 
 import net.sf.json.JSONObject;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.poi.hssf.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.dafacloud.dao.SqlSessionFactoryUtils;
 import pers.dafacloud.dao.mapper.onlineQestion.OnlineQuestionMapper;
 import pers.dafacloud.dao.mapper.userMapper.UserMapper;
+import pers.dafacloud.dao.pojo.ApiContent;
+import pers.dafacloud.dao.pojo.OnlineQuestion;
+import pers.dafacloud.utils.excelUtil.ExcelUtiles;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,6 +49,46 @@ public class OnlineQuestionController {
         jsonObject0.put("data", jsonObject);
         return jsonObject0.toString();
     }
+
+    @GetMapping(value = "/exportQuestion")
+    public void exportQuestion(String tester, @RequestParam(defaultValue = "-1") int isSolve,
+                                 @RequestParam(defaultValue = "-1") int type,
+                                 String questionName, String startQuestionDate, String endQuestionDate,
+                                 HttpServletResponse response) {
+        Map map = new HashMap();
+        map.put("tester", tester);
+        map.put("isSolve", isSolve);
+        map.put("startQuestionDate", startQuestionDate);
+        map.put("endQuestionDate", endQuestionDate);
+        map.put("type", type);
+        map.put("questionName", questionName);
+        //map.put("pageNum", (pageNum-1)*pageSize);
+        //map.put("pageSize", pageSize);
+        List<OnlineQuestion> list = onlineQuestionMapper.exportQuestion(map);
+        /*HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("故障记录");
+        String fileName = "question" + ".xls";
+        int rowNum = 1;
+        String[] headers = {"学号", "姓名", "身份类型", "登录密码"};
+        HSSFRow row = sheet.createRow(0);
+        for (int i = 0; i < headers.length; i++) {
+            HSSFCell cell = row.createCell(i);
+            HSSFRichTextString text = new HSSFRichTextString(headers[i]);
+            cell.setCellValue(text);
+        }
+        for (Map question : list) {
+            HSSFRow row1 = sheet.createRow(rowNum);
+            row1.createCell(0).setCellValue(question.get("questionName").toString());
+            row1.createCell(1).setCellValue(question.get("isSolve").toString());
+            row1.createCell(2).setCellValue(question.get("questionName").toString());
+            row1.createCell(3).setCellValue(question.get("description").toString());
+            rowNum++;
+        }*/
+        ExcelUtiles.exportExcel(list, "title", "sheet01", OnlineQuestion.class, "question.xlsx", response);
+        //return "";
+    }
+
+
 
     @PostMapping(value = "/addQuestion")
     public String addQuestion(String questionName, String description, String type,

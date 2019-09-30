@@ -19,37 +19,72 @@ public class dafaApiContrller {
 
     SqlSession sqlSession = SqlSessionFactoryUtils.openSqlSession();
     ApiContentMapper apiContentMapper = sqlSession.getMapper(ApiContentMapper.class);
+
+    @RequestMapping(value = "queryDafaApi", method = RequestMethod.GET)
+    public Response query(@RequestParam(value = "apiName", required = false) String apiName,
+                          @RequestParam(value = "dependApiName", required = false) String dependApiName,
+                          @RequestParam(value = "module", required = false) String module,
+                          @RequestParam(value = "cmsFront", required = false) String cmsFront,
+                          @RequestParam(value = "project", required = false) String project,
+                          @RequestParam(value = "owner", required = false) String owner,
+                          @RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
+                          @RequestParam(value = "pageSize", required = false, defaultValue = "1") int pageSize
+
+                          //,@RequestParam("description") String description
+    ) {
+        ApiContent apiContent = new ApiContent();
+        apiContent.setApiName(apiName);
+        apiContent.setDependApiName(dependApiName);
+        apiContent.setModule(module);
+        apiContent.setCmsFront(cmsFront);
+        apiContent.setProject(project);
+        apiContent.setOwner(owner);
+        apiContent.setPageNum((pageNum - 1) * pageSize);
+        apiContent.setPageSize(pageSize);
+        List<ApiContent> list = apiContentMapper.queryApi(apiContent);
+        int count = apiContentMapper.queryApiCount(apiContent);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("total", count);
+        jsonObject.put("list", list);
+        return fillResponse(jsonObject);
+    }
+
     //配置
-    @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(@RequestParam(value = "name", required = false) String name,
+    @RequestMapping(value = "addDafaApi", method = RequestMethod.POST)
+    public String add(@RequestParam(value = "apiName", required = false) String apiName,
                       @RequestParam(value = "path", required = false) String path,
                       @RequestParam(value = "mothod", required = false) String mothod,
-                      @RequestParam(value = "reqParameters", required = false) String body,
-                      @RequestParam(value = "headerData", required = false) String header,
+                      @RequestParam(value = "reqParametersArray", required = false) String reqParametersArray,
+                      @RequestParam(value = "headerArray", required = false) String headerArray,
                       @RequestParam(value = "dependApiName", required = false) String dependApiName,
                       @RequestParam(value = "module", required = false) String module,
-                      @RequestParam(value = "page", required = false) String page,
+                      @RequestParam(value = "cmsFront", required = false) String cmsFront,
                       @RequestParam(value = "project", required = false) String project,
                       @RequestParam(value = "description", required = false) String description,
                       @RequestParam(value = "owner", required = false) String owner) {
+        System.out.println("headerArray:" + headerArray);
         ApiContent apiContent = new ApiContent();
-        apiContent.setName(name);
+        apiContent.setApiName(apiName);
         apiContent.setPath(path);
         apiContent.setMethod(mothod);
-        apiContent.setReqParameters(body);
-        apiContent.setHeaderData(header);
+        apiContent.setReqParametersArray(reqParametersArray);
+        apiContent.setHeaderArray(headerArray);
         apiContent.setDependApiName(dependApiName);
         apiContent.setModule(module);
-        apiContent.setCmsFront(page);
+        apiContent.setCmsFront(cmsFront);
         apiContent.setProject(project);
         apiContent.setDescription(description);
         apiContent.setOwner(owner);
         int i = apiContentMapper.addApi(apiContent);
+        JSONObject jsonObject0 = new JSONObject();
         if (i == 1) {
-            return "新增成功";
+            jsonObject0.put("code", 1);
+            jsonObject0.put("data", "新增成功");
         } else {
-            return "新增失败";
+            jsonObject0.put("code", -1);
+            jsonObject0.put("data", "新增失败");
         }
+        return jsonObject0.toString();
     }
 
     @PostMapping("/delete")
@@ -61,39 +96,43 @@ public class dafaApiContrller {
             return "删除成功";
     }
 
-    @RequestMapping(value = "query", method = RequestMethod.GET)
-    public Response query(@RequestParam(value = "name", required = false) String name,
-                        @RequestParam(value = "dependApiName", required = false) String dependApiName,
-                        @RequestParam(value = "module", required = false) String module,
-                        @RequestParam(value = "cmsFront", required = false) String cmsFront,
-                        @RequestParam(value = "project", required = false) String project,
-                        @RequestParam(value = "owner", required = false) String owner,
-                        @RequestParam(value = "pageNum", required = false,defaultValue = "1") int pageNum,
-                          @RequestParam(value = "pageSize", required = false,defaultValue = "1") int pageSize
 
-                          //,@RequestParam("description") String description
-    ) {
+    @PostMapping("/updateDafaApi")
+    public String update(@RequestParam(value = "apiName", required = false) String apiName,
+                         @RequestParam(value = "path", required = false) String path,
+                         @RequestParam(value = "mothod", required = false) String mothod,
+                         @RequestParam(value = "reqParametersArray", required = false) String reqParametersArray,
+                         @RequestParam(value = "headerArray", required = false) String headerArray,
+                         @RequestParam(value = "dependApiName", required = false) String dependApiName,
+                         @RequestParam(value = "module", required = false) String module,
+                         @RequestParam(value = "cmsFront", required = false) String cmsFront,
+                         @RequestParam(value = "project", required = false) String project,
+                         @RequestParam(value = "description", required = false) String description,
+                         @RequestParam(value = "owner", required = false) String owner,
+                         int id) {
         ApiContent apiContent = new ApiContent();
-        apiContent.setName(name);
+        apiContent.setId(id);
+        apiContent.setApiName(apiName);
+        apiContent.setPath(path);
+        apiContent.setMethod(mothod);
+        apiContent.setReqParametersArray(reqParametersArray);
+        apiContent.setHeaderArray(headerArray);
         apiContent.setDependApiName(dependApiName);
         apiContent.setModule(module);
         apiContent.setCmsFront(cmsFront);
         apiContent.setProject(project);
+        apiContent.setDescription(description);
         apiContent.setOwner(owner);
-        apiContent.setPageNum((pageNum-1)*pageSize);
-        apiContent.setPageSize(pageSize);
-        List<ApiContent> list = apiContentMapper.queryApi(apiContent);
-        int count=apiContentMapper.queryApiCount(apiContent);
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("total",count);
-        jsonObject.put("list",list);
-        return fillResponse(jsonObject);
-
-    }
-
-    @PostMapping("/update")
-    public String update() {
-        return "修改成功";
+        int i = apiContentMapper.updateApi(apiContent);
+        JSONObject jsonObject0 = new JSONObject();
+        if (i == 1) {
+            jsonObject0.put("code", 1);
+            jsonObject0.put("data", "修改成功");
+        } else {
+            jsonObject0.put("code", -1);
+            jsonObject0.put("data", "修改失败");
+        }
+        return jsonObject0.toString();
     }
 
     //请求
@@ -122,7 +161,6 @@ public class dafaApiContrller {
         return response;
 
     }
-
 
 
     public static void main(String[] args) {

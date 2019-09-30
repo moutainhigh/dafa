@@ -37,11 +37,8 @@ public class testBettingByIP {
         String bettingData = UrlBuilder.custom().addBuilder("bettingData", orders.toString()).fullBody();
         System.out.println(bettingData);
         //System.out.println(DafaRequest.post(url, bettingData, cookie));
+        String.format("");
     }
 
-    @Test(description = "测试")
-    public static void test02() {
-        System.out.println(6%5);
-    }
 
 }

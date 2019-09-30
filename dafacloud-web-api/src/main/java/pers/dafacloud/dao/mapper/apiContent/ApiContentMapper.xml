@@ -16,11 +16,11 @@
             resultType="pers.dafacloud.dao.pojo.ApiContent" flushCache="true" useCache="true">
         select
         id id
-        ,name name
+        ,name apiName
         ,path path
         ,method method
-        ,body reqParameters
-        ,header headerData
+        ,body reqParametersArray
+        ,header headerArray
         ,depend_api_name dependApiName
         ,module module
         ,cms_front cmsFront
@@ -29,8 +29,8 @@
         ,owner owner
         from dafacloud_lottery_api
         <where>
-            <if test="name!=null">
-                AND name like CONCAT(CONCAT('%',#{name}),'%')
+            <if test="apiName!=null">
+                AND name like CONCAT(CONCAT('%',#{apiName}),'%')
             </if>
             <if test="owner!=null">
                 AND owner = #{owner}
@@ -45,7 +45,7 @@
                 AND project = #{project}
             </if>
         </where>
-        order by id asc
+        order by id desc
         limit #{pageNum},#{pageSize}
     </select>
 
@@ -53,8 +53,8 @@
             flushCache="true" useCache="true">
         select count(1) from dafacloud_lottery_api
         <where>
-            <if test="name!=null">
-                AND name like CONCAT(CONCAT('%',#{name}),'%')
+            <if test="apiName!=null">
+                AND name like CONCAT(CONCAT('%',#{apiName}),'%')
             </if>
             <if test="owner!=null">
                 AND owner = #{owner}
@@ -71,22 +71,21 @@
         </where>
     </select>
 
-    <select id="updateApi" parameterType="pers.dafacloud.dao.pojo.ApiContent">
-		update table set
-		  name = #{name}
+    <update id="updateApi" parameterType="pers.dafacloud.dao.pojo.ApiContent">
+		update dafacloud_lottery_api set
+		  name = #{apiName}
 		  ,path = #{path}
 		  ,method = #{method}
-		  ,body = #{body}
+		  ,description = #{description}
+		  ,body = #{reqParametersArray}
+		  ,header = #{headerArray}
 		  ,depend_api_name = #{dependApiName}
 		  ,module = #{module}
-		  ,page = #{page}
+		  ,cms_front = #{cmsFront}
 		  ,project = #{project}
-		  ,description = #{description}
 		  ,owner = #{owner}
 		  where id = #{id}
-
-
-	</select>
+	</update>
 
     <insert id="addApi" parameterType="pers.dafacloud.dao.pojo.ApiContent" keyProperty="id">
 		insert into dafacloud_lottery_api(
@@ -94,24 +93,24 @@
             ,path
             ,method
             ,body
+            ,description
             ,header
             ,depend_api_name
             ,module
-            ,page
+            ,cms_front
             ,project
-            ,description
             ,owner
 		)values (
-			#{name}
+			#{apiName}
             ,#{path}
             ,#{method}
-            ,#{body}
-            ,#{header}
+            ,#{reqParametersArray}
+            ,#{description}
+            ,#{headerArray}
             ,#{dependApiName}
             ,#{module}
-            ,#{page}
+            ,#{cmsFront}
             ,#{project}
-            ,#{description}
             ,#{owner}
 		)
 	</insert>

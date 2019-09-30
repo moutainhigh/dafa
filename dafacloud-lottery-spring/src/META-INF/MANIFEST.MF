@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Class-Path: jul-to-slf4j-1.7.28.jar jcommander-1.72.jar spring-boot-co
+ nfiguration-processor-2.1.8.RELEASE.jar httpmime-4.5.9.jar jackson-co
+ re-2.9.9.jar slf4j-api-1.7.28.jar commons-lang-2.6.jar logback-core-1
+ .2.3.jar mybatis-3.4.6.jar json-lib-2.4-jdk15.jar jackson-databind-2.
+ 9.9.3.jar httpclient-4.5.9.jar spring-jcl-5.1.9.RELEASE.jar commons-p
+ ool2-2.6.2.jar logback-classic-1.2.3.jar commons-logging-1.2.jar test
+ ng-6.14.3.jar spring-core-5.1.9.RELEASE.jar lombok-1.18.8.jar log4j-t
+ o-slf4j-2.11.2.jar mysql-connector-java-8.0.12.jar spring-expression-
+ 5.1.9.RELEASE.jar javax.annotation-api-1.3.2.jar spring-boot-starter-
+ logging-2.1.8.RELEASE.jar jedis-2.9.3.jar spring-aop-5.1.9.RELEASE.ja
+ r bsh-2.0b6.jar spring-boot-2.1.8.RELEASE.jar commons-beanutils-1.9.3
+ .jar spring-context-5.1.9.RELEASE.jar snakeyaml-1.23.jar httpcore-4.4
+ .12.jar commons-codec-1.11.jar spring-beans-5.1.9.RELEASE.jar spring-
+ boot-starter-2.1.8.RELEASE.jar gson-2.8.5.jar spring-boot-autoconfigu
+ re-2.1.8.RELEASE.jar commons-collections-3.2.2.jar jackson-annotation
+ s-2.9.0.jar ezmorph-1.0.6.jar spring-boot-devtools-2.1.8.RELEASE.jar 
+ log4j-api-2.11.2.jar
+Main-Class: pers.dafacloud.DafacloudLotterySpringApplication
+

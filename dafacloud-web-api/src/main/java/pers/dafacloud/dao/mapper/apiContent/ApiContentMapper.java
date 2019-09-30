@@ -23,7 +23,7 @@ public interface ApiContentMapper {
     /**
      * 修改api接口
      */
-    int updateApi();
+    int updateApi(ApiContent apiContent);
 
     /**
      * 查询api接口

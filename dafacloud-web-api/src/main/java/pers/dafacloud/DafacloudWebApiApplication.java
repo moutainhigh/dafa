@@ -29,5 +29,4 @@ public class DafacloudWebApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(DafacloudWebApiApplication.class, args);
     }
-
 }
