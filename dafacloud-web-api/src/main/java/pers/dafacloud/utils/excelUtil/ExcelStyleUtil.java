@@ -163,10 +163,9 @@ public class ExcelStyleUtil implements IExcelExportStyler {
 
         //单独设置列（目前设置无效）
         CellStyle style0 = workbook.createCellStyle();
-        style0.setAlignment(HorizontalAlignment.CENTER);
+        //style0.setAlignment(HorizontalAlignment.CENTER);
         //workbook.getSheet("sheet01").setDefaultColumnStyle(0, style0);
-        workbook.getSheetAt(0).setDefaultColumnStyle(0, style0);
-
+        //workbook.getSheetAt(0).setDefaultColumnStyle(0, style0);
         return style;
     }
 

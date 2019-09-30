@@ -34,8 +34,8 @@ public class ExcelUtiles {
                                    HttpServletResponse response) {
         ExportParams exportParams = new ExportParams();
         exportParams.setSheetName("sheet01");
-        exportParams.setType(ExcelType.XSSF);
-        exportParams.setStyle(ExcelStyleUtil.class);
+        exportParams.setType(ExcelType.XSSF); //支持.xlsx格式的excel
+        exportParams.setStyle(ExcelStyleUtil.class);//样式设置
         defaultExport(list, pojoClass, fileName, response, exportParams);
     }
 
