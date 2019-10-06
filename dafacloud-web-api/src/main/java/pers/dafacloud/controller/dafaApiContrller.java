@@ -38,11 +38,10 @@ public class dafaApiContrller {
                           @RequestParam(value = "dependApiName", required = false) String dependApiName,
                           @RequestParam(value = "module", required = false) String module,
                           @RequestParam(value = "cmsFront", required = false) String cmsFront,
-                          @RequestParam(value = "project", required = false) String project,
+                          @RequestParam(value = "project", required = false,defaultValue = "-1") int project,
                           @RequestParam(value = "owner", required = false) String owner,
                           @RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
                           @RequestParam(value = "pageSize", required = false, defaultValue = "1") int pageSize
-
                           //,@RequestParam("description") String description
     ) {
         ApiContent apiContent = new ApiContent();
@@ -73,7 +72,7 @@ public class dafaApiContrller {
                       @RequestParam(value = "dependApiName", required = false) String dependApiName,
                       @RequestParam(value = "module", required = false) String module,
                       @RequestParam(value = "cmsFront", required = false) String cmsFront,
-                      @RequestParam(value = "project", required = false) String project,
+                      @RequestParam(value = "project", required = false,defaultValue = "-1") int project,
                       @RequestParam(value = "description", required = false) String description,
                       @RequestParam(value = "owner", required = false) String owner,
                       @RequestParam(value = "responseBody", required = false) String responseBody
@@ -123,7 +122,7 @@ public class dafaApiContrller {
                          @RequestParam(value = "dependApiName", required = false) String dependApiName,
                          @RequestParam(value = "module", required = false) String module,
                          @RequestParam(value = "cmsFront", required = false) String cmsFront,
-                         @RequestParam(value = "project", required = false) String project,
+                         @RequestParam(value = "project", required = false,defaultValue = "-1") int project,
                          @RequestParam(value = "description", required = false) String description,
                          @RequestParam(value = "owner", required = false) String owner,
                          @RequestParam(value = "responseBody", required = false) String responseBody,
@@ -173,7 +172,7 @@ public class dafaApiContrller {
         System.out.println("cookie:" + cookie); //请求cookie
         System.out.println("headerArray:" + headerArray);
         //System.out.println("requestCookie:" + requestCookie);
-        System.out.println(request.getCookies().length);
+        //System.out.println(request.getCookies().length);
         System.out.println("RequestURI:" + request.getRequestURI());
         System.out.println("requestURL:" + request.getRequestURL());
         boolean isLoginReq = path.endsWith("login");//是否是登录请求

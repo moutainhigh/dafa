@@ -12,12 +12,20 @@ public class ApiContent {
     private String dependApiName;// 依赖接口
     private String module;// 所属模块
     private String cmsFront;//所属页面
-    private String project;// 所属项目
+    private int project;// 所属项目
     private String description;//接口简介
     private String owner;//所属用户
     private int pageNum;
     private int pageSize;
     private String responseBody;
+
+    public int getProject() {
+        return project;
+    }
+
+    public void setProject(int project) {
+        this.project = project;
+    }
 
     public String getResponseBody() {
         return responseBody;
@@ -97,14 +105,6 @@ public class ApiContent {
 
     public void setCmsFront(String cmsFront) {
         this.cmsFront = cmsFront;
-    }
-
-    public String getProject() {
-        return project;
-    }
-
-    public void setProject(String project) {
-        this.project = project;
     }
 
     public String getDescription() {

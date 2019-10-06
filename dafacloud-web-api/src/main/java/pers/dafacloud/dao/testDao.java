@@ -21,7 +21,7 @@ public class testDao {
         //apiContent.setDependApiName("");
         apiContent.setModule("用户");
         apiContent.setCmsFront("登陆页");
-        apiContent.setProject("彩票");
+        apiContent.setProject(1);
         apiContent.setDescription("登陆");
         apiContent.setOwner("alysia");
         //addApi
