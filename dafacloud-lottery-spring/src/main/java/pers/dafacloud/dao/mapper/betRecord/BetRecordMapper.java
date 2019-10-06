@@ -12,4 +12,9 @@ public interface BetRecordMapper {
      * */
     List<GetBetInfo> getRecordByIssue(String issue);
 
+    /**
+     *
+     * */
+    List<GetBetInfo> getRecordByLotteryCode(String lotteryCode);
+
 }

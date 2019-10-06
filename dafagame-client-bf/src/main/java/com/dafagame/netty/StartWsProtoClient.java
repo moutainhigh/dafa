@@ -66,7 +66,7 @@ public class StartWsProtoClient {
                 String body = UrlBuilder.custom()
                         .addBuilder("inviteCode", "")
                         .addBuilder("accountNumber", phone)
-                        .addBuilder("password", DigestUtils.md5Hex("duke123") + encodeRandom) //"b4e82b683394b50b679dc2b51a79d987"
+                        .addBuilder("password", DigestUtils.md5Hex("123456") + encodeRandom) //"b4e82b683394b50b679dc2b51a79d987"
                         .addBuilder("userType", "0") //正式0/测试1/遊客2
                         .addBuilder("random", random)
                         .fullBody();
@@ -142,7 +142,7 @@ public class StartWsProtoClient {
         //    Thread.sleep(200);
         //}
         //new StartWsProtoClient("92582013").start();
-        List<String> users = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/dukeUser.txt");
+        List<String> users = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/dukePhone.txt");
         for (int i = 0; i < 1; i++) {
             new StartWsProtoClient(users.get(i), 104).start();
             Thread.sleep(200);

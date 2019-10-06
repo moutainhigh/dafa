@@ -51,7 +51,6 @@ public class ThreadTenantLottery2 {
         //List<String> user006200 = FileUtil.readFile(ThreadTenantLottery2.class.getResourceAsStream(path + "/006200.txt"));
         //List<String> user007100 = FileUtil.readFile(ThreadTenantLottery2.class.getResourceAsStream(path + "/007100.txt"));
 
-
         List<String> user1k = new ArrayList<>();
         user1k.add("50352423,shalv010,shalv010a0000");
         user1k.add("50352409,shalv008,shalv008a0000");

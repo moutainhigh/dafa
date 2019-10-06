@@ -192,6 +192,12 @@
     <build>
         <resources>
             <resource>
+                <directory>${basedir}/src/main/webapp</directory>
+            </resource>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>

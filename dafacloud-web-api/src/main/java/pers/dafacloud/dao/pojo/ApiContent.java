@@ -17,6 +17,15 @@ public class ApiContent {
     private String owner;//所属用户
     private int pageNum;
     private int pageSize;
+    private String responseBody;
+
+    public String getResponseBody() {
+        return responseBody;
+    }
+
+    public void setResponseBody(String responseBody) {
+        this.responseBody = responseBody;
+    }
 
     public int getId() {
         return id;

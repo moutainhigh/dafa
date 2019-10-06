@@ -102,20 +102,20 @@
         <!--                    <scope>compile</scope>-->
         <!--                </dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.slf4j</groupId>-->
-            <!--<artifactId>slf4j-api</artifactId>-->
-            <!--<version>1.7.21</version>-->
+        <!--<groupId>org.slf4j</groupId>-->
+        <!--<artifactId>slf4j-api</artifactId>-->
+        <!--<version>1.7.21</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>ch.qos.logback</groupId>-->
-            <!--<artifactId>logback-classic</artifactId>-->
-            <!--<version>1.1.7</version>-->
-            <!--&lt;!&ndash;            <scope>testCookie</scope>&ndash;&gt;-->
+        <!--<groupId>ch.qos.logback</groupId>-->
+        <!--<artifactId>logback-classic</artifactId>-->
+        <!--<version>1.1.7</version>-->
+        <!--&lt;!&ndash;            <scope>testCookie</scope>&ndash;&gt;-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>ch.qos.logback</groupId>-->
-            <!--<artifactId>logback-core</artifactId>-->
-            <!--<version>1.1.7</version>-->
+        <!--<groupId>ch.qos.logback</groupId>-->
+        <!--<artifactId>logback-core</artifactId>-->
+        <!--<version>1.1.7</version>-->
         <!--</dependency>-->
         <!--logback日志 end-->
         <!--testng start-->
@@ -171,7 +171,13 @@
         </dependency>
         <!-- sql end -->
 
-
+        <!--注册加密 start-->
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--注册加密 end-->
     </dependencies>
     <build>
         <resources>

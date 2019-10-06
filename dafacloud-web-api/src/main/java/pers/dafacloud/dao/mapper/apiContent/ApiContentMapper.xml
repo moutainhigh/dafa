@@ -27,19 +27,23 @@
         ,project project
         ,description description
         ,owner owner
+        ,response_body responseBody
         from dafacloud_lottery_api
         <where>
-            <if test="apiName!=null">
+            <if test="apiName!=null and apiName!=''">
                 AND name like CONCAT(CONCAT('%',#{apiName}),'%')
             </if>
-            <if test="owner!=null">
+            <if test="owner!=null and owner!='' ">
                 AND owner = #{owner}
             </if>
-            <if test="module!=null">
+            <if test="module!=null and module!=''">
                 AND module = #{module}
             </if>
             <if test="cmsFront!=null and cmsFront != '' and  cmsFront!=-1">
                 AND cms_front = #{cmsFront}
+            </if>
+            <if test="path!=null and path!=''">
+                AND path like CONCAT(CONCAT('%',#{path}),'%')
             </if>
             <if test="project!=null">
                 AND project = #{project}
@@ -53,17 +57,20 @@
             flushCache="true" useCache="true">
         select count(1) from dafacloud_lottery_api
         <where>
-            <if test="apiName!=null">
+            <if test="apiName!=null and apiName!=''">
                 AND name like CONCAT(CONCAT('%',#{apiName}),'%')
             </if>
-            <if test="owner!=null">
+            <if test="owner!=null and owner!='' ">
                 AND owner = #{owner}
             </if>
-            <if test="module!=null">
+            <if test="module!=null and module!=''">
                 AND module = #{module}
             </if>
             <if test="cmsFront!=null and cmsFront != '' and  cmsFront!=-1">
                 AND cms_front = #{cmsFront}
+            </if>
+            <if test="path!=null and path!=''">
+                AND path like CONCAT(CONCAT('%',#{path}),'%')
             </if>
             <if test="project!=null">
                 AND project = #{project}
@@ -84,6 +91,7 @@
 		  ,cms_front = #{cmsFront}
 		  ,project = #{project}
 		  ,owner = #{owner}
+		  ,response_body = #{responseBody}
 		  where id = #{id}
 	</update>
 
@@ -100,6 +108,7 @@
             ,cms_front
             ,project
             ,owner
+            ,response_body
 		)values (
 			#{apiName}
             ,#{path}
@@ -112,6 +121,7 @@
             ,#{cmsFront}
             ,#{project}
             ,#{owner}
+            ,#{responseBody}
 		)
 	</insert>
 

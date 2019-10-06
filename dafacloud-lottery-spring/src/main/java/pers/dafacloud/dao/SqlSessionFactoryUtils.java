@@ -5,10 +5,12 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.stereotype.Service;
+import pers.utils.fileUtils.FileUtil;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
+@Service
 public class SqlSessionFactoryUtils {
 
     private static SqlSessionFactory sqlSessionFactory;
@@ -28,11 +30,15 @@ public class SqlSessionFactoryUtils {
      */
     public static SqlSessionFactory initSqlSessionFactory(String name) {
 
+        //String resource = "/Users/duke/Documents/github/dafa/dafacloud-lottery-spring/src/main/resources/SqlMapConfig.xml";
         String resource = "SqlMapConfig.xml";
         InputStream inputStream = null;
         try {
+            //inputStream = SqlSessionFactory.class.getResourceAsStream(resource);
+            //File file = new File(resource);
+            //inputStream = new FileInputStream(file);
             inputStream = Resources.getResourceAsStream(resource);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         synchronized (CLASS_LOCK) {

@@ -25,7 +25,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Service
+//@Service
 public class dafaLHC {
     private static String host = "http://52.76.195.164:8020";
     private static String addBettingUrl = host + "/v1/betting/addBetting";
@@ -70,12 +70,7 @@ public class dafaLHC {
                 cdl.await();
             } catch (Exception e) {
             }
-
-
-
-
             System.out.println();
-
         }
     }
 

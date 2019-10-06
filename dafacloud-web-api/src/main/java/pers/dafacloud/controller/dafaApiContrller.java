@@ -4,13 +4,25 @@ package pers.dafacloud.controller;
 import lombok.Data;
 import lombok.ToString;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
+import org.apache.http.Header;
+import org.apache.http.client.CookieStore;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.cookie.Cookie;
+import org.apache.http.impl.client.BasicCookieStore;
+import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.web.bind.annotation.*;
 import pers.dafacloud.dao.SqlSessionFactoryUtils;
 import pers.dafacloud.dao.mapper.apiContent.ApiContentMapper;
 import pers.dafacloud.dao.pojo.ApiContent;
 import pers.utils.dafaRequest.DafaRequest;
+import pers.utils.httpclientUtils.HttpConfig;
+import pers.utils.httpclientUtils.HttpHeader;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +34,7 @@ public class dafaApiContrller {
 
     @RequestMapping(value = "queryDafaApi", method = RequestMethod.GET)
     public Response query(@RequestParam(value = "apiName", required = false) String apiName,
+                          @RequestParam(value = "path", required = false) String path,
                           @RequestParam(value = "dependApiName", required = false) String dependApiName,
                           @RequestParam(value = "module", required = false) String module,
                           @RequestParam(value = "cmsFront", required = false) String cmsFront,
@@ -34,6 +47,7 @@ public class dafaApiContrller {
     ) {
         ApiContent apiContent = new ApiContent();
         apiContent.setApiName(apiName);
+        apiContent.setPath(path);
         apiContent.setDependApiName(dependApiName);
         apiContent.setModule(module);
         apiContent.setCmsFront(cmsFront);
@@ -61,7 +75,9 @@ public class dafaApiContrller {
                       @RequestParam(value = "cmsFront", required = false) String cmsFront,
                       @RequestParam(value = "project", required = false) String project,
                       @RequestParam(value = "description", required = false) String description,
-                      @RequestParam(value = "owner", required = false) String owner) {
+                      @RequestParam(value = "owner", required = false) String owner,
+                      @RequestParam(value = "responseBody", required = false) String responseBody
+    ) {
         System.out.println("headerArray:" + headerArray);
         ApiContent apiContent = new ApiContent();
         apiContent.setApiName(apiName);
@@ -75,6 +91,7 @@ public class dafaApiContrller {
         apiContent.setProject(project);
         apiContent.setDescription(description);
         apiContent.setOwner(owner);
+        apiContent.setResponseBody(responseBody);
         int i = apiContentMapper.addApi(apiContent);
         JSONObject jsonObject0 = new JSONObject();
         if (i == 1) {
@@ -109,6 +126,7 @@ public class dafaApiContrller {
                          @RequestParam(value = "project", required = false) String project,
                          @RequestParam(value = "description", required = false) String description,
                          @RequestParam(value = "owner", required = false) String owner,
+                         @RequestParam(value = "responseBody", required = false) String responseBody,
                          int id) {
         ApiContent apiContent = new ApiContent();
         apiContent.setId(id);
@@ -123,6 +141,7 @@ public class dafaApiContrller {
         apiContent.setProject(project);
         apiContent.setDescription(description);
         apiContent.setOwner(owner);
+        apiContent.setResponseBody(responseBody);
         int i = apiContentMapper.updateApi(apiContent);
         JSONObject jsonObject0 = new JSONObject();
         if (i == 1) {
@@ -136,21 +155,112 @@ public class dafaApiContrller {
     }
 
     //请求
-    @RequestMapping(value = "request", method = RequestMethod.POST)
-    public String request(@RequestParam(value = "url", required = false) String url,
-                          @RequestParam(value = "cookie", required = false) String cookie,
-                          @RequestParam(value = "body", required = false) String body,
-                          @RequestParam(value = "method", required = false) String method) {
-        System.out.println("url:" + url);//请求地址
-        System.out.println("body:" + body);//请求内容，get请求cookie可以是空
+    @RequestMapping(value = "testDafaApi", method = RequestMethod.POST)
+    public void request(@RequestParam(value = "host", required = false) String host,
+                        @RequestParam(value = "path", required = false) String path,
+                        @RequestParam(value = "cookie", required = false) String cookie,
+                        @RequestParam(value = "reqParametersString", required = false) String reqParametersString,
+                        @RequestParam(value = "method", required = false) String method,
+                        @RequestParam(value = "headerArray", required = false) String headerArray,
+                        //@RequestHeader(value = "JSESSIONID") String requestCookie,
+                        HttpServletResponse response, HttpServletRequest request
+    ) throws Exception {
+        response.setCharacterEncoding("UTF-8");
+        System.out.println("host:" + host);//请求地址
+        System.out.println("path:" + path);//请求地址
+        System.out.println("reqParametersString:" + reqParametersString);//请求内容，get请求cookie可以是空
         System.out.println("method:" + method);//请求方法
         System.out.println("cookie:" + cookie); //请求cookie
-        if (method.equals("get"))
-            return DafaRequest.post(url, body, cookie);
-        else if (method.equals("post"))
-            return DafaRequest.get(url, cookie);
-        else
-            return "请求方法错误";
+        System.out.println("headerArray:" + headerArray);
+        //System.out.println("requestCookie:" + requestCookie);
+        System.out.println(request.getCookies().length);
+        System.out.println("RequestURI:" + request.getRequestURI());
+        System.out.println("requestURL:" + request.getRequestURL());
+        boolean isLoginReq = path.endsWith("login");//是否是登录请求
+        CookieStore cookieStore = new BasicCookieStore();
+        //host
+        String hostNew;
+        if (!host.contains("http")) {
+            hostNew = "http://" + host + path;
+        } else {
+            hostNew = host + path;
+        }
+        if (!isLoginReq) {//不是登录请求才设置cookie
+            //cookiec处理
+            BasicClientCookie cookies = null;
+            String c_sessionId = "";
+            if (request.getCookies() == null) {
+                c_sessionId = "";
+            }
+
+
+            if (StringUtils.isNotEmpty(cookie)) { //取请求参数的cookie
+                cookies = new BasicClientCookie("JSESSIONID", cookie);
+            } else if (StringUtils.isNotEmpty(c_sessionId)) { //取获取连接的请求的cookie
+                for (javax.servlet.http.Cookie requestCookie0 : request.getCookies()) {
+                    if ("JSESSIONID".equals(requestCookie0.getName())) {
+                        c_sessionId = requestCookie0.getValue();
+                    }
+                }
+                cookies = new BasicClientCookie("JSESSIONID", c_sessionId);
+            }
+            //response.getWriter().write("没有获取cookie，请先调用登录接口，或者手动填入cookie");
+            if (cookies != null) {
+                cookies.setDomain(new URL(hostNew).getHost());//设置范围
+                cookies.setVersion(0);
+                cookies.setPath("/");
+                cookieStore.addCookie(cookies);
+            }
+        }
+        HttpClientContext context = new HttpClientContext();
+        context.setCookieStore(cookieStore);
+        //header
+        Header[] headers = HttpHeader.custom()
+                .contentType("application/x-www-form-urlencoded;charset=UTF-8")
+                .userAgent("Mozilla/5.0")
+                .other("Origin", hostNew)
+                .other("Session-Id", cookie) //棋牌系统前台使用
+                .build();
+        //请求
+        String result;
+        if (method.equals("1")) { //GET
+            HttpConfig httpConfig = HttpConfig.custom().
+                    headers(headers)
+                    .url(hostNew + "?" + reqParametersString)
+                    .context(context);
+            result = DafaRequest.get(httpConfig);
+        } else if (method.equals("2")) { //POST
+            HttpConfig httpConfig = HttpConfig.custom().
+                    headers(headers)
+                    .url(hostNew)
+                    .context(context)
+                    .body(reqParametersString);
+            result = DafaRequest.post(httpConfig);
+        } else {
+            result = "请求方法错误，目前只支持get和post请求";
+        }
+
+        if (isLoginReq) {
+            //打印cookie
+            String responseCookie = "";
+            List<Cookie> cookie1 = context.getCookieStore().getCookies();
+            for (Cookie cookie2 : cookie1) {
+                System.out.println(cookie2.getName() + "==" + cookie2.getValue());
+                if ("JSESSIONID".equals(cookie2.getName())) {
+                    responseCookie = cookie2.getValue();
+                }
+            }
+            System.out.println(result);
+            if (StringUtils.isNotEmpty(responseCookie)) {
+                javax.servlet.http.Cookie cookienew = new javax.servlet.http.Cookie("JSESSIONID", responseCookie);
+                cookienew.setVersion(0);
+                cookienew.setPath("/");
+                cookienew.setDomain(new URL(request.getRequestURL().toString()).getHost());
+                response.addCookie(cookienew);
+            }
+        }
+        response.getWriter().write(result);//写入结果
+
     }
 
 
@@ -159,7 +269,6 @@ public class dafaApiContrller {
         response.code = 1;
         response.data = data;
         return response;
-
     }
 
 
@@ -167,9 +276,7 @@ public class dafaApiContrller {
         List<JSONObject> list = new ArrayList<>();
         JSONObject json = new JSONObject();
         json.put("aa", "bb");
-
         list.add(json);
-
         Response res = fillResponse(list);
         System.out.println(res);
     }

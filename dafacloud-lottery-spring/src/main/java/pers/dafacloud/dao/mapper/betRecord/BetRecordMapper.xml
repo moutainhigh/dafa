@@ -30,4 +30,20 @@
 		 and betting_state in (1,2)
 	</select>
 
+	<select id="getRecordByLotteryCode" resultType="pers.dafacloud.dao.pojo.GetBetInfo" >
+		select
+		lottery_code lotteryCode,
+		play_detail_code playDetailCode,
+		record_code recordCode,
+		betting_number bettingNumber,
+		betting_amount bettingAmount,
+		betting_count bettingCount,
+		graduation_count graduationCount,
+		betting_unit bettingUnit
+		from dafacloud_betting.a_betting_lhc
+		where lottery_code = #{lotteryCode}
+		 and betting_state in (1,2)
+		 limit 2000
+	</select>
+
 </mapper>
