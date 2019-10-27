@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，用于隔离sql语句的，后续会有重要作用
+	#{} 占位符 相当于jdbc的？
+	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
+-->
+<mapper namespace="pers.dafagame.utils.Dao.mapper.LotteryConfigMapper">
+    <!--
+        id : sql id;
+        parameterType:入参的数据类型
+        resultType:返回结果数据类型
+     -->
+    <select id="getLotteryConfig"  resultType="pers.dafagame.utils.Dao.pojo.LotteryConfigPojo">
+		select
+		`lottery_type`  lotteryType,
+		 lottery_code lotteryCode,
+		lottery_class_name lotteryClassName,
+		lottery_type lotteryType,
+		lottery_name lotteryName,
+		lottery_explain lotteryExplain,
+		lottery_intro lotteryIntro,
+		lottery_content lotteryContent,
+		total_open_daily totalOpenDaily,
+		image_path imagePath,
+		start_issue startIssue,
+		start_time startTime,
+		is_stop isStop,
+    	gmt_created gmtCreated,
+    	gmt_modified gmtModified
+		from `lottery_config`
+	</select>
+
+</mapper>

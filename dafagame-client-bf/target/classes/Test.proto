@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+package com.dafagame.protocol.test;
+
+import "World.proto";
+
+//区间在100-150
+enum ProtoType {
+    TestReqType = 101;
+    TestResType = 102;
+}
+
+//客户端发送的消息
+message TestReq {
+    required int32 code = 1;
+    required int32 roomId = 2;
+}
+
+message TestRes {
+    required int32 code = 1;
+}
+
+message TestIndication {
+    required int32 roomId = 1;
+}

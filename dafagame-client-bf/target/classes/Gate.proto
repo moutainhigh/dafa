@@ -1,0 +1,48 @@
+syntax = "proto2";
+
+import "World.proto";
+package com.dafagame.protocol.gate;
+
+//区间在100-150
+enum ProtoType {
+    GateReqType = 101;  //网关的请求
+    GateResType = 102;  //网关的回应
+    LampNtfType = 103;  //跑马灯推送
+}
+
+//网关服务和用户客户端交互信息格式
+message ClientMsg {
+    required int32 proto = 1;   //协议号码
+    required bytes data = 2;    //协议内容
+}
+
+message GateReq {
+    optional LoginReq loginReq = 2; //登陆请求
+}
+
+message GateRes {
+    required int32 errorCode = 1;     //错误码
+
+    optional LoginRes loginRes = 2;   //登陆回应
+}
+
+//登陆口令
+message LoginReq {
+    required string sessionId = 1;  //客户端获取的口令
+    required string url = 2;        //登陆域名
+    required string tenantCode = 3; //厅长代码
+    required string sourceId = 4;   //登陆终端信息
+}
+
+//登陆回应
+message LoginRes {
+    required int32 uid = 1;     //返回登陆的uid
+    optional string gameId = 2; //如果在游戏中， 返回所在游戏id
+    optional string roundType = 3;  //场次类型
+    optional world.Player player = 4;//玩家信息
+}
+
+//跑马灯推送
+message LampNtf {
+    repeated string arrays = 1;     //跑马灯推送的参数
+}
