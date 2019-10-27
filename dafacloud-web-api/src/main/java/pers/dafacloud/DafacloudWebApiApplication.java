@@ -7,6 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 /**
+ *
  *@SpringBootApplication 引导类，是spring boot项目
  * @SpringBootConfiguration
  *  @Configuration 是pring中的一个注解，定义配置类，等价于配置文件
@@ -22,7 +23,6 @@ import org.springframework.scheduling.annotation.Scheduled;
  * */
 
 @SpringBootApplication
-
 //@MapperScan(value = {"pers.dafacloud.dao.mapper"}) //不用每个mapper添加注解
 public class DafacloudWebApiApplication {
 

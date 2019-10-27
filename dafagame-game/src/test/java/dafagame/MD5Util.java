@@ -28,7 +28,7 @@ public class MD5Util {
                 }
                 buf.append(Integer.toHexString(i));
             }
-//32位加密
+            //32位加密
             return buf.toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
@@ -119,6 +119,11 @@ public class MD5Util {
                 MD5Util.getComparisonDataBase("+zVtEvOh+vUepycfuWvmfs6QHLrL/z12FAyEqK9q7BHe4Ksu5aPTVDWlo+L5BKbx",
                         "", MD5Util.getMd5("0848"), 2));
         System.out.println(MD5Util.getEncryptionInformation("888316"));
+
+
+        System.out.println(AESUtils.AESEncode(MD5Util.getEncryptionInformation("duke123"), MD5Util.getMd5("").getBytes()));
+        System.out.println(MD5Util.getEncryptionInformation("duke123"));
+
     }
 
 }

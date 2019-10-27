@@ -13,7 +13,6 @@ import pers.utils.urlUtils.UrlBuilder;
 @Listeners(ZTestReport.class)
 public class GetActivityDetails {
 
-
     private static String getActivityDetails = "/v1/activity/getActivityDetails";
 
     @Test(description = "活动对应明细")

@@ -14,7 +14,6 @@ public class TimeUtil {
         System.out.println(new Date().getTime());//当前时间戳，当前1567344514318
         System.out.println(getLCTime(-10));//当前日期-n天后的凌晨时间：2019-08-22 00:00:00
         System.out.println(getMillSecond("2019-08-31 11:32:49"));//时间转毫秒，1567222369000
-
         System.out.println(getDateFormat("YYYY-MM-dd HH:mm:ss"));
         System.out.println(getDateFormat("YYYYMMdd"));
 

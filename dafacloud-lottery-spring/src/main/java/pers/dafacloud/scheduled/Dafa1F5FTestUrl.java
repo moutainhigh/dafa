@@ -24,7 +24,7 @@ import pers.utils.urlUtils.UrlBuilder;
 import java.util.*;
 import java.util.concurrent.*;
 
-@Service
+//@Service
 public class Dafa1F5FTestUrl implements SchedulingConfigurer {
     //private static String host = "http://dafacloud-pre.com";
     private static String host = "http://caishen02.com";
@@ -65,11 +65,15 @@ public class Dafa1F5FTestUrl implements SchedulingConfigurer {
     public static void init()  {
         ExecutorService excutors0 = Executors.newFixedThreadPool(10);
         for (String lotteryCode : lotteryCodes1f) {
-            List<GetBetInfo> list = betRecordMapper.getRecordByLotteryCode(lotteryCode);
+            Map map=new HashMap();
+            map.put("lotteryCode",lotteryCode);
+            List<GetBetInfo> list = betRecordMapper.getRecordByLotteryCode(map);
             listnew1fen.add(list);
         }
         for (String lotteryCode : lotteryCodes5f) {
-            List<GetBetInfo> list = betRecordMapper.getRecordByLotteryCode(lotteryCode);
+            Map map=new HashMap();
+            map.put("lotteryCode",lotteryCode);
+            List<GetBetInfo> list = betRecordMapper.getRecordByLotteryCode(map);
             listnew5fen.add(list);
         }
         //登录

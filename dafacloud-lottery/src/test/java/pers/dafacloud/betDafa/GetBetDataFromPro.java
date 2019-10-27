@@ -83,6 +83,41 @@ public class GetBetDataFromPro {
 
     }
 
+    @Test(description = "")
+    public static void test10a() throws Exception {
+        SqlSession sqlSession = SqlSessionFactoryUtils.openSqlSession("betting");
+        GetBetInfoMapper getBetInfoMapper = sqlSession.getMapper(GetBetInfoMapper.class);
+        List<String> tenantcodes = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafacloud-lottery/src/main/resources/tenantCodePro.txt");
+        List<String> resultAll = new ArrayList<>();
+        //for (String tenantCode : tenantcodes) {
+        for (int i = 0; i < tenantcodes.size(); i++) {
+            System.out.println(i);
+            List<GetBetInfo> list = getBetInfoMapper.getRecord(tenantcodes.get(i));
+            List<BetConentFromTest> betConentFromTestList = new ArrayList<>();
+            for (GetBetInfo getBetInfo : list) {
+                BetConentFromTest betConentFromTest = new BetConentFromTest();
+                betConentFromTest.setGetBetInfo(getBetInfo);
+                //System.out.println();
+                String s = getBetInfo.getTenantCode() + "," +
+                        getBetInfo.getUsername() + "," +
+                        getBetInfo.getRecordCode() + "," +
+                        getBetInfo.getBettingAmount() + "," +
+                        //getBetInfo.getReturnAmount()+","+
+                        getBetInfo.getGmtModified();
+                //System.out.println(betConentFromTest);
+                betConentFromTestList.add(betConentFromTest);
+                resultAll.add(s);
+            }
+        }
+        FileOutputStream fos = new FileOutputStream("/Users/duke/Documents/resultAll.txt", false);
+        for (String s : resultAll) {
+            fos.write(s.getBytes());
+            fos.write("\r".getBytes());
+        }
+        fos.close();
+
+    }
+
     @Test(description = "测试")
     public static void test02() {
         long now = System.currentTimeMillis();

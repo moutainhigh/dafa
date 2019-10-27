@@ -3,6 +3,7 @@ package pers.dafacloud.dao.mapper.betRecord;
 import pers.dafacloud.dao.pojo.GetBetInfo;
 
 import java.util.List;
+import java.util.Map;
 
 
 public interface BetRecordMapper {
@@ -15,6 +16,6 @@ public interface BetRecordMapper {
     /**
      *
      * */
-    List<GetBetInfo> getRecordByLotteryCode(String lotteryCode);
+    List<GetBetInfo> getRecordByLotteryCode(Map map);
 
 }

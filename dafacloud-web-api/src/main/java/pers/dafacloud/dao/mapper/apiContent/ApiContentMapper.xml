@@ -28,6 +28,11 @@
         ,description description
         ,owner owner
         ,response_body responseBody
+
+        ,dePath dePath
+        ,deMethod deMethod
+        ,deReqParametersArray deReqParametersArray
+        ,deReturnValue deReturnValue
         from dafacloud_lottery_api
         <where>
             <if test="apiName!=null and apiName!=''">
@@ -92,6 +97,11 @@
 		  ,project = #{project}
 		  ,owner = #{owner}
 		  ,response_body = #{responseBody}
+
+		  ,dePath = #{dePath}
+          ,deMethod = #{deMethod}
+          ,deReqParametersArray = #{deReqParametersArray}
+          ,deReturnValue = #{deReturnValue}
 		  where id = #{id}
 	</update>
 
@@ -109,6 +119,11 @@
             ,project
             ,owner
             ,response_body
+
+            ,dePath
+            ,deMethod
+            ,deReqParametersArray
+            ,deReturnValue
 		)values (
 			#{apiName}
             ,#{path}
@@ -122,6 +137,11 @@
             ,#{project}
             ,#{owner}
             ,#{responseBody}
+
+            ,#{dePath}
+            ,#{deMethod}
+            ,#{deReqParametersArray}
+            ,#{deReturnValue}
 		)
 	</insert>
 

@@ -1,6 +1,8 @@
 package pers.utils.listUtils;
 
 import org.testng.annotations.Test;
+import org.testng.util.Strings;
+import pers.utils.fileUtils.FileUtil;
 
 import java.util.*;
 
@@ -21,6 +23,17 @@ public class ListRemoveRepeat {
         list.add("bcd");
         List<String> listnew = removeRepeat(list);
         System.out.println(listnew);
+        System.out.println(removeRepeatCount(list));
+    }
+
+    @Test(description = "测试")
+    public static void test02() {
+        List<String> list = FileUtil.readFile("/Users/duke/Documents/github/dafa/utils/src/main/resources/b.txt");
+        List<String> listnew = removeRepeat(list);
+        //System.out.println(listnew);
+        for(String s : listnew){
+            System.out.println(s);
+        }
         System.out.println(removeRepeatCount(list));
     }
 

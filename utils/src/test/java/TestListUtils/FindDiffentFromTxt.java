@@ -19,5 +19,8 @@ public class FindDiffentFromTxt {
 
         System.out.println(StringUtils.join(TwoListDiffent.getDifferListByLoop(a,b),","));
         System.out.println(StringUtils.join(TwoListDiffent.getDifferListByLoop(b,a),","));
+
+
+
     }
 }

@@ -19,6 +19,43 @@ public class ApiContent {
     private int pageSize;
     private String responseBody;
 
+    private String dePath;
+    private String deMethod;
+    private String deReqParametersArray;
+    private String deReturnValue;
+
+    public String getDePath() {
+        return dePath;
+    }
+
+    public void setDePath(String dePath) {
+        this.dePath = dePath;
+    }
+
+    public String getDeMethod() {
+        return deMethod;
+    }
+
+    public void setDeMethod(String deMethod) {
+        this.deMethod = deMethod;
+    }
+
+    public String getDeReqParametersArray() {
+        return deReqParametersArray;
+    }
+
+    public void setDeReqParametersArray(String deReqParametersArray) {
+        this.deReqParametersArray = deReqParametersArray;
+    }
+
+    public String getDeReturnValue() {
+        return deReturnValue;
+    }
+
+    public void setDeReturnValue(String deReturnValue) {
+        this.deReturnValue = deReturnValue;
+    }
+
     public int getProject() {
         return project;
     }

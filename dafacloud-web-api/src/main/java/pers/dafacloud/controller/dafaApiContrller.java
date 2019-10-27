@@ -1,6 +1,5 @@
 package pers.dafacloud.controller;
 
-
 import lombok.Data;
 import lombok.ToString;
 import net.sf.json.JSONObject;
@@ -23,6 +22,7 @@ import pers.utils.httpclientUtils.HttpHeader;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,13 +32,13 @@ public class dafaApiContrller {
     SqlSession sqlSession = SqlSessionFactoryUtils.openSqlSession();
     ApiContentMapper apiContentMapper = sqlSession.getMapper(ApiContentMapper.class);
 
-    @RequestMapping(value = "queryDafaApi", method = RequestMethod.GET)
+    @GetMapping("/queryDafaApi")
     public Response query(@RequestParam(value = "apiName", required = false) String apiName,
                           @RequestParam(value = "path", required = false) String path,
                           @RequestParam(value = "dependApiName", required = false) String dependApiName,
                           @RequestParam(value = "module", required = false) String module,
                           @RequestParam(value = "cmsFront", required = false) String cmsFront,
-                          @RequestParam(value = "project", required = false,defaultValue = "-1") int project,
+                          @RequestParam(value = "project", required = false, defaultValue = "-1") int project,
                           @RequestParam(value = "owner", required = false) String owner,
                           @RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
                           @RequestParam(value = "pageSize", required = false, defaultValue = "1") int pageSize
@@ -63,7 +63,7 @@ public class dafaApiContrller {
     }
 
     //配置
-    @RequestMapping(value = "addDafaApi", method = RequestMethod.POST)
+    @PostMapping("/addDafaApi")
     public String add(@RequestParam(value = "apiName", required = false) String apiName,
                       @RequestParam(value = "path", required = false) String path,
                       @RequestParam(value = "method", required = false) String method,
@@ -72,10 +72,14 @@ public class dafaApiContrller {
                       @RequestParam(value = "dependApiName", required = false) String dependApiName,
                       @RequestParam(value = "module", required = false) String module,
                       @RequestParam(value = "cmsFront", required = false) String cmsFront,
-                      @RequestParam(value = "project", required = false,defaultValue = "-1") int project,
+                      @RequestParam(value = "project", required = false, defaultValue = "-1") int project,
                       @RequestParam(value = "description", required = false) String description,
                       @RequestParam(value = "owner", required = false) String owner,
-                      @RequestParam(value = "responseBody", required = false) String responseBody
+                      @RequestParam(value = "responseBody", required = false) String responseBody,
+                      @RequestParam(value = "dePath", required = false) String dePath,
+                      @RequestParam(value = "deMethod", required = false) String deMethod,
+                      @RequestParam(value = "deReqParametersArray", required = false) String deReqParametersArray,
+                      @RequestParam(value = "deReturnValue", required = false) String deReturnValue
     ) {
         System.out.println("headerArray:" + headerArray);
         ApiContent apiContent = new ApiContent();
@@ -91,6 +95,12 @@ public class dafaApiContrller {
         apiContent.setDescription(description);
         apiContent.setOwner(owner);
         apiContent.setResponseBody(responseBody);
+
+        apiContent.setDePath(dePath);
+        apiContent.setDeMethod(deMethod);
+        apiContent.setDeReqParametersArray(deReqParametersArray);
+        apiContent.setDeReturnValue(deReturnValue);
+
         int i = apiContentMapper.addApi(apiContent);
         JSONObject jsonObject0 = new JSONObject();
         if (i == 1) {
@@ -103,16 +113,6 @@ public class dafaApiContrller {
         return jsonObject0.toString();
     }
 
-    @PostMapping("/delete")
-    public String delete(@RequestParam("id") int id) {
-        int delete = apiContentMapper.deleteApi(id);
-        if (delete == 0)
-            return "删除失败";
-        else
-            return "删除成功";
-    }
-
-
     @PostMapping("/updateDafaApi")
     public String update(@RequestParam(value = "apiName", required = false) String apiName,
                          @RequestParam(value = "path", required = false) String path,
@@ -122,10 +122,14 @@ public class dafaApiContrller {
                          @RequestParam(value = "dependApiName", required = false) String dependApiName,
                          @RequestParam(value = "module", required = false) String module,
                          @RequestParam(value = "cmsFront", required = false) String cmsFront,
-                         @RequestParam(value = "project", required = false,defaultValue = "-1") int project,
+                         @RequestParam(value = "project", required = false, defaultValue = "-1") int project,
                          @RequestParam(value = "description", required = false) String description,
                          @RequestParam(value = "owner", required = false) String owner,
                          @RequestParam(value = "responseBody", required = false) String responseBody,
+                         @RequestParam(value = "dePath", required = false) String dePath,
+                         @RequestParam(value = "deMethod", required = false) String deMethod,
+                         @RequestParam(value = "deReqParametersArray", required = false) String deReqParametersArray,
+                         @RequestParam(value = "deReturnValue", required = false) String deReturnValue,
                          int id) {
         ApiContent apiContent = new ApiContent();
         apiContent.setId(id);
@@ -141,6 +145,12 @@ public class dafaApiContrller {
         apiContent.setDescription(description);
         apiContent.setOwner(owner);
         apiContent.setResponseBody(responseBody);
+
+        apiContent.setDePath(dePath);
+        apiContent.setDeMethod(deMethod);
+        apiContent.setDeReqParametersArray(deReqParametersArray);
+        apiContent.setDeReturnValue(deReturnValue);
+
         int i = apiContentMapper.updateApi(apiContent);
         JSONObject jsonObject0 = new JSONObject();
         if (i == 1) {
@@ -154,13 +164,17 @@ public class dafaApiContrller {
     }
 
     //请求
-    @RequestMapping(value = "testDafaApi", method = RequestMethod.POST)
+    @PostMapping("/testDafaApi")
     public void request(@RequestParam(value = "host", required = false) String host,
                         @RequestParam(value = "path", required = false) String path,
                         @RequestParam(value = "cookie", required = false) String cookie,
                         @RequestParam(value = "reqParametersString", required = false) String reqParametersString,
                         @RequestParam(value = "method", required = false) String method,
                         @RequestParam(value = "headerArray", required = false) String headerArray,
+                        @RequestParam(value = "dePath", required = false) String dePath,
+                        @RequestParam(value = "deReqParametersString", required = false) String deReqParametersString,
+                        @RequestParam(value = "deMethod", required = false) String deMethod,
+                        @RequestParam(value = "deReturnValue", required = false) String deReturnValue,
                         //@RequestHeader(value = "JSESSIONID") String requestCookie,
                         HttpServletResponse response, HttpServletRequest request
     ) throws Exception {
@@ -174,16 +188,23 @@ public class dafaApiContrller {
         //System.out.println("requestCookie:" + requestCookie);
         //System.out.println(request.getCookies().length);
         System.out.println("RequestURI:" + request.getRequestURI());
-        System.out.println("requestURL:" + request.getRequestURL());
+
+        System.out.println("dePath:" + dePath);
+        System.out.println("deReqParametersString:" + deReqParametersString);
+        System.out.println("deMethod:" + deMethod);
+        System.out.println("deReturnValue:" + deReturnValue);
+
         boolean isLoginReq = path.endsWith("login");//是否是登录请求
+
         CookieStore cookieStore = new BasicCookieStore();
         //host
         String hostNew;
         if (!host.contains("http")) {
-            hostNew = "http://" + host + path;
+            hostNew = "http://" + host;
         } else {
-            hostNew = host + path;
+            hostNew = host;
         }
+
         if (!isLoginReq) {//不是登录请求才设置cookie
             //cookiec处理
             BasicClientCookie cookies = null;
@@ -191,9 +212,7 @@ public class dafaApiContrller {
             if (request.getCookies() == null) {
                 c_sessionId = "";
             }
-
-
-            if (StringUtils.isNotEmpty(cookie)) { //取请求参数的cookie
+            if (StringUtils.isNotEmpty(cookie)) { //取请求参数的cookie不为空
                 cookies = new BasicClientCookie("JSESSIONID", cookie);
             } else if (StringUtils.isNotEmpty(c_sessionId)) { //取获取连接的请求的cookie
                 for (javax.servlet.http.Cookie requestCookie0 : request.getCookies()) {
@@ -213,6 +232,7 @@ public class dafaApiContrller {
         }
         HttpClientContext context = new HttpClientContext();
         context.setCookieStore(cookieStore);
+
         //header
         Header[] headers = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
@@ -220,26 +240,84 @@ public class dafaApiContrller {
                 .other("Origin", hostNew)
                 .other("Session-Id", cookie) //棋牌系统前台使用
                 .build();
+
+
+        //如果有依赖 ============================================
+        //String newReqParametersString = "";
+        if (StringUtils.isNotEmpty(dePath)) {
+            String[] deReturn = deReturnValue.split(",");
+            //1.通过ID获取依赖api信息，入参和提取数据
+            //请求获取返回数据
+            if ("1".equals(deMethod)) {//GET
+                HttpConfig httpConfig = HttpConfig.custom().
+                        headers(headers)
+                        .url(hostNew + dePath + "?" + deReqParametersString)//依赖的数据，日期5-
+                        .context(context);
+                String dependentResult = DafaRequest.get(httpConfig);
+                JSONObject dependentResultJson = JSONObject.fromObject(dependentResult);
+                if (dependentResultJson.getInt("code") != 1) {
+                    response.getWriter().write("依赖接口返回错误:" + dependentResult);//依赖接口返回错误，直接返回
+                    return;
+                }
+                String dependentData = "";
+                if (deReturn.length == 3) {//list
+                    dependentData = dependentResultJson.getJSONObject("data")
+                            .getJSONArray(deReturn[1]).getJSONObject(0).getString(deReturn[2]);
+                } else if (deReturn.length == 2) {//code
+                    dependentData = JSONObject.fromObject(dependentResult).getJSONObject("data").getString(deReturn[1]);
+                }
+                System.out.println(dependentResult);
+                reqParametersString = reqParametersString.replace("{data}", dependentData);//替换
+            } else if ("2".equals(deMethod)) {//POST
+                HttpConfig httpConfig = HttpConfig.custom().
+                        headers(headers)
+                        .url(hostNew + dePath) //
+                        .context(context)
+                        .body(deReqParametersString);//依赖的参数
+                String dependentResult = DafaRequest.post(httpConfig);
+
+                JSONObject dependentResultJson = JSONObject.fromObject(dependentResult);
+                if (dependentResultJson.getInt("code") != 1) {
+                    response.getWriter().write("依赖接口返回错误:" +dependentResult);//依赖接口返回错误，直接返回
+                    return;
+                }
+                String dependentData = "";
+                if (deReturn.length == 3) {//list
+                    dependentData = dependentResultJson.getJSONObject("data")
+                            .getJSONArray(deReturn[1]).getJSONObject(0).getString(deReturn[2]);
+                } else if (deReturn.length == 2) {//code
+                    dependentData = JSONObject.fromObject(dependentResult).getJSONObject("data").getString(deReturn[1]);
+                }
+                System.out.println(dependentResult);
+                reqParametersString = reqParametersString.replace("{data}", dependentData);//替换
+            } else {
+                response.getWriter().write("依赖接口的请求方法错误，目前只支持get和post请求");
+                return;
+            }
+        }
+
+        System.out.println("NEW-reqParametersString:" + reqParametersString);
         //请求
         String result;
         if (method.equals("1")) { //GET
             HttpConfig httpConfig = HttpConfig.custom().
                     headers(headers)
-                    .url(hostNew + "?" + reqParametersString)
+                    .url(hostNew + path + "?" + reqParametersString)
                     .context(context);
             result = DafaRequest.get(httpConfig);
         } else if (method.equals("2")) { //POST
             HttpConfig httpConfig = HttpConfig.custom().
                     headers(headers)
-                    .url(hostNew)
+                    .url(hostNew + path)
                     .context(context)
                     .body(reqParametersString);
             result = DafaRequest.post(httpConfig);
         } else {
-            result = "请求方法错误，目前只支持get和post请求";
+            response.getWriter().write("请求方法错误，目前只支持get和post请求");
+            return;
         }
 
-        if (isLoginReq) {
+        if (isLoginReq) {//登录请求添加cookie
             //打印cookie
             String responseCookie = "";
             List<Cookie> cookie1 = context.getCookieStore().getCookies();
@@ -249,7 +327,7 @@ public class dafaApiContrller {
                     responseCookie = cookie2.getValue();
                 }
             }
-            System.out.println(result);
+            //System.out.println(result);
             if (StringUtils.isNotEmpty(responseCookie)) {
                 javax.servlet.http.Cookie cookienew = new javax.servlet.http.Cookie("JSESSIONID", responseCookie);
                 cookienew.setVersion(0);
@@ -263,6 +341,75 @@ public class dafaApiContrller {
     }
 
 
+    @PostMapping("/delete")
+    public String delete(@RequestParam("id") int id) {
+        int delete = apiContentMapper.deleteApi(id);
+        if (delete == 0)
+            return "删除失败";
+        else
+            return "删除成功";
+    }
+
+    public static String getDependentData(String dePath,String deMethod,String deReqParametersString, Header[] headers ){
+
+        //如果有依赖 ============================================
+        //String newReqParametersString = "";
+        //if (StringUtils.isNotEmpty(dePath)) {
+        //    String[] deReturn = deReturnValue.split(",");
+        //    //1.通过ID获取依赖api信息，入参和提取数据
+        //    //请求获取返回数据
+        //    if ("1".equals(deMethod)) {//GET
+        //        HttpConfig httpConfig = HttpConfig.custom().
+        //                headers(headers)
+        //                .url(hostNew + dePath + "?" + deReqParametersString)//依赖的数据，日期5-
+        //                .context(context);
+        //        String dependentResult = DafaRequest.get(httpConfig);
+        //        JSONObject dependentResultJson = JSONObject.fromObject(dependentResult);
+        //        if (dependentResultJson.getInt("code") != 1) {
+        //            response.getWriter().write("依赖接口返回错误:" + dependentResult);//依赖接口返回错误，直接返回
+        //            return;
+        //        }
+        //        String dependentData = "";
+        //        if (deReturn.length == 3) {//list
+        //            dependentData = dependentResultJson.getJSONObject("data")
+        //                    .getJSONArray(deReturn[1]).getJSONObject(0).getString(deReturn[2]);
+        //        } else if (deReturn.length == 2) {//code
+        //            dependentData = JSONObject.fromObject(dependentResult).getJSONObject("data").getString(deReturn[1]);
+        //        }
+        //        System.out.println(dependentResult);
+        //        reqParametersString = reqParametersString.replace("{data}", dependentData);//替换
+        //    } else if ("2".equals(deMethod)) {//POST
+        //        HttpConfig httpConfig = HttpConfig.custom().
+        //                headers(headers)
+        //                .url(hostNew + dePath) //
+        //                .context(context)
+        //                .body(deReqParametersString);//依赖的参数
+        //        String dependentResult = DafaRequest.post(httpConfig);
+        //
+        //        JSONObject dependentResultJson = JSONObject.fromObject(dependentResult);
+        //        if (dependentResultJson.getInt("code") != 1) {
+        //            response.getWriter().write("依赖接口返回错误:" +dependentResult);//依赖接口返回错误，直接返回
+        //            return;
+        //        }
+        //        String dependentData = "";
+        //        if (deReturn.length == 3) {//list
+        //            dependentData = dependentResultJson.getJSONObject("data")
+        //                    .getJSONArray(deReturn[1]).getJSONObject(0).getString(deReturn[2]);
+        //        } else if (deReturn.length == 2) {//code
+        //            dependentData = JSONObject.fromObject(dependentResult).getJSONObject("data").getString(deReturn[1]);
+        //        }
+        //        System.out.println(dependentResult);
+        //        reqParametersString = reqParametersString.replace("{data}", dependentData);//替换
+        //    } else {
+        //        response.getWriter().write("依赖接口的请求方法错误，目前只支持get和post请求");
+        //        return;
+        //    }
+        //}
+
+        return null;
+    }
+
+
     public final static Response fillResponse(Object data) {
         Response response = new Response();
         response.code = 1;
@@ -272,12 +419,15 @@ public class dafaApiContrller {
 
 
     public static void main(String[] args) {
-        List<JSONObject> list = new ArrayList<>();
+        /*List<JSONObject> list = new ArrayList<>();
         JSONObject json = new JSONObject();
         json.put("aa", "bb");
         list.add(json);
         Response res = fillResponse(list);
-        System.out.println(res);
+        System.out.println(res);*/
+        String s = "a{data}c";
+        s = s.replace("{data}", "b");
+        System.out.println(s);
     }
 
     @Data
@@ -286,4 +436,6 @@ public class dafaApiContrller {
         private int code;
         private Object data;
     }
+
+
 }

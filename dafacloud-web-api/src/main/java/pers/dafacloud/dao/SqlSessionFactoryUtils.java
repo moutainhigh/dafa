@@ -19,7 +19,7 @@ public class SqlSessionFactoryUtils {
      */
     private SqlSessionFactoryUtils() {}
 
-    /*
+    /**
      * 单实例对象
      */
     public static SqlSessionFactory initSqlSessionFactory() {

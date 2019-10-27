@@ -35,15 +35,11 @@ public class LHCshalv {
 
         //betting();
 
-
         //service.scheduleWithFixedDelay(()->{
         //    System.out.println(System.currentTimeMillis());
         //},5,60, TimeUnit.SECONDS);
 
     }
-
-
-
 
 
     public static void bet(List<String> betContents){

@@ -203,11 +203,12 @@ public class AESUtils {
     }
 
     public static void main(String[] args) throws Exception{
-        System.out.println(AESUtils.AESEncode("0d11081f25c023608c9f4281cf01239b", "01922cbeae89ad4d79ab769e84e7c5da".getBytes()));
-        System.out.println(MD5Util.getMd5("0701"));
+        //System.out.println(AESUtils.AESEncode("0d11081f25c023608c9f4281cf01239b", "01922cbeae89ad4d79ab769e84e7c5da".getBytes()));
+        //System.out.println(MD5Util.getMd5("0701"));
+        //6133e0f18ca96f918920d13c068a7c92
+        System.out.println(Md5Utils.getMD5("0123400".getBytes()));
+        //AESUtils.AESEncode(MD5Util.getEncryptionInformation("duke123"),"0701".getBytes());
 
-        Md5Utils.getMD5("duke123".getBytes());
-        AESUtils.AESEncode(MD5Util.getEncryptionInformation("duke123"),"0701".getBytes());
 
     }
 

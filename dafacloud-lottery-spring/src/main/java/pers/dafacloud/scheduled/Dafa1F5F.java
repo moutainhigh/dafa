@@ -2,6 +2,7 @@ package pers.dafacloud.scheduled;
 
 import net.sf.json.JSONArray;
 import org.apache.http.Header;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
@@ -18,10 +19,8 @@ import pers.utils.jsonUtils.JsonArrayBuilder;
 import pers.utils.jsonUtils.JsonObjectBuilder;
 import pers.utils.listUtils.ListSplit;
 import pers.utils.urlUtils.UrlBuilder;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.List;
+
+import java.util.*;
 import java.util.concurrent.*;
 
 //@Service
@@ -31,7 +30,6 @@ public class Dafa1F5F implements SchedulingConfigurer {
     //private static String loginUrl = host + "/v1/users/login";
     //private static ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
     private static ExecutorService excutors = Executors.newFixedThreadPool(300);
-
     private static SqlSession sqlSession = SqlSessionFactoryUtils.openSqlSession("dev");
     private static BetRecordMapper betRecordMapper = sqlSession.getMapper(BetRecordMapper.class);
     private static List<String> betUser =
@@ -41,22 +39,27 @@ public class Dafa1F5F implements SchedulingConfigurer {
     //"1407大发快三","1008大发时时彩","1300大发六合彩","1304大发PK10",
     //"1412 5分快3","1009 5分时时彩","1305 5分六合彩","1306 5分PK10"
     //static String[] lotteryCodes1f = {"1407", "1008", "1300", "1304", "1412", "1009", "1305", "1306"};
-    private static String[] lotteryCodes1f = {"1407", "1008", "1300", "1304"};
-    private static String[] lotteryCodes5f = {"1412", "1009", "1305", "1306"};
-
+    //private static String[] lotteryCodes1f = {"1407", "1008" ,"1300", "1304"};
+    //private static String[] lotteryCodes5f = {"1412", "1009","1305", "1306"};
+    private static String[] lotteryCodes5f = {"1305"};
     private static List<List<String>> listsSplitUser;
 
     static {
-        for (String lotteryCode : lotteryCodes1f) {
-            List<GetBetInfo> list = betRecordMapper.getRecordByLotteryCode(lotteryCode);
-            listnew1fen.add(list);
-        }
+        //for (String lotteryCode : lotteryCodes1f) {
+        //    Map map=new HashMap();
+        //    map.put("lotteryCode",lotteryCode);
+        //    List<GetBetInfo> list = betRecordMapper.getRecordByLotteryCode(map);
+        //    System.out.println(lotteryCode+","+list.size());
+        //    listnew1fen.add(list);
+        //}
         for (String lotteryCode : lotteryCodes5f) {
-            List<GetBetInfo> list = betRecordMapper.getRecordByLotteryCode(lotteryCode);
+            Map map=new HashMap();
+            map.put("lotteryCode",lotteryCode);
+            List<GetBetInfo> list = betRecordMapper.getRecordByLotteryCode(map);
+            System.out.println(lotteryCode+",长度"+list.size());
             listnew5fen.add(list);
         }
-
-        listsSplitUser = ListSplit.split(betUser, 10);
+        listsSplitUser = ListSplit.split(betUser, 1);
     }
 
     //@Scheduled(cron = "55 * * * * * ")
@@ -72,7 +75,7 @@ public class Dafa1F5F implements SchedulingConfigurer {
     //}
 
     //1分系列
-    @Scheduled(cron = "5 * * * * * ")
+    //@Scheduled(cron = "5 * * * * * ")
     public void a() {
         Calendar now = Calendar.getInstance();
         int m = now.get(Calendar.MONTH);

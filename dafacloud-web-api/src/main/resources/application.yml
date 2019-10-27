@@ -1,0 +1,18 @@
+server:
+  port: 8090
+
+#测试
+spring:
+  datasource:
+    local:
+      username: root
+      password: 123456
+      url: jdbc:mysql://localhost:3306/dafa-cloud?serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    dev:
+      username: root
+      password: 123456
+      url: jdbc:mysql://localhost:3306/dafa-cloud?serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+

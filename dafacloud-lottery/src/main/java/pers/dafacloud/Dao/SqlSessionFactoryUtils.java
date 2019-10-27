@@ -31,6 +31,8 @@ public class SqlSessionFactoryUtils {
         String resource = "SqlMapConfig.xml";
         InputStream inputStream = null;
         try {
+            //File file = ResourceUtils.getFile(resource);
+            //inputStream=new FileInputStream(file);
             inputStream = Resources.getResourceAsStream(resource);
         } catch (IOException e) {
             e.printStackTrace();

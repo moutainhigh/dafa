@@ -12,7 +12,8 @@ public class DafacloudLotterySpringApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DafacloudLotterySpringApplication.class, args);
-        Dafa1F5FTestUrl.init();
+        //Dafa1F5FTestUrl.init();
+        Dafa1F5FPreUrl.init();
     }
 
 }
