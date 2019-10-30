@@ -9,17 +9,11 @@ public class TestContrller {
 
     @GetMapping("/testCookie")
     public String  function01() {
-
         return "helloworld";
-
     }
 
     @PostMapping("/testCookie")
     public String  function02() {
-
         return "helloworld";
-
     }
-
-
 }

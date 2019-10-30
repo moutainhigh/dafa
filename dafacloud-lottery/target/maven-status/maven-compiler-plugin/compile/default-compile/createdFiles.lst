@@ -58,6 +58,7 @@ pers/dafacloud/utils/report/ZTestReport$1.class
 pers/dafacloud/utils/enums/Param.class
 pers/dafacloud/utils/randomHaoMa/GetRandomHaoMaK3.class
 pers/dafacloud/page/beting/Issue.class
+pers/dafacloud/Bb.class
 pers/dafacloud/PaymentTime.class
 pers/dafacloud/utils/randomHaoMa/CalculateAC.class
 pers/dafacloud/utils/httpUtils/Request.class

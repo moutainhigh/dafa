@@ -23,7 +23,7 @@ public class SqlSessionFactoryUtils {
     private SqlSessionFactoryUtils() {
     }
 
-    /*
+    /**
      * 单实例对象
      */
     public static SqlSessionFactory initSqlSessionFactory(String name) {
@@ -65,6 +65,9 @@ public class SqlSessionFactoryUtils {
         return sqlSessionFactory;
     }
 
+    /**
+     * 多数据源
+     */
     public static SqlSession openSqlSession(String name) {
         switch (name) {
             case "betting":
@@ -72,14 +75,14 @@ public class SqlSessionFactoryUtils {
                     initSqlSessionFactory(name);
                 }
                 return bettingSessionFactory.openSession();
-                //break;
+            //break;
             case "transaction":
                 if (transactionSessionFactory == null) {
                     initSqlSessionFactory(name);
 
                 }
                 return transactionSessionFactory.openSession();
-                //break;
+            //break;
             case "report":
                 if (reportSessionFactory == null) {
                     initSqlSessionFactory(name);
@@ -92,7 +95,7 @@ public class SqlSessionFactoryUtils {
 
                 }
                 return sqlSessionFactory.openSession();
-                //break;
+            //break;
         }
 //        if (sqlSessionFactory == null) {
 //            initSqlSessionFactory(name);
@@ -100,6 +103,9 @@ public class SqlSessionFactoryUtils {
 //        return sqlSessionFactory.openSession();
     }
 
+    /**
+     *单数据源-旧
+     */
     public static SqlSession openSqlSession() {
         if (sqlSessionFactory == null) {
             initSqlSessionFactory("dev");

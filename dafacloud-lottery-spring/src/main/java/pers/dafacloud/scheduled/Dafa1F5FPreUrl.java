@@ -9,8 +9,8 @@ import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.stereotype.Service;
 import pers.dafacloud.dao.SqlSessionFactoryUtils;
-import pers.dafacloud.dao.mapper.betRecord.BetRecordMapper;
-import pers.dafacloud.dao.pojo.GetBetInfo;
+import pers.dafacloud.mapper.betRecord.BetRecordMapper;
+import pers.dafacloud.pojo.GetBetInfo;
 import pers.utils.ThreadSleep.ThreadSleep;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;
@@ -23,7 +23,6 @@ import pers.utils.listUtils.ListSplit;
 import pers.utils.randomNameAddrIP.RandomIP;
 import pers.utils.urlUtils.UrlBuilder;
 
-import java.net.SocketTimeoutException;
 import java.util.*;
 import java.util.concurrent.*;
 

@@ -9,7 +9,9 @@ import java.util.List;
 public class PaymentTime {
 
 
-    //平均充值时间
+    /**
+     * 计算平均充值时间
+     * */
     public static void main(String[] args) {
         List<String> list = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafacloud-lottery/src/main/resources/paymentTime.txt");
         long total = 0L;
@@ -19,7 +21,6 @@ public class PaymentTime {
         }
         System.out.println("total:"+total);
         System.out.println("avg秒:"+(total/list.size())/1000);
-
     }
 
     public static long get(String d1, String d2) {

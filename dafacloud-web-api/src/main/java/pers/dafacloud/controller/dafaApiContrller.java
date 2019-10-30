@@ -11,10 +11,12 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.cookie.BasicClientCookie;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pers.dafacloud.dao.SqlSessionFactoryUtils;
-import pers.dafacloud.dao.mapper.apiContent.ApiContentMapper;
-import pers.dafacloud.dao.pojo.ApiContent;
+import pers.dafacloud.utils.SqlSessionFactoryUtils;
+import pers.dafacloud.mapper.apiContent.ApiContentMapper;
+import pers.dafacloud.mapper.apiContent.ApiTest;
+import pers.dafacloud.pojo.ApiContent;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
@@ -22,8 +24,6 @@ import pers.utils.httpclientUtils.HttpHeader;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -31,6 +31,9 @@ public class dafaApiContrller {
 
     SqlSession sqlSession = SqlSessionFactoryUtils.openSqlSession();
     ApiContentMapper apiContentMapper = sqlSession.getMapper(ApiContentMapper.class);
+
+    @Autowired
+    ApiTest apiTest;
 
     @GetMapping("/queryDafaApi")
     public Response query(@RequestParam(value = "apiName", required = false) String apiName,
@@ -56,6 +59,7 @@ public class dafaApiContrller {
         apiContent.setPageSize(pageSize);
         List<ApiContent> list = apiContentMapper.queryApi(apiContent);
         int count = apiContentMapper.queryApiCount(apiContent);
+        //int count = apiTest.queryApiCount(apiContent);
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("total", count);
         jsonObject.put("list", list);
@@ -278,7 +282,7 @@ public class dafaApiContrller {
 
                 JSONObject dependentResultJson = JSONObject.fromObject(dependentResult);
                 if (dependentResultJson.getInt("code") != 1) {
-                    response.getWriter().write("依赖接口返回错误:" +dependentResult);//依赖接口返回错误，直接返回
+                    response.getWriter().write("依赖接口返回错误:" + dependentResult);//依赖接口返回错误，直接返回
                     return;
                 }
                 String dependentData = "";
@@ -297,7 +301,8 @@ public class dafaApiContrller {
         }
 
         System.out.println("NEW-reqParametersString:" + reqParametersString);
-        //请求
+
+        //正式请求============================================
         String result;
         if (method.equals("1")) { //GET
             HttpConfig httpConfig = HttpConfig.custom().
@@ -327,8 +332,17 @@ public class dafaApiContrller {
                     responseCookie = cookie2.getValue();
                 }
             }
+            //棋牌系统前台(cocos)的cookie是登录返回body中获取，然后再添加到header
+            if(StringUtils.isEmpty(responseCookie)){
+                JSONObject loginResult = JSONObject.fromObject(result);
+                if(loginResult.getInt("code")==1){
+                    responseCookie = loginResult.getJSONObject("data").getString("sessionId");
+                }
+            }
+
+
             //System.out.println(result);
-            if (StringUtils.isNotEmpty(responseCookie)) {
+            if (StringUtils.isNotEmpty(responseCookie)) { //cookie添加到response
                 javax.servlet.http.Cookie cookienew = new javax.servlet.http.Cookie("JSESSIONID", responseCookie);
                 cookienew.setVersion(0);
                 cookienew.setPath("/");
@@ -350,7 +364,7 @@ public class dafaApiContrller {
             return "删除成功";
     }
 
-    public static String getDependentData(String dePath,String deMethod,String deReqParametersString, Header[] headers ){
+    public static String getDependentData(String dePath, String deMethod, String deReqParametersString, Header[] headers) {
 
         //如果有依赖 ============================================
         //String newReqParametersString = "";

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，用于隔离sql语句的，后续会有重要作用
+	#{} 占位符 相当于jdbc的？
+	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
+-->
+<mapper namespace="pers.dafacloud.mapper.betRecord.BetRecordMapper">
+    <!--
+        id : sql id;
+        parameterType:入参的数据类型
+        resultType:返回结果数据类型
+     -->
+    <!-- 六合彩杀率测试
+       statementType="STATEMENT"
+    -->
+    <select id="getRecordByIssue" resultType="pers.dafacloud.pojo.GetBetInfo" >
+		select
+		lottery_code lotteryCode,
+		play_detail_code playDetailCode,
+		record_code recordCode,
+		betting_number bettingNumber,
+		betting_amount bettingAmount,
+		betting_count bettingCount,
+		graduation_count graduationCount,
+		betting_unit bettingUnit
+		from dafacloud_betting.a_betting_lhc
+		where issue = #{issue}
+		 and betting_state in (1,2)
+	</select>
+
+	<select id="getRecordByLotteryCode" resultType="pers.dafacloud.pojo.GetBetInfo" >
+		select
+		lottery_code lotteryCode,
+		play_detail_code playDetailCode,
+		record_code recordCode,
+		betting_number bettingNumber,
+		betting_amount bettingAmount,
+		betting_count bettingCount,
+		graduation_count graduationCount,
+		betting_unit bettingUnit
+		from dafacloud_betting.a_betting_lhc
+		where lottery_code = #{lotteryCode}
+		<!--<if test="lotteryCode == '1300'">-->
+			<!--AND id in (1000000040320,1000000040351,1000000040352,1000000040353,1000000040354,1000000040355,1000000040356,1000000040357,1000000040358,1000000040359,1000000040360,1000000040361,1000000040362,1000000040363,1000000040364,1000000040365,1000000040366)-->
+		<!--</if>-->
+		<!--<if test="lotteryCode == '1305'">-->
+			<!--AND id in (105000105906306,105000105906320,105000105906321,105000105906322,105000105906323,105000105906324,205000105906310,205000105906600,205000105906324,205000105906320,205000105906321)-->
+		<!--</if>-->
+		 and betting_state in (1,2)
+		 limit 2000
+	</select>
+
+</mapper>

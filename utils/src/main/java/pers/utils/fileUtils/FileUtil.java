@@ -48,6 +48,7 @@ public class FileUtil {
     /**
      * 读文件入参：输入流
      * java -jar 读取resources文件需要Spring使用流读取，路径无法读取文件
+     *
      * ThreadTenantLottery1.class.getResourceAsStream("/svBetContent/1018.txt")
      */
     public static List<String> readFile(InputStream inputStream) {

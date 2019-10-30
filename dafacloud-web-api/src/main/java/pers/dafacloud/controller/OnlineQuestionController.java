@@ -2,14 +2,10 @@ package pers.dafacloud.controller;
 
 import net.sf.json.JSONObject;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.poi.hssf.usermodel.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pers.dafacloud.dao.SqlSessionFactoryUtils;
-import pers.dafacloud.dao.mapper.onlineQestion.OnlineQuestionMapper;
-import pers.dafacloud.dao.mapper.userMapper.UserMapper;
-import pers.dafacloud.dao.pojo.ApiContent;
-import pers.dafacloud.dao.pojo.OnlineQuestion;
+import pers.dafacloud.utils.SqlSessionFactoryUtils;
+import pers.dafacloud.mapper.onlineQestion.OnlineQuestionMapper;
+import pers.dafacloud.pojo.OnlineQuestion;
 import pers.dafacloud.utils.excelUtil.ExcelUtiles;
 
 import javax.servlet.http.HttpServletResponse;

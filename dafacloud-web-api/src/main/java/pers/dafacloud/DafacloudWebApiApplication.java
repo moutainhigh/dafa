@@ -23,7 +23,7 @@ import org.springframework.scheduling.annotation.Scheduled;
  * */
 
 @SpringBootApplication
-//@MapperScan(value = {"pers.dafacloud.dao.mapper"}) //不用每个mapper添加注解
+//@MapperScan(value = {"pers.dafacloud.mapper"}) //不用每个mapper添加注解
 public class DafacloudWebApiApplication {
 
     public static void main(String[] args) {
