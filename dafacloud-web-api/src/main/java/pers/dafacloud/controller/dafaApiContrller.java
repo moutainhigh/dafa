@@ -333,13 +333,13 @@ public class dafaApiContrller {
                 }
             }
             //棋牌系统前台(cocos)的cookie是登录返回body中获取，然后再添加到header
-            if(StringUtils.isEmpty(responseCookie)){
+            if (StringUtils.isEmpty(responseCookie)) {
                 JSONObject loginResult = JSONObject.fromObject(result);
-                if(loginResult.getInt("code")==1){
+                if (loginResult.getInt("code") == 1) {
                     responseCookie = loginResult.getJSONObject("data").getString("sessionId");
                 }
             }
-
+            System.out.println(responseCookie);
 
             //System.out.println(result);
             if (StringUtils.isNotEmpty(responseCookie)) { //cookie添加到response
@@ -349,6 +349,9 @@ public class dafaApiContrller {
                 cookienew.setDomain(new URL(request.getRequestURL().toString()).getHost());
                 response.addCookie(cookienew);
             }
+
+            response.addHeader("JSESSIONID", responseCookie);//添加属性，不会覆盖原来的属性
+            //response.setHeader("JSESSIONID","bbbbbb"); //会覆盖掉原来的属性
         }
         response.getWriter().write(result);//写入结果
 
