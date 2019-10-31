@@ -144,7 +144,7 @@ public class StartWsProtoClient {
         //new StartWsProtoClient("92582013").start();
         List<String> users = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/dukePhone.txt");
         for (int i = 0; i < 1; i++) {
-            new StartWsProtoClient(users.get(i), 104).start();
+            new StartWsProtoClient(users.get(i), 201).start();
             Thread.sleep(200);
         }
     }
@@ -160,6 +160,8 @@ public class StartWsProtoClient {
                     return new TbHandler();
                 case 104:
                     return new BjlHandler();
+                case 201:
+                    return new ZjhHandler();
             }
             return null;
         }

@@ -17,14 +17,15 @@ import java.util.Base64;
 public class Login {
 
     public static void main(String[] args) throws Exception{
-        //login("13012340010");
-        System.out.println(MD5Util.shaEncode("duke123"));
-        System.out.println(getLoginBody("0.19427303010137842"));
+        login("13012340010");
+        //System.out.println(MD5Util.shaEncode("duke123"));
+        //System.out.println(getLoginBody("0.19427303010137842"));
     }
 
 
     public static void login(String phone) {
         String url = "http://dukecocosrelease.dafagame-test.com";
+        //String url = "http://10.169.68.78:7010";//坚果本地
         //String url = "http://192.168.30.17:7010";//内网地址
         //String phone = "13012345682";//手机号
         String inviteCode = "0960743";//邀请码
@@ -38,13 +39,15 @@ public class Login {
                     HttpHeader
                             .custom()
                             .contentType("application/x-www-form-urlencoded;charset=UTF-8")
-                            .other("x-forwarded-for", ip)
-                            .other("x-remote-IP", ip)
-                            .other("X-Real-IP", ip)
+                            //.other("x-forwarded-for", ip)
+                            //.other("x-remote-IP", ip)
+                            //.other("X-Real-IP", ip)
                             //.other("x-tenant-code", "duke")
                             //.other("x-tenant-type", "1")
                             //.other("x-client-ip", ip)
                             //.other("x-source-id", "1")
+                            //.other("x-client-version","123")
+                            //.other("x-url","dukecocosrelease.dafagame-test.com")
                             .build();
             //URLEncoder.encode(password,"utf-8")
             String random = String.valueOf(Math.random());
@@ -69,7 +72,6 @@ public class Login {
     }
 
     public static String getLoginBody(String random) {
-        //String random = String.valueOf(Math.random());
         String password = "";
         try {
             password =
@@ -77,15 +79,6 @@ public class Login {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //md5加密后的密码
-        //String passwordCode = DigestUtils.md5Hex(DigestUtils.md5Hex(userName + DigestUtils.md5Hex(password)) + random);
-        //随机
-        //String encode = Base64.getEncoder().encodeToString(random.getBytes());
-        //System.out.println(encode);
-        //String body = String.format("userName=%s&password=%s&random=%s", encode);
-        //System.out.println(body);
-
-
         return password;
     }
 

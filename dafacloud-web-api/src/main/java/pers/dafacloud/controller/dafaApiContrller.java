@@ -238,13 +238,21 @@ public class dafaApiContrller {
         context.setCookieStore(cookieStore);
 
         //header
-        Header[] headers = HttpHeader.custom()
+        HttpHeader httpHeader = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0")
                 .other("Origin", hostNew)
-                .other("Session-Id", cookie) //棋牌系统前台使用
-                .build();
+                .other("Session-Id", cookie); //棋牌系统前台使用
 
+        if (StringUtils.isNotEmpty(headerArray)) { //header不为空则添加header
+            String[] headerArrayNew = headerArray.split("&");
+            for (String headerValue : headerArrayNew) {
+                String[] headerValueNew = headerValue.split("=");
+                httpHeader.other(headerValueNew[0], headerValueNew[1]);
+            }
+        }
+
+        Header[] headers = httpHeader.build();
 
         //如果有依赖 ============================================
         //String newReqParametersString = "";
