@@ -44,8 +44,8 @@ public class dafaApiContrller {
                           @RequestParam(value = "project", required = false, defaultValue = "-1") int project,
                           @RequestParam(value = "owner", required = false) String owner,
                           @RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
-                          @RequestParam(value = "pageSize", required = false, defaultValue = "1") int pageSize
-                          //,@RequestParam("description") String description
+                          @RequestParam(value = "pageSize", required = false, defaultValue = "1") int pageSize,
+                          @RequestParam(value = "groupsApi", required = false  ) String groupsApi
     ) {
         ApiContent apiContent = new ApiContent();
         apiContent.setApiName(apiName);
@@ -57,6 +57,8 @@ public class dafaApiContrller {
         apiContent.setOwner(owner);
         apiContent.setPageNum((pageNum - 1) * pageSize);
         apiContent.setPageSize(pageSize);
+        apiContent.setGroupsApi(groupsApi);
+        System.out.println(groupsApi);
         List<ApiContent> list = apiContentMapper.queryApi(apiContent);
         int count = apiContentMapper.queryApiCount(apiContent);
         //int count = apiTest.queryApiCount(apiContent);
@@ -83,7 +85,8 @@ public class dafaApiContrller {
                       @RequestParam(value = "dePath", required = false) String dePath,
                       @RequestParam(value = "deMethod", required = false) String deMethod,
                       @RequestParam(value = "deReqParametersArray", required = false) String deReqParametersArray,
-                      @RequestParam(value = "deReturnValue", required = false) String deReturnValue
+                      @RequestParam(value = "deReturnValue", required = false) String deReturnValue,
+                      @RequestParam(value = "groupsApi", required = false) String groupsApi
     ) {
         System.out.println("headerArray:" + headerArray);
         ApiContent apiContent = new ApiContent();
@@ -104,6 +107,8 @@ public class dafaApiContrller {
         apiContent.setDeMethod(deMethod);
         apiContent.setDeReqParametersArray(deReqParametersArray);
         apiContent.setDeReturnValue(deReturnValue);
+
+        apiContent.setGroupsApi(groupsApi);
 
         int i = apiContentMapper.addApi(apiContent);
         JSONObject jsonObject0 = new JSONObject();
@@ -134,6 +139,7 @@ public class dafaApiContrller {
                          @RequestParam(value = "deMethod", required = false) String deMethod,
                          @RequestParam(value = "deReqParametersArray", required = false) String deReqParametersArray,
                          @RequestParam(value = "deReturnValue", required = false) String deReturnValue,
+                         @RequestParam(value = "groupsApi", required = false) String groupsApi,
                          int id) {
         ApiContent apiContent = new ApiContent();
         apiContent.setId(id);
@@ -154,6 +160,8 @@ public class dafaApiContrller {
         apiContent.setDeMethod(deMethod);
         apiContent.setDeReqParametersArray(deReqParametersArray);
         apiContent.setDeReturnValue(deReturnValue);
+
+        apiContent.setGroupsApi(groupsApi);
 
         int i = apiContentMapper.updateApi(apiContent);
         JSONObject jsonObject0 = new JSONObject();

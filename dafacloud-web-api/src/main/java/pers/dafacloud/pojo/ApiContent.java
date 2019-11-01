@@ -24,6 +24,16 @@ public class ApiContent {
     private String deReqParametersArray;
     private String deReturnValue;
 
+    private String groupsApi;
+
+    public String getGroupsApi() {
+        return groupsApi;
+    }
+
+    public void setGroupsApi(String groupsApi) {
+        this.groupsApi = groupsApi;
+    }
+
     public String getDePath() {
         return dePath;
     }

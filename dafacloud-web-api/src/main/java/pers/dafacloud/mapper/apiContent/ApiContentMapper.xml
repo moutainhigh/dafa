@@ -33,6 +33,8 @@
         ,deMethod deMethod
         ,deReqParametersArray deReqParametersArray
         ,deReturnValue deReturnValue
+        ,groups_api groupsApi
+
         from dafacloud_lottery_api
         <where>
             <if test="apiName!=null and apiName!=''">
@@ -52,6 +54,10 @@
             </if>
             <if test="project!=null and project!='' and project!=-1 ">
                 AND project = #{project}
+            </if>
+
+            <if test="groupsApi!=null and groupsApi!='' ">
+                AND groups_api like CONCAT(CONCAT('%',#{groupsApi}),'%')
             </if>
         </where>
         order by id desc
@@ -80,6 +86,9 @@
             <if test="project!=null and project!='' and  project!=-1 ">
                 AND project = #{project}
             </if>
+            <if test="groupsApi!=null and groupsApi!='' and groupsApi!=-1 ">
+                AND groups_api = #{groupsApi}
+            </if>
         </where>
     </select>
 
@@ -102,6 +111,8 @@
           ,deMethod = #{deMethod}
           ,deReqParametersArray = #{deReqParametersArray}
           ,deReturnValue = #{deReturnValue}
+
+          ,groups_api = #{groupsApi}
 		  where id = #{id}
 	</update>
 
@@ -124,6 +135,7 @@
             ,deMethod
             ,deReqParametersArray
             ,deReturnValue
+            ,groups_api
 		)values (
 			#{apiName}
             ,#{path}
@@ -142,6 +154,7 @@
             ,#{deMethod}
             ,#{deReqParametersArray}
             ,#{deReturnValue}
+            ,#{groupsApi}
 		)
 	</insert>
 
