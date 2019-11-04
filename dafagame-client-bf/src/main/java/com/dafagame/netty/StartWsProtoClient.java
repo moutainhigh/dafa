@@ -12,10 +12,10 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import net.sf.json.JSONObject;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pers.utils.dafaRequest.DafaRequest;
+import pers.utils.dafaGameUtils.DafaGame;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.propertiesUtils.PropertiesUtil;
@@ -23,12 +23,11 @@ import pers.utils.urlUtils.UrlBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.UUID;
 
 public class StartWsProtoClient {
     private Logger logger = LoggerFactory.getLogger(StartWsProtoClient.class);
-    private static String url = "ws://game-gate.dafagame-test.com/v1/game/gameGate";
-
+    //private static String url = "ws://game-gate.dafagame-test.com/v1/game/gameGate";
+    private static String url = "ws://game-gate.dafagame-pre.com/v1/game/gameGate";
     private static EventLoopGroup group = new NioEventLoopGroup(1);
     private ChannelInitial channelInitial = new ChannelInitial();
     //private DdzHandler ddzHandler = new DdzHandler();
@@ -39,7 +38,6 @@ public class StartWsProtoClient {
 
     private Channel channel;
     private Thread thread;
-
 
     //构造器
     public StartWsProtoClient(String phone, int gameCode) {
@@ -66,9 +64,9 @@ public class StartWsProtoClient {
                 String body = UrlBuilder.custom()
                         .addBuilder("inviteCode", "")
                         .addBuilder("accountNumber", phone)
-                        .addBuilder("password", DigestUtils.md5Hex("123456") + encodeRandom) //"b4e82b683394b50b679dc2b51a79d987"
+                        .addBuilder("password", DafaGame.getLoginBody(random, "duke123")) //"b4e82b683394b50b679dc2b51a79d987"
                         .addBuilder("userType", "0") //正式0/测试1/遊客2
-                        .addBuilder("random", random)
+                        .addBuilder("random", encodeRandom)
                         .fullBody();
                 HttpConfig httpConfig = HttpConfig
                         .custom()
@@ -142,7 +140,8 @@ public class StartWsProtoClient {
         //    Thread.sleep(200);
         //}
         //new StartWsProtoClient("92582013").start();
-        List<String> users = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/dukePhone.txt");
+        List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/dukePhone.txt"));
+        System.out.println(users);
         for (int i = 0; i < 1; i++) {
             new StartWsProtoClient(users.get(i), 201).start();
             Thread.sleep(200);

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，用于隔离sql语句的，后续会有重要作用
+	#{} 占位符 相当于jdbc的？
+	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
+-->
+<mapper namespace="pers.dafacloud.mapper.tableDetail.TableDetailMapper">
+    <!--
+        id : sql id;
+        parameterType:入参的数据类型
+        resultType:返回结果数据类型
+     -->
+    <select id="queryTableDetail" parameterType="pers.dafacloud.pojo.TableDetail"
+            resultType="pers.dafacloud.pojo.TableDetail" flushCache="true" useCache="true">
+        select
+        id id
+        ,table_name_en tableNameEn
+        ,table_description tableDescription
+        ,table_column tableColumn
+        ,project project
+        ,module_server moduleServer
+        ,table_owner tableOwner
+        ,groups_table groupsTable
+        from table_detail
+        <where>
+            <if test="tableNameEn!=null and tableNameEn!=''">
+                AND table_name_en like CONCAT(CONCAT('%',#{tableNameEn}),'%')
+            </if>
+            <if test="tableDescription!=null and tableDescription!='' ">
+                AND table_description like CONCAT(CONCAT('%',#{tableDescription}),'%')
+            </if>
+            <if test="project!=null and project!='' and project!=-1">
+                AND project = #{project}
+            </if>
+            <if test="moduleServer!=null and moduleServer != ''">
+                AND module_server = #{moduleServer}
+            </if>
+            <if test="tableOwner!=null and tableOwner!=''">
+                AND table_owner = #{tableOwner}
+            </if>
+            <if test="groupsTable!=null and groupsTable!=''">
+                AND groups_table like CONCAT(CONCAT('%',#{groupsTable}),'%')
+            </if>
+        </where>
+        order by id desc
+        limit #{pageNum},#{pageSize};
+    </select>
+
+    <select id="queryTableDetailCount" parameterType="pers.dafacloud.pojo.TableDetail" resultType="java.lang.Integer"
+            flushCache="true" useCache="true">
+        select count(1) from table_detail
+        <where>
+            <if test="tableNameEn!=null and tableNameEn!=''">
+                AND table_name_en like CONCAT(CONCAT('%',#{tableNameEn}),'%')
+            </if>
+            <if test="tableDescription!=null and tableDescription!='' ">
+                AND table_description like CONCAT(CONCAT('%',#{tableDescription}),'%')
+            </if>
+            <if test="project!=null and project!='' and project!=-1">
+                AND project = #{project}
+            </if>
+            <if test="moduleServer!=null and moduleServer != ''">
+                AND module_server = #{moduleServer}
+            </if>
+            <if test="tableOwner!=null and tableOwner!=''">
+                AND table_owner = #{tableOwner}
+            </if>
+            <if test="groupsTable!=null and groupsTable!=''">
+                AND groups_table like CONCAT(CONCAT('%',#{groupsTable}),'%')
+            </if>
+        </where>
+    </select>
+
+    <update id="updateTableDetail" parameterType="pers.dafacloud.pojo.TableDetail">
+		update table_detail set
+		table_name_en = #{tableNameEn}
+        ,table_description = #{tableDescription}
+        ,table_column = #{tableColumn}
+        ,project =  #{project}
+        ,module_server = #{moduleServer}
+        ,table_owner= #{tableOwner}
+        ,groups_table = #{groupsTable}
+		where id = #{id}
+	</update>
+
+    <insert id="addTableDetail" parameterType="pers.dafacloud.pojo.TableDetail" keyProperty="id">
+		insert into table_detail(
+		    table_name_en
+            ,table_description
+            ,table_column
+            ,project
+            ,module_server
+            ,table_owner
+            ,groups_table
+		)values (
+			#{tableNameEn}
+			,#{tableDescription}
+			,#{tableColumn}
+			,#{project}
+			,#{moduleServer}
+			,#{tableOwner}
+			,#{groupsTable}
+		)
+	</insert>
+
+    <!--<delete id="delete" parameterType="int">-->
+        <!--delete from table_detail where id = #{id}-->
+    <!--</delete>-->
+
+
+</mapper>

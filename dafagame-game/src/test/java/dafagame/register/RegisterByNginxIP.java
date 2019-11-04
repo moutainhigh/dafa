@@ -13,16 +13,18 @@ import pers.utils.urlUtils.UrlBuilder;
 import java.net.URLEncoder;
 
 public class RegisterByNginxIP {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        String phone = "1301234";
-        for (int i = 0; i < 1000; i++) { //13012340104
-            try {
-                registerDafaGame(String.format("%s%04d", phone, i));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        //String phone = "1301234";
+        //for (int i = 0; i < 1000; i++) { //13012340104
+        //    try {
+        //        registerDafaGame(String.format("%s%04d", phone, i));
+        //    } catch (Exception e) {
+        //        e.printStackTrace();
+        //    }
+        //}
+        System.out.println(MD5Util.getEncryptionInformation("duke123"));
+        System.out.println(MD5Util.getMd5("3485").getBytes());
     }
 
     //棋牌游戏账号，随机ip

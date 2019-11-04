@@ -45,7 +45,7 @@ public class dafaApiContrller {
                           @RequestParam(value = "owner", required = false) String owner,
                           @RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
                           @RequestParam(value = "pageSize", required = false, defaultValue = "1") int pageSize,
-                          @RequestParam(value = "groupsApi", required = false  ) String groupsApi
+                          @RequestParam(value = "groupsApi", required = false) String groupsApi
     ) {
         ApiContent apiContent = new ApiContent();
         apiContent.setApiName(apiName);
@@ -284,10 +284,11 @@ public class dafaApiContrller {
                     dependentData = dependentResultJson.getJSONObject("data")
                             .getJSONArray(deReturn[1]).getJSONObject(0).getString(deReturn[2]);
                 } else if (deReturn.length == 2) {//code
-                    dependentData = JSONObject.fromObject(dependentResult).getJSONObject("data").getString(deReturn[1]);
+                    dependentData = dependentResultJson.getString(deReturn[1]);
                 }
                 System.out.println(dependentResult);
                 reqParametersString = reqParametersString.replace("{data}", dependentData);//替换
+
             } else if ("2".equals(deMethod)) {//POST
                 HttpConfig httpConfig = HttpConfig.custom().
                         headers(headers)
@@ -295,18 +296,18 @@ public class dafaApiContrller {
                         .context(context)
                         .body(deReqParametersString);//依赖的参数
                 String dependentResult = DafaRequest.post(httpConfig);
-
                 JSONObject dependentResultJson = JSONObject.fromObject(dependentResult);
                 if (dependentResultJson.getInt("code") != 1) {
                     response.getWriter().write("依赖接口返回错误:" + dependentResult);//依赖接口返回错误，直接返回
                     return;
                 }
+
                 String dependentData = "";
                 if (deReturn.length == 3) {//list
                     dependentData = dependentResultJson.getJSONObject("data")
                             .getJSONArray(deReturn[1]).getJSONObject(0).getString(deReturn[2]);
                 } else if (deReturn.length == 2) {//code
-                    dependentData = JSONObject.fromObject(dependentResult).getJSONObject("data").getString(deReturn[1]);
+                    dependentData = dependentResultJson.getString(deReturn[1]);
                 }
                 System.out.println(dependentResult);
                 reqParametersString = reqParametersString.replace("{data}", dependentData);//替换

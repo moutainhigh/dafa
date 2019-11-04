@@ -285,7 +285,7 @@ message PlayResult {
     repeated int64 addAmountList = 3;      //玩家八个盘口分别增加的金币的列表 不包含服务费
     optional string balance = 4;            //最新余额
     optional SpeacialPlayerInfo player = 5; //玩家 当前是玩家才有值
-    optional SpeacialPlayerInfo banker = 6; //庄家 当前是庄家才有值
+    optional SpeacialPlayerInfo banker = 6; //庄家 不管当前是庄家还是玩家都有值
     optional string pokerState = 7;        //输赢 庄家用 正 赢 负 输
     optional string pokerType = 8;         //中奖盘口
     optional string poker = 9;             //开奖位置

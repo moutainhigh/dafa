@@ -3,7 +3,6 @@ package dafagame.testCase.front.record.gameRecord;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.testng.annotations.Test;
-import pers.dafagame.gameUtils.RecordListFomat;
 import pers.utils.assertUtils.AssertUtil;
 import pers.utils.urlUtils.UrlBuilder;
 import pers.utils.dafaRequest.DafaRequest;

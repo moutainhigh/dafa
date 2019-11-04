@@ -153,6 +153,15 @@
             <!--<scope>testCookie</scope>-->
         <!--</dependency>-->
         <!--spring boot end-->
+
+        <!--注册加密 start-->
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!--注册加密 end-->
+
     </dependencies>
     <build>
         <plugins>

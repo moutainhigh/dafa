@@ -13,7 +13,7 @@ public class StringBuilders {
         sb.append(name);
         sb.append(":");
         sb.append(value);
-        sb.append(",");
+        sb.append("，，");
         return this;
     }
 

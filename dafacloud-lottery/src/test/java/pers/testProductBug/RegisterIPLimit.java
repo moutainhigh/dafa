@@ -2,7 +2,7 @@ package pers.testProductBug;
 
 
 import org.testng.annotations.Test;
-import pers.utils.dafacloud.Register;
+import pers.utils.dafaCloudLotteryUtils.Register;
 
 /**
  * ip注册上限
