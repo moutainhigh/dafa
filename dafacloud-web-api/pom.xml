@@ -59,15 +59,21 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.15</version>
             <scope>runtime</scope>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>com.alibaba</groupId>-->
+            <!--<artifactId>druid</artifactId>-->
+            <!--<version>1.1.12</version>-->
+        <!--</dependency>-->
+
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.1.10</version>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.9</version>
         </dependency>
-
 
         <!--spring boot 启动web项目 start-->
         <dependency>
@@ -121,7 +127,7 @@
             <artifactId>easypoi-annotation</artifactId>
             <version>4.0.0</version>
         </dependency>
-        <!--excel 操作 end-->
+        <!--excel 操作 end -->
 
         <!--切面 start 多数据源切面-->
         <dependency>
@@ -129,11 +135,16 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <!--切面 end-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-jdbc</artifactId>-->
+            <!--&lt;!&ndash;<version>${spring.jdbc.version}</version>&ndash;&gt;-->
+        <!--</dependency>-->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <!--<version>${spring.jdbc.version}</version>-->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
+
 
     </dependencies>
 

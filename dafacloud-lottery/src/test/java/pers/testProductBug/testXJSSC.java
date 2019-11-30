@@ -15,9 +15,8 @@ import pers.utils.urlUtils.UrlBuilder;
 public class testXJSSC {
 
     private static String cookie = "9AAD438CB27B0C19E2F8183992B3BDC3";
-    private  static String url = "http://caishen02.com/v1/betting/addBetting";//
+    private  static String url = "http://caishen02.com/v1/betting/addBetting";
     private  static String addChaseBetting = "http://caishen02.com/v1/betting/addChaseBetting";
-
 
     @Test(description = "当天第一期")
     public static void test01() {

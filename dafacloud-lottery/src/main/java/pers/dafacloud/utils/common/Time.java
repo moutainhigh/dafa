@@ -11,23 +11,10 @@ public class Time {
 
 	public static void main(String[] args) throws ParseException {
 
-
-
-//		System.out.println(YYYYMMDD());
-
-		/*System.out.println(getMillSecond("2019-05-03 00:00:00"));//
-		long ls = (getMillSecond("2019-05-03 16:42:25")-getMillSecond("2019-05-03 00:00:00"))/1000;
-		long l =ls/(5*60);//期数
-		long s =ls%(5*60);//期数
-		System.out.println((l+1)+":"+s);*/
-
-
-		System.out.println(21*60+49+1);
-
 	}
 
 	public static long  getMillSecond(String date){
-//		String date = "2017-06-27 15-20-00";
+		//String date = "2017-06-27 15-20-00";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//24小时制
 		//SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");//12小时制
 		long time = 0;
@@ -55,7 +42,7 @@ public class Time {
 	 * 返回当前时间年月日，格式20190101
 	 * */
 	public static String YYYYMMDD() {
-		// 获取当前时间字符串
+		//获取当前时间字符串
 		SimpleDateFormat simpleDateFormat;
 		simpleDateFormat = new SimpleDateFormat("yyyyMMdd");//YYYY年底时候回加一年
 		Date date = new Date();

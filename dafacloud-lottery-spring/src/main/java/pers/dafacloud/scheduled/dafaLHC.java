@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.scheduling.annotation.Scheduled;
 import pers.dafacloud.dao.SqlSessionFactoryUtils;
 import pers.dafacloud.mapper.betRecord.BetRecordMapper;
-import pers.dafacloud.pojo.GetBetInfo;
+import pers.dafacloud.model.GetBetInfo;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;

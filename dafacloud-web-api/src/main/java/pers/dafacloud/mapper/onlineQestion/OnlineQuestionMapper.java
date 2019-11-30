@@ -1,11 +1,12 @@
 package pers.dafacloud.mapper.onlineQestion;
 
-import pers.dafacloud.pojo.OnlineQuestion;
+import org.apache.ibatis.annotations.Mapper;
+import pers.dafacloud.model.OnlineQuestion;
 
 import java.util.List;
 import java.util.Map;
 
-//@Component
+@Mapper
 public interface OnlineQuestionMapper {
 
     List<Map> getQuestion(Map map);

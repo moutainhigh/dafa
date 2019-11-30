@@ -68,7 +68,6 @@ public class GetBetRecord {
             }
         }
         fileOutputStream.close();
-        //System.out.println(result);
     }
 
     @Test(description = "投注记录导出Excell 拼接case when")

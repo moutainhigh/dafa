@@ -7,9 +7,7 @@ pers/dafagame/utils/Dao/LotteryConfigTest.class
 pers/dafagame/utils/Dao/pojo/LotteryConfigPojo.class
 pers/dafagame/utils/getBetData/ReadCSV.class
 pers/dafagame/utils/httpUtils/SSLClientCustom$1.class
-pers/dafagame/utils/common/Time.class
 pers/dafagame/utils/common/FileUtils.class
-pers/dafagame/gameUtils/RecordListFomat.class
 pers/dafagame/utils/enums/Environment.class
 pers/dafagame/utils/Dao/mapper/LotteryConfigMapper.class
 pers/dafagame/utils/Dao/SqlSessionFactoryUtils.class

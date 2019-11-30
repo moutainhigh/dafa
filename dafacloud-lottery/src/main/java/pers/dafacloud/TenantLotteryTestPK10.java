@@ -21,7 +21,8 @@ import java.util.List;
 /**
  * 站长彩种压测
  */
-public class TenantLotteryTestPK10 {
+public class
+TenantLotteryTestPK10 {
     //52.76.195.164:8020 1套
     //52.77.207.64:8020
     private static String host = "http://caishen02.com";
@@ -46,7 +47,6 @@ public class TenantLotteryTestPK10 {
         user1fpk10.add("dafai0001");
         //user1k.add("dafai0001");
         betting(user1fpk10, betContents1k, 60);
-
     }
 
     public static void betting(List<String> users1, List<String> betContents1, int sleepSecond1) {

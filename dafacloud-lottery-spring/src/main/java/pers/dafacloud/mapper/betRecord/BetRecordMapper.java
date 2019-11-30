@@ -1,6 +1,6 @@
 package pers.dafacloud.mapper.betRecord;
 
-import pers.dafacloud.pojo.GetBetInfo;
+import pers.dafacloud.model.GetBetInfo;
 
 import java.util.List;
 import java.util.Map;

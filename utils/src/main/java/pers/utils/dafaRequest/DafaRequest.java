@@ -1,5 +1,6 @@
 package pers.utils.dafaRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.CookieStore;
@@ -43,7 +44,8 @@ public class DafaRequest {
         cookie = new BasicClientCookie("JSESSIONID", cookieJSESSIONID); //JSESSIONID
         cookie.setVersion(0);
         try {
-            cookie.setDomain(new URL(host).getHost());//设置范围
+            if(StringUtils.isNotEmpty(host))
+                cookie.setDomain(new URL(host).getHost());//设置范围
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -30,6 +30,11 @@ public class UrlBuilder {
         return this;
     }
 
+    public UrlBuilder addBuilder(String key, int value) {
+        this.params.add(new Params(key, String.valueOf(value)));
+        return this;
+    }
+
     public UrlBuilder addBuilder(String key) {
         this.params.add(new Params(key, ""));
         return this;

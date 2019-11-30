@@ -1,17 +1,13 @@
 package pers.dafagame.utils.getBetData;
 
 import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
-import net.sf.json.JSONObject;
 import pers.dafagame.pojo.BetContent;
-import pers.dafagame.utils.common.FileUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class ReadCSV {

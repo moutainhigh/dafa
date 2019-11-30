@@ -7,6 +7,7 @@ import org.apache.http.impl.cookie.BasicClientCookie;
 import pers.dafacloud.utils.enums.Environment;
 import pers.dafacloud.utils.httpUtils.Request;
 import pers.utils.dafaRequest.DafaRequest;
+import pers.utils.randomNameAddrIP.RandomIP;
 
 import java.util.Base64;
 import java.util.Base64.Encoder;
@@ -52,10 +53,14 @@ public class LoginPage {
     public Cookie getDafaCooike(String userName, String password) {
         String url = environment.url + "/v1/users/login";
         String body = getLoginBody(userName, password);
+        String ip = RandomIP.getRandomIp();
         // 添加头
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
         headers.put("User-Agent:", "Mozilla/5.0");
+        headers.put("x-forwarded-for", ip);
+        headers.put("x-remote-IP", ip);
+        headers.put("X-Real-IP", ip);
         headers.put("Origin", environment.url);
         // 获取带cookie的头
 //        System.out.println(url);

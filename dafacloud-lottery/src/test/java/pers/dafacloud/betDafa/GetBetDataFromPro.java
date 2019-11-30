@@ -4,7 +4,7 @@ import net.sf.json.JSONObject;
 import org.apache.http.Header;
 import org.apache.ibatis.session.SqlSession;
 import org.testng.annotations.Test;
-import pers.dafacloud.pojo.BetConentFromTest;
+import pers.dafacloud.model.BetConentFromTest;
 import pers.dafacloud.Dao.SqlSessionFactoryUtils;
 import pers.dafacloud.Dao.mapper.getBetInfo.GetBetInfoMapper;
 import pers.dafacloud.Dao.pojo.GetBetInfo;

@@ -24,8 +24,7 @@ import java.net.URI;
  * */
 public class MyDafaClient {
 
-    public static void main(String[] args) throws Exception {
-
+    public void test() throws Exception {
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
 
         try {
@@ -97,7 +96,6 @@ public class MyDafaClient {
         }finally {
             eventLoopGroup.shutdownGracefully();//优雅关闭
         }
-
     }
 
 }

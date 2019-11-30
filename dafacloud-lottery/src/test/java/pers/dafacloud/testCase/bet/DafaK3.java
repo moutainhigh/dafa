@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pers.dafacloud.page.beting.Betting;
-import pers.dafacloud.pojo.BetContent;
+import pers.dafacloud.model.BetContent;
 import pers.dafacloud.utils.getBetData.ReadCSV;
 import pers.dafacloud.utils.report.ZTestReport;
 

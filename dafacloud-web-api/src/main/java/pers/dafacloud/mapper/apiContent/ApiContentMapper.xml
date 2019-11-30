@@ -12,8 +12,8 @@
         parameterType:入参的数据类型
         resultType:返回结果数据类型
      -->
-    <select id="queryApi" parameterType="pers.dafacloud.pojo.ApiContent"
-            resultType="pers.dafacloud.pojo.ApiContent" flushCache="true" useCache="true">
+    <select id="queryApi" parameterType="pers.dafacloud.model.ApiContent"
+            resultType="pers.dafacloud.model.ApiContent" flushCache="true" useCache="true">
         select
         id id
         ,name apiName
@@ -64,7 +64,7 @@
         limit #{pageNum},#{pageSize}
     </select>
 
-    <select id="queryApiCount" parameterType="pers.dafacloud.pojo.ApiContent" resultType="java.lang.Integer"
+    <select id="queryApiCount" parameterType="pers.dafacloud.model.ApiContent" resultType="java.lang.Integer"
             flushCache="true" useCache="true">
         select count(1) from dafacloud_lottery_api
         <where>
@@ -92,7 +92,7 @@
         </where>
     </select>
 
-    <update id="updateApi" parameterType="pers.dafacloud.pojo.ApiContent">
+    <update id="updateApi" parameterType="pers.dafacloud.model.ApiContent">
 		update dafacloud_lottery_api set
 		  name = #{apiName}
 		  ,path = #{path}
@@ -116,7 +116,7 @@
 		  where id = #{id}
 	</update>
 
-    <insert id="addApi" parameterType="pers.dafacloud.pojo.ApiContent" keyProperty="id">
+    <insert id="addApi" parameterType="pers.dafacloud.model.ApiContent" keyProperty="id">
 		insert into dafacloud_lottery_api(
 		    name
             ,path

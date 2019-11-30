@@ -2,8 +2,7 @@ package pers.dafacloud.nettyWebsocketTest;
 
 import org.apache.http.cookie.Cookie;
 import pers.dafacloud.loginPage.LoginPage;
-import pers.dafacloud.pojo.BetGameContent;
-import pers.dafacloud.runWSJavaxSX.SendMessageSX;
+import pers.dafacloud.model.BetGameContent;
 import pers.dafacloud.utils.concurrent.CallableTaskFrameWork;
 import pers.dafacloud.utils.concurrent.ICallableTaskFrameWork;
 import pers.dafacloud.utils.enums.Environment;

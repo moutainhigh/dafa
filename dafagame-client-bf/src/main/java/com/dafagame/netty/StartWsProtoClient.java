@@ -53,10 +53,9 @@ public class StartWsProtoClient {
         //SimpleChannelInboundHandler handler = gameHandler.get(gameCode);
         this.channelInitial.setChannelHandler(gameHandler);
         //this.channelInitial.setChannelHandler(this.ddzHandler);
-
         thread = new Thread(() -> {
             try {
-                //================================登陆==================================
+                //-------------------------------登陆-------------------------------
                 String random = "9722";
                 //Encoder encoder = Base64.getEncoder();
                 //String encode = encoder.encodeToString(random.getBytes());
@@ -64,7 +63,7 @@ public class StartWsProtoClient {
                 String body = UrlBuilder.custom()
                         .addBuilder("inviteCode", "")
                         .addBuilder("accountNumber", phone)
-                        .addBuilder("password", DafaGame.getLoginBody(random, "duke123")) //"b4e82b683394b50b679dc2b51a79d987"
+                        .addBuilder("password", DafaGame.getLoginBody(random, "123qwe")) //"b4e82b683394b50b679dc2b51a79d987"
                         .addBuilder("userType", "0") //正式0/测试1/遊客2
                         .addBuilder("random", encodeRandom)
                         .fullBody();
@@ -76,18 +75,16 @@ public class StartWsProtoClient {
                 System.out.println(result);
                 String sessionId = JSONObject.fromObject(result).getJSONObject("data").getString("sessionId");
                 gameHandler.setPhone(phone);
-                //==============================ws链接====================================
+                //-------------------------------ws链接-------------------------------
                 Bootstrap bootstrap = new Bootstrap();
                 bootstrap.group(group)
                         .channel(NioSocketChannel.class) //
                         .option(ChannelOption.TCP_NODELAY, true)
                         .option(ChannelOption.SO_KEEPALIVE, true)
                         .handler(channelInitial);
-
                 ChannelFuture f = bootstrap
                         .connect(uri.getHost(), 80)  //链接
                         .sync();
-
                 this.channel = f.channel(); //
                 //logger.info(LogUtil.info(String.format("连接 ip:%s port:%s",host,port)));
                 this.clientHandshaker.setChannel(this.channel);
@@ -141,9 +138,9 @@ public class StartWsProtoClient {
         //}
         //new StartWsProtoClient("92582013").start();
         List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/dukePhone.txt"));
-        System.out.println(users);
-        for (int i = 0; i < 1; i++) {
-            new StartWsProtoClient(users.get(i), 201).start();
+        System.out.println(users.size());
+        for (int i = 0; i < 100; i++) {
+            new StartWsProtoClient(users.get(i), 102).start();
             Thread.sleep(200);
         }
     }

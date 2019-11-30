@@ -1,15 +1,13 @@
 package pers.dafacloud.runWSJavaxSX;
 
 
-import pers.dafacloud.pojo.BetGameContent;
-import pers.dafacloud.utils.common.FileUtils;
+import pers.dafacloud.model.BetGameContent;
 import pers.dafacloud.utils.concurrent.CallableTemplate;
 
 import javax.websocket.ContainerProvider;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 import java.net.URI;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

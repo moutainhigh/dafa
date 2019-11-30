@@ -2,7 +2,7 @@ package pers.dafacloud.test;
 
 import org.apache.ibatis.session.SqlSession;
 import pers.dafacloud.mapper.apiContent.ApiContentMapper;
-import pers.dafacloud.pojo.ApiContent;
+import pers.dafacloud.model.ApiContent;
 import pers.dafacloud.utils.SqlSessionFactoryUtils;
 
 import java.util.List;

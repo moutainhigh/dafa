@@ -10,14 +10,30 @@ import java.util.List;
 public class TimeUtil {
 
     public static void main(String[] args) throws Exception {
-
-        System.out.println(new Date().getTime());//当前时间戳，当前1567344514318
-        System.out.println(getLCTime(-10));//当前日期-n天后的凌晨时间：2019-08-22 00:00:00
-        System.out.println(getMillSecond("2019-08-31 11:32:49"));//时间转毫秒，1567222369000
-        System.out.println(getDateFormat("YYYY-MM-dd HH:mm:ss"));
-        System.out.println(getDateFormat("YYYYMMdd"));
-
+        System.out.println(getDiffMillSecond("2019-11-20 09:50:09.718", "2019-11-20 09:51:09.200"));
     }
+
+
+    /**
+     * 计算两个时间差毫秒
+     *
+     * @param startTime 开始时间
+     * @param endTime   结束时间
+     * @return difference 时间差（毫秒）
+     */
+    public static long getDiffMillSecond(String startTime, String endTime) {
+        long difference = 0;
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");//yyyy-mm-dd, 会出现时间不对, 因为小写的mm是代表: 秒
+            Date dateTime1 = sdf.parse(startTime);
+            Date dateTime2 = sdf.parse(endTime);
+            difference = dateTime2.getTime() - dateTime1.getTime();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return difference;
+    }
+
 
     /**
      * 获取凌晨时间，入参表示加减天数
@@ -106,36 +122,35 @@ public class TimeUtil {
         return different / 1000;
     }
 
-    // 来源网上，目前没有使用，计算时间差： 天，时，分，秒
-    public static long printDifference(Date startDate, Date endDate) {
+    /**
+     * 判断当前时间是否在[startTime, endTime]区间，注意时间格式要一致
+     *
+     * @param nowDate   当前时间
+     * @param startDate 开始时间
+     * @param endDate   结束时间
+     * @return boolean
+     * @author
+     */
+    public static boolean isEffectiveDate(String nowDate, String startDate, String endDate) throws Exception {
+        String format = "HH:mm:ss";
+        Date startTime = new SimpleDateFormat(format).parse(startDate);
+        Date endTime = new SimpleDateFormat(format).parse(endDate);
+        Date nowTime = new SimpleDateFormat(format).parse(nowDate);
 
-        // milliseconds
-        long different = endDate.getTime() - startDate.getTime();
+        if (nowTime.getTime() == startTime.getTime()
+                || nowTime.getTime() == endTime.getTime()) {
+            return true;
+        }
 
-        // System.out.println("startDate : " + startDate);
-        // System.out.println("endDate : "+ endDate);
-        /*
-         * System.out.println("different : " + different);
-         *
-         * long secondsInMilli = 1000; long minutesInMilli = secondsInMilli * 60; long
-         * hoursInMilli = minutesInMilli * 60; long daysInMilli = hoursInMilli * 24;
-         *
-         * long elapsedDays = different / daysInMilli; different = different %
-         * daysInMilli;
-         *
-         * long elapsedHours = different / hoursInMilli; different = different %
-         * hoursInMilli;
-         *
-         * long elapsedMinutes = different / minutesInMilli; different = different %
-         * minutesInMilli;
-         *
-         * long elapsedSeconds = different / secondsInMilli;
-         *
-         * System.out.printf( "%d days, %d hours, %d minutes, %d seconds%n",
-         * elapsedDays, elapsedHours, elapsedMinutes, elapsedSeconds);
-         */
-        return different / 1000;
+        long now = nowTime.getTime();
+        long begin = startTime.getTime();
+        long end = endTime.getTime();
 
+        if (now > begin && now < end) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -192,6 +207,19 @@ public class TimeUtil {
             System.out.println();
             m++;
         }
+    }
+
+    public static void getCurrent() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, 1);//加1月
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);//
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+        System.out.println(String.format("%s-%s-%s %s:%s:%s", year, month, day, hour, minute, second));
     }
 
 }

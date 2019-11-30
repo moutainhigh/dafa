@@ -17822,7 +17822,7 @@ public final class Bcbm {
 
     /**
      * <pre>
-     *庄家 当前是庄家才有值
+     *庄家 不管当前是庄家还是玩家都有值
      * </pre>
      *
      * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -17830,7 +17830,7 @@ public final class Bcbm {
     boolean hasBanker();
     /**
      * <pre>
-     *庄家 当前是庄家才有值
+     *庄家 不管当前是庄家还是玩家都有值
      * </pre>
      *
      * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -17838,7 +17838,7 @@ public final class Bcbm {
     com.dafagame.protocol.bcbm.Bcbm.SpeacialPlayerInfo getBanker();
     /**
      * <pre>
-     *庄家 当前是庄家才有值
+     *庄家 不管当前是庄家还是玩家都有值
      * </pre>
      *
      * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -18280,7 +18280,7 @@ public final class Bcbm {
     private com.dafagame.protocol.bcbm.Bcbm.SpeacialPlayerInfo banker_;
     /**
      * <pre>
-     *庄家 当前是庄家才有值
+     *庄家 不管当前是庄家还是玩家都有值
      * </pre>
      *
      * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -18290,7 +18290,7 @@ public final class Bcbm {
     }
     /**
      * <pre>
-     *庄家 当前是庄家才有值
+     *庄家 不管当前是庄家还是玩家都有值
      * </pre>
      *
      * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -18300,7 +18300,7 @@ public final class Bcbm {
     }
     /**
      * <pre>
-     *庄家 当前是庄家才有值
+     *庄家 不管当前是庄家还是玩家都有值
      * </pre>
      *
      * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -19528,7 +19528,7 @@ public final class Bcbm {
           com.dafagame.protocol.bcbm.Bcbm.SpeacialPlayerInfo, com.dafagame.protocol.bcbm.Bcbm.SpeacialPlayerInfo.Builder, com.dafagame.protocol.bcbm.Bcbm.SpeacialPlayerInfoOrBuilder> bankerBuilder_;
       /**
        * <pre>
-       *庄家 当前是庄家才有值
+       *庄家 不管当前是庄家还是玩家都有值
        * </pre>
        *
        * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -19538,7 +19538,7 @@ public final class Bcbm {
       }
       /**
        * <pre>
-       *庄家 当前是庄家才有值
+       *庄家 不管当前是庄家还是玩家都有值
        * </pre>
        *
        * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -19552,7 +19552,7 @@ public final class Bcbm {
       }
       /**
        * <pre>
-       *庄家 当前是庄家才有值
+       *庄家 不管当前是庄家还是玩家都有值
        * </pre>
        *
        * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -19572,7 +19572,7 @@ public final class Bcbm {
       }
       /**
        * <pre>
-       *庄家 当前是庄家才有值
+       *庄家 不管当前是庄家还是玩家都有值
        * </pre>
        *
        * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -19590,7 +19590,7 @@ public final class Bcbm {
       }
       /**
        * <pre>
-       *庄家 当前是庄家才有值
+       *庄家 不管当前是庄家还是玩家都有值
        * </pre>
        *
        * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -19614,7 +19614,7 @@ public final class Bcbm {
       }
       /**
        * <pre>
-       *庄家 当前是庄家才有值
+       *庄家 不管当前是庄家还是玩家都有值
        * </pre>
        *
        * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -19631,7 +19631,7 @@ public final class Bcbm {
       }
       /**
        * <pre>
-       *庄家 当前是庄家才有值
+       *庄家 不管当前是庄家还是玩家都有值
        * </pre>
        *
        * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -19643,7 +19643,7 @@ public final class Bcbm {
       }
       /**
        * <pre>
-       *庄家 当前是庄家才有值
+       *庄家 不管当前是庄家还是玩家都有值
        * </pre>
        *
        * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>
@@ -19658,7 +19658,7 @@ public final class Bcbm {
       }
       /**
        * <pre>
-       *庄家 当前是庄家才有值
+       *庄家 不管当前是庄家还是玩家都有值
        * </pre>
        *
        * <code>optional .com.dafagame.protocol.bcbm.SpeacialPlayerInfo banker = 6;</code>

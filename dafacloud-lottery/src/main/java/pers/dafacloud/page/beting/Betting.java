@@ -9,7 +9,7 @@ import pers.dafacloud.utils.enums.Path;
 import pers.dafacloud.utils.httpUtils.Request;
 import pers.dafacloud.page.pageLogin.Login;
 import net.sf.json.JSONObject;
-import pers.dafacloud.pojo.BetContent;
+import pers.dafacloud.model.BetContent;
 
 public class Betting {
 

@@ -9,6 +9,7 @@
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/proto/BjlMsg.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/netty/ClientHandshaker.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/nettyStudy/testDafaLotteryGame06/MyDafaClientInitializer.java
+/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/netty/ZjhHandler.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/nettyStudy/testDafaLotteryGame03/MyDafaClient.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/protocol/lhdz/Lhdz.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/netty/GameHandler.java
@@ -37,6 +38,7 @@
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/nettyStudy/neetyServer01/MyServerHandler.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/netty/BrnnHandler.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/broadcast/proto/MessageProto.java
+/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/protocol/zjh/Zjh.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/enums/Card.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/nettyStudy/client01/MyClient.java
 /Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/java/com/dafagame/nettyStudy/TextSocket/MyServerInitializer.java

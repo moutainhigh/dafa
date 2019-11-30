@@ -2,8 +2,7 @@ package pers.dafacloud.page.beting;
 
 import net.sf.json.JSONObject;
 import org.testng.Assert;
-import pers.dafacloud.page.pageLogin.Login;
-import pers.dafacloud.pojo.BetContent;
+import pers.dafacloud.model.BetContent;
 import pers.dafacloud.utils.common.Log;
 import pers.dafacloud.utils.enums.Path;
 import pers.dafacloud.utils.getBetData.ReadCSV;

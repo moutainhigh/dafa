@@ -5,7 +5,6 @@
 /Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/enums/Environment.java
 /Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/enums/Param.java
 /Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/httpUtils/Request.java
-/Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/gameUtils/RecordListFomat.java
 /Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/Dao/mapper/LotteryConfigMapper.java
 /Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/common/FileUtils.java
 /Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/enums/Path.java
@@ -13,4 +12,3 @@
 /Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/Dao/LotteryConfigTest.java
 /Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/httpUtils/SSLClientCustom.java
 /Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/Dao/SqlSessionFactoryUtils.java
-/Users/duke/Documents/github/dafa/dafagame-game/src/main/java/pers/dafagame/utils/common/Time.java

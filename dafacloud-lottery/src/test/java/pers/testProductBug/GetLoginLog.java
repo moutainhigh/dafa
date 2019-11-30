@@ -29,7 +29,6 @@ public class GetLoginLog {
                 .addBuilder("pageNum", "1")
                 .addBuilder("pageSize", "300")
                 .fullUrl();
-
         String result = DafaRequest.get(url, "F3E38BCFF381DA2C0C54F5D80D156C17");
         JSONArray ja = JSONObject.fromObject(result).getJSONObject("data").getJSONArray("result");
         System.out.println(ja.size());
@@ -81,7 +80,6 @@ public class GetLoginLog {
             for (int j = 0; j < ja0.size(); j++) {
                 JSONObject js1 = ja0.getJSONObject(j);
                 loginLocation.add(js1.getString("loginLocation"));
-                //System.out.print(js1.getString("loginLocation")+",");
             }
             System.out.println(ListRemoveRepeat.removeRepeatCount(loginLocation));
         }

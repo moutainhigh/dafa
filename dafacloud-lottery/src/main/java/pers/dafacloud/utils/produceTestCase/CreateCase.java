@@ -1,7 +1,7 @@
 package pers.dafacloud.utils.produceTestCase;
 
 
-import pers.dafacloud.pojo.BetContent;
+import pers.dafacloud.model.BetContent;
 import pers.dafacloud.utils.getBetData.ReadCSV;
 
 import java.util.List;

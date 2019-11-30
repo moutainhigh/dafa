@@ -1,15 +1,22 @@
 package pers.dafacloud.mapper.apiContent;
 
-import pers.dafacloud.pojo.ApiContent;
+import org.apache.ibatis.annotations.Mapper;
+import pers.dafacloud.model.ApiContent;
 
 import java.util.List;
 
+@Mapper
 public interface ApiContentMapper {
 
     /**
      * 新增api接口
      */
     int addApi(ApiContent apiContent);
+
+    /**
+     * 克隆api
+     */
+    int cloneApi(int id);
 
     /**
      * 删除api接口

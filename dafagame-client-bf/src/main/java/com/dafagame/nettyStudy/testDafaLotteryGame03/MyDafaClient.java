@@ -16,7 +16,8 @@ import java.net.URI;
 
 public class MyDafaClient {
 
-    public static void main(String[] args) throws Exception {
+
+    public static void test() throws Exception {
 
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
 
@@ -25,34 +26,27 @@ public class MyDafaClient {
 
             URI uri = URI.create("ws://m.caishen02.com/gameServer/?TOKEN=356d8fe4fded41a3bea1f42b994107ac&gameId=2003");
             MyDafaClientHandler myDafaClientHandler = new MyDafaClientHandler(WebSocketClientHandshakerFactory.newHandshaker(
-                    uri, WebSocketVersion.V13, (String)null, true,
-                    new DefaultHttpHeaders(),65536*100));
+                    uri, WebSocketVersion.V13, (String) null, true,
+                    new DefaultHttpHeaders(), 65536 * 100));
 
             bootstrap.group(eventLoopGroup)
                     .channel(NioSocketChannel.class) //客户端Nio
-                    .option(ChannelOption.TCP_NODELAY,true)
+                    .option(ChannelOption.TCP_NODELAY, true)
                     .handler(new MyDafaClientInitializer(myDafaClientHandler));//childHandler,谁处理
 
 
-            Channel channel = bootstrap.connect(uri.getHost(),80).channel();
+            Channel channel = bootstrap.connect(uri.getHost(), 80).channel();
 
 
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            for(;;){
-                channel.writeAndFlush(br.readLine()+"\r\n");
+            for (; ; ) {
+                channel.writeAndFlush(br.readLine() + "\r\n");
             }
 
             //channelFuture.channel().closeFuture().sync();
-        }finally {
+        } finally {
             eventLoopGroup.shutdownGracefully();//优雅关闭
         }
-
-
-
-
-
-
-
 
     }
 

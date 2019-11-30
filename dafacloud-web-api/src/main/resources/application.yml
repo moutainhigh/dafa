@@ -1,21 +1,52 @@
 server:
   port: 8090
 
-#测试
+#测试 serverTimezone=UTC jdbc:mysql://192.168.79.67:3306/dafa-cloud?serverTimezone=UTC
 spring:
   datasource:
     local:
       username: root
       password: 123456
-      jdbcUrl: jdbc:mysql://localhost:3306/dafa-cloud?serverTimezone=UTC
-      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/dafa-cloud?serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
-    dev:
+    dev1:
       username: root
       password: 123456
-      jdbcUrl: jdbc:mysql://localhost:3306/dafa-cloud?serverTimezone=UTC
-      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.79.67:3306/dafa-cloud?serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
 
+    initial-size: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    #filters: stat,wall,log4j
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
 
+mybatis-plus:
+  global-config:
+    db-config:
+      db-type: MYSQL
+      capital-mode: false #开启大写命名
+      column-like: true #开启 LIKE 查询
+
+logging:
+  level:
+    pers.dafacloud.mapper: debug
+#    com.dafacloud.management.managementapi.mapping: debug
 

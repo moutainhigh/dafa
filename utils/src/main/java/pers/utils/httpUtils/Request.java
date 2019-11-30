@@ -30,6 +30,9 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * 以前的方法-已经启用
+ */
 public class Request {
 
     static CloseableHttpClient httpclient;
@@ -298,8 +301,8 @@ public class Request {
         String url = "http://pt03.dafacloud-testCookie.com/v1/transaction/importManualRecord";
         Map<String, String> map = new HashMap<>();
         //map.put("Content-Type","multipart/form-data; boundary=----WebKitFormBoundaryUepX1Zeys0Vu54Bk");
-        map.put("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36");
-        String result = uploadFIle(url,"",map);
+        map.put("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36");
+        String result = uploadFIle(url, "", map);
         System.out.println(result);
     }
 }

@@ -1,7 +1,7 @@
 package pers.dafacloud.utils.enums;
 
 public enum Environment {
-//    DEFAULT("http://m.caishen02.com","m.caishen02.com"),
+    //DEFAULT("http://m.caishen02.com","m.caishen02.com"),
     DEFAULT("http://m.dafacloud-pre.com","m.dafacloud-pre.com"),
 //    DEFAULT("http://app.dfcdn5.com","app.dfcdn5.com"),
 //    DEFAULT("http://app.dfcdn5.com","app.dfcdn5.com"),3.1.152.170

@@ -53,6 +53,8 @@ public class ListRemoveRepeat {
 
     /**
      * list去重并且记录重复次数
+     * @param list
+     * @return listNew
      */
     public static List<String> removeRepeatCount(List<String> list) {
         List<String> listNew = new ArrayList<>();

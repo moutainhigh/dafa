@@ -7,7 +7,8 @@ public class playCardsHandler {
 
     private static List<Integer> leftCards = new ArrayList<>();
 
-    public static void main(String[] args) {
+
+    public static void test() {
         int[] poker = new int[]{4, 5, 6, 7, 22, 33, 12, 26, 31, 20, 51, 52, 57, 13, 17, 21, 25, 29, 40, 44, 32, 27};
         for (int i : poker) {
             leftCards.add(i);
@@ -32,7 +33,6 @@ public class playCardsHandler {
 //        getLianDui(poker);
 //        getFeiJi(poker);
 //        getDuiZI(poker);
-
 
     }
 

@@ -41,8 +41,8 @@ public class Request {
             //HttpHost proxy = new HttpHost("127.0.0.1", 9876, "http");
             //把代理设置到请求配置*/
             defaultRequestConfig = RequestConfig.custom()
-                    .setConnectTimeout(10000)//设置连接超时时间
-                    .setSocketTimeout(10000)//设置读取超时时间
+                    .setConnectTimeout(20000)//设置连接超时时间
+                    .setSocketTimeout(20000)//设置读取超时时间
                     //.setProxy(proxy) //设置代理
                     .build();
 

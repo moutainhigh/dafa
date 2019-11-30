@@ -72,7 +72,7 @@
         </where>
     </select>
     <!--导出数据-->
-    <select id="exportQuestion" parameterType="Map" resultType="pers.dafacloud.pojo.OnlineQuestion" flushCache="true" useCache="true">
+    <select id="exportQuestion" parameterType="Map" resultType="pers.dafacloud.model.OnlineQuestion" flushCache="true" useCache="true">
         select
         (@i:=@i+1) num,
         a.id , -- id 自增

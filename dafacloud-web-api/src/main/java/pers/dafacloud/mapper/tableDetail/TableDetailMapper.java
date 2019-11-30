@@ -1,9 +1,11 @@
 package pers.dafacloud.mapper.tableDetail;
 
-import pers.dafacloud.pojo.TableDetail;
+import org.apache.ibatis.annotations.Mapper;
+import pers.dafacloud.model.TableDetail;
 
 import java.util.List;
 
+@Mapper
 public interface TableDetailMapper {
 
     /**
@@ -21,6 +23,8 @@ public interface TableDetailMapper {
      * 新增api接口
      */
     int addTableDetail(TableDetail tableDetail);
+
+    int cloneTableDetail(int id);
 
     /**
      * 修改api接口

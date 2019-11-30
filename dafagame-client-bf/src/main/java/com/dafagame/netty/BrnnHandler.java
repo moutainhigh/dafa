@@ -63,8 +63,8 @@ public class BrnnHandler extends GameHandler {
                 //System.out.println("proto：" + clientMsg.getProto());
                 switch (clientMsg.getProto()) {
                     case Gate.ProtoType.GateResType_VALUE:  //102登陆成功通知
-                        System.out.println("102登陆成功通知：" + Gate.GateRes.parseFrom(clientMsg.getData()).toString().
-                                replaceAll("\n", "").replaceAll("\t", ""));
+                        //System.out.println("102登陆成功通知：" + Gate.GateRes.parseFrom(clientMsg.getData()).toString().
+                        //        replaceAll("\n", "").replaceAll("\t", ""));
                         Gate.GateRes gateRes = Gate.GateRes.parseFrom(clientMsg.getData());
                         //uid = gateRes.getLoginRes().getUid();
                         if (!isEnterGame) {
@@ -83,42 +83,42 @@ public class BrnnHandler extends GameHandler {
 //                        System.out.println(World.ErrorNtf.parseFrom(clientMsg.getData()).toString().
 //                                replaceAll("\n", "").replaceAll("\t", ""));
                         World.ErrorNtf errorNtf = World.ErrorNtf.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("1004错误消息")
-                                        .add(phone + "错误消息", errorNtf.getErr())
-                                        .build()
-                        );
+                        //System.out.println(
+                        //        StringBuilders.custom()
+                        //                .add("1004错误消息")
+                        //                .add(phone + "错误消息", errorNtf.getErr())
+                        //                .build()
+                        //);
                         break;
                     case World.ProtoType.EnterGameResType_VALUE:   //1001 进入游戏通知
                         World.EnterGameRes enterGameRes = World.EnterGameRes.parseFrom(clientMsg.getData());//.getGameCode();
 //                        System.out.println("1001进入游戏通知：" + World.EnterGameRes.parseFrom(clientMsg.getData()).toString().
 //                                replaceAll("\n", "").replaceAll("\t", ""));
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("1001进入游戏")
-                                        .add(phone + "游戏code", enterGameRes.getGameCode())
-                                        .add(phone + "msg", enterGameRes.getMsg())
-                                        .build()
-                        );
+//                        System.out.println(
+//                                StringBuilders.custom()
+//                                        .add("1001进入游戏")
+//                                        .add(phone + "游戏code", enterGameRes.getGameCode())
+//                                        .add(phone + "msg", enterGameRes.getMsg())
+//                                        .build()
+//                        );
                         //发送进入场景请求
                         if (!isScenesReq) {
                             Brnn.ScenesReq scenesReq = Brnn.ScenesReq.newBuilder().build();
                             sendBf(scenesReq.toByteString(), Brnn.ProtoType.ScenesReqType_VALUE, channel);
-                            System.out.println("20310进入场景请求 send Success");
+                            //System.out.println("20310进入场景请求 send Success");
                             isScenesReq = true;
                         }
                         break;
                     case Brnn.ProtoType.BetResType_VALUE:
                         Brnn.BetRes betRes = Brnn.BetRes.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("10156投注响应")
-                                        .add("投注list", betRes.getBetInfoList().toString().replaceAll("\n", ""))
-                                        .add("total", betRes.getTotal())
-                                        .add("错误码", betRes.getErrorCode())
-                                        .build()
-                        );
+                        //System.out.println(
+                        //        StringBuilders.custom()
+                        //                .add("10156投注响应")
+                        //                .add("投注list", betRes.getBetInfoList().toString().replaceAll("\n", ""))
+                        //                .add("total", betRes.getTotal())
+                        //                .add("错误码", betRes.getErrorCode())
+                        //                .build()
+                        //);
                         break;
                     /*case Brnn.ProtoType.OnlineNumberNtfType_VALUE:
                         Brnn.OnlineNumberNtf onlineNumberNtf = Brnn.OnlineNumberNtf.parseFrom(clientMsg.getData());
@@ -267,7 +267,7 @@ public class BrnnHandler extends GameHandler {
                                 .addBetInfo(betinfo)
                                 .build();
                         sendBf(betReq.toByteString(), Brnn.ProtoType.BetReqType_VALUE, channel);//发送消息
-                        System.out.println("投注send发送成功：" + amout[indexAmount] + "，" + pos);
+                        //System.out.println("投注send发送成功：" + amout[indexAmount] + "，" + pos);
                     }
                 }
                 , 0, 500, TimeUnit.MILLISECONDS);

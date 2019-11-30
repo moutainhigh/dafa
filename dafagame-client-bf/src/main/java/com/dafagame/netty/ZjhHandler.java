@@ -341,7 +341,6 @@ public class ZjhHandler extends GameHandler {
             return;
         }
 
-
         Zjh.BetReq betReq = Zjh.BetReq.newBuilder()
                 .setChip("1")
                 .build();
@@ -374,7 +373,6 @@ public class ZjhHandler extends GameHandler {
         //跟梭哈
         Zjh.FollowStudReq followStudReq = Zjh.FollowStudReq.newBuilder().build();
         sendBf(followStudReq.toByteString(), Zjh.ProtoType.FollowStudReqType_VALUE, channel);
-
 
     }
 

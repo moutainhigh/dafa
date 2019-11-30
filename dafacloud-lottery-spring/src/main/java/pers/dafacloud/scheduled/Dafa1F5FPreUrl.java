@@ -10,7 +10,7 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.stereotype.Service;
 import pers.dafacloud.dao.SqlSessionFactoryUtils;
 import pers.dafacloud.mapper.betRecord.BetRecordMapper;
-import pers.dafacloud.pojo.GetBetInfo;
+import pers.dafacloud.model.GetBetInfo;
 import pers.utils.ThreadSleep.ThreadSleep;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;

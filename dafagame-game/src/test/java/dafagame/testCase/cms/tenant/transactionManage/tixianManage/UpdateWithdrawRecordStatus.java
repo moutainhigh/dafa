@@ -34,7 +34,7 @@ public class UpdateWithdrawRecordStatus {
                 .url(withdrawRecordList)
                 .addBuilder("userName", "")
                 .addBuilder("grades", "")
-                .addBuilder("state", "-1")// -1全部 0	未确定，1	确定，2	取消  12小时未回复取消，3	取消
+                .addBuilder("state", "-1")// -1全部 0	未确定，1	确定，2	取消  12小时未回复取消，3拒绝
                 .addBuilder("pageNum", "1")
                 .addBuilder("pageSize", "20")
 //                .addBuilder("startTime", "2019-08-05 00:00:00")

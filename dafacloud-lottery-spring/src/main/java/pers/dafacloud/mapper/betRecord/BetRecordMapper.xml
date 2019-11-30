@@ -15,7 +15,7 @@
     <!-- 六合彩杀率测试
        statementType="STATEMENT"
     -->
-    <select id="getRecordByIssue" resultType="pers.dafacloud.pojo.GetBetInfo" >
+    <select id="getRecordByIssue" resultType="pers.dafacloud.model.GetBetInfo" >
 		select
 		lottery_code lotteryCode,
 		play_detail_code playDetailCode,
@@ -30,7 +30,7 @@
 		 and betting_state in (1,2)
 	</select>
 
-	<select id="getRecordByLotteryCode" resultType="pers.dafacloud.pojo.GetBetInfo" >
+	<select id="getRecordByLotteryCode" resultType="pers.dafacloud.model.GetBetInfo" >
 		select
 		lottery_code lotteryCode,
 		play_detail_code playDetailCode,

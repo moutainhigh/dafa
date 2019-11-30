@@ -9,7 +9,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import net.sf.json.JSONObject;
 import pers.dafacloud.page.beting.GetBetRebate;
-import pers.dafacloud.pojo.BetContent;
+import pers.dafacloud.model.BetContent;
 import pers.dafacloud.utils.common.FileUtils;
 
 public class ReadCSV {

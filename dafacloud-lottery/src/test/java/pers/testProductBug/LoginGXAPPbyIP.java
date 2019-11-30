@@ -32,8 +32,6 @@ public class LoginGXAPPbyIP {
                 .build();
         String result = DafaRequest.post(url, getLoginBody("duke01", "123456"), headers);
         System.out.println(result);
-
-
     }
 
     /**
