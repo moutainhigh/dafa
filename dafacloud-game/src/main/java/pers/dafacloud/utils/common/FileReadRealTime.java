@@ -16,7 +16,7 @@ public class FileReadRealTime {
         while (true){
             System.out.println("pointer:"+pointer);
             String path ="/Users/duke/Documents/github/pers.dafacloud-web/testCookie.log";
-            randomRed(path);
+            //randomRed(path);
             try {
                 System.out.println("停顿开始："+System.currentTimeMillis());
                 //停顿10秒，方便操作日志文件，看效果。

@@ -1,17 +1,13 @@
 package dafagame.register;
 
-import dafagame.AESUtils;
-import dafagame.MD5Util;
-import net.sf.json.JSONObject;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
+import pers.utils.Md5HA1.MD5Util;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.randomNameAddrIP.RandomIP;
 import pers.utils.urlUtils.UrlBuilder;
 
-import java.net.URLEncoder;
 import java.util.Base64;
 
 public class Login {

@@ -2,7 +2,7 @@ package pers.dafacloud.chatRoom;
 
 import net.sf.json.JSONObject;
 import org.apache.http.Header;
-import pers.dafacloud.loginPage.LoginPage;
+import pers.dafacloud.dafacloudUtils.Login;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
@@ -37,7 +37,7 @@ public class StartChatRoomWs {
         for (int i = 0; i < 100; i++) {
             int ii = i;
             new Thread(() -> {
-                String loginBody = LoginPage.getLoginBody(users.get(ii), "duke123");
+                String loginBody = "";//Login.getLoginBody(users.get(ii), "duke123");
                 HttpCookies httpCookies = HttpCookies.custom();
                 HttpConfig httpConfig = HttpConfig.custom()
                         //.url("http://52.76.195.164:8111/v1/broadCast/generateKey")

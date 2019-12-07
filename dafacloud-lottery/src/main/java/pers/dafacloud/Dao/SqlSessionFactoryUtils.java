@@ -54,6 +54,11 @@ public class SqlSessionFactoryUtils {
                         reportSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, name);
                     }
                     break;
+                case "lotteryGame":
+                    if (reportSessionFactory == null) {
+                        reportSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, name);
+                    }
+                    break;
                 default:
                     if (sqlSessionFactory == null) {
                         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, "dev");
@@ -74,27 +79,29 @@ public class SqlSessionFactoryUtils {
                 if (bettingSessionFactory == null) {
                     initSqlSessionFactory(name);
                 }
-                return bettingSessionFactory.openSession();
-            //break;
+                return bettingSessionFactory.openSession(true);
             case "transaction":
                 if (transactionSessionFactory == null) {
                     initSqlSessionFactory(name);
 
                 }
-                return transactionSessionFactory.openSession();
-            //break;
+                return transactionSessionFactory.openSession(true);
             case "report":
                 if (reportSessionFactory == null) {
                     initSqlSessionFactory(name);
                 }
-                return reportSessionFactory.openSession();
-            //break;
+                return reportSessionFactory.openSession(true);
+            case "lotteryGame":
+                if (reportSessionFactory == null) {
+                    initSqlSessionFactory(name);
+                }
+                return reportSessionFactory.openSession(true);
             default:
                 if (sqlSessionFactory == null) {
                     initSqlSessionFactory("dev");
 
                 }
-                return sqlSessionFactory.openSession();
+                return sqlSessionFactory.openSession(true);
             //break;
         }
 //        if (sqlSessionFactory == null) {
@@ -106,12 +113,12 @@ public class SqlSessionFactoryUtils {
     /**
      *单数据源-旧
      */
-    public static SqlSession openSqlSession() {
-        if (sqlSessionFactory == null) {
-            initSqlSessionFactory("dev");
-        }
-        return sqlSessionFactory.openSession();
-    }
+    //public static SqlSession openSqlSession() {
+    //    if (sqlSessionFactory == null) {
+    //        initSqlSessionFactory("dev");
+    //    }
+    //    return sqlSessionFactory.openSession(true);
+    //}
 
 }
 

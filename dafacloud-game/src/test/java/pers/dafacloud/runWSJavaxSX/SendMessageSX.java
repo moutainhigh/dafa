@@ -11,10 +11,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
-public class SendMessageSX extends CallableTemplate<Map<String, String>> {
-
-    private static long r = 0;
-
+public class SendMessageSX {
     private String url;
     private String username;
     private int gameID;
@@ -25,7 +22,7 @@ public class SendMessageSX extends CallableTemplate<Map<String, String>> {
         this.gameID = gameID;
     }
 
-    @Override
+    //@Override
     public Map<String, String> process() {
         try {
             //1。创建链接
@@ -43,21 +40,18 @@ public class SendMessageSX extends CallableTemplate<Map<String, String>> {
             List<BetGameContent> PosSix = Testws.PosSix;
             List<BetGameContent> PosEight = Testws.PosEight;
             List<BetGameContent> PosFour = Testws.PosFour;
-
             //提取结果
-            //Map<String, String> map = new HashMap<>();
             Thread.sleep(1000);
-
             //int[] amount=new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,5,10,50,100,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,5,10,50,100,100,500,1000,5000,10000};//,5,10,50,100,500,1000,5000
             int[] betChip = Testws.betChip;
 
             StringBuffer sb = new StringBuffer();
             //
-            for (int i = 0; i < 700000; i++) {
-                System.out.println("status:" + responceMessage.getStatus());
+            for (int i = 0; i < 70000000; i++) {
+                //System.out.println("status:" + responceMessage.getStatus());
                 if (responceMessage.getStatus() != 1) {
-                    System.out.println("不在投注状态，等待时间：" + responceMessage.getStateTime());
-                    Thread.sleep(responceMessage.getStateTime() * 1000);
+                    //System.out.println(responceMessage.getStatus()+" - 不在投注状态，等待时间：" + responceMessage.getStateTime());
+                    Thread.sleep(responceMessage.getStateTime() * 1000 > 1000 ? responceMessage.getStateTime() * 1000 : 1000);
                     continue;
                 }
                 //每一个用户没一次投注间隔时间
@@ -110,8 +104,10 @@ public class SendMessageSX extends CallableTemplate<Map<String, String>> {
                     betGameContent.setBettingAmount(sb.substring(0, sb.length() - 1));
                 }
                 //System.out.println(betGameContent);
-                if (session.isOpen())
+                if (session.isOpen()) {
                     session.getBasicRemote().sendText(betGameContent.toString());//发送消息
+                    //System.out.println("send ======");
+                }
                 //判断投注成功
                 //1.如果flag是true，则投注成功，如果flag是false，投注失败，数据库写入失败的原因。写入数据库之后将flag改成false。
                 //2。记录数据返回时间，时间一样就还是上比记录，时间一样就不是。

@@ -5,8 +5,10 @@ import net.sf.json.JSONObject;
 import org.apache.http.Header;
 import org.testng.annotations.Test;
 import pers.utils.dafaRequest.DafaRequest;
+import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.listUtils.ListRemoveRepeat;
+import pers.utils.other.KibanaUtils;
 import pers.utils.timeUtils.TimeUtil;
 
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ public class KibanaData {
         String indexEv = env;
         //查询条件
         String query = String.format("header:'a02916'");
-        String body0 = "{\"index\":\"{indexEv}\",\"ignore_unavailable\":true,\"timeout\":30000,\"preference\":1564455142933}\n{\"version\":true,\"size\":500,\"sort\":[{\"@timestamp\":{\"order\":\"desc\",\"unmapped_type\":\"boolean\"}}],\"_source\":{\"excludes\":[]},\"aggs\":{\"2\":{\"date_histogram\":{\"field\":\"@timestamp\",\"interval\":\"10m\",\"time_zone\":\"Asia/Shanghai\",\"min_doc_count\":1}}},\"stored_fields\":[\"*\"],\"script_fields\":{},\"docvalue_fields\":[\"@timestamp\"],\"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"{query}\",\"analyze_wildcard\":true,\"default_field\":\"*\"}},{\"range\":{\"@timestamp\":{\"gte\":{startTime},\"lte\":{endTime},\"format\":\"epoch_millis\"}}}],\"filter\":[],\"should\":[],\"must_not\":[]}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}\n";
+        String body0 = "{\"index\":\"{indexEv}\",\"ignore_unavailable\":true,\"timeout\":30000,\"preference\":1564455142933}\n{\"version\":true,\"size\":5000,\"sort\":[{\"@timestamp\":{\"order\":\"desc\",\"unmapped_type\":\"boolean\"}}],\"_source\":{\"excludes\":[]},\"aggs\":{\"2\":{\"date_histogram\":{\"field\":\"@timestamp\",\"interval\":\"10m\",\"time_zone\":\"Asia/Shanghai\",\"min_doc_count\":1}}},\"stored_fields\":[\"*\"],\"script_fields\":{},\"docvalue_fields\":[\"@timestamp\"],\"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"{query}\",\"analyze_wildcard\":true,\"default_field\":\"*\"}},{\"range\":{\"@timestamp\":{\"gte\":{startTime},\"lte\":{endTime},\"format\":\"epoch_millis\"}}}],\"filter\":[],\"should\":[],\"must_not\":[]}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}\n";
         String body = body0
                 .replace("{indexEv}", indexEv)
                 .replace("{query}", search)
@@ -75,9 +77,9 @@ public class KibanaData {
 
     @Test(description = "统计接口时间差（毫秒）")
     public static void test01a() {
-        String search = "url:*userAgentReport* AND header:*9999165*";
-        String startTime = "2019-11-25 00:00:00";
-        String endTime = "2019-11-25 12:00:00";
+        String search = "header:*xcw6662* AND url:*getMessageListWeb*";//url:*userAgentReport* AND header:*9999165*
+        String startTime = "2019-12-03 00:00:00";
+        String endTime = "2019-12-03 23:00:00";
         String env = "master-access-*";
         JSONArray hits = queryKibana(search, startTime, endTime, env);
         if (hits.size() != 0) {
@@ -93,7 +95,7 @@ public class KibanaData {
     @Test(description = "cms被ip未绑定")
     public static void test01b() {
         String search = "url:*userAgentReport* AND header:*9999165*";
-        String startTime = "2019-11-25 00:00:00";
+        String startTime = "2019-11-25 19:39:00";
         String endTime = "2019-11-25 12:00:00";
         String env = "master-access-*";
         JSONArray hits = queryKibana(search, startTime, endTime, env);
@@ -104,6 +106,46 @@ public class KibanaData {
                 //JSONObject header = source.getJSONObject("header");
                 System.out.println(TimeUtil.getDiffMillSecond(source.getString("startTime"), source.getString("endTime")));
             }
+        }
+    }
+
+    @Test(description = "棋牌彩票虚假数据统计概率")
+    public static void test01c() {
+        String search = "remark:*假投注* AND server-name:*game-longhu*";
+        String startTime = "2019-12-06 21:27:00";
+        String endTime = "2019-12-07 23:59:59";
+        String env = "master-info-*";
+        JSONArray hits = queryKibana(search, startTime, endTime, env);
+        List<String> list = new ArrayList<>();
+        if (hits.size() != 0) {
+            for (int i = 0; i < hits.size(); i++) {
+                JSONObject hitsData = hits.getJSONObject(i);
+                JSONObject source = hitsData.getJSONObject("_source");
+                String remark = source.getString("remark");
+                String detail = source.getString("detail");
+                list.add(remark.substring(0, 8) + "`" + detail);
+                //System.out.println(detail);
+            }
+        }
+        KibanaUtils.longhuXuni(list);
+    }
+
+    public static void main(String[] args) {
+        List<String> list = FileUtil.readFile(KibanaData.class.getResourceAsStream("/b.txt"));
+        for (String s : list) {
+            String[] ss = s.split(";");
+            String[] ss0 = ss[1].split(",");
+            int result; //0龙虎 1 虎
+            if (Integer.parseInt(ss0[0]) / 4 > Integer.parseInt(ss0[1]) / 4) {
+                result = 1;
+            } else if (Integer.parseInt(ss0[0]) / 4 < Integer.parseInt(ss0[1]) / 4) {
+                result = 2;
+            } else {
+                result = 3;
+            }
+            String ss01 = String.format("%s,%s;%s,%s", ss[0], ss0[0], ss0[1], result);
+            String ss02 = String.format("insert into test2(name1,name2,name3) values(%s,'%s;%s',%s);", ss[0], ss0[0], ss0[1], result);
+            System.out.println(ss02);
         }
     }
 }

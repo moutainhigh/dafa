@@ -34,27 +34,51 @@ public class Betting {
     public static double getPoint(String lotteryCode) {
         switch (Integer.parseInt(lotteryCode)) {
             //测试 大发站 dafai0002 系列用户
+            //case 1407:
+            //case 1413:
+            //    return 8;
+            //case 1412:
+            //    return 8;
+            //case 1008:
+            //case 1010:
+            //    return 8;
+            //case 1009:
+            //    return 8;
+            //case 1304:
+            //case 1314:
+            //    return 8;
+            //case 1306:
+            //    return 8;
+            //case 1300:
+            //    return 10;
+            //case 1305:
+            //    return 10;
+            //default:
+            //    return 8;
+
+            //测试 测试站 dafai0002 系列用户
             case 1407:
             case 1413:
-                return 8;
+                return 7;
             case 1412:
-                return 8;
+                return 7;
             case 1008:
             case 1010:
-                return 8;
+                return 7;
             case 1009:
-                return 8;
+                return 7;
             case 1304:
             case 1314:
-                return 8;
+                return 7;
             case 1306:
-                return 8;
+                return 7;
             case 1300:
-                return 10;
+                return 7;
             case 1305:
-                return 10;
+                return 7;
             default:
-                return 8;
+                return 7;
+
             //pre 大发站 autodf01287 系列用户
             //case 1407:
             //case 1413:
@@ -229,18 +253,32 @@ public class Betting {
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01278")), betContents1413sfks, 18);
 
         //test dafa站
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0002")), betContents1008dfssc, 6);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0003")), betContents1009wfssc, 30);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0004")), betContents1300yflhc, 6);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0005")), betContents1304dfpk10, 6);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0006")), betContents1305wflhc, 30);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0007")), betContents1306wfpk10, 30);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0008")), betContents1407dfk3, 6);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0009")), betContents1412wfk3, 30);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0002")), betContents1008dfssc, 6);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0003")), betContents1009wfssc, 30);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0004")), betContents1300yflhc, 6);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0005")), betContents1304dfpk10, 6);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0006")), betContents1305wflhc, 30);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0007")), betContents1306wfpk10, 30);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0008")), betContents1407dfk3, 6);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0009")), betContents1412wfk3, 30);
+        //
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0010")), betContents1010sfssc, 18);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0011")), betContents1314sfpk10, 18);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0012")), betContents1413sfks, 18);
 
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0010")), betContents1010sfssc, 18);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0011")), betContents1314sfpk10, 18);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0012")), betContents1413sfks, 18);
+        //test test站
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0997")), betContents1008dfssc, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0996")), betContents1009wfssc, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0995")), betContents1300yflhc, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0994")), betContents1304dfpk10, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0993")), betContents1305wflhc, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0992")), betContents1306wfpk10, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0991")), betContents1407dfk3, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0990")), betContents1412wfk3, 30);
+
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0989")), betContents1010sfssc, 18);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0988")), betContents1314sfpk10, 18);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0987")), betContents1413sfks, 18);
 
 
 

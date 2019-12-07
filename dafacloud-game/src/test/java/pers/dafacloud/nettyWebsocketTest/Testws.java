@@ -1,11 +1,11 @@
 package pers.dafacloud.nettyWebsocketTest;
 
-import org.apache.http.cookie.Cookie;
-import pers.dafacloud.loginPage.LoginPage;
+import pers.dafacloud.dafacloudUtils.Login;
 import pers.dafacloud.model.BetGameContent;
 import pers.dafacloud.utils.concurrent.CallableTaskFrameWork;
 import pers.dafacloud.utils.concurrent.ICallableTaskFrameWork;
 import pers.dafacloud.utils.enums.Environment;
+import pers.utils.httpclientUtils.HttpConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,15 +63,12 @@ public class Testws {
         //初始化用户
         //List<String> userList = FileUtils.readFile(FileUtils.class.getClassLoader().getResource("users.txt").getPath());
 
-
-        LoginPage loginPage = new LoginPage();
-
         //用户数量
         for (int i = 0; i < NN + HH + LH + BJL + BCBM + SBAO; i++) {
             //String userName = userList.get(i);
             String userName = String.format("dafai%04d",i+1);
-            Cookie cookie = loginPage.getDafaCooike(userName, "123456");
-            String token = loginPage.getGameToken(cookie);
+            HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);
+            String token = Login.getGameToken(httpConfig);
             Send send = null;
             if (i < NN) {
                 send = new Send("ws://" + environment.domain + "/gameServer/?TOKEN=" + token + "&gameId=2001", userName, 2001);

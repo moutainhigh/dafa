@@ -1,26 +1,28 @@
 package pers.dafacloud.runWSJavaxSX;
 
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
 
 import javax.websocket.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @ClientEndpoint
 public class ResponceMessage {
 
     private String issue;//奖期
     private String betResponse; //701返回结果
-    private String betResponseCode; //701返回结果
+    private int betResponseCode; //701返回结果
     private String userRebate;//返点
     private int stateTime;//倒计时
     private int status;
     private String username;
     private long returnTime;
-//    private boolean betIfSuccess;
-
 
     public ResponceMessage(String username) {
         this.username = username;
@@ -66,13 +68,15 @@ public class ResponceMessage {
         this.stateTime = stateTime;
     }
 
-    public String getBetResponseCode() {
+    public int getBetResponseCode() {
         return betResponseCode;
     }
 
-    public void setBetResponseCode(String betResponseCode) {
+    public void setBetResponseCode(int betResponseCode) {
         this.betResponseCode = betResponseCode;
     }
+
+    final static Object lock = new Object();
 
     @OnOpen
     public void onOpen(Session session) {
@@ -86,7 +90,6 @@ public class ResponceMessage {
         String proto = jsonObject.get("proto").toString();
         JSONObject data = jsonObject.getJSONObject("data");
         if ("713".equals(proto)) { //场景通知
-            //this.setIssue("");
             issue = data.get("issue").toString();//奖期
             userRebate = data.get("userRebate").toString();//返点
             stateTime = Integer.parseInt(data.get("stateTime").toString());//倒计时
@@ -94,22 +97,40 @@ public class ResponceMessage {
             //System.out.println("初始化 stateTime："+stateTime+"，status："+status);
         } else if ("709".equals(proto)) { //开始下注通知
             issue = data.get("issue").toString();
+            System.out.println(issue);
+            synchronized (lock) {
+                if (!issue.equals(Testws.currentIssue)) {
+                    System.out.println("map------" + Testws.map);
+                    Testws.currentIssue = issue;
+                    Testws.map.clear();
+                    Testws.map.put(issue, 0);
+                }
+            }
             this.setIssue(data.get("issue").toString());
             stateTime = Integer.parseInt(data.get("stateTime").toString());//倒计时
             status = 1;
         } else if ("701".equals(proto)) { //投注回应
-            betResponseCode = data.getString("code");
-            /*if (!"1".equals(data.getString("code"))) {
-                //System.out.println("投注失败：" + data);
-                betResponse=data.toString();
-            } else {
+            betResponseCode = data.getInt("code");
+            if (betResponseCode == 1) {
                 betResponse = data.get("betReqInfo").toString();
-                //System.out.println(System.currentTimeMillis()+","+count+","+message);
-                //返回成功则写入数据库。1.设置flag和备注，成功设置true，否则设置false+备注（失败类型）
-            }*/
-            betResponse=data.toString();
+                System.out.println(username + "-" + message);//+System.currentTimeMillis()
+                //返回成功则写入数据库。1.设置flag和备注，成功设置true，否则设置  false+备注（失败类型）
+                JSONArray bettingAmount = data.getJSONArray("betReqInfo").getJSONObject(0).getJSONArray("bettingAmount");
+                int total = 0;
+                for (int i = 0; i < bettingAmount.size(); i++) {
+                    total += bettingAmount.getInt(i);
+                }
+                if (StringUtils.isNotEmpty(Testws.currentIssue)) {
+                    int origin = 0;
+                    if (Testws.map.size() > 0) {
+                        //System.out.println(Testws.map);
+                        origin = Testws.map.get(Testws.currentIssue);
+                    }
+                    Testws.map.put(Testws.currentIssue, origin + total);
+                }
+            }
+            betResponse = data.toString();
             returnTime = System.currentTimeMillis();
-
         } else if ("710".equals(proto)) { //结算通知
             stateTime = Integer.parseInt(data.get("stateTime").toString());//倒计时
             status = 2;

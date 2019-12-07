@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pers.dafacloud.Dao.mapper.lotteryBettingInfo.LotteryBetingInfoMapper">
+
+    <select id="getLotteryBetingInfo" resultType="java.util.Map">
+		select
+            tenant_code tenantCode
+            ,user_id userId
+            ,user_name userName
+            ,record_code recordCode
+            ,lottery_code lotteryCode
+            ,play_detail_code lotteryCode
+            ,issue issue
+            ,betting_number bettingNumber
+            ,betting_amount bettingAmount
+            ,return_amount returnAmount
+            ,betting_count bettingCount
+            ,graduation_count graduationCount
+            ,is_single isSingle
+            ,betting_state bettingState
+            ,betting_type bettingType
+            ,betting_point bettingPoint
+            ,betting_unit bettingUnit
+            ,betting_orders_id bettingOrdersId
+            ,open_num openNum
+            ,source_id sourceId
+            ,is_test isTest
+            ,created_date createdDate
+            ,gmt_created gmtCreated
+            ,gmt_modified gmtModified
+		from dafacloud_betting.betting_orders_info_${tableName}
+		where  lottery_code = 1407
+        and gmt_created > '2019-11-01'
+        and gmt_created &lt; '2019-12-01'
+        and CONCAT(SUBSTR(issue,1,4),'-',SUBSTR(issue,5,2),'-',SUBSTR(issue,7,2),' ',if(SUBSTR(issue,9)/60 &lt; 10,CONCAT(0,FLOOR(SUBSTR(issue,9)/60)),FLOOR(SUBSTR(issue,9)/60)),':',
+        if(SUBSTR(issue,9)%60 &lt; 10,CONCAT(0,SUBSTR(issue,9)%60),SUBSTR(issue,9)%60),':','00') &lt; date_format(gmt_created, '%Y-%m-%d %H:%i:%s.SSS')
+        ORDER BY gmt_created desc ;
+	</select>
+    <select id="getLotteryBetingInfoCount" resultType="java.lang.Integer">
+		select count(1)
+		from dafacloud_betting.betting_orders_info_${tableName}
+		where  lottery_code = 1407
+        and gmt_created > '2019-11-01'
+        and gmt_created &lt; '2019-12-01'
+        and is_test = 0
+        and tenant_code != 'test'
+        ORDER BY gmt_created desc ;
+	</select>
+    <!--统计幸运飞艇凌晨出撤单的其实 statementType="STATEMENT" -->
+    <insert id="insertLotteryBetingInfo" parameterType="java.util.List" keyProperty="id">
+        insert into dafacloud_betting.betting_orders_info_shalv001(
+        tenant_code
+        ,user_id
+        ,user_name
+        ,record_code
+        ,lottery_code
+        ,play_detail_code
+        ,issue
+        ,betting_number
+        ,betting_amount
+        ,return_amount
+        ,betting_count
+        ,graduation_count
+        ,is_single
+        ,betting_state
+        ,betting_type
+        ,betting_point
+        ,betting_unit
+        ,betting_orders_id
+        ,open_num
+        ,source_id
+        ,is_test
+        ,created_date
+        ,gmt_created
+        ,gmt_modified
+        ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.tenantCode}
+            ,#{item.userId}
+            ,#{item.userName}
+            ,#{item.recordCode}
+            ,#{item.lotteryCode}
+            ,#{item.lotteryCode}
+            ,#{item.issue}
+            ,#{item.bettingNumber}
+            ,#{item.bettingAmount}
+            ,#{item.returnAmount}
+            ,#{item.bettingCount}
+            ,#{item.graduationCount}
+            ,#{item.isSingle}
+            ,#{item.bettingState}
+            ,#{item.bettingType}
+            ,#{item.bettingPoint}
+            ,#{item.bettingUnit}
+            ,#{item.bettingOrdersId}
+            ,#{item.openNum}
+            ,#{item.sourceId}
+            ,#{item.isTest}
+            ,#{item.createdDate}
+            ,#{item.gmtCreated}
+            ,#{item.gmtModified}
+            )
+        </foreach>
+    </insert>
+</mapper>

@@ -24,7 +24,6 @@ public class ApiContent {
     private String deReqParametersArray;
     private String deReturnValue;
 
-
     private String dePath2;
     private String deMethod2;
     private String deReqParametersArray2;
@@ -34,6 +33,43 @@ public class ApiContent {
 
     private String sort; //排序
 
+    private String reqParametersString;
+    private String deReqParametersString;
+    private String deReqParametersString2;
+
+    private boolean isLoginReq;
+
+    public boolean isLoginReq() {
+        return isLoginReq;
+    }
+
+    public void setIsLoginReq(boolean loginReq) {
+        isLoginReq = loginReq;
+    }
+
+    public String getReqParametersString() {
+        return reqParametersString;
+    }
+
+    public void setReqParametersString(String reqParametersString) {
+        this.reqParametersString = reqParametersString;
+    }
+
+    public String getDeReqParametersString() {
+        return deReqParametersString;
+    }
+
+    public void setDeReqParametersString(String deReqParametersString) {
+        this.deReqParametersString = deReqParametersString;
+    }
+
+    public String getDeReqParametersString2() {
+        return deReqParametersString2;
+    }
+
+    public void setDeReqParametersString2(String deReqParametersString2) {
+        this.deReqParametersString2 = deReqParametersString2;
+    }
 
     public String getDePath2() {
         return dePath2;
@@ -66,10 +102,6 @@ public class ApiContent {
     public void setDeReturnValue2(String deReturnValue2) {
         this.deReturnValue2 = deReturnValue2;
     }
-
-
-
-
 
 
     public String getSort() {
@@ -260,21 +292,40 @@ public class ApiContent {
         this.pageSize = pageSize;
     }
 
-    //@Override
-    //public String toString() {
-    //    return "ApiContent{" +
-    //            "id=" + id +
-    //            ", name='" + name + '\'' +
-    //            ", path='" + path + '\'' +
-    //            ", method='" + method + '\'' +
-    //            ", body='" + body + '\'' +
-    //            ", header='" + header + '\'' +
-    //            ", dependApiName='" + dependApiName + '\'' +
-    //            ", module='" + module + '\'' +
-    //            ", page='" + cmsFront + '\'' +
-    //            ", project='" + project + '\'' +
-    //            ", description='" + description + '\'' +
-    //            ", owner='" + owner + '\'' +
-    //            '}';
-    //}
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", apiName='" + apiName + '\'' +
+                ", path='" + path + '\'' +
+                ", method='" + method + '\'' +
+                ", reqParametersArray='" + reqParametersArray + '\'' +
+                ", headerArray='" + headerArray + '\'' +
+                ", dependApiName='" + dependApiName + '\'' +
+                ", module='" + module + '\'' +
+                ", cmsFront='" + cmsFront + '\'' +
+                ", project=" + project +
+                ", description='" + description + '\'' +
+                ", owner='" + owner + '\'' +
+                ", pageNum=" + pageNum +
+                ", pageSize=" + pageSize +
+                ", responseBody='" + responseBody + '\'' +
+                ", dePath='" + dePath + '\'' +
+                ", deMethod='" + deMethod + '\'' +
+                ", deReqParametersArray='" + deReqParametersArray + '\'' +
+                ", deReturnValue='" + deReturnValue + '\'' +
+                ", dePath2='" + dePath2 + '\'' +
+                ", deMethod2='" + deMethod2 + '\'' +
+                ", deReqParametersArray2='" + deReqParametersArray2 + '\'' +
+                ", deReturnValue2='" + deReturnValue2 + '\'' +
+                ", groupsApi='" + groupsApi + '\'' +
+                ", sort='" + sort + '\'' +
+                ", reqParametersString='" + reqParametersString + '\'' +
+                ", deReqParametersString='" + deReqParametersString + '\'' +
+                ", deReqParametersString2='" + deReqParametersString2 + '\'' +
+                ", isLoginReq=" + isLoginReq +
+                ", cookie='" + cookie + '\'' +
+                ", host='" + host + '\'' +
+                '}';
+    }
 }

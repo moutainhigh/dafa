@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.dafacloud.mapper.TestApiResultMapper">
+    <select id="searchTestApiResult" parameterType="pers.dafacloud.model.TestApiResult"
+            resultType="pers.dafacloud.model.TestApiResult" flushCache="true" useCache="true">
+        select
+        id id
+        ,host host
+        ,api_name apiName
+        ,api_path apiPath
+        ,api_method apiMethod
+        ,test_result testResult
+        ,dependent_result1 dependentResult1
+        ,dependent_result2 dependentResult2
+        ,is_pass isPass
+        ,cms_front cmsront
+        ,test_executor testExecutor
+        ,test_batch testBatch
+        ,insertTime insertTime
+
+        from test_api_result
+        <where>
+            <if test="apiName != null and apiName!=''">
+                AND api_name like CONCAT(CONCAT('%',#{apiName}),'%')
+            </if>
+            <if test="apiPath != null and apiPath!='' ">
+                AND api_path like CONCAT(CONCAT('%',#{apiPath}),'%')
+            </if>
+            <if test="isPass != null and isPass!='' ">
+                AND is_pass = #{isPass}
+            </if>
+            <if test="cmsFront != null and cmsFront!='' ">
+                AND cms_front = #{cmsFront})
+            </if>
+            <if test="testExecutor != null and testExecutor!='' ">
+                AND test_executor = #{testExecutor}
+            </if>
+            <if test="testBatch != null and testBatch!='' ">
+                AND test_batch = #{testBatch}
+            </if>
+        </where>
+        order by sort asc,id desc
+        limit #{pageNum},#{pageSize}
+    </select>
+
+    <select id="searchTestApiResultCount" parameterType="pers.dafacloud.model.ApiContent" resultType="java.lang.Integer"
+            flushCache="true" useCache="true">
+        select count(1) from test_api_result
+        <where>
+            <if test="apiName!=null and apiName!=''">
+                AND api_name like CONCAT(CONCAT('%',#{apiName}),'%')
+            </if>
+            <if test="apiPath != null and apiPath!='' ">
+                AND api_path like CONCAT(CONCAT('%',#{apiPath}),'%')
+            </if>
+            <if test="isPass != null and isPass!='' ">
+                AND is_pass = #{isPass}
+            </if>
+            <if test="cmsFont != null and cmsFont!='' ">
+                AND cms_font = #{cmsFont})
+            </if>
+            <if test="testExecutor != null and testExecutor!='' ">
+                AND test_executor = #{testExecutor}
+            </if>
+            <if test="testBatch != null and testBatch!='' ">
+                AND test_batch = #{testBatch}
+            </if>
+        </where>
+    </select>
+
+    <insert id="addTestApiResult" parameterType="pers.dafacloud.model.TestApiResult" keyProperty="id">
+		insert into test_api_result(
+         api_name
+        ,api_path
+        ,api_method
+        ,test_result
+        ,dependent_result1
+        ,dependent_result2
+        ,is_pass
+        ,cms_front
+        ,test_executor
+        ,test_batch
+        ,host
+		)values (
+			#{apiName}
+            ,#{apiPath}
+            ,#{apiMethod}
+            ,#{testResult}
+            ,#{dependentResult1}
+            ,#{dependentResult2}
+            ,#{isPass}
+            ,#{cmsFront}
+            ,#{testExecutor}
+            ,#{testBatch}
+            ,#{host}
+		)
+	</insert>
+
+    <delete id="deleteTestApiResult" parameterType="int">
+        delete from test_api_result where id = #{id}
+    </delete>
+
+    <delete id="deleteBatchTestApiResult" parameterType="java.lang.String">
+        delete from test_api_result where id in CONCAT(CONCAT('(',#{id}),')')
+    </delete>
+
+
+</mapper>

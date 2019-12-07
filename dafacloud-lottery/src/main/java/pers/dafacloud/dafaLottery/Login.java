@@ -25,7 +25,7 @@ public class Login {
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
                 .build();
-        String body = getLoginBody(username, "123456");
+        String body = getLoginBody(username, "duke123");
         HttpCookies httpCookies = HttpCookies.custom();
         HttpConfig httpConfig = HttpConfig.custom().url(loginUrl).body(body).headers(headers).context(httpCookies.getContext());
         String result = DafaRequest.post(httpConfig);

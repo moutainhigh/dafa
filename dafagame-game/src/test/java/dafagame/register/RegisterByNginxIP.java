@@ -1,9 +1,9 @@
 package dafagame.register;
 
-import dafagame.AESUtils;
-import dafagame.MD5Util;
 import net.sf.json.JSONObject;
 import org.apache.http.Header;
+import pers.utils.Md5HA1.AESUtils;
+import pers.utils.Md5HA1.MD5Util;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
@@ -23,7 +23,6 @@ public class RegisterByNginxIP {
         //        e.printStackTrace();
         //    }
         //}
-        System.out.println(MD5Util.getEncryptionInformation("duke123"));
         System.out.println(MD5Util.getMd5("3485").getBytes());
     }
 

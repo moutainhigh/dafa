@@ -1,0 +1,26 @@
+package pers.dafagame.testCase.bet;
+
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import pers.dafagame.page.beting.Betting;
+import pers.dafagame.page.beting.InitializaIssueEndtime;
+import pers.dafagame.pojo.BetContent;
+import pers.dafagame.utils.getBetData.ReadCSV;
+import pers.dafagame.utils.report.ZTestReport;
+
+import java.util.List;
+
+@Listeners({ ZTestReport.class })
+public class {classname} {
+
+    static List<BetContent>  listBetContent =  ReadCSV.readCSV();
+
+
+    @BeforeClass
+    public void beforeClass() {
+
+    }
+
+    //插入文件
+}

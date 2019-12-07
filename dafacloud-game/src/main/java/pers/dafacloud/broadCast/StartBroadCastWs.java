@@ -40,7 +40,7 @@ public class StartBroadCastWs {
         for (int i = 0; i < 300; i++) {
             int ii = i;
             new Thread(() -> {
-                //String loginBody = LoginPage.getLoginBody(users.get(ii), "123456");
+                //String loginBody = Login.getLoginBody(users.get(ii), "123456");
                 String name = users.get(ii);
                 String loginBody = "managerName=" + name + "&password=" + DigestUtils.md5Hex(name + DigestUtils.md5Hex("123456"));
                 HttpCookies httpCookies = HttpCookies.custom();

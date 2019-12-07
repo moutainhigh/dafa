@@ -11,7 +11,7 @@
             <!-- 配置数据源，采用mybatis连接池 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <!--/dafacloud_lottery-->
+                <!--/dafacloud_lottery -->
                 <property name="url" value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com" />
                 <property name="username" value="test-web" />
                 <property name="password" value="ms168169" />
@@ -32,7 +32,7 @@
             <!-- 配置数据源，采用mybatis连接池 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://3.0.170.87:23312" />
+                <property name="url" value="jdbc:mysql://3.0.170.87:8305" />
                 <property name="username" value="us31jw9" />
                 <property name="password" value="KzrdFtgXILlE" />
             </dataSource>
@@ -57,6 +57,17 @@
                 <property name="url" value="jdbc:mysql://3.0.170.87:23306" />
                 <property name="username" value="ulbet14" />
                 <property name="password" value="bAmlLafciJRQ" />
+            </dataSource>
+        </environment>
+        <environment id="lotteryGame">
+            <!-- 配置JDBC事务控制，由mybatis进行管理 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置数据源，采用mybatis连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://3.0.170.87:8316" />
+                <property name="username" value="u8rlrg7" />
+                <property name="password" value="BGsJpwOYb2wt" />
             </dataSource>
         </environment>
     </environments>

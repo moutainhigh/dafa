@@ -165,7 +165,7 @@ public class BrnnHandler extends GameHandler {
                     case Brnn.ProtoType.EnterPlayerSceneNtfType_VALUE:
                         Brnn.EnterPlayerSceneNtf enterPlayerSceneNtf = Brnn.EnterPlayerSceneNtf.parseFrom(clientMsg.getData());
                         this.chipList = new ArrayList<>(enterPlayerSceneNtf.getChipEnumList());//获取筹码list
-                        System.out.println(this.chipList);
+                        //System.out.println(this.chipList);
                         /*System.out.println(
                                 StringBuilders.custom()
                                         .add("10166场景通知")
@@ -253,7 +253,7 @@ public class BrnnHandler extends GameHandler {
                             pos = Brnn.Pos.Huang;
                             break;
                         default:
-                            System.out.println("获取投注pos错误");
+                            //System.out.println("获取投注pos错误");
                             pos = Brnn.Pos.Tian;
                             break;
                     }

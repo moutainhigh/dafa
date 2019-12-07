@@ -39,6 +39,8 @@ public class StartWsProtoClient {
     private Channel channel;
     private Thread thread;
 
+    private static int count = 0;
+
     //构造器
     public StartWsProtoClient(String phone, int gameCode) {
         //this.host = host;
@@ -108,7 +110,7 @@ public class StartWsProtoClient {
                         ByteBuf bf = Unpooled.buffer().writeBytes(clientMsg.toByteArray());
                         BinaryWebSocketFrame binaryWebSocketFrame = new BinaryWebSocketFrame(bf);
                         channel.writeAndFlush(binaryWebSocketFrame);
-                        System.out.println("ws链接成功");
+                        System.out.println("ws链接成功" + (count++));
                         Thread.sleep(2000);
                     }
                 }
@@ -139,7 +141,7 @@ public class StartWsProtoClient {
         //new StartWsProtoClient("92582013").start();
         List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/dukePhone.txt"));
         System.out.println(users.size());
-        for (int i = 0; i < 100; i++) {
+        for (int i = 100; i < 200; i++) {
             new StartWsProtoClient(users.get(i), 102).start();
             Thread.sleep(200);
         }

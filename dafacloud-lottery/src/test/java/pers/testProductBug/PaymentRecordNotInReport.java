@@ -4,13 +4,17 @@ import org.apache.ibatis.session.SqlSession;
 import org.testng.annotations.Test;
 import pers.dafacloud.Dao.SqlSessionFactoryUtils;
 import pers.dafacloud.Dao.mapper.InRecord.InRecordMapper;
+import pers.dafacloud.Dao.mapper.gameBettingInfo.GameBetingInfoMapper;
+import pers.dafacloud.Dao.mapper.lotteryBettingInfo.LotteryBetingInfoMapper;
 import pers.dafacloud.Dao.mapper.summaryPaymentRecord.SummaryPaymentRecordMapper;
 import pers.dafacloud.Dao.pojo.InRecord;
 import pers.dafacloud.Dao.pojo.SummaryPaymentRecord;
+import pers.utils.fileUtils.FileUtil;
 import pers.utils.listUtils.TwoListDiffent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 对比获取交易记录和报表数据差异
@@ -63,6 +67,87 @@ public class PaymentRecordNotInReport {
         InRecordMapper inRecordMapper = sqlSessionReport.getMapper(InRecordMapper.class);
         List<InRecord> inRecords = inRecordMapper.getId(list);
         System.out.println(inRecords.size());
+
+    }
+
+    public static void main(String[] args) {
+
+        SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("betting");
+        LotteryBetingInfoMapper lotteryBetingInfoMapper = sqlSessionTransaction.getMapper(LotteryBetingInfoMapper.class);
+        List<String> tenantCodes = FileUtil.readFile(PaymentRecordNotInReport.class.getResourceAsStream("/tenantCode.txt"));
+        long l = 0;
+        for (int i = 0; i < tenantCodes.size(); i++) {
+            int total = lotteryBetingInfoMapper.getLotteryBetingInfoCount(tenantCodes.get(i));
+            l = l + total;
+            System.out.println(l + " - " + total);
+        }
+
+
+    }
+
+    /**
+     * 线上彩票数据 导入到数据库
+     */
+    public static void LotteryRecordInfo() {
+        SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("betting");
+        LotteryBetingInfoMapper lotteryBetingInfoMapper = sqlSessionTransaction.getMapper(LotteryBetingInfoMapper.class);
+
+        SqlSession sqlSessionTransaction2 = SqlSessionFactoryUtils.openSqlSession("dev");
+        LotteryBetingInfoMapper lotteryBetingInfoMapper2 = sqlSessionTransaction2.getMapper(LotteryBetingInfoMapper.class);
+
+        List<String> tenantCodes = FileUtil.readFile(PaymentRecordNotInReport.class.getResourceAsStream("/tenantCode.txt"));
+        for (int i = 0; i < tenantCodes.size(); i++) {
+            System.out.print("当前：" + i);
+            getInsetLotteryBettingInfo(lotteryBetingInfoMapper, lotteryBetingInfoMapper2, tenantCodes.get(i));
+        }
+    }
+
+    /**
+     * 线上棋牌数据 导入到数据库
+     */
+    public static void gameRecordInfo() {
+        SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("lotteryGame");
+        GameBetingInfoMapper gameBetingInfoMapper = sqlSessionTransaction.getMapper(GameBetingInfoMapper.class);
+        SqlSession sqlSessionTransaction2 = SqlSessionFactoryUtils.openSqlSession("dev");
+        GameBetingInfoMapper gameBetingInfoMapper2 = sqlSessionTransaction2.getMapper(GameBetingInfoMapper.class);
+
+        List<String> tenantCodes = FileUtil.readFile(PaymentRecordNotInReport.class.getResourceAsStream("/tenantCode.txt"));
+        for (int i = 0; i < tenantCodes.size(); i++) {
+            System.out.print(i);
+            insert(gameBetingInfoMapper, gameBetingInfoMapper2, tenantCodes.get(i));
+        }
+        //System.out.println(tenantCodes);
+    }
+
+    /**
+     * 查询
+     */
+    public static void insert(GameBetingInfoMapper gameBetingInfoMapper,
+                              GameBetingInfoMapper gameBetingInfoMapper2, String tenantCode) {
+        List<Map> list = gameBetingInfoMapper.getGameBetingInfo(tenantCode);
+        System.out.print("-查询数据" + list.size());
+        if (list.size() == 0) {
+            System.out.println(list.size() + "-" + tenantCode);
+            return;
+        }
+        int result = gameBetingInfoMapper2.insertGameBetingInfo(list);
+        System.out.println("-" + result + "-" + tenantCode);
+
+    }
+
+    /**
+     * 查询
+     */
+    public static void getInsetLotteryBettingInfo(LotteryBetingInfoMapper lotteryBetingInfoMapper,
+                                                  LotteryBetingInfoMapper lotteryBetingInfoMapper2, String tenantCode) {
+        List<Map> list = lotteryBetingInfoMapper.getLotteryBetingInfo(tenantCode);
+        System.out.print("-查询数据" + list.size());
+        if (list.size() == 0) {
+            System.out.println(list.size() + "-" + tenantCode);
+            return;
+        }
+        int result = lotteryBetingInfoMapper2.insertLotteryBetingInfo(list);
+        System.out.println("-" + result + "-" + tenantCode);
 
     }
 
