@@ -16,9 +16,9 @@ public class TestApiResult {
 
     private String dependentResult1;
 
-    private int isPass;
+    private String isPass;
 
-    private String cmsFront;
+    private int cmsFront;
 
     private String dependentResult2;
 
@@ -31,6 +31,15 @@ public class TestApiResult {
 
     private String insertTime;
 
+
+    public String getIsPass() {
+        return isPass;
+    }
+
+    public void setIsPass(String isPass) {
+        this.isPass = isPass;
+    }
+
     public String getHost() {
         return host;
     }
@@ -39,9 +48,7 @@ public class TestApiResult {
         this.host = host;
     }
 
-    public void setIsPass(int isPass) {
-        this.isPass = isPass;
-    }
+
 
     public String getApiMethod() {
         return apiMethod;
@@ -75,11 +82,12 @@ public class TestApiResult {
         this.pageSize = pageSize;
     }
 
-    public String getCmsFront() {
+
+    public int getCmsFront() {
         return cmsFront;
     }
 
-    public void setCmsFront(String cmsFront) {
+    public void setCmsFront(int cmsFront) {
         this.cmsFront = cmsFront;
     }
 

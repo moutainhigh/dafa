@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，用于隔离sql语句的，后续会有重要作用
+	#{} 占位符 相当于jdbc的？
+	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
+-->
+<mapper namespace="pers.dafacloud.Dao.mapper.gameBettingInfo.GameBettingInfoMapper">
+    <!--
+        id : sql id;
+        parameterType:入参的数据类型
+        resultType:返回结果数据类型
+     -->
+    <select id="getGameBetingInfo" resultType="java.util.Map">
+		select
+		tenant_code tenantCode
+		,user_id userId
+		,room_number roomNumber
+		,record_code recordCode
+		,game_code gameCode
+		,play_detail_code playDetailCode
+		,issue issue
+		,betting_number bettingNumber
+		,betting_amount bettingAmount
+
+		,return_amount returnAmount
+		,betting_state bettingState
+		,betting_point bettingPoint
+		,game_orders_id gameOrdersId
+		,open_num openNum
+		,source_id sourceId
+		,is_test isTest
+		,created_date createdDate
+		,gmt_created gmtCreated
+		,gmt_modified gmtModified
+		from dafacloud_game.game_orders_info_${tableName}
+		where  game_code = 2003 and  gmt_created BETWEEN '2019-11-27' and '2019-11-28'
+	</select>
+    <!--统计幸运飞艇凌晨出撤单的其实 statementType="STATEMENT" -->
+    <insert id="insertGameBetingInfo" parameterType="java.util.List" keyProperty="id">
+        insert into dafacloud_game.game_orders_info_shalv001(
+        tenant_code
+        ,user_id
+        ,room_number
+        ,record_code
+        ,game_code
+        ,play_detail_code
+        ,issue
+        ,betting_number
+        ,betting_amount
+        ,return_amount
+        ,betting_state
+        ,betting_point
+        ,game_orders_id
+        ,open_num
+        ,source_id
+        ,is_test
+        ,created_date
+        ,gmt_created
+        ,gmt_modified
+        ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+         #{item.tenantCode}
+        ,#{item.userId}
+        ,#{item.roomNumber}
+        ,#{item.recordCode}
+        ,#{item.gameCode}
+        ,#{item.playDetailCode}
+        ,#{item.issue}
+        ,#{item.bettingNumber}
+        ,#{item.bettingAmount}
+        ,#{item.returnAmount}
+        ,#{item.bettingState}
+        ,#{item.bettingPoint}
+        ,#{item.gameOrdersId}
+        ,#{item.openNum}
+        ,#{item.sourceId}
+        ,#{item.isTest}
+        ,#{item.createdDate}
+        ,#{item.gmtCreated}
+        ,#{item.gmtModified}
+        )
+        </foreach>
+    </insert>
+</mapper>

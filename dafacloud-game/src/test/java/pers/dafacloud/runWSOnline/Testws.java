@@ -1,21 +1,13 @@
 package pers.dafacloud.runWSOnline;
 
-import org.testng.annotations.Test;
 import pers.dafacloud.dafacloudUtils.Constants;
 import pers.dafacloud.dafacloudUtils.Login;
-import pers.dafacloud.model.BetGameContent;
-import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
 
-import java.lang.reflect.Array;
-import java.net.URI;
 import java.net.URL;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  *
@@ -50,11 +42,7 @@ public class Testws {
             String userName = list.get(i);
             System.out.println(userName);
             HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);//登录
-            //System.out.println(token);
             String wsUrl = String.format("ws://%s:4147/gameServer/?TOKEN=tokenvalue&gameId=%s", new URL(host).getHost(), gameCode);
-            //SendMessageSX sendMessageSX =
-            // new SendMessageSX("ws://" + new URL(host).getHost() + "/gameServer/?TOKEN=" + token + "&gameId=" + gameCode, userName, 2003);
-            //System.out.println(wsUrl);
             SendMessageSX sendMessageSX = new SendMessageSX(wsUrl, userName, 2003, httpConfig);
             excutors.execute(sendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
             try {
@@ -65,20 +53,6 @@ public class Testws {
         }
     }
 
-    @Test(description = "测试")
-    public static void test01() {
-        String s = "ws://m.caishen01.com:4147/gameServer/?TOKEN=47f270489e784ff3b0ab4b000c58d325&gameId=2003";
-        System.out.println(s.replaceAll("[TOKEN=][.*]{0,9}[&gameId]", "aaaaaa"));
-        System.out.println(s.replaceAll("(TOKEN=).*?(&gameId)", "$1aaaaaa$2"));
-        //System.out.println("".replace());
-
-        String rex2 = "TOKEN=(.*?)&gameId";
-        Pattern pattern2 = Pattern.compile(rex2);
-        //Matcher matcher2 = pattern2.matcher(s);
-        //if(matcher2.find()) {
-        //    System.out.println(matcher2.group());
-        //}
 
 
-    }
 }

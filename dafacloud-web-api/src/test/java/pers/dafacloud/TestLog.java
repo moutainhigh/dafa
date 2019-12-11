@@ -12,7 +12,6 @@ public class TestLog {
 
     @Test(description = "测试")
     public  void test01() {
-
-        logger.info("zxczx");
+        logger.info("testlog");
     }
 }

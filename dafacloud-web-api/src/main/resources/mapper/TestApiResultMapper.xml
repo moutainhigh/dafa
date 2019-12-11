@@ -15,7 +15,7 @@
         ,dependent_result1 dependentResult1
         ,dependent_result2 dependentResult2
         ,is_pass isPass
-        ,cms_front cmsront
+        ,cms_front cmsFront
         ,test_executor testExecutor
         ,test_batch testBatch
         ,insertTime insertTime
@@ -25,13 +25,13 @@
             <if test="apiName != null and apiName!=''">
                 AND api_name like CONCAT(CONCAT('%',#{apiName}),'%')
             </if>
-            <if test="apiPath != null and apiPath!='' ">
+            <if test="apiPath != null and apiPath!= -1 ">
                 AND api_path like CONCAT(CONCAT('%',#{apiPath}),'%')
             </if>
-            <if test="isPass != null and isPass!='' ">
-                AND is_pass = #{isPass}
+            <if test="isPass != null and isPass!= '' ">
+                AND is_pass in CONCAT(CONCAT('(',#{isPass}),')')
             </if>
-            <if test="cmsFront != null and cmsFront!='' ">
+            <if test="cmsFront != null and cmsFront!= -1 ">
                 AND cms_front = #{cmsFront})
             </if>
             <if test="testExecutor != null and testExecutor!='' ">
@@ -41,7 +41,7 @@
                 AND test_batch = #{testBatch}
             </if>
         </where>
-        order by sort asc,id desc
+        order by id desc
         limit #{pageNum},#{pageSize}
     </select>
 
@@ -55,11 +55,11 @@
             <if test="apiPath != null and apiPath!='' ">
                 AND api_path like CONCAT(CONCAT('%',#{apiPath}),'%')
             </if>
-            <if test="isPass != null and isPass!='' ">
-                AND is_pass = #{isPass}
+            <if test="isPass != null and isPass!= '' ">
+                AND is_pass in CONCAT(CONCAT('(',#{isPass}),')')
             </if>
-            <if test="cmsFont != null and cmsFont!='' ">
-                AND cms_font = #{cmsFont})
+            <if test="cmsFront != null and cmsFront != -1 ">
+                AND cms_front = #{cmsFront})
             </if>
             <if test="testExecutor != null and testExecutor!='' ">
                 AND test_executor = #{testExecutor}

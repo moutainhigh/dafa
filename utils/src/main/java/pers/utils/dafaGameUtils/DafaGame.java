@@ -6,10 +6,6 @@ import java.util.Base64;
 
 public class DafaGame {
 
-    public static void main(String[] args) {
-        //String random = String.valueOf(Math.random());
-        //DafaGame.getLoginBody(Base64.getEncoder().encodeToString(random.getBytes()),"duke123");
-    }
 
     /**
      * cocos前台加密

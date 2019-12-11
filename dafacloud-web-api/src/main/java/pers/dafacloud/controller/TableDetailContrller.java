@@ -13,8 +13,6 @@ import java.util.List;
 @RequestMapping("/v1")
 public class TableDetailContrller {
 
-    //SqlSession sqlSession = SqlSessionFactoryUtils.openSqlSession();
-    //TableDetailMapper tableDetailMapper = sqlSession.getMapper(TableDetailMapper.class);
 
     @Autowired
     TableDetailServer tableDetailServer;

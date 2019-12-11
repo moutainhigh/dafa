@@ -2,6 +2,7 @@ package pers.testProductBug;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
+import pers.dafacloud.dafaLottery.Login;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.randomNameAddrIP.RandomIP;
@@ -30,25 +31,8 @@ public class LoginGXAPPbyIP {
                 .other("x-url", "dafacloud.com")
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .build();
-        String result = DafaRequest.post(url, getLoginBody("duke01", "123456"), headers);
+        String result = DafaRequest.post(url, Login.getLoginBody("duke01", "123456"), headers);
         System.out.println(result);
-    }
-
-    /**
-     * 获取 加密后的loginBody
-     * 账号需要转小写
-     */
-    public static String getLoginBody(String userName, String password) {
-        //随机码
-        String random = "dafacloud_" + Math.random();
-        //md5加密后的密码
-        String passwordCode = DigestUtils.md5Hex(DigestUtils.md5Hex(userName + DigestUtils.md5Hex(password)) + random);
-        //随机
-        String encode = Base64.getEncoder().encodeToString(random.getBytes());
-        //System.out.println(encode);
-        String body = String.format("userName=%s&password=%s&random=%s", userName, passwordCode, encode);
-        //System.out.println(body);
-        return body;
     }
 
 }

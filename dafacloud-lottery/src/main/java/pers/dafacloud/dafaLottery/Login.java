@@ -6,6 +6,7 @@ import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpCookies;
 import pers.utils.httpclientUtils.HttpHeader;
+import pers.utils.randomNameAddrIP.RandomIP;
 
 import java.util.ArrayList;
 import java.util.Base64;
@@ -21,11 +22,15 @@ public class Login {
      * 返回带cookie的httpConfig
      */
     public static HttpConfig loginReturnHttpConfig(String username) {
+        String ip = RandomIP.getRandomIp();
         Header[] headers = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
+                .other("x-forwarded-for", ip)
+                .other("x-remote-IP", ip)
+                .other("X-Real-IP", ip)
                 .build();
-        String body = getLoginBody(username, "duke123");
+        String body = getLoginBody(username, "123456");
         HttpCookies httpCookies = HttpCookies.custom();
         HttpConfig httpConfig = HttpConfig.custom().url(loginUrl).body(body).headers(headers).context(httpCookies.getContext());
         String result = DafaRequest.post(httpConfig);

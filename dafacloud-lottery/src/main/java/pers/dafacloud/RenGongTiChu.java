@@ -28,9 +28,7 @@ public class RenGongTiChu {
     private static String switchTenant = host + "/v1/management/manager/switchTenant";
     private static String manualRecordList = host + "/v1/transaction/manualRecordList";
 
-
     private static String withdrawRecordList = host + "/v1/transaction/withdrawRecordList";
-
 
     private static Logger log = LoggerFactory.getLogger(RenGongTiChu.class);
 

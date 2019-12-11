@@ -14,35 +14,34 @@ import java.util.List;
 @Service
 public class ApiContentServer {
 
-    private static Logger log = LoggerFactory.getLogger(ApiContentServer.class);
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     @Resource
     ApiContentMapper apiContentMapper;
 
     @MyDataSource(DataSourceType.dev1)
-    public List<ApiContent> apiContentList(ApiContent apiContent){
-        return  apiContentMapper.queryApi(apiContent);
+    public List<ApiContent> apiContentList(ApiContent apiContent) {
+        return apiContentMapper.queryApi(apiContent);
     }
 
     @MyDataSource(DataSourceType.dev1)
-    public int apiContentCount(ApiContent apiContent){
-        return  apiContentMapper.queryApiCount(apiContent);
+    public int apiContentCount(ApiContent apiContent) {
+        return apiContentMapper.queryApiCount(apiContent);
     }
 
     @MyDataSource(DataSourceType.dev1)
-    public int updateApiContent(ApiContent apiContent){
-        return  apiContentMapper.updateApi(apiContent);
+    public int updateApiContent(ApiContent apiContent) {
+        return apiContentMapper.updateApi(apiContent);
     }
 
     @MyDataSource(DataSourceType.dev1)
-    public int addApiContent(ApiContent apiContent){
-        return  apiContentMapper.addApi(apiContent);
+    public int addApiContent(ApiContent apiContent) {
+        return apiContentMapper.addApi(apiContent);
     }
 
     @MyDataSource(DataSourceType.dev1)
-    public int cloneApi(int id){
-        return  apiContentMapper.cloneApi(id);
+    public int cloneApi(int id) {
+        return apiContentMapper.cloneApi(id);
     }
-
 
 }

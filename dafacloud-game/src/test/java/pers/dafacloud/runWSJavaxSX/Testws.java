@@ -57,14 +57,14 @@ public class Testws {
         PosFour = initializateBetContent(new int[]{1, 1, 1, 1});
 
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(2001, 10);//牛牛
-        map.put(2002, 10);//红黑
-        map.put(2003, 10);//龙虎
-        map.put(2004, 10);//百家乐
-        map.put(2005, 10);//奔驰宝马
-        map.put(2006, 10);//骰宝
+        map.put(2001, 5);//牛牛
+        map.put(2002, 5);//红黑
+        map.put(2003, 5);//龙虎
+        map.put(2004, 5);//百家乐
+        map.put(2005, 5);//奔驰宝马
+        map.put(2006, 5);//骰宝
         //List<String> user = new ArrayList<>(Arrays.asList("dafai1999", "dafai1998"));
-        List<String> user = FileUtil.readFile(Testws.class.getResourceAsStream("/users.txt"));
+        List<String> user = FileUtil.readFile(Testws.class.getResourceAsStream("/usersPre.txt"));
         int index = 10;
         for (Integer key : map.keySet()) {
             //System.out.println("key=" + key);
@@ -83,11 +83,11 @@ public class Testws {
             HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);
             String token = Login.getGameToken(httpConfig);
             System.out.println(token);
-            SendMessageSX sendMessageSX = new SendMessageSX("ws://" + new URL(host).getHost() + "/gameServer/?TOKEN=" + token + "&gameId=" + gameCode, userName, 2003);
+            SendMessageSX sendMessageSX = new SendMessageSX("ws://" + new URL(host).getHost() + "/gameServer/?TOKEN=" + token + "&gameId=" + gameCode, userName, gameCode);
             excutors.execute(sendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
             //System.out.println(i + userName);
             try {
-                Thread.sleep(2 * 1000);
+                Thread.sleep(4 * 1000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -144,6 +144,7 @@ public class Testws {
                 listBetGameContent.add(betGameContent);
             }
         }
+        System.out.println(listBetGameContent);
         return listBetGameContent;
     }
 }

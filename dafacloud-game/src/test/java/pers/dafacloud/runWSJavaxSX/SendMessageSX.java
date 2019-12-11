@@ -1,8 +1,6 @@
 package pers.dafacloud.runWSJavaxSX;
 
-
 import pers.dafacloud.model.BetGameContent;
-import pers.dafacloud.utils.concurrent.CallableTemplate;
 
 import javax.websocket.ContainerProvider;
 import javax.websocket.Session;
@@ -34,15 +32,13 @@ public class SendMessageSX {
 
             //2.
             //bet内容
-            //List<String> listBetContent = FileUtils.readFile(FileUtils.class.getClassLoader().getResource("betContent.txt").getPath());
-            //List<String> listBetContentNiuNiu = FileUtils.readFile(FileUtils.class.getClassLoader().getResource("betContentNiuNiu.txt").getPath());
+
             List<BetGameContent> PosThree = Testws.PosThree;
             List<BetGameContent> PosSix = Testws.PosSix;
             List<BetGameContent> PosEight = Testws.PosEight;
             List<BetGameContent> PosFour = Testws.PosFour;
             //提取结果
             Thread.sleep(1000);
-            //int[] amount=new int[]{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,5,10,50,100,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,5,5,5,5,10,10,10,10,10,10,10,10,10,10,10,5,10,50,100,100,500,1000,5000,10000};//,5,10,50,100,500,1000,5000
             int[] betChip = Testws.betChip;
 
             StringBuffer sb = new StringBuffer();

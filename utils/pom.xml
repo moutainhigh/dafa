@@ -17,7 +17,7 @@
             <version>1.18.4</version>
         </dependency>
         <!--@Data 自动生成get set方法 end -->
-        <!-- httpclient start -->
+        <!-- httpclient start ==================================================== -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
@@ -38,16 +38,7 @@
         <!--<artifactId>commons-lang3</artifactId>-->
         <!--<version>3.8</version>-->
         <!--</dependency>-->
-        <!--httpclient end-->
-        <!--log4j日志 -->
-        <!--<dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>-->
-        <!--log4j日志 -->
-
-        <!--json转换 start -->
+        <!--json转换 start ====================================================-->
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
@@ -80,22 +71,14 @@
             <artifactId>ezmorph</artifactId>
             <version>1.0.6</version>
         </dependency>
-
-        <!-- <dependency> <groupId>org.seleniumhq.selenium</groupId> <artifactId>selenium-server-standalone</artifactId>
-            <version>2.24.1</version> </dependency> -->
-
-        <!--json转换 end -->
-
-        <!--testng start-->
+        <!--testng start ====================================================-->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.14.3</version>
             <!--<scope>testCookie</scope>-->
         </dependency>
-        <!--testng end-->
-
-        <!--        logback日志 start-->
+        <!-- logback日志 start ====================================================-->
         <!--<dependency>-->
         <!--<groupId>org.slf4j</groupId>-->
         <!--<artifactId>slf4j-api</artifactId>-->
@@ -118,7 +101,7 @@
             <artifactId>logback-core</artifactId>
             <version>1.1.7</version>
         </dependency>
-        <!--logback日志 end-->
+        <!--logback日志 end ====================================================-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -134,13 +117,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.9.9</version>
         </dependency>
-        <!--redis start-->
+        <!--redis start ====================================================-->
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
         </dependency>
-        <!--redis end-->
+        <!--redis end -->
         <!--spring boot start-->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->
@@ -154,7 +137,7 @@
         <!--</dependency>-->
         <!--spring boot end-->
 
-        <!--注册加密 start-->
+        <!--注册加密 start ====================================================-->
         <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-client</artifactId>
@@ -165,14 +148,6 @@
     </dependencies>
     <build>
         <plugins>
-            <!--                  <plugin>-->
-            <!--                    <groupId>org.apache.maven.plugins</groupId>-->
-            <!--                    <artifactId>maven-compiler-plugin</artifactId>-->
-            <!--                    <configuration>-->
-            <!--                      <source>1.8</source>-->
-            <!--                      <target>1.8</target>-->
-            <!--                    </configuration>-->
-            <!--                  </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -182,10 +157,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--</plugin>-->
         </plugins>
     </build>
 

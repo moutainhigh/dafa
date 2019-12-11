@@ -1,6 +1,0 @@
-{"proto" : 700,"data" : { "issue":"%s", "bettingPoint": %s,"betReqInfo": [{"pos" :1, "bettingAmount": [%s] }]}}
-{"proto" : 700,"data" : { "issue":"%s", "bettingPoint": %s,"betReqInfo": [{"pos" :2, "bettingAmount": [%s] }]}}
-{"proto" : 700,"data" : { "issue":"%s", "bettingPoint": %s,"betReqInfo": [{"pos" :3, "bettingAmount": [%s] }]}}
-{"proto" : 700,"data" : { "issue":"%s", "bettingPoint": %s,"betReqInfo": [{"pos" :4, "bettingAmount": [%s] }]}}
-{"proto" : 700,"data" : { "issue":"%s", "bettingPoint": %s,"betReqInfo": [{"pos" :5, "bettingAmount": [%s] }]}}
-{"proto" : 700,"data" : { "issue":"%s", "bettingPoint": %s,"betReqInfo": [{"pos" :6, "bettingAmount": [%s] }]}}

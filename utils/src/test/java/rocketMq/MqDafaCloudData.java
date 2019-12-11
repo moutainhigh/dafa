@@ -92,7 +92,7 @@ public class MqDafaCloudData {
      * 获取基础信息
      * 返回JSONArray
      */
-    public static JSONArray getMessageByTopic(String startTime, String endTime, String topic) {
+    private static JSONArray getMessageByTopic(String startTime, String endTime, String topic) {
         long begin = TimeUtil.getMillSecond(startTime);
         long end = TimeUtil.getMillSecond(endTime);
         String url = host + "/rocketConsole/message/queryMessageByTopic.query";
@@ -113,7 +113,7 @@ public class MqDafaCloudData {
     /**
      * 获取 message 详情
      */
-    public static String getDetail(String getMsgId, String topic) {
+    private static String getDetail(String getMsgId, String topic) {
         String urlDetail = host + "/rocketConsole/message/viewMessage.query";
         String bodyDetail = UrlBuilder.custom()
                 .url(urlDetail)

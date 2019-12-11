@@ -37,13 +37,17 @@ public class ApiContent {
     private String deReqParametersString;
     private String deReqParametersString2;
 
+    private String cookie;
+    private String host;
+
     private boolean isLoginReq;
+
 
     public boolean isLoginReq() {
         return isLoginReq;
     }
 
-    public void setIsLoginReq(boolean loginReq) {
+    public void setLoginReq(boolean loginReq) {
         isLoginReq = loginReq;
     }
 
@@ -128,8 +132,7 @@ public class ApiContent {
         this.host = host;
     }
 
-    private String cookie;
-    private String host;
+
 
 
     public String getGroupsApi() {

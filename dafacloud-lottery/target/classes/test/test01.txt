@@ -1,0 +1,254 @@
+/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/bin/java "-javaagent:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar=59607:/Applications/IntelliJ IDEA.app/Contents/bin" -Dfile.encoding=UTF-8 -classpath /Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/deploy.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/cldrdata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/dnsns.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/jaccess.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/jfxrt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/localedata.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/nashorn.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/sunec.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/sunjce_provider.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/sunpkcs11.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/ext/zipfs.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/javaws.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/jfxswt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/management-agent.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/plugin.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/lib/ant-javafx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/lib/dt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/lib/javafx-mx.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/lib/jconsole.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/lib/packager.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/lib/sa-jdi.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/lib/tools.jar:/Users/duke/Documents/github/dafa/dafacloud-lottery/target/test-classes:/Users/duke/Documents/github/dafa/dafacloud-lottery/target/classes:/Users/duke/Documents/github/dafa/utils/target/classes:/Users/duke/Documents/maven/repository/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar:/Users/duke/Documents/maven/repository/org/apache/httpcomponents/httpmime/4.4.1/httpmime-4.4.1.jar:/Users/duke/Documents/maven/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar:/Users/duke/Documents/maven/repository/ch/qos/logback/logback-classic/1.1.7/logback-classic-1.1.7.jar:/Users/duke/Documents/maven/repository/ch/qos/logback/logback-core/1.1.7/logback-core-1.1.7.jar:/Users/duke/Documents/maven/repository/com/fasterxml/jackson/core/jackson-databind/2.9.9/jackson-databind-2.9.9.jar:/Users/duke/Documents/maven/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar:/Users/duke/Documents/maven/repository/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar:/Users/duke/Documents/maven/repository/redis/clients/jedis/2.9.0/jedis-2.9.0.jar:/Users/duke/Documents/maven/repository/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar:/Users/duke/Documents/maven/repository/com/alibaba/nacos/nacos-client/1.0.0/nacos-client-1.0.0.jar:/Users/duke/Documents/maven/repository/com/alibaba/nacos/nacos-common/1.0.0/nacos-common-1.0.0.jar:/Users/duke/Documents/maven/repository/commons-io/commons-io/2.2/commons-io-2.2.jar:/Users/duke/Documents/maven/repository/com/alibaba/nacos/nacos-api/1.0.0/nacos-api-1.0.0.jar:/Users/duke/Documents/maven/repository/com/alibaba/fastjson/1.2.47/fastjson-1.2.47.jar:/Users/duke/Documents/maven/repository/io/prometheus/simpleclient/0.5.0/simpleclient-0.5.0.jar:/Users/duke/Documents/maven/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/Users/duke/Documents/maven/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/duke/Documents/maven/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/Users/duke/Documents/maven/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/duke/Documents/maven/repository/net/sf/json-lib/json-lib/2.4/json-lib-2.4-jdk15.jar:/Users/duke/Documents/maven/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6.jar:/Users/duke/Documents/maven/repository/org/apache/httpcomponents/httpclient/4.5.5/httpclient-4.5.5.jar:/Users/duke/Documents/maven/repository/org/apache/httpcomponents/httpcore/4.4.9/httpcore-4.4.9.jar:/Users/duke/Documents/maven/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar:/Users/duke/Documents/maven/repository/org/testng/testng/6.14.3/testng-6.14.3.jar:/Users/duke/Documents/maven/repository/com/beust/jcommander/1.72/jcommander-1.72.jar:/Users/duke/Documents/maven/repository/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar:/Users/duke/Documents/maven/repository/com/google/code/gson/gson/2.3/gson-2.3.jar:/Users/duke/Documents/maven/repository/com/google/guava/guava/r03/guava-r03.jar:/Users/duke/Documents/maven/repository/com/opencsv/opencsv/3.3/opencsv-3.3.jar:/Users/duke/Documents/maven/repository/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar:/Users/duke/Documents/maven/repository/org/mybatis/mybatis/3.4.6/mybatis-3.4.6.jar:/Users/duke/Documents/maven/repository/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar:/Users/duke/Documents/maven/repository/com/google/protobuf/protobuf-java/2.6.0/protobuf-java-2.6.0.jar:/Users/duke/Documents/maven/repository/org/springframework/spring-beans/4.3.4.RELEASE/spring-beans-4.3.4.RELEASE.jar:/Users/duke/Documents/maven/repository/org/springframework/spring-context/4.3.4.RELEASE/spring-context-4.3.4.RELEASE.jar:/Users/duke/Documents/maven/repository/org/springframework/spring-aop/4.3.4.RELEASE/spring-aop-4.3.4.RELEASE.jar:/Users/duke/Documents/maven/repository/org/springframework/spring-expression/4.3.4.RELEASE/spring-expression-4.3.4.RELEASE.jar:/Users/duke/Documents/maven/repository/org/springframework/spring-core/4.3.4.RELEASE/spring-core-4.3.4.RELEASE.jar pers.testDao.LotteryBettingInfo
+当前：0当前：0Tue Dec 10 18:39:07 PST 2019 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Tue Dec 10 18:39:15 PST 2019 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+2019-11-30-查询数据160252019-11-29-查询数据17497Tue Dec 10 18:42:46 PST 2019 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+Tue Dec 10 18:42:46 PST 2019 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+2019-11-30-10000-dafa
+2019-11-30-6025-dafa
+当前：12019-11-29-10000-dafa
+2019-11-30-查询数据35382019-11-30-3538-yifa
+当前：22019-11-29-7497-dafa
+当前：12019-11-29-查询数据36132019-11-29-3613-yifa
+当前：22019-11-30-查询数据177992019-11-30-10000-leying
+2019-11-30-7799-leying
+当前：32019-11-30-查询数据14052019-11-30-1405-mingfa
+当前：42019-11-30-查询数据11072019-11-30-1107-bifa
+当前：52019-11-29-查询数据209162019-11-30-查询数据94742019-11-29-10000-leying
+2019-11-29-10000-leying
+2019-11-30-9474-baifa
+当前：62019-11-29-916-leying
+当前：32019-11-30-查询数据13552019-11-30-1355-jcw
+当前：72019-11-29-查询数据21762019-11-30-查询数据14742019-11-29-2176-mingfa
+当前：42019-11-30-1474-xyc
+当前：82019-11-30-查询数据1282019-11-30-128-biying
+当前：92019-11-29-查询数据21962019-11-29-2196-bifa
+当前：52019-11-30-查询数据42622019-11-30-4262-hlc
+当前：102019-11-30-查询数据12792019-11-30-1279-shengda
+当前：112019-11-29-查询数据80782019-11-29-8078-baifa
+当前：62019-11-29-查询数据13842019-11-29-1384-jcw
+当前：72019-11-29-查询数据17822019-11-29-1782-xyc
+当前：82019-11-29-查询数据2172019-11-29-217-biying
+当前：92019-11-30-查询数据104212019-11-29-查询数据52532019-11-29-5253-hlc
+当前：102019-11-29-查询数据7222019-11-29-722-shengda
+当前：112019-11-30-10000-688
+2019-11-30-421-688
+当前：122019-11-29-查询数据83502019-11-29-8350-688
+当前：122019-11-29-查询数据184652019-11-30-查询数据223762019-11-29-10000-cpb
+2019-11-30-10000-cpb
+2019-11-29-8465-cpb
+当前：132019-11-30-10000-cpb
+2019-11-30-2376-cpb
+当前：132019-11-30-查询数据142062019-11-29-查询数据147582019-11-30-10000-lcvip
+2019-11-30-4206-lcvip
+当前：142019-11-29-10000-lcvip
+2019-11-29-4758-lcvip
+当前：142019-11-30-查询数据110582019-11-29-查询数据97962019-11-30-10000-baiying
+2019-11-30-1058-baiying
+当前：152019-11-29-9796-baiying
+当前：152019-11-30-查询数据371212019-11-29-查询数据362032019-11-30-10000-lcw
+2019-11-29-10000-lcw
+2019-11-30-10000-lcw
+2019-11-29-10000-lcw
+2019-11-30-10000-lcw
+2019-11-29-10000-lcw
+2019-11-30-7121-lcw
+当前：162019-11-29-6203-lcw
+当前：162019-11-30-查询数据33472019-11-29-查询数据32972019-11-30-3347-bole
+当前：172019-11-29-3297-bole
+当前：172019-11-30-查询数据73022019-11-29-查询数据80682019-11-30-7302-qcw
+当前：182019-11-29-8068-qcw
+当前：182019-11-30-查询数据135032019-11-29-查询数据122322019-11-30-10000-xinyc
+2019-11-30-3503-xinyc
+当前：192019-11-29-10000-xinyc
+2019-11-29-2232-xinyc
+当前：192019-11-29-查询数据143922019-11-30-查询数据159742019-11-30-10000-kczx
+2019-11-29-10000-kczx
+2019-11-30-5974-kczx
+当前：202019-11-30-查询数据18672019-11-30-1867-dfc
+当前：212019-11-29-4392-kczx
+当前：202019-11-29-查询数据26542019-11-29-2654-dfc
+当前：212019-11-30-查询数据181312019-11-30-10000-huaren
+2019-11-29-查询数据186582019-11-30-8131-huaren
+当前：222019-11-30-查询数据9812019-11-30-981-lecheng
+当前：232019-11-30-查询数据1082019-11-30-108-acw
+当前：242019-11-29-10000-huaren
+2019-11-30-查询数据51272019-11-30-5127-le8
+当前：252019-11-29-8658-huaren
+当前：222019-11-29-查询数据5012019-11-29-501-lecheng
+当前：232019-11-29-查询数据412019-11-29-41-acw
+当前：242019-11-29-查询数据72672019-11-29-7267-le8
+当前：252019-11-30-查询数据161062019-11-30-10000-ledian
+2019-11-30-6106-ledian
+当前：262019-11-30-查询数据78372019-11-29-查询数据182752019-11-30-7837-huifa
+当前：272019-11-30-查询数据15962019-11-30-1596-345cp
+当前：282019-11-29-10000-ledian
+2019-11-29-8275-ledian
+当前：262019-11-29-查询数据63362019-11-29-6336-huifa
+当前：272019-11-29-查询数据15362019-11-29-1536-345cp
+当前：282019-11-30-查询数据177482019-11-30-10000-aicai
+2019-11-30-7748-aicai
+当前：292019-11-29-查询数据173762019-11-29-10000-aicai
+2019-11-29-7376-aicai
+当前：292019-11-30-查询数据533302019-11-30-10000-legou
+2019-11-30-10000-legou
+2019-11-30-10000-legou
+2019-11-29-查询数据609112019-11-30-10000-legou
+2019-11-30-10000-legou
+2019-11-30-3330-legou
+当前：302019-11-29-10000-legou
+2019-11-29-10000-legou
+2019-11-29-10000-legou
+2019-11-29-10000-legou
+2019-11-29-10000-legou
+2019-11-29-10000-legou
+2019-11-29-911-legou
+当前：302019-11-30-查询数据431322019-11-30-10000-gpcp
+2019-11-30-10000-gpcp
+2019-11-30-10000-gpcp
+2019-11-30-10000-gpcp
+2019-11-30-3132-gpcp
+当前：312019-11-30-查询数据11092019-11-30-1109-bofa
+当前：322019-11-29-查询数据433102019-11-29-10000-gpcp
+2019-11-29-10000-gpcp
+2019-11-29-10000-gpcp
+2019-11-29-10000-gpcp
+2019-11-29-3310-gpcp
+当前：312019-11-29-查询数据7562019-11-29-756-bofa
+当前：322019-11-30-查询数据223602019-11-30-10000-jzcp
+2019-11-30-10000-jzcp
+2019-11-30-2360-jzcp
+当前：332019-11-30-查询数据23102019-11-30-2310-ycw
+当前：342019-11-29-查询数据206742019-11-29-10000-jzcp
+2019-11-30-查询数据108672019-11-30-10000-ylcp
+2019-11-30-867-ylcp
+当前：352019-11-29-10000-jzcp
+2019-11-29-674-jzcp
+当前：332019-11-29-查询数据19682019-11-30-查询数据33262019-11-29-1968-ycw
+当前：342019-11-30-3326-ckb
+当前：362019-11-30-查询数据7482019-11-30-748-yfcp
+当前：372019-11-30-查询数据00-tkcp
+当前：382019-11-30-查询数据42019-11-30-4-jxcp
+当前：392019-11-29-查询数据108122019-11-29-10000-ylcp
+2019-11-29-812-ylcp
+当前：352019-11-29-查询数据26462019-11-29-2646-ckb
+当前：362019-11-29-查询数据5702019-11-29-570-yfcp
+当前：372019-11-29-查询数据00-tkcp
+当前：382019-11-29-查询数据72019-11-29-7-jxcp
+当前：392019-11-30-查询数据682692019-11-30-10000-ttcp
+2019-11-30-10000-ttcp
+Exception in thread "pool-1-thread-2" java.lang.OutOfMemoryError: GC overhead limit exceeded
+	at java.lang.StringBuilder.toString(StringBuilder.java:407)
+	at java.math.BigDecimal.getValueString(BigDecimal.java:3006)
+	at java.math.BigDecimal.toPlainString(BigDecimal.java:2984)
+	at com.mysql.cj.ClientPreparedQueryBindings.setBigDecimal(ClientPreparedQueryBindings.java:135)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setBigDecimal(ClientPreparedStatement.java:1454)
+	at org.apache.ibatis.type.BigDecimalTypeHandler.setNonNullParameter(BigDecimalTypeHandler.java:32)
+	at org.apache.ibatis.type.BigDecimalTypeHandler.setNonNullParameter(BigDecimalTypeHandler.java:27)
+	at org.apache.ibatis.type.BaseTypeHandler.setParameter(BaseTypeHandler.java:53)
+	at org.apache.ibatis.scripting.defaults.DefaultParameterHandler.setParameters(DefaultParameterHandler.java:87)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.parameterize(PreparedStatementHandler.java:93)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.parameterize(RoutingStatementHandler.java:64)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:49)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:58)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy2.insertLotteryBetingInfo(Unknown Source)
+	at pers.testDao.LotteryBettingInfo.getInsetLotteryBettingInfoLoop(LotteryBettingInfo.java:103)
+	at pers.testDao.LotteryBettingInfo.lotteryBettingInfo2(LotteryBettingInfo.java:63)
+	at pers.testDao.LotteryBettingInfo.lambda$main$1(LotteryBettingInfo.java:110)
+	at pers.testDao.LotteryBettingInfo$$Lambda$2/772777427.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+2019-11-29-查询数据621352019-11-29-10000-ttcp
+2019-11-29-10000-ttcp
+2019-11-29-10000-ttcp
+2019-11-29-10000-ttcp
+2019-11-29-10000-ttcp
+2019-11-29-10000-ttcp
+2019-11-29-2135-ttcp
+当前：402019-11-29-查询数据331342019-11-29-10000-acl
+2019-11-29-10000-acl
+2019-11-29-10000-acl
+2019-11-29-3134-acl
+当前：412019-11-29-查询数据31752019-11-29-3175-hfcp
+当前：422019-11-29-查询数据26862019-11-29-2686-lqc
+当前：432019-11-29-查询数据17632019-11-29-1763-dxcp
+当前：442019-11-29-查询数据66872019-11-29-6687-500cp
+当前：452019-11-29-查询数据23632019-11-29-2363-daren
+当前：462019-11-29-查询数据466772019-11-29-10000-baixing
+2019-11-29-10000-baixing
+2019-11-29-10000-baixing
+2019-11-29-10000-baixing
+2019-11-29-6677-baixing
+当前：472019-11-29-查询数据666442019-11-29-10000-czj
+2019-11-29-10000-czj
+2019-11-29-10000-czj
+2019-11-29-10000-czj
+2019-11-29-10000-czj
+2019-11-29-10000-czj
+2019-11-29-6644-czj
+当前：482019-11-29-查询数据163062019-11-29-10000-cgcp
+2019-11-29-6306-cgcp
+当前：492019-11-29-查询数据1982019-11-29-198-hyc
+当前：502019-11-29-查询数据1261072019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-10000-tcp
+2019-11-29-6107-tcp
+当前：512019-11-29-查询数据216142019-11-29-10000-csj
+2019-11-29-10000-csj
+2019-11-29-1614-csj
+当前：522019-11-29-查询数据386622019-11-29-10000-668cp
+2019-11-29-10000-668cp
+2019-11-29-10000-668cp
+2019-11-29-8662-668cp
+当前：532019-11-29-查询数据153702019-11-29-10000-gczx
+2019-11-29-5370-gczx
+当前：542019-11-29-查询数据31942019-11-29-3194-8c
+当前：552019-11-29-查询数据97092019-11-29-9709-sjcp
+当前：562019-11-29-查询数据53312019-11-29-5331-3158
+当前：572019-11-29-查询数据242562019-11-29-10000-yinhe
+2019-11-29-10000-yinhe
+2019-11-29-4256-yinhe
+当前：582019-11-29-查询数据41894Exception in thread "pool-1-thread-1" java.lang.OutOfMemoryError: Java heap space
+	at java.util.Arrays.copyOfRange(Arrays.java:3664)
+	at java.lang.String.<init>(String.java:207)
+	at java.lang.String.substring(String.java:1969)
+	at java.lang.String.trim(String.java:2878)
+	at org.apache.ibatis.scripting.xmltags.DynamicContext.getSql(DynamicContext.java:70)
+	at org.apache.ibatis.scripting.xmltags.DynamicSqlSource.getBoundSql(DynamicSqlSource.java:44)
+	at org.apache.ibatis.mapping.MappedStatement.getBoundSql(MappedStatement.java:292)
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.<init>(BaseStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.<init>(PreparedStatementHandler.java:40)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.<init>(RoutingStatementHandler.java:46)
+	at org.apache.ibatis.session.Configuration.newStatementHandler(Configuration.java:558)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:48)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:58)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy2.insertLotteryBetingInfo(Unknown Source)
+	at pers.testDao.LotteryBettingInfo.getInsetLotteryBettingInfoLoop(LotteryBettingInfo.java:103)
+	at pers.testDao.LotteryBettingInfo.lotteryBettingInfo2(LotteryBettingInfo.java:63)
+	at pers.testDao.LotteryBettingInfo.lambda$main$0(LotteryBettingInfo.java:109)
+	at pers.testDao.LotteryBettingInfo$$Lambda$1/1134517053.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+Process finished with exit code 130 (interrupted by signal 2: SIGINT)

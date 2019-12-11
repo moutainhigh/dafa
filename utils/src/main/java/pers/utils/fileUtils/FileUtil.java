@@ -11,7 +11,7 @@ public class FileUtil {
 
     @Test(description = "读文件")
     public static void test01() {
-        System.out.println(readFile("/Users/duke/Documents/github/dafa/utils/src/main/resources/b.txt"));
+        System.out.println(readFile("/Users/duke/Documents/github/dafa/utils/src/main/resources/test/b.txt"));
     }
 
     @Test(description = "写文件")
@@ -21,24 +21,17 @@ public class FileUtil {
 
     /**
      * 读文件
+     * @param filePath 文件绝对路径
      */
-    public static List<String> readFile(String pathname) {
-        List<String> data = new ArrayList<>();
-        File file = new File(pathname);
+    public static List<String> readFile(String filePath) {
+        List<String> data = null; //= new ArrayList<>();
+        File file = new File(filePath);
         if (!file.exists()) {
             System.out.println("readFile:找不到文件");
             return null;
         }
         try {
-            InputStreamReader reader = new InputStreamReader(
-                    new FileInputStream(file), "utf-8");
-            BufferedReader br = new BufferedReader(reader);
-            String line;
-            while ((line = br.readLine()) != null) { //可以剔除空行,但不能剔除空格的行
-                if (line != null || !"".equals(line)) {
-                    data.add(line);
-                }
-            }
+            data = readFile(new FileInputStream(file));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,24 +42,16 @@ public class FileUtil {
      * 读文件入参：输入流
      * java -jar 读取resources文件需要Spring使用流读取，路径无法读取文件
      *
-     * name.class.getResourceAsStream("/svBetContent/1018.txt")
+     * @param inputStream classname.class.getResourceAsStream("/1018.txt")
      */
     public static List<String> readFile(InputStream inputStream) {
         List<String> data = new ArrayList<>();
         try {
-            // 建立一个输入流对象reader
-            InputStreamReader reader = new InputStreamReader(inputStream
-                    , "utf-8");
+            InputStreamReader reader = new InputStreamReader(inputStream, "utf-8");
             BufferedReader br = new BufferedReader(reader);
             String line;
             while ((line = br.readLine()) != null) { //可以剔除空行,但不能剔除空格的行
-                /*if (!line.equals("")){
-                    System.out.println(line);
-                }*/
-                //System.out.println(line);
-                if (line != null || !"".equals(line)) {
-                    data.add(line);
-                }
+                data.add(line);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -92,14 +77,14 @@ public class FileUtil {
     /**
      * 写文件，入参List<String>,
      */
-    public static void writeFile(String path, List<String> content, boolean b) {
+    public static void writeFile(String path, List<String> content, boolean isAppend) {
         File file = new File(path);
         if (!file.exists()) {
             System.out.println("writeFile:找不到文件" + path);
             return;
         }
         try {
-            FileOutputStream fileOutputStream = new FileOutputStream(file, b);//true表示追加
+            FileOutputStream fileOutputStream = new FileOutputStream(file, isAppend);//true表示追加
             for (int i = 0; i < content.size(); i++) {
                 fileOutputStream.write(content.get(i).getBytes());
                 if (i != (content.size() - 1)) {

@@ -16,13 +16,6 @@ public class Login {
     private static  String loginPath = "/v1/users/login";
 
     public static void main(String[] args) {
-        //Login loginPage = new Login();
-        //使用密码来获取cookie
-        //loginPage.loginDafaCloud("duke0112","123456");
-        //获取棋牌的token
-        //String token = loginPage.getGameToken();
-        //System.out.println(token);
-
         System.out.println(getLoginBody("alysia","123456"));
     }
 

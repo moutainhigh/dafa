@@ -5,10 +5,7 @@ import java.util.TimerTask;
 
 public class StartTimeTask {
 
-    public static void main(String[] args) {
-        InitializaIssueEndtime.executeInitializa();
-        endTimeTask();
-    }
+
 
     public static void endTimeTask() {
         Timer timerOne = new Timer();
