@@ -3,7 +3,6 @@ package pers.testDao;
 import org.apache.ibatis.session.SqlSession;
 import pers.dafacloud.Dao.SqlSessionFactoryUtils;
 import pers.dafacloud.Dao.mapper.lotteryBettingInfo.LotteryBettingInfoMapper;
-import pers.testProductBug.PaymentRecordNotInReport;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.listUtils.ListSplit;
 
@@ -22,7 +21,7 @@ public class LotteryBettingInfo {
     public static void lotteryBettingInfoCount() {
         SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("betting");
         LotteryBettingInfoMapper lotteryBetingInfoMapper = sqlSessionTransaction.getMapper(LotteryBettingInfoMapper.class);
-        List<String> tenantCodes = FileUtil.readFile(PaymentRecordNotInReport.class.getResourceAsStream("/tenantCode.txt"));
+        List<String> tenantCodes = FileUtil.readFile(LotteryBettingInfo.class.getResourceAsStream("/tenantCode.txt"));
         long l = 0;
         for (int i = 0; i < tenantCodes.size(); i++) {
             int total = lotteryBetingInfoMapper.getLotteryBetingInfoCount(tenantCodes.get(i));
@@ -41,7 +40,7 @@ public class LotteryBettingInfo {
         SqlSession sqlSessionTransaction2 = SqlSessionFactoryUtils.openSqlSession("dev");
         LotteryBettingInfoMapper lotteryBettingInfoMapper2 = sqlSessionTransaction2.getMapper(LotteryBettingInfoMapper.class);
 
-        List<String> tenantCodes = FileUtil.readFile(PaymentRecordNotInReport.class.getResourceAsStream("/tenantCode.txt"));
+        List<String> tenantCodes = FileUtil.readFile(LotteryBettingInfo.class.getResourceAsStream("/tenantCode.txt"));
         for (int i = 0; i < tenantCodes.size(); i++) {
             System.out.println("当前：" + i);
             getInsetLotteryBettingInfo(lotteryBettingInfoMapper, lotteryBettingInfoMapper2, tenantCodes.get(i));
@@ -77,7 +76,7 @@ public class LotteryBettingInfo {
         SqlSession sqlSessionTransaction2 = SqlSessionFactoryUtils.openSqlSession("dev");
         LotteryBettingInfoMapper lotteryBettingInfoMapper2 = sqlSessionTransaction2.getMapper(LotteryBettingInfoMapper.class);
 
-        List<String> tenantCodes = FileUtil.readFile(PaymentRecordNotInReport.class.getResourceAsStream("/tenantCode.txt"));
+        List<String> tenantCodes = FileUtil.readFile(LotteryBettingInfo.class.getResourceAsStream("/tenantCode.txt"));
         for (int i = 0; i < 1; i++) {
             System.out.println("当前：" + i);
             getInsetLotteryBettingInfoLoop(lotteryBettingInfoMapper, lotteryBettingInfoMapper2, "huicai", date);

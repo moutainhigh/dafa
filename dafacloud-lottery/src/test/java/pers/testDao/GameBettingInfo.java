@@ -3,7 +3,6 @@ package pers.testDao;
 import org.apache.ibatis.session.SqlSession;
 import pers.dafacloud.Dao.SqlSessionFactoryUtils;
 import pers.dafacloud.Dao.mapper.gameBettingInfo.GameBettingInfoMapper;
-import pers.testProductBug.PaymentRecordNotInReport;
 import pers.utils.fileUtils.FileUtil;
 
 import java.util.List;
@@ -28,7 +27,7 @@ public class GameBettingInfo {
         SqlSession sqlSessionTransaction2 = SqlSessionFactoryUtils.openSqlSession("dev");
         GameBettingInfoMapper gameBetingInfoMapper2 = sqlSessionTransaction2.getMapper(GameBettingInfoMapper.class);
 
-        List<String> tenantCodes = FileUtil.readFile(PaymentRecordNotInReport.class.getResourceAsStream("/tenantCode.txt"));
+        List<String> tenantCodes = FileUtil.readFile(GameBettingInfo.class.getResourceAsStream("/tenantCode.txt"));
         for (int i = 0; i < tenantCodes.size(); i++) {
             System.out.print(i);
             getInsetGameBettingInfo(gameBetingInfoMapper, gameBetingInfoMapper2, tenantCodes.get(i));
