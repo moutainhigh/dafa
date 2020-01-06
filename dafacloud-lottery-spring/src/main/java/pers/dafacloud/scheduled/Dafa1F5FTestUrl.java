@@ -108,7 +108,7 @@ public class Dafa1F5FTestUrl implements SchedulingConfigurer {
 
 
     //1分系列
-    @Scheduled(cron = "5 * * * * * ")
+    //@Scheduled(cron = "5 * * * * * ")
     public void a() {
         //if(!finishlLogin){ return; }
         Calendar now = Calendar.getInstance();
@@ -126,7 +126,7 @@ public class Dafa1F5FTestUrl implements SchedulingConfigurer {
     }
 
     //5分系列
-    @Scheduled(cron = "6 * * * * * ")
+    //@Scheduled(cron = "6 * * * * * ")
     public void aa() {
         //if(!finishlLogin){ return; }
         Calendar now = Calendar.getInstance();

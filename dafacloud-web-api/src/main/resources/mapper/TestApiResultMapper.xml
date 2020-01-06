@@ -28,8 +28,11 @@
             <if test="apiPath != null and apiPath!= -1 ">
                 AND api_path like CONCAT(CONCAT('%',#{apiPath}),'%')
             </if>
-            <if test="isPass != null and isPass!= '' ">
-                AND is_pass in CONCAT(CONCAT('(',#{isPass}),')')
+            <if test="isPass != null and isPass!= ''">
+                is_pass IN
+                <foreach collection="isPassList" item="id" index="index" open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
             </if>
             <if test="cmsFront != null and cmsFront!= -1 ">
                 AND cms_front = #{cmsFront})
@@ -56,7 +59,10 @@
                 AND api_path like CONCAT(CONCAT('%',#{apiPath}),'%')
             </if>
             <if test="isPass != null and isPass!= '' ">
-                AND is_pass in CONCAT(CONCAT('(',#{isPass}),')')
+                is_pass IN
+                <foreach collection="isPassList" item="id" index="index" open="(" close=")" separator=",">
+                    #{id}
+                </foreach>
             </if>
             <if test="cmsFront != null and cmsFront != -1 ">
                 AND cms_front = #{cmsFront})

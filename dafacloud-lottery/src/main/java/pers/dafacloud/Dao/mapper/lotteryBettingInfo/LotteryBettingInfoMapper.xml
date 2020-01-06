@@ -73,8 +73,8 @@
 		and is_test = 0
 		and lottery_code = 1407
 		and betting_state in(1,2)
-		AND play_detail_code = '1407A10'
 		and id > #{maxId}
+		AND play_detail_code = '1407A10'
 		order by id asc limit 10000 ;
 --         and gmt_created > '2019-11-29'
 --         and gmt_created &lt; '2019-12-10'

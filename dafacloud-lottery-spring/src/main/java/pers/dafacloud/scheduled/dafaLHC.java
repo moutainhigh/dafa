@@ -35,7 +35,7 @@ public class dafaLHC {
     private static List<String> betUser =
             FileUtil.readFile(dafaLHC.class.getResourceAsStream("/user.txt"));
 
-    @Scheduled(cron = "5 * * * * * ")
+    //@Scheduled(cron = "5 * * * * * ")
     public void aa() {
         Calendar now = Calendar.getInstance();
         int m = now.get(Calendar.MONTH);
@@ -82,9 +82,6 @@ public class dafaLHC {
                 .other("x-source-Id", "1")
                 .other("Origin", "http://52.76.195.164")
                 .build();
-        long now = System.currentTimeMillis();
-        long lcMillTime = 0;
-
         for (GetBetInfo betInfo : getBetInfos) {
             //String currentDate = "";
             //try {
@@ -126,10 +123,6 @@ public class dafaLHC {
                 System.out.println("======" + e);
             }
         }
-    }
-
-    public String getIssue() {
-        return null;
     }
 
 }

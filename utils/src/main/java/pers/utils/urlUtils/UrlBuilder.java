@@ -12,9 +12,9 @@ public class UrlBuilder {
     }
 
 
-    String url;
-    List<Params> params = new ArrayList<>();
-    List<Params> jsonParams = new ArrayList<>();
+    private String url;
+    private List<Params> params = new ArrayList<>();
+    private List<Params> jsonParams = new ArrayList<>();
 
 //    public UrlBuilder(String url) {
 //        this.url = url;

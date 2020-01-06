@@ -136,7 +136,7 @@ public class Dafa1F5FPreUrl implements SchedulingConfigurer {
     }
 
     //5分系列
-    @Scheduled(cron = "6 * * * * * ")
+    //@Scheduled(cron = "6 * * * * * ")
     public void aa() {
         //if(!finishlLogin){ return; }
         Calendar now = Calendar.getInstance();

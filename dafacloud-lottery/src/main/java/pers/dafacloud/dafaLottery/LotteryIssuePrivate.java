@@ -25,7 +25,7 @@ public class LotteryIssuePrivate {
         String currentIssue;
         if (n == 1) //1分系列是
             currentIssue = String.format("%s%02d%02d%04d", year, month, day, current);
-        else //5分系列
+        else //3，5分系列
             currentIssue = String.format("%s%02d%02d%03d", year, month, day, current);
         return currentIssue;
     }

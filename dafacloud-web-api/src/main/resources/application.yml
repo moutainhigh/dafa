@@ -13,8 +13,8 @@ spring:
     dev1:
       username: root
       password: 123456
-      jdbc-url: jdbc:mysql://192.168.79.67:3306/dafa-cloud?serverTimezone=UTC
-#      jdbc-url: jdbc:mysql://127.0.0.1:3306/dafa-cloud?serverTimezone=UTC
+#      jdbc-url: jdbc:mysql://192.168.79.67:3306/dafa-cloud?serverTimezone=UTC
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/dafa-cloud?serverTimezone=UTC
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
 
@@ -46,8 +46,9 @@ mybatis-plus:
       capital-mode: false #开启大写命名
       column-like: true #开启 LIKE 查询
 
+#mybatis 打印sql日志
 logging:
   level:
-    pers.dafacloud.mapper: debug
+   pers.dafacloud.mapper: debug
 #    com.dafacloud.management.managementapi.mapping: debug
 

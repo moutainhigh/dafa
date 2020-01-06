@@ -15,7 +15,7 @@ import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pers.utils.dafaRequest.DafaRequest;
-import pers.utils.dafaGameUtils.DafaGame;
+import pers.utils.dafaGame.DafaGameLogin;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.propertiesUtils.PropertiesUtil;
@@ -65,7 +65,7 @@ public class StartWsProtoClient {
                 String body = UrlBuilder.custom()
                         .addBuilder("inviteCode", "")
                         .addBuilder("accountNumber", phone)
-                        .addBuilder("password", DafaGame.getLoginBody(random, "123qwe")) //"b4e82b683394b50b679dc2b51a79d987"
+                        .addBuilder("password", DafaGameLogin.getLoginBody(random, "duke123")) //"b4e82b683394b50b679dc2b51a79d987"
                         .addBuilder("userType", "0") //正式0/测试1/遊客2
                         .addBuilder("random", encodeRandom)
                         .fullBody();
@@ -141,8 +141,8 @@ public class StartWsProtoClient {
         //new StartWsProtoClient("92582013").start();
         List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/dukePhone.txt"));
         System.out.println(users.size());
-        for (int i = 100; i < 200; i++) {
-            new StartWsProtoClient(users.get(i), 102).start();
+        for (int i = 0; i < 1; i++) {
+            new StartWsProtoClient("13012345675", 201).start();
             Thread.sleep(200);
         }
     }

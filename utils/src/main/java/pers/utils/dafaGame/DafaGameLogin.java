@@ -1,18 +1,15 @@
-package pers.utils.dafaGameUtils;
+package pers.utils.dafaGame;
 
 import pers.utils.Md5HA1.MD5Util;
 
-import java.util.Base64;
-
-public class DafaGame {
-
-
+public class DafaGameLogin {
     /**
      * cocos前台加密
-     * 入参：random base64加密数据
      *
-     * */
-    public static String getLoginBody(String random,String password) {
+     * @param random   base64加密随机数
+     * @param password 登录密码
+     */
+    public static String getLoginBody(String random, String password) {
         String passwordEncode = "";
         try {
             passwordEncode =
@@ -22,7 +19,6 @@ public class DafaGame {
         }
         return passwordEncode;
     }
-
 
 
 }

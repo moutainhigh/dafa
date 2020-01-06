@@ -1,22 +1,31 @@
 package pers.dafacloud.model;
 
+import lombok.Data;
+import lombok.ToString;
+
+import java.util.List;
+
+@Data
+@ToString
 public class TestApiResult {
 
     private int id;
 
-    private  String host ;
+    private String host;
 
     private String apiName;
 
     private String apiPath;
 
-    private String apiMethod;
+    private int apiMethod;
 
     private String testResult;
 
     private String dependentResult1;
 
     private String isPass;
+
+    private List<String> isPassList;
 
     private int cmsFront;
 
@@ -30,129 +39,4 @@ public class TestApiResult {
     private int pageSize;
 
     private String insertTime;
-
-
-    public String getIsPass() {
-        return isPass;
-    }
-
-    public void setIsPass(String isPass) {
-        this.isPass = isPass;
-    }
-
-    public String getHost() {
-        return host;
-    }
-
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-
-
-    public String getApiMethod() {
-        return apiMethod;
-    }
-
-    public void setApiMethod(String apiMethod) {
-        this.apiMethod = apiMethod;
-    }
-
-    public String getInsertTime() {
-        return insertTime;
-    }
-
-    public void setInsertTime(String insertTime) {
-        this.insertTime = insertTime;
-    }
-
-    public int getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(int pageNum) {
-        this.pageNum = pageNum;
-    }
-
-    public int getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-
-
-    public int getCmsFront() {
-        return cmsFront;
-    }
-
-    public void setCmsFront(int cmsFront) {
-        this.cmsFront = cmsFront;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getApiName() {
-        return apiName;
-    }
-
-    public void setApiName(String apiName) {
-        this.apiName = apiName;
-    }
-
-    public String getApiPath() {
-        return apiPath;
-    }
-
-    public void setApiPath(String apiPath) {
-        this.apiPath = apiPath;
-    }
-
-    public String getTestResult() {
-        return testResult;
-    }
-
-    public void setTestResult(String testResult) {
-        this.testResult = testResult;
-    }
-
-    public String getDependentResult1() {
-        return dependentResult1;
-    }
-
-    public void setDependentResult1(String dependentResult1) {
-        this.dependentResult1 = dependentResult1;
-    }
-
-
-    public String getDependentResult2() {
-        return dependentResult2;
-    }
-
-    public void setDependentResult2(String dependentResult2) {
-        this.dependentResult2 = dependentResult2;
-    }
-
-    public String getTestExecutor() {
-        return testExecutor;
-    }
-
-    public void setTestExecutor(String testExecutor) {
-        this.testExecutor = testExecutor;
-    }
-
-    public String getTestBatch() {
-        return testBatch;
-    }
-
-    public void setTestBatch(String testBatch) {
-        this.testBatch = testBatch;
-    }
 }

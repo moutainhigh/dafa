@@ -13,13 +13,8 @@ import java.util.Date;
 
 public class Log {
 	
-//	private static Logger Log = Logger.getLogger(Log.class.getName());
 	private final static Logger Log = LoggerFactory.getLogger(Log.class);
-//	static {
-//		//System.setProperty("log.info.file", "lcBet01.log");
-//		Log.setLevel(Level.INFO);
-//		Log.fatal("the effective level is : "+Log.getEffectiveLevel());
-//	}
+
 	
 	/**info的日志*/
 	public static void info(String message) {
@@ -46,9 +41,6 @@ public class Log {
 		Log.error(message);
 	}
 
-//	public static void fatal(String message) {
-//		Log.fatal(message);
-//	}
 
 	public static void debug(String message) {
 		Log.debug(message);

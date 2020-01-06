@@ -11,6 +11,7 @@ public class DafacloudLotterySpringApplicationTests {
 
     @Test
     public void contextLoads() {
+
     }
 
 }

@@ -35,7 +35,7 @@ public class KibanaData {
         String indexEv = env;
         //查询条件
         String query = String.format("header:'a02916'");
-        String body0 = "{\"index\":\"{indexEv}\",\"ignore_unavailable\":true,\"timeout\":30000,\"preference\":1564455142933}\n{\"version\":true,\"size\":5000,\"sort\":[{\"@timestamp\":{\"order\":\"desc\",\"unmapped_type\":\"boolean\"}}],\"_source\":{\"excludes\":[]},\"aggs\":{\"2\":{\"date_histogram\":{\"field\":\"@timestamp\",\"interval\":\"10m\",\"time_zone\":\"Asia/Shanghai\",\"min_doc_count\":1}}},\"stored_fields\":[\"*\"],\"script_fields\":{},\"docvalue_fields\":[\"@timestamp\"],\"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"{query}\",\"analyze_wildcard\":true,\"default_field\":\"*\"}},{\"range\":{\"@timestamp\":{\"gte\":{startTime},\"lte\":{endTime},\"format\":\"epoch_millis\"}}}],\"filter\":[],\"should\":[],\"must_not\":[]}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}\n";
+        String body0 = "{\"index\":\"{indexEv}\",\"ignore_unavailable\":true,\"timeout\":60000,\"preference\":1564455142933}\n{\"version\":true,\"size\":5000,\"sort\":[{\"@timestamp\":{\"order\":\"desc\",\"unmapped_type\":\"boolean\"}}],\"_source\":{\"excludes\":[]},\"aggs\":{\"2\":{\"date_histogram\":{\"field\":\"@timestamp\",\"interval\":\"10m\",\"time_zone\":\"Asia/Shanghai\",\"min_doc_count\":1}}},\"stored_fields\":[\"*\"],\"script_fields\":{},\"docvalue_fields\":[\"@timestamp\"],\"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"{query}\",\"analyze_wildcard\":true,\"default_field\":\"*\"}},{\"range\":{\"@timestamp\":{\"gte\":{startTime},\"lte\":{endTime},\"format\":\"epoch_millis\"}}}],\"filter\":[],\"should\":[],\"must_not\":[]}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}\n";
         String body = body0
                 .replace("{indexEv}", indexEv)
                 .replace("{query}", search)
@@ -54,7 +54,7 @@ public class KibanaData {
         try {
             responses = JSONObject.fromObject(result).getJSONArray("responses");
         } catch (Exception e) {
-            System.out.println(responses);
+            System.out.println("返回数据解析json 失败"+responses);
             e.printStackTrace();
         }
         JSONObject one = responses.getJSONObject(0);
@@ -66,9 +66,9 @@ public class KibanaData {
 
     @Test(description = "统计ip出现次数")
     public static void test001() {
-        String startTime = "2019-11-06 00:00:00";
-        String endTime = "2019-11-06 23:59:59";
-        String search = "header:'a02916'";
+        String startTime = "2019-12-16 00:00:00";
+        String endTime = "2019-12-18 23:59:59";
+        String search = "header:'bjlh53695147588'";
         String env = "master-access-*";
         List<String> resultList = new ArrayList<>();
         JSONArray hits = queryKibana(search, startTime, endTime, env);
@@ -81,14 +81,37 @@ public class KibanaData {
                 resultList.add(header.getString("x-client-ip"));
             }
         }
-        System.out.println(ListRemoveRepeat.removeRepeatCount(resultList));//去重和统计次数
+        //System.out.println(ListRemoveRepeat.removeRepeatCount(resultList));//去重和统计次数
+        System.out.println(ListRemoveRepeat.removeRepeat(resultList));//去重和统计次数
+    }
+
+    @Test(description = "统计username出现次数")
+    public static void test001a() {
+        String startTime = "2019-12-16 00:00:00";
+        String endTime = "2019-12-18 23:59:59";
+        String search = "header:'jane201911'";
+        String env = "master-access-*";
+        List<String> resultList = new ArrayList<>();
+        JSONArray hits = queryKibana(search, startTime, endTime, env);
+        if (hits.size() != 0) {
+            for (int i = 0; i < hits.size(); i++) {
+                JSONObject hitsData = hits.getJSONObject(i);
+                JSONObject source = hitsData.getJSONObject("_source");
+                JSONObject header = source.getJSONObject("header");
+                //System.out.println(header.getString("x-client-ip"));
+                resultList.add(header.getString("x-user-name"));
+            }
+        }
+        //System.out.println(ListRemoveRepeat.removeRepeatCount(resultList));//去重和统计次数
+        System.out.println(ListRemoveRepeat.removeRepeat(resultList));//去重和统计次数
     }
 
     @Test(description = "统计接口时间差（毫秒）")
     public static void test01a() {
-        String search = "header:*xcw6662* AND url:*getMessageListWeb*";//url:*userAgentReport* AND header:*9999165*
-        String startTime = "2019-12-03 00:00:00";
-        String endTime = "2019-12-03 23:00:00";
+        //header:*xcw6662* AND url:*getMessageListWeb*
+        String search = "url:'meeLineLogin' AND header:'zcaiw'";//url:*userAgentReport* AND header:*9999165*
+        String startTime = "2019-12-20 00:00:00";
+        String endTime = "2019-12-20 23:00:00";
         String env = "master-access-*";
         JSONArray hits = queryKibana(search, startTime, endTime, env);
         if (hits.size() != 0) {
@@ -120,11 +143,11 @@ public class KibanaData {
 
     @Test(description = "棋牌彩票虚假数据统计概率")
     public static void test01c() {
-        String search = "remark:*统计数据* AND server-name:*game-toubao*";
+        String search = "remark:*统计数据* AND server-name:*game-benchi*";
         //String startTime = "2019-12-06 21:27:00";
         //String endTime = "2019-12-07 23:59:59";
-        String startTime = "2019-12-10 00:00:00";
-        String endTime = "2019-12-11 23:59:59";
+        String startTime = "2020-01-01 00:00:00";
+        String endTime = "2020-01-03 23:59:59";
         String env = "master-info-*";
         JSONArray hits = queryKibana(search, startTime, endTime, env);
         List<String> list = new ArrayList<>();
@@ -137,11 +160,11 @@ public class KibanaData {
                 //System.out.println(detail);
                 // list.add(remark.substring(0, 8) + "`" + detail);
                 //System.out.println(detail);
-                lotteryGameompile(detail);
+                lotteryGameompile(detail);//提取中括号中的数据
             }
         }
         System.out.println(list.size());
-        //  KibanaUtils.longhuXuni(list);
+        // KibanaUtils.longhuXuni(list);
     }
 
 
@@ -188,8 +211,7 @@ public class KibanaData {
 
     /**
      * 解析 []中的数据
-     *
-     * */
+     */
     public static void lotteryGameompile(String str) {
         //String str = "期号:12101433,开奖结果:[1,0,0,1],假投注:[0,2279,2027,0],真投注:[4880,1821,3123,3760],大小条件局数:496,单双条件局数:412,总局数:1870统计数据:大小0.265单双0.22";
         Pattern pattern = Pattern.compile("(?<=\\[)(.+?)(?=\\])");

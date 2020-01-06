@@ -1,5 +1,6 @@
 package pers.dafacloud.server;
 
+import org.apache.ibatis.annotations.Select;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import pers.dafacloud.utils.dataSource.MyDataSource;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ApiContentServer {
@@ -22,6 +24,16 @@ public class ApiContentServer {
     @MyDataSource(DataSourceType.dev1)
     public List<ApiContent> apiContentList(ApiContent apiContent) {
         return apiContentMapper.queryApi(apiContent);
+    }
+
+    //@MyDataSource(DataSourceType.dev1)
+    //public List<ApiContent> apiContentListBatchTest(String groupsApi, String owner) {
+    //    return apiContentMapper.queryApiBatchTest(groupsApi, owner);
+    //}
+
+    @MyDataSource(DataSourceType.dev1)
+    public List<ApiContent> queryApiBatchTest(String groupsApi, String owner) {
+        return apiContentMapper.queryApiBatchTest(groupsApi, owner);
     }
 
     @MyDataSource(DataSourceType.dev1)

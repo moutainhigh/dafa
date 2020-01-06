@@ -28,7 +28,7 @@ public class InvokeLogAspect {
     //方法调用之前
     @Before("executePointCut()")
     public void before(JoinPoint joinPoint) {
-        log.info("在切面中修改数据源");
+        //log.info("在切面中修改数据源");
         MethodSignature sign =  (MethodSignature)joinPoint.getSignature();
         Method method = sign.getMethod();
         MyDataSource annotation = method.getAnnotation(MyDataSource.class);

@@ -70,8 +70,7 @@ public class DataSourceConfig {
     @Bean(name = "dev1")
     //@ConfigurationProperties(prefix = "datasource.dev1")
     public DataSource readDataSource() {
-        System.out.println("dev1DataSource===========");
-        System.out.println("=============datasourceDev1Url：" + datasourceDev1Url);
+        //System.out.println("=============datasourceDev1Url：" + datasourceDev1Url);
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(datasourceDev1Url);
         dataSource.setUsername(datasourceDev1Username);
@@ -91,8 +90,6 @@ public class DataSourceConfig {
     @Bean(name = "local")
     //@ConfigurationProperties(prefix = "datasource.local")
     public DataSource writeDataSource() {
-        System.out.println("localDataSource===========");
-        System.out.println("=============datasourceLocalUrl：" + datasourceLocalUrl);
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setUrl(datasourceLocalUrl);
         dataSource.setUsername(datasourceLocalUsername);

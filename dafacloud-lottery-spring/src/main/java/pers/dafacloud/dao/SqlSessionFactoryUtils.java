@@ -17,6 +17,7 @@ public class SqlSessionFactoryUtils {
     private static SqlSessionFactory bettingSessionFactory;
     private static SqlSessionFactory transactionSessionFactory;
     private static SqlSessionFactory reportSessionFactory;
+    private static SqlSessionFactory preSessionFactory;
     private static final Class CLASS_LOCK = SqlSessionFactoryUtils.class;
 
     /**
@@ -28,7 +29,7 @@ public class SqlSessionFactoryUtils {
     /*
      * 单实例对象
      */
-    public static SqlSessionFactory initSqlSessionFactory(String name) {
+    private static SqlSessionFactory initSqlSessionFactory(String name) {
 
         //String resource = "/Users/duke/Documents/github/dafa/dafacloud-lottery-spring/src/main/resources/SqlMapConfig.xml";
         String resource = "SqlMapConfig.xml";
@@ -58,6 +59,11 @@ public class SqlSessionFactoryUtils {
                         reportSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, name);
                     }
                     break;
+                case "pre":
+                    if (preSessionFactory == null) {
+                        preSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, name);
+                    }
+                    break;
                 default:
                     if (sqlSessionFactory == null) {
                         sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, "dev");
@@ -75,41 +81,37 @@ public class SqlSessionFactoryUtils {
                 if (bettingSessionFactory == null) {
                     initSqlSessionFactory(name);
                 }
-                return bettingSessionFactory.openSession();
-                //break;
+                return bettingSessionFactory.openSession(true);
             case "transaction":
                 if (transactionSessionFactory == null) {
                     initSqlSessionFactory(name);
 
                 }
-                return transactionSessionFactory.openSession();
-                //break;
+                return transactionSessionFactory.openSession(true);
             case "report":
                 if (reportSessionFactory == null) {
                     initSqlSessionFactory(name);
                 }
-                return reportSessionFactory.openSession();
-            //break;
+                return reportSessionFactory.openSession(true);
+            case "pre":
+                if (preSessionFactory == null) {
+                    initSqlSessionFactory(name);
+                }
+                return preSessionFactory.openSession(true);
             default:
                 if (sqlSessionFactory == null) {
                     initSqlSessionFactory("dev");
-
                 }
-                return sqlSessionFactory.openSession();
-                //break;
+                return sqlSessionFactory.openSession(true);
         }
-//        if (sqlSessionFactory == null) {
-//            initSqlSessionFactory(name);
-//        }
-//        return sqlSessionFactory.openSession();
     }
 
-    public static SqlSession openSqlSession() {
-        if (sqlSessionFactory == null) {
-            initSqlSessionFactory("dev");
-        }
-        return sqlSessionFactory.openSession();
-    }
+    //public static SqlSession openSqlSession() {
+    //    if (sqlSessionFactory == null) {
+    //        initSqlSessionFactory("dev");
+    //    }
+    //    return sqlSessionFactory.openSession();
+    //}
 
 }
 

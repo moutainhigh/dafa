@@ -73,6 +73,14 @@
         <!--json转换 end -->
 
         <!-- httpclient start -->
+
+
+        <!-- 阿里连接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.9</version>
+        </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>

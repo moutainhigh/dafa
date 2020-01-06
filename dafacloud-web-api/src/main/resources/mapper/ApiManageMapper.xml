@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.dafacloud.mapper.ApiManageMapper">
+    <select id="getBatchTestApiList"  resultType="pers.dafacloud.model.ApiManage" flushCache="true"
+            useCache="true">
+        select
+        id id
+        ,api_name apiName
+        ,description description
+        ,path path
+        ,method method
+        ,request_parameters requestParameters
+        ,request_header requestHeader
+        ,cms_front cmsFront
+        ,project project
+        ,project_module projectModule
+        ,sort sort
+        ,owner owner
+        ,assert_response assertResponse
+        ,dependent_api dependentApi
+        ,response_comments responseComments
+        ,api_groups apiGroups
+
+        from api_manage
+        where api_groups like CONCAT(CONCAT('%',#{apiGroups}),'%')
+        and owner = #{owner}
+        order by sort asc,id desc
+    </select>
+
+    <select id="getApiList" parameterType="java.util.Map" resultType="pers.dafacloud.model.ApiManage" flushCache="true"
+            useCache="true">
+        select
+        id id
+        ,api_name apiName
+        ,description description
+        ,path path
+        ,method method
+        ,request_parameters requestParameters
+        ,request_header requestHeader
+        ,cms_front cmsFront
+        ,project project
+        ,project_module projectModule
+        ,sort sort
+        ,owner owner
+        ,assert_response assertResponse
+        ,dependent_api dependentApi
+        ,response_comments responseComments
+        ,api_groups apiGroups
+
+        from api_manage
+        <where>
+            <if test="apiName!=null and apiName!=''">
+                AND api_name like CONCAT(CONCAT('%',#{apiName}),'%')
+            </if>
+            <if test="path!=null and path!=''">
+                AND path like CONCAT(CONCAT('%',#{path}),'%')
+            </if>
+            <if test="owner!=null and owner!='' ">
+                AND owner = #{owner}
+            </if>
+            <if test="projectModule!=null and projectModule!=''">
+                AND project_module = #{projectModule}
+            </if>
+            <if test="cmsFront!=null and cmsFront != '' and cmsFront!=-1">
+                AND cms_front = #{cmsFront}
+            </if>
+            <if test="project!=null and project!='' and project!=-1 ">
+                AND project = #{project}
+            </if>
+            <if test="apiGroups!=null and apiGroups!='' ">
+                AND api_groups like CONCAT(CONCAT('%',#{apiGroups}),'%')
+            </if>
+            <if test="sort!=null and sort!=''">
+                AND sort like CONCAT(CONCAT(#{sort}),'%')
+            </if>
+        </where>
+        order by sort asc,id desc
+        limit #{pageNum},#{pageSize}
+    </select>
+
+
+    <select id="getApiListCount" parameterType="pers.dafacloud.model.ApiManage" resultType="java.lang.Integer"
+            flushCache="true" useCache="true">
+        select count(1) from api_manage
+        <where>
+            <if test="apiName!=null and apiName!=''">
+                AND api_name like CONCAT(CONCAT('%',#{apiName}),'%')
+            </if>
+            <if test="path!=null and path!=''">
+                AND path like CONCAT(CONCAT('%',#{path}),'%')
+            </if>
+            <if test="owner!=null and owner!='' ">
+                AND owner = #{owner}
+            </if>
+            <if test="projectModule!=null and projectModule!=''">
+                AND project_module = #{projectModule}
+            </if>
+            <if test="cmsFront!=null and cmsFront != '' and cmsFront!=-1">
+                AND cms_front = #{cmsFront}
+            </if>
+            <if test="project!=null and project!='' and project!=-1 ">
+                AND project = #{project}
+            </if>
+            <if test="apiGroups!=null and apiGroups!='' ">
+                AND api_groups like CONCAT(CONCAT('%',#{apiGroups}),'%')
+            </if>
+            <if test="sort!=null and sort!=''">
+                AND sort like CONCAT(CONCAT(#{sort}),'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="getApiById" parameterType="java.lang.Integer" resultType="pers.dafacloud.model.ApiManage"
+            flushCache="true" useCache="true">
+        SELECT
+            id id
+            ,api_name apiName
+            ,description description
+            ,path path
+            ,method method
+            ,request_parameters requestParameters
+            ,request_header requestHeader
+            ,cms_front cmsFront
+            ,project project
+            ,project_module projectModule
+            ,sort sort
+            ,owner owner
+            ,assert_response assertResponse
+            ,dependent_api dependentApi
+            ,response_comments responseComments
+            ,api_groups apiGroups
+        FROM
+            api_manage
+        WHERE
+            id = #{id}
+    </select>
+
+
+    <update id="updateApi" parameterType="pers.dafacloud.model.ApiManage">
+		update api_manage set
+		api_name = #{apiName}
+        ,description = #{description}
+        ,path = #{path}
+        ,method = #{method}
+        ,request_parameters = #{requestParameters}
+        ,request_header = #{requestHeader}
+        ,cms_front = #{cmsFront}
+        ,project = #{project}
+        ,project_module = #{projectModule}
+        ,sort = #{sort}
+        ,owner = #{owner}
+        ,assert_response = #{assertResponse}
+        ,dependent_api = #{dependentApi}
+        ,response_comments = #{responseComments}
+        ,api_groups = #{apiGroups}
+		where id = #{id}
+	</update>
+
+    <insert id="addApi" parameterType="pers.dafacloud.model.ApiManage" keyProperty="id">
+		insert into api_manage(
+		api_name
+        ,description
+        ,path
+        ,method
+        ,request_parameters
+        ,request_header
+        ,cms_front
+        ,project
+        ,project_module
+        ,sort
+        ,owner
+        ,assert_response
+        ,dependent_api
+        ,response_comments
+        ,api_groups
+		) values (
+		#{apiName}
+        ,#{description}
+        ,#{path}
+        ,#{method}
+        ,#{requestParameters}
+        ,#{requestHeader}
+        ,#{cmsFront}
+        ,#{project}
+        ,#{projectModule}
+        ,#{sort}
+        ,#{owner}
+        ,#{assertResponse}
+        ,#{dependentApi}
+        ,#{responseComments}
+        ,#{apiGroups})
+	</insert>
+
+    <insert id="cloneApi" parameterType="java.lang.Integer" keyProperty="id">
+		INSERT api_manage (
+                api_name
+                ,description
+                ,path
+                ,method
+                ,request_parameters
+                ,request_header
+                ,cms_front
+                ,project
+                ,project_module
+                ,sort
+                ,owner
+                ,assert_response
+                ,dependent_api
+                ,response_comments
+                ,api_groups
+            ) SELECT
+                api_name
+                ,description
+                ,path
+                ,method
+                ,request_parameters
+                ,request_header
+                ,cms_front
+                ,project
+                ,project_module
+                ,sort
+                ,owner
+                ,assert_response
+                ,dependent_api
+                ,response_comments
+                ,api_groups
+            FROM
+                api_manage
+            WHERE
+                id = #{id}
+	</insert>
+
+    <delete id="deleteApi" parameterType="int">
+        delete from api_manage where id = #{id}
+    </delete>
+</mapper>

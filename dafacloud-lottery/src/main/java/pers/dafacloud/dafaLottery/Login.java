@@ -2,6 +2,7 @@ package pers.dafacloud.dafaLottery;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
+import pers.utils.dafaCloud.DafaCloudLogin;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpCookies;
@@ -9,17 +10,23 @@ import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.randomNameAddrIP.RandomIP;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Login {
 
     private static String host = ConstantLottery.host;
     private static String loginUrl = host + "/v1/users/login";
+    private static ExecutorService excutors = Executors.newFixedThreadPool(300);
 
     /**
      * 登录
-     * 返回带cookie的httpConfig
+     *
+     * @param username 用户名
+     * @return HttpConfig 返回带cookie的httpConfig
      */
     public static HttpConfig loginReturnHttpConfig(String username) {
         String ip = RandomIP.getRandomIp();
@@ -32,9 +39,14 @@ public class Login {
                 .build();
         String body = getLoginBody(username, "123456");
         HttpCookies httpCookies = HttpCookies.custom();
+        //手动设置cookie
+        httpCookies.getCookieStore().addCookie(DafaCloudLogin.productCookie("42DF487CCA721371535D77120C3811D7",host));
+
+
         HttpConfig httpConfig = HttpConfig.custom().url(loginUrl).body(body).headers(headers).context(httpCookies.getContext());
-        String result = DafaRequest.post(httpConfig);
-        System.out.println(result);
+        //String result = DafaRequest.post(httpConfig);
+        //System.out.println(result);
+
         return httpConfig;
     }
 
@@ -53,6 +65,9 @@ public class Login {
     /**
      * 获取 加密后的loginBody
      * 账号需要转小写
+     *
+     * @param userName 用户名
+     * @param password 密码
      */
     public static String getLoginBody(String userName, String password) {
         //随机码
@@ -65,4 +80,39 @@ public class Login {
         return body;
     }
 
+    /**
+     * 循环登录
+     *
+     * @param username 用户名
+     */
+    public static void loginTask(String username) throws Exception {
+        for (int i = 0; i < 10000000; i++) {
+            loginReturnHttpConfig(username);
+            Thread.sleep(1000);
+        }
+    }
+
+    /**
+     * 多线程执行登录
+     *
+     * @param users 用户list集合
+     */
+    public static void multithreadingLoglin(List<String> users) {
+        for (int i = 0; i < users.size(); i++) {
+            String s = users.get(i);
+            excutors.execute(() -> {
+                try {
+                    loginTask(s);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+    }
+
+
+    public static void main(String[] args) throws Exception {
+        List<String> users = new ArrayList<>(Arrays.asList("duke123"));
+        multithreadingLoglin(users);
+    }
 }

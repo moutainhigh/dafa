@@ -3,7 +3,6 @@ package pers.dafacloud.runWSJavaxSX;
 import pers.dafacloud.dafacloudUtils.Constants;
 import pers.dafacloud.dafacloudUtils.Login;
 import pers.dafacloud.model.BetGameContent;
-import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
 
 import java.net.URL;
@@ -15,7 +14,7 @@ import java.util.concurrent.Executors;
 /**
  *
  */
-public class Testws {
+public class StartWs {
 
     private static String host = Constants.host;
 
@@ -45,7 +44,6 @@ public class Testws {
 
     public static void main(String[] args) throws Exception {
 
-        //初始化投注筹码
         //初始化BetContent
         //1.3个盘口，和盘口占少数，例：龙虎，红黑
         PosThree = initializateBetContent(new int[]{20, 20, 2});
@@ -57,35 +55,33 @@ public class Testws {
         PosFour = initializateBetContent(new int[]{1, 1, 1, 1});
 
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(2001, 5);//牛牛
-        map.put(2002, 5);//红黑
-        map.put(2003, 5);//龙虎
-        map.put(2004, 5);//百家乐
-        map.put(2005, 5);//奔驰宝马
-        map.put(2006, 5);//骰宝
-        //List<String> user = new ArrayList<>(Arrays.asList("dafai1999", "dafai1998"));
-        List<String> user = FileUtil.readFile(Testws.class.getResourceAsStream("/usersPre.txt"));
-        int index = 10;
+        map.put(2001, 6);//牛牛
+        map.put(2002, 0);//红黑
+        map.put(2003, 0);//龙虎
+        map.put(2004, 0);//百家乐
+        map.put(2005, 0);//奔驰宝马
+        map.put(2006, 0);//骰宝
+        List<String> user = new ArrayList<>(Arrays.asList("servant", "servant5", "servant10", "pp111", "servant101", "servant102"));
+        //List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/usersPre.txt"));
+        int index = 0;
         for (Integer key : map.keySet()) {
             //System.out.println("key=" + key);
             if (map.get(key) > 0) {
-                function01(key, map.get(key), user.subList(index, index + map.get(key)));
+                task(key, map.get(key), user.subList(index, index + map.get(key)));
                 index += map.get(key);
             }
         }
     }
 
 
-    public static void function01(int gameCode, int count, List<String> list) throws Exception {
+    public static void task(int gameCode, int count, List<String> list) throws Exception {
         for (int i = 0; i < count; i++) {
             String userName = list.get(i);
             System.out.println(userName);
             HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);
-            String token = Login.getGameToken(httpConfig);
-            System.out.println(token);
-            SendMessageSX sendMessageSX = new SendMessageSX("ws://" + new URL(host).getHost() + "/gameServer/?TOKEN=" + token + "&gameId=" + gameCode, userName, gameCode);
+            String wsUrl = String.format("ws://%s/gameServer/?TOKEN=tokenvalue&gameId=%s", new URL(host).getHost(), gameCode);
+            SendMessageSX sendMessageSX = new SendMessageSX(wsUrl, userName, gameCode, httpConfig);
             excutors.execute(sendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
-            //System.out.println(i + userName);
             try {
                 Thread.sleep(4 * 1000);
             } catch (Exception e) {
@@ -99,33 +95,33 @@ public class Testws {
      * 初始化投注筹码
      */
     private static int[] initializateBetChip() {
-        int[] betChip = new int[Testws.chip[0] + Testws.chip[1] + Testws.chip[2] + Testws.chip[3] + Testws.chip[4] + Testws.chip[5] + Testws.chip[6] + Testws.chip[7] + Testws.chip[8]];
+        int[] betChip = new int[StartWs.chip[0] + StartWs.chip[1] + StartWs.chip[2] + StartWs.chip[3] + StartWs.chip[4] + StartWs.chip[5] + StartWs.chip[6] + StartWs.chip[7] + StartWs.chip[8]];
         int indexCount = 0;
-        for (int i = 0; i < Testws.chip[0]; i++) {
+        for (int i = 0; i < StartWs.chip[0]; i++) {
             betChip[indexCount++] = 1;
         }
-        for (int i = 0; i < Testws.chip[1]; i++) {
+        for (int i = 0; i < StartWs.chip[1]; i++) {
             betChip[indexCount++] = 5;
         }
-        for (int i = 0; i < Testws.chip[2]; i++) {
+        for (int i = 0; i < StartWs.chip[2]; i++) {
             betChip[indexCount++] = 10;
         }
-        for (int i = 0; i < Testws.chip[3]; i++) {
+        for (int i = 0; i < StartWs.chip[3]; i++) {
             betChip[indexCount++] = 50;
         }
-        for (int i = 0; i < Testws.chip[4]; i++) {
+        for (int i = 0; i < StartWs.chip[4]; i++) {
             betChip[indexCount++] = 100;
         }
-        for (int i = 0; i < Testws.chip[5]; i++) {
+        for (int i = 0; i < StartWs.chip[5]; i++) {
             betChip[indexCount++] = 500;
         }
-        for (int i = 0; i < Testws.chip[6]; i++) {
+        for (int i = 0; i < StartWs.chip[6]; i++) {
             betChip[indexCount++] = 1000;
         }
-        for (int i = 0; i < Testws.chip[7]; i++) {
+        for (int i = 0; i < StartWs.chip[7]; i++) {
             betChip[indexCount++] = 5000;
         }
-        for (int i = 0; i < Testws.chip[8]; i++) {
+        for (int i = 0; i < StartWs.chip[8]; i++) {
             betChip[indexCount++] = 10000;
         }
         return betChip;

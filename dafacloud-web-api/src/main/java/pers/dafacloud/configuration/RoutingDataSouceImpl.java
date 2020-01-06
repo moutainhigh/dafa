@@ -45,7 +45,7 @@ public class RoutingDataSouceImpl extends AbstractRoutingDataSource {
     protected Object determineCurrentLookupKey() {
         //这里边就是读写分离逻辑，最后返回的是setTargetDataSources保存的Map对应的key
         String typeKey = DataSourceContextHolder.getReadOrWrite();
-        log.info("获取到:" + typeKey + "数据库");
+        //log.info("获取到:" + typeKey + "数据库");
         return typeKey;
     }
 }

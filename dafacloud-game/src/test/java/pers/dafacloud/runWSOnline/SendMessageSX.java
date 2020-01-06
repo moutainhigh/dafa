@@ -44,7 +44,6 @@ public class SendMessageSX {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     void process() {

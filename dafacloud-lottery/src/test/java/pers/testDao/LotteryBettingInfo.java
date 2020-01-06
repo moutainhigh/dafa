@@ -4,9 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import pers.dafacloud.Dao.SqlSessionFactoryUtils;
 import pers.dafacloud.Dao.mapper.lotteryBettingInfo.LotteryBettingInfoMapper;
 import pers.utils.fileUtils.FileUtil;
-import pers.utils.listUtils.ListSplit;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -108,6 +106,7 @@ public class LotteryBettingInfo {
                 System.out.println(date + "写入-" + result + "-" + tenantCode);
             }
             maxId = list.get(list.size()-1).get("id").toString();
+            list.clear();
         }
 
 

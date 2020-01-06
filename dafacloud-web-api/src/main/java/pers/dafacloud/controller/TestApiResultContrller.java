@@ -12,6 +12,8 @@ import pers.dafacloud.model.TestApiResult;
 import pers.dafacloud.server.TestApiResultServer;
 import pers.dafacloud.utils.Response;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -26,7 +28,7 @@ public class TestApiResultContrller {
     @GetMapping("/searchTestApiResult")
     public Response query(String apiName,
                           String apiPath,
-                          @RequestParam(value = "isPass", required = false, defaultValue = "-1") String isPass,
+                          String isPass,
                           @RequestParam(value = "cmsFront", required = false, defaultValue = "-1") int cmsFront,
                           String testExecutor,
                           String testBatch,
@@ -34,6 +36,7 @@ public class TestApiResultContrller {
                           @RequestParam(value = "pageSize", required = false, defaultValue = "1") int pageSize
     ) {
         TestApiResult testApiResult = new TestApiResult();
+        testApiResult.setIsPassList(new ArrayList<>(Arrays.asList(isPass.split(","))));
         testApiResult.setIsPass(isPass);
         testApiResult.setApiName(apiName);
         testApiResult.setApiPath(apiPath);
@@ -45,7 +48,6 @@ public class TestApiResultContrller {
         testApiResult.setPageNum((pageNum - 1) * pageSize);
 
         logger.info(testApiResult.toString());
-
 
         List<TestApiResult> list = testApiResultServer.searchTestApiResult(testApiResult);
         int count = testApiResultServer.searchTestApiResultCount(testApiResult);

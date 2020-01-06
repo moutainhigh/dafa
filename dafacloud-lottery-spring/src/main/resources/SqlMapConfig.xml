@@ -12,10 +12,9 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
                 <!--/dafacloud_lottery-->
-                <property name="url" value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com" />
+                <property name="url" value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com?useSSL=false&amp;characterEncoding=utf8&amp;useAffectedRows=true" />
                 <property name="username" value="test-web" />
                 <property name="password" value="ms168169" />
-
                 <!--投注服务-->
                 <!--<property name="url" value="jdbc:mysql://3.0.170.87:23312" />-->
                 <!--<property name="username" value="us31jw9" />-->
@@ -26,13 +25,24 @@
                 <!--<property name="password" value="5yixMRGuwYRe" />-->
             </dataSource>
         </environment>
+        <environment id="pre">
+            <!-- 配置JDBC事务控制，由mybatis进行管理 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置数据源，采用mybatis连接池 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://pre-release.cluster-ro-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com?useSSL=false&amp;characterEncoding=utf8" />
+                <property name="username" value="pre-ops" />
+                <property name="password" value="WaWTZmQp5r824bKQ" />
+            </dataSource>
+        </environment>
         <environment id="betting">
             <!-- 配置JDBC事务控制，由mybatis进行管理 -->
             <transactionManager type="JDBC"></transactionManager>
             <!-- 配置数据源，采用mybatis连接池 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://3.0.170.87:23312" />
+                <property name="url" value="jdbc:mysql://3.0.170.87:23312?useSSL=false&amp;characterEncoding=utf8" />
                 <property name="username" value="us31jw9" />
                 <property name="password" value="KzrdFtgXILlE" />
             </dataSource>
@@ -43,7 +53,7 @@
             <!-- 配置数据源，采用mybatis连接池 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://3.0.170.87:23316" />
+                <property name="url" value="jdbc:mysql://3.0.170.87:23316?useSSL=false&amp;characterEncoding=utf8" />
                 <property name="username" value="uovcjfb" />
                 <property name="password" value="5yixMRGuwYRe" />
             </dataSource>
@@ -54,7 +64,7 @@
             <!-- 配置数据源，采用mybatis连接池 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://3.0.170.87:23306" />
+                <property name="url" value="jdbc:mysql://3.0.170.87:23306?useSSL=false&amp;characterEncoding=utf8" />
                 <property name="username" value="ulbet14" />
                 <property name="password" value="bAmlLafciJRQ" />
             </dataSource>

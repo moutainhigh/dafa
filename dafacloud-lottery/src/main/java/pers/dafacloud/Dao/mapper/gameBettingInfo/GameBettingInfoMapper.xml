@@ -37,6 +37,7 @@
 		from dafacloud_game.game_orders_info_${tableName}
 		where  game_code = 2003 and  gmt_created BETWEEN '2019-11-27' and '2019-11-28'
 	</select>
+
     <!--统计幸运飞艇凌晨出撤单的其实 statementType="STATEMENT" -->
     <insert id="insertGameBetingInfo" parameterType="java.util.List" keyProperty="id">
         insert into dafacloud_game.game_orders_info_shalv001(

@@ -6,11 +6,6 @@ import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 
 import javax.websocket.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 @ClientEndpoint
 public class ResponceMessage {
@@ -99,11 +94,11 @@ public class ResponceMessage {
             issue = data.get("issue").toString();
             System.out.println(issue);
             synchronized (lock) {
-                if (!issue.equals(Testws.currentIssue)) {
-                    System.out.println("map------" + Testws.map);
-                    Testws.currentIssue = issue;
-                    Testws.map.clear();
-                    Testws.map.put(issue, 0);
+                if (!issue.equals(StartWs.currentIssue)) {
+                    System.out.println("map------" + StartWs.map);
+                    StartWs.currentIssue = issue;
+                    StartWs.map.clear();
+                    StartWs.map.put(issue, 0);
                 }
             }
             this.setIssue(data.get("issue").toString());
@@ -120,13 +115,13 @@ public class ResponceMessage {
                 for (int i = 0; i < bettingAmount.size(); i++) {
                     total += bettingAmount.getInt(i);
                 }
-                if (StringUtils.isNotEmpty(Testws.currentIssue)) {
+                if (StringUtils.isNotEmpty(StartWs.currentIssue)) {
                     int origin = 0;
-                    if (Testws.map.size() > 0) {
-                        //System.out.println(Testws.map);
-                        origin = Testws.map.get(Testws.currentIssue);
+                    if (StartWs.map.size() > 0) {
+                        //System.out.println(StartWs.map);
+                        origin = StartWs.map.get(StartWs.currentIssue);
                     }
-                    Testws.map.put(Testws.currentIssue, origin + total);
+                    StartWs.map.put(StartWs.currentIssue, origin + total);
                 }
             }
             betResponse = data.toString();
