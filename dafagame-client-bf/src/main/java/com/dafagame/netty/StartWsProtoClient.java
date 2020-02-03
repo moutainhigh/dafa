@@ -4,35 +4,41 @@ import com.dafagame.protocol.gate.Gate;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
+import org.apache.http.Header;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.dafaGame.DafaGameLogin;
-import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
+import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.propertiesUtils.PropertiesUtil;
 import pers.utils.urlUtils.UrlBuilder;
 
 import java.net.URI;
-import java.util.List;
 
 public class StartWsProtoClient {
     private Logger logger = LoggerFactory.getLogger(StartWsProtoClient.class);
+
+    //web端请求地址
     //private static String url = "ws://game-gate.dafagame-test.com/v1/game/gameGate";
-    private static String url = "ws://game-gate.dafagame-pre.com/v1/game/gameGate";
+    //private static String url = "ws://game-gate.dafagame-pre.com/v1/game/gameGate";
+    //private static String url = "ws://game-gate.dafagame-pro.com/v1/game/gameGate";
+
+    private static String tenantCode = "duke";
+
+    //app请求地址
+    private static String host = "52.139.157.97";
+    private static String url = String.format("ws://%s:7176/v1/game/gameGate", host);
+
     private static EventLoopGroup group = new NioEventLoopGroup(1);
     private ChannelInitial channelInitial = new ChannelInitial();
-    //private DdzHandler ddzHandler = new DdzHandler();
-    //private BrnnHandler brnnHandler = new BrnnHandler();
-    //private static Map<Integer, GameHandler> gameHandler = new HashMap<>();
+
     private ClientHandshaker clientHandshaker;
     //private int gameCode;
 
@@ -41,68 +47,47 @@ public class StartWsProtoClient {
 
     private static int count = 0;
 
+    private String phone;
+
     //构造器
-    public StartWsProtoClient(String phone, int gameCode) {
-        //this.host = host;
-        //this.port = port;
-        //System.out.println(group);
-        URI uri = URI.create(url);
-        this.clientHandshaker = new ClientHandshaker(uri); //握手
+    private StartWsProtoClient(String phone, int gameCode) {
+        this.phone = phone;
+
         GameHandler gameHandler = GameHandlerFactory.newGameHandler(gameCode);
-        gameHandler.setHandshaker(clientHandshaker);
-        //this.brnnHandler.setHandshaker(handShaker);//
-        //this.ddzHandler.setHandshaker(handShaker);
-        //SimpleChannelInboundHandler handler = gameHandler.get(gameCode);
+        gameHandler.setPhone(phone);
+        URI uri = URI.create(url);
+        this.clientHandshaker = new ClientHandshaker(uri);//握手
+        gameHandler.setHandshaker(this.clientHandshaker);//游戏设置握手
         this.channelInitial.setChannelHandler(gameHandler);
-        //this.channelInitial.setChannelHandler(this.ddzHandler);
         thread = new Thread(() -> {
             try {
-                //-------------------------------登陆-------------------------------
-                String random = "9722";
-                //Encoder encoder = Base64.getEncoder();
-                //String encode = encoder.encodeToString(random.getBytes());
-                String encodeRandom = "OTcyMg==";
-                String body = UrlBuilder.custom()
-                        .addBuilder("inviteCode", "")
-                        .addBuilder("accountNumber", phone)
-                        .addBuilder("password", DafaGameLogin.getLoginBody(random, "duke123")) //"b4e82b683394b50b679dc2b51a79d987"
-                        .addBuilder("userType", "0") //正式0/测试1/遊客2
-                        .addBuilder("random", encodeRandom)
-                        .fullBody();
-                HttpConfig httpConfig = HttpConfig
-                        .custom()
-                        .url(PropertiesUtil.getProperty("hostCoCos") + "/v1/users/login")
-                        .body(body);
-                String result = DafaRequest.post(httpConfig);
-                System.out.println(result);
-                String sessionId = JSONObject.fromObject(result).getJSONObject("data").getString("sessionId");
-                gameHandler.setPhone(phone);
                 //-------------------------------ws链接-------------------------------
                 Bootstrap bootstrap = new Bootstrap();
                 bootstrap.group(group)
-                        .channel(NioSocketChannel.class) //
+                        .channel(NioSocketChannel.class)
                         .option(ChannelOption.TCP_NODELAY, true)
                         .option(ChannelOption.SO_KEEPALIVE, true)
                         .handler(channelInitial);
+
                 ChannelFuture f = bootstrap
-                        .connect(uri.getHost(), 80)  //链接
+                        .connect(uri.getHost(), uri.getPort())  //链接 1082
                         .sync();
-                this.channel = f.channel(); //
-                //logger.info(LogUtil.info(String.format("连接 ip:%s port:%s",host,port)));
+
+                this.channel = f.channel();
                 this.clientHandshaker.setChannel(this.channel);
                 this.clientHandshaker.handlerShakerChannel(this.channel);
                 int counter = 0;
                 while (counter++ <= 0) {
                     if (this.clientHandshaker.isSuccess()) {
-                        Gate.GateReq gateReq = Gate.GateReq.newBuilder()
-                                .setLoginReq(
-                                        Gate.LoginReq.newBuilder()
-                                                .setSessionId(sessionId) // sessionId
-                                                .setUrl("192.168.8.44") //自定义ip
-                                                .setSourceId("2")
-                                                .setTenantCode("duke")
-                                                .build()
-                                ).build();
+                        Gate.GateReq gateReq = Gate.GateReq.newBuilder().setLoginReq(
+                                Gate.LoginReq.newBuilder()
+                                        .setSessionId(getLoginSession()) // sessionId
+                                        .setUrl("120.25.177.43") //自定义ip
+                                        .setSourceId("2")
+                                        .setTenantCode(tenantCode)
+                                        .build()
+                        ).build();
+
                         Gate.ClientMsg clientMsg = Gate.ClientMsg.newBuilder()
                                 .setProto(Gate.ProtoType.GateReqType_VALUE)
                                 .setData(gateReq.toByteString())
@@ -116,12 +101,12 @@ public class StartWsProtoClient {
                 }
                 this.channel.closeFuture().sync();
             } catch (Exception e) {
-                System.out.println(e);
-                System.out.println("服务启动错误");
+                System.out.println("服务启动错误:" + e);
                 //logger.error(LogUtil.error("服务启动错误",e));
-            } finally {
-//                group.shutdownGracefully();
             }
+            //finally {
+            //    group.shutdownGracefully();
+            //}
         });
 
     }
@@ -132,23 +117,28 @@ public class StartWsProtoClient {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         //String phone = "1311234";
         //for (int i = 500; i < 600; i++) {
         //    new StartWsProtoClient(String.format("%s%s", phone, String.format("%04d", i))).start();
         //    Thread.sleep(200);
         //}
         //new StartWsProtoClient("92582013").start();
-        List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/dukePhone.txt"));
-        System.out.println(users.size());
-        for (int i = 0; i < 1; i++) {
-            new StartWsProtoClient("13012345675", 201).start();
-            Thread.sleep(200);
-        }
+        //List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/dukePhone.txt"));
+        //System.out.println(users.size());
+        //for (int i = 0; i < 3; i++) {
+        //    new StartWsProtoClient(users.get(i), 201).start();
+        //    Thread.sleep(200);
+        //}
+
+        //new StartWsProtoClient("18012340001", 201).start();
+        new StartWsProtoClient("13012345678", 102).start();
+
+
     }
 
     private static class GameHandlerFactory {
-        public static GameHandler newGameHandler(int gameCode) {
+        static GameHandler newGameHandler(int gameCode) {
             switch (gameCode) {
                 case 101:
                     return new DdzHandler();
@@ -163,5 +153,39 @@ public class StartWsProtoClient {
             }
             return null;
         }
+    }
+
+    private String getLoginSession() {
+        //-------------------------------登陆-------------------------------
+        String random = "9722";
+        //Encoder encoder = Base64.getEncoder();
+        //String encode = encoder.encodeToString(random.getBytes());
+        String encodeRandom = "OTcyMg==";
+        String body = UrlBuilder.custom()
+                .addBuilder("inviteCode", "")
+                .addBuilder("accountNumber", this.phone)
+                .addBuilder("password", DafaGameLogin.getPasswordEncode(random, "duke123")) //"b4e82b683394b50b679dc2b51a79d987"
+                .addBuilder("userType", "0") //正式0/测试1/遊客2
+                .addBuilder("random", encodeRandom)
+                .fullBody();
+        Header[] headers = HttpHeader.custom()
+                .contentType("application/x-www-form-urlencoded;charset=UTF-8")
+                .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
+                .other("Tenant-Code", tenantCode)
+                .other("Source-Id", "1")
+                .build();
+
+        System.out.println(body);
+        HttpConfig httpConfig = HttpConfig
+                .custom().headers(headers)
+                .url("http://" + host + "/v1/users/login")
+                .body(body);
+        //this.gameHandler.setHttpConfig(httpConfig);
+        String result = DafaRequest.post(httpConfig);
+        System.out.println(result);
+        String sessionId = JSONObject.fromObject(result).getJSONObject("data").getString("sessionId");
+        if (StringUtils.isEmpty(sessionId))
+            throw new RuntimeException("sessionId返回异常:" + sessionId);
+        return sessionId;
     }
 }

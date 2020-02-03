@@ -1,20 +1,22 @@
 package pers.dafacloud.Dao;
 
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-
 public class SqlSessionFactoryUtils {
 
-    private static SqlSessionFactory sqlSessionFactory;
-    private static SqlSessionFactory bettingSessionFactory;
-    private static SqlSessionFactory transactionSessionFactory;
-    private static SqlSessionFactory reportSessionFactory;
+    private static SqlSession devSession;
+    private static SqlSession bettingSession;
+    private static SqlSession lotterySession;
+    private static SqlSession transactionSession;
+    private static SqlSession reportSession;
+    private static SqlSession lotteryGameSession;
+
     private static final Class CLASS_LOCK = SqlSessionFactoryUtils.class;
 
     /**
@@ -24,101 +26,54 @@ public class SqlSessionFactoryUtils {
     }
 
     /**
-     * 单实例对象
+     * 单例 ，多数据源
      */
-    public static SqlSessionFactory initSqlSessionFactory(String name) {
-
-        String resource = "SqlMapConfig.xml";
+    public static SqlSession openSqlSession(String name) {
         InputStream inputStream = null;
         try {
-            //File file = ResourceUtils.getFile(resource);
-            //inputStream=new FileInputStream(file);
-            inputStream = Resources.getResourceAsStream(resource);
+            inputStream = Resources.getResourceAsStream("SqlMapConfig.xml");
         } catch (IOException e) {
             e.printStackTrace();
         }
         synchronized (CLASS_LOCK) {
             switch (name) {
                 case "betting":
-                    if (bettingSessionFactory == null) {
-                        bettingSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, name);
+                    if (bettingSession == null) {
+                        bettingSession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
                     }
-                    break;
+                    return bettingSession;
+                case "lottery":
+                    if (lotterySession == null) {
+                        lotterySession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
+                    }
+                    return lotterySession;
                 case "transaction":
-                    if (transactionSessionFactory == null) {
-                        transactionSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, name);
+                    if (transactionSession == null) {
+                        transactionSession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
                     }
-                    break;
+                    return transactionSession;
                 case "report":
-                    if (reportSessionFactory == null) {
-                        reportSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, name);
+                    if (reportSession == null) {
+                        reportSession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
                     }
-                    break;
+                    return reportSession;
                 case "lotteryGame":
-                    if (reportSessionFactory == null) {
-                        reportSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, name);
+                    if (lotteryGameSession == null) {
+                        lotteryGameSession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
                     }
-                    break;
+                    return lotteryGameSession;
+                case "dev":
+                    if (devSession == null) {
+                        devSession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
+                    }
+                    return devSession;
                 default:
-                    if (sqlSessionFactory == null) {
-                        sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream, "dev");
+                    if (devSession == null) {
+                        devSession = new SqlSessionFactoryBuilder().build(inputStream, "dev").openSession(true);
                     }
-                    break;
+                    return devSession;
             }
-
         }
-        return sqlSessionFactory;
     }
-
-    /**
-     * 多数据源
-     */
-    public static SqlSession openSqlSession(String name) {
-        switch (name) {
-            case "betting":
-                if (bettingSessionFactory == null) {
-                    initSqlSessionFactory(name);
-                }
-                return bettingSessionFactory.openSession(true);
-            case "transaction":
-                if (transactionSessionFactory == null) {
-                    initSqlSessionFactory(name);
-
-                }
-                return transactionSessionFactory.openSession(true);
-            case "report":
-                if (reportSessionFactory == null) {
-                    initSqlSessionFactory(name);
-                }
-                return reportSessionFactory.openSession(true);
-            case "lotteryGame":
-                if (reportSessionFactory == null) {
-                    initSqlSessionFactory(name);
-                }
-                return reportSessionFactory.openSession(true);
-            default:
-                if (sqlSessionFactory == null) {
-                    initSqlSessionFactory("dev");
-
-                }
-                return sqlSessionFactory.openSession(true);
-            //break;
-        }
-//        if (sqlSessionFactory == null) {
-//            initSqlSessionFactory(name);
-//        }
-//        return sqlSessionFactory.openSession();
-    }
-
-    /**
-     *单数据源-旧
-     */
-    //public static SqlSession openSqlSession() {
-    //    if (sqlSessionFactory == null) {
-    //        initSqlSessionFactory("dev");
-    //    }
-    //    return sqlSessionFactory.openSession(true);
-    //}
-
 }
 

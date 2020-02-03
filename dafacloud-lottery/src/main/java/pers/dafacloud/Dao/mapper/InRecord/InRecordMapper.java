@@ -1,7 +1,7 @@
 package pers.dafacloud.Dao.mapper.InRecord;
 
 import org.apache.ibatis.annotations.Param;
-import pers.dafacloud.Dao.pojo.InRecord;
+import pers.dafacloud.Dao.model.InRecord;
 
 import java.util.List;
 

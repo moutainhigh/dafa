@@ -10,7 +10,7 @@
     <!--
         id 和方法保持一致
      -->
-    <select id="getId" resultType="pers.dafacloud.Dao.pojo.InRecord" parameterType="java.util.List">
+    <select id="getId" resultType="pers.dafacloud.Dao.model.InRecord" parameterType="java.util.List">
         SELECT id id
         FROM dafacloud_report.in_record
         where id in

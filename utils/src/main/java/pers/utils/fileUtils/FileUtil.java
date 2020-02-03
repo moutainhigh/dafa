@@ -1,5 +1,6 @@
 package pers.utils.fileUtils;
 
+import com.opencsv.CSVReader;
 import net.sf.json.JSONObject;
 import org.testng.annotations.Test;
 
@@ -101,7 +102,7 @@ public class FileUtil {
     /**
      * 读取json文件
      */
-    public static JSONObject readJson(String path) {
+    public static JSONObject readJsonFile(String path) {
         StringBuffer sb = new StringBuffer();
         File file = new File(path);
         if (!file.exists())
@@ -119,6 +120,32 @@ public class FileUtil {
             e.printStackTrace();
         }
         return JSONObject.fromObject(sb.toString());
+    }
+
+    /**
+     *读取.csv文件
+     * */
+    public static void readCSVFile() throws Exception {
+        File file = new File("");
+        //FileReader fReader = new FileReader(file);
+        InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "GBK"); //或GB2312,GB18030UTF-8
+        BufferedReader read = new BufferedReader(isr);
+
+        CSVReader csvReader = new CSVReader(read,';');
+        String[] strs = csvReader.readNext();
+        if(strs != null && strs.length > 0){
+            for(String str : strs)
+                if(null != str && !str.equals(""))
+                    System.out.print(str);
+            System.out.println("\n---------------");
+        }
+        List<String[]> list = csvReader.readAll();
+        for(String[] ss : list){
+            for(String s : ss)
+                if(null != s && !s.equals(""))
+                    System.out.print(s);
+        }
+        csvReader.close();
     }
 
 }

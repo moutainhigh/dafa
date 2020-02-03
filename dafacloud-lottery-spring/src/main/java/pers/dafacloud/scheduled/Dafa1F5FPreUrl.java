@@ -26,7 +26,7 @@ import pers.utils.urlUtils.UrlBuilder;
 import java.util.*;
 import java.util.concurrent.*;
 
-@Service
+//@Service
 public class Dafa1F5FPreUrl implements SchedulingConfigurer {
     private static String host0 = "http://52.76.195.164:8020";
     private static String addBettingUrl0 = host0 + "/v1/betting/addBetting";

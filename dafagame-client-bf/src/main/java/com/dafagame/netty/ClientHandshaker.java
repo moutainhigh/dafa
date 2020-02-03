@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Data
 public class ClientHandshaker {
 
-    private HttpHeaders headers;
+    //private HttpHeaders headers;
     private WebSocketClientHandshaker handshaker;
     private ChannelPromise handshakeFuture;
     private Channel channel;

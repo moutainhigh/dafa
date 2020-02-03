@@ -5,31 +5,56 @@
 <configuration>
     <!-- 配置mybatis的环境信息，与spring整合，该信息由spring来管理 -->
     <environments default="development">
-        <environment id="development">
+        <environment id="dev">
             <!-- 配置JDBC事务控制，由mybatis进行管理 -->
-            <transactionManager type="JDBC"></transactionManager>
+            <transactionManager type="JDBC"/>
             <!-- 配置数据源，采用mybatis连接池 -->
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com/dafagame_lottery" />
-                <property name="username" value="testCookie-web" />
-                <property name="password" value="ms168169" />
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com?useSSL=false&amp;characterEncoding=utf8"/>
+                <property name="username" value="testCookie-web"/>
+                <property name="password" value="ms168169"/>
+            </dataSource>
+        </environment>
+        <environment id="proGame">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://18.163.63.181:8320/dafagame_game?useSSL=false&amp;characterEncoding=utf8"/>
+                <property name="username" value="uh2hrj4"/>
+                <property name="password" value="F4oDU5PbvRKr"/>
+            </dataSource>
+        </environment>
+        <environment id="proGameHistory">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://18.163.63.181:8315/dafagame_game_history?useSSL=false&amp;characterEncoding=utf8"/>
+                <property name="username" value="uw7a3b9"/>
+                <property name="password" value="8DJGZprxVPKy"/>
+            </dataSource>
+        </environment>
+        <environment id="proReport">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://18.163.63.181:8317/dafagame_report?useSSL=false&amp;characterEncoding=utf8"/>
+                <property name="username" value="uxvrqnt"/>
+                <property name="password" value="2OQZlClx9UuZ"/>
+            </dataSource>
+        </environment>
+        <environment id="proTransaction">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://18.163.63.181:8316/dafagame_transaction?useSSL=false&amp;characterEncoding=utf8"/>
+                <property name="username" value="ujz3hrh"/>
+                <property name="password" value="J3o6hRR8Axqc"/>
             </dataSource>
         </environment>
     </environments>
-    <!--<mappers>-->
-        <!--<mapper resource="mybatis/userCenter.xml"/>-->
-    <!--</mappers>-->
     <mappers>
-        <!--<mapper resource="mybatis/userCenter.xml"/>-->
-        <!--<mapper resource="mybatis/userMapper.xml"/> -->
-        <!-- 1.接口文件必须和映射文件在同一个目录下面
-            2.接口文件的名称必须和映射文件名称一致 -->
-        <!-- <mapper class="com.pers.mybatis.d1.dao.UserMapper"/>-->
-        <!-- 映射文件包扫描器 推荐方式
-            1.接口文件必须和映射文件在同一个目录下面
-            2.接口文件的名称必须和映射文件名称一致-->
-        <!--<mapper resource="pers/dafagame/utils/Dao/mapper/LotteryConfigMapper.xml"/>-->
-        <package name="pers.dafagame.utils.Dao.mapper"/>
+        <package name="pers.dafagame.mapper"/>
     </mappers>
 </configuration>

@@ -1,13 +1,8 @@
 package dafagame.testCase.cms.tenant.transactionManage.congZhiManage;
 
-import dafagame.testCase.cms.tenant.transactionManage.renGongCunKuan.ManualRecordList;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
-import pers.dafagame.utils.enums.Path;
-import pers.dafagame.utils.httpUtils.Request;
 import pers.utils.assertUtils.AssertUtil;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.urlUtils.UrlBuilder;

@@ -40,12 +40,10 @@ public class Login {
         String body = getLoginBody(username, "123456");
         HttpCookies httpCookies = HttpCookies.custom();
         //手动设置cookie
-        httpCookies.getCookieStore().addCookie(DafaCloudLogin.productCookie("42DF487CCA721371535D77120C3811D7",host));
-
-
+        //httpCookies.getCookieStore().addCookie(DafaCloudLogin.productCookie("63550DAE2429C93A798049352B63AD1C",host));
         HttpConfig httpConfig = HttpConfig.custom().url(loginUrl).body(body).headers(headers).context(httpCookies.getContext());
-        //String result = DafaRequest.post(httpConfig);
-        //System.out.println(result);
+        String result = DafaRequest.post(httpConfig);
+        System.out.println(result);
 
         return httpConfig;
     }
@@ -86,7 +84,7 @@ public class Login {
      * @param username 用户名
      */
     public static void loginTask(String username) throws Exception {
-        for (int i = 0; i < 10000000; i++) {
+        for (int i = 0; i < 1; i++) {
             loginReturnHttpConfig(username);
             Thread.sleep(1000);
         }
@@ -112,7 +110,7 @@ public class Login {
 
 
     public static void main(String[] args) throws Exception {
-        List<String> users = new ArrayList<>(Arrays.asList("duke123"));
+        List<String> users = new ArrayList<>(Arrays.asList("dafai0002","dafai0003","dafai0005","dafai0006"));
         multithreadingLoglin(users);
     }
 }

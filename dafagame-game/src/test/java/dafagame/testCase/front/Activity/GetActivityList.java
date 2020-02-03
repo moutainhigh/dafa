@@ -31,8 +31,5 @@ public class GetActivityList {
         for (int i = 0; i < datas.size(); i++) {
             Log.info(datas.getJSONObject(i).toString());
         }
-
-
     }
-
 }

@@ -1,6 +1,6 @@
 package pers.dafacloud.Dao.mapper.lotteryConfig;
 
-import pers.dafacloud.Dao.pojo.LotteryConfigPojo;
+import pers.dafacloud.Dao.model.LotteryConfigPojo;
 
 import java.util.List;
 

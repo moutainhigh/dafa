@@ -6,6 +6,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
 import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.cookie.Cookie;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicCookieStore;
@@ -22,6 +23,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Request {
 
@@ -35,23 +37,30 @@ public class Request {
     //private static HttpClientBuilder httpClientBuilder;
 
     static {
+
         try {
             //设置代理IP、端口、协议（请分别替换）
             /*HttpHost proxy = new HttpHost("192.168.8.30", 8080, "http");//dafa windows主机
             //HttpHost proxy = new HttpHost("127.0.0.1", 9876, "http");
             //把代理设置到请求配置*/
             defaultRequestConfig = RequestConfig.custom()
-                    .setConnectTimeout(20000)//设置连接超时时间
-                    .setSocketTimeout(20000)//设置读取超时时间
+                    .setConnectTimeout(6000)//设置连接超时时间
+                    .setSocketTimeout(6000)//设置读取超时时间
                     //.setProxy(proxy) //设置代理
                     .build();
 
             client4HTTP = HttpClientCustom.custom()
-                    .pool(1000, 800).setDefaultCookieStore(new BasicCookieStore())
-                    .setDefaultRequestConfig(defaultRequestConfig).build();
+                    .pool(1000, 800)
+                    //.setDefaultCookieStore(new BasicCookieStore())
+                    .setDefaultRequestConfig(defaultRequestConfig)
+                    .build();
 
             //httpClientBuilder.setDefaultCookieStore(config.cookieStore());
-            client4HTTPS = HttpClientCustom.custom().sslpv(SSLProtocolVersion.TLSv1_2).ssl().build();
+            client4HTTPS = HttpClientCustom.custom()
+                    .sslpv(SSLProtocolVersion.TLSv1_2)
+                    .ssl()
+                    .setDefaultRequestConfig(defaultRequestConfig)
+                    .build();
 
             httpConfig.headers(HttpHeader.custom()
                     .contentType("application/x-www-form-urlencoded;charset=UTF-8")

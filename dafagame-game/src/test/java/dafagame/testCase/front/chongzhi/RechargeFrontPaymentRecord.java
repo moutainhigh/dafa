@@ -4,14 +4,10 @@ package dafagame.testCase.front.chongzhi;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.testng.annotations.Test;
-import pers.dafagame.utils.enums.Path;
 import pers.utils.ThreadSleep.ThreadSleep;
 import pers.utils.assertUtils.AssertUtil;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.urlUtils.UrlBuilder;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 支付充值接口(前台POST)

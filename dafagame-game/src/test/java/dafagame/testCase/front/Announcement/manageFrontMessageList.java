@@ -7,7 +7,7 @@ import pers.utils.assertUtils.AssertUtil;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.urlUtils.UrlBuilder;
 /**
- * front - 公告》系统邮件
+ * front - 公告 > 系统邮件
  *
  * */
 public class manageFrontMessageList {

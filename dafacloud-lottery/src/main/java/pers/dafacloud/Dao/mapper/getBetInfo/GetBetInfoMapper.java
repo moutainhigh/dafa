@@ -1,7 +1,7 @@
 package pers.dafacloud.Dao.mapper.getBetInfo;
 
 import org.apache.ibatis.annotations.Param;
-import pers.dafacloud.Dao.pojo.GetBetInfo;
+import pers.dafacloud.Dao.model.GetBetInfo;
 
 import java.util.List;
 

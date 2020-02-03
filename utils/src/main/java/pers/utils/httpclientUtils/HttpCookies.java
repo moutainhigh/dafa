@@ -3,6 +3,10 @@ package pers.utils.httpclientUtils;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.impl.client.BasicCookieStore;
+import org.apache.http.impl.cookie.BasicClientCookie;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class HttpCookies {
 
@@ -18,6 +22,19 @@ public class HttpCookies {
 
     public static HttpCookies custom() {
         return new HttpCookies();
+    }
+
+    public HttpCookies setBasicClientCookie(String host, String cookieName, String cookieValue) {
+        BasicClientCookie basicClientCookie = new BasicClientCookie(cookieName, cookieValue);
+        try {
+            basicClientCookie.setDomain(new URL(host).getHost());
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        basicClientCookie.setPath("/");
+        this.cookieStore.addCookie(basicClientCookie);
+        return this;
     }
 
     private HttpCookies() {

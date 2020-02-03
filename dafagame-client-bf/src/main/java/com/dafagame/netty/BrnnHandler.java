@@ -12,7 +12,6 @@ import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import lombok.Getter;
 import lombok.Setter;
-import pers.utils.StringUtils.StringBuilders;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,17 +20,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-//import org.springframework.stereotype.Component;
 
 //@Data
 public class BrnnHandler extends GameHandler {
-    //private ClientHandshaker clientHandshaker;
-    //private ClientHandlerManager handlerManager;
-    //private ProtobufDecoder protobufDecoder = new ProtobufDecoder(Gate.ClientMsg.getDefaultInstance());
     private int uid; //自己的user-id
-    @Getter @Setter
+    @Getter
+    @Setter
     private boolean isEnterGame = false;//是否进入游戏
-    @Getter @Setter
+    @Getter
+    @Setter
     private boolean isScenesReq = false;//是否进入场景
 
     private Brnn.State state;
@@ -40,9 +37,8 @@ public class BrnnHandler extends GameHandler {
     private final static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
     @Override
-    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        //super.handlerAdded(ctx);
-        this.handshaker.setHandshakeFuture(ctx.newPromise());
+    public void handlerAdded(ChannelHandlerContext chc) {
+        this.handshaker.setHandshakeFuture(chc.newPromise());
     }
 
     @Override
@@ -63,8 +59,6 @@ public class BrnnHandler extends GameHandler {
                 //System.out.println("proto：" + clientMsg.getProto());
                 switch (clientMsg.getProto()) {
                     case Gate.ProtoType.GateResType_VALUE:  //102登陆成功通知
-                        //System.out.println("102登陆成功通知：" + Gate.GateRes.parseFrom(clientMsg.getData()).toString().
-                        //        replaceAll("\n", "").replaceAll("\t", ""));
                         Gate.GateRes gateRes = Gate.GateRes.parseFrom(clientMsg.getData());
                         //uid = gateRes.getLoginRes().getUid();
                         if (!isEnterGame) {
@@ -80,8 +74,6 @@ public class BrnnHandler extends GameHandler {
                         }
                         break;
                     case World.ProtoType.ErrorNtfType_VALUE:// 1004 错误消息通知
-//                        System.out.println(World.ErrorNtf.parseFrom(clientMsg.getData()).toString().
-//                                replaceAll("\n", "").replaceAll("\t", ""));
                         World.ErrorNtf errorNtf = World.ErrorNtf.parseFrom(clientMsg.getData());
                         //System.out.println(
                         //        StringBuilders.custom()
@@ -92,8 +84,6 @@ public class BrnnHandler extends GameHandler {
                         break;
                     case World.ProtoType.EnterGameResType_VALUE:   //1001 进入游戏通知
                         World.EnterGameRes enterGameRes = World.EnterGameRes.parseFrom(clientMsg.getData());//.getGameCode();
-//                        System.out.println("1001进入游戏通知：" + World.EnterGameRes.parseFrom(clientMsg.getData()).toString().
-//                                replaceAll("\n", "").replaceAll("\t", ""));
 //                        System.out.println(
 //                                StringBuilders.custom()
 //                                        .add("1001进入游戏")
@@ -109,7 +99,7 @@ public class BrnnHandler extends GameHandler {
                             isScenesReq = true;
                         }
                         break;
-                    case Brnn.ProtoType.BetResType_VALUE:
+                    case Brnn.ProtoType.BetResType_VALUE: //投注响应
                         Brnn.BetRes betRes = Brnn.BetRes.parseFrom(clientMsg.getData());
                         //System.out.println(
                         //        StringBuilders.custom()
@@ -267,7 +257,7 @@ public class BrnnHandler extends GameHandler {
                                 .addBetInfo(betinfo)
                                 .build();
                         sendBf(betReq.toByteString(), Brnn.ProtoType.BetReqType_VALUE, channel);//发送消息
-                        //System.out.println("投注send发送成功：" + amout[indexAmount] + "，" + pos);
+                        System.out.println("投注send发送成功：" + amout[indexAmount] + "，" + pos);
                     }
                 }
                 , 0, 500, TimeUnit.MILLISECONDS);

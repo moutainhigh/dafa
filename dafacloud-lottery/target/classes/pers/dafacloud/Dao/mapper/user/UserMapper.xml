@@ -12,7 +12,7 @@
         parameterType:入参的数据类型
         resultType:返回结果数据类型
      -->
-    <select id="getUser"  resultType="pers.dafacloud.Dao.pojo.User">
+    <select id="getUser"  resultType="pers.dafacloud.Dao.model.User">
 		select
 		user_id userid,
 		user_name username,

@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 import pers.dafacloud.Dao.SqlSessionFactoryUtils;
 import pers.dafacloud.Dao.mapper.InRecord.InRecordMapper;
 import pers.dafacloud.Dao.mapper.summaryPaymentRecord.SummaryPaymentRecordMapper;
-import pers.dafacloud.Dao.pojo.InRecord;
-import pers.dafacloud.Dao.pojo.SummaryPaymentRecord;
+import pers.dafacloud.Dao.model.InRecord;
+import pers.dafacloud.Dao.model.SummaryPaymentRecord;
 import pers.utils.listUtils.TwoListDiffent;
 
 import java.util.ArrayList;

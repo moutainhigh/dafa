@@ -34,7 +34,7 @@ public class RoutingDataSouceImpl extends AbstractRoutingDataSource {
         this.setDefaultTargetDataSource(dev1DataSource);
         //设置数据源集
         Map<Object, Object> targetDataSources = new HashMap<>();
-        targetDataSources.put(DataSourceType.local, localDataSource);
+        targetDataSources.put(DataSourceType.local,localDataSource);
         targetDataSources.put(DataSourceType.dev1, dev1DataSource);
         this.setTargetDataSources(targetDataSources);
         //即将targetDataSources中的DataSource加载到resolvedDataSources

@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import net.sf.json.JSONObject;
 import org.testng.*;
 import org.testng.xml.XmlSuite;
-import pers.dafagame.utils.enums.Environment;
 import pers.utils.propertiesUtils.PropertiesUtil;
 
 import java.io.*;

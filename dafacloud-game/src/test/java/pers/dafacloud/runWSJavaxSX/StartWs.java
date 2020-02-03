@@ -3,6 +3,7 @@ package pers.dafacloud.runWSJavaxSX;
 import pers.dafacloud.dafacloudUtils.Constants;
 import pers.dafacloud.dafacloudUtils.Login;
 import pers.dafacloud.model.BetGameContent;
+import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
 
 import java.net.URL;
@@ -30,10 +31,10 @@ public class StartWs {
     private static int[] chip = {700, 700, 70, 12, 12, 2, 2, 1, 0};
 
     //每个用户每一注间隔时间，
-    static boolean ifRandom = false;//是否随机,true表示随机，false表示不随机
+    static boolean ifRandom = false;//true随机，false不随机
     static int minSleep = 200;//随机最小间隔，毫秒
     static int MaxSleep = 1000;//随机最大间隔，毫秒
-    static int defaultSleep = 500;//不随机时，间隔
+    static int defaultSleep = 5000;//不随机时，间隔
 
     static List<BetGameContent> PosThree;
     static List<BetGameContent> PosSix;
@@ -55,14 +56,14 @@ public class StartWs {
         PosFour = initializateBetContent(new int[]{1, 1, 1, 1});
 
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(2001, 6);//牛牛
+        map.put(2001, 0);//牛牛
         map.put(2002, 0);//红黑
-        map.put(2003, 0);//龙虎
+        map.put(2003, 50);//龙虎
         map.put(2004, 0);//百家乐
         map.put(2005, 0);//奔驰宝马
         map.put(2006, 0);//骰宝
-        List<String> user = new ArrayList<>(Arrays.asList("servant", "servant5", "servant10", "pp111", "servant101", "servant102"));
-        //List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/usersPre.txt"));
+        //List<String> user = new ArrayList<>(Arrays.asList("servant", "servant5", "servant10", "pp111", "servant101", "servant102"));
+        List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/users.txt"));
         int index = 0;
         for (Integer key : map.keySet()) {
             //System.out.println("key=" + key);

@@ -115,19 +115,11 @@ public class LotteryBettingInfo {
         //    int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(lists.get(i));
         //    System.out.println(date + "写入-" + result + "-" + tenantCode);
         //}
+
     }
 
     public static void main(String[] args) {
         excutors.execute(() -> lotteryBettingInfo2("2019-11-29"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-11-30"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-12-01"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-12-02"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-12-03"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-12-04"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-12-05"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-12-06"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-12-07"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-12-08"));
-        //excutors.execute(() -> lotteryBettingInfo2("2019-12-09"));
+
     }
 }

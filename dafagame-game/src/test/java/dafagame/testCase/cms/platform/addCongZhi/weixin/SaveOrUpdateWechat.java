@@ -3,8 +3,7 @@ package dafagame.testCase.cms.platform.addCongZhi.weixin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
-import pers.dafagame.utils.enums.Path;
-import pers.dafagame.utils.httpUtils.Request;
+import pers.dafagame.enums.Path;
 
 /**
  * 新增微信支付方式
@@ -39,10 +38,7 @@ public class SaveOrUpdateWechat {
                 "&mobileType=扫码&merchantNumber=duke01&terminalNumber=duke01&secretKey=duke01&receiveKey=duke01&payUrl=http://duke01.com" +
                 "&id=&minAmount=10&maxAmount=5000000" +
                 "&isFixedAmount=&quickAmountList=&fixedAmountList=&isFixedAmountThird=";
-        String result = Request.doPost(path.value, body);
-        System.out.println(result);
-        Log.info(result);
-        //Reporter.log(s);
+
     }
 
 }

@@ -6,16 +6,11 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
-import org.testng.Reporter;
 import org.testng.annotations.Test;
-import pers.dafagame.utils.enums.Path;
-import pers.dafagame.utils.httpUtils.Request;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpHeader;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 人工存取款导入接口（后台POST）

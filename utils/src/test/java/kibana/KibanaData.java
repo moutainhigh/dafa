@@ -35,7 +35,7 @@ public class KibanaData {
         String indexEv = env;
         //查询条件
         String query = String.format("header:'a02916'");
-        String body0 = "{\"index\":\"{indexEv}\",\"ignore_unavailable\":true,\"timeout\":60000,\"preference\":1564455142933}\n{\"version\":true,\"size\":5000,\"sort\":[{\"@timestamp\":{\"order\":\"desc\",\"unmapped_type\":\"boolean\"}}],\"_source\":{\"excludes\":[]},\"aggs\":{\"2\":{\"date_histogram\":{\"field\":\"@timestamp\",\"interval\":\"10m\",\"time_zone\":\"Asia/Shanghai\",\"min_doc_count\":1}}},\"stored_fields\":[\"*\"],\"script_fields\":{},\"docvalue_fields\":[\"@timestamp\"],\"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"{query}\",\"analyze_wildcard\":true,\"default_field\":\"*\"}},{\"range\":{\"@timestamp\":{\"gte\":{startTime},\"lte\":{endTime},\"format\":\"epoch_millis\"}}}],\"filter\":[],\"should\":[],\"must_not\":[]}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}\n";
+        String body0 = "{\"index\":\"{indexEv}\",\"ignore_unavailable\":true,\"timeout\":100000,\"preference\":1564455142933}\n{\"version\":true,\"size\":9000,\"sort\":[{\"@timestamp\":{\"order\":\"desc\",\"unmapped_type\":\"boolean\"}}],\"_source\":{\"excludes\":[]},\"aggs\":{\"2\":{\"date_histogram\":{\"field\":\"@timestamp\",\"interval\":\"10m\",\"time_zone\":\"Asia/Shanghai\",\"min_doc_count\":1}}},\"stored_fields\":[\"*\"],\"script_fields\":{},\"docvalue_fields\":[\"@timestamp\"],\"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"{query}\",\"analyze_wildcard\":true,\"default_field\":\"*\"}},{\"range\":{\"@timestamp\":{\"gte\":{startTime},\"lte\":{endTime},\"format\":\"epoch_millis\"}}}],\"filter\":[],\"should\":[],\"must_not\":[]}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}\n";
         String body = body0
                 .replace("{indexEv}", indexEv)
                 .replace("{query}", search)
@@ -54,7 +54,7 @@ public class KibanaData {
         try {
             responses = JSONObject.fromObject(result).getJSONArray("responses");
         } catch (Exception e) {
-            System.out.println("返回数据解析json 失败"+responses);
+            System.out.println("返回数据解析json 失败" + responses);
             e.printStackTrace();
         }
         JSONObject one = responses.getJSONObject(0);
@@ -224,8 +224,43 @@ public class KibanaData {
     }
 
 
-    @Test(description = "测试")
+    @Test(description = "统计session:sessionId")
     public static void test01abc() {
+        String search = "header:*ljl125828*";
+        String startTime = "2020-01-13 12:00:00";
+        String endTime = "2020-01-13 23:59:59";
+        String env = "master-access-*";
+        JSONArray hits = queryKibana(search, startTime, endTime, env);
+        List<String> list = new ArrayList<>();
+        if (hits.size() != 0) {
+            for (int i = 0; i < hits.size(); i++) {
+                JSONObject hitsData = hits.getJSONObject(i);
+                JSONObject source = hitsData.getJSONObject("_source");
+
+                String data0 = source.getString("sessionId");
+
+                //String data0 = source.getString("userAgent");
+
+                //String data = source.getString("header");
+                //JSONObject jsonData = JSONObject.fromObject(data);
+                //String data0 = jsonData.getString("x-client-ip");
+
+                String data = source.getString("header");
+                JSONObject jsonData = JSONObject.fromObject(data);
+                String url = jsonData.getString("x-url");
+                String user = jsonData.getString("x-user-name");
+
+
+                System.out.println(url + "~" + user + "~ " + source.getString("endTime") + "-" + data0);
+                list.add(data0);
+            }
+        }
+        System.out.println(list.size());
+        List<String> list1 = ListRemoveRepeat.removeRepeat(list);
+        for (String s : list1) {
+            System.out.println(s);
+        }
+        //System.out.println(ListRemoveRepeat.removeRepeat(list));
 
     }
 }

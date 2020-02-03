@@ -68,4 +68,17 @@ public class RepairData {
 
 
     }
+
+    public static void function01() {
+        List<String> list1 = FileUtil.readFile(RepairData.class.getResourceAsStream("/a.txt"));
+        List<String> list2 = FileUtil.readFile(RepairData.class.getResourceAsStream("/b.txt"));
+        System.out.println(list1.size());
+        System.out.println(list2.size());
+        list1.retainAll(list2);
+        System.out.println(list1);
+    }
+    public static void main(String[] args) {
+        function01();
+
+    }
 }

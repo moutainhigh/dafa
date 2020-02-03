@@ -4,8 +4,6 @@ import net.sf.json.JSONArray;
 import org.apache.http.Header;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.annotation.SchedulingConfigurer;
-import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import pers.dafacloud.dao.SqlSessionFactoryUtils;
 import pers.dafacloud.mapper.betRecord.BetRecordMapper;
 import pers.dafacloud.model.GetBetInfo;
@@ -19,10 +17,11 @@ import pers.utils.listUtils.ListSplit;
 import pers.utils.urlUtils.UrlBuilder;
 
 import java.util.*;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 //@Service
-public class Dafa1F5F implements SchedulingConfigurer {
+public class Dafa1F5F  {
     private static String host = "http://52.76.195.164:8020";
     private static String addBettingUrl = host + "/v1/betting/addBetting";
     //private static String loginUrl = host + "/v1/users/login";
@@ -90,7 +89,7 @@ public class Dafa1F5F implements SchedulingConfigurer {
     }
 
     //5分系列
-    @Scheduled(cron = "6 * * * * * ")
+    //@Scheduled(cron = "6 * * * * * ")
     public void aa() {
         Calendar now = Calendar.getInstance();
         int m = now.get(Calendar.MONTH);
@@ -100,8 +99,6 @@ public class Dafa1F5F implements SchedulingConfigurer {
         String issueBefor = String.format("2019%02d%02d%04d", m, d, h * 60 + mm + 1);
         String issueCurrent = String.format("2019%02d%02d%03d", m + 1, d, h * 12 + (mm / 5) + 1);
         System.out.println("2issueBefor:" + issueBefor + ",issueCurrent:" + issueCurrent);
-        //List<GetBetInfo> list = betRecordMapper.getRecordByIssue("201907160701");//获取投注内容
-        //System.out.println("当期数据量：" + list.size());
         if (listnew5fen.size() != 0)
             splitTask(listsSplitUser.get(1), listnew5fen, issueCurrent, "2");
     }
@@ -169,10 +166,5 @@ public class Dafa1F5F implements SchedulingConfigurer {
                 System.out.println("======" + e);
             }
         }
-    }
-
-    @Override
-    public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
-        scheduledTaskRegistrar.setScheduler(Executors.newScheduledThreadPool(2));
     }
 }

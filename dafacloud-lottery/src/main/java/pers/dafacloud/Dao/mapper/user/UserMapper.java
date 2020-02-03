@@ -1,7 +1,7 @@
 package pers.dafacloud.Dao.mapper.user;
 
 import org.apache.ibatis.annotations.Param;
-import pers.dafacloud.Dao.pojo.User;
+import pers.dafacloud.Dao.model.User;
 
 import java.util.List;
 

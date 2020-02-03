@@ -22,27 +22,34 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class SpringActivity {
-    private static String host = "http://cms.caishen02.com";
-    private static String hostIP = "http://52.76.195.164:8080";
-    private static String lotteryDraw = hostIP + "/v1/activity/lotteryDraw";
-    private static String getDrawLog = hostIP + "/v1/activity/getDrawLog";
-    private static String getSpringFestivalTenant = hostIP + "/v1/activity/getSpringFestivalTenant";
-    private static String getSpringFestivalTenantList = hostIP + "/v1/activity/getSpringFestivalTenantList";
+    //private static String host = "http://cms.caishen02.com";
+    //private static String host = "http://pt.dafacloud-pre.com";
+    //private static String host = "http://cms.caishen01.com/";
+    private static String host = "http://52.76.195.164:8080";
+    private static String lotteryDraw = host + "/v1/activity/lotteryDraw";
+    private static String getDrawLog = host + "/v1/activity/getDrawLog";
+    private static String getSpringFestivalTenant = host + "/v1/activity/getSpringFestivalTenant";
+    private static String getSpringFestivalTenantList = host + "/v1/activity/getSpringFestivalTenantList";
 
-    private static ExecutorService excutors = Executors.newFixedThreadPool(500);
+    private static ExecutorService excutors = Executors.newFixedThreadPool(600);
+
+    private static int countBig = 0;
 
     public static void main(String[] args) throws Exception {
         List<String> list = FileUtil.readFile(SpringActivity.class.getResourceAsStream("/springTenantCode.txt"));
         Collections.shuffle(list);
+        //System.out.println(list);
         CountDownLatch cdl = new CountDownLatch(list.size());
-        for (int i = 0; i < list.size(); i++) {
-            String[] strs = list.get(i).split(",");
-            excutors.execute(() -> lotteryDrawTask(strs[0], Integer.parseInt(strs[1]), strs[2], cdl));
-        }
-        if (cdl.await(6000000, TimeUnit.SECONDS)) {
-            excutors.shutdown();
-        }
-        //lotteryDrawTask("dafa",1,cdl);
+        //for (int i = 0; i < list.size(); i++) {
+        //    String[] strs = list.get(i).split(",");
+        //    excutors.execute(() -> lotteryDrawTask(strs[0], Integer.parseInt(strs[1]), strs[2], Integer.parseInt(strs[3]), cdl));
+        //    Thread.sleep(120);
+        //}
+        //if (cdl.await(60000000, TimeUnit.SECONDS)) {
+        //    excutors.shutdown();
+        //}
+
+        lotteryDrawTask("test", 3, "12345", 1, cdl);
     }
 
     /**
@@ -51,7 +58,7 @@ public class SpringActivity {
      * @param tenantCode 站长编码
      * @param num        抽奖次数
      */
-    public static void lotteryDrawTask(String tenantCode, int num, String manageId, CountDownLatch cdl) {
+    public static void lotteryDrawTask(String tenantCode, int num, String manageId, int isBigTenant, CountDownLatch cdl) {
         for (int i = 0; i < num; i++) {
             Header[] headers = HttpHeader.custom()
                     .contentType("application/x-www-form-urlencoded;charset=UTF-8")
@@ -64,9 +71,13 @@ public class SpringActivity {
                     .url(lotteryDraw)
                     .headers(headers)
                     .body("");
-            System.out.println(tenantCode + " - " + (i + 1) + "-" + DafaRequest.post(httpConfig));
+            if (isBigTenant == 1) {
+                countBig++;
+                System.out.println("大" + tenantCode + " - " + countBig + " - " + (i + 1) + " - " + DafaRequest.post(httpConfig));
+            } else
+                System.out.println("小" + tenantCode + " - " + (i + 1) + "-" + DafaRequest.post(httpConfig));
             try {
-                Thread.sleep(30 * 1000); //8秒抽一次
+                Thread.sleep(30 * 1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -80,12 +91,12 @@ public class SpringActivity {
         Header[] headers = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0")
-                .other("x-manager-name", "caisw88")
+                //.other("x-manager-name", "caisw88")
                 //.other("x-manager-id","23456")
-                .other("x-tenant-code", "caisw")
+                //.other("x-tenant-code", "caisw")
                 .build();
         CookieStore cookieStore = new BasicCookieStore();
-        BasicClientCookie basicClientCookie = new BasicClientCookie("JSESSIONID", "4CF6291CA022BA938C629473136C2618");
+        BasicClientCookie basicClientCookie = new BasicClientCookie("JSESSIONID", "67FA383D04935C9C8459D8840B24069D");
         basicClientCookie.setDomain(new URL(host).getHost());
         basicClientCookie.setPath("/");
         cookieStore.addCookie(basicClientCookie);
@@ -95,11 +106,12 @@ public class SpringActivity {
         HttpConfig httpConfig = HttpConfig.custom()
                 .url(lotteryDraw)
                 .headers(headers)
-                //.context(context)
+                .context(context)
                 .body("");
         //String body = UrlBuilder.custom().addBuilder("x-tenant-code","").fullBody();
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 60; i++) {
             System.out.println(i + "-" + DafaRequest.post(httpConfig));
+            Thread.sleep(3 * 1000);
         }
     }
 
@@ -123,16 +135,16 @@ public class SpringActivity {
         Header[] headers = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0")
-                .other("x-manager-name", "dafa")
-                .other("x-tenant-code", "caisw")
+                //.other("x-manager-name", "dafa")
+                //.other("x-tenant-code", "caisw")
                 .build();
         CookieStore cookieStore = new BasicCookieStore();
-        BasicClientCookie basicClientCookie = new BasicClientCookie("JSESSIONID", "C100727D63EFE0B398067400BC6509DD");
+        BasicClientCookie basicClientCookie = new BasicClientCookie("JSESSIONID", "1EBCA9C9E9BD2477EFB4A8C9E84A62D4");
         basicClientCookie.setDomain(new URL(host).getHost());
         basicClientCookie.setPath("/");
         cookieStore.addCookie(basicClientCookie);
         HttpClientContext context = new HttpClientContext();
         context.setCookieStore(cookieStore);
-        return HttpConfig.custom().headers(headers);
+        return HttpConfig.custom().headers(headers).context(context);
     }
 }

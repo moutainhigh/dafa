@@ -13,6 +13,7 @@ import pers.utils.urlUtils.UrlBuilder;
 import java.net.URLEncoder;
 
 public class Register {
+    private static String host = "http://120.25.177.43";
     private static String register = Constants.host + "/v1/users/register";
 
     /**
@@ -28,7 +29,7 @@ public class Register {
                 .addBuilder("confirmPassword", URLEncoder.encode(passwordCode, "utf-8"))
                 .addBuilder("phone", phone)
                 .addBuilder("code", code)
-                .addBuilder("inviteCode", "4157686")
+                .addBuilder("inviteCode", "6090013")
                 .fullBody();
         String result = DafaRequest.post(httpConfig.body(body).url(register));
         System.out.println(phone+"---"+result);
@@ -50,6 +51,8 @@ public class Register {
                 .other("x-forwarded-for", ip)
                 .other("x-remote-IP", ip)
                 .other("X-Real-IP", ip)
+                .other("Tenant-Code","xiaoqiu")
+                .other("Source-Id","1")
                 .build();
         httpConfig.headers(headers);
         register(httpConfig, phone, "123qwe");
@@ -57,8 +60,16 @@ public class Register {
 
     public static void main(String[] args) throws Exception {
         HttpConfig httpConfig = HttpConfig.custom();
-        for (int i = 530; i < 531; i++) {
-            registerLoop(httpConfig, String.format("1801234%04d", i));
-        }
+        //for (int i = 530; i < 531; i++) {
+        //    registerLoop(httpConfig, String.format("1801234%04d", i));
+        //}
+        //for (int i = 400; i < 500; i++) {
+        //    registerLoop(httpConfig, String.format("1801234%04d", i));
+        //}
+        //for (int i = 0; i < 100; i++) {
+        //    registerLoop(httpConfig, String.format("1801234%04d", i));
+        //}
+        registerLoop(httpConfig, "13112345678");
     }
+
 }

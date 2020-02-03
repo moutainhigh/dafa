@@ -8,10 +8,6 @@ import java.util.*;
 
 public class ListRemoveRepeat {
 
-    public static void main(String[] args) {
-
-
-    }
 
     @Test(description = "测试")
     public static void test01() {
@@ -28,7 +24,7 @@ public class ListRemoveRepeat {
 
     @Test(description = "测试")
     public static void test02() {
-        List<String> list = FileUtil.readFile("/Users/duke/Documents/github/dafa/utils/src/main/resources/b.txt");
+        List<String> list = FileUtil.readFile("");
         List<String> listnew = removeRepeat(list);
         //System.out.println(listnew);
         for(String s : listnew){
@@ -39,6 +35,7 @@ public class ListRemoveRepeat {
 
     /**
      * list去除重复数据
+     * @return listNew 新的list
      */
     public static List<String> removeRepeat(List<String> list) {
         List<String> listNew = new ArrayList<>();
@@ -53,8 +50,8 @@ public class ListRemoveRepeat {
 
     /**
      * list去重并且记录重复次数
-     * @param list
-     * @return listNew
+     * @param list 需要处理的list
+     * @return listNew 新的list
      */
     public static List<String> removeRepeatCount(List<String> list) {
         List<String> listNew = new ArrayList<>();

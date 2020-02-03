@@ -112,7 +112,7 @@ public class Betting {
     /**
      * 获取彩种对应的系列：1分，3分，5分
      *
-     * @param lotteryCode
+     * @param lotteryCode 彩种编码
      * @return int 1,3,5
      */
     private static int isYsw(String lotteryCode) {
@@ -125,6 +125,7 @@ public class Betting {
             case 1018:
             case 1312:
             case 1310:
+            case 101:
                 return 1;
             case 1412:
             case 1009:
@@ -154,6 +155,7 @@ public class Betting {
             case 1412:
             case 1418:
             case 1419:
+            case 101:
                 return "K3";
             case 1008:
             case 1010:
@@ -190,7 +192,7 @@ public class Betting {
                 .put("bettingAmount", betContentArray[3])
                 .put("bettingCount", betContentArray[4])
                 //.put("bettingPoint", getPoint(betContentArray[0]))
-                .put("bettingPoint",rebate.get(getLotteryType(betContentArray[0])))
+                .put("bettingPoint", rebate.get(getLotteryType(betContentArray[0])))
                 .put("bettingIssue", LotteryIssuePrivate.getCurrentIssue(isYsw(betContentArray[0])))
                 .put("graduationCount", betContentArray[5])
                 .put("bettingUnit", betContentArray[6])
@@ -242,10 +244,10 @@ public class Betting {
         HttpConfig httpConfig0 = Login.loginReturnHttpConfig(user);//登录
         //1.返点接口
         JSONObject rebate = JSONObject.fromObject(DafaRequest.get(httpConfig0.url(rebateUrl))).getJSONObject("data");
-        System.out.println(rebate);
+        //System.out.println("rebate:" + rebate);
         for (int i = 0; i < 1000000000; i++) {
             String betContent = getBettingData(betContents, rebate);
-            System.out.println(betContent);
+            //System.out.println(betContent);
             String result = DafaRequest.post(httpConfig0.url(addBettingUrl).body(betContent));//下注
             try {
                 if (JSONObject.fromObject(result).getInt("code") != 1)
@@ -277,8 +279,8 @@ public class Betting {
     }
 
     public static void main(String[] args) {
-        platformLottery();
-        //tenantLottery();
+        platformLottery(); // 平台彩种
+        //tenantLottery(); -- 站长彩种
     }
 
     private static void platformLottery() {
@@ -296,21 +298,24 @@ public class Betting {
         List<String> betContents1314sfpk10 = FileUtil.readFile(Betting.class.getResourceAsStream("/betContent/1314sfpk10.txt"));
         List<String> betContents1413sfks = FileUtil.readFile(Betting.class.getResourceAsStream("/betContent/1413sfks.txt"));
 
-        //pre dafa站
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01277")), betContents1008dfssc, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01287")), betContents1009wfssc, 30);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01286")), betContents1300yflhc, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01285")), betContents1304dfpk10, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01284")), betContents1305wflhc, 30);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01283")), betContents1306wfpk10, 30);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01282")), betContents1407dfk3, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01281")), betContents1412wfk3, 30);
-        //
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01280")), betContents1010sfssc, 18);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01279")), betContents1314sfpk10, 18);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01278")), betContents1413sfks, 18);
+        List<String> betContents0101uuks = FileUtil.readFile(Betting.class.getResourceAsStream("/betContent/uuks0101.txt"));
 
-        //test dafa站
+
+        //---------------------------------- pre dafa站 ----------------------------------
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01277")), betContents1008dfssc, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01287")), betContents1009wfssc, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01286")), betContents1300yflhc, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01285")), betContents1304dfpk10, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01284")), betContents1305wflhc, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01283")), betContents1306wfpk10, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01282")), betContents1407dfk3, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01281")), betContents1412wfk3, 30);
+
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01280")), betContents1010sfssc, 18);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01279")), betContents1314sfpk10, 18);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01278")), betContents1413sfks, 18);
+
+        //---------------------------------- test dafa站 ----------------------------------
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0002")), betContents1008dfssc, 6);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0003")), betContents1009wfssc, 30);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0004")), betContents1300yflhc, 6);
@@ -324,7 +329,7 @@ public class Betting {
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0011")), betContents1314sfpk10, 18);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0012")), betContents1413sfks, 18);
 
-        //test test站
+        //---------------------------------- test test站 ----------------------------------
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0997")), betContents1008dfssc, 6);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0996")), betContents1009wfssc, 30);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0995")), betContents1300yflhc, 6);
@@ -339,7 +344,7 @@ public class Betting {
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0987")), betContents1413sfks, 18);
 
         //pro
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("duke7")), betContents1407dfk3, 30);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("duke7")), betContents0101uuks, 30);
     }
 
 
@@ -356,8 +361,9 @@ public class Betting {
         List<String> betContents1312yfpks = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1312yfpks.txt"));
         List<String> betContents1313wfpks = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1313wfpks.txt"));
 
-        List<String> betContents1310yflhc = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1310yflhc.txt"));
-        List<String> betContents1311wflhc = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1311wflhc.txt"));
+        //六合彩
+        //List<String> betContents1310yflhc = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1310yflhc.txt"));
+        //List<String> betContents1311wflhc = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1311wflhc.txt"));
 
         //test大发站
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0002")), betContents1418yfk3, 6);
@@ -381,6 +387,7 @@ public class Betting {
         //
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01282")), betContents1312yfpks, 6);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01283")), betContents1313wfpks, 30);
+
         //六合彩
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01284")), betContents1310yflhc, 6);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01285")), betContents1311wflhc, 30);

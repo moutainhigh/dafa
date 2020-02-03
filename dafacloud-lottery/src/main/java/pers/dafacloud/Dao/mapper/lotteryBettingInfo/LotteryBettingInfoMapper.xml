@@ -33,13 +33,15 @@
             ,gmt_created gmtCreated
             ,gmt_modified gmtModified
 		from dafacloud_betting.betting_orders_info_${tableName}
-		where  lottery_code = 1407
-        and gmt_created > '2019-11-01'
-        and gmt_created &lt; '2019-12-01'
-        and CONCAT(SUBSTR(issue,1,4),'-',SUBSTR(issue,5,2),'-',SUBSTR(issue,7,2),' ',if(SUBSTR(issue,9)/60 &lt; 10,CONCAT(0,FLOOR(SUBSTR(issue,9)/60)),FLOOR(SUBSTR(issue,9)/60)),':',
-        if(SUBSTR(issue,9)%60 &lt; 10,CONCAT(0,SUBSTR(issue,9)%60),SUBSTR(issue,9)%60),':','00') &lt; date_format(gmt_created, '%Y-%m-%d %H:%i:%s.SSS')
-        ORDER BY gmt_created desc ;
+		where created_date = '2020-01-29'
+        and is_test = 0
+        and lottery_code in ('1300','1305')
+        and betting_state = '2'
+        and betting_number = '家禽'
+--         and gmt_created &lt; '2020-01-29 02:17:00'
+        ;
 	</select>
+
     <!--大发快3大小盘口数据-->
     <select id="getLotteryBetingInfoDx" resultType="java.util.Map">
 		select
@@ -93,7 +95,7 @@
 	</select>
     <!--统计幸运飞艇凌晨出撤单的其实 statementType="STATEMENT" -->
     <insert id="insertLotteryBetingInfo" parameterType="java.util.List" keyProperty="id">
-        insert into dafacloud_betting.betting_orders_info_shalv002(
+        insert into dafacloud_betting.betting_orders_info_shalv005(
         tenant_code
         ,user_id
         ,user_name

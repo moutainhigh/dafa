@@ -33,10 +33,8 @@ public class DdzHandler extends GameHandler {
     private boolean isEnterGame = false;//是否进入游戏
     private boolean isSceneInfoReq = false;//是否进入场景
 
-
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        //super.handlerAdded(ctx);
         this.handshaker.setHandshakeFuture(ctx.newPromise());
     }
 
@@ -55,8 +53,6 @@ public class DdzHandler extends GameHandler {
                     bytes[i] = buf.getByte(i);
                 }
                 Gate.ClientMsg clientMsg = Gate.ClientMsg.parseFrom(bytes);
-                //handlerManager.handler(ctx.channel(),clientMsg); //消息分发处理
-                //System.out.println("proto：" + clientMsg.getProto());
                 switch (clientMsg.getProto()) {
                     case Gate.ProtoType.GateResType_VALUE:  //102登陆成功通知
                         System.out.println("102登陆成功通知：" + Gate.GateRes.parseFrom(clientMsg.getData()).toString().
@@ -146,10 +142,6 @@ public class DdzHandler extends GameHandler {
                         break;
 
                     case LandLoadMsg.ProtoType.CallCardResType_VALUE:   // 20315 叫牌响应
-                        //World.Msg msg1 = World.Msg.parseFrom(clientMsg.getData());
-                        //System.out.println(LandLoadMsg.CallCardRes.parseFrom(msg1.getSendMsg().getData()));
-//                        System.out.println(LandLoadMsg.CallCardRes.parseFrom(clientMsg.getData()).toString().
-//                                replace("\n", "").replace("\t", ""));
                         LandLoadMsg.CallCardRes callCardRes = LandLoadMsg.CallCardRes.parseFrom(clientMsg.getData());
                         System.out.println(
                                 StringBuilders.custom()
@@ -165,8 +157,7 @@ public class DdzHandler extends GameHandler {
                         );
                         break;
                     case LandLoadMsg.ProtoType.CallDoubleResType_VALUE: //20317 加倍响应
-//                        System.out.println(LandLoadMsg.CallDoubleRes.parseFrom(clientMsg.getData()).toString().
-//                                replaceAll("\n", "").replaceAll("\t", ""));
+
                         LandLoadMsg.CallDoubleRes callDoubleRes = LandLoadMsg.CallDoubleRes.parseFrom(clientMsg.getData());
                         System.out.println(
                                 StringBuilders.custom()

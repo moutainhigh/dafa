@@ -15,10 +15,11 @@ public class ZjhShaLvRobot {
 
     /**
      * 赢率
-     *pokerType  123456
+     * pokerType  123456
      * people 2345
-     *pokerNum
-     * */
+     * pokerNum
+     * pokerNum
+     */
     public static double getP(int pokerType, int people, int pokerNum) {
         JSONObject jo = JSONObject.fromObject(s);
         JSONArray ja = jo.getJSONArray(people + "" + pokerType);
@@ -42,8 +43,6 @@ public class ZjhShaLvRobot {
         return p;
     }
     //PX = ( X1 * A + X2 * B + X3 * C + X4 * D +X5 * E)/N;
-
-
 
 
 }

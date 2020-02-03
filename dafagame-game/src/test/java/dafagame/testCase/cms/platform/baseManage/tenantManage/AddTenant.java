@@ -49,12 +49,5 @@ public class AddTenant {
                 .build();
         String result = DafaRequest.upload(1, addTenant, httpEntity, headers);
         System.out.println(result);
-
-
-    }
-
-    @Test(description = "测试")
-    public static void test01() {
-
     }
 }

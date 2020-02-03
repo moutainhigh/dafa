@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * 定时任务写入open message表,测试提前写入奖号
  */
-@Service
+//@Service
 public class InsertOpenLottery {
     private static SqlSession sqlSession = SqlSessionFactoryUtils.openSqlSession("pre");
     private static LotteryOpenMessageMapper lotteryOpenMessageMapper = sqlSession.getMapper(LotteryOpenMessageMapper.class);
@@ -75,37 +75,37 @@ public class InsertOpenLottery {
 
 
     //@Scheduled(cron = "00 * * * * * ")
-    public void ab1418() {
-        task(1418);
-    }
-
+    //public void ab1418() {
+    //    task(1418);
+    //}
+    //
     //@Scheduled(cron = "00 * * * * * ")
-    public void ab1018() {
-        task(1018);
-    }
-
+    //public void ab1018() {
+    //    task(1018);
+    //}
+    //
     //@Scheduled(cron = "00 * * * * * ")
-    public void ab1312() {
-        task(1312);
-    }
-
+    //public void ab1312() {
+    //    task(1312);
+    //}
+    //
     //@Scheduled(cron = "0 0,5,10,15,20,25,30,35,40,45,50,55 * * * * ")
-    //@Scheduled(cron = "58 4,9,14,19,24,29,34,39,44,49,54,59 * * * * ")
-    public void ab() {
-        task(1419);
-    }
-
+    ////@Scheduled(cron = "58 4,9,14,19,24,29,34,39,44,49,54,59 * * * * ")
+    //public void ab() {
+    //    task(1419);
+    //}
+    //
     //@Scheduled(cron = "0 0,5,10,15,20,25,30,35,40,45,50,55 * * * * ")
-    //@Scheduled(cron = "58 4,9,14,19,24,29,34,39,44,49,54,59 * * * * ")
-    public void ab1() {
-        task(1019);
-    }
-
+    ////@Scheduled(cron = "58 4,9,14,19,24,29,34,39,44,49,54,59 * * * * ")
+    //public void ab1() {
+    //    task(1019);
+    //}
+    //
     //@Scheduled(cron = "0 0,5,10,15,20,25,30,35,40,45,50,55 * * * * ")
-    //@Scheduled(cron = "58 4,9,14,19,24,29,34,39,44,49,54,59 * * * * ")
-    public void ab2() {
-        task(1313);
-    }
+    ////@Scheduled(cron = "58 4,9,14,19,24,29,34,39,44,49,54,59 * * * * ")
+    //public void ab2() {
+    //    task(1313);
+    //}
 
     /*
     1008 1分时时彩

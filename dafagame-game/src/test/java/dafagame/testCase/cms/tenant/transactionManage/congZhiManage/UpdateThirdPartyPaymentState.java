@@ -2,11 +2,8 @@ package dafagame.testCase.cms.tenant.transactionManage.congZhiManage;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.testng.Reporter;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pers.dafagame.utils.enums.Path;
-import pers.dafagame.utils.httpUtils.Request;
 import pers.utils.assertUtils.AssertUtil;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.urlUtils.UrlBuilder;

@@ -16,6 +16,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.StringUtils;
 import pers.utils.StringUtils.StringBuilders;
+import pers.utils.httpclientUtils.HttpConfig;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -23,18 +24,20 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class ZjhHandler extends GameHandler {
-
-    //private int uid; //自己的user-id
     @Getter
     @Setter
     private boolean isEnterGame = false;//是否进入游戏
     @Getter
     @Setter
     private boolean isScenesReq = false;//是否进入场景
+    @Setter
+    @Getter
+    private HttpConfig httpConfig;//是否进入场景
 
     private int currentPlayersNum = 0; //当前 玩家数量
 
     private String baseChip; //底注，基础筹码
+
     private List<Double> addChipEnumList; //加注筹码数组
 
     private String beforBaseChip;
@@ -47,11 +50,13 @@ public class ZjhHandler extends GameHandler {
 
     private boolean isSeeCard = false;
 
+    private int cardType = 0;
+
     private RobotLogic robotLogic;
 
-    private final static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+    //private final static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
-    BigDecimal px = BigDecimal.ZERO;
+    private double ownBalance;
 
     public ZjhHandler() {
         robotLogic = new RobotLogic();
@@ -126,6 +131,8 @@ public class ZjhHandler extends GameHandler {
                         Zjh.ScenesData scenesData = Zjh.ScenesData.parseFrom(clientMsg.getData());
                         this.baseChip = String.valueOf(scenesData.getBaseChip());//底注
                         this.ownSeatId = scenesData.getOwn().getSeatId();//自己的座位号
+                        this.ownBalance = Double.parseDouble(scenesData.getOwn().getBalance());
+                        System.out.println("【我的座位号】" + this.ownSeatId);
                         this.ring = scenesData.getRing();
                         int currentOpt = scenesData.getOpt();//当前操作人,庄家
                         addChipEnumList = scenesData.getAddChipEnumList();
@@ -143,7 +150,7 @@ public class ZjhHandler extends GameHandler {
                         System.out.println("我的座位号" + this.ownSeatId);
                         System.out.println("baseChip：" + this.baseChip);
                         this.state = scenesData.getOpt();
-                        if (ownSeatId == currentOpt) {
+                        if (ownSeatId == currentOpt && scenesData.getOthersList().size() > 0) {
                             bet(channel);//下注请求：看牌 跟注 跟到底 加注 比牌 梭哈
                         }
                         break;
@@ -166,6 +173,16 @@ public class ZjhHandler extends GameHandler {
                         if (ownSeatId == startNtfType.getOpt()) {
                             bet(channel);//下注请求：看牌 跟注 跟到底 加注 比牌 梭哈
                         }
+                        break;
+
+                    case Zjh.ProtoType.WaittingStartNtfType_VALUE: //等待开局5秒通知
+                        Zjh.WaittingStartNtf waittingStartNtf = Zjh.WaittingStartNtf.parseFrom(clientMsg.getData());
+                        System.out.println(
+                                StringBuilders.custom()
+                                        .add("【等待开始5秒通知】")
+                                        .add("等待时间", waittingStartNtf.getTime())
+                                        .build()
+                        );
                         break;
 
                     case Zjh.ProtoType.EnterRoomNtfType_VALUE://玩家进入房间通知
@@ -201,15 +218,12 @@ public class ZjhHandler extends GameHandler {
                                         .add("当前轮数", nextActionNtf.getRing())
                                         .build()
                         );
-                        //只计算机器人
-                        if (nextActionNtf.getOpt() != this.ownSeatId) {
-                            double p = robotLogic.getP(currentPlayersNum);
-                            System.out.println("p:" + p);
-                            BigDecimal px = robotLogic.getPx(currentPlayersNum);
-                            robotLogic.getEv(px.doubleValue(), p);
-
+                        if (nextActionNtf.getOpt() == this.ownSeatId) {
+                            //double p = robotLogic.getP(currentPlayersNum);
+                            //System.out.println("p:" + p);
+                            //BigDecimal px = robotLogic.getPx(currentPlayersNum);
+                            //robotLogic.getEv(px.doubleValue(), p);
                             //robotLogic.getEvo()
-
                             bet(channel); //下注请求
                         }
                         break;
@@ -217,6 +231,7 @@ public class ZjhHandler extends GameHandler {
                     case Zjh.ProtoType.SeeCardResType_VALUE://看牌回应
                         Zjh.SeeCardRes seeCardRes = Zjh.SeeCardRes.parseFrom(clientMsg.getData());
                         this.isSeeCard = true;
+                        this.cardType = seeCardRes.getCardsType(); //牌型
                         System.out.println(
                                 StringBuilders.custom()
                                         .add("【看牌回应】")
@@ -237,9 +252,10 @@ public class ZjhHandler extends GameHandler {
 
                     case Zjh.ProtoType.CompareResNtfType_VALUE://比牌回应/广播
                         Zjh.CompareResNtf compareResNtf = Zjh.CompareResNtf.parseFrom(clientMsg.getData());
-                        if (compareResNtf.getOpt() != this.ownSeatId) {
-                            robotLogic.action[Action.Compare.ordinal()] += 1;
-                        }
+                        //if (compareResNtf.getOpt() == this.ownSeatId) {
+                        //    //robotLogic.action[Action.Compare.ordinal()] += 1;
+                        //
+                        //}
                         currentPlayersNum--;
                         System.out.println("比牌，当前游戏玩家数" + currentPlayersNum);
                         System.out.println(
@@ -253,6 +269,25 @@ public class ZjhHandler extends GameHandler {
                                         .add("真人数量", compareResNtf.getRealCount())
                                         .build()
                         );
+                        /**
+                         * 1.被比牌玩家不扣钱
+                         *
+                         * 2.弃牌要扣钱
+                         *
+                         * 3.梭哈要扣钱 --
+                         *
+                         * 5.结算赢家是自己要加钱
+                         *
+                         * 6.下注响应，下注扣钱 --
+                         *
+                         * 7.发起比牌要扣钱 --
+                         *
+                         * */
+                        if (compareResNtf.getOther() == this.ownSeatId) {
+                            if (compareResNtf.getWinner() == this.ownSeatId)
+                                this.ownBalance -= Double.parseDouble(compareResNtf.getBetChip());
+                        }
+
                         break;
 
                     case Zjh.ProtoType.GiveUpResNtfType_VALUE://弃牌回应/广播
@@ -270,19 +305,6 @@ public class ZjhHandler extends GameHandler {
                         );
                         break;
 
-                    case Zjh.ProtoType.StudResNtfType_VALUE://梭哈回应/广播
-                        Zjh.StudResNtf studResNtf = Zjh.StudResNtf.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("【梭哈回应/广播】")
-                                        .add("下一个操作玩家", studResNtf.getNextOpt())
-                                        .add("下注筹码", studResNtf.getBetChip())
-                                        .add("是否暗牌梭哈", studResNtf.getIsDark())
-                                        .add("时间", studResNtf.getTime())
-                                        .add("ring", studResNtf.getRing())
-                                        .build()
-                        );
-                        break;
 
                     case Zjh.ProtoType.AllInResNtfType_VALUE://全下请求回应/广播
                         Zjh.AllInResNtf allInResNtf = Zjh.AllInResNtf.parseFrom(clientMsg.getData());
@@ -310,51 +332,59 @@ public class ZjhHandler extends GameHandler {
                                         .add("退还金额", gameOverNtf.getOverAmount())
                                         .build()
                         );
+                        if (gameOverNtf.getWinner() == this.ownSeatId)
+                            this.ownBalance += Double.parseDouble(gameOverNtf.getReturnAmount());
+
+                        System.out.println("结算时余额：" + this.ownBalance);
                         break;
 
-                    case Zjh.ProtoType.WaittingStartNtfType_VALUE: //等待开始5秒通知
-                        Zjh.WaittingStartNtf waittingStartNtf = Zjh.WaittingStartNtf.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("【等待开始5秒通知】")
-                                        .add("等待时间", waittingStartNtf.getTime())
-                                        .build()
-                        );
-                        break;
-
-                    case Zjh.ProtoType.BetResNtfType_VALUE://下注响应
+                    case Zjh.ProtoType.BetResNtfType_VALUE://下注响应/广播
                         Zjh.BetResNtf betRes = Zjh.BetResNtf.parseFrom(clientMsg.getData());
-                        baseChip = betRes.getIsDark() ? betRes.getBetChip() : String.valueOf(Double.parseDouble(betRes.getBetChip()) / 2);
-
-                        if (StringUtils.isNotEmpty(beforBaseChip)) {
-                            if (beforBaseChip.equals(baseChip)) { //跟注
-                                if (betRes.getOpt() != this.ownSeatId) {
-                                    if (betRes.getIsDark()) {
-                                        robotLogic.action[Action.DarkCardAdd.ordinal()] += 1;
-                                    } else {
-                                        robotLogic.action[Action.ClearCardAdd.ordinal()] += 1;
-                                    }
-                                }
-                            } else {//加注
-                                if (betRes.getOpt() != this.ownSeatId) {
-                                    if (betRes.getIsDark()) {
-                                        robotLogic.action[Action.DarkCardFollow.ordinal()] += 1;
-                                    } else {
-                                        robotLogic.action[Action.ClearCardFollow.ordinal()] += 1;
-                                    }
-                                }
-                            }
-                        }
-                        beforBaseChip = baseChip;
-
                         System.out.println(
                                 StringBuilders.custom()
-                                        .add("【下注响应】")
+                                        .add("【下注响应/广播】")
                                         .add("下注筹码", betRes.getBetChip())
                                         .add("操作玩家", betRes.getOpt())
                                         .add("知否暗牌", betRes.getIsDark())
                                         .build()
                         );
+                        baseChip = betRes.getIsDark() ? betRes.getBetChip() : String.valueOf(Double.parseDouble(betRes.getBetChip()) / 2);
+                        beforBaseChip = baseChip;
+
+                        if (ownSeatId == betRes.getOpt()) { //自己下注
+                            ownBalance = ownBalance - Double.parseDouble(betRes.getBetChip());
+                        }
+                        break;
+
+                    case Zjh.ProtoType.StudResNtfType_VALUE://梭哈回应/广播
+                        Zjh.StudResNtf studResNtf = Zjh.StudResNtf.parseFrom(clientMsg.getData());
+                        System.out.println(
+                                StringBuilders.custom()
+                                        .add("【梭哈回应/广播】")
+                                        .add("下一个操作玩家", studResNtf.getNextOpt())
+                                        .add("下注筹码", studResNtf.getBetChip())
+                                        .add("是否暗牌梭哈", studResNtf.getIsDark())
+                                        .add("时间", studResNtf.getTime())
+                                        .add("ring", studResNtf.getRing())
+                                        .build()
+                        );
+                        if (this.ownSeatId == studResNtf.getOpt()) {
+                            this.ownBalance -= Double.parseDouble(studResNtf.getBetChip());
+                        }
+                        break;
+
+                    case Zjh.ProtoType.FollowStudResNtfType_VALUE://跟梭哈回应/广播
+                        Zjh.FollowStudResNtf followStudResNtf = Zjh.FollowStudResNtf.parseFrom(clientMsg.getData());
+                        System.out.println(
+                                StringBuilders.custom()
+                                        .add("【跟梭哈回应/广播】")
+                                        .add("梭哈筹码", followStudResNtf.getBetChip())
+                                        .add("操作玩家", followStudResNtf.getOpt())
+                                        .add("知否暗牌", followStudResNtf.getRing())
+                                        .build()
+                        );
+
+
                         break;
 
                     case World.ProtoType.ErrorNtfType_VALUE://错误消息通知
@@ -372,25 +402,56 @@ public class ZjhHandler extends GameHandler {
     }
 
     public void bet(Channel channel) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        //下注
-        if (this.ring == 0) { //第一轮只能下注，不能比牌
-            Zjh.BetReq betReqFist = Zjh.BetReq.newBuilder()
-                    .setChip(isSeeCard ? String.valueOf(Double.parseDouble(baseChip) * 2) : baseChip)
+        new Thread(() -> {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            if (!this.isSeeCard) {
+                Zjh.SeeCardReq seeCardReq = Zjh.SeeCardReq.newBuilder()
+                        .build();
+                sendBf(seeCardReq.toByteString(), Zjh.ProtoType.SeeCardReqType_VALUE, channel);//看牌请求
+                System.out.println("****看牌请求******");
+            }
+
+            try {
+                Thread.sleep(3 * 1000);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            //第一轮下注
+            if (this.ring == 0) { //第一轮只能下注，不能比牌
+                String currentBetChip = isSeeCard ? String.valueOf(Double.parseDouble(baseChip) * 2) : baseChip;
+                System.out.println("currentBetChip:" + currentBetChip);
+                Zjh.BetReq betReqFist = Zjh.BetReq.newBuilder()
+                        .setChip(currentBetChip)
+                        .build();
+                sendBf(betReqFist.toByteString(), Zjh.ProtoType.BetReqType_VALUE, channel);
+                System.out.println("首次下注成功");
+                return;
+            }
+            //梭哈
+            if (this.currentPlayersNum == 2 && this.cardType > 3) {
+                Zjh.StudReq studReq = Zjh.StudReq.newBuilder().build();
+                sendBf(studReq.toByteString(), Zjh.ProtoType.StudReqType_VALUE, channel);
+                System.out.println("******梭哈请求******:");
+            }
+
+            //下注
+            String currentBetChip = isSeeCard ? String.valueOf(Double.parseDouble(baseChip) * 2) : baseChip;
+            System.out.println("currentBetChip:" + currentBetChip);
+            Zjh.BetReq betReq = Zjh.BetReq.newBuilder()
+                    .setChip(currentBetChip)
                     .build();
-            sendBf(betReqFist.toByteString(), Zjh.ProtoType.BetReqType_VALUE, channel);
-            System.out.println("首次下注成功");
-            return;
-        }
-        Zjh.BetReq betReq = Zjh.BetReq.newBuilder()
-                .setChip(baseChip)
-                .build();
-        sendBf(betReq.toByteString(), Zjh.ProtoType.BetReqType_VALUE, channel); //20102
-        System.out.println("******下注成功******:" + baseChip);
+
+            sendBf(betReq.toByteString(), Zjh.ProtoType.BetReqType_VALUE, channel); //20102
+            System.out.println("******下注请求******:" + baseChip);
+
+
+        }).start();
 
         ////跟到底请求
         //Zjh.FollowEndReq followEndReq = Zjh.FollowEndReq.newBuilder().build();
@@ -434,7 +495,6 @@ public class ZjhHandler extends GameHandler {
         BinaryWebSocketFrame binaryWebSocketFrame = new BinaryWebSocketFrame(bf);
         channel.writeAndFlush(binaryWebSocketFrame);
     }
-
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {

@@ -20,7 +20,6 @@ public class FileUtils {
         File file = new File(path);
         if (!file.exists())
            return null;
-
         try {
             FileInputStream fis = new FileInputStream(file);
             InputStreamReader inputStreamReader = new InputStreamReader(fis, "UTF-8");
@@ -35,5 +34,4 @@ public class FileUtils {
         }
         return JSONObject.fromObject(sb.toString());
     }
-
 }

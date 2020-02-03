@@ -10,7 +10,7 @@
     <!--
         id 和方法保持一致
      -->
-    <select id="getRecordCode" resultType="pers.dafacloud.Dao.pojo.SummaryPaymentRecord">
+    <select id="getRecordCode" resultType="pers.dafacloud.Dao.model.SummaryPaymentRecord">
 		SELECT record_code recordCode
         FROM dafacloud_transaction.summary_payment_record
         where tenant_code = 'qile'

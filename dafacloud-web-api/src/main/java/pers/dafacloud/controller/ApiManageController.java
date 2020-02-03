@@ -2,9 +2,6 @@ package pers.dafacloud.controller;
 
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.client.protocol.HttpClientContext;
-import org.apache.http.cookie.Cookie;
-import org.apache.http.impl.cookie.BasicClientCookie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pers.dafacloud.model.ApiContent;
 import pers.dafacloud.model.ApiManage;
-import pers.dafacloud.server.*;
+import pers.dafacloud.server.ApiManageServer;
+import pers.dafacloud.server.TestRequestApiServer;
 import pers.dafacloud.utils.Response;
-import pers.utils.httpclientUtils.Request;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.net.URL;
 import java.util.List;
 
 @RestController

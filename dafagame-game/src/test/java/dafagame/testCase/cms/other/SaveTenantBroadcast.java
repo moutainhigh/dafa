@@ -1,9 +1,7 @@
 package dafagame.testCase.cms.other;
 
-import org.testng.Reporter;
 import org.testng.annotations.Test;
-import pers.dafagame.utils.enums.Path;
-import pers.dafagame.utils.httpUtils.Request;
+import pers.dafagame.enums.Path;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,10 +19,5 @@ public class SaveTenantBroadcast {
         Map<String, String> headers = new HashMap<>();
         headers.put("x-manager-name", "duke");//用户名
         headers.put("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-
-        String s = Request.doPost(path.value, body, headers);
-        System.out.println("结果：" + s);
-        Reporter.log(s);
-        //Assert.assertEquals(true,s.contains("获取成功"),"获取当前用户余额失败");
     }
 }

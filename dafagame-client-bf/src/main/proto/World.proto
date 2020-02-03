@@ -9,6 +9,15 @@ message Msg {
     optional MsgSend sendMsg = 1;           //游戏服务发送给网关的推送，通知一些人信息
     optional MsgReceive receiveMsg = 2;     //网关发送给游戏服务的信息 游戏服务处理的信息
     optional MsgIndication indication = 3;  //游戏服务发送给网关的房间推送
+    optional MsgServer msgServer = 4;       //给该服务所有玩家推送的服务
+}
+
+//给该服务所有玩家推送的信息
+message MsgServer {
+    required int32 proto = 1;           //协议类型
+    required bytes data = 2;            //协议内容
+    required string gameCode = 3;       //游戏编码
+    required string subServerId = 4;    //实例id
 }
 
 message MsgReceive {
@@ -21,6 +30,7 @@ message MsgSend{
     repeated int32 uids = 1;        //需要通知的玩家id列表
     required int32 protoType = 2;   //协议号码
     required bytes data = 3;        //内容
+    optional int32 reqProto = 4;    //请求的proto
 }
 
 message MsgIndication {
@@ -37,6 +47,7 @@ enum ProtoType{
     ExitGameReqType = 1002;     //离开游戏请求
     ExitGameResType = 1003;     //离开游戏回应
     ErrorNtfType = 1004;        //错误通知
+    BalanceChangeNtfType = 1005;//余额变更通知
 }
 
 enum ErrorCode{
@@ -56,9 +67,19 @@ enum ErrorCode{
     BalanceError = 14; //余额服务错误
     IllegalParamError = 15;//非法参数
     EntryProcess = 16;  //在进入过程中，游戏服务没有给回应
-    NotInGame = 17;     //不在游戏中，请进入游戏
+    NotInGame = 17;     //没有找到该服务
     ServerError = 18;   //服务错误
     LoginAtOtherDevice = 19;//在其他终端登陆
+    NotEnoughBalance = 20;   //余额不足
+    TimeoutExit = 21;   //房间内超时T出
+    CloseSocket = 22;  //断开连接
+    AlreadyInRoom = 23; //已经在游戏中
+    NoMoneySwap = 24;//余额不够换筹码
+    PlayerNotEnough = 25;//匹配不到玩家 || 玩家不够
+    TenantMaintain = 26;//站点维护
+    NoOpExit = 27;           //长时间未操作 退出游戏
+    ServiceFeeChange = 28;  // 服务费调整
+    NotFoundServer = 29;    //没有找到服务
 }
 
 enum ExitGameReason {
@@ -77,6 +98,10 @@ message EnterGameReq {
     required string roundType = 2;
     // 玩家
     optional Player player = 3;
+    //房间
+    optional string roomNumber = 4;
+    // 入场金额
+    optional string takenInMoney = 5;
 }
 
 //进入场景回应
@@ -118,6 +143,14 @@ message GameLampNtf {
     repeated string arrays = 1; //  跑马灯参数，根据不同游戏有不同的长度
 }
 
+message BalanceChangeNtf{
+    optional int32 uid = 1;        //用户id
+    required string amount = 2;    //金额变化量
+    required int32 dictionId = 3; //金额变化类型
+    optional int32 seatId = 4;    //座位号 ，对战游戏用
+    optional string balance = 5;  //最新余额
+}
+
 message Player {
     required int32 uid = 1;         //玩家id
     required string userName = 2;   //用户名
@@ -133,8 +166,16 @@ message Player {
     //游戏中自己获取
     optional double balance = 11;    //余额
     optional double safeBalance = 12;   //保险箱余额
+
+    optional int32 type = 13;       //玩家类型 0普通玩家 1-4 机器人
+
+    optional int32 weaponId = 14;   //当前炮台id
+    optional string weaponList = 15;//拥有炮台列表
 }
 
 message ErrorNtf {
     required int32 err = 1; //错误消息
+    optional int32 leaveReason = 2;//离开原因
+    optional int32 httpCode = 3;    //http错误码
+    optional string errDes = 4;     //错误描述
 }

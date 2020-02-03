@@ -15,10 +15,10 @@ public class UrlBuilder {
     private String url;
     private List<Params> params = new ArrayList<>();
     private List<Params> jsonParams = new ArrayList<>();
-
-//    public UrlBuilder(String url) {
-//        this.url = url;
-//    }
+    //构造器
+    //    public UrlBuilder(String url) {
+    //        this.url = url;
+    //    }
 
     public UrlBuilder url(String url) {
         this.url = url;

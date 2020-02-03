@@ -5,7 +5,6 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pers.dafagame.page.beting.Betting;
 import pers.dafagame.page.beting.InitializaIssueEndtime;
-import pers.dafagame.pojo.BetContent;
 import pers.dafagame.utils.getBetData.ReadCSV;
 import pers.dafagame.utils.report.ZTestReport;
 
