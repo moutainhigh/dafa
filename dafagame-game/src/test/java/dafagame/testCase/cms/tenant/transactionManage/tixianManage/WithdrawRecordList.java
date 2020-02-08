@@ -50,7 +50,7 @@ public class WithdrawRecordList {
         return ja;
     }
 //
-//    @Test(priority = 1, description = "所有用户")
+//    @pers.utils.daoUtils.UnderlineHump(priority = 1, description = "所有用户")
 //    public void test002() {
 //        String url = withdrawRecordList + "?userName=&state=0&startTime=2019-05-24&endTime=2019-05-25&pageNum=1&pageSize=20";
 //        System.out.println(url);
@@ -75,7 +75,7 @@ public class WithdrawRecordList {
 //        //Assert.assertEquals(true,s.contains("获取成功"),"失败");
 //    }
 //
-//    @Test(priority = 1, description = "所有状态")
+//    @pers.utils.daoUtils.UnderlineHump(priority = 1, description = "所有状态")
 //    public void test003() {
 //        String url = withdrawRecordList + "?userName=88467689&state=0&startTime=2019-05-24&endTime=2019-05-25&pageNum=1&pageSize=20";
 //        System.out.println(url);
@@ -100,7 +100,7 @@ public class WithdrawRecordList {
 //        //Assert.assertEquals(true,s.contains("获取成功"),"失败");
 //    }
 //
-//    @Test(priority = 1, description = "所有状态")
+//    @pers.utils.daoUtils.UnderlineHump(priority = 1, description = "所有状态")
 //    public void test004() {
 //        String url = withdrawRecordList + "?userName=&state=-1&startTime=2019-05-23&endTime=2019-05-25&pageNum=1&pageSize=20";
 //        System.out.println(url);
@@ -125,7 +125,7 @@ public class WithdrawRecordList {
 //        //Assert.assertEquals(true,s.contains("获取成功"),"失败");
 //    }
 //
-//    @Test(priority = 1, description = "WQR(0,未确认)")
+//    @pers.utils.daoUtils.UnderlineHump(priority = 1, description = "WQR(0,未确认)")
 //    public void test005() {
 //        String url = withdrawRecordList + "?userName=&state=0&startTime=2019-05-23&endTime=2019-05-25&pageNum=1&pageSize=20";
 //        System.out.println(url);
@@ -151,7 +151,7 @@ public class WithdrawRecordList {
 //    }
 //
 //
-//    @Test(priority = 1, description = "TXCG(1,提现成功)")
+//    @pers.utils.daoUtils.UnderlineHump(priority = 1, description = "TXCG(1,提现成功)")
 //    public void test006() {
 //        String url = withdrawRecordList + "?userName=&state=1&startTime=2019-05-23&endTime=2019-05-25&pageNum=1&pageSize=20";
 //        System.out.println(url);
@@ -176,7 +176,7 @@ public class WithdrawRecordList {
 //        //Assert.assertEquals(true,s.contains("获取成功"),"失败");
 //    }
 //
-//    @Test(priority = 1, description = "TXTHCG(2,提现退回成功)")
+//    @pers.utils.daoUtils.UnderlineHump(priority = 1, description = "TXTHCG(2,提现退回成功)")
 //    public void test007() {
 //        String url = withdrawRecordList + "?userName=&state=1&startTime=2019-05-23&endTime=2019-05-25&pageNum=1&pageSize=20";
 //        System.out.println(url);
@@ -201,7 +201,7 @@ public class WithdrawRecordList {
 //        //Assert.assertEquals(true,s.contains("获取成功"),"失败");
 //    }
 //
-//    @Test(priority = 1, description = "JJCK(3,拒绝出款)")
+//    @pers.utils.daoUtils.UnderlineHump(priority = 1, description = "JJCK(3,拒绝出款)")
 //    public void test008() {
 //        String url = withdrawRecordList + "?userName=&state=3&startTime=2019-05-23&endTime=2019-05-25&pageNum=1&pageSize=20";
 //        System.out.println(url);

@@ -56,16 +56,16 @@ public class CreateCase {
     public static String createTestCase() {
         StringBuffer sb = new StringBuffer();
         try {
-            /*@Test(priority = 1,description ="二码直选")
+            /*@UnderlineHump(priority = 1,description ="二码直选")
             public void testUsersInfo(){
                 BetContent betContent = listBetContent.get(0);
                 betContent.setBettingIssue(String.valueOf(InitializaIssueEndtime.issueFive));
                 Betting.bet(betContent);
             }*/
-            /*String str = "  @Test(description =\"bbb\")\r\n" + "  public void " + lottery + "aaa() {	  \r\n"
+            /*String str = "  @UnderlineHump(description =\"bbb\")\r\n" + "  public void " + lottery + "aaa() {	  \r\n"
                     + "	  Bet.bets(betContent.get(eee),model);	  \r\n" + "  }";*/
 
-            String temp = "@Test(priority = 1,description =\"{desc}\")\n" +
+            String temp = "@UnderlineHump(priority = 1,description =\"{desc}\")\n" +
                     "    public void {caseName}(){\n" +
                     "       BetContent betContent = listBetContent.get({num});\n" +
                     "       betContent.setBettingIssue(String.valueOf(InitializaIssueEndtime.issueFive));\n" +

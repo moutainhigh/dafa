@@ -151,7 +151,7 @@ public class SaveFrontWithdrawRecord {
         AssertUtil.assertContains(result, "金额必须在");
     }
 
-    /*@Test(description = "等于该充值渠道的可提现值最大金额")
+    /*@pers.utils.daoUtils.UnderlineHump(description = "等于该充值渠道的可提现值最大金额")
     public void test006() {
         String body = "bankCardID=11636385&amount=200&safetyPassword=93279e3308bdbbeed946fc965017f67a";
         String s = DafaRequest.post(0,saveFrontWithdrawRecord, body);

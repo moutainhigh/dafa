@@ -45,7 +45,7 @@ public class FrontMultiGameRecord {
         }
     }
 
-    /*@Test(description = "多人游戏记录详情")
+    /*@pers.utils.daoUtils.UnderlineHump(description = "多人游戏记录详情")
     public static void test02() {
         String result = DafaRequest.get(0,
                 UrlBuilder.custom()

@@ -279,8 +279,8 @@ public class Betting {
     }
 
     public static void main(String[] args) {
-        platformLottery(); // 平台彩种
-        //tenantLottery(); -- 站长彩种
+        //platformLottery(); // 平台彩种
+        tenantLottery(); // 站长彩种
     }
 
     private static void platformLottery() {
@@ -302,32 +302,32 @@ public class Betting {
 
 
         //---------------------------------- pre dafa站 ----------------------------------
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01277")), betContents1008dfssc, 6);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01287")), betContents1009wfssc, 30);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01286")), betContents1300yflhc, 6);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01285")), betContents1304dfpk10, 6);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01284")), betContents1305wflhc, 30);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01283")), betContents1306wfpk10, 30);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01282")), betContents1407dfk3, 6);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01281")), betContents1412wfk3, 30);
-
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01280")), betContents1010sfssc, 18);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01279")), betContents1314sfpk10, 18);
-        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01278")), betContents1413sfks, 18);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01277")), betContents1008dfssc, 6);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01287")), betContents1009wfssc, 30);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01286")), betContents1300yflhc, 6);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01285")), betContents1304dfpk10, 6);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01284")), betContents1305wflhc, 30);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01283")), betContents1306wfpk10, 30);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01282")), betContents1407dfk3, 6);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01281")), betContents1412wfk3, 30);
+        //
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01280")), betContents1010sfssc, 18);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01279")), betContents1314sfpk10, 18);
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01278")), betContents1413sfks, 18);
 
         //---------------------------------- test dafa站 ----------------------------------
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0002")), betContents1008dfssc, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0003")), betContents1009wfssc, 30);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0004")), betContents1300yflhc, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0005")), betContents1304dfpk10, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0006")), betContents1305wflhc, 30);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0007")), betContents1306wfpk10, 30);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0008")), betContents1407dfk3, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0009")), betContents1412wfk3, 30);
-        //
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0010")), betContents1010sfssc, 18);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0011")), betContents1314sfpk10, 18);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0012")), betContents1413sfks, 18);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0002")), betContents1008dfssc, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0003")), betContents1009wfssc, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0004")), betContents1300yflhc, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0005")), betContents1304dfpk10, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0006")), betContents1305wflhc, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0007")), betContents1306wfpk10, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0008")), betContents1407dfk3, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0009")), betContents1412wfk3, 30);
+
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0010")), betContents1010sfssc, 18);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0011")), betContents1314sfpk10, 18);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0012")), betContents1413sfks, 18);
 
         //---------------------------------- test test站 ----------------------------------
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dukea0997")), betContents1008dfssc, 6);
@@ -361,19 +361,19 @@ public class Betting {
         List<String> betContents1312yfpks = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1312yfpks.txt"));
         List<String> betContents1313wfpks = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1313wfpks.txt"));
 
-        //六合彩
+        //六合彩-无
         //List<String> betContents1310yflhc = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1310yflhc.txt"));
         //List<String> betContents1311wflhc = FileUtil.readFile(Betting.class.getResourceAsStream("/tenantBetContent/1311wflhc.txt"));
 
         //test大发站
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0002")), betContents1418yfk3, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0003")), betContents1419wfk3, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0002")), betContents1418yfk3, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0003")), betContents1419wfk3, 30);
         //
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0004")), betContents1018yfssc, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0005")), betContents1019wfssc, 30);
-        //
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0006")), betContents1312yfpks, 6);
-        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0007")), betContents1313wfpks, 30);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0004")), betContents1018yfssc, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0005")), betContents1019wfssc, 30);
+
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0006")), betContents1312yfpks, 6);
+        bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0007")), betContents1313wfpks, 30);
         //六合彩
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0008")), betContents1310yflhc, 6);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("dafai0009")), betContents1311wflhc, 30);
@@ -388,9 +388,12 @@ public class Betting {
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01282")), betContents1312yfpks, 6);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01283")), betContents1313wfpks, 30);
 
-        //六合彩
+        //六合彩-无
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01284")), betContents1310yflhc, 6);
         //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("autodf01285")), betContents1311wflhc, 30);
+
+        //pro
+        //bettingByUrlLoop0(new ArrayList<>(Arrays.asList("duke02")), betContents1018yfssc, 6);
 
     }
 }

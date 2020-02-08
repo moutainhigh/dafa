@@ -28,13 +28,13 @@ public class SaveBatchManualRecord {
 
     }
 
-    /*@Test(description = "其他站账号")
+    /*@pers.utils.daoUtils.UnderlineHump(description = "其他站账号")
     public void test003(){
         String body = "userName=88467689duke&amount=10&remark=&dictionId=401";
 
     }*/
 
-    /*@Test(description = "冻结账号")
+    /*@pers.utils.daoUtils.UnderlineHump(description = "冻结账号")
     public void test004(){
         String body = "userName=88467689duke&amount=10&remark=&dictionId=401";
 
@@ -61,7 +61,7 @@ public class SaveBatchManualRecord {
 
     }
 
-    /*@Test(description = "多个账号存款,账号等于100")
+    /*@pers.utils.daoUtils.UnderlineHump(description = "多个账号存款,账号等于100")
     public void test008(){
         String body = "userName=88467689,48955010,35998070,35998070&amount=10&remark=duke测试导入01&dictionId=401";
 

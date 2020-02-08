@@ -47,7 +47,7 @@ public class ImportManualRecord {
 
 
 
-    /*@Test(description = "1")
+    /*@pers.utils.daoUtils.UnderlineHump(description = "1")
     public void test002() {
         System.out.println(path.value);
         String body = "dictionId=401&timeStamp=0.123456789";

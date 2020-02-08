@@ -12,6 +12,7 @@ import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import lombok.Getter;
 import lombok.Setter;
+import pers.utils.StringUtils.StringBuilders;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -101,14 +102,18 @@ public class BrnnHandler extends GameHandler {
                         break;
                     case Brnn.ProtoType.BetResType_VALUE: //投注响应
                         Brnn.BetRes betRes = Brnn.BetRes.parseFrom(clientMsg.getData());
-                        //System.out.println(
-                        //        StringBuilders.custom()
-                        //                .add("10156投注响应")
-                        //                .add("投注list", betRes.getBetInfoList().toString().replaceAll("\n", ""))
-                        //                .add("total", betRes.getTotal())
-                        //                .add("错误码", betRes.getErrorCode())
-                        //                .build()
-                        //);
+                        //7 - BankerNoMonery ，5 - StateError
+                        if (Brnn.ErrorCode.OK.getNumber() != betRes.getErrorCode().getNumber()
+                                && betRes.getErrorCode().getNumber() != 7 && betRes.getErrorCode().getNumber() != 5)
+                            System.out.println(
+                                    StringBuilders.custom()
+                                            .add("10156投注响应")
+                                            .add("投注list", betRes.getBetInfoList().toString().replaceAll("\n", ""))
+                                            .add("total", betRes.getTotal())
+                                            .add("错误码", betRes.getErrorCode().getNumber())
+                                            .add("错误码", betRes.getErrorCode())
+                                            .build()
+                            );
                         break;
                     /*case Brnn.ProtoType.OnlineNumberNtfType_VALUE:
                         Brnn.OnlineNumberNtf onlineNumberNtf = Brnn.OnlineNumberNtf.parseFrom(clientMsg.getData());
@@ -156,26 +161,26 @@ public class BrnnHandler extends GameHandler {
                         Brnn.EnterPlayerSceneNtf enterPlayerSceneNtf = Brnn.EnterPlayerSceneNtf.parseFrom(clientMsg.getData());
                         this.chipList = new ArrayList<>(enterPlayerSceneNtf.getChipEnumList());//获取筹码list
                         //System.out.println(this.chipList);
-                        /*System.out.println(
+                        System.out.println(
                                 StringBuilders.custom()
                                         .add("10166场景通知")
                                         .add("游戏状态", enterPlayerSceneNtf.getState())
-                                        .add("倒计时", enterPlayerSceneNtf.getRemainingTime())
-                                        .add("走势", enterPlayerSceneNtf.getTableRecordListList())
-                                        .add("上庄需要的金额", enterPlayerSceneNtf.getBankerNeedMoney())
-                                        .add("各区域的投注", enterPlayerSceneNtf.getPlayerAreaBetList())
-                                        .add("房间四个盘口的下注金额", enterPlayerSceneNtf.getRoomAreaBetList())
-//                                        .add("进入玩家具体筹码的分布情况", enterPlayerSceneNtf.getbet)
+                                        //.add("倒计时", enterPlayerSceneNtf.getRemainingTime())
+                                        //.add("走势", enterPlayerSceneNtf.getTableRecordListList())
+                                        //.add("上庄需要的金额", enterPlayerSceneNtf.getBankerNeedMoney())
+                                        //.add("各区域的投注", enterPlayerSceneNtf.getPlayerAreaBetList())
+                                        //.add("房间四个盘口的下注金额", enterPlayerSceneNtf.getRoomAreaBetList())
+                                        //.add("进入玩家具体筹码的分布情况", enterPlayerSceneNtf.getbet)
                                         .add("场次", enterPlayerSceneNtf.getRoundType())
                                         .add("房间号", enterPlayerSceneNtf.getRoomId())
-                                        .add("期号", enterPlayerSceneNtf.getInning())
-                                        .add("余额", enterPlayerSceneNtf.getBalance())
-                                        .add("在线人数", enterPlayerSceneNtf.getOnlineNumber())
-                                        .add("庄家列表", enterPlayerSceneNtf.getBankerList())
-                                        .add("赔率配置", enterPlayerSceneNtf.getMultipleEnumList())
-                                        .add("赔率配置", enterPlayerSceneNtf.getChipEnumList())
+                                        //.add("期号", enterPlayerSceneNtf.getInning())
+                                        //.add("余额", enterPlayerSceneNtf.getBalance())
+                                        //.add("在线人数", enterPlayerSceneNtf.getOnlineNumber())
+                                        //.add("庄家列表", enterPlayerSceneNtf.getBankerList())
+                                        //.add("赔率配置", enterPlayerSceneNtf.getMultipleEnumList())
+                                        //.add("赔率配置", enterPlayerSceneNtf.getChipEnumList())
                                         .build()
-                        );*/
+                        );
                         this.state = enterPlayerSceneNtf.getState();
                         bet(channel);
                         break;
@@ -213,7 +218,8 @@ public class BrnnHandler extends GameHandler {
 
     public void bet(Channel channel) {
         Collections.sort(this.chipList);
-        int[] count = new int[]{770, 770, 50, 20, 1, 1}; //个数
+        //int[] count = new int[]{770, 770, 50, 20, 1, 1}; //个数
+        int[] count = new int[]{1000, 10, 1, 0, 0, 0}; //个数
         int totalCount = 0;
         for (int i : count) {
             totalCount += i;
@@ -227,40 +233,39 @@ public class BrnnHandler extends GameHandler {
         }
         //投注
         executorService.scheduleWithFixedDelay(() -> {
-                    int indexAmount = (int) (Math.random() * amout.length);
-                    Brnn.Pos pos;
-                    switch ((int) (Math.random() * 4)) {
-                        case 0:
-                            pos = Brnn.Pos.Tian;
-                            break;
-                        case 1:
-                            pos = Brnn.Pos.Di;
-                            break;
-                        case 2:
-                            pos = Brnn.Pos.Xuan;
-                            break;
-                        case 3:
-                            pos = Brnn.Pos.Huang;
-                            break;
-                        default:
-                            //System.out.println("获取投注pos错误");
-                            pos = Brnn.Pos.Tian;
-                            break;
-                    }
-                    if (canBetting()) {
-                        Brnn.BetInfo betinfo = Brnn.BetInfo.newBuilder()
-                                .setPos(pos)
-                                //.setAmount(0, 10)
-                                .addAmount(amout[indexAmount])
-                                .build();
-                        Brnn.BetReq betReq = Brnn.BetReq.newBuilder()
-                                .addBetInfo(betinfo)
-                                .build();
-                        sendBf(betReq.toByteString(), Brnn.ProtoType.BetReqType_VALUE, channel);//发送消息
-                        System.out.println("投注send发送成功：" + amout[indexAmount] + "，" + pos);
-                    }
-                }
-                , 0, 500, TimeUnit.MILLISECONDS);
+            int indexAmount = (int) (Math.random() * amout.length);
+            Brnn.Pos pos;
+            switch ((int) (Math.random() * 4)) {
+                case 0:
+                    pos = Brnn.Pos.Tian;
+                    break;
+                case 1:
+                    pos = Brnn.Pos.Di;
+                    break;
+                case 2:
+                    pos = Brnn.Pos.Xuan;
+                    break;
+                case 3:
+                    pos = Brnn.Pos.Huang;
+                    break;
+                default:
+                    //System.out.println("获取投注pos错误");
+                    pos = Brnn.Pos.Tian;
+                    break;
+            }
+            if (canBetting()) {
+                Brnn.BetInfo betinfo = Brnn.BetInfo.newBuilder()
+                        .setPos(pos)
+                        //.setAmount(0, 10)
+                        .addAmount(amout[indexAmount])
+                        .build();
+                Brnn.BetReq betReq = Brnn.BetReq.newBuilder()
+                        .addBetInfo(betinfo)
+                        .build();
+                sendBf(betReq.toByteString(), Brnn.ProtoType.BetReqType_VALUE, channel);//发送消息
+                //System.out.println(this.phone + "投注send发送成功：" + amout[indexAmount] + "，" + pos);
+            }
+        }, 0, 500, TimeUnit.MILLISECONDS);
     }
 
     /**

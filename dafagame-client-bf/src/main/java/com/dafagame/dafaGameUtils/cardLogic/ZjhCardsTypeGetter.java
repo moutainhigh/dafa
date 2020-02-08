@@ -172,7 +172,13 @@ public class ZjhCardsTypeGetter {
         System.out.println(bb);
     }
 
-    public static void function01(ZjhCard card1, ZjhCard card2, ZjhCard card3, ZjhCard card4, ZjhCard card5, ZjhCard card6) {
+    /**
+     * duke
+     * 比较牌的大小
+     * @param card1 六张牌的大小
+     * */
+
+    public static void comparaCard(ZjhCard card1, ZjhCard card2, ZjhCard card3, ZjhCard card4, ZjhCard card5, ZjhCard card6) {
         List<ZjhCard> cards = new ArrayList<>();
         cards.add(card1);
         cards.add(card2);
@@ -185,13 +191,13 @@ public class ZjhCardsTypeGetter {
 
         ZjhCards c1 = new ZjhCards(cards);
         ZjhCards c2 = new ZjhCards(cards2);
-        //System.out.println("-------------------------结果--------------------------------");
+
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < cards.size(); i++) {
             ZjhCard card = cards.get(i);
             sb.append(card.type.type + card.num);
         }
-        System.out.print(getType(c1.type.power) + "：" + sb.toString()+" VS ");
+        System.out.print(getType(c1.type.power) + "：" + sb.toString()+" > ");
         for (int i = 0; i < cards.size(); i++) {
             ZjhCard card = cards.get(i);
             sb.append(card.type.type + card.num);
@@ -227,17 +233,24 @@ public class ZjhCardsTypeGetter {
         }
     }
 
-    @Test(description = "测试")
+    @Test(description = "比较牌")
     public static void test01() {
-        function01(ZjhCard.FANG_KUAI_ER, ZjhCard.FANG_KUAI_A, ZjhCard.HEI_TAO_SAN, ZjhCard.HEI_TAO_K, ZjhCard.HEI_TAO_A, ZjhCard.FANG_KUAI_Q);
-        //♦2♦5♠3 VS ♠1♠1♦1
-        function01(ZjhCard.FANG_KUAI_ER, ZjhCard.FANG_KUAI_WU, ZjhCard.HEI_TAO_SAN, ZjhCard.HEI_TAO_A, ZjhCard.HEI_TAO_A, ZjhCard.FANG_KUAI_A);
-        //
-        function01(ZjhCard.FANG_KUAI_ER, ZjhCard.FANG_KUAI_WU, ZjhCard.FANG_KUAI_SAN, ZjhCard.HEI_TAO_A, ZjhCard.HEI_TAO_A, ZjhCard.FANG_KUAI_A);
+        //comparaCard(ZjhCard.FANG_KUAI_ER, ZjhCard.FANG_KUAI_A, ZjhCard.HEI_TAO_SAN, ZjhCard.HEI_TAO_K, ZjhCard.HEI_TAO_A, ZjhCard.FANG_KUAI_Q);
+        ////
+        //comparaCard(ZjhCard.FANG_KUAI_ER, ZjhCard.FANG_KUAI_WU, ZjhCard.HEI_TAO_SAN, ZjhCard.HEI_TAO_A, ZjhCard.HEI_TAO_A, ZjhCard.FANG_KUAI_A);
+        ////
+        //comparaCard(ZjhCard.FANG_KUAI_ER, ZjhCard.FANG_KUAI_WU, ZjhCard.FANG_KUAI_SAN, ZjhCard.HEI_TAO_A, ZjhCard.HEI_TAO_A, ZjhCard.FANG_KUAI_A);
 
+        //单张3张牌点数一样,比较最大牌的花色
+        comparaCard(ZjhCard.HONG_TAO_LIU, ZjhCard.FANG_KUAI_WU, ZjhCard.FANG_KUAI_SAN, ZjhCard.HEI_TAO_WU, ZjhCard.MEI_HUA_LIU, ZjhCard.HONG_TAO_SAN);
+        comparaCard(ZjhCard.HONG_TAO_LIU, ZjhCard.FANG_KUAI_WU, ZjhCard.FANG_KUAI_SAN, ZjhCard.HEI_TAO_WU, ZjhCard.HEI_TAO_LIU, ZjhCard.HONG_TAO_SAN);
+        //单张，最大牌点数一样，比较第二大牌的点数
+        comparaCard(ZjhCard.HONG_TAO_LIU, ZjhCard.FANG_KUAI_WU, ZjhCard.FANG_KUAI_ER, ZjhCard.HEI_TAO_SAN, ZjhCard.HEI_TAO_LIU, ZjhCard.FANG_KUAI_ER);
+        comparaCard(ZjhCard.HONG_TAO_LIU, ZjhCard.FANG_KUAI_WU, ZjhCard.FANG_KUAI_SAN, ZjhCard.HEI_TAO_WU, ZjhCard.HEI_TAO_LIU, ZjhCard.MEI_HUA_A);
+        comparaCard(ZjhCard.HONG_TAO_LIU, ZjhCard.FANG_KUAI_WU, ZjhCard.FANG_KUAI_SAN, ZjhCard.HEI_TAO_WU, ZjhCard.HEI_TAO_LIU, ZjhCard.MEI_HUA_ER);
     }
 
-    @Test(description = "测试")
+    @Test(description = "牌型测试power")
     public static void test02() {
         List<ZjhCard> cards = new ArrayList<>();
         cards.add(ZjhCard.FANG_KUAI_ER);

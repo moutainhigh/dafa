@@ -15,12 +15,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.dafaGame.DafaGameLogin;
+import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
-import pers.utils.propertiesUtils.PropertiesUtil;
 import pers.utils.urlUtils.UrlBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 public class StartWsProtoClient {
     private Logger logger = LoggerFactory.getLogger(StartWsProtoClient.class);
@@ -131,8 +132,16 @@ public class StartWsProtoClient {
         //    Thread.sleep(200);
         //}
 
-        //new StartWsProtoClient("18012340001", 201).start();
-        new StartWsProtoClient("13012345678", 102).start();
+        //new StartWsProtoClient("63025749", 102).start();
+        List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/txt/dg-pro-duke.txt"));
+        for (int i = 0; i < 200; i++) {
+            new StartWsProtoClient(users.get(i), 102).start();
+            try {
+                Thread.sleep(600);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
 
     }
@@ -164,7 +173,7 @@ public class StartWsProtoClient {
         String body = UrlBuilder.custom()
                 .addBuilder("inviteCode", "")
                 .addBuilder("accountNumber", this.phone)
-                .addBuilder("password", DafaGameLogin.getPasswordEncode(random, "duke123")) //"b4e82b683394b50b679dc2b51a79d987"
+                .addBuilder("password", DafaGameLogin.getPasswordEncode(random, "123qwe")) //"b4e82b683394b50b679dc2b51a79d987"
                 .addBuilder("userType", "0") //正式0/测试1/遊客2
                 .addBuilder("random", encodeRandom)
                 .fullBody();

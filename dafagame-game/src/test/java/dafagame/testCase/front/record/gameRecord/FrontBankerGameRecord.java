@@ -47,7 +47,7 @@ public class FrontBankerGameRecord {
     }
 
     /*
-    @Test(description = "上庄记录")//明细,enabled=false
+    @pers.utils.daoUtils.UnderlineHump(description = "上庄记录")//明细,enabled=false
     public static void test02() {
         String result = DafaRequest.get(0,
                 UrlBuilder.custom()

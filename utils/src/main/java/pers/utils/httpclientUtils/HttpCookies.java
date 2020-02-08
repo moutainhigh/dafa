@@ -28,7 +28,6 @@ public class HttpCookies {
         BasicClientCookie basicClientCookie = new BasicClientCookie(cookieName, cookieValue);
         try {
             basicClientCookie.setDomain(new URL(host).getHost());
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
