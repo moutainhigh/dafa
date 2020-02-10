@@ -1,0 +1,103 @@
+{
+  "code": 1,
+  "msg": "查询成功",
+  "data": {
+    "userInfoForFront": {
+      "userName": "68801179",
+      "userType": 0,
+      "frameId": 1,
+      "grade": 1,
+      "weaponId": 1,
+      "weaponList": "1",
+      "frameList": "1",
+      "nickname": "68****79",
+      "agentGrade": "青铜",
+      "avatar": 1,
+      "phone": "130****5678",
+      "registerIp": "134.159.225.1",
+      "sourceId": 3,
+      "lastLoginTime": "2020-02-08 15:54:02",
+      "lastLoginIp": "134.159.225.1",
+      "loginTimes": 1,
+      "withDrawLimit": -1,
+      "remark": "",
+      "userHasSafetyPassword": 0,
+      "userHasBankCard": 0,
+      "experience": 0.0000,
+      "agentExperience": 0.0000,
+      "highFrame": 1,
+      "nicknameRemainTimes": 1,
+      "userHasReadAnnouncement": 0,
+      "userHasReadMessage": 0,
+      "agentAccountsFlag": 0
+    },
+    "usersGradeVoList": [
+      {
+        "grade": "-1",
+        "userCount": "0",
+        "gradeValue": "0",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "0",
+        "userCount": "0",
+        "gradeValue": "0",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "1",
+        "userCount": "4",
+        "gradeValue": "0",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "2",
+        "userCount": "0",
+        "gradeValue": "20",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "3",
+        "userCount": "0",
+        "gradeValue": "300",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "4",
+        "userCount": "0",
+        "gradeValue": "1000",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "5",
+        "userCount": "0",
+        "gradeValue": "10000",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "6",
+        "userCount": "0",
+        "gradeValue": "50000",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "7",
+        "userCount": "0",
+        "gradeValue": "200000",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "8",
+        "userCount": "0",
+        "gradeValue": "1000000",
+        "upGradeAmount": null
+      },
+      {
+        "grade": "9",
+        "userCount": "0",
+        "gradeValue": "5000000",
+        "upGradeAmount": null
+      }
+    ]
+  }
+}

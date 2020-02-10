@@ -27,7 +27,7 @@ public class OnlineQuestionController {
 
     @GetMapping(value = "/getQuestion")
     public String query(String tester, @RequestParam(defaultValue = "-1") int isSolve,
-                        @RequestParam(defaultValue = "-1") int type,
+                        @RequestParam(defaultValue = "-1") int type,@RequestParam(defaultValue = "-1")  int project,
                         String questionName, String startQuestionDate, String endQuestionDate, int pageNum, int pageSize) {
         Map map = new HashMap();
         map.put("tester", tester);
@@ -36,6 +36,7 @@ public class OnlineQuestionController {
         map.put("endQuestionDate", endQuestionDate);
         map.put("type", type);
         map.put("questionName", questionName);
+        map.put("project", project);
         map.put("pageNum", (pageNum - 1) * pageSize);
         map.put("pageSize", pageSize);
         List<Map> list = onlineQuestionServer.questionList(map);
@@ -51,7 +52,7 @@ public class OnlineQuestionController {
 
     @GetMapping(value = "/exportQuestion")
     public void exportQuestion(String tester, @RequestParam(defaultValue = "-1") int isSolve,
-                               @RequestParam(defaultValue = "-1") int type,
+                               @RequestParam(defaultValue = "-1") int type,@RequestParam(defaultValue = "-1")  int project,
                                String questionName, String startQuestionDate, String endQuestionDate,
                                HttpServletResponse response) {
         Map map = new HashMap();
@@ -60,6 +61,7 @@ public class OnlineQuestionController {
         map.put("startQuestionDate", startQuestionDate);
         map.put("endQuestionDate", endQuestionDate);
         map.put("type", type);
+        map.put("project", project);
         map.put("questionName", questionName);
         //map.put("pageNum", (pageNum-1)*pageSize);
         //map.put("pageSize", pageSize);
@@ -90,7 +92,7 @@ public class OnlineQuestionController {
 
     @PostMapping(value = "/addQuestion")
     public String addQuestion(String questionName, String description, String type,
-                              String page, String module, String testerReply,
+                              String page, String module, String testerReply,int project,
                               String isSolve, String develop, String tester, String questionDate) {
         Map map = new HashMap();
         map.put("questionName", questionName);
@@ -98,6 +100,7 @@ public class OnlineQuestionController {
         map.put("type", type);
         map.put("page", page);
         map.put("module", module);
+        map.put("project", project);
         map.put("testerReply", testerReply);
         map.put("isSolve", isSolve);
         map.put("develop", develop);
@@ -132,7 +135,7 @@ public class OnlineQuestionController {
 
     @PostMapping(value = "/updateQuestion")
     public String updateQuestion(String id, String questionName, String description, String type,
-                                 String page, String module, String testerReply,
+                                 String page, String module, String testerReply,int project,
                                  String isSolve, String develop, String tester, String questionDate) {
         Map map = new HashMap();
         map.put("id", id);
@@ -141,10 +144,10 @@ public class OnlineQuestionController {
         map.put("type", type);
         map.put("page", page);
         map.put("module", module);
+        map.put("project", project);
         map.put("testerReply", testerReply);
         map.put("isSolve", isSolve);
         map.put("develop", develop);
-        map.put("tester", tester);
         map.put("tester", tester);
         map.put("questionDate", questionDate);
 

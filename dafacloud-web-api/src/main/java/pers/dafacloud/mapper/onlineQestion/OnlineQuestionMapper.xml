@@ -2,17 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- namespace 命名空间，用于隔离sql语句的，后续会有重要作用
-	#{} 占位符 相当于jdbc的？
-	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
--->
 <mapper namespace="pers.dafacloud.mapper.onlineQestion.OnlineQuestionMapper">
-    <!--
-        id : sql id;
-        parameterType:入参的数据类型
-        resultType:返回结果数据类型
-     -->
-    <!--查询数据-->
     <select id="getQuestion" parameterType="Map" resultType="java.util.HashMap" flushCache="true" useCache="true">
         select
         id , -- id 自增
@@ -21,6 +11,7 @@
         type , -- bug,需求,优化,运维
         page , -- '所属页面'
         module, -- '所属模块'
+        project,
         tester_reply testerReply,-- '测试回复',
         is_solve isSolve,-- '是否解决',
         develop ,
@@ -40,7 +31,9 @@
             <if test="questionName!=null and questionName != '' ">
                 AND question_name like CONCAT(CONCAT('%',#{questionName}),'%')
             </if>
-
+            <if test="project != null and project != -1 ">
+                AND project = #{project}
+            </if>
             <if test="startQuestionDate!=null and startQuestionDate != '' and endQuestionDate!=null and endQuestionDate != '' ">
                 AND DATE_FORMAT(question_date,'%Y-%m-%d') between #{startQuestionDate} and #{endQuestionDate}
             </if>
@@ -65,22 +58,26 @@
             <if test="questionName!=null and questionName != '' ">
                 AND question_name like CONCAT(CONCAT('%',#{questionName}),'%')
             </if>
-
+            <if test="project != null and project != -1 ">
+                AND project = #{project}
+            </if>
             <if test="startQuestionDate!=null and startQuestionDate != '' and endQuestionDate!=null and endQuestionDate != '' ">
                 AND DATE_FORMAT(question_date,'%Y-%m-%d') between #{startQuestionDate} and #{endQuestionDate}
             </if>
         </where>
     </select>
     <!--导出数据-->
-    <select id="exportQuestion" parameterType="Map" resultType="pers.dafacloud.model.OnlineQuestion" flushCache="true" useCache="true">
+    <select id="exportQuestion" parameterType="Map" resultType="pers.dafacloud.model.OnlineQuestion" flushCache="true"
+            useCache="true">
         select
         (@i:=@i+1) num,
         a.id , -- id 自增
         a.question_name questionName, -- '简介'
         a.description , -- '描述'
         a.type , -- bug,需求,优化,运维
---         page , -- '所属页面'
---         module, -- '所属模块'
+        -- page , -- '所属页面'
+        -- module, -- '所属模块'
+        a.project,
         a.tester_reply testerReply,-- '测试回复',
         a.is_solve isSolve,-- '是否解决',
         a.develop ,
@@ -100,6 +97,9 @@
             <if test="questionName!=null and questionName != '' ">
                 AND a.question_name like CONCAT(CONCAT('%',#{questionName}),'%')
             </if>
+            <if test="project != null and project != -1 ">
+                AND project = #{project}
+            </if>
             <if test="startQuestionDate!=null and startQuestionDate != '' and endQuestionDate!=null and endQuestionDate != '' ">
                 AND DATE_FORMAT(a.question_date,'%Y-%m-%d') between #{startQuestionDate} and #{endQuestionDate}
             </if>
@@ -115,6 +115,7 @@
         type , -- bug,需求,优化,运维
         page , -- '所属页面'
         module, -- '所属模块'
+        project,
         tester_reply ,-- '测试回复',
         is_solve ,-- '是否解决',
         develop ,-- '开发人员',
@@ -126,6 +127,7 @@
             ,#{type}
             ,#{page}
             ,#{module}
+            ,#{project}
             ,#{testerReply}
             ,#{isSolve}
             ,#{develop}
@@ -155,6 +157,9 @@
             </if>
             <if test="module != null">
                 module = #{module},
+            </if>
+            <if test="project != null">
+                project = #{project},
             </if>
             <if test="testerReply != null">
                 tester_reply = #{testerReply},

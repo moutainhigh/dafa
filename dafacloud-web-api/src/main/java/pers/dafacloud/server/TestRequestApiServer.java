@@ -105,8 +105,8 @@ public class TestRequestApiServer {
                 testApiResult.setIsPass(TestApiResultEnum.ERROR.getCode());
             }
             testApiResultServer.addTestApiResult(testApiResult);
-            JSONObject jo = JSONObject.fromObject(result);
-            return Response.returnData(jo.getString("msg"), jo.getInt("code"), jo.getJSONObject("data").isEmpty() ? null : jo.getJSONObject("data"));
+            com.alibaba.fastjson.JSONObject jo = com.alibaba.fastjson.JSONObject.parseObject(result);
+            return Response.returnData(jo.getString("msg"), jo.getInteger("code"), jo.getJSONObject("data").isEmpty() ? null : jo.getJSONObject("data"));
         } catch (Exception e) {
             testApiResult.setIsPass(TestApiResultEnum.ERROR.getCode());
             testApiResultServer.addTestApiResult(testApiResult);

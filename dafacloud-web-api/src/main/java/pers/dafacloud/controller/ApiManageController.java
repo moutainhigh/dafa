@@ -44,7 +44,7 @@ public class ApiManageController {
                 }
             }
         }
-            return testRequestApiServer.testApiOne(id, host, cookie);
+        return testRequestApiServer.testApiOne(id, host, cookie);
     }
 
 
