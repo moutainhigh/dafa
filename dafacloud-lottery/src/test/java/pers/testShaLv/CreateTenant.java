@@ -4,7 +4,7 @@ import net.sf.json.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
 import org.testng.annotations.Test;
-import pers.dafacloud.page.pageLogin.Login;
+import pers.dafacloud.dafaLottery.Login;
 import pers.utils.assertUtils.AssertUtil;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpHeader;

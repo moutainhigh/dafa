@@ -2,7 +2,7 @@ package pers.dafacloud.dafaLottery;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
-import pers.utils.dafaCloud.DafaCloudLogin;
+import pers.dafacloud.constant.LotteryConstant;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpCookies;
@@ -18,9 +18,9 @@ import java.util.concurrent.Executors;
 
 public class Login {
 
-    private static String host = ConstantLottery.host;
+    private static String host = LotteryConstant.host;
     private static String loginUrl = host + "/v1/users/login";
-    private static ExecutorService excutors = Executors.newFixedThreadPool(300);
+    private static ExecutorService execute = Executors.newFixedThreadPool(300);
 
     /**
      * 登录
@@ -98,7 +98,7 @@ public class Login {
     public static void multithreadingLoglin(List<String> users) {
         for (int i = 0; i < users.size(); i++) {
             String s = users.get(i);
-            excutors.execute(() -> {
+            execute.execute(() -> {
                 try {
                     loginTask(s);
                 } catch (Exception e) {

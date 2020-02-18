@@ -9,10 +9,11 @@ import pers.utils.urlUtils.UrlBuilder;
 
 /**
  * cms创建账号
- * */
+ */
 public class CreateUserFromCms {
-    private static String host = "http://pt.dafagame-pro.com";
-    private static String addAccount = host + "/v1/users/addAccount";
+    //private static String host = "http://pt.dafagame-pro.com";
+    private static final String HOST = "https://dg2020.dafagame-admin.com";
+    private static final String addAccount = HOST + "/v1/users/addAccount";
 
 
     public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class CreateUserFromCms {
                 .custom()
                 .headers(headers)
                 .context(HttpCookies.custom()
-                        .setBasicClientCookie(host, "JSESSIONID", "BE421F0CCEEEB55612E60763A6B7B1CB")
+                        .setBasicClientCookie(HOST, "JSESSIONID", "1017D1C40042A84B96FAEF8CFF0F6FD4")
                         .getContext()
                 );
         String body = UrlBuilder

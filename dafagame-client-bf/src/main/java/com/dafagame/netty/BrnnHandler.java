@@ -255,9 +255,11 @@ public class BrnnHandler extends GameHandler {
             }
             if (canBetting()) {
                 Brnn.BetInfo betinfo = Brnn.BetInfo.newBuilder()
-                        .setPos(pos)
+                        //.setPos(pos)
+                        .setPos(Brnn.Pos.Tian)
                         //.setAmount(0, 10)
-                        .addAmount(amout[indexAmount])
+                        //.addAmount(amout[indexAmount])
+                        .addAmount(100)
                         .build();
                 Brnn.BetReq betReq = Brnn.BetReq.newBuilder()
                         .addBetInfo(betinfo)
@@ -265,7 +267,7 @@ public class BrnnHandler extends GameHandler {
                 sendBf(betReq.toByteString(), Brnn.ProtoType.BetReqType_VALUE, channel);//发送消息
                 //System.out.println(this.phone + "投注send发送成功：" + amout[indexAmount] + "，" + pos);
             }
-        }, 0, 500, TimeUnit.MILLISECONDS);
+        }, 0, 3000, TimeUnit.MILLISECONDS);
     }
 
     /**

@@ -2,11 +2,11 @@ package pers.testProductBug;
 
 import org.apache.ibatis.session.SqlSession;
 import org.testng.annotations.Test;
-import pers.dafacloud.Dao.SqlSessionFactoryUtils;
-import pers.dafacloud.Dao.mapper.InRecord.InRecordMapper;
-import pers.dafacloud.Dao.mapper.summaryPaymentRecord.SummaryPaymentRecordMapper;
-import pers.dafacloud.Dao.model.InRecord;
-import pers.dafacloud.Dao.model.SummaryPaymentRecord;
+import pers.dafacloud.utils.SqlSessionFactoryUtils;
+import pers.dafacloud.mapper.InRecord.InRecordMapper;
+import pers.dafacloud.mapper.summaryPaymentRecord.SummaryPaymentRecordMapper;
+import pers.dafacloud.model.InRecord;
+import pers.dafacloud.model.SummaryPaymentRecord;
 import pers.utils.listUtils.TwoListDiffent;
 
 import java.util.ArrayList;

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，用于隔离sql语句的，后续会有重要作用
+	#{} 占位符 相当于jdbc的？
+	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
+-->
+<mapper namespace="pers.dafacloud.mapper.getBetInfo.GetBetInfoMapper">
+    <!--
+        id : sql id;
+        parameterType:入参的数据类型
+        resultType:返回结果数据类型
+     -->
+    <select id="getBetInfo" resultType="pers.dafacloud.model.GetBetInfo">
+		select distinct lottery_code  lotteryCode
+		,play_detail_code playDetailCode
+		,betting_number bettingNumber
+		,betting_amount bettingAmount
+		,betting_count bettingCount
+		,graduation_count graduationCount
+		,betting_unit bettingUnit
+		,gmt_modified gmtModified
+		from dafacloud_betting.betting_orders_info_yct where  lottery_code = 1407 limit 30000
+	</select>
+    <!--统计幸运飞艇凌晨出撤单的其实-->
+    <select id="getRecord" resultType="pers.dafacloud.model.GetBetInfo" statementType="STATEMENT">
+		select
+		tenant_code tenantCode,
+		user_name username,
+		record_code recordCode,
+		betting_amount bettingAmount,
+		return_amount returnAmount,
+		gmt_modified gmtModified
+		from dafacloud_betting.betting_orders_${tableName}
+		where  lottery_code = 1305
+-- 		and issue like '%132'
+		and issue = 20191025232
+-- 		and betting_state = 3
+-- 		and DATE_FORMAT(gmt_modified,'%T') between '00:03:00' and '10:03:00';
+		and DATE_FORMAT(gmt_created,'%Y-%m-%d') = '2019-10-25'
+		-- tenant_code,user_name,betting_amount,return_amount
+	</select>
+    <!-- 六合彩杀率测试
+       statementType="STATEMENT"
+    -->
+    <select id="getRecordByIssue" resultType="pers.dafacloud.model.GetBetInfo" >
+		select
+		lottery_code lotteryCode,
+		play_detail_code playDetailCode,
+		record_code recordCode,
+		betting_number bettingNumber,
+		betting_amount bettingAmount,
+		betting_count bettingCount,
+		graduation_count graduationCount,
+		betting_unit bettingUnit
+		from dafacloud_betting.a_betting_lhc
+		where issue = #{issue}
+		 and betting_state in (1,2)
+	</select>
+
+</mapper>

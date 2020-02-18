@@ -104,9 +104,15 @@ public class TestRequestApiServer {
             } else {
                 testApiResult.setIsPass(TestApiResultEnum.ERROR.getCode());
             }
-            testApiResultServer.addTestApiResult(testApiResult);
-            com.alibaba.fastjson.JSONObject jo = com.alibaba.fastjson.JSONObject.parseObject(result);
-            return Response.returnData(jo.getString("msg"), jo.getInteger("code"), jo.getJSONObject("data").isEmpty() ? null : jo.getJSONObject("data"));
+            try {
+                return   com.alibaba.fastjson.JSONObject.parseObject(result, Response.class);
+            }catch (Exception e){
+                throw new RuntimeException(result);
+            }
+
+            //testApiResultServer.addTestApiResult(testApiResult);
+            //com.alibaba.fastjson.JSONObject jo = com.alibaba.fastjson.JSONObject.parseObject(result);
+            //return Response.returnData(jo.getString("msg"), jo.getInteger("code"), StringUtils.isEmpty(jo.get("data").toString()) ? null : jo.get("data"));
         } catch (Exception e) {
             testApiResult.setIsPass(TestApiResultEnum.ERROR.getCode());
             testApiResultServer.addTestApiResult(testApiResult);
@@ -117,7 +123,7 @@ public class TestRequestApiServer {
     /**
      * 批量运行task
      */
-    public void task(String host, String cookie,String testBatch, List<ApiManage> apiManages) throws Exception {
+    public void task(String host, String cookie, String testBatch, List<ApiManage> apiManages) throws Exception {
         String url = host.contains("http") ? host : String.format("%s%s", "http://",
                 host.replace("/", "").replace("?", ""));
 
@@ -133,11 +139,11 @@ public class TestRequestApiServer {
 
         for (int i = 0; i < apiManages.size(); i++) {
             ApiManage apiManage = apiManages.get(i);
-            apiManageTask(apiManage, url, cookie,testBatch, httpConfig);
+            apiManageTask(apiManage, url, cookie, testBatch, httpConfig);
         }
     }
 
-    private Response apiManageTask(ApiManage apiManage, String url, String cookie,String testBatch, HttpConfig httpConfig) {
+    private Response apiManageTask(ApiManage apiManage, String url, String cookie, String testBatch, HttpConfig httpConfig) {
         TestApiResult testApiResult = new TestApiResult();
 
         apiManage.setLoginReq(apiManage.getPath().endsWith("login"));
@@ -246,10 +252,11 @@ public class TestRequestApiServer {
         UrlBuilder urlBuilder = UrlBuilder.custom();
         for (int i = 0; i < requestParametersJa.size(); i++) {
             JSONArray requestParametersArray0 = requestParametersJa.getJSONArray(i);
-            urlBuilder//.url(host)
-                    .addBuilder(requestParametersArray0.getString(0), requestParametersArray0.getString(1));
+            urlBuilder.addBuilder(requestParametersArray0.getString(0), requestParametersArray0.getString(1));
         }
-        return isGet ? urlBuilder.fullUrl() : urlBuilder.fullBody();
+        String s = isGet ? urlBuilder.url(url).fullUrl() : urlBuilder.fullBody();
+        System.out.println(s);
+        return s;
     }
 
     /**
@@ -260,16 +267,12 @@ public class TestRequestApiServer {
     private String requestHandle(ApiManage apiManage, String url, String cookie, HttpConfig httpConfig, TestApiResult testApiResult, boolean isDependent) throws Exception {
         // ------------------------------请求头----------------------------------------------
         Header[] headers = headerHandle(cookie, apiManage.getRequestHeader());
-
         httpConfig.headers(headers);
         // ------------------------------请求参数----------------------------------------------
-        String requestParameters = requestParametersHandle(apiManage.getRequestParameters(), url, apiManage.getMethod() == 1);
-
+        String requestParameters = requestParametersHandle(apiManage.getRequestParameters(), url + apiManage.getPath(), apiManage.getMethod() == 1);
         // ------------------------------请求发送----------------------------------------------
-        String result = apiManage.getMethod() == 1 ? DafaRequest.get(httpConfig.url(url + apiManage.getPath() + "?" + requestParameters))
-                : DafaRequest.post(
-                httpConfig.url(url + apiManage.getPath())
-                        .body(requestParameters));
+        String result = apiManage.getMethod() == 1 ? DafaRequest.get(httpConfig.url(requestParameters))
+                : DafaRequest.post(httpConfig.url(url + apiManage.getPath()).body(requestParameters));
         if (!isDependent) {
             testApiResult.setTestResult(returnResultHandle(result, apiManage.getPath(), requestParameters)); //正式接口
         }
@@ -282,7 +285,7 @@ public class TestRequestApiServer {
     private String deRequestHandle(String url, String cookie, HttpConfig httpConfig, TestApiResult testApiResult, String dependentApi, String requestParameters) throws Exception {
         JSONArray dependentApiJa = JSONArray.fromObject(dependentApi);
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < dependentApiJa.size(); i++) {
+        for (int i = 0; i < dependentApiJa.size(); i++) { //多个依赖接口
             JSONArray dependentApiJa0 = dependentApiJa.getJSONArray(i);//dependentApiJa 0/id 1/rule
             int deId = dependentApiJa0.getInt(0);
             ApiManage apiManage = apiManageServer.getApiById(deId);
@@ -327,65 +330,8 @@ public class TestRequestApiServer {
                 }
             }
         }
-        testApiResult.setDependentResult1(sb.toString());//依赖接口
+        testApiResult.setDependentResult1(sb.toString());//依赖接口结果
         return requestParameters;
-    }
-
-    /**
-     * 依赖接口调用
-     */
-    private String getDepResp(String host, String dePath, String deMethod, String deReqParametersString, String deReturnValue, Header[] headers, HttpClientContext context, TestApiResult testApiResult) throws Exception {
-        String depResp = "";
-        String dependentResult = "";
-        String[] deReturn = deReturnValue.split(",");//获取返回值的规则
-        //请求获取返回数据
-        if ("1".equals(deMethod)) {//GET
-            HttpConfig httpConfig = HttpConfig.custom().
-                    headers(headers)
-                    .url(host + dePath + "?" + URLEncoder.encode(deReqParametersString, "utf-8"))//依赖的数据，日期
-                    .context(context);
-            dependentResult = DafaRequest.get(httpConfig);
-            JSONObject dependentResultJson = JSONObject.fromObject(dependentResult);
-            if (dependentResultJson.getInt("code") != 1) {//依赖接口返回错误，直接返回
-                testApiResult.setIsPass(TestApiResultEnum.DE_ERROR.getCode());
-                throw new Exception(dependentResult);
-            }
-            if (deReturn.length == 5) {//取list里的code数据，1,userBankCardList,isDisable,false,id
-                JSONArray jsonArray = dependentResultJson.getJSONObject("data").getJSONArray(deReturn[1]);
-                for (int i = 0; i < jsonArray.size(); i++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    if (deReturn[3].equals(jsonObject.getString(deReturn[2]))) {
-                        depResp = jsonObject.getString(deReturn[4]);
-                    }
-                }
-                if (StringUtils.isEmpty(depResp)) {
-                    testApiResult.setIsPass(TestApiResultEnum.DE_NO_DATA.getCode());
-                    throw new Exception("依赖接口未获取到对应数据:" + dependentResult);
-                }
-            } else if (deReturn.length == 2) { //code
-                depResp = dependentResultJson.getString(deReturn[1]);
-            }
-
-        } else if ("2".equals(deMethod)) {//POST
-            HttpConfig httpConfig = HttpConfig.custom().
-                    headers(headers)
-                    .url(host + dePath)
-                    .context(context)
-                    .body(deReqParametersString);//依赖的参数
-            dependentResult = DafaRequest.post(httpConfig);
-            JSONObject dependentResultJson = JSONObject.fromObject(dependentResult);
-            if (dependentResultJson.getInt("code") != 1) {
-                testApiResult.setIsPass(TestApiResultEnum.DE_ERROR.getCode());
-                throw new Exception(dependentResult);
-            }
-            if (deReturn.length == 2) {//code
-                depResp = dependentResultJson.getString(deReturn[1]);
-            }
-        } else {
-            throw new Exception("依赖接口的请求方法错误，目前只支持get和post请求");
-        }
-        logger.info("dependentResult:" + dependentResult);
-        return StringUtils.isEmpty(depResp) ? dependentResult : depResp;
     }
 
 
@@ -421,196 +367,5 @@ public class TestRequestApiServer {
             }
         });
         return Response.success("用例执行中,批量执行用例数量：" + apiManages.size());
-    }
-
-    void testApiBatchTask() {
-
-
-    }
-
-    /**
-     * 批量执行用例
-     */
-    private void testApiBatchTask(String host, String cookie, String testBatch, List<ApiContent> apiContentList) throws Exception {
-
-        HttpConfig httpConfig = HttpConfigHandle(cookie, host);
-
-        for (int i = 0; i < apiContentList.size(); i++) {
-            ApiContent apiContent = apiContentList.get(i);
-
-            TestApiResult testApiResult = new TestApiResult();
-            testApiResult.setHost(host);
-            testApiResult.setApiName(apiContent.getApiName());
-            testApiResult.setApiPath(apiContent.getPath());
-            testApiResult.setApiMethod(1);
-            testApiResult.setCmsFront(apiContent.getCmsFront());
-            testApiResult.setTestExecutor(apiContent.getOwner());
-            testApiResult.setTestBatch(testBatch);
-
-            HttpHeader httpHeader = HttpHeader.custom()
-                    .contentType("application/x-www-form-urlencoded;charset=UTF-8")
-                    .userAgent("Mozilla/5.0")
-                    .other("Session-Id", cookie);
-
-            //获取请求头，以及请求头带的cookie
-            Header[] headers = null;//setHeader(apiContent, httpHeader);
-            httpConfig.headers(headers);
-            String reqParametersString = parametersArrayHandle(apiContent.getReqParametersArray());
-
-            if (StringUtils.isNotEmpty(apiContent.getDePath())) {
-                String deParametersString = parametersArrayHandle(apiContent.getDeReqParametersArray());
-                try {
-                    String depResponse = drawDepApiValue(host, apiContent.getDePath(), apiContent.getDeMethod(),
-                            deParametersString, apiContent.getDeReturnValue(), httpConfig, testApiResult);
-                    testApiResult.setDependentResult1(returnResultHandle(depResponse, apiContent.getDePath(), deParametersString));
-                    if (StringUtils.isNotEmpty(depResponse))
-                        reqParametersString = reqParametersString.replace("{data1}", depResponse);//替换
-                } catch (Exception e) {
-                    testApiResult.setDependentResult1(returnResultHandle(e.getMessage(), apiContent.getDePath(), deParametersString));
-                    testApiResultServer.addTestApiResult(testApiResult);
-                    continue;
-                }
-            }
-            if (StringUtils.isNotEmpty(apiContent.getDePath2())) {
-                String deParametersString2 = parametersArrayHandle(apiContent.getDeReqParametersArray2());
-                try {
-                    String depResponse2 = drawDepApiValue(host, apiContent.getDePath2(), apiContent.getDeMethod2(),
-                            deParametersString2, apiContent.getDeReturnValue2(), httpConfig, testApiResult);
-                    testApiResult.setDependentResult2(returnResultHandle(depResponse2, apiContent.getDePath2(), deParametersString2));
-                    if (StringUtils.isNotEmpty(depResponse2))
-                        reqParametersString = reqParametersString.replace("{data2}", depResponse2);//替换
-                } catch (Exception e) {
-                    testApiResult.setDependentResult2(returnResultHandle(e.getMessage(), apiContent.getDePath2(), deParametersString2));
-                    testApiResultServer.addTestApiResult(testApiResult);
-                    continue;
-                }
-            }
-
-            logger.info("reqParametersString:" + reqParametersString);
-            //正式请求---------------------------------------------------------------------
-            String result;
-            apiContent.setReqParametersString(reqParametersString);
-            if (apiContent.getMethod().equals("1")) { //GET
-                httpConfig.url(host + apiContent.getPath() + "?" + URLEncoder.encode(reqParametersString, "utf-8"));
-                result = DafaRequest.get(httpConfig);
-            } else if (apiContent.getMethod().equals("2")) {//POST
-                httpConfig.url(host + apiContent.getPath())
-                        .body(apiContent.getReqParametersString());
-                result = DafaRequest.post(httpConfig);
-            } else {
-                testApiResult.setTestResult(apiContent.getReqParametersString() + "：请求方法错误，目前只支持get和post请求");
-                testApiResultServer.addTestApiResult(testApiResult);
-                continue;
-            }
-
-            testApiResult.setTestResult(returnResultHandle(result, apiContent.getPath(), apiContent.getReqParametersString()));
-            try {
-                if (JSONObject.fromObject(result).getInt("code") == 1) {
-                    testApiResult.setIsPass(TestApiResultEnum.SUCCESS.getCode());
-                } else {
-                    if (result.contains("未登陆")) {
-                        return;
-                    }
-                    testApiResult.setIsPass(TestApiResultEnum.ERROR.getCode());
-                }
-            } catch (Exception e) {
-                testApiResult.setIsPass(TestApiResultEnum.ERROR.getCode());
-            }
-
-            testApiResultServer.addTestApiResult(testApiResult);
-            Thread.sleep(3 * 100);
-        }
-
-    }
-
-    /**
-     * 提取依赖api 返回数据
-     */
-    private String drawDepApiValue(String host, String dePath, String deMethod, String deParametersString, String deReturnValue,
-                                   HttpConfig httpConfig, TestApiResult testApiResult) throws Exception {
-        String depDrawValue = "";
-        String[] deReturn = deReturnValue.split(",");
-        if ("1".equals(deMethod)) { //GET
-            httpConfig.url(host + dePath + "?" + deParametersString);
-            String deResult = DafaRequest.get(httpConfig);
-            JSONObject dependentResultJson = null;
-            try {
-                dependentResultJson = JSONObject.fromObject(deResult);
-            } catch (Exception e) {
-                throw new Exception("依赖接口返回数据非json:" + dependentResultJson);
-            }
-            if (dependentResultJson.getInt("code") != 1) {
-                testApiResult.setIsPass(TestApiResultEnum.DE_ERROR.getCode());
-                throw new Exception(deResult);
-            }
-
-            //提起返回值数据
-            if (deReturn.length == 5) {//取list里的code数据，1,userBankCardList,isDisable,false,id
-                JSONArray jsonArray = dependentResultJson.getJSONObject("data").getJSONArray(deReturn[1]);
-                for (int l = 0; l < jsonArray.size(); l++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(l);
-                    if (deReturn[3].equals(jsonObject.getString(deReturn[2]))) {
-                        depDrawValue = jsonObject.getString(deReturn[4]);
-                    }
-                }
-                if (StringUtils.isEmpty(deReturnValue)) {
-                    testApiResult.setIsPass(TestApiResultEnum.DE_NO_DATA.getCode());
-                    throw new Exception("依赖接口未获取到对应数据:" + deReturnValue);
-                }
-            } else if (deReturn.length == 2) { //code
-                depDrawValue = dependentResultJson.getString(deReturn[1]);
-            }
-
-        } else if ("2".equals(deMethod)) {//POST
-            httpConfig.url(host + dePath).body(deParametersString);//依赖的参数
-            String deResult = DafaRequest.post(httpConfig);
-            JSONObject dependentResultJson = null;
-            try {
-                dependentResultJson = JSONObject.fromObject(deResult);
-            } catch (Exception e) {
-                throw new Exception("依赖接口返回数据非json:" + dependentResultJson);
-            }
-            if (dependentResultJson.getInt("code") != 1) {
-                testApiResult.setIsPass(TestApiResultEnum.DE_ERROR.getCode());
-                throw new Exception(deResult);
-            }
-            if (deReturn.length == 2) {//code
-                depDrawValue = dependentResultJson.getString(deReturn[1]);
-            }
-        } else {
-            throw new Exception("依赖接口的请求方法错误，目前只支持get和post请求");
-        }
-        return depDrawValue;
-    }
-
-    /**
-     *
-     */
-    private HttpConfig HttpConfigHandle(String cookie, String host) throws Exception {
-        HttpClientContext httpClientContext = new HttpClientContext();
-        HttpConfig httpConfig = HttpConfig.custom().context(httpClientContext);
-        BasicCookieStore basicCookieStore = new BasicCookieStore();
-        BasicClientCookie cookies = new BasicClientCookie("JSESSIONID", cookie);
-        cookies.setDomain(new URL(host).getHost());//设置范围
-        cookies.setVersion(0);
-        cookies.setPath("/");
-        basicCookieStore.addCookie(cookies);
-        httpClientContext.setCookieStore(basicCookieStore);
-        return httpConfig;
-    }
-
-    /**
-     * 请求数组参数处理
-     */
-    private String parametersArrayHandle(String parametersArray) {
-        if (StringUtils.isEmpty(parametersArray))
-            return "";
-        JSONArray ja = JSONArray.fromObject(parametersArray);
-        StringBuilder sb = new StringBuilder();
-        for (int j = 0; j < ja.size(); j++) {
-            JSONArray ja1 = ja.getJSONArray(j);
-            sb.append(ja1.getString(0)).append("=").append(ja1.getString(1)).append("&");
-        }
-        return sb.substring(0, sb.length() - 1);
     }
 }

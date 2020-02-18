@@ -44,7 +44,7 @@ public class DafaRequest {
         cookie = new BasicClientCookie("JSESSIONID", cookieJSESSIONID); //JSESSIONID
         cookie.setVersion(0);
         try {
-            if(StringUtils.isNotEmpty(host))
+            if (StringUtils.isNotEmpty(host))
                 cookie.setDomain(new URL(host).getHost());//设置范围
         } catch (Exception e) {
             e.printStackTrace();
@@ -106,13 +106,13 @@ public class DafaRequest {
             //Log.info(String.format("get请求结果返回:%s",result));
             return result;
         } catch (Exception e) {
-            Log.info("GET url解析错误"+hostCoCos);
+            Log.info("GET url解析错误" + hostCoCos);
             e.printStackTrace();
             return null;
         }
     }
 
-    public static String get( String url,Header[] headers) {
+    public static String get(String url, Header[] headers) {
         String result;
         httpConfig.headers(headers);
         try {
@@ -125,7 +125,7 @@ public class DafaRequest {
             //Log.info(String.format("get请求结果返回:%s",result));
             return result;
         } catch (Exception e) {
-            Log.info("GET url解析错误"+hostCoCos);
+            Log.info("GET url解析错误" + hostCoCos);
             e.printStackTrace();
             return null;
         }
@@ -168,8 +168,7 @@ public class DafaRequest {
             //Log.info(String.format("get请求结果返回:%s",result));
             return result;
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            return e.getMessage();
         }
     }
 
@@ -184,13 +183,11 @@ public class DafaRequest {
                 result = Request.post(httpConfig.url(url).body(body).context(context));
             } else {
                 result = Request.post(httpConfig.url(host + url).body(body).context(context));
-
             }
             //Log.info(String.format("post请求结果返回:%s",result));
             return result;
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            return e.getMessage();
         }
     }
 
@@ -282,7 +279,7 @@ public class DafaRequest {
     /**
      * 上传
      */
-    public static String upload(int env, String url, HttpEntity httpEntity,Header[] headers) {
+    public static String upload(int env, String url, HttpEntity httpEntity, Header[] headers) {
         String result;
         try {
             if (url.contains("http")) {

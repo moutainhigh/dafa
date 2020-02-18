@@ -63,13 +63,13 @@ public class TbHandler extends GameHandler {
                         //System.out.println("102登陆成功通知：" + Gate.GateRes.parseFrom(clientMsg.getData()).toString().
                         //        replaceAll("\n", "").replaceAll("\t", ""));
                         Gate.GateRes gateRes = Gate.GateRes.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("102登陆请求")
-                                        .add(phone + "登陆回应", gateRes.getLoginRes().toString().replaceAll("\n", "").replaceAll("\t", ""))
-                                        .add(phone + "code", gateRes.getErrorCode())
-                                        .build()
-                        );
+                        //System.out.println(
+                        //        StringBuilders.custom()
+                        //                .add("102登陆请求")
+                        //                .add(phone + "登陆回应", gateRes.getLoginRes().toString().replaceAll("\n", "").replaceAll("\t", ""))
+                        //                .add(phone + "code", gateRes.getErrorCode())
+                        //                .build()
+                        //);
                         //uid = gateRes.getLoginRes().getUid(); //设置用户id
                         if (!isEnterGame) {
                             World.EnterGameReq enterGameReq = World.EnterGameReq
@@ -78,40 +78,38 @@ public class TbHandler extends GameHandler {
                                     .setRoundType("101") //倍数场 101四倍场，102十倍场
                                     .build();
                             sendBf(enterGameReq.toByteString(), World.ProtoType.EnterGameReqType_VALUE, channel);//发送消息
-                            System.out.println("102进入游戏请求 send Success");
+                            //System.out.println("102进入游戏请求 send Success");
                             isEnterGame = true;
                         }
                         break;
 
                     case World.ProtoType.EnterGameResType_VALUE:   //1001 进入游戏通知
                         World.EnterGameRes enterGameRes = World.EnterGameRes.parseFrom(clientMsg.getData());//.getGameCode();
-//                        System.out.println("1001进入游戏通知：" + World.EnterGameRes.parseFrom(clientMsg.getData()).toString().
-//                                replaceAll("\n", "").replaceAll("\t", ""));
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("1001进入游戏")
-                                        .add(phone + "游戏code", enterGameRes.getGameCode())
-                                        .add(phone + "msg", enterGameRes.getMsg())
-                                        .build()
-                        );
+                        //System.out.println(
+                        //        StringBuilders.custom()
+                        //                .add("1001进入游戏")
+                        //                .add(phone + "游戏code", enterGameRes.getGameCode())
+                        //                .add(phone + "msg", enterGameRes.getMsg())
+                        //                .build()
+                        //);
                         //发送进入场景请求
                         if (!isScenesReq) {
                             //Tb.ScenesReq scenesReq = Brnn.ScenesReq.newBuilder().build();
                             sendBf(World.Msg.getDefaultInstance().toByteString(), Tb.ProtoType.ScenesReqType_VALUE, channel);
-                            System.out.println("20310进入场景请求 send Success");
+                            //System.out.println("20310进入场景请求 send Success");
                             isScenesReq = true;
                         }
                         break;
                     case Tb.ProtoType.BetResType_VALUE:
                         Tb.BetRes betRes = Tb.BetRes.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("10156投注响应")
-                                        .add("投注list", betRes.getBetInfoList().toString().replaceAll("\n", ","))
-                                        .add("total", betRes.getTotal())
-                                        .add("错误码", betRes.getErrorCode())
-                                        .build()
-                        );
+                        //System.out.println(
+                        //        StringBuilders.custom()
+                        //                .add("10156投注响应")
+                        //                .add("投注list", betRes.getBetInfoList().toString().replaceAll("\n", ","))
+                        //                .add("total", betRes.getTotal())
+                        //                .add("错误码", betRes.getErrorCode())
+                        //                .build()
+                        //);
                         break;
                     /*case Brnn.ProtoType.OnlineNumberNtfType_VALUE:
                         Brnn.OnlineNumberNtf onlineNumberNtf = Brnn.OnlineNumberNtf.parseFrom(clientMsg.getData());
@@ -265,17 +263,19 @@ public class TbHandler extends GameHandler {
                     int indexPos = (int) (Math.random() * posTotal.length);
                     if (canBetting()) {
                         Tb.BetInfo betinfo = Tb.BetInfo.newBuilder()
-                                .setPos(posTotal[indexPos])
-                                .addAmount(amout[indexAmount])
+                                //.setPos(posTotal[indexPos])
+                                .setPos(Tb.Pos.Big)
+                                //.addAmount(amout[indexAmount])
+                                .addAmount(100)
                                 .build();
                         Tb.BetReq betReq = Tb.BetReq.newBuilder()
                                 .addBetInfo(betinfo)
                                 .build();
                         sendBf(betReq.toByteString(), Tb.ProtoType.BetReqType_VALUE, channel);//发送消息
-                        System.out.println("投注send发送成功：" + amout[indexAmount] + "，" + posTotal[indexPos]);
+                        //System.out.println("投注send发送成功：" + amout[indexAmount] + "，" + posTotal[indexPos]);
                     }
                 }
-                , 0, 500, TimeUnit.MILLISECONDS);
+                , 0, 3000, TimeUnit.MILLISECONDS);
     }
 
     /**

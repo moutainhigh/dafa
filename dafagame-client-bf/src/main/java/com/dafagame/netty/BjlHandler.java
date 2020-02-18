@@ -65,7 +65,7 @@ public class BjlHandler extends GameHandler {
                         Gate.GateRes gateRes = Gate.GateRes.parseFrom(clientMsg.getData());
                         System.out.println(
                                 StringBuilders.custom()
-                                        .add(Gate.ProtoType.GateResType_VALUE+"登陆响应")
+                                        .add(Gate.ProtoType.GateResType_VALUE + "登陆响应")
                                         .add(phone + "登陆回应", gateRes.getLoginRes().toString().replaceAll("\n", ",").replaceAll("\t", ""))
                                         .add(phone + "code", gateRes.getErrorCode())
                                         .build()
@@ -78,38 +78,38 @@ public class BjlHandler extends GameHandler {
                                     .setRoundType("101") //倍数场 101四倍场，102十倍场
                                     .build();
                             sendBf(enterGameReq.toByteString(), World.ProtoType.EnterGameReqType_VALUE, channel);//发送消息
-                            System.out.println(World.ProtoType.EnterGameReqType_VALUE+"进入游戏请求 send Success");
+                            System.out.println(World.ProtoType.EnterGameReqType_VALUE + "进入游戏请求 send Success");
                             isEnterGame = true;
                         }
                         break;
 
                     case World.ProtoType.EnterGameResType_VALUE:
                         World.EnterGameRes enterGameRes = World.EnterGameRes.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add(World.ProtoType.EnterGameResType_VALUE+"进入游戏")
-                                        .add(phone + "游戏code", enterGameRes.getGameCode())
-                                        .add(phone + "msg", enterGameRes.getMsg())
-                                        .build()
-                        );
+                        //System.out.println(
+                        //        StringBuilders.custom()
+                        //                .add(World.ProtoType.EnterGameResType_VALUE+"进入游戏")
+                        //                .add(phone + "游戏code", enterGameRes.getGameCode())
+                        //                .add(phone + "msg", enterGameRes.getMsg())
+                        //                .build()
+                        //);
                         //发送进入场景请求
                         if (!isScenesReq) {
                             BjlMsg.ScenesReq scenesReq = BjlMsg.ScenesReq.newBuilder().build();
                             sendBf(scenesReq.toByteString(), BjlMsg.ProtoType.ScenesReqType_VALUE, channel);
-                            System.out.println(BjlMsg.ProtoType.ScenesReqType_VALUE+"进入场景请求 send Success");
+                            System.out.println(BjlMsg.ProtoType.ScenesReqType_VALUE + "进入场景请求 send Success");
                             isScenesReq = true;
                         }
                         break;
                     case BjlMsg.ProtoType.BetResType_VALUE:
                         BjlMsg.BetRes betRes = BjlMsg.BetRes.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add(BjlMsg.ProtoType.BetResType_VALUE+"投注响应")
-                                        .add("投注list", betRes.getBetInfoList().toString().replaceAll("\n", ","))
-                                        .add("total", betRes.getTotal())
-                                        .add("错误码", betRes.getErrorCode())
-                                        .build()
-                        );
+                        //System.out.println(
+                        //        StringBuilders.custom()
+                        //                .add(BjlMsg.ProtoType.BetResType_VALUE+"投注响应")
+                        //                .add("投注list", betRes.getBetInfoList().toString().replaceAll("\n", ","))
+                        //                .add("total", betRes.getTotal())
+                        //                .add("错误码", betRes.getErrorCode())
+                        //                .build()
+                        //);
                         break;
                     /*case Brnn.ProtoType.OnlineNumberNtfType_VALUE:
                         Brnn.OnlineNumberNtf onlineNumberNtf = Brnn.OnlineNumberNtf.parseFrom(clientMsg.getData());
@@ -145,12 +145,12 @@ public class BjlHandler extends GameHandler {
                         break;
                     case BjlMsg.ProtoType.LotteryNtfType_VALUE:
                         BjlMsg.LotteryNtf lotteryNtf = BjlMsg.LotteryNtf.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("10165结算状态通知")
-                                        .add("倒计时", lotteryNtf.getCountDown())
-                                        .build()
-                        );
+                        //System.out.println(
+                        //        StringBuilders.custom()
+                        //                .add("10165结算状态通知")
+                        //                .add("倒计时", lotteryNtf.getCountDown())
+                        //                .build()
+                        //);
                         this.state = BjlMsg.State.Stop.getNumber();
                         break;
                     case BjlMsg.ProtoType.ScenesResType_VALUE:
@@ -213,7 +213,7 @@ public class BjlHandler extends GameHandler {
                         World.ErrorNtf errorNtf = World.ErrorNtf.parseFrom(clientMsg.getData());
                         System.out.println(
                                 StringBuilders.custom()
-                                        .add(World.ProtoType.ErrorNtfType_VALUE+"错误消息")
+                                        .add(World.ProtoType.ErrorNtfType_VALUE + "错误消息")
                                         .add(phone + "错误消息", errorNtf.getErr())
                                         .build()
                         );
@@ -258,21 +258,21 @@ public class BjlHandler extends GameHandler {
         }
         //投注
         executorService.scheduleWithFixedDelay(() -> {
-                    int indexAmount = (int) (Math.random() * amout.length);
-                    int indexPos = (int) (Math.random() * posTotal.length);
-                    if (canBetting()) {
-                        BjlMsg.BetInfo betinfo = BjlMsg.BetInfo.newBuilder()
-                                .setPos(posTotal[indexPos].getNumber())
-                                .addAmount(amout[indexAmount])
-                                .build();
-                        BjlMsg.BetReq betReq = BjlMsg.BetReq.newBuilder()
-                                .addBetInfo(betinfo)
-                                .build();
-                        sendBf(betReq.toByteString(), BjlMsg.ProtoType.BetReqType_VALUE, channel);//发送消息
-                        System.out.println("投注send发送成功：" + amout[indexAmount] + "，" + posTotal[indexPos]);
-                    }
-                }
-                , 0, 500, TimeUnit.MILLISECONDS);
+            int indexAmount = (int) (Math.random() * amout.length);
+            int indexPos = (int) (Math.random() * posTotal.length);
+            if (canBetting()) {
+                BjlMsg.BetInfo betinfo = BjlMsg.BetInfo.newBuilder()
+                        //.setPos(posTotal[indexPos].getNumber())
+                        .setPos(BjlMsg.Pos.ZHUANG.getNumber())
+                        .addAmount(100)
+                        .build();
+                BjlMsg.BetReq betReq = BjlMsg.BetReq.newBuilder()
+                        .addBetInfo(betinfo)
+                        .build();
+                sendBf(betReq.toByteString(), BjlMsg.ProtoType.BetReqType_VALUE, channel);//发送消息
+                //System.out.println("投注send发送成功：" + amout[indexAmount] + "，" + posTotal[indexPos]);
+            }
+        }, 0, 3000, TimeUnit.MILLISECONDS);
     }
 
     /**

@@ -31,7 +31,7 @@ public class StartWsProtoClient {
     //private static String url = "ws://game-gate.dafagame-pre.com/v1/game/gameGate";
     //private static String url = "ws://game-gate.dafagame-pro.com/v1/game/gameGate";
 
-    private static String tenantCode = "duke";
+    private static final String tenantCode = "demo";
 
     //app请求地址
     private static String host = "52.139.157.97";
@@ -134,7 +134,7 @@ public class StartWsProtoClient {
 
         //new StartWsProtoClient("63025749", 102).start();
         List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/txt/dg-pro-duke.txt"));
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 10; i++) {
             new StartWsProtoClient(users.get(i), 102).start();
             try {
                 Thread.sleep(600);
@@ -143,22 +143,38 @@ public class StartWsProtoClient {
             }
         }
 
+        for (int i = 10; i < 20; i++) {
+            new StartWsProtoClient(users.get(i), 104).start();
+            try {
+                Thread.sleep(600);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
+        for (int i = 20; i < 30; i++) {
+            new StartWsProtoClient(users.get(i), 105).start();
+            try {
+                Thread.sleep(600);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private static class GameHandlerFactory {
         static GameHandler newGameHandler(int gameCode) {
             switch (gameCode) {
-                case 101:
-                    return new DdzHandler();
                 case 102:
                     return new BrnnHandler();
-                case 105:
-                    return new TbHandler();
                 case 104:
                     return new BjlHandler();
+                case 105:
+                    return new TbHandler();
                 case 201:
                     return new ZjhHandler();
+                case 203:
+                    return new DdzHandler();
             }
             return null;
         }
@@ -176,6 +192,8 @@ public class StartWsProtoClient {
                 .addBuilder("password", DafaGameLogin.getPasswordEncode(random, "123qwe")) //"b4e82b683394b50b679dc2b51a79d987"
                 .addBuilder("userType", "0") //正式0/测试1/遊客2
                 .addBuilder("random", encodeRandom)
+                //.addBuilder("tenantCode", "demo")
+                //.addBuilder("sourceId", "2")
                 .fullBody();
         Header[] headers = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")

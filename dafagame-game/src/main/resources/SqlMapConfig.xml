@@ -63,6 +63,8 @@
         </environment>
     </environments>
     <mappers>
-        <package name="pers.dafagame.mapper"/>
+        <!--mapper 和 package 不能同时存在，报错is already known to the MapperRegistr -->
+        <mapper resource="mapper/PlatProfitMapper.xml"/>
+        <!--<package name="pers.dafagame.mapper"/>-->
     </mappers>
 </configuration>

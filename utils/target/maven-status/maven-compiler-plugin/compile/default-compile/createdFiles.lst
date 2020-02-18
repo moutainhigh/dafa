@@ -21,6 +21,7 @@ pers/utils/fileUtils/FileUtil.class
 pers/utils/httpclientUtils/HttpHeader.class
 pers/utils/jsonUtils/JsonArrayBuilder.class
 pers/utils/httpUtils/SSLClientCustom.class
+pers/utils/daoUtils/UnderlineHump.class
 pers/utils/httpclientUtils/HttpCookies.class
 pers/utils/httpclientUtils/HttpHeader$HttpReqHead.class
 pers/utils/httpclientUtils/Request.class

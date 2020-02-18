@@ -1,8 +1,8 @@
 package pers.testDao;
 
 import org.apache.ibatis.session.SqlSession;
-import pers.dafacloud.Dao.SqlSessionFactoryUtils;
-import pers.dafacloud.Dao.mapper.lotteryBettingInfo.LotteryBettingInfoMapper;
+import pers.dafacloud.utils.SqlSessionFactoryUtils;
+import pers.dafacloud.mapper.lotteryBettingInfo.LotteryBettingInfoMapper;
 import pers.utils.fileUtils.FileUtil;
 
 import java.util.List;
@@ -86,6 +86,7 @@ public class LotteryBettingInfo {
      *
      * @param lotteryBettingInfoMapper  线上库
      * @param lotteryBettingInfoMapper2 dev1库
+     * @param tenantCode                站长编码，每次处理一个站
      */
     public static void getInsetLotteryBettingInfoLoop(LotteryBettingInfoMapper lotteryBettingInfoMapper,
                                                       LotteryBettingInfoMapper lotteryBettingInfoMapper2, String tenantCode, String date) {
@@ -94,10 +95,10 @@ public class LotteryBettingInfo {
             System.out.println(maxId);
             List<Map> list = lotteryBettingInfoMapper.getLotteryBetingInfoDx(tenantCode, date, maxId);
             System.out.println(date + " - " + tenantCode + " - 查询数据" + list.size());
-            if(list.size()==0){
+            if (list.size() == 0) {
                 return;
             }
-            if (list.size() < 10000 ) {
+            if (list.size() < 10000) {
                 int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(list);
                 System.out.println(date + "写入尾数-" + result + "-" + tenantCode);
                 return;
@@ -105,17 +106,14 @@ public class LotteryBettingInfo {
                 int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(list);
                 System.out.println(date + "写入-" + result + "-" + tenantCode);
             }
-            maxId = list.get(list.size()-1).get("id").toString();
+            maxId = list.get(list.size() - 1).get("id").toString();
             list.clear();
         }
-
-
         //List<List<Map>> lists = ListSplit.split(list, 10000);
         //for (int i = 0; i < lists.size(); i++) {
         //    int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(lists.get(i));
         //    System.out.println(date + "写入-" + result + "-" + tenantCode);
         //}
-
     }
 
     public static void main(String[] args) {

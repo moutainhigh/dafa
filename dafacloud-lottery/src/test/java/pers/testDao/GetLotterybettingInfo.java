@@ -1,8 +1,8 @@
 package pers.testDao;
 
 import org.apache.ibatis.session.SqlSession;
-import pers.dafacloud.Dao.SqlSessionFactoryUtils;
-import pers.dafacloud.Dao.mapper.lotteryBettingInfo.LotteryBettingInfoMapper;
+import pers.dafacloud.utils.SqlSessionFactoryUtils;
+import pers.dafacloud.mapper.lotteryBettingInfo.LotteryBettingInfoMapper;
 import pers.utils.fileUtils.FileUtil;
 
 import java.util.List;

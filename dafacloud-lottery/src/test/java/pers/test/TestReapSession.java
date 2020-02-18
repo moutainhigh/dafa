@@ -1,7 +1,6 @@
 package pers.test;
 
 import org.apache.http.Header;
-import pers.dafacloud.dafaLottery.ConstantLottery;
 import pers.dafacloud.dafaLottery.Login;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;
@@ -18,7 +17,7 @@ public class TestReapSession {
     private static String loginUrl = host + "/v1/users/login";
 
     /**
-     * session 重复的问题
+     * session 重复的问题，重复登录
      */
 
     public static void main(String[] args) throws Exception {

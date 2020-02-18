@@ -12,6 +12,7 @@ import pers.utils.urlUtils.UrlBuilder;
  * mq队列测试
  */
 public class MqDafaCloudData {
+    //"http://18.162.96.191:8080/rocketConsole/#/message"
     private static String host = "http://18.163.35.62:8080";//棋牌第二套
     //private static String host = "http://52.76.195.164:9877";
     //private static String topic = "lottery-tenant-1";

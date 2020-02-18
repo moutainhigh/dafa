@@ -3,6 +3,7 @@ package pers.dafacloud.dafaLottery;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.http.Header;
+import pers.dafacloud.constant.LotteryConstant;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
@@ -19,7 +20,7 @@ import java.util.concurrent.Executors;
 
 public class Betting {
     //private static String addBettingUrl = "http://52.76.195.164:8020/v1/betting/addBetting";
-    private static String host = ConstantLottery.host;
+    private static String host = LotteryConstant.host;
     private static String addBettingUrl = host + "/v1/betting/addBetting";
     private static String rebateUrl = host + "/v1/users/rebate";
     private static ExecutorService excutors = Executors.newFixedThreadPool(300);

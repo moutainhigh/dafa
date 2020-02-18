@@ -7,6 +7,7 @@ import org.apache.http.client.CookieStore;
 import org.apache.http.client.protocol.HttpClientContext;
 import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.cookie.BasicClientCookie;
+import pers.dafacloud.constant.LotteryConstant;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
@@ -19,7 +20,7 @@ import java.time.LocalDateTime;
 
 public class LotteryIssuePublic {
 
-    private static String host = ConstantLottery.host;
+    private static String host = LotteryConstant.host;
     private static String openTime = host + "/v1/lottery/openTime";
 
     /**

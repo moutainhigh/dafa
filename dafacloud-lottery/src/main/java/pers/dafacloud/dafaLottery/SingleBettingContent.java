@@ -2,7 +2,9 @@ package pers.dafacloud.dafaLottery;
 
 public class SingleBettingContent {
 
-
+    /**
+     * 单式注单列表
+     */
     public static void ssc() {
         String[] codes = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
         StringBuilder sb = new StringBuilder();
@@ -11,7 +13,7 @@ public class SingleBettingContent {
                 for (int k = 0; k < codes.length; k++) {
                     for (int l = 0; l < codes.length; l++) {
                         //sb.append();
-                        System.out.println(codes[i] +codes[j] +codes[k] +codes[l]);
+                        System.out.println(codes[i] + codes[j] + codes[k] + codes[l]);
                     }
                 }
             }
