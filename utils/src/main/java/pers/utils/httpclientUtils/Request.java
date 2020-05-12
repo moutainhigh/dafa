@@ -20,6 +20,7 @@ import pers.utils.httpclientUtils.SSLClientCustom.SSLProtocolVersion;
 import pers.utils.logUtils.Log;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,8 +45,8 @@ public class Request {
             //HttpHost proxy = new HttpHost("127.0.0.1", 9876, "http");
             //把代理设置到请求配置*/
             defaultRequestConfig = RequestConfig.custom()
-                    .setConnectTimeout(6000)//设置连接超时时间
-                    .setSocketTimeout(6000)//设置读取超时时间
+                    .setConnectTimeout(12000)//设置连接超时时间
+                    .setSocketTimeout(12000)//设置读取超时时间
                     //.setProxy(proxy) //设置代理
                     .build();
 
@@ -91,6 +92,8 @@ public class Request {
         return get(httpConfig.url(url).context(httpContext));
     }
 
+
+
     /**
      * 以Get方式，请求资源或服务
      *
@@ -102,6 +105,8 @@ public class Request {
         //System.out.println(config.url());
         return send(config.method(HttpMethods.GET));
     }
+
+
 
     /**
      * 以Post方式，请求资源或服务
@@ -149,6 +154,39 @@ public class Request {
      */
     public static String send(HttpConfig config) throws HttpProcessException {
         return fmt2String(execute(config), config.outenc());
+    }
+
+    /**
+     * 下载文件
+     *
+     * @param config		请求参数配置
+     * @return				返回处理结果
+     * @throws HttpProcessException	http处理异常
+     */
+    public static OutputStream down(HttpConfig config) throws HttpProcessException {
+        if(config.method() == null) {
+            config.method(HttpMethods.GET);
+        }
+        return fmt2Stream(execute(config), config.out());
+    }
+    /**
+     * 转化为流
+     *
+     * @param resp			响应对象
+     * @param out			输出流
+     * @return				返回输出流
+     * @throws HttpProcessException	http处理异常
+     */
+    public static OutputStream fmt2Stream(HttpResponse resp, OutputStream out) throws HttpProcessException {
+        try {
+            resp.getEntity().writeTo(out);
+            EntityUtils.consume(resp.getEntity());
+        } catch (IOException e) {
+            throw new HttpProcessException(e);
+        }finally{
+            close(resp);
+        }
+        return out;
     }
 
     /**

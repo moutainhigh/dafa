@@ -84,6 +84,8 @@ public class DafaRequest {
         }
     }
 
+
+
     /**
      *
      */
@@ -100,7 +102,6 @@ public class DafaRequest {
                 } else {
                     cookie.setDomain(new URL(hostCms).getHost());//设置范围
                     result = Request.get(httpConfig.url(hostCms + url.replace(" ", "%20")).context(context));
-
                 }
             }
             //Log.info(String.format("get请求结果返回:%s",result));
@@ -269,10 +270,10 @@ public class DafaRequest {
             //Log.info(String.format("post请求结果返回:%s",result));
             return result;
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println(httpConfig.url());
-            System.out.println(httpConfig.body());
-            return null;
+            //e.printStackTrace();
+            //System.out.println(httpConfig.url());
+            //System.out.println(httpConfig.body());
+            return e.getMessage();
         }
     }
 
@@ -300,5 +301,15 @@ public class DafaRequest {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static void down(HttpConfig httpConfig) {
+        try {
+            Request.down(httpConfig);
+        } catch (Exception e) {
+            Log.info("文件下载失败：" + e.getMessage());
+            e.printStackTrace();
+        }
+
     }
 }

@@ -1,0 +1,54 @@
+@startuml
+
+interface MachineApi{
+    process()
+}
+
+class SteamedBunMachine{
+   void process()
+}
+
+class NoodleMachine{
+   void process()
+}
+
+MachineApi <|-- SteamedBunMachine
+MachineApi <|-- NoodleMachine
+
+abstract Factory{
+    MachineApi newMachine()
+    void process()
+}
+
+'    /**
+'     * 让子类（具体工厂）来实例化具体对象（机器）
+'     */
+'    public abstract MachineApi newMachine();
+
+'    /**
+'     * 加工材料
+'     */
+'    public void process(String material){
+'        MachineApi machine = newFileApi();
+'        machine.process(material);
+'    }
+
+class SteamedBunFactory{
+    MachineApi newMachine(new SteamedBunMachine)
+}
+
+class NoodleFactory{
+    MachineApi newMachine()
+}
+
+Factory <|-- SteamedBunFactory
+Factory <|-- NoodleFactory
+NoodleMachine <|-- NoodleFactory
+SteamedBunMachine <|-- SteamedBunFactory
+
+
+'SteamedBunFactory mSteamedBunFactory  = new SteamedBunFactory ();
+'mSteamedBunFactory.process("面粉");//我把面粉加工成了馒头
+
+
+@enduml

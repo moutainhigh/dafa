@@ -15,7 +15,7 @@ public class UpdateUrl {
         String body = UrlBuilder.custom()
                 .addBuilder("id", "32")
                 .addBuilder("urlId", "2")//1	WEB	前台,2	CMS	后台,3	MAINWEB	官网主域
-                .addBuilder("tenantCode", "duke")
+                .addBuilder("tenantCode.txt", "duke")
                 .addBuilder("url", "duke.dafagame-testCookie.com")
                 .addBuilder("remark", "66")
                 .fullBody();

@@ -5,6 +5,7 @@ import net.sf.json.JSONObject;
 import org.testng.annotations.Test;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class FileUtil {
 
     /**
      * 读文件
+     *
      * @param filePath 文件绝对路径
      */
     public static List<String> readFile(String filePath) {
@@ -43,12 +45,12 @@ public class FileUtil {
      * 读文件入参：输入流
      * java -jar 读取resources文件需要Spring使用流读取，路径无法读取文件
      *
-     * @param inputStream classname.class.getResourceAsStream("/1018.txt")
+     * @param inputStream classname.class.getResourceAsStream("/1018.txt");
      */
     public static List<String> readFile(InputStream inputStream) {
         List<String> data = new ArrayList<>();
         try {
-            InputStreamReader reader = new InputStreamReader(inputStream, "utf-8");
+            InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
             BufferedReader br = new BufferedReader(reader);
             String line;
             while ((line = br.readLine()) != null) { //可以剔除空行,但不能剔除空格的行
@@ -58,6 +60,21 @@ public class FileUtil {
             e.printStackTrace();
         }
         return data;
+    }
+
+    public static String readFileRetrunString(InputStream inputStream) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            BufferedReader br = new BufferedReader(reader);
+            String line;
+            while ((line = br.readLine()) != null) { //可以剔除空行,但不能剔除空格的行
+                sb.append(line);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
     }
 
 
@@ -98,6 +115,24 @@ public class FileUtil {
         }
     }
 
+    /**
+     * 写文件，入参List<String>,
+     */
+    public static void writeFile(String path, String content, boolean isAppend) {
+        File file = new File(path);
+        if (!file.exists()) {
+            System.out.println("writeFile:找不到文件" + path);
+            return;
+        }
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file, isAppend);//true表示追加
+            fileOutputStream.write(content.getBytes());
+            fileOutputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * 读取json文件
@@ -123,26 +158,26 @@ public class FileUtil {
     }
 
     /**
-     *读取.csv文件
-     * */
+     * 读取.csv文件
+     */
     public static void readCSVFile() throws Exception {
         File file = new File("");
         //FileReader fReader = new FileReader(file);
         InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "GBK"); //或GB2312,GB18030UTF-8
         BufferedReader read = new BufferedReader(isr);
 
-        CSVReader csvReader = new CSVReader(read,';');
+        CSVReader csvReader = new CSVReader(read, ';');
         String[] strs = csvReader.readNext();
-        if(strs != null && strs.length > 0){
-            for(String str : strs)
-                if(null != str && !str.equals(""))
+        if (strs != null && strs.length > 0) {
+            for (String str : strs)
+                if (null != str && !str.equals(""))
                     System.out.print(str);
             System.out.println("\n---------------");
         }
         List<String[]> list = csvReader.readAll();
-        for(String[] ss : list){
-            for(String s : ss)
-                if(null != s && !s.equals(""))
+        for (String[] ss : list) {
+            for (String s : ss)
+                if (null != s && !s.equals(""))
                     System.out.print(s);
         }
         csvReader.close();

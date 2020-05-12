@@ -13,12 +13,12 @@ import pers.utils.urlUtils.UrlBuilder;
 import java.util.Base64;
 
 public class Login {
-    private static String host = Constants.host;
+    private static String host = Constants.HOST;
     private static String loginUrl = host + "/v1/users/login";
 
     public static void main(String[] args) {
-        //String random = "9722";
-        //getPassword(random, "123qwe");
+        String random = "9722";
+        getPassword(random, "123qwe");
 
     }
 

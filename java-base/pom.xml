@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>dafacloud</artifactId>
+        <groupId>pers.dafacloud</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../dafacloud/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>pers.java</groupId>
+    <artifactId>java-base</artifactId>
+
+    <dependencies>
+        <!--@Data 自动生成get set方法 start-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+        </dependency>
+        <!--@Data 自动生成get set方法 end -->
+        <!--testng start-->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+            <!--<scope>test</scope>-->
+        </dependency>
+        <!--testng end-->
+    </dependencies>
+    <!--testng start-->
+
+    <!-- 运行时出现 源值1.5已过时 -->
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <!--end-->
+
+</project>

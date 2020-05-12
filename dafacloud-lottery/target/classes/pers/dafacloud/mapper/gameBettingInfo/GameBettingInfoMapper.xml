@@ -11,6 +11,8 @@
         id : sql id;
         parameterType:入参的数据类型
         resultType:返回结果数据类型
+
+        and  gmt_created BETWEEN '2019-11-27' and '2019-11-28'
      -->
     <select id="getGameBetingInfo" resultType="java.util.Map">
 		select
@@ -35,12 +37,13 @@
 		,gmt_created gmtCreated
 		,gmt_modified gmtModified
 		from dafacloud_game.game_orders_info_${tableName}
-		where  game_code = 2003 and  gmt_created BETWEEN '2019-11-27' and '2019-11-28'
+		where  game_code = 2004
+        and gmt_created > '2020-05-05'
 	</select>
 
     <!--统计幸运飞艇凌晨出撤单的其实 statementType="STATEMENT" -->
     <insert id="insertGameBetingInfo" parameterType="java.util.List" keyProperty="id">
-        insert into dafacloud_game.game_orders_info_shalv001(
+        insert into dafacloud_game.game_orders_info_shalv006(
         tenant_code
         ,user_id
         ,room_number

@@ -1,0 +1,62 @@
+@startuml
+
+abstract Pizza
+
+class LDPepperPizza
+class LDCheesePizza
+class BJPepperPizza
+class BJCheesePizza
+
+Pizza <|-- LDPepperPizza
+Pizza <|-- LDCheesePizza
+Pizza <|-- BJPepperPizza
+Pizza <|-- BJCheesePizza
+
+
+BJPepperPizza <|-- BJFactory
+BJCheesePizza <|-- BJFactory
+
+LDPepperPizza <|-- LDFactory
+LDCheesePizza <|-- LDFactory
+
+interface AbsFactory{
+    Pizza createPizza(String orderType);
+}
+
+class BJFactory{
+   Pizza createPizza(String orderType)
+}
+
+'    @Override
+'    public Pizza createPizza(String orderType) {
+'        System.out.println("抽象工厂模式");
+'        Pizza pizza = null;
+'        if(orderType.equals("cheese")){
+'            return new LDCheesePizza();
+'        }else if(orderType.equals("pepper")){
+'            return new LDPepperPizza();
+'        }
+'        return pizza;
+'    }
+
+class LDFactory{
+   Pizza createPizza(String orderType)
+}
+
+AbsFactory <|-- BJFactory
+AbsFactory <|-- LDFactory
+
+class OrderPizza{
+    AbsFactory absFactory
+    setFactory(AbsFactory absFactory)
+}
+'pizza = absFactory.createPizza(orderType);
+
+'AbsFactory <|-- OrderPizza
+
+class PizzaStroe
+'new OrderPizza(new BJFactory());
+
+OrderPizza <|-- PizzaStroe
+
+@enduml

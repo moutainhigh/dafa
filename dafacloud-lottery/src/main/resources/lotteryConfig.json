@@ -1,242 +1,422 @@
-{
-  "0101": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "UU快三",
-    "lotteryTypeNum": "1"
+[
+  {
+    "userId": 2339965,
+    "avatar": 8,
+    "nickName": "蹲街守寂寞",
+    "grade": 5,
+    "balance": "2017.40",
+    "bettingAmount": "620",
+    "winTimes": 10,
+    "frame": 5
   },
-  "1000": {
-    "lotteryClassName": "时时彩",
-    "lotteryType": "SSC",
-    "lotteryName": "欢乐生肖",
-    "lotteryTypeNum": "0"
+  {
+    "userId": 2382432,
+    "avatar": 2,
+    "nickName": "35****84",
+    "grade": 7,
+    "balance": "148811.16",
+    "bettingAmount": "29000",
+    "winTimes": 4,
+    "frame": 7
   },
-  "1001": {
-    "lotteryClassName": "时时彩",
-    "lotteryType": "SSC",
-    "lotteryName": "新疆时时彩",
-    "lotteryTypeNum": "0"
+  {
+    "userId": 2382154,
+    "avatar": 1,
+    "nickName": "55****47",
+    "grade": 7,
+    "balance": "331758.66",
+    "bettingAmount": "10000",
+    "winTimes": 1,
+    "frame": 7
   },
-  "1003": {
-    "lotteryClassName": "时时彩",
-    "lotteryType": "SSC",
-    "lotteryName": "天津时时彩",
-    "lotteryTypeNum": "0"
+  {
+    "userId": 2381470,
+    "avatar": 8,
+    "nickName": "轨迹重叠",
+    "grade": 7,
+    "balance": "65218.95",
+    "bettingAmount": "6500",
+    "winTimes": 2,
+    "frame": 7
   },
-  "1008": {
-    "lotteryClassName": "时时彩",
-    "lotteryType": "SSC",
-    "lotteryName": "大发时时彩",
-    "lotteryTypeNum": "0"
+  {
+    "userId": 2371642,
+    "avatar": 9,
+    "nickName": "寂寞那个",
+    "grade": 5,
+    "balance": "6480.00",
+    "bettingAmount": "6200",
+    "winTimes": 6,
+    "frame": 5
   },
-  "1100": {
-    "lotteryClassName": "11选5",
-    "lotteryType": "SYX5",
-    "lotteryName": "广东11选5",
-    "lotteryTypeNum": "2"
+  {
+    "userId": 2365730,
+    "avatar": 8,
+    "nickName": "心灵慢友",
+    "grade": 5,
+    "balance": "4670.15",
+    "bettingAmount": "4100",
+    "winTimes": 8,
+    "frame": 5
   },
-  "1101": {
-    "lotteryClassName": "11选5",
-    "lotteryType": "SYX5",
-    "lotteryName": "上海11选5",
-    "lotteryTypeNum": "2"
+  {
+    "userId": 2383128,
+    "avatar": 1,
+    "nickName": "07****98",
+    "grade": 7,
+    "balance": "462869.94",
+    "bettingAmount": "4000",
+    "winTimes": 0,
+    "frame": 7
   },
-  "1102": {
-    "lotteryClassName": "11选5",
-    "lotteryType": "SYX5",
-    "lotteryName": "山东11选5",
-    "lotteryTypeNum": "2"
+  {
+    "userId": 2382202,
+    "avatar": 4,
+    "nickName": "69****43",
+    "grade": 7,
+    "balance": "214464.50",
+    "bettingAmount": "4000",
+    "winTimes": 1,
+    "frame": 7
   },
-  "1103": {
-    "lotteryClassName": "11选5",
-    "lotteryType": "SYX5",
-    "lotteryName": "江西11选5",
-    "lotteryTypeNum": "2"
+  {
+    "userId": 2371668,
+    "avatar": 6,
+    "nickName": "凸逼难波丸",
+    "grade": 5,
+    "balance": "6467.00",
+    "bettingAmount": "2950",
+    "winTimes": 7,
+    "frame": 5
   },
-  "1201": {
-    "lotteryClassName": "低频彩",
-    "lotteryType": "FC3D",
-    "lotteryName": "福彩3D",
-    "lotteryTypeNum": "3"
+  {
+    "userId": 2367378,
+    "avatar": 5,
+    "nickName": "52****89",
+    "grade": 5,
+    "balance": "5360.20",
+    "bettingAmount": "2550",
+    "winTimes": 6,
+    "frame": 5
   },
-  "1202": {
-    "lotteryClassName": "低频彩",
-    "lotteryType": "PL35",
-    "lotteryName": "排列3",
-    "lotteryTypeNum": "4"
+  {
+    "userId": 2359419,
+    "avatar": 7,
+    "nickName": "20****24",
+    "grade": 5,
+    "balance": "2126.00",
+    "bettingAmount": "2110",
+    "winTimes": 5,
+    "frame": 5
   },
-  "1300": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "LHC",
-    "lotteryName": "大发六合彩",
-    "lotteryTypeNum": "7"
+  {
+    "userId": 2367218,
+    "avatar": 1,
+    "nickName": "97****13",
+    "grade": 5,
+    "balance": "2108.80",
+    "bettingAmount": "1550",
+    "winTimes": 9,
+    "frame": 5
   },
-  "1301": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "LHC",
-    "lotteryName": "香港六合彩",
-    "lotteryTypeNum": "7"
+  {
+    "userId": 2367366,
+    "avatar": 4,
+    "nickName": "39****50",
+    "grade": 5,
+    "balance": "2014.20",
+    "bettingAmount": "870",
+    "winTimes": 4,
+    "frame": 5
   },
-  "1302": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "KL8",
-    "lotteryName": "北京快乐8",
-    "lotteryTypeNum": "5"
+  {
+    "userId": 2359819,
+    "avatar": 2,
+    "nickName": "85****72",
+    "grade": 5,
+    "balance": "2113.00",
+    "bettingAmount": "630",
+    "winTimes": 2,
+    "frame": 5
   },
-  "1303": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "PK10",
-    "lotteryName": "北京PK10",
-    "lotteryTypeNum": "6"
+  {
+    "userId": 2335637,
+    "avatar": 3,
+    "nickName": "同在一个屋",
+    "grade": 5,
+    "balance": "1886.60",
+    "bettingAmount": "560",
+    "winTimes": 7,
+    "frame": 5
   },
-  "1304": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "PK10",
-    "lotteryName": "大发PK10",
-    "lotteryTypeNum": "6"
+  {
+    "userId": 2381384,
+    "avatar": 8,
+    "nickName": "68****37",
+    "grade": 7,
+    "balance": "59153.98",
+    "bettingAmount": "500",
+    "winTimes": 1,
+    "frame": 7
   },
-  "1401": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "江苏快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2337823,
+    "avatar": 1,
+    "nickName": "树的伤疤",
+    "grade": 5,
+    "balance": "1318.70",
+    "bettingAmount": "500",
+    "winTimes": 5,
+    "frame": 5
   },
-  "1402": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "安徽快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2370935,
+    "avatar": 7,
+    "nickName": "89****18",
+    "grade": 5,
+    "balance": "6619.50",
+    "bettingAmount": "450",
+    "winTimes": 3,
+    "frame": 5
   },
-  "1403": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "广西快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2341149,
+    "avatar": 1,
+    "nickName": "38****93",
+    "grade": 5,
+    "balance": "1605.70",
+    "bettingAmount": "410",
+    "winTimes": 4,
+    "frame": 5
   },
-  "1404": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "吉林快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2366325,
+    "avatar": 6,
+    "nickName": "09****33",
+    "grade": 4,
+    "balance": "552.60",
+    "bettingAmount": "400",
+    "winTimes": 6,
+    "frame": 4
   },
-  "1405": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "湖北快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2361482,
+    "avatar": 7,
+    "nickName": "用笑勾妞",
+    "grade": 5,
+    "balance": "4373.50",
+    "bettingAmount": "300",
+    "winTimes": 1,
+    "frame": 5
   },
-  "1406": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "北京快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2330018,
+    "avatar": 2,
+    "nickName": "顺策",
+    "grade": 4,
+    "balance": "248.56",
+    "bettingAmount": "295",
+    "winTimes": 6,
+    "frame": 4
   },
-  "1407": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "大发快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2340026,
+    "avatar": 8,
+    "nickName": "青裙",
+    "grade": 5,
+    "balance": "1584.20",
+    "bettingAmount": "260",
+    "winTimes": 3,
+    "frame": 5
   },
-  "1408": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "河北快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2371719,
+    "avatar": 2,
+    "nickName": "离不开分不",
+    "grade": 5,
+    "balance": "5334.25",
+    "bettingAmount": "200",
+    "winTimes": 0,
+    "frame": 5
   },
-  "1409": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "贵州快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2339507,
+    "avatar": 4,
+    "nickName": "大陆扛靶子",
+    "grade": 5,
+    "balance": "1565.70",
+    "bettingAmount": "160",
+    "winTimes": 2,
+    "frame": 5
   },
-  "1410": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "上海快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2366332,
+    "avatar": 9,
+    "nickName": "57****21",
+    "grade": 4,
+    "balance": "523.80",
+    "bettingAmount": "90",
+    "winTimes": 1,
+    "frame": 4
   },
-  "1411": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "甘肃快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2341436,
+    "avatar": 7,
+    "nickName": "93****51",
+    "grade": 5,
+    "balance": "1530.90",
+    "bettingAmount": "60",
+    "winTimes": 2,
+    "frame": 5
   },
-  "1412": {
-    "lotteryClassName": "快3",
-    "lotteryType": "K3",
-    "lotteryName": "5分快3",
-    "lotteryTypeNum": "1"
+  {
+    "userId": 2290113,
+    "avatar": 8,
+    "nickName": "在有你的世",
+    "grade": 3,
+    "balance": "133.06",
+    "bettingAmount": "34",
+    "winTimes": 3,
+    "frame": 3
   },
-  "1009": {
-    "lotteryClassName": "时时彩",
-    "lotteryType": "SSC",
-    "lotteryName": "5分时时彩",
-    "lotteryTypeNum": "0"
+  {
+    "userId": 2337834,
+    "avatar": 8,
+    "nickName": "凹凸曼不慢",
+    "grade": 5,
+    "balance": "1591.70",
+    "bettingAmount": "30",
+    "winTimes": 1,
+    "frame": 5
   },
-  "1306": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "PK10",
-    "lotteryName": "5分PK10",
-    "lotteryTypeNum": "6"
+  {
+    "userId": 2337909,
+    "avatar": 7,
+    "nickName": "未曾出口",
+    "grade": 5,
+    "balance": "1501.40",
+    "bettingAmount": "30",
+    "winTimes": 1,
+    "frame": 5
   },
-  "1307": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "KL8",
-    "lotteryName": "5分快乐8",
-    "lotteryTypeNum": "5"
+  {
+    "userId": 2284538,
+    "avatar": 8,
+    "nickName": "08****30",
+    "grade": 3,
+    "balance": "93.94",
+    "bettingAmount": "21",
+    "winTimes": 3,
+    "frame": 3
   },
-  "1308": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "KL8",
-    "lotteryName": "大发快乐8",
-    "lotteryTypeNum": "5"
+  {
+    "userId": 2366371,
+    "avatar": 1,
+    "nickName": "98****88",
+    "grade": 4,
+    "balance": "930.00",
+    "bettingAmount": "20",
+    "winTimes": 0,
+    "frame": 4
   },
-  "1104": {
-    "lotteryClassName": "11选5",
-    "lotteryType": "SYX5",
-    "lotteryName": "5分11选5",
-    "lotteryTypeNum": "2"
+  {
+    "userId": 2284542,
+    "avatar": 6,
+    "nickName": "晚倦",
+    "grade": 3,
+    "balance": "66.88",
+    "bettingAmount": "3",
+    "winTimes": 1,
+    "frame": 3
   },
-  "1105": {
-    "lotteryClassName": "11选5",
-    "lotteryType": "SYX5",
-    "lotteryName": "大发11选5",
-    "lotteryTypeNum": "2"
+  {
+    "userId": 2382205,
+    "avatar": 7,
+    "nickName": "28****63",
+    "grade": 7,
+    "balance": "558893.38",
+    "bettingAmount": "0",
+    "winTimes": 0,
+    "frame": 7
   },
-  "1203": {
-    "lotteryClassName": "低频彩",
-    "lotteryType": "FC3D",
-    "lotteryName": "5分3D",
-    "lotteryTypeNum": "3"
+  {
+    "userId": 1574940,
+    "avatar": 1,
+    "nickName": "18****60",
+    "grade": 6,
+    "balance": "170618.00",
+    "bettingAmount": "0",
+    "winTimes": 0,
+    "frame": 1
   },
-  "1204": {
-    "lotteryClassName": "低频彩",
-    "lotteryType": "FC3D",
-    "lotteryName": "大发3D",
-    "lotteryTypeNum": "3"
+  {
+    "userId": 2375416,
+    "avatar": 1,
+    "nickName": "93****29",
+    "grade": 6,
+    "balance": "12544.75",
+    "bettingAmount": "0",
+    "winTimes": 0,
+    "frame": 6
   },
-  "1205": {
-    "lotteryClassName": "低频彩",
-    "lotteryType": "PL35",
-    "lotteryName": "5分排列3",
-    "lotteryTypeNum": "4"
+  {
+    "userId": 2365204,
+    "avatar": 1,
+    "nickName": "84****59",
+    "grade": 5,
+    "balance": "2634.80",
+    "bettingAmount": "0",
+    "winTimes": 0,
+    "frame": 5
   },
-  "1206": {
-    "lotteryClassName": "低频彩",
-    "lotteryType": "PL35",
-    "lotteryName": "大发排列3",
-    "lotteryTypeNum": "4"
+  {
+    "userId": 2341427,
+    "avatar": 5,
+    "nickName": "53****28",
+    "grade": 5,
+    "balance": "2120.00",
+    "bettingAmount": "0",
+    "winTimes": 0,
+    "frame": 5
   },
-  "1309": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "PK10",
-    "lotteryName": "幸运飞艇",
-    "lotteryTypeNum": "6"
+  {
+    "userId": 2341435,
+    "avatar": 7,
+    "nickName": "87****47",
+    "grade": 5,
+    "balance": "1610.10",
+    "bettingAmount": "0",
+    "winTimes": 0,
+    "frame": 5
   },
-  "1305": {
-    "lotteryClassName": "快乐彩",
-    "lotteryType": "LHC",
-    "lotteryName": "5分六合彩",
-    "lotteryTypeNum": "7"
+  {
+    "userId": 2366994,
+    "avatar": 4,
+    "nickName": "凌晨与你",
+    "grade": 4,
+    "balance": "732.00",
+    "bettingAmount": "0",
+    "winTimes": 0,
+    "frame": 4
+  },
+  {
+    "userId": 2290768,
+    "avatar": 3,
+    "nickName": "淸欢",
+    "grade": 3,
+    "balance": "167.40",
+    "bettingAmount": "0",
+    "winTimes": 0,
+    "frame": 3
+  },
+  {
+    "userId": 2284544,
+    "avatar": 8,
+    "nickName": "她说她累了",
+    "grade": 3,
+    "balance": "79.28",
+    "bettingAmount": "0",
+    "winTimes": 0,
+    "frame": 3
   }
-}
+]

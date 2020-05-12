@@ -12,6 +12,7 @@ public class SqlSessionFactoryUtils {
 
     private static SqlSession devSession;
     private static SqlSession bettingSession;
+    private static SqlSession bettingHistorySession;
     private static SqlSession lotterySession;
     private static SqlSession transactionSession;
     private static SqlSession reportSession;
@@ -42,6 +43,11 @@ public class SqlSessionFactoryUtils {
                         bettingSession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
                     }
                     return bettingSession;
+                case "bettingHistory":
+                    if (bettingHistorySession == null) {
+                        bettingHistorySession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
+                    }
+                    return bettingHistorySession;
                 case "lottery":
                     if (lotterySession == null) {
                         lotterySession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);

@@ -18,7 +18,7 @@ public class GetGameDomain {
                 .userAgent("Mozilla/5.0")
                 .other("Source-Id", "2")
                 .other("Tenant-Code", "demo")
-                .other("Session-Id", "867bd58d43c94d72a77d3194aee5931d")
+                //.other("Session-Id", "867bd58d43c94d72a77d3194aee5931d")
                 .build();
         HttpConfig httpConfig = HttpConfig
                 .custom()

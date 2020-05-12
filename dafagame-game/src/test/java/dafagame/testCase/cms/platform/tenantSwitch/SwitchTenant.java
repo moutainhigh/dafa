@@ -12,7 +12,7 @@ public class SwitchTenant {
     @Test(description = "切换厅主")
     public static void test01() {
         String body  = UrlBuilder.custom()
-                .addBuilder("tenantCode","duke")
+                .addBuilder("tenantCode.txt","duke")
                 .fullBody();
         String result = DafaRequest.post(1,switchTenant,body);
         JSONObject jsonResult = JSONObject.fromObject(result);

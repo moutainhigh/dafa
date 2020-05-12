@@ -16,7 +16,7 @@ public class IpList {
     public static void test01() {
         String url = UrlBuilder.custom()
                 .url(ipList)
-                .addBuilder("tenantCode", "duke")
+                .addBuilder("tenantCode.txt", "duke")
                 .addBuilder("pageNum", "1")
                 .addBuilder("pageSize", "20")
                 .fullUrl();

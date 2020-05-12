@@ -20,7 +20,7 @@ public class ManageableList {
                 .url(manageableList)
                 .addBuilder("name", "")
                 .addBuilder("tenantType", "")
-                .addBuilder("tenantCode", "")
+                .addBuilder("tenantCode.txt", "")
                 .addBuilder("pageNum", "1")
                 .addBuilder("pageSize", "20")
                 .fullUrl();

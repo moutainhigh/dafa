@@ -18,6 +18,7 @@
         ,cms_front cmsFront
         ,test_executor testExecutor
         ,test_batch testBatch
+        ,assert_content assertContent
         ,insertTime insertTime
 
         from test_api_result
@@ -48,7 +49,7 @@
         limit #{pageNum},#{pageSize}
     </select>
 
-    <select id="searchTestApiResultCount" parameterType="pers.dafacloud.model.ApiContent" resultType="java.lang.Integer"
+    <select id="searchTestApiResultCount" parameterType="pers.dafacloud.model.ApiManage" resultType="java.lang.Integer"
             flushCache="true" useCache="true">
         select count(1) from test_api_result
         <where>
@@ -89,6 +90,7 @@
         ,test_executor
         ,test_batch
         ,host
+        ,assert_content
 		)values (
 			#{apiName}
             ,#{apiPath}
@@ -101,6 +103,7 @@
             ,#{testExecutor}
             ,#{testBatch}
             ,#{host}
+            ,#{assertContent}
 		)
 	</insert>
 

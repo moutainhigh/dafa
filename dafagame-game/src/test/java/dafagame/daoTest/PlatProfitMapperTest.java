@@ -1,7 +1,7 @@
 package dafagame.daoTest;
 
 import org.apache.ibatis.session.SqlSession;
-import pers.dafagame.Dao.SqlSessionFactoryUtils;
+import pers.dafagame.utils.SqlSessionFactoryUtils;
 import pers.dafagame.mapper.PlatProfitMapper;
 
 import java.util.List;
@@ -20,7 +20,6 @@ public class PlatProfitMapperTest {
 
         //List<>
         mapList.forEach(map -> {
-            //System.out.println(map);
             map.forEach((k, v) -> {
                 if (v.equals("103")) {
                     System.out.println(map);
@@ -32,8 +31,6 @@ public class PlatProfitMapperTest {
             });
             map.get("gameCode");
         });
-
-
         for (int i = 0; i < mapList.size(); i++) {
             Map map = mapList.get(i);
             Map map0 = bankerList.get(i);

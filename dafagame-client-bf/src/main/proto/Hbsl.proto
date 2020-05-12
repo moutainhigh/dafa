@@ -1,0 +1,117 @@
+syntax = "proto2";
+
+package com.dafagame.protocol.hbsl;
+
+//option optimize_for = LITE_RUNTIME;
+
+enum GameType {
+    HBSL = 107;
+}
+
+enum ProtoType {
+    RoomInformationNtfType = 10701; //场景消息
+    OutRedEnvelopeReqType = 10702;  //发包请求
+    OutRedEnvelopeResType = 10703;  //发包回应
+    CrabRedEnvelopeReqType = 10704; //获取红包请求
+    CrabRedEnvelopeResType = 10705; //获取红包回应
+    SceneNtfType = 10706;           //房间的信息
+    PlayerRankNtfType = 10707;      //玩家排名通知
+}
+
+enum ErrorCode {
+    OK = 1;
+    NotRed = 2;            //没有发包
+    ErrorId = 3;           //id错误
+    NoMoney = 4;           //金钱不足（领包是不足赔付，发包是余额不足）
+    IsOwner = 5;           //不可以领自己的红包
+    IllegalParam = 6;      //参数错误
+    CrabFull = 7;          //领取达到最大包数
+    NoTPlaying = 8;        //没在游戏中
+}
+
+//第一次场景信息，发送所有的信息
+message RoomInformationNtf {
+    required SceneNtf sceneNtf = 1;         //房间场景信息
+    required PlayerRankNtf rankNtf = 2;     //红包排名信息
+    required RedEnvelopeConf config = 3;    //红包的配置
+}
+
+//玩家排名通知 前十名
+message PlayerRankNtf {
+    repeated RewardRank ranks = 1;          //玩家排名信息
+}
+
+//红包信息 （当前红包信息，当前红包的） 1s 钟一次
+message SceneNtf {
+    optional RedEnvelope redEnvelope = 1;   //当前的红包 （可能是新的红包）
+    required int32 total = 2;               //红包总数
+    repeated RewardRank ranks = 3;          //当前红包领取排名
+}
+
+//发包请求
+message OutRedEnvelopeReq {
+    required int32 money = 1;         //红包的金额
+    required int32 tempIdx = 2;       //包数和倍数的模版
+    optional int32 bombNum = 3;       //雷号，没有则标示不中雷
+    required int32 repeated = 4;      //重复次数
+}
+
+//发包回应
+message OutRedEnvelopeRes {
+    required int32 code = 1;                //返回成功码
+    optional string balance = 2;            //获取的金钱
+
+    optional SceneNtf scene = 3;            //房间场景最新信息
+}
+
+//获取红包请求
+message CrabRedEnvelopeReq {
+    required string id = 1;                 //红包id
+}
+
+//获取红包回应
+message CrabRedEnvelopeRes {
+    required int32 code = 1;                //成功码
+    optional string award = 2;              //获取的金钱
+    optional string balance = 3;            //玩家最新金额
+    optional bool isBomb = 4;               //是否踩雷
+    optional string payMoney = 5;           //赔付金额
+
+    optional SceneNtf scene = 6;            //房间场景最新信息
+}
+
+//红包的信息
+message RedEnvelope {
+    required string id = 1;         //红包id
+    required int32 leftTime = 2;    //剩余时间
+    required string leftMoney = 3;  //剩余金钱
+    required int32 multiple = 4;    //剩余包数
+    required int32 totalMultiple = 5;//总包数
+    required int32 bombNum = 6;     //雷号
+    required string ownerName = 7;  //发包人昵称
+}
+
+//房间的还是全平台的 10s刷新一次
+message RewardRank {
+    required int32 uid = 1;     //用户id
+    required string nickName = 2;//用户名(昵称)
+    required string award = 3;  //获取的金钱
+    optional string time = 4;   //领取时间
+}
+
+message RedEnvelopeConf {
+    required int32 minMoney = 1;     //最小金额
+    required int32 maxMoney = 2;     //最大金额
+    required int32 step = 3;         //金额步长 （最大-最小）/10
+    repeated int32 bombNumber = 4;   //雷数  -1到9 -1 没有 其他为尾数
+    repeated RedInfo infoList = 5;   //红包的模版
+    required int32 minRepeated = 6;  //最小重复次数
+    required int32 maxRepeated = 7;  //最大重复次数
+}
+
+message RedInfo {
+    required int32 repeated = 1;    //包数
+    required string multiple = 2;   //赔付倍数
+}
+
+//{"redEnvelope": {"min": 20,"max": 40,"playerLimit": 6,"roomLimit": 100,"bombNumbers": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],"repeated": {"min": 1,"max": 3},"infos": [{"repeated": 10,"multiple": "1"},{"repeated": 8,"multiple": "1.25"}, {"repeated": 5,"multiple": "2"}]},"robot": {"banker": {"count": 5,"max": 20,"min": 5},"player": {"count": 5,"max": 20,"min": 5}}}

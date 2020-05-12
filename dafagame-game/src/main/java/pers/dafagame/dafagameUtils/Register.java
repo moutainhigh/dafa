@@ -13,14 +13,16 @@ import pers.utils.urlUtils.UrlBuilder;
 import java.net.URLEncoder;
 
 public class Register {
-    private static String host = "http://120.25.177.43";
-    private static String register = Constants.host + "/v1/users/register";
+    private static String register = Constants.HOST + "/v1/users/register";
+    private static final String TENANT_CODE = "test";
 
     /**
      * 获取注册请求body
      */
     public static void register(HttpConfig httpConfig, String phone, String password) throws Exception {
         String code = PhoneCode.sendPhoneCode(httpConfig, phone);
+        Thread.sleep(5 * 1000);
+        //String code = "676850";
         String passwordCode = getPasswordCode(password, code);
         if (StringUtils.isEmpty(passwordCode))
             return;
@@ -29,10 +31,11 @@ public class Register {
                 .addBuilder("confirmPassword", URLEncoder.encode(passwordCode, "utf-8"))
                 .addBuilder("phone", phone)
                 .addBuilder("code", code)
-                .addBuilder("inviteCode", "6090013")
+                //.addBuilder("deviceId", "webclient-123456")
+                .addBuilder("inviteCode", "8807107")
                 .fullBody();
         String result = DafaRequest.post(httpConfig.body(body).url(register));
-        System.out.println(phone+"---"+result);
+        System.out.println(phone + " -- code :" + code + "---" + result);
     }
 
     /**
@@ -48,11 +51,11 @@ public class Register {
         Header[] headers = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
-                .other("x-forwarded-for", ip)
-                .other("x-remote-IP", ip)
-                .other("X-Real-IP", ip)
-                .other("Tenant-Code","xiaoqiu")
-                .other("Source-Id","1")
+                //.other("x-forwarded-for", ip)
+                //.other("x-remote-IP", ip)
+                //.other("X-Real-IP", ip)
+                .other("Tenant-Code", TENANT_CODE)
+                .other("Source-Id", "2")
                 .build();
         httpConfig.headers(headers);
         register(httpConfig, phone, "123qwe");
@@ -69,7 +72,10 @@ public class Register {
         //for (int i = 0; i < 100; i++) {
         //    registerLoop(httpConfig, String.format("1801234%04d", i));
         //}
-        registerLoop(httpConfig, "13112345678");
-    }
+        //registerLoop(httpConfig, "13112345601");
+        for (int i = 4; i < 10; i++) {
+            registerLoop(httpConfig, String.format("130123456%02d", i));
+        }
 
+    }
 }

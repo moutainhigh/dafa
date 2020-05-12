@@ -20,7 +20,7 @@ public class UrlList {
         String url = UrlBuilder.custom()
                 .url(urlList)
                 .addBuilder("tenantType", "")//1	PROXY	直营，2	DIRECT	渠道
-                .addBuilder("tenantCode", "")
+                .addBuilder("tenantCode.txt", "")
                 .addBuilder("name", "")
                 .addBuilder("url", "")
                 .addBuilder("urlId", "")//1	WEB	前台,2	CMS	后台,3	MAINWEB	官网主域

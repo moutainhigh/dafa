@@ -1,22 +1,57 @@
 package dafagame.daoTest;
 
 import org.apache.ibatis.session.SqlSession;
-import pers.dafagame.Dao.SqlSessionFactoryUtils;
+import pers.dafagame.utils.SqlSessionFactoryUtils;
 import pers.dafagame.enums.Card;
 import pers.dafagame.mapper.BattleDetailsMapper;
 
 import java.util.*;
 
+/**
+ * 斗地主 牌库
+ */
 public class BattleDetailsMapperTest {
+    static SqlSession proGamesqlSession = SqlSessionFactoryUtils.openSqlSession("proGame");
+    static SqlSession devSqlSession = SqlSessionFactoryUtils.openSqlSession("dev");
+    static BattleDetailsMapper proGameBattleDetailsMapper = proGamesqlSession.getMapper(BattleDetailsMapper.class);
+    static BattleDetailsMapper devBattleDetailsMapper = devSqlSession.getMapper(BattleDetailsMapper.class);
+
+    public static void main(String[] args) {
+        //poker();
+        exportProToDev();
+    }
+
+    //牌库导入到测试环境
+    public static void exportProToDev() {
+        String maxId = "0";
+        for (int j = 0; j < 10000; j++) {
+            System.out.println("maxId :" + maxId);
+            List<Map> list = proGameBattleDetailsMapper.getBattleDetailList(maxId);
+            System.out.println("查询数据 " + list.size());
+            if (list.size() == 0) {
+                break;
+            }
+            if (list.size() < 10000) {
+                int result = devBattleDetailsMapper.addBattleDetailList(list);
+                System.out.println(" 写入尾数- " + result);
+                list.clear();
+                break;
+            } else {
+                int result = devBattleDetailsMapper.addBattleDetailList(list);
+                System.out.println(" 写入整数 - " + result);
+            }
+            maxId = list.get(list.size() - 1).get("id").toString();
+            list.clear();
+        }
+    }
+
 
     /**
-     * 斗地主 牌库
+     * 分析牌库的类型
      */
-    public static void main(String[] args) {
-        SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("proGame");
-        BattleDetailsMapper battleDetailsMapper = sqlSessionTransaction.getMapper(BattleDetailsMapper.class);
-        List<Map> mapList = battleDetailsMapper.queryBattleDetails();
-
+    public static void poker() {
+        String maxId = "0";
+        List<Map> mapList = proGameBattleDetailsMapper.getBattleDetailList(maxId);
         List<Card> list = new ArrayList<>();
         int count = 0;
         for (Map map : mapList) {
@@ -54,7 +89,6 @@ public class BattleDetailsMapperTest {
         //for (Card card : list) {
         //    System.out.println(card.getNum() + "\t" + card.extNum+ "\t" +card.shown);
         //}
-
     }
 
 

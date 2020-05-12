@@ -12,9 +12,8 @@ public class GameBettingInfo {
 
 
     public static void main(String[] args) {
-
+        gameBettingInfo();
     }
-
 
 
     /**
@@ -42,14 +41,13 @@ public class GameBettingInfo {
         List<Map> list = gameBetingInfoMapper.getGameBetingInfo(tenantCode);
         System.out.print("-查询数据" + list.size());
         if (list.size() == 0) {
-            System.out.println(list.size() + "-" + tenantCode);
+            System.out.println(list.size() + " - " + tenantCode);
             return;
         }
         int result = gameBetingInfoMapper2.insertGameBetingInfo(list);
-        System.out.println("-" + result + "-" + tenantCode);
+        System.out.println(" - 写入：" + result + "-" + tenantCode);
 
     }
-
 
 
 }

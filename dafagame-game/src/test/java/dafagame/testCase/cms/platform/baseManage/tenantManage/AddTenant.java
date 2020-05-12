@@ -32,7 +32,7 @@ public class AddTenant {
                 .addPart("file", new FileBody(new File(WebLogo)))
                 .addPart("file", new FileBody(new File(CMSLogo)))
                 .addPart("tenantType", new StringBody("1", ContentType.MULTIPART_FORM_DATA))//1直营,2渠道
-                .addPart("tenantCode", new StringBody(name, ContentType.MULTIPART_FORM_DATA))
+                .addPart("tenantCode.txt", new StringBody(name, ContentType.MULTIPART_FORM_DATA))
                 .addPart("admin", new StringBody(name, ContentType.MULTIPART_FORM_DATA))
                 .addPart("password", new StringBody(password, ContentType.MULTIPART_FORM_DATA))
                 .addPart("name", new StringBody("123456", ContentType.MULTIPART_FORM_DATA))

@@ -34,7 +34,7 @@ public class StartWs {
     static boolean ifRandom = false;//true随机，false不随机
     static int minSleep = 200;//随机最小间隔，毫秒
     static int MaxSleep = 1000;//随机最大间隔，毫秒
-    static int defaultSleep = 5000;//不随机时，间隔
+    static int defaultSleep = 1000;//不随机时，间隔
 
     static List<BetGameContent> PosThree;
     static List<BetGameContent> PosSix;
@@ -50,18 +50,19 @@ public class StartWs {
         PosThree = initializateBetContent(new int[]{20, 20, 2});
         //2.6个盘口，均分,例：牛牛
         PosSix = initializateBetContent(new int[]{1, 1, 1, 1, 1, 1});
+        PosSix = initializateBetContent(new int[]{1, 1, 1, 1, 1, 1});
         //3.8个盘口，例：奔驰宝马
         PosEight = initializateBetContent(new int[]{1, 1, 1, 1, 8, 8, 8, 8});
         //4.4个盘口，均分，例：骰宝
         PosFour = initializateBetContent(new int[]{1, 1, 1, 1});
 
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(2001, 0);//牛牛
-        map.put(2002, 0);//红黑
-        map.put(2003, 50);//龙虎
-        map.put(2004, 0);//百家乐
-        map.put(2005, 0);//奔驰宝马
-        map.put(2006, 0);//骰宝
+        map.put(2001, 10);//牛牛
+        map.put(2002, 10);//红黑
+        map.put(2003, 10);//龙虎
+        map.put(2004, 10);//百家乐
+        map.put(2005, 10);//奔驰宝马
+        map.put(2006, 10);//骰宝
         //List<String> user = new ArrayList<>(Arrays.asList("servant", "servant5", "servant10", "pp111", "servant101", "servant102"));
         List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/users.txt"));
         int index = 0;
@@ -81,10 +82,10 @@ public class StartWs {
             System.out.println(userName);
             HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);
             String wsUrl = String.format("ws://%s/gameServer/?TOKEN=tokenvalue&gameId=%s", new URL(host).getHost(), gameCode);
-            SendMessageSX sendMessageSX = new SendMessageSX(wsUrl, userName, gameCode, httpConfig);
-            excutors.execute(sendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
             try {
-                Thread.sleep(4 * 1000);
+                SendMessageSX sendMessageSX = new SendMessageSX(wsUrl, userName, gameCode, httpConfig);
+                excutors.execute(sendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
+                Thread.sleep(5 * 1000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -141,7 +142,7 @@ public class StartWs {
                 listBetGameContent.add(betGameContent);
             }
         }
-        System.out.println(listBetGameContent);
+        //System.out.println(listBetGameContent);
         return listBetGameContent;
     }
 }

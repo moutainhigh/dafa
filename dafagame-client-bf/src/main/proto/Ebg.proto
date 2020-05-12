@@ -1,0 +1,144 @@
+syntax = "proto2";
+
+package com.dafagame.protocol.ebg;
+
+//option optimize_for = LITE_RUNTIME;
+
+enum GameType {
+    EBG = 205;
+}
+
+//游戏场景的状态
+enum RoomStatus {
+    WaitPlayer = 0;     //等待玩家
+    CallBanker = 1;     //抢庄
+    Bet = 2;            //下注
+    SendCards = 3;      //发送牌，摇骰子
+    Lottery = 4;        //开牌并且结算
+}
+
+enum PlayerStatus{
+    //旁观
+    Bystander = 1;
+    //游戏中
+    Play = 2;
+}
+
+//空闲  开始倒计时5秒   抢庄5秒  下注5秒  发牌3秒  摊牌5秒  结算5秒
+enum ProtoType{
+    CallReqType = 20501;                //抢庄请求
+    CallResType = 20502;                //抢庄回应广播
+    CallNtfType = 20503;                //抢庄回应广播
+
+    BetReqType = 20504;                 //下注请求
+    BetResType = 20505;                 //下注回应广播
+    BetNtfType = 20506;                 //下注回应广播
+
+    StatusNtfType = 20507;              //切换状态的广播
+    SceneReqType = 20508;               //场景请求
+    SceneResType = 20509;               //场景回应
+    SceneNtfType = 20510;               //玩家进入桌子后第一个通知，包括其他玩家
+}
+
+enum ErrorCode {
+    Ok = 1;
+    MultipleError = 2;      //倍数错误
+    NotInPlaying = 3;       //不在游戏中
+    NotEnoughBalance = 4;   //余额不足
+    StatusError = 5;        //操作状态错误
+    NonePlayer = 6;         //玩家不存在
+}
+
+message CallReq{
+    optional int32 multiple = 1;    //倍数 0 不抢  3,⅓*200+2,2/3*200+1,200
+}
+
+message CallRes {
+    optional ErrorCode code = 1;
+}
+
+message CallNtf {
+    optional int32 seat = 1;
+    optional int32 multiple = 2;
+}
+
+message BetReq {
+    optional int32 multiple = 1;    //倍数 1/12 1/6 1/4 1/3
+}
+
+message BetRes {
+    optional ErrorCode code = 1;
+}
+
+message BetNtf {
+    optional int32 seat = 1;
+    optional int32 multiple = 2;
+}
+
+//二八杠玩家基础信息
+message PlayerInfo {
+    optional int32 seat = 1;
+    optional int32 grade = 2;           //vip
+    optional string nickName = 3;       //昵称
+    optional int32 avatar = 4;          //头像
+    optional string balance = 5;        //余额
+    optional int32 frame = 6;           //相框
+    optional int32 multiple = 7;        //倍数 庄家是庄家倍数，闲家是押注倍数
+    optional bool isOffLine = 8;        //是否断线
+}
+
+//玩家的牌
+message PlayerWinInfo {
+    required int32 seat = 1;            //桌子
+    required string userName = 2;       //玩家用户名
+    required int32 cardType = 3;        //类型 1.杂牌（几点，几点半） 2.28杠 3.宝 4.天王
+    required string cardValue = 4;      //牌描述
+    repeated int32 cards = 5;           //两张牌  0是白板 1-9是（一筒到九筒）
+    required string winMoney = 6;       //赢取金钱
+    required string tax = 7;            //服务费
+}
+
+//状态变更通知 空闲 等待开始 抢庄 下注 发牌 开牌
+message StatusNtf {
+    //common
+    required RoomStatus status = 1;     //状态信息
+    required int32 time = 2;            //状态设定时间
+    //call banker
+    required string inning = 4;         //局号
+    optional int32 loopTimes = 5;       //进行了几轮
+    //庄家信息 (庄家和闲家的杯水可以从players中multiple获取)
+    optional int32 bankerSeat = 6;      //庄家座位号码
+    optional int32 leftCard = 7;        //还剩牌的数量
+
+    //摇骰子后获取到的信息（sendCard）
+    optional int32 startSeat = 8;       //摇骰子后确定的开始座位
+    repeated int32 rice = 10;           //随机的骰子
+
+    //开牌开奖的信息 （lottery+end 状态）
+    repeated PlayerWinInfo wins = 9;        //获取结算的状态
+    repeated MultipleInfo multiples = 11; //玩家可以押注的列表 (押注和抢庄状态可用)
+}
+
+//玩家可以押注的列表
+message MultipleInfo {
+    required int32 seat = 1;                //座位号码
+    repeated int32 bankerMultiple = 2;      //庄家的抢庄倍数
+    repeated int32 betMultiple = 3;         //押注的倍数
+    optional int32 callBankerMultiple = 4;  //抢庄倍数
+    optional int32 callBetMultiple = 5;     //押注倍数
+}
+
+message SceneReq {
+
+}
+
+message SceneRes {
+    optional ErrorCode code = 1;    //错误码
+}
+
+//第一次进入发的场景通知
+message SceneNtf {
+    repeated PlayerInfo players = 1;    //玩家列表信息
+    required string roomId = 2;         //房间号码
+    optional StatusNtf status = 3;      //获取当前状态
+}

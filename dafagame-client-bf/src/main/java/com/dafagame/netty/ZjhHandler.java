@@ -1,11 +1,15 @@
 package com.dafagame.netty;
 
+import com.dafagame.dafaGameUtils.cardLogic.ZjhCard;
+import com.dafagame.dafaGameUtils.cardLogic.ZjhCards;
 import com.dafagame.enums.Action;
 import com.dafagame.proto.BjlMsg;
 import com.dafagame.protocol.gate.Gate;
 import com.dafagame.protocol.world.World;
 import com.dafagame.protocol.zjh.Zjh;
+import com.dafagame.utils.RandomUtil;
 import com.google.protobuf.ByteString;
+import com.google.protobuf.ProtocolStringList;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
@@ -16,9 +20,12 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang.StringUtils;
 import pers.utils.StringUtils.StringBuilders;
+import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
 
+import java.io.File;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -32,9 +39,10 @@ public class ZjhHandler extends GameHandler {
     private boolean isScenesReq = false;//是否进入场景
     @Setter
     @Getter
-    private HttpConfig httpConfig;//是否进入场景
+    private HttpConfig httpConfig;
 
-    private int currentPlayersNum = 0; //当前 玩家数量
+    private int currentPlayersNum = 0; //当前玩家数量
+    private int startPlayersNum = 0; //游戏开始时的玩家数量
 
     private String baseChip; //底注，基础筹码
 
@@ -52,16 +60,29 @@ public class ZjhHandler extends GameHandler {
 
     private int cardType = 0;
 
-    private RobotLogic robotLogic;
+    //private RobotLogic robotLogic;
+
+    private ZjhCards zjhCards;
+
+    private List<Integer> players;
+
+    private String inning = "";
+
+    private boolean isInGame = false;
+
+    private int compareRing = 0; //比牌的轮次
+
+    private double winAmount = 0;
+    private double bettingAmount = 0;
 
     //private final static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
     private double ownBalance;
 
-    public ZjhHandler() {
-        robotLogic = new RobotLogic();
-        robotLogic.action[0] = 1;
-    }
+    //public ZjhHandler() {
+    //    robotLogic = new RobotLogic();
+    //    robotLogic.action[0] = 1;
+    //}
 
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) {
@@ -82,7 +103,6 @@ public class ZjhHandler extends GameHandler {
                     bytes[i] = buf.getByte(i);
                 }
                 Gate.ClientMsg clientMsg = Gate.ClientMsg.parseFrom(bytes);
-                //handlerManager.handler(ctx.channel(),clientMsg);
                 System.out.println("proto：" + clientMsg.getProto() + "-----------------------------------------------------------------------------");
                 switch (clientMsg.getProto()) {
                     case Gate.ProtoType.GateResType_VALUE:  //登陆成功通知
@@ -102,7 +122,7 @@ public class ZjhHandler extends GameHandler {
                             World.EnterGameReq enterGameReq = World.EnterGameReq
                                     .newBuilder()
                                     .setGameCode("201") //游戏
-                                    .setRoundType("102") //倍数场 101四倍场，102十倍场
+                                    .setRoundType("104") //
                                     .build();
                             sendBf(enterGameReq.toByteString(), World.ProtoType.EnterGameReqType_VALUE, channel);//发送消息
                             System.out.println(World.ProtoType.EnterGameReqType_VALUE + "进入游戏请求 send Success");
@@ -155,12 +175,28 @@ public class ZjhHandler extends GameHandler {
                         }
                         break;
 
+                    case Zjh.ProtoType.WaittingStartNtfType_VALUE: //等待开局5秒通知
+                        Zjh.WaittingStartNtf waittingStartNtf = Zjh.WaittingStartNtf.parseFrom(clientMsg.getData());
+                        System.out.println(
+                                StringBuilders.custom()
+                                        .add("【等待开始5秒通知】")
+                                        .add("等待时间", waittingStartNtf.getTime())
+                                        .build()
+                        );
+                        break;
+
                     case Zjh.ProtoType.StartGameNtfType_VALUE://游戏开始通知
                         Zjh.StartGameNtf startNtfType = Zjh.StartGameNtf.parseFrom(clientMsg.getData());
                         this.isSeeCard = false;
                         this.ring = 0;
-                        currentPlayersNum = startNtfType.getGamePlayersList().size(); //当前参与游戏的玩家数
-                        System.out.println("游戏开始通知,玩家数:" + currentPlayersNum);
+                        this.players = new ArrayList<>(startNtfType.getGamePlayersList());
+                        this.inning = startNtfType.getInning();
+                        this.isInGame = true;
+                        this.currentPlayersNum = startNtfType.getGamePlayersList().size(); //当前参与游戏的玩家数
+                        this.startPlayersNum = this.currentPlayersNum;
+                        this.compareRing = 0;
+                        this.bettingAmount = 0;
+                        System.out.println("游戏开始通知,玩家数:" + this.currentPlayersNum);
                         System.out.println(
                                 StringBuilders.custom()
                                         .add("【游戏开始通知】")
@@ -175,25 +211,15 @@ public class ZjhHandler extends GameHandler {
                         }
                         break;
 
-                    case Zjh.ProtoType.WaittingStartNtfType_VALUE: //等待开局5秒通知
-                        Zjh.WaittingStartNtf waittingStartNtf = Zjh.WaittingStartNtf.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("【等待开始5秒通知】")
-                                        .add("等待时间", waittingStartNtf.getTime())
-                                        .build()
-                        );
-                        break;
-
                     case Zjh.ProtoType.EnterRoomNtfType_VALUE://玩家进入房间通知
                         Zjh.EnterRoomNtf enterRoomNtf = Zjh.EnterRoomNtf.parseFrom(clientMsg.getData());
-                        System.out.println(
-                                StringBuilders.custom()
-                                        .add("【玩家进入房间通知】")
-                                        .add("昵称", enterRoomNtf.getPlayer().getNickName())
-                                        .add("进入房间的玩家", enterRoomNtf.getPlayer())
-                                        .build()
-                        );
+                        //System.out.println(
+                        //        StringBuilders.custom()
+                        //                .add("【玩家进入房间通知】")
+                        //                .add("昵称", enterRoomNtf.getPlayer().getNickName())
+                        //                .add("进入房间的玩家", enterRoomNtf.getPlayer())
+                        //                .build()
+                        //);
                         break;
 
                     case Zjh.ProtoType.ExitRoomNtfType_VALUE://玩家退出房间通知
@@ -209,7 +235,6 @@ public class ZjhHandler extends GameHandler {
                     case Zjh.ProtoType.NextActionNtfType_VALUE://下一个操作玩家
                         Zjh.NextActionNtf nextActionNtf = Zjh.NextActionNtf.parseFrom(clientMsg.getData());
                         this.ring = nextActionNtf.getRing();
-
                         System.out.println(
                                 StringBuilders.custom()
                                         .add("【下一个操作玩家通知】")
@@ -232,6 +257,13 @@ public class ZjhHandler extends GameHandler {
                         Zjh.SeeCardRes seeCardRes = Zjh.SeeCardRes.parseFrom(clientMsg.getData());
                         this.isSeeCard = true;
                         this.cardType = seeCardRes.getCardsType(); //牌型
+                        String cards = seeCardRes.getCards();
+                        List<ZjhCard> zjhCardList = new ArrayList<>();
+                        for (String s : cards.split(",")) {
+                            zjhCardList.add(ZjhCard.getZjhCard(Integer.parseInt(s)));
+                        }
+                        this.zjhCards = new ZjhCards(zjhCardList);
+
                         System.out.println(
                                 StringBuilders.custom()
                                         .add("【看牌回应】")
@@ -239,6 +271,7 @@ public class ZjhHandler extends GameHandler {
                                         .add("牌型", seeCardRes.getCardsType())
                                         .build()
                         );
+
                         break;
                     case Zjh.ProtoType.SeeCardNtfType_VALUE://看牌广播
                         Zjh.SeeCardNtf seeCardNtf = Zjh.SeeCardNtf.parseFrom(clientMsg.getData());
@@ -269,6 +302,24 @@ public class ZjhHandler extends GameHandler {
                                         .add("真人数量", compareResNtf.getRealCount())
                                         .build()
                         );
+                        if (compareResNtf.getOpt() == this.ownSeatId || compareResNtf.getOther() == this.ownSeatId) {
+                            //if (compareResNtf.getWinner() != this.ownSeatId) {
+                            //
+                            //}
+                            this.compareRing = this.ring;
+                        }
+
+                        if (compareResNtf.getOpt() == this.ownSeatId) {
+                            bettingAmount += Double.parseDouble(compareResNtf.getBetChip());
+                        }
+                        //移除比牌输的玩家
+                        if (players != null) {
+                            if (compareResNtf.getWinner() == compareResNtf.getOpt())
+                                players.remove((Integer) compareResNtf.getOther());
+                            else
+                                players.remove((Integer) compareResNtf.getOpt());
+                        }
+
                         /**
                          * 1.被比牌玩家不扣钱
                          *
@@ -287,13 +338,12 @@ public class ZjhHandler extends GameHandler {
                             if (compareResNtf.getWinner() == this.ownSeatId)
                                 this.ownBalance -= Double.parseDouble(compareResNtf.getBetChip());
                         }
-
                         break;
 
                     case Zjh.ProtoType.GiveUpResNtfType_VALUE://弃牌回应/广播
                         Zjh.GiveUpResNtf giveUpResNtf = Zjh.GiveUpResNtf.parseFrom(clientMsg.getData());
                         currentPlayersNum--;
-                        System.out.println("弃牌，当前游戏玩家数" + currentPlayersNum);
+                        System.out.println("弃牌回应/广播，当前游戏玩家数" + currentPlayersNum);
                         System.out.println(
                                 StringBuilders.custom()
                                         .add("【弃牌回应/广播】")
@@ -303,6 +353,10 @@ public class ZjhHandler extends GameHandler {
                                         .add("真人数量", giveUpResNtf.getRealCount())
                                         .build()
                         );
+                        //移除弃牌的玩家
+                        if (players != null) {
+                            players.remove((Integer) giveUpResNtf.getOpt());
+                        }
                         break;
 
 
@@ -334,8 +388,36 @@ public class ZjhHandler extends GameHandler {
                         );
                         if (gameOverNtf.getWinner() == this.ownSeatId)
                             this.ownBalance += Double.parseDouble(gameOverNtf.getReturnAmount());
-
                         System.out.println("结算时余额：" + this.ownBalance);
+                        //牌值和牌型
+                        ProtocolStringList cardsList = gameOverNtf.getCardsList();
+                        StringBuilder sb = new StringBuilder();
+                        if (!this.isInGame) {
+                            break;
+                        }
+
+                        String isWin;
+                        if (gameOverNtf.getWinner() == this.ownSeatId) {
+                            isWin = "win";
+                            winAmount = Double.parseDouble(gameOverNtf.getReturnAmount());
+                        } else {
+                            isWin = "lost";
+                            winAmount = -(10 + bettingAmount);
+                        }
+                        //sb.append(this.inning + " - " + this.ring + " - " + this.compareRing + " - slef【" + this.zjhCards + " , " + this.zjhCards.type + "】");
+                        sb.append(this.inning + ";" + this.startPlayersNum + ";" + this.ring + ";" + this.compareRing + ";" + this.zjhCards + ";" + isWin + ";" + winAmount);
+                        //for (int i = 0; i < cardsList.size(); i++) {
+                        //    List<ZjhCard> zjhCardList0 = new ArrayList<>();
+                        //    for (String s : cardsList.get(i).split(",")) {
+                        //        zjhCardList0.add(ZjhCard.getZjhCard(Integer.parseInt(s)));
+                        //    }
+                        //    ZjhCards zjhCards0 = new ZjhCards(zjhCardList0);
+                        //    sb.append(";" + zjhCards0 + "," + zjhCards0.type + "");
+                        //}
+                        System.out.println(sb.append("\n").toString());
+                        this.isInGame = false;
+                        //FileUtil.writeFile("/usr/duke/a.txt", sb.toString(), true);
+                        FileUtil.writeFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/a.txt", sb.toString(), true);
                         break;
 
                     case Zjh.ProtoType.BetResNtfType_VALUE://下注响应/广播
@@ -353,9 +435,9 @@ public class ZjhHandler extends GameHandler {
 
                         if (ownSeatId == betRes.getOpt()) { //自己下注
                             ownBalance = ownBalance - Double.parseDouble(betRes.getBetChip());
+                            bettingAmount += Double.parseDouble(betRes.getBetChip());
                         }
                         break;
-
                     case Zjh.ProtoType.StudResNtfType_VALUE://梭哈回应/广播
                         Zjh.StudResNtf studResNtf = Zjh.StudResNtf.parseFrom(clientMsg.getData());
                         System.out.println(
@@ -383,8 +465,18 @@ public class ZjhHandler extends GameHandler {
                                         .add("知否暗牌", followStudResNtf.getRing())
                                         .build()
                         );
+                        break;
 
-
+                    case Zjh.ProtoType.SystemCompareNtfType_VALUE://系统比牌广播
+                        Zjh.SystemCompareNtf systemCompareNtf = Zjh.SystemCompareNtf.parseFrom(clientMsg.getData());
+                        System.out.println(
+                                StringBuilders.custom()
+                                        .add("【系统比牌广播】")
+                                        .add("赢家", systemCompareNtf.getWinner())
+                                        .add("各自比牌结果", systemCompareNtf.getInfoList())
+                                        .add("游戏是否结束", systemCompareNtf.getIsOver())
+                                        .build()
+                        );
                         break;
 
                     case World.ProtoType.ErrorNtfType_VALUE://错误消息通知
@@ -417,71 +509,216 @@ public class ZjhHandler extends GameHandler {
             }
 
             try {
-                Thread.sleep(3 * 1000);
+                Thread.sleep(3 * 1000);//等看牌回应
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            //第一轮下注
-            if (this.ring == 0) { //第一轮只能下注，不能比牌
-                String currentBetChip = isSeeCard ? String.valueOf(Double.parseDouble(baseChip) * 2) : baseChip;
-                System.out.println("currentBetChip:" + currentBetChip);
-                Zjh.BetReq betReqFist = Zjh.BetReq.newBuilder()
-                        .setChip(currentBetChip)
-                        .build();
-                sendBf(betReqFist.toByteString(), Zjh.ProtoType.BetReqType_VALUE, channel);
-                System.out.println("首次下注成功");
-                return;
-            }
+            ////第一轮下注
+            //if (this.ring == 0) { //第一轮只能下注，不能比牌
+            //    flowBet(channel);
+            //    System.out.println("****** 第一轮下注成功 ******");
+            //    return;
+            //}
             //梭哈
-            if (this.currentPlayersNum == 2 && this.cardType > 3) {
-                Zjh.StudReq studReq = Zjh.StudReq.newBuilder().build();
-                sendBf(studReq.toByteString(), Zjh.ProtoType.StudReqType_VALUE, channel);
-                System.out.println("******梭哈请求******:");
-            }
-
-            //下注
-            String currentBetChip = isSeeCard ? String.valueOf(Double.parseDouble(baseChip) * 2) : baseChip;
-            System.out.println("currentBetChip:" + currentBetChip);
-            Zjh.BetReq betReq = Zjh.BetReq.newBuilder()
-                    .setChip(currentBetChip)
-                    .build();
-
-            sendBf(betReq.toByteString(), Zjh.ProtoType.BetReqType_VALUE, channel); //20102
-            System.out.println("******下注请求******:" + baseChip);
-
-
+            //if (this.currentPlayersNum == 2 && this.cardType > 3) {
+            //    Zjh.StudReq studReq = Zjh.StudReq.newBuilder().build();
+            //    sendBf(studReq.toByteString(), Zjh.ProtoType.StudReqType_VALUE, channel);
+            //    System.out.println("******梭哈请求******:");
+            //}
+            //flowBet(channel);
+            //comparePoker(channel);
+            playPokers(channel);
         }).start();
-
-        ////跟到底请求
-        //Zjh.FollowEndReq followEndReq = Zjh.FollowEndReq.newBuilder().build();
-        //sendBf(followEndReq.toByteString(), Zjh.ProtoType.FollowEndReqType_VALUE, channel);
-        //
-        ////看牌
-        //Zjh.SeeCardReq seeCardReq = Zjh.SeeCardReq.newBuilder().build();
-        //sendBf(seeCardReq.toByteString(), Zjh.ProtoType.SeeCardReqType_VALUE, channel);
-        //
-        ////选择比牌请求
-        //Zjh.CompareReq compareReq = Zjh.CompareReq.newBuilder().build();
-        //sendBf(compareReq.toByteString(), Zjh.ProtoType.CompareReqType_VALUE, channel);
-        //
-        ////弃牌
-        //Zjh.GiveUpReq giveUpReq = Zjh.GiveUpReq.newBuilder().build();
-        //sendBf(giveUpReq.toByteString(), Zjh.ProtoType.GiveUpReqType_VALUE, channel);
-        //
-        ////梭哈
-        //Zjh.StudReq studReq = Zjh.StudReq.newBuilder().build();
-        //sendBf(studReq.toByteString(), Zjh.ProtoType.StudReqType_VALUE, channel);
-        //
-        ////全下请求
-        //Zjh.AllInReq allInReq = Zjh.AllInReq.newBuilder().build();
-        //sendBf(allInReq.toByteString(), Zjh.ProtoType.AllInReqType_VALUE, channel);
-        //
-        ////跟梭哈
-        //Zjh.FollowStudReq followStudReq = Zjh.FollowStudReq.newBuilder().build();
-        //sendBf(followStudReq.toByteString(), Zjh.ProtoType.FollowStudReqType_VALUE, channel);
-
     }
+
+    /**
+     * cardType : 235(0)，单张(1)，对子(2)，顺子(3)，金花(4)
+     * 金花及以上，或者顺子大于9，跟到底
+     * 顺子> 9跟8-14轮 比牌
+     * 顺子<= 9跟5-10轮 比牌
+     * 对子> 9跟5-10轮 比牌
+     * 对子<=9跟3-6轮 比牌
+     * 单张<=12弃牌
+     * 单张> 12跟1-2轮弃牌
+     */
+    public void playPokers(Channel channel) {
+        if (this.cardType > 3) {
+            flowBet(channel);
+        } else if (this.cardType == 3) { //顺子
+            if (this.zjhCards.maxCard.power > 9) {
+                if (this.startPlayersNum > 3) { //开局人数大于3
+                    if (this.ring < 5) {
+                        flowBet(channel);
+                    } else if (this.ring < 10) {
+                        if (RandomUtil.random(2) == 1) {
+                            flowBet(channel);
+                        } else {
+                            comparePoker(channel);
+                        }
+                    } else {
+                        comparePoker(channel);
+                    }
+                } else {
+                    if (this.ring < 8) {
+                        flowBet(channel);
+                    } else if (this.ring < 14) {
+                        if (RandomUtil.random(2) == 1) {
+                            flowBet(channel);
+                        } else {
+                            comparePoker(channel);
+                        }
+                    } else {
+                        comparePoker(channel);
+                    }
+                }
+            } else { //顺子小于9
+                if (this.startPlayersNum > 3) { //开局人数大于3
+                    if (this.ring < 3) {
+                        flowBet(channel);
+                    } else if (this.ring < 6) {
+                        if (RandomUtil.random(2) == 1) {
+                            flowBet(channel);
+                        } else {
+                            comparePoker(channel);
+                        }
+                    } else {
+                        comparePoker(channel);
+                    }
+                } else {
+                    if (this.ring < 5) {
+                        flowBet(channel);
+                    } else if (this.ring < 8) {
+                        if (RandomUtil.random(2) == 1) {
+                            flowBet(channel);
+                        } else {
+                            comparePoker(channel);
+                        }
+                    } else {
+                        comparePoker(channel);
+                    }
+                }
+            }
+        } else if (this.cardType == 2) { //对子
+            if (this.zjhCards.midCard.power > 9) {
+                if (this.startPlayersNum > 3) { //开局人数大于3
+                    if (this.ring < 3) {
+                        flowBet(channel);
+                    } else if (this.ring < 6) {
+                        if (RandomUtil.random(2) == 1) {
+                            flowBet(channel);
+                        } else {
+                            comparePoker(channel);
+                        }
+                    } else {
+                        comparePoker(channel);
+                    }
+                } else {//开局人数 <= 3
+                    if (this.ring < 5) {
+                        flowBet(channel);
+                    } else if (this.ring < 10) {
+                        if (RandomUtil.random(2) == 1) {
+                            flowBet(channel);
+                        } else {
+                            comparePoker(channel);
+                        }
+                    } else {
+                        comparePoker(channel);
+                    }
+                }
+            } else { //对子小于9
+                if (this.startPlayersNum > 3) {
+                    if (this.ring < 1) {
+                        flowBet(channel);
+                    } else if (this.ring < 3) {
+                        if (RandomUtil.random(2) == 1) {
+                            flowBet(channel);
+                        } else {
+                            comparePoker(channel);
+                        }
+                    } else {
+                        comparePoker(channel);
+                    }
+                } else {
+                    if (this.ring < 3) {
+                        flowBet(channel);
+                    } else if (this.ring < 4) {
+                        if (RandomUtil.random(2) == 1) {
+                            flowBet(channel);
+                        } else {
+                            comparePoker(channel);
+                        }
+                    } else {
+                        comparePoker(channel);
+                    }
+                }
+            }
+        } else if (this.cardType == 1 && this.zjhCards.maxCard.power > 12) {
+            if (this.startPlayersNum > 3) { //开局人数大于3
+                giveUpPoker(channel);
+            }
+            if (this.ring < 1) {
+                flowBet(channel);
+            }
+            //else if (this.ring < 2) {
+            //    if (RandomUtil.random(2) == 1) {
+            //        flowBet(channel);
+            //    } else {
+            //        comparePoker(channel);
+            //    }
+            //}
+            else {
+                comparePoker(channel);
+            }
+        } else {
+            giveUpPoker(channel);
+        }
+    }
+
+    ////跟到底请求
+    //Zjh.FollowEndReq followEndReq = Zjh.FollowEndReq.newBuilder().build();
+    //sendBf(followEndReq.toByteString(), Zjh.ProtoType.FollowEndReqType_VALUE, channel);
+    //
+    //梭哈
+    //Zjh.StudReq studReq = Zjh.StudReq.newBuilder().build();
+    //sendBf(studReq.toByteString(), Zjh.ProtoType.StudReqType_VALUE, channel);
+    //
+    ////全下请求
+    //Zjh.AllInReq allInReq = Zjh.AllInReq.newBuilder().build();
+    //sendBf(allInReq.toByteString(), Zjh.ProtoType.AllInReqType_VALUE, channel);
+    //
+    ////跟梭哈
+    //Zjh.FollowStudReq followStudReq = Zjh.FollowStudReq.newBuilder().build();
+    //sendBf(followStudReq.toByteString(), Zjh.ProtoType.FollowStudReqType_VALUE, channel);
+    private void flowBet(Channel channel) {
+        String currentBetChip = isSeeCard ? String.valueOf(Double.parseDouble(baseChip) * 2) : baseChip;
+        System.out.println("currentBetChip:" + currentBetChip);
+        Zjh.BetReq betReq = Zjh.BetReq.newBuilder()
+                .setChip(currentBetChip)
+                .build();
+        sendBf(betReq.toByteString(), Zjh.ProtoType.BetReqType_VALUE, channel); //20102
+        System.out.println("******跟注请求******:" + baseChip);
+    }
+
+    private void comparePoker(Channel channel) {
+        if (players.size() != 0) {
+            int zeroIndex = players.get(0);
+            if (zeroIndex == this.ownSeatId) {
+                zeroIndex = players.get(1);
+            }
+            System.out.println("zeroIndex:" + zeroIndex);
+            Zjh.CompareReq compareReq = Zjh.CompareReq.newBuilder().setOther(zeroIndex).build();
+            sendBf(compareReq.toByteString(), Zjh.ProtoType.CompareReqType_VALUE, channel);
+            System.out.println("******比牌请求****** 比牌座位 : " + zeroIndex);
+        }
+    }
+
+    private void giveUpPoker(Channel channel) {
+        Zjh.GiveUpReq giveUpReq = Zjh.GiveUpReq.newBuilder().build();
+        sendBf(giveUpReq.toByteString(), Zjh.ProtoType.GiveUpReqType_VALUE, channel);
+        System.out.println("******弃牌请求******");
+    }
+
 
     /**
      * send方法
@@ -500,6 +737,7 @@ public class ZjhHandler extends GameHandler {
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         //super.channelInactive(ctx);
         System.out.println("channelInactive");
+        //ctx.channel()
     }
 
     @Override

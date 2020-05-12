@@ -16,7 +16,7 @@ public interface LotteryBettingInfoMapper {
             ",user_name userName" +
             ",record_code recordCode" +
             ",lottery_code lotteryCode" +
-            ",play_detail_code lotteryCode" +
+            ",play_detail_code playDetailCode" +
             ",issue issue" +
             ",betting_number bettingNumber" +
             ",betting_amount bettingAmount" +
@@ -35,10 +35,10 @@ public interface LotteryBettingInfoMapper {
             ",created_date createdDate" +
             ",gmt_created gmtCreated" +
             ",gmt_modified gmtModified from dafacloud_betting.betting_orders_info_${tableName} " +
-            "where created_date = '2020-02-13' " +
-            "        and issue = 202002130202 " +
-            "        and is_test = 0" +
-            "        and lottery_code = '0101' ")
+            "where is_test = 0 " +
+            "and lottery_code  = 1407 " +
+            "and gmt_created > '2020-04-06' " +
+            "; ")
     List<Map> getLotteryBetingInfo(@Param("tableName") String table);
 
     List<Map> getLotteryBetingInfoDx(@Param("tableName") String table, @Param("date") String date, @Param("maxId") String maxId);

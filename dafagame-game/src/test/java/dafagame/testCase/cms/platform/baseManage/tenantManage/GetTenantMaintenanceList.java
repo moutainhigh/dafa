@@ -16,7 +16,7 @@ public class GetTenantMaintenanceList {
     public static void test01() {
         String url = UrlBuilder.custom()
                 .url(getTenantMaintenanceList)
-                .addBuilder("tenantCode", "duke")
+                .addBuilder("tenantCode.txt", "duke")
                 .fullUrl();
         String result = DafaRequest.get(1, url);
         JSONObject jsonResult = JSONObject.fromObject(result);

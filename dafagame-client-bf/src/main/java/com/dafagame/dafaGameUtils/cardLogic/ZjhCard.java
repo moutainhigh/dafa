@@ -14,7 +14,7 @@ public enum ZjhCard {
      * 方块 A - K,0-12
      */
     FANG_KUAI_A(14, 1, CardSuit.FANG_KUAI, 4),
-    FANG_KUAI_ER(15, 2, CardSuit.FANG_KUAI, 8),
+    FANG_KUAI_ER(2, 2, CardSuit.FANG_KUAI, 8),
     FANG_KUAI_SAN(3, 3, CardSuit.FANG_KUAI, 12),
     FANG_KUAI_SI(4, 4, CardSuit.FANG_KUAI, 16),
     FANG_KUAI_WU(5, 5, CardSuit.FANG_KUAI, 20),

@@ -21,7 +21,7 @@ public class CmsBankerGameRecord {
         String result = DafaRequest.get(1,
                 UrlBuilder.custom()
                         .url(path)
-                        .addBuilder("tenantCode", "10")//厅主编码
+                        .addBuilder("tenantCode.txt", "10")//厅主编码
                         .addBuilder("userName", "")
                         .addBuilder("gameCode", "") //101 百人牛牛，102
                         .addBuilder("gameState", "") // 结果 1输，2赢，0游戏中，3系统撤单

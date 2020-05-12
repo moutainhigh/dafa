@@ -1,0 +1,63 @@
+@startuml
+abstract Drink{
+  String desc
+  float price
+  abstract float cost()
+}
+
+class Coffee {
+    float cost()
+'    {
+'        return super.getPrice();
+'    }
+}
+
+class LongBlack{
+    LongBlack()
+'    setDesc("美式咖啡");
+'    setPrice(5.0f);
+}
+class Espresso {
+    public Espresso()
+'    {
+'        setDesc("意大利咖啡");
+'        setPrice(6.0f);
+'    }
+}
+
+Drink <|-- Coffee
+
+Coffee <|-- LongBlack
+Coffee <|-- Espresso
+
+ class Decorator {
+    Drink drink;
+    Decorator(Drink drink)
+'    {
+'        this.drink = drink;
+'    }
+    float cost()
+'    {
+'        return super.getPrice() + drink.cost();
+'    }
+    String getDesc()
+'    {
+'        return drink.getDesc() + " " + " & " + super.desc + super.getPrice();
+'    }
+}
+Drink <|-- Decorator
+
+
+class Chocolate {
+
+     Chocolate(Drink drink)
+'     {
+'        super(drink);
+'        setDesc("巧克力");
+'        setPrice(1.0f); //调味品的价格
+'    }
+}
+
+Decorator <|-- Chocolate
+
+@enduml

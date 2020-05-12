@@ -122,7 +122,7 @@ public class DataSourceConfig {
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         // 实体类对应的位置
         bean.setTypeAliasesPackage("pers.dafacloud.model");
-        System.out.println("clusterSqlSessionFactory：加载mapper配置路径");
+        //System.out.println("clusterSqlSessionFactory：加载mapper配置路径");
         // mybatis的XML的配置
         bean.setMapperLocations(resolver.getResources("classpath:/mapper/*.xml"));
         return bean.getObject();

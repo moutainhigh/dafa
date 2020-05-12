@@ -1,0 +1,207 @@
+syntax = "proto2";
+package com.dafagame.protocol.qzpj;
+
+enum GameType{
+    QZPJ = 206;
+}
+
+enum Card{
+    C0 = 0; //丁三
+    C1 = 1;//二四
+    C2 = 2;//杂五1 + 4
+    C3 = 3;//杂五2 + 3
+    C4 = 4;//杂七3 + 4
+    C5 = 5;//杂七2 + 5
+    C6 = 6;//杂八3 + 5
+    C7 = 7;//杂八2 + 6
+    C8= 8;//杂九4 + 5
+    C9 = 9;//杂九3 + 6
+    C10 = 10;//零霖六
+    C11 = 11;//高脚七
+    C12 = 12;//红头
+    C13 = 13;//斧头
+    C14 = 14;//板凳
+    C15 = 15;//长三
+    C16 = 16;//梅牌
+    C17 = 17;//和牌
+    C18 = 18;//人牌
+    C19 = 19;//地牌
+    C20 = 20; //天牌
+}
+
+//enum CardType{
+//    S0 = 0;//"点牌", 0
+//    S1 = 1; //("地高九", 1),
+//    S2 = 2;//("天高九", 2),
+//    S3 = 3;//("地杠", 3),
+//    S4 = 4; //("天杠", 4),
+//    S5 = 5; //("地王", 5),
+//    S6 = 6;//("天王", 6),
+//    S7 = 7; //("杂五", 7),
+//    S8 = 8;//("杂七", 8),
+//    S9 = 9;//("杂八", 9),
+//    S10 = 10; //("杂九", 10),
+//    S11 = 11;//("双零霖", 11),
+//    S12 = 12;//("双高脚", 12),
+//    S13 = 13;//("双红头", 13),
+//    S14 = 14;//("双斧头", 14),
+//    S15 = 15;//("双板凳", 15),
+//    S16 = 16; //("双长三", 16),
+//    S17 = 17;//("双梅", 17),
+//    S18 = 18;//("双和", 18),
+//    S19 = 19; //("双人", 19),
+//    S20 = 20; //("双地", 20),
+//    S21 = 21;//("双天", 21),
+//    S22 = 22;//("至尊宝", 22),
+//}
+
+
+
+enum RoomStatus{
+    Idel = 1;
+    March = 2; //每次匹配固定单元时间 时间到了 >= 2  人 游戏开始，或者人数 满 5人跳过剩余时间直接开始
+    CallBanker = 3; //从展示开始游戏动画 到 抢庄结束
+   // RandomBanker = 4;
+    Bet = 5; //如果随机庄家 包含随机庄家时间2秒
+    SendCard = 6; //从摇骰盅 到 开牌结束
+    Lottery = 7; //结算表现完成 (第二轮结束带面板数据)
+    Waiting = 8; //等待下一轮开始
+}
+
+enum PlayerStatus{
+    //旁观
+    Bystander = 1;
+    //游戏中
+    Play = 2;
+}
+
+enum ProtoType{
+    ScenesReqType = 20601;              //场景请求
+    ScenesResType = 20602;              //场景请求回应
+
+    CallReqType = 20603;
+    CallResNtfType = 20604;
+
+    BetReqType = 20613;
+    BetResNtfType = 20614;
+
+    PlayerExitNtfType = 20611;          //玩家退出广播
+    PlayerEnterNtfType = 20612;         //玩家进入广播
+
+    StatusNtfType = 20615;              //状态转换广播
+
+    LotteryNtfType = 20616;
+}
+
+enum ErrorCode{
+    Ok = 1;
+    MultipleError = 2;      //倍数错误
+    NotInPlaying = 3;       //不在游戏中
+    StatusError = 4;        //操作状态错误
+}
+message ScenesReq{
+}
+
+message ScenesRes{
+    optional string roundType = 1;      //场次类型
+    optional string roomNumber = 2;     //房号
+    optional string inning = 3;         //局号
+    optional RoomStatus roomStatus = 4; //房间状态
+    repeated PlayerInfo others = 5;     //其他玩家信息
+    optional int32 banker = 6;          //庄家
+    optional int32 bankerMultiple = 7;  //庄家抢庄倍数
+    repeated int32 bankerMultiList = 8; //抢庄倍数配置
+    repeated int32 betMultiList = 9;    //下注倍数配置
+    optional int32 baseLimit = 10;      //底分
+    optional int64 countDown = 11;      //状态倒计时
+    optional PlayerInfo own = 12;       //玩家自己信息
+    repeated int32 usedCards = 13;      //用过的牌
+    optional int32 ring = 14;           //第几轮
+    optional int32 dice = 15;
+    repeated PlayerCardInfo cardInfos = 16;//给玩家发的牌
+    optional bool isRandomBanker = 17;
+}
+
+message CallReq{
+    optional int32 multiple = 1;    //倍数 0 不抢 1 2 3 4
+}
+
+message CallResNtf{
+    optional int32 opt = 1;         //操作玩家
+    optional int32 multiple = 2;    //倍数
+    optional ErrorCode code = 3;
+}
+
+message BetReq{
+    optional int32 multiple = 1;    //下注倍数
+}
+
+message BetResNtf{
+    optional int32 opt = 1;         //操作玩家
+    optional int32 multiple = 2;    //下注倍数
+    optional ErrorCode code = 3;
+}
+
+message PlayerInfo{
+    optional int32 seat = 1;            //座位
+    optional int32 grade = 2;           //vip
+    optional string nickName = 3;       //昵称 自己的昵称用进入游戏通过接口获取的
+    optional int32 avatar = 4;          //头像
+    optional string balance = 5;        //余额
+    optional int32 frame = 6;           //相框
+    optional int32 betMultiple = 7;     //下注倍数
+    optional bool isOffLine = 8;        //是否断线
+    optional PlayerStatus status = 9;   //玩家状态
+    repeated int32 cards = 10;         //牌
+    optional string cardType = 11;      //牌型
+    optional int32 bankerMultiple = 13;   //叫庄倍数
+}
+
+message PlayerExitNtf{
+    optional int32 seat = 1;
+}
+message PlayerEnterNtf{
+    optional PlayerInfo player = 1;
+}
+
+
+message StatusNtf{
+    optional RoomStatus status = 1;
+    optional int32 time = 2;        //状态设定时间
+    optional string inning = 3;     //局号
+    optional int32 banker = 4;      //庄家
+    optional int32 bankerMulti =5; //庄家倍数
+    repeated int32 players = 6;     //参与游戏的玩家座位号
+    repeated PlayerCardInfo cardInfos = 7;//给玩家发的牌
+    optional bool isRandomBanker = 8; //是否随机庄家
+    optional int32 ring = 9;        //轮数
+    optional int32 dice = 10;       //骰子点数
+    repeated LotteryInfo info = 11; //当局结束时展示面板数据
+    optional bool isOver = 12;       //当局是否结束，等待匹配下一局
+    optional bool isOpenKill = 13;
+}
+
+message PlayerCardInfo{
+    repeated int32 cards = 1;         //牌
+    optional string cardType = 2;      //牌型
+    optional int32 seat = 3;            //座位
+}
+
+message LotteryNtf{
+    optional int32 ring = 1;        //当前轮数
+    repeated string returnAmount = 2;
+    repeated string balance = 3;
+    repeated int32 usedCards = 6;
+}
+
+message LotteryInfo{
+    optional int32 seat = 1;
+    optional string initBalance = 2;
+    optional string cardType = 3;
+    optional int32 bankerMulti = 4;
+    optional bool isBanker = 5;
+    optional int32 betMulti = 6;
+    optional string returnAmount = 7;
+    optional int32 ring = 8;
+    optional string nickName = 9;//展示时将自己的昵称替换为非过滤的昵称
+}

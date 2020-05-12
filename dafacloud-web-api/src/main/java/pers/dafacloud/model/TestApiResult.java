@@ -35,6 +35,8 @@ public class TestApiResult {
 
     private String testBatch;
 
+    private String assertContent;
+
     private int pageNum;
     private int pageSize;
 

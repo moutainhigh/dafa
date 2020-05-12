@@ -2,8 +2,10 @@ package pers.dafagame.dafagameUtils;
 
 public interface Constants {
 
-    //String host = "http://game.caishenzhengba.net";
-    //String host = "http://game.vozzbcgg28.com";
-    String host = "http://game.vozzbcgg28.com";
+    //String HOST = "http://game.caishenzhengba.net";
+    //String HOST = "http://game.vozzbcgg28.com";
+    //String HOST = "http://game.vozzbcgg28.com";
+    String HOST = "http://game.dafagame-test.com";
+    //String HOST = "http://game.dafagame-pre.com";
 
 }

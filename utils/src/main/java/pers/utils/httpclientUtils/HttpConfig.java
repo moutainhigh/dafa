@@ -10,6 +10,7 @@ import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.protocol.HttpContext;
 import pers.utils.httpclientUtils.common.Utils;
 
+import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
@@ -82,6 +83,11 @@ public class HttpConfig {
     public String inenc() {
         return inenc == null ? encoding : inenc;
     }
+
+    /**
+     * 解决多线程下载时，strean被close的问题
+     */
+    private static final ThreadLocal<OutputStream> outs = new ThreadLocal<OutputStream>();
 
     /**
      * 输出编码
@@ -236,6 +242,15 @@ public class HttpConfig {
     }
 
     /**
+     * @param out	输出流对象
+     * @return	返回当前对象
+     */
+    public HttpConfig out(OutputStream out) {
+        outs.set(out);
+        return this;
+    }
+
+    /**
      * Header头信息(是否返回response中的headers)
      *
      * @param headers             Header头信息
@@ -311,6 +326,10 @@ public class HttpConfig {
 
     public String outenc() {
         return outenc == null ? encoding : outenc;
+    }
+
+    public OutputStream out() {
+        return outs.get();
     }
 
 

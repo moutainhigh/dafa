@@ -13,7 +13,7 @@ public class UpdateStopTenantMaintenanceList {
     @Test(description = "停止维护")
     public static void test01() {
         String body = UrlBuilder.custom()
-                .addBuilder("tenantCode", "duke")
+                .addBuilder("tenantCode.txt", "duke")
                 .addBuilder("type", "2") //1 前台维护,2后台维护，3官网维护
                 .fullBody();
         String result = DafaRequest.post(1, updateStopTenantMaintenanceList, body);

@@ -23,6 +23,9 @@
         ,response_comments responseComments
         ,api_groups apiGroups
 
+        ,assert_type assertType
+        ,assert_content assertContent
+
         from api_manage
         where api_groups like CONCAT(CONCAT('%',#{apiGroups}),'%')
         and owner = #{owner}
@@ -48,6 +51,9 @@
         ,dependent_api dependentApi
         ,response_comments responseComments
         ,api_groups apiGroups
+
+        ,assert_type assertType
+        ,assert_content assertContent
 
         from api_manage
         <where>
@@ -131,6 +137,9 @@
             ,dependent_api dependentApi
             ,response_comments responseComments
             ,api_groups apiGroups
+            ,assert_type assertType
+            ,assert_content assertContent
+
         FROM
             api_manage
         WHERE
@@ -155,6 +164,8 @@
         ,dependent_api = #{dependentApi}
         ,response_comments = #{responseComments}
         ,api_groups = #{apiGroups}
+        ,assert_type =  #{assertType}
+        ,assert_content =  #{assertContent}
 		where id = #{id}
 	</update>
 
@@ -175,6 +186,8 @@
         ,dependent_api
         ,response_comments
         ,api_groups
+        ,assert_type
+        ,assert_content
 		) values (
 		#{apiName}
         ,#{description}
@@ -190,7 +203,10 @@
         ,#{assertResponse}
         ,#{dependentApi}
         ,#{responseComments}
-        ,#{apiGroups})
+        ,#{apiGroups}
+        ,#{assertType}
+        ,#{assertContent}
+        )
 	</insert>
 
     <insert id="cloneApi" parameterType="java.lang.Integer" keyProperty="id">
@@ -210,6 +226,8 @@
                 ,dependent_api
                 ,response_comments
                 ,api_groups
+                ,assert_type
+                ,assert_content
             ) SELECT
                 api_name
                 ,description
@@ -226,6 +244,8 @@
                 ,dependent_api
                 ,response_comments
                 ,api_groups
+                ,assert_type
+                ,assert_content
             FROM
                 api_manage
             WHERE

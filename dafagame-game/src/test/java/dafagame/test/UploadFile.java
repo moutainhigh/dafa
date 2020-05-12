@@ -1,6 +1,5 @@
 package dafagame.test;
 
-import org.apache.http.Consts;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.ContentType;
@@ -45,7 +44,7 @@ public class UploadFile {
                 .setCharset(Charset.forName("utf-8"))
                 .addPart("files", new FileBody(new File(file)))
                 .addPart("serviceFrom", new StringBody("management", ContentType.MULTIPART_FORM_DATA))
-                //.addPart("tenantCode", new StringBody("test1", ContentType.MULTIPART_FORM_DATA))
+                //.addPart("tenantCode.txt", new StringBody("test1", ContentType.MULTIPART_FORM_DATA))
                 .addPart("checkTypes", new StringBody("5", ContentType.MULTIPART_FORM_DATA))
                 .build();
         String result = DafaRequest.post(httpConfig.url(uploadFile).headers(headers).httpEntity(httpEntity));

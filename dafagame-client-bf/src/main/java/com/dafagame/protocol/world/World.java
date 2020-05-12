@@ -63,6 +63,14 @@ public final class World {
      * <code>ErrorNtfType = 1004;</code>
      */
     ErrorNtfType(1004),
+    /**
+     * <pre>
+     *余额变更通知
+     * </pre>
+     *
+     * <code>BalanceChangeNtfType = 1005;</code>
+     */
+    BalanceChangeNtfType(1005),
     ;
 
     /**
@@ -105,6 +113,14 @@ public final class World {
      * <code>ErrorNtfType = 1004;</code>
      */
     public static final int ErrorNtfType_VALUE = 1004;
+    /**
+     * <pre>
+     *余额变更通知
+     * </pre>
+     *
+     * <code>BalanceChangeNtfType = 1005;</code>
+     */
+    public static final int BalanceChangeNtfType_VALUE = 1005;
 
 
     public final int getNumber() {
@@ -126,6 +142,7 @@ public final class World {
         case 1002: return ExitGameReqType;
         case 1003: return ExitGameResType;
         case 1004: return ErrorNtfType;
+        case 1005: return BalanceChangeNtfType;
         default: return null;
       }
     }
@@ -306,7 +323,7 @@ public final class World {
     EntryProcess(16),
     /**
      * <pre>
-     *不在游戏中，请进入游戏
+     *没有找到该服务
      * </pre>
      *
      * <code>NotInGame = 17;</code>
@@ -328,6 +345,86 @@ public final class World {
      * <code>LoginAtOtherDevice = 19;</code>
      */
     LoginAtOtherDevice(19),
+    /**
+     * <pre>
+     *余额不足
+     * </pre>
+     *
+     * <code>NotEnoughBalance = 20;</code>
+     */
+    NotEnoughBalance(20),
+    /**
+     * <pre>
+     *房间内超时T出
+     * </pre>
+     *
+     * <code>TimeoutExit = 21;</code>
+     */
+    TimeoutExit(21),
+    /**
+     * <pre>
+     *断开连接
+     * </pre>
+     *
+     * <code>CloseSocket = 22;</code>
+     */
+    CloseSocket(22),
+    /**
+     * <pre>
+     *已经在游戏中
+     * </pre>
+     *
+     * <code>AlreadyInRoom = 23;</code>
+     */
+    AlreadyInRoom(23),
+    /**
+     * <pre>
+     *余额不够换筹码
+     * </pre>
+     *
+     * <code>NoMoneySwap = 24;</code>
+     */
+    NoMoneySwap(24),
+    /**
+     * <pre>
+     *匹配不到玩家 || 玩家不够
+     * </pre>
+     *
+     * <code>PlayerNotEnough = 25;</code>
+     */
+    PlayerNotEnough(25),
+    /**
+     * <pre>
+     *站点维护
+     * </pre>
+     *
+     * <code>TenantMaintain = 26;</code>
+     */
+    TenantMaintain(26),
+    /**
+     * <pre>
+     *长时间未操作 退出游戏
+     * </pre>
+     *
+     * <code>NoOpExit = 27;</code>
+     */
+    NoOpExit(27),
+    /**
+     * <pre>
+     * 服务费调整
+     * </pre>
+     *
+     * <code>ServiceFeeChange = 28;</code>
+     */
+    ServiceFeeChange(28),
+    /**
+     * <pre>
+     *没有找到服务
+     * </pre>
+     *
+     * <code>NotFoundServer = 29;</code>
+     */
+    NotFoundServer(29),
     ;
 
     /**
@@ -456,7 +553,7 @@ public final class World {
     public static final int EntryProcess_VALUE = 16;
     /**
      * <pre>
-     *不在游戏中，请进入游戏
+     *没有找到该服务
      * </pre>
      *
      * <code>NotInGame = 17;</code>
@@ -478,6 +575,86 @@ public final class World {
      * <code>LoginAtOtherDevice = 19;</code>
      */
     public static final int LoginAtOtherDevice_VALUE = 19;
+    /**
+     * <pre>
+     *余额不足
+     * </pre>
+     *
+     * <code>NotEnoughBalance = 20;</code>
+     */
+    public static final int NotEnoughBalance_VALUE = 20;
+    /**
+     * <pre>
+     *房间内超时T出
+     * </pre>
+     *
+     * <code>TimeoutExit = 21;</code>
+     */
+    public static final int TimeoutExit_VALUE = 21;
+    /**
+     * <pre>
+     *断开连接
+     * </pre>
+     *
+     * <code>CloseSocket = 22;</code>
+     */
+    public static final int CloseSocket_VALUE = 22;
+    /**
+     * <pre>
+     *已经在游戏中
+     * </pre>
+     *
+     * <code>AlreadyInRoom = 23;</code>
+     */
+    public static final int AlreadyInRoom_VALUE = 23;
+    /**
+     * <pre>
+     *余额不够换筹码
+     * </pre>
+     *
+     * <code>NoMoneySwap = 24;</code>
+     */
+    public static final int NoMoneySwap_VALUE = 24;
+    /**
+     * <pre>
+     *匹配不到玩家 || 玩家不够
+     * </pre>
+     *
+     * <code>PlayerNotEnough = 25;</code>
+     */
+    public static final int PlayerNotEnough_VALUE = 25;
+    /**
+     * <pre>
+     *站点维护
+     * </pre>
+     *
+     * <code>TenantMaintain = 26;</code>
+     */
+    public static final int TenantMaintain_VALUE = 26;
+    /**
+     * <pre>
+     *长时间未操作 退出游戏
+     * </pre>
+     *
+     * <code>NoOpExit = 27;</code>
+     */
+    public static final int NoOpExit_VALUE = 27;
+    /**
+     * <pre>
+     * 服务费调整
+     * </pre>
+     *
+     * <code>ServiceFeeChange = 28;</code>
+     */
+    public static final int ServiceFeeChange_VALUE = 28;
+    /**
+     * <pre>
+     *没有找到服务
+     * </pre>
+     *
+     * <code>NotFoundServer = 29;</code>
+     */
+    public static final int NotFoundServer_VALUE = 29;
 
 
     public final int getNumber() {
@@ -513,6 +690,16 @@ public final class World {
         case 17: return NotInGame;
         case 18: return ServerError;
         case 19: return LoginAtOtherDevice;
+        case 20: return NotEnoughBalance;
+        case 21: return TimeoutExit;
+        case 22: return CloseSocket;
+        case 23: return AlreadyInRoom;
+        case 24: return NoMoneySwap;
+        case 25: return PlayerNotEnough;
+        case 26: return TenantMaintain;
+        case 27: return NoOpExit;
+        case 28: return ServiceFeeChange;
+        case 29: return NotFoundServer;
         default: return null;
       }
     }
@@ -797,6 +984,31 @@ public final class World {
      * <code>optional .com.dafagame.protocol.world.MsgIndication indication = 3;</code>
      */
     com.dafagame.protocol.world.World.MsgIndicationOrBuilder getIndicationOrBuilder();
+
+    /**
+     * <pre>
+     *给该服务所有玩家推送的服务
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+     */
+    boolean hasMsgServer();
+    /**
+     * <pre>
+     *给该服务所有玩家推送的服务
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+     */
+    com.dafagame.protocol.world.World.MsgServer getMsgServer();
+    /**
+     * <pre>
+     *给该服务所有玩家推送的服务
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+     */
+    com.dafagame.protocol.world.World.MsgServerOrBuilder getMsgServerOrBuilder();
   }
   /**
    * <pre>
@@ -882,6 +1094,19 @@ public final class World {
                 indication_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              com.dafagame.protocol.world.World.MsgServer.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = msgServer_.toBuilder();
+              }
+              msgServer_ = input.readMessage(com.dafagame.protocol.world.World.MsgServer.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(msgServer_);
+                msgServer_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
               break;
             }
           }
@@ -1008,6 +1233,39 @@ public final class World {
       return indication_ == null ? com.dafagame.protocol.world.World.MsgIndication.getDefaultInstance() : indication_;
     }
 
+    public static final int MSGSERVER_FIELD_NUMBER = 4;
+    private com.dafagame.protocol.world.World.MsgServer msgServer_;
+    /**
+     * <pre>
+     *给该服务所有玩家推送的服务
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+     */
+    public boolean hasMsgServer() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *给该服务所有玩家推送的服务
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+     */
+    public com.dafagame.protocol.world.World.MsgServer getMsgServer() {
+      return msgServer_ == null ? com.dafagame.protocol.world.World.MsgServer.getDefaultInstance() : msgServer_;
+    }
+    /**
+     * <pre>
+     *给该服务所有玩家推送的服务
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+     */
+    public com.dafagame.protocol.world.World.MsgServerOrBuilder getMsgServerOrBuilder() {
+      return msgServer_ == null ? com.dafagame.protocol.world.World.MsgServer.getDefaultInstance() : msgServer_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1032,6 +1290,12 @@ public final class World {
           return false;
         }
       }
+      if (hasMsgServer()) {
+        if (!getMsgServer().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -1046,6 +1310,9 @@ public final class World {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeMessage(3, getIndication());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getMsgServer());
       }
       unknownFields.writeTo(output);
     }
@@ -1066,6 +1333,10 @@ public final class World {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getIndication());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getMsgServer());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1098,6 +1369,11 @@ public final class World {
         result = result && getIndication()
             .equals(other.getIndication());
       }
+      result = result && (hasMsgServer() == other.hasMsgServer());
+      if (hasMsgServer()) {
+        result = result && getMsgServer()
+            .equals(other.getMsgServer());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1120,6 +1396,10 @@ public final class World {
       if (hasIndication()) {
         hash = (37 * hash) + INDICATION_FIELD_NUMBER;
         hash = (53 * hash) + getIndication().hashCode();
+      }
+      if (hasMsgServer()) {
+        hash = (37 * hash) + MSGSERVER_FIELD_NUMBER;
+        hash = (53 * hash) + getMsgServer().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1253,6 +1533,7 @@ public final class World {
           getSendMsgFieldBuilder();
           getReceiveMsgFieldBuilder();
           getIndicationFieldBuilder();
+          getMsgServerFieldBuilder();
         }
       }
       public Builder clear() {
@@ -1275,6 +1556,12 @@ public final class World {
           indicationBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
+        if (msgServerBuilder_ == null) {
+          msgServer_ = null;
+        } else {
+          msgServerBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1322,6 +1609,14 @@ public final class World {
           result.indication_ = indication_;
         } else {
           result.indication_ = indicationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (msgServerBuilder_ == null) {
+          result.msgServer_ = msgServer_;
+        } else {
+          result.msgServer_ = msgServerBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -1374,6 +1669,9 @@ public final class World {
         if (other.hasIndication()) {
           mergeIndication(other.getIndication());
         }
+        if (other.hasMsgServer()) {
+          mergeMsgServer(other.getMsgServer());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1392,6 +1690,11 @@ public final class World {
         }
         if (hasIndication()) {
           if (!getIndication().isInitialized()) {
+            return false;
+          }
+        }
+        if (hasMsgServer()) {
+          if (!getMsgServer().isInitialized()) {
             return false;
           }
         }
@@ -1878,6 +2181,160 @@ public final class World {
         }
         return indicationBuilder_;
       }
+
+      private com.dafagame.protocol.world.World.MsgServer msgServer_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.dafagame.protocol.world.World.MsgServer, com.dafagame.protocol.world.World.MsgServer.Builder, com.dafagame.protocol.world.World.MsgServerOrBuilder> msgServerBuilder_;
+      /**
+       * <pre>
+       *给该服务所有玩家推送的服务
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+       */
+      public boolean hasMsgServer() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       *给该服务所有玩家推送的服务
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+       */
+      public com.dafagame.protocol.world.World.MsgServer getMsgServer() {
+        if (msgServerBuilder_ == null) {
+          return msgServer_ == null ? com.dafagame.protocol.world.World.MsgServer.getDefaultInstance() : msgServer_;
+        } else {
+          return msgServerBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *给该服务所有玩家推送的服务
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+       */
+      public Builder setMsgServer(com.dafagame.protocol.world.World.MsgServer value) {
+        if (msgServerBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          msgServer_ = value;
+          onChanged();
+        } else {
+          msgServerBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       *给该服务所有玩家推送的服务
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+       */
+      public Builder setMsgServer(
+          com.dafagame.protocol.world.World.MsgServer.Builder builderForValue) {
+        if (msgServerBuilder_ == null) {
+          msgServer_ = builderForValue.build();
+          onChanged();
+        } else {
+          msgServerBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       *给该服务所有玩家推送的服务
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+       */
+      public Builder mergeMsgServer(com.dafagame.protocol.world.World.MsgServer value) {
+        if (msgServerBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              msgServer_ != null &&
+              msgServer_ != com.dafagame.protocol.world.World.MsgServer.getDefaultInstance()) {
+            msgServer_ =
+              com.dafagame.protocol.world.World.MsgServer.newBuilder(msgServer_).mergeFrom(value).buildPartial();
+          } else {
+            msgServer_ = value;
+          }
+          onChanged();
+        } else {
+          msgServerBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <pre>
+       *给该服务所有玩家推送的服务
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+       */
+      public Builder clearMsgServer() {
+        if (msgServerBuilder_ == null) {
+          msgServer_ = null;
+          onChanged();
+        } else {
+          msgServerBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <pre>
+       *给该服务所有玩家推送的服务
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+       */
+      public com.dafagame.protocol.world.World.MsgServer.Builder getMsgServerBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getMsgServerFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *给该服务所有玩家推送的服务
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+       */
+      public com.dafagame.protocol.world.World.MsgServerOrBuilder getMsgServerOrBuilder() {
+        if (msgServerBuilder_ != null) {
+          return msgServerBuilder_.getMessageOrBuilder();
+        } else {
+          return msgServer_ == null ?
+              com.dafagame.protocol.world.World.MsgServer.getDefaultInstance() : msgServer_;
+        }
+      }
+      /**
+       * <pre>
+       *给该服务所有玩家推送的服务
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.world.MsgServer msgServer = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.dafagame.protocol.world.World.MsgServer, com.dafagame.protocol.world.World.MsgServer.Builder, com.dafagame.protocol.world.World.MsgServerOrBuilder> 
+          getMsgServerFieldBuilder() {
+        if (msgServerBuilder_ == null) {
+          msgServerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.dafagame.protocol.world.World.MsgServer, com.dafagame.protocol.world.World.MsgServer.Builder, com.dafagame.protocol.world.World.MsgServerOrBuilder>(
+                  getMsgServer(),
+                  getParentForChildren(),
+                  isClean());
+          msgServer_ = null;
+        }
+        return msgServerBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -1922,6 +2379,1099 @@ public final class World {
     }
 
     public com.dafagame.protocol.world.World.Msg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MsgServerOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.world.MsgServer)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *协议类型
+     * </pre>
+     *
+     * <code>required int32 proto = 1;</code>
+     */
+    boolean hasProto();
+    /**
+     * <pre>
+     *协议类型
+     * </pre>
+     *
+     * <code>required int32 proto = 1;</code>
+     */
+    int getProto();
+
+    /**
+     * <pre>
+     *协议内容
+     * </pre>
+     *
+     * <code>required bytes data = 2;</code>
+     */
+    boolean hasData();
+    /**
+     * <pre>
+     *协议内容
+     * </pre>
+     *
+     * <code>required bytes data = 2;</code>
+     */
+    com.google.protobuf.ByteString getData();
+
+    /**
+     * <pre>
+     *游戏编码
+     * </pre>
+     *
+     * <code>required string gameCode = 3;</code>
+     */
+    boolean hasGameCode();
+    /**
+     * <pre>
+     *游戏编码
+     * </pre>
+     *
+     * <code>required string gameCode = 3;</code>
+     */
+    java.lang.String getGameCode();
+    /**
+     * <pre>
+     *游戏编码
+     * </pre>
+     *
+     * <code>required string gameCode = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getGameCodeBytes();
+
+    /**
+     * <pre>
+     *实例id
+     * </pre>
+     *
+     * <code>required string subServerId = 4;</code>
+     */
+    boolean hasSubServerId();
+    /**
+     * <pre>
+     *实例id
+     * </pre>
+     *
+     * <code>required string subServerId = 4;</code>
+     */
+    java.lang.String getSubServerId();
+    /**
+     * <pre>
+     *实例id
+     * </pre>
+     *
+     * <code>required string subServerId = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getSubServerIdBytes();
+  }
+  /**
+   * <pre>
+   *给该服务所有玩家推送的信息
+   * </pre>
+   *
+   * Protobuf type {@code com.dafagame.protocol.world.MsgServer}
+   */
+  public  static final class MsgServer extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.world.MsgServer)
+      MsgServerOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MsgServer.newBuilder() to construct.
+    private MsgServer(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MsgServer() {
+      proto_ = 0;
+      data_ = com.google.protobuf.ByteString.EMPTY;
+      gameCode_ = "";
+      subServerId_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MsgServer(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              proto_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              data_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              gameCode_ = bs;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              subServerId_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_MsgServer_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_MsgServer_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.dafagame.protocol.world.World.MsgServer.class, com.dafagame.protocol.world.World.MsgServer.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int PROTO_FIELD_NUMBER = 1;
+    private int proto_;
+    /**
+     * <pre>
+     *协议类型
+     * </pre>
+     *
+     * <code>required int32 proto = 1;</code>
+     */
+    public boolean hasProto() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *协议类型
+     * </pre>
+     *
+     * <code>required int32 proto = 1;</code>
+     */
+    public int getProto() {
+      return proto_;
+    }
+
+    public static final int DATA_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString data_;
+    /**
+     * <pre>
+     *协议内容
+     * </pre>
+     *
+     * <code>required bytes data = 2;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *协议内容
+     * </pre>
+     *
+     * <code>required bytes data = 2;</code>
+     */
+    public com.google.protobuf.ByteString getData() {
+      return data_;
+    }
+
+    public static final int GAMECODE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object gameCode_;
+    /**
+     * <pre>
+     *游戏编码
+     * </pre>
+     *
+     * <code>required string gameCode = 3;</code>
+     */
+    public boolean hasGameCode() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *游戏编码
+     * </pre>
+     *
+     * <code>required string gameCode = 3;</code>
+     */
+    public java.lang.String getGameCode() {
+      java.lang.Object ref = gameCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          gameCode_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *游戏编码
+     * </pre>
+     *
+     * <code>required string gameCode = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getGameCodeBytes() {
+      java.lang.Object ref = gameCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        gameCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SUBSERVERID_FIELD_NUMBER = 4;
+    private volatile java.lang.Object subServerId_;
+    /**
+     * <pre>
+     *实例id
+     * </pre>
+     *
+     * <code>required string subServerId = 4;</code>
+     */
+    public boolean hasSubServerId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *实例id
+     * </pre>
+     *
+     * <code>required string subServerId = 4;</code>
+     */
+    public java.lang.String getSubServerId() {
+      java.lang.Object ref = subServerId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          subServerId_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *实例id
+     * </pre>
+     *
+     * <code>required string subServerId = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSubServerIdBytes() {
+      java.lang.Object ref = subServerId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        subServerId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasProto()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasData()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGameCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSubServerId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, proto_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, data_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, gameCode_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, subServerId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, proto_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, data_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, gameCode_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, subServerId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.dafagame.protocol.world.World.MsgServer)) {
+        return super.equals(obj);
+      }
+      com.dafagame.protocol.world.World.MsgServer other = (com.dafagame.protocol.world.World.MsgServer) obj;
+
+      boolean result = true;
+      result = result && (hasProto() == other.hasProto());
+      if (hasProto()) {
+        result = result && (getProto()
+            == other.getProto());
+      }
+      result = result && (hasData() == other.hasData());
+      if (hasData()) {
+        result = result && getData()
+            .equals(other.getData());
+      }
+      result = result && (hasGameCode() == other.hasGameCode());
+      if (hasGameCode()) {
+        result = result && getGameCode()
+            .equals(other.getGameCode());
+      }
+      result = result && (hasSubServerId() == other.hasSubServerId());
+      if (hasSubServerId()) {
+        result = result && getSubServerId()
+            .equals(other.getSubServerId());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasProto()) {
+        hash = (37 * hash) + PROTO_FIELD_NUMBER;
+        hash = (53 * hash) + getProto();
+      }
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      if (hasGameCode()) {
+        hash = (37 * hash) + GAMECODE_FIELD_NUMBER;
+        hash = (53 * hash) + getGameCode().hashCode();
+      }
+      if (hasSubServerId()) {
+        hash = (37 * hash) + SUBSERVERID_FIELD_NUMBER;
+        hash = (53 * hash) + getSubServerId().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.world.World.MsgServer parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.dafagame.protocol.world.World.MsgServer prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *给该服务所有玩家推送的信息
+     * </pre>
+     *
+     * Protobuf type {@code com.dafagame.protocol.world.MsgServer}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.world.MsgServer)
+        com.dafagame.protocol.world.World.MsgServerOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_MsgServer_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_MsgServer_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.dafagame.protocol.world.World.MsgServer.class, com.dafagame.protocol.world.World.MsgServer.Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.world.World.MsgServer.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        proto_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        data_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        gameCode_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        subServerId_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_MsgServer_descriptor;
+      }
+
+      public com.dafagame.protocol.world.World.MsgServer getDefaultInstanceForType() {
+        return com.dafagame.protocol.world.World.MsgServer.getDefaultInstance();
+      }
+
+      public com.dafagame.protocol.world.World.MsgServer build() {
+        com.dafagame.protocol.world.World.MsgServer result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.dafagame.protocol.world.World.MsgServer buildPartial() {
+        com.dafagame.protocol.world.World.MsgServer result = new com.dafagame.protocol.world.World.MsgServer(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.proto_ = proto_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.data_ = data_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.gameCode_ = gameCode_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.subServerId_ = subServerId_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.dafagame.protocol.world.World.MsgServer) {
+          return mergeFrom((com.dafagame.protocol.world.World.MsgServer)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.dafagame.protocol.world.World.MsgServer other) {
+        if (other == com.dafagame.protocol.world.World.MsgServer.getDefaultInstance()) return this;
+        if (other.hasProto()) {
+          setProto(other.getProto());
+        }
+        if (other.hasData()) {
+          setData(other.getData());
+        }
+        if (other.hasGameCode()) {
+          bitField0_ |= 0x00000004;
+          gameCode_ = other.gameCode_;
+          onChanged();
+        }
+        if (other.hasSubServerId()) {
+          bitField0_ |= 0x00000008;
+          subServerId_ = other.subServerId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasProto()) {
+          return false;
+        }
+        if (!hasData()) {
+          return false;
+        }
+        if (!hasGameCode()) {
+          return false;
+        }
+        if (!hasSubServerId()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.dafagame.protocol.world.World.MsgServer parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.dafagame.protocol.world.World.MsgServer) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int proto_ ;
+      /**
+       * <pre>
+       *协议类型
+       * </pre>
+       *
+       * <code>required int32 proto = 1;</code>
+       */
+      public boolean hasProto() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *协议类型
+       * </pre>
+       *
+       * <code>required int32 proto = 1;</code>
+       */
+      public int getProto() {
+        return proto_;
+      }
+      /**
+       * <pre>
+       *协议类型
+       * </pre>
+       *
+       * <code>required int32 proto = 1;</code>
+       */
+      public Builder setProto(int value) {
+        bitField0_ |= 0x00000001;
+        proto_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *协议类型
+       * </pre>
+       *
+       * <code>required int32 proto = 1;</code>
+       */
+      public Builder clearProto() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        proto_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       *协议内容
+       * </pre>
+       *
+       * <code>required bytes data = 2;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *协议内容
+       * </pre>
+       *
+       * <code>required bytes data = 2;</code>
+       */
+      public com.google.protobuf.ByteString getData() {
+        return data_;
+      }
+      /**
+       * <pre>
+       *协议内容
+       * </pre>
+       *
+       * <code>required bytes data = 2;</code>
+       */
+      public Builder setData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *协议内容
+       * </pre>
+       *
+       * <code>required bytes data = 2;</code>
+       */
+      public Builder clearData() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object gameCode_ = "";
+      /**
+       * <pre>
+       *游戏编码
+       * </pre>
+       *
+       * <code>required string gameCode = 3;</code>
+       */
+      public boolean hasGameCode() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       *游戏编码
+       * </pre>
+       *
+       * <code>required string gameCode = 3;</code>
+       */
+      public java.lang.String getGameCode() {
+        java.lang.Object ref = gameCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            gameCode_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *游戏编码
+       * </pre>
+       *
+       * <code>required string gameCode = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getGameCodeBytes() {
+        java.lang.Object ref = gameCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          gameCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *游戏编码
+       * </pre>
+       *
+       * <code>required string gameCode = 3;</code>
+       */
+      public Builder setGameCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        gameCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *游戏编码
+       * </pre>
+       *
+       * <code>required string gameCode = 3;</code>
+       */
+      public Builder clearGameCode() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        gameCode_ = getDefaultInstance().getGameCode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *游戏编码
+       * </pre>
+       *
+       * <code>required string gameCode = 3;</code>
+       */
+      public Builder setGameCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        gameCode_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object subServerId_ = "";
+      /**
+       * <pre>
+       *实例id
+       * </pre>
+       *
+       * <code>required string subServerId = 4;</code>
+       */
+      public boolean hasSubServerId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       *实例id
+       * </pre>
+       *
+       * <code>required string subServerId = 4;</code>
+       */
+      public java.lang.String getSubServerId() {
+        java.lang.Object ref = subServerId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            subServerId_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *实例id
+       * </pre>
+       *
+       * <code>required string subServerId = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSubServerIdBytes() {
+        java.lang.Object ref = subServerId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          subServerId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *实例id
+       * </pre>
+       *
+       * <code>required string subServerId = 4;</code>
+       */
+      public Builder setSubServerId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        subServerId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *实例id
+       * </pre>
+       *
+       * <code>required string subServerId = 4;</code>
+       */
+      public Builder clearSubServerId() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        subServerId_ = getDefaultInstance().getSubServerId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *实例id
+       * </pre>
+       *
+       * <code>required string subServerId = 4;</code>
+       */
+      public Builder setSubServerIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        subServerId_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.world.MsgServer)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.world.MsgServer)
+    private static final com.dafagame.protocol.world.World.MsgServer DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.dafagame.protocol.world.World.MsgServer();
+    }
+
+    public static com.dafagame.protocol.world.World.MsgServer getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<MsgServer>
+        PARSER = new com.google.protobuf.AbstractParser<MsgServer>() {
+      public MsgServer parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new MsgServer(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MsgServer> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MsgServer> getParserForType() {
+      return PARSER;
+    }
+
+    public com.dafagame.protocol.world.World.MsgServer getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2753,6 +4303,23 @@ public final class World {
      * <code>required bytes data = 3;</code>
      */
     com.google.protobuf.ByteString getData();
+
+    /**
+     * <pre>
+     *请求的proto
+     * </pre>
+     *
+     * <code>optional int32 reqProto = 4;</code>
+     */
+    boolean hasReqProto();
+    /**
+     * <pre>
+     *请求的proto
+     * </pre>
+     *
+     * <code>optional int32 reqProto = 4;</code>
+     */
+    int getReqProto();
   }
   /**
    * Protobuf type {@code com.dafagame.protocol.world.MsgSend}
@@ -2770,6 +4337,7 @@ public final class World {
       uids_ = java.util.Collections.emptyList();
       protoType_ = 0;
       data_ = com.google.protobuf.ByteString.EMPTY;
+      reqProto_ = 0;
     }
 
     @java.lang.Override
@@ -2829,6 +4397,11 @@ public final class World {
             case 26: {
               bitField0_ |= 0x00000002;
               data_ = input.readBytes();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000004;
+              reqProto_ = input.readInt32();
               break;
             }
           }
@@ -2939,6 +4512,29 @@ public final class World {
       return data_;
     }
 
+    public static final int REQPROTO_FIELD_NUMBER = 4;
+    private int reqProto_;
+    /**
+     * <pre>
+     *请求的proto
+     * </pre>
+     *
+     * <code>optional int32 reqProto = 4;</code>
+     */
+    public boolean hasReqProto() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *请求的proto
+     * </pre>
+     *
+     * <code>optional int32 reqProto = 4;</code>
+     */
+    public int getReqProto() {
+      return reqProto_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2968,6 +4564,9 @@ public final class World {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(3, data_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(4, reqProto_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2992,6 +4591,10 @@ public final class World {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, data_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, reqProto_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3021,6 +4624,11 @@ public final class World {
         result = result && getData()
             .equals(other.getData());
       }
+      result = result && (hasReqProto() == other.hasReqProto());
+      if (hasReqProto()) {
+        result = result && (getReqProto()
+            == other.getReqProto());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3043,6 +4651,10 @@ public final class World {
       if (hasData()) {
         hash = (37 * hash) + DATA_FIELD_NUMBER;
         hash = (53 * hash) + getData().hashCode();
+      }
+      if (hasReqProto()) {
+        hash = (37 * hash) + REQPROTO_FIELD_NUMBER;
+        hash = (53 * hash) + getReqProto();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3179,6 +4791,8 @@ public final class World {
         bitField0_ = (bitField0_ & ~0x00000002);
         data_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
+        reqProto_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -3216,6 +4830,10 @@ public final class World {
           to_bitField0_ |= 0x00000002;
         }
         result.data_ = data_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.reqProto_ = reqProto_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3273,6 +4891,9 @@ public final class World {
         }
         if (other.hasData()) {
           setData(other.getData());
+        }
+        if (other.hasReqProto()) {
+          setReqProto(other.getReqProto());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3497,6 +5118,54 @@ public final class World {
       public Builder clearData() {
         bitField0_ = (bitField0_ & ~0x00000004);
         data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+
+      private int reqProto_ ;
+      /**
+       * <pre>
+       *请求的proto
+       * </pre>
+       *
+       * <code>optional int32 reqProto = 4;</code>
+       */
+      public boolean hasReqProto() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       *请求的proto
+       * </pre>
+       *
+       * <code>optional int32 reqProto = 4;</code>
+       */
+      public int getReqProto() {
+        return reqProto_;
+      }
+      /**
+       * <pre>
+       *请求的proto
+       * </pre>
+       *
+       * <code>optional int32 reqProto = 4;</code>
+       */
+      public Builder setReqProto(int value) {
+        bitField0_ |= 0x00000008;
+        reqProto_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *请求的proto
+       * </pre>
+       *
+       * <code>optional int32 reqProto = 4;</code>
+       */
+      public Builder clearReqProto() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        reqProto_ = 0;
         onChanged();
         return this;
       }
@@ -4714,6 +6383,58 @@ public final class World {
      * <code>optional .com.dafagame.protocol.world.Player player = 3;</code>
      */
     com.dafagame.protocol.world.World.PlayerOrBuilder getPlayerOrBuilder();
+
+    /**
+     * <pre>
+     *房间
+     * </pre>
+     *
+     * <code>optional string roomNumber = 4;</code>
+     */
+    boolean hasRoomNumber();
+    /**
+     * <pre>
+     *房间
+     * </pre>
+     *
+     * <code>optional string roomNumber = 4;</code>
+     */
+    java.lang.String getRoomNumber();
+    /**
+     * <pre>
+     *房间
+     * </pre>
+     *
+     * <code>optional string roomNumber = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getRoomNumberBytes();
+
+    /**
+     * <pre>
+     * 入场金额
+     * </pre>
+     *
+     * <code>optional string takenInMoney = 5;</code>
+     */
+    boolean hasTakenInMoney();
+    /**
+     * <pre>
+     * 入场金额
+     * </pre>
+     *
+     * <code>optional string takenInMoney = 5;</code>
+     */
+    java.lang.String getTakenInMoney();
+    /**
+     * <pre>
+     * 入场金额
+     * </pre>
+     *
+     * <code>optional string takenInMoney = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getTakenInMoneyBytes();
   }
   /**
    * <pre>
@@ -4734,6 +6455,8 @@ public final class World {
     private EnterGameReq() {
       gameCode_ = "";
       roundType_ = "";
+      roomNumber_ = "";
+      takenInMoney_ = "";
     }
 
     @java.lang.Override
@@ -4787,6 +6510,18 @@ public final class World {
                 player_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              roomNumber_ = bs;
+              break;
+            }
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
+              takenInMoney_ = bs;
               break;
             }
           }
@@ -4955,6 +6690,114 @@ public final class World {
       return player_ == null ? com.dafagame.protocol.world.World.Player.getDefaultInstance() : player_;
     }
 
+    public static final int ROOMNUMBER_FIELD_NUMBER = 4;
+    private volatile java.lang.Object roomNumber_;
+    /**
+     * <pre>
+     *房间
+     * </pre>
+     *
+     * <code>optional string roomNumber = 4;</code>
+     */
+    public boolean hasRoomNumber() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *房间
+     * </pre>
+     *
+     * <code>optional string roomNumber = 4;</code>
+     */
+    public java.lang.String getRoomNumber() {
+      java.lang.Object ref = roomNumber_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          roomNumber_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *房间
+     * </pre>
+     *
+     * <code>optional string roomNumber = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRoomNumberBytes() {
+      java.lang.Object ref = roomNumber_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        roomNumber_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TAKENINMONEY_FIELD_NUMBER = 5;
+    private volatile java.lang.Object takenInMoney_;
+    /**
+     * <pre>
+     * 入场金额
+     * </pre>
+     *
+     * <code>optional string takenInMoney = 5;</code>
+     */
+    public boolean hasTakenInMoney() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * 入场金额
+     * </pre>
+     *
+     * <code>optional string takenInMoney = 5;</code>
+     */
+    public java.lang.String getTakenInMoney() {
+      java.lang.Object ref = takenInMoney_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          takenInMoney_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 入场金额
+     * </pre>
+     *
+     * <code>optional string takenInMoney = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTakenInMoneyBytes() {
+      java.lang.Object ref = takenInMoney_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        takenInMoney_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -4990,6 +6833,12 @@ public final class World {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeMessage(3, getPlayer());
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, roomNumber_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, takenInMoney_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5007,6 +6856,12 @@ public final class World {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getPlayer());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, roomNumber_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, takenInMoney_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5039,6 +6894,16 @@ public final class World {
         result = result && getPlayer()
             .equals(other.getPlayer());
       }
+      result = result && (hasRoomNumber() == other.hasRoomNumber());
+      if (hasRoomNumber()) {
+        result = result && getRoomNumber()
+            .equals(other.getRoomNumber());
+      }
+      result = result && (hasTakenInMoney() == other.hasTakenInMoney());
+      if (hasTakenInMoney()) {
+        result = result && getTakenInMoney()
+            .equals(other.getTakenInMoney());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5061,6 +6926,14 @@ public final class World {
       if (hasPlayer()) {
         hash = (37 * hash) + PLAYER_FIELD_NUMBER;
         hash = (53 * hash) + getPlayer().hashCode();
+      }
+      if (hasRoomNumber()) {
+        hash = (37 * hash) + ROOMNUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + getRoomNumber().hashCode();
+      }
+      if (hasTakenInMoney()) {
+        hash = (37 * hash) + TAKENINMONEY_FIELD_NUMBER;
+        hash = (53 * hash) + getTakenInMoney().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5206,6 +7079,10 @@ public final class World {
           playerBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
+        roomNumber_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        takenInMoney_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -5246,6 +7123,14 @@ public final class World {
         } else {
           result.player_ = playerBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.roomNumber_ = roomNumber_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.takenInMoney_ = takenInMoney_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5300,6 +7185,16 @@ public final class World {
         }
         if (other.hasPlayer()) {
           mergePlayer(other.getPlayer());
+        }
+        if (other.hasRoomNumber()) {
+          bitField0_ |= 0x00000008;
+          roomNumber_ = other.roomNumber_;
+          onChanged();
+        }
+        if (other.hasTakenInMoney()) {
+          bitField0_ |= 0x00000010;
+          takenInMoney_ = other.takenInMoney_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5692,6 +7587,206 @@ public final class World {
           player_ = null;
         }
         return playerBuilder_;
+      }
+
+      private java.lang.Object roomNumber_ = "";
+      /**
+       * <pre>
+       *房间
+       * </pre>
+       *
+       * <code>optional string roomNumber = 4;</code>
+       */
+      public boolean hasRoomNumber() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       *房间
+       * </pre>
+       *
+       * <code>optional string roomNumber = 4;</code>
+       */
+      public java.lang.String getRoomNumber() {
+        java.lang.Object ref = roomNumber_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            roomNumber_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *房间
+       * </pre>
+       *
+       * <code>optional string roomNumber = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRoomNumberBytes() {
+        java.lang.Object ref = roomNumber_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          roomNumber_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *房间
+       * </pre>
+       *
+       * <code>optional string roomNumber = 4;</code>
+       */
+      public Builder setRoomNumber(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        roomNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *房间
+       * </pre>
+       *
+       * <code>optional string roomNumber = 4;</code>
+       */
+      public Builder clearRoomNumber() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        roomNumber_ = getDefaultInstance().getRoomNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *房间
+       * </pre>
+       *
+       * <code>optional string roomNumber = 4;</code>
+       */
+      public Builder setRoomNumberBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        roomNumber_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object takenInMoney_ = "";
+      /**
+       * <pre>
+       * 入场金额
+       * </pre>
+       *
+       * <code>optional string takenInMoney = 5;</code>
+       */
+      public boolean hasTakenInMoney() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * 入场金额
+       * </pre>
+       *
+       * <code>optional string takenInMoney = 5;</code>
+       */
+      public java.lang.String getTakenInMoney() {
+        java.lang.Object ref = takenInMoney_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            takenInMoney_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 入场金额
+       * </pre>
+       *
+       * <code>optional string takenInMoney = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTakenInMoneyBytes() {
+        java.lang.Object ref = takenInMoney_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          takenInMoney_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 入场金额
+       * </pre>
+       *
+       * <code>optional string takenInMoney = 5;</code>
+       */
+      public Builder setTakenInMoney(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        takenInMoney_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 入场金额
+       * </pre>
+       *
+       * <code>optional string takenInMoney = 5;</code>
+       */
+      public Builder clearTakenInMoney() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        takenInMoney_ = getDefaultInstance().getTakenInMoney();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 入场金额
+       * </pre>
+       *
+       * <code>optional string takenInMoney = 5;</code>
+       */
+      public Builder setTakenInMoneyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        takenInMoney_ = value;
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -9263,6 +11358,1193 @@ public final class World {
 
   }
 
+  public interface BalanceChangeNtfOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.world.BalanceChangeNtf)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 uid = 1;</code>
+     */
+    boolean hasUid();
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 uid = 1;</code>
+     */
+    int getUid();
+
+    /**
+     * <pre>
+     *金额变化量
+     * </pre>
+     *
+     * <code>required string amount = 2;</code>
+     */
+    boolean hasAmount();
+    /**
+     * <pre>
+     *金额变化量
+     * </pre>
+     *
+     * <code>required string amount = 2;</code>
+     */
+    java.lang.String getAmount();
+    /**
+     * <pre>
+     *金额变化量
+     * </pre>
+     *
+     * <code>required string amount = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getAmountBytes();
+
+    /**
+     * <pre>
+     *金额变化类型
+     * </pre>
+     *
+     * <code>required int32 dictionId = 3;</code>
+     */
+    boolean hasDictionId();
+    /**
+     * <pre>
+     *金额变化类型
+     * </pre>
+     *
+     * <code>required int32 dictionId = 3;</code>
+     */
+    int getDictionId();
+
+    /**
+     * <pre>
+     *座位号 ，对战游戏用
+     * </pre>
+     *
+     * <code>optional int32 seatId = 4;</code>
+     */
+    boolean hasSeatId();
+    /**
+     * <pre>
+     *座位号 ，对战游戏用
+     * </pre>
+     *
+     * <code>optional int32 seatId = 4;</code>
+     */
+    int getSeatId();
+
+    /**
+     * <pre>
+     *最新余额
+     * </pre>
+     *
+     * <code>optional string balance = 5;</code>
+     */
+    boolean hasBalance();
+    /**
+     * <pre>
+     *最新余额
+     * </pre>
+     *
+     * <code>optional string balance = 5;</code>
+     */
+    java.lang.String getBalance();
+    /**
+     * <pre>
+     *最新余额
+     * </pre>
+     *
+     * <code>optional string balance = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getBalanceBytes();
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.world.BalanceChangeNtf}
+   */
+  public  static final class BalanceChangeNtf extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.world.BalanceChangeNtf)
+      BalanceChangeNtfOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BalanceChangeNtf.newBuilder() to construct.
+    private BalanceChangeNtf(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BalanceChangeNtf() {
+      uid_ = 0;
+      amount_ = "";
+      dictionId_ = 0;
+      seatId_ = 0;
+      balance_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BalanceChangeNtf(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              uid_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              amount_ = bs;
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              dictionId_ = input.readInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              seatId_ = input.readInt32();
+              break;
+            }
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
+              balance_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_BalanceChangeNtf_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_BalanceChangeNtf_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.dafagame.protocol.world.World.BalanceChangeNtf.class, com.dafagame.protocol.world.World.BalanceChangeNtf.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int UID_FIELD_NUMBER = 1;
+    private int uid_;
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 uid = 1;</code>
+     */
+    public boolean hasUid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 uid = 1;</code>
+     */
+    public int getUid() {
+      return uid_;
+    }
+
+    public static final int AMOUNT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object amount_;
+    /**
+     * <pre>
+     *金额变化量
+     * </pre>
+     *
+     * <code>required string amount = 2;</code>
+     */
+    public boolean hasAmount() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *金额变化量
+     * </pre>
+     *
+     * <code>required string amount = 2;</code>
+     */
+    public java.lang.String getAmount() {
+      java.lang.Object ref = amount_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          amount_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *金额变化量
+     * </pre>
+     *
+     * <code>required string amount = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAmountBytes() {
+      java.lang.Object ref = amount_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        amount_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DICTIONID_FIELD_NUMBER = 3;
+    private int dictionId_;
+    /**
+     * <pre>
+     *金额变化类型
+     * </pre>
+     *
+     * <code>required int32 dictionId = 3;</code>
+     */
+    public boolean hasDictionId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *金额变化类型
+     * </pre>
+     *
+     * <code>required int32 dictionId = 3;</code>
+     */
+    public int getDictionId() {
+      return dictionId_;
+    }
+
+    public static final int SEATID_FIELD_NUMBER = 4;
+    private int seatId_;
+    /**
+     * <pre>
+     *座位号 ，对战游戏用
+     * </pre>
+     *
+     * <code>optional int32 seatId = 4;</code>
+     */
+    public boolean hasSeatId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *座位号 ，对战游戏用
+     * </pre>
+     *
+     * <code>optional int32 seatId = 4;</code>
+     */
+    public int getSeatId() {
+      return seatId_;
+    }
+
+    public static final int BALANCE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object balance_;
+    /**
+     * <pre>
+     *最新余额
+     * </pre>
+     *
+     * <code>optional string balance = 5;</code>
+     */
+    public boolean hasBalance() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     *最新余额
+     * </pre>
+     *
+     * <code>optional string balance = 5;</code>
+     */
+    public java.lang.String getBalance() {
+      java.lang.Object ref = balance_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          balance_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *最新余额
+     * </pre>
+     *
+     * <code>optional string balance = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBalanceBytes() {
+      java.lang.Object ref = balance_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        balance_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasAmount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasDictionId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, uid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, amount_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, dictionId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, seatId_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, balance_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, uid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, amount_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, dictionId_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, seatId_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, balance_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.dafagame.protocol.world.World.BalanceChangeNtf)) {
+        return super.equals(obj);
+      }
+      com.dafagame.protocol.world.World.BalanceChangeNtf other = (com.dafagame.protocol.world.World.BalanceChangeNtf) obj;
+
+      boolean result = true;
+      result = result && (hasUid() == other.hasUid());
+      if (hasUid()) {
+        result = result && (getUid()
+            == other.getUid());
+      }
+      result = result && (hasAmount() == other.hasAmount());
+      if (hasAmount()) {
+        result = result && getAmount()
+            .equals(other.getAmount());
+      }
+      result = result && (hasDictionId() == other.hasDictionId());
+      if (hasDictionId()) {
+        result = result && (getDictionId()
+            == other.getDictionId());
+      }
+      result = result && (hasSeatId() == other.hasSeatId());
+      if (hasSeatId()) {
+        result = result && (getSeatId()
+            == other.getSeatId());
+      }
+      result = result && (hasBalance() == other.hasBalance());
+      if (hasBalance()) {
+        result = result && getBalance()
+            .equals(other.getBalance());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasUid()) {
+        hash = (37 * hash) + UID_FIELD_NUMBER;
+        hash = (53 * hash) + getUid();
+      }
+      if (hasAmount()) {
+        hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getAmount().hashCode();
+      }
+      if (hasDictionId()) {
+        hash = (37 * hash) + DICTIONID_FIELD_NUMBER;
+        hash = (53 * hash) + getDictionId();
+      }
+      if (hasSeatId()) {
+        hash = (37 * hash) + SEATID_FIELD_NUMBER;
+        hash = (53 * hash) + getSeatId();
+      }
+      if (hasBalance()) {
+        hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+        hash = (53 * hash) + getBalance().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.dafagame.protocol.world.World.BalanceChangeNtf prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.world.BalanceChangeNtf}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.world.BalanceChangeNtf)
+        com.dafagame.protocol.world.World.BalanceChangeNtfOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_BalanceChangeNtf_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_BalanceChangeNtf_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.dafagame.protocol.world.World.BalanceChangeNtf.class, com.dafagame.protocol.world.World.BalanceChangeNtf.Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.world.World.BalanceChangeNtf.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        uid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        amount_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        dictionId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        seatId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        balance_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.dafagame.protocol.world.World.internal_static_com_dafagame_protocol_world_BalanceChangeNtf_descriptor;
+      }
+
+      public com.dafagame.protocol.world.World.BalanceChangeNtf getDefaultInstanceForType() {
+        return com.dafagame.protocol.world.World.BalanceChangeNtf.getDefaultInstance();
+      }
+
+      public com.dafagame.protocol.world.World.BalanceChangeNtf build() {
+        com.dafagame.protocol.world.World.BalanceChangeNtf result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.dafagame.protocol.world.World.BalanceChangeNtf buildPartial() {
+        com.dafagame.protocol.world.World.BalanceChangeNtf result = new com.dafagame.protocol.world.World.BalanceChangeNtf(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.uid_ = uid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.amount_ = amount_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.dictionId_ = dictionId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.seatId_ = seatId_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.balance_ = balance_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.dafagame.protocol.world.World.BalanceChangeNtf) {
+          return mergeFrom((com.dafagame.protocol.world.World.BalanceChangeNtf)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.dafagame.protocol.world.World.BalanceChangeNtf other) {
+        if (other == com.dafagame.protocol.world.World.BalanceChangeNtf.getDefaultInstance()) return this;
+        if (other.hasUid()) {
+          setUid(other.getUid());
+        }
+        if (other.hasAmount()) {
+          bitField0_ |= 0x00000002;
+          amount_ = other.amount_;
+          onChanged();
+        }
+        if (other.hasDictionId()) {
+          setDictionId(other.getDictionId());
+        }
+        if (other.hasSeatId()) {
+          setSeatId(other.getSeatId());
+        }
+        if (other.hasBalance()) {
+          bitField0_ |= 0x00000010;
+          balance_ = other.balance_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasAmount()) {
+          return false;
+        }
+        if (!hasDictionId()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.dafagame.protocol.world.World.BalanceChangeNtf parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.dafagame.protocol.world.World.BalanceChangeNtf) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int uid_ ;
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 uid = 1;</code>
+       */
+      public boolean hasUid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 uid = 1;</code>
+       */
+      public int getUid() {
+        return uid_;
+      }
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 uid = 1;</code>
+       */
+      public Builder setUid(int value) {
+        bitField0_ |= 0x00000001;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 uid = 1;</code>
+       */
+      public Builder clearUid() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        uid_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object amount_ = "";
+      /**
+       * <pre>
+       *金额变化量
+       * </pre>
+       *
+       * <code>required string amount = 2;</code>
+       */
+      public boolean hasAmount() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *金额变化量
+       * </pre>
+       *
+       * <code>required string amount = 2;</code>
+       */
+      public java.lang.String getAmount() {
+        java.lang.Object ref = amount_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            amount_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *金额变化量
+       * </pre>
+       *
+       * <code>required string amount = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAmountBytes() {
+        java.lang.Object ref = amount_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          amount_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *金额变化量
+       * </pre>
+       *
+       * <code>required string amount = 2;</code>
+       */
+      public Builder setAmount(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        amount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *金额变化量
+       * </pre>
+       *
+       * <code>required string amount = 2;</code>
+       */
+      public Builder clearAmount() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        amount_ = getDefaultInstance().getAmount();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *金额变化量
+       * </pre>
+       *
+       * <code>required string amount = 2;</code>
+       */
+      public Builder setAmountBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        amount_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int dictionId_ ;
+      /**
+       * <pre>
+       *金额变化类型
+       * </pre>
+       *
+       * <code>required int32 dictionId = 3;</code>
+       */
+      public boolean hasDictionId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       *金额变化类型
+       * </pre>
+       *
+       * <code>required int32 dictionId = 3;</code>
+       */
+      public int getDictionId() {
+        return dictionId_;
+      }
+      /**
+       * <pre>
+       *金额变化类型
+       * </pre>
+       *
+       * <code>required int32 dictionId = 3;</code>
+       */
+      public Builder setDictionId(int value) {
+        bitField0_ |= 0x00000004;
+        dictionId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *金额变化类型
+       * </pre>
+       *
+       * <code>required int32 dictionId = 3;</code>
+       */
+      public Builder clearDictionId() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        dictionId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int seatId_ ;
+      /**
+       * <pre>
+       *座位号 ，对战游戏用
+       * </pre>
+       *
+       * <code>optional int32 seatId = 4;</code>
+       */
+      public boolean hasSeatId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       *座位号 ，对战游戏用
+       * </pre>
+       *
+       * <code>optional int32 seatId = 4;</code>
+       */
+      public int getSeatId() {
+        return seatId_;
+      }
+      /**
+       * <pre>
+       *座位号 ，对战游戏用
+       * </pre>
+       *
+       * <code>optional int32 seatId = 4;</code>
+       */
+      public Builder setSeatId(int value) {
+        bitField0_ |= 0x00000008;
+        seatId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *座位号 ，对战游戏用
+       * </pre>
+       *
+       * <code>optional int32 seatId = 4;</code>
+       */
+      public Builder clearSeatId() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        seatId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object balance_ = "";
+      /**
+       * <pre>
+       *最新余额
+       * </pre>
+       *
+       * <code>optional string balance = 5;</code>
+       */
+      public boolean hasBalance() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       *最新余额
+       * </pre>
+       *
+       * <code>optional string balance = 5;</code>
+       */
+      public java.lang.String getBalance() {
+        java.lang.Object ref = balance_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            balance_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *最新余额
+       * </pre>
+       *
+       * <code>optional string balance = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBalanceBytes() {
+        java.lang.Object ref = balance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          balance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *最新余额
+       * </pre>
+       *
+       * <code>optional string balance = 5;</code>
+       */
+      public Builder setBalance(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *最新余额
+       * </pre>
+       *
+       * <code>optional string balance = 5;</code>
+       */
+      public Builder clearBalance() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        balance_ = getDefaultInstance().getBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *最新余额
+       * </pre>
+       *
+       * <code>optional string balance = 5;</code>
+       */
+      public Builder setBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.world.BalanceChangeNtf)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.world.BalanceChangeNtf)
+    private static final com.dafagame.protocol.world.World.BalanceChangeNtf DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.dafagame.protocol.world.World.BalanceChangeNtf();
+    }
+
+    public static com.dafagame.protocol.world.World.BalanceChangeNtf getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<BalanceChangeNtf>
+        PARSER = new com.google.protobuf.AbstractParser<BalanceChangeNtf>() {
+      public BalanceChangeNtf parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BalanceChangeNtf(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BalanceChangeNtf> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BalanceChangeNtf> getParserForType() {
+      return PARSER;
+    }
+
+    public com.dafagame.protocol.world.World.BalanceChangeNtf getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface PlayerOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.world.Player)
       com.google.protobuf.MessageOrBuilder {
@@ -9497,6 +12779,66 @@ public final class World {
      * <code>optional double safeBalance = 12;</code>
      */
     double getSafeBalance();
+
+    /**
+     * <pre>
+     *玩家类型 0普通玩家 1-4 机器人
+     * </pre>
+     *
+     * <code>optional int32 type = 13;</code>
+     */
+    boolean hasType();
+    /**
+     * <pre>
+     *玩家类型 0普通玩家 1-4 机器人
+     * </pre>
+     *
+     * <code>optional int32 type = 13;</code>
+     */
+    int getType();
+
+    /**
+     * <pre>
+     *当前炮台id
+     * </pre>
+     *
+     * <code>optional int32 weaponId = 14;</code>
+     */
+    boolean hasWeaponId();
+    /**
+     * <pre>
+     *当前炮台id
+     * </pre>
+     *
+     * <code>optional int32 weaponId = 14;</code>
+     */
+    int getWeaponId();
+
+    /**
+     * <pre>
+     *拥有炮台列表
+     * </pre>
+     *
+     * <code>optional string weaponList = 15;</code>
+     */
+    boolean hasWeaponList();
+    /**
+     * <pre>
+     *拥有炮台列表
+     * </pre>
+     *
+     * <code>optional string weaponList = 15;</code>
+     */
+    java.lang.String getWeaponList();
+    /**
+     * <pre>
+     *拥有炮台列表
+     * </pre>
+     *
+     * <code>optional string weaponList = 15;</code>
+     */
+    com.google.protobuf.ByteString
+        getWeaponListBytes();
   }
   /**
    * Protobuf type {@code com.dafagame.protocol.world.Player}
@@ -9523,6 +12865,9 @@ public final class World {
       frameId_ = 0;
       balance_ = 0D;
       safeBalance_ = 0D;
+      type_ = 0;
+      weaponId_ = 0;
+      weaponList_ = "";
     }
 
     @java.lang.Override
@@ -9614,6 +12959,22 @@ public final class World {
             case 97: {
               bitField0_ |= 0x00000800;
               safeBalance_ = input.readDouble();
+              break;
+            }
+            case 104: {
+              bitField0_ |= 0x00001000;
+              type_ = input.readInt32();
+              break;
+            }
+            case 112: {
+              bitField0_ |= 0x00002000;
+              weaponId_ = input.readInt32();
+              break;
+            }
+            case 122: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00004000;
+              weaponList_ = bs;
               break;
             }
           }
@@ -10010,6 +13371,106 @@ public final class World {
       return safeBalance_;
     }
 
+    public static final int TYPE_FIELD_NUMBER = 13;
+    private int type_;
+    /**
+     * <pre>
+     *玩家类型 0普通玩家 1-4 机器人
+     * </pre>
+     *
+     * <code>optional int32 type = 13;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00001000) == 0x00001000);
+    }
+    /**
+     * <pre>
+     *玩家类型 0普通玩家 1-4 机器人
+     * </pre>
+     *
+     * <code>optional int32 type = 13;</code>
+     */
+    public int getType() {
+      return type_;
+    }
+
+    public static final int WEAPONID_FIELD_NUMBER = 14;
+    private int weaponId_;
+    /**
+     * <pre>
+     *当前炮台id
+     * </pre>
+     *
+     * <code>optional int32 weaponId = 14;</code>
+     */
+    public boolean hasWeaponId() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    /**
+     * <pre>
+     *当前炮台id
+     * </pre>
+     *
+     * <code>optional int32 weaponId = 14;</code>
+     */
+    public int getWeaponId() {
+      return weaponId_;
+    }
+
+    public static final int WEAPONLIST_FIELD_NUMBER = 15;
+    private volatile java.lang.Object weaponList_;
+    /**
+     * <pre>
+     *拥有炮台列表
+     * </pre>
+     *
+     * <code>optional string weaponList = 15;</code>
+     */
+    public boolean hasWeaponList() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     * <pre>
+     *拥有炮台列表
+     * </pre>
+     *
+     * <code>optional string weaponList = 15;</code>
+     */
+    public java.lang.String getWeaponList() {
+      java.lang.Object ref = weaponList_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          weaponList_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *拥有炮台列表
+     * </pre>
+     *
+     * <code>optional string weaponList = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getWeaponListBytes() {
+      java.lang.Object ref = weaponList_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        weaponList_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -10098,6 +13559,15 @@ public final class World {
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         output.writeDouble(12, safeBalance_);
       }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeInt32(13, type_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        output.writeInt32(14, weaponId_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, weaponList_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -10150,6 +13620,17 @@ public final class World {
       if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(12, safeBalance_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(13, type_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(14, weaponId_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, weaponList_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10231,6 +13712,21 @@ public final class World {
             == java.lang.Double.doubleToLongBits(
                 other.getSafeBalance()));
       }
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && (getType()
+            == other.getType());
+      }
+      result = result && (hasWeaponId() == other.hasWeaponId());
+      if (hasWeaponId()) {
+        result = result && (getWeaponId()
+            == other.getWeaponId());
+      }
+      result = result && (hasWeaponList() == other.hasWeaponList());
+      if (hasWeaponList()) {
+        result = result && getWeaponList()
+            .equals(other.getWeaponList());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10291,6 +13787,18 @@ public final class World {
         hash = (37 * hash) + SAFEBALANCE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             java.lang.Double.doubleToLongBits(getSafeBalance()));
+      }
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getType();
+      }
+      if (hasWeaponId()) {
+        hash = (37 * hash) + WEAPONID_FIELD_NUMBER;
+        hash = (53 * hash) + getWeaponId();
+      }
+      if (hasWeaponList()) {
+        hash = (37 * hash) + WEAPONLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getWeaponList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -10445,6 +13953,12 @@ public final class World {
         bitField0_ = (bitField0_ & ~0x00000400);
         safeBalance_ = 0D;
         bitField0_ = (bitField0_ & ~0x00000800);
+        type_ = 0;
+        bitField0_ = (bitField0_ & ~0x00001000);
+        weaponId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00002000);
+        weaponList_ = "";
+        bitField0_ = (bitField0_ & ~0x00004000);
         return this;
       }
 
@@ -10517,6 +14031,18 @@ public final class World {
           to_bitField0_ |= 0x00000800;
         }
         result.safeBalance_ = safeBalance_;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00001000;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.weaponId_ = weaponId_;
+        if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
+          to_bitField0_ |= 0x00004000;
+        }
+        result.weaponList_ = weaponList_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10600,6 +14126,17 @@ public final class World {
         }
         if (other.hasSafeBalance()) {
           setSafeBalance(other.getSafeBalance());
+        }
+        if (other.hasType()) {
+          setType(other.getType());
+        }
+        if (other.hasWeaponId()) {
+          setWeaponId(other.getWeaponId());
+        }
+        if (other.hasWeaponList()) {
+          bitField0_ |= 0x00004000;
+          weaponList_ = other.weaponList_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -11390,6 +14927,202 @@ public final class World {
         onChanged();
         return this;
       }
+
+      private int type_ ;
+      /**
+       * <pre>
+       *玩家类型 0普通玩家 1-4 机器人
+       * </pre>
+       *
+       * <code>optional int32 type = 13;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00001000) == 0x00001000);
+      }
+      /**
+       * <pre>
+       *玩家类型 0普通玩家 1-4 机器人
+       * </pre>
+       *
+       * <code>optional int32 type = 13;</code>
+       */
+      public int getType() {
+        return type_;
+      }
+      /**
+       * <pre>
+       *玩家类型 0普通玩家 1-4 机器人
+       * </pre>
+       *
+       * <code>optional int32 type = 13;</code>
+       */
+      public Builder setType(int value) {
+        bitField0_ |= 0x00001000;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家类型 0普通玩家 1-4 机器人
+       * </pre>
+       *
+       * <code>optional int32 type = 13;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int weaponId_ ;
+      /**
+       * <pre>
+       *当前炮台id
+       * </pre>
+       *
+       * <code>optional int32 weaponId = 14;</code>
+       */
+      public boolean hasWeaponId() {
+        return ((bitField0_ & 0x00002000) == 0x00002000);
+      }
+      /**
+       * <pre>
+       *当前炮台id
+       * </pre>
+       *
+       * <code>optional int32 weaponId = 14;</code>
+       */
+      public int getWeaponId() {
+        return weaponId_;
+      }
+      /**
+       * <pre>
+       *当前炮台id
+       * </pre>
+       *
+       * <code>optional int32 weaponId = 14;</code>
+       */
+      public Builder setWeaponId(int value) {
+        bitField0_ |= 0x00002000;
+        weaponId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *当前炮台id
+       * </pre>
+       *
+       * <code>optional int32 weaponId = 14;</code>
+       */
+      public Builder clearWeaponId() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        weaponId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object weaponList_ = "";
+      /**
+       * <pre>
+       *拥有炮台列表
+       * </pre>
+       *
+       * <code>optional string weaponList = 15;</code>
+       */
+      public boolean hasWeaponList() {
+        return ((bitField0_ & 0x00004000) == 0x00004000);
+      }
+      /**
+       * <pre>
+       *拥有炮台列表
+       * </pre>
+       *
+       * <code>optional string weaponList = 15;</code>
+       */
+      public java.lang.String getWeaponList() {
+        java.lang.Object ref = weaponList_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            weaponList_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *拥有炮台列表
+       * </pre>
+       *
+       * <code>optional string weaponList = 15;</code>
+       */
+      public com.google.protobuf.ByteString
+          getWeaponListBytes() {
+        java.lang.Object ref = weaponList_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          weaponList_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *拥有炮台列表
+       * </pre>
+       *
+       * <code>optional string weaponList = 15;</code>
+       */
+      public Builder setWeaponList(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00004000;
+        weaponList_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *拥有炮台列表
+       * </pre>
+       *
+       * <code>optional string weaponList = 15;</code>
+       */
+      public Builder clearWeaponList() {
+        bitField0_ = (bitField0_ & ~0x00004000);
+        weaponList_ = getDefaultInstance().getWeaponList();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *拥有炮台列表
+       * </pre>
+       *
+       * <code>optional string weaponList = 15;</code>
+       */
+      public Builder setWeaponListBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00004000;
+        weaponList_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -11459,6 +15192,66 @@ public final class World {
      * <code>required int32 err = 1;</code>
      */
     int getErr();
+
+    /**
+     * <pre>
+     *离开原因
+     * </pre>
+     *
+     * <code>optional int32 leaveReason = 2;</code>
+     */
+    boolean hasLeaveReason();
+    /**
+     * <pre>
+     *离开原因
+     * </pre>
+     *
+     * <code>optional int32 leaveReason = 2;</code>
+     */
+    int getLeaveReason();
+
+    /**
+     * <pre>
+     *http错误码
+     * </pre>
+     *
+     * <code>optional int32 httpCode = 3;</code>
+     */
+    boolean hasHttpCode();
+    /**
+     * <pre>
+     *http错误码
+     * </pre>
+     *
+     * <code>optional int32 httpCode = 3;</code>
+     */
+    int getHttpCode();
+
+    /**
+     * <pre>
+     *错误描述
+     * </pre>
+     *
+     * <code>optional string errDes = 4;</code>
+     */
+    boolean hasErrDes();
+    /**
+     * <pre>
+     *错误描述
+     * </pre>
+     *
+     * <code>optional string errDes = 4;</code>
+     */
+    java.lang.String getErrDes();
+    /**
+     * <pre>
+     *错误描述
+     * </pre>
+     *
+     * <code>optional string errDes = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrDesBytes();
   }
   /**
    * Protobuf type {@code com.dafagame.protocol.world.ErrorNtf}
@@ -11474,6 +15267,9 @@ public final class World {
     }
     private ErrorNtf() {
       err_ = 0;
+      leaveReason_ = 0;
+      httpCode_ = 0;
+      errDes_ = "";
     }
 
     @java.lang.Override
@@ -11507,6 +15303,22 @@ public final class World {
             case 8: {
               bitField0_ |= 0x00000001;
               err_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              leaveReason_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              httpCode_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              errDes_ = bs;
               break;
             }
           }
@@ -11557,6 +15369,106 @@ public final class World {
       return err_;
     }
 
+    public static final int LEAVEREASON_FIELD_NUMBER = 2;
+    private int leaveReason_;
+    /**
+     * <pre>
+     *离开原因
+     * </pre>
+     *
+     * <code>optional int32 leaveReason = 2;</code>
+     */
+    public boolean hasLeaveReason() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *离开原因
+     * </pre>
+     *
+     * <code>optional int32 leaveReason = 2;</code>
+     */
+    public int getLeaveReason() {
+      return leaveReason_;
+    }
+
+    public static final int HTTPCODE_FIELD_NUMBER = 3;
+    private int httpCode_;
+    /**
+     * <pre>
+     *http错误码
+     * </pre>
+     *
+     * <code>optional int32 httpCode = 3;</code>
+     */
+    public boolean hasHttpCode() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *http错误码
+     * </pre>
+     *
+     * <code>optional int32 httpCode = 3;</code>
+     */
+    public int getHttpCode() {
+      return httpCode_;
+    }
+
+    public static final int ERRDES_FIELD_NUMBER = 4;
+    private volatile java.lang.Object errDes_;
+    /**
+     * <pre>
+     *错误描述
+     * </pre>
+     *
+     * <code>optional string errDes = 4;</code>
+     */
+    public boolean hasErrDes() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *错误描述
+     * </pre>
+     *
+     * <code>optional string errDes = 4;</code>
+     */
+    public java.lang.String getErrDes() {
+      java.lang.Object ref = errDes_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          errDes_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *错误描述
+     * </pre>
+     *
+     * <code>optional string errDes = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrDesBytes() {
+      java.lang.Object ref = errDes_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errDes_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -11576,6 +15488,15 @@ public final class World {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, err_);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, leaveReason_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, httpCode_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, errDes_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -11587,6 +15508,17 @@ public final class World {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, err_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, leaveReason_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, httpCode_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, errDes_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -11609,6 +15541,21 @@ public final class World {
         result = result && (getErr()
             == other.getErr());
       }
+      result = result && (hasLeaveReason() == other.hasLeaveReason());
+      if (hasLeaveReason()) {
+        result = result && (getLeaveReason()
+            == other.getLeaveReason());
+      }
+      result = result && (hasHttpCode() == other.hasHttpCode());
+      if (hasHttpCode()) {
+        result = result && (getHttpCode()
+            == other.getHttpCode());
+      }
+      result = result && (hasErrDes() == other.hasErrDes());
+      if (hasErrDes()) {
+        result = result && getErrDes()
+            .equals(other.getErrDes());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -11623,6 +15570,18 @@ public final class World {
       if (hasErr()) {
         hash = (37 * hash) + ERR_FIELD_NUMBER;
         hash = (53 * hash) + getErr();
+      }
+      if (hasLeaveReason()) {
+        hash = (37 * hash) + LEAVEREASON_FIELD_NUMBER;
+        hash = (53 * hash) + getLeaveReason();
+      }
+      if (hasHttpCode()) {
+        hash = (37 * hash) + HTTPCODE_FIELD_NUMBER;
+        hash = (53 * hash) + getHttpCode();
+      }
+      if (hasErrDes()) {
+        hash = (37 * hash) + ERRDES_FIELD_NUMBER;
+        hash = (53 * hash) + getErrDes().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -11755,6 +15714,12 @@ public final class World {
         super.clear();
         err_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
+        leaveReason_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        httpCode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        errDes_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -11783,6 +15748,18 @@ public final class World {
           to_bitField0_ |= 0x00000001;
         }
         result.err_ = err_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.leaveReason_ = leaveReason_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.httpCode_ = httpCode_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.errDes_ = errDes_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -11827,6 +15804,17 @@ public final class World {
         if (other == com.dafagame.protocol.world.World.ErrorNtf.getDefaultInstance()) return this;
         if (other.hasErr()) {
           setErr(other.getErr());
+        }
+        if (other.hasLeaveReason()) {
+          setLeaveReason(other.getLeaveReason());
+        }
+        if (other.hasHttpCode()) {
+          setHttpCode(other.getHttpCode());
+        }
+        if (other.hasErrDes()) {
+          bitField0_ |= 0x00000008;
+          errDes_ = other.errDes_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -11906,6 +15894,202 @@ public final class World {
         onChanged();
         return this;
       }
+
+      private int leaveReason_ ;
+      /**
+       * <pre>
+       *离开原因
+       * </pre>
+       *
+       * <code>optional int32 leaveReason = 2;</code>
+       */
+      public boolean hasLeaveReason() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *离开原因
+       * </pre>
+       *
+       * <code>optional int32 leaveReason = 2;</code>
+       */
+      public int getLeaveReason() {
+        return leaveReason_;
+      }
+      /**
+       * <pre>
+       *离开原因
+       * </pre>
+       *
+       * <code>optional int32 leaveReason = 2;</code>
+       */
+      public Builder setLeaveReason(int value) {
+        bitField0_ |= 0x00000002;
+        leaveReason_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *离开原因
+       * </pre>
+       *
+       * <code>optional int32 leaveReason = 2;</code>
+       */
+      public Builder clearLeaveReason() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        leaveReason_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int httpCode_ ;
+      /**
+       * <pre>
+       *http错误码
+       * </pre>
+       *
+       * <code>optional int32 httpCode = 3;</code>
+       */
+      public boolean hasHttpCode() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       *http错误码
+       * </pre>
+       *
+       * <code>optional int32 httpCode = 3;</code>
+       */
+      public int getHttpCode() {
+        return httpCode_;
+      }
+      /**
+       * <pre>
+       *http错误码
+       * </pre>
+       *
+       * <code>optional int32 httpCode = 3;</code>
+       */
+      public Builder setHttpCode(int value) {
+        bitField0_ |= 0x00000004;
+        httpCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *http错误码
+       * </pre>
+       *
+       * <code>optional int32 httpCode = 3;</code>
+       */
+      public Builder clearHttpCode() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        httpCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object errDes_ = "";
+      /**
+       * <pre>
+       *错误描述
+       * </pre>
+       *
+       * <code>optional string errDes = 4;</code>
+       */
+      public boolean hasErrDes() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       *错误描述
+       * </pre>
+       *
+       * <code>optional string errDes = 4;</code>
+       */
+      public java.lang.String getErrDes() {
+        java.lang.Object ref = errDes_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            errDes_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *错误描述
+       * </pre>
+       *
+       * <code>optional string errDes = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrDesBytes() {
+        java.lang.Object ref = errDes_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          errDes_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *错误描述
+       * </pre>
+       *
+       * <code>optional string errDes = 4;</code>
+       */
+      public Builder setErrDes(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        errDes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *错误描述
+       * </pre>
+       *
+       * <code>optional string errDes = 4;</code>
+       */
+      public Builder clearErrDes() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        errDes_ = getDefaultInstance().getErrDes();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *错误描述
+       * </pre>
+       *
+       * <code>optional string errDes = 4;</code>
+       */
+      public Builder setErrDesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        errDes_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -11961,6 +16145,11 @@ public final class World {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dafagame_protocol_world_Msg_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_world_MsgServer_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_world_MsgServer_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_dafagame_protocol_world_MsgReceive_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -12001,6 +16190,11 @@ public final class World {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dafagame_protocol_world_GameLampNtf_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_world_BalanceChangeNtf_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_world_BalanceChangeNtf_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_dafagame_protocol_world_Player_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -12020,46 +16214,62 @@ public final class World {
   static {
     java.lang.String[] descriptorData = {
       "\n\013World.proto\022\033com.dafagame.protocol.wor" +
-      "ld\"\271\001\n\003Msg\0225\n\007sendMsg\030\001 \001(\0132$.com.dafaga" +
+      "ld\"\364\001\n\003Msg\0225\n\007sendMsg\030\001 \001(\0132$.com.dafaga" +
       "me.protocol.world.MsgSend\022;\n\nreceiveMsg\030" +
       "\002 \001(\0132\'.com.dafagame.protocol.world.MsgR" +
       "eceive\022>\n\nindication\030\003 \001(\0132*.com.dafagam" +
-      "e.protocol.world.MsgIndication\":\n\nMsgRec" +
-      "eive\022\013\n\003uid\030\001 \001(\005\022\021\n\tprotoType\030\002 \002(\005\022\014\n\004" +
-      "data\030\003 \002(\014\"8\n\007MsgSend\022\014\n\004uids\030\001 \003(\005\022\021\n\tp" +
-      "rotoType\030\002 \002(\005\022\014\n\004data\030\003 \002(\014\"N\n\rMsgIndic" +
-      "ation\022\020\n\010serverId\030\001 \002(\t\022\016\n\006roomId\030\002 \002(\t\022",
-      "\r\n\005proto\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"h\n\014EnterGam" +
-      "eReq\022\020\n\010gameCode\030\001 \002(\t\022\021\n\troundType\030\002 \002(" +
-      "\t\0223\n\006player\030\003 \001(\0132#.com.dafagame.protoco" +
-      "l.world.Player\"\240\001\n\014EnterGameRes\022\021\n\tround" +
-      "Type\030\001 \001(\t\0229\n\terrorCode\030\002 \002(\0162&.com.dafa" +
-      "game.protocol.world.ErrorCode\022\013\n\003msg\030\003 \001" +
-      "(\t\022\016\n\006roomId\030\004 \001(\t\022\020\n\010gameCode\030\005 \001(\t\022\023\n\013" +
-      "subServerId\030\006 \001(\t\"\035\n\013ExitGameReq\022\016\n\006reas" +
-      "on\030\001 \002(\005\"U\n\013ExitGameRes\0229\n\terrorCode\030\001 \002" +
-      "(\0162&.com.dafagame.protocol.world.ErrorCo",
-      "de\022\013\n\003msg\030\002 \001(\t\"\035\n\013GameLampNtf\022\016\n\006arrays" +
-      "\030\001 \003(\t\"\333\001\n\006Player\022\013\n\003uid\030\001 \002(\005\022\020\n\010userNa" +
-      "me\030\002 \002(\t\022\020\n\010nickName\030\003 \002(\t\022\016\n\006avatar\030\004 \002" +
-      "(\005\022\r\n\005grade\030\005 \002(\005\022\022\n\ntenantCode\030\006 \002(\t\022\020\n" +
-      "\010sourceId\030\007 \002(\005\022\020\n\010userType\030\010 \002(\005\022\022\n\npro" +
-      "xyGrade\030\t \002(\005\022\017\n\007frameId\030\n \002(\005\022\017\n\007balanc" +
-      "e\030\013 \001(\001\022\023\n\013safeBalance\030\014 \001(\001\"\027\n\010ErrorNtf" +
-      "\022\013\n\003err\030\001 \002(\005*x\n\tProtoType\022\025\n\020EnterGameR" +
-      "eqType\020\350\007\022\025\n\020EnterGameResType\020\351\007\022\024\n\017Exit" +
-      "GameReqType\020\352\007\022\024\n\017ExitGameResType\020\353\007\022\021\n\014",
-      "ErrorNtfType\020\354\007*\264\002\n\tErrorCode\022\006\n\002OK\020\001\022\013\n" +
-      "\007NoMoney\020\002\022\016\n\nPlayerFull\020\003\022\020\n\014GameMainta" +
-      "in\020\004\022\014\n\010GameStop\020\005\022\r\n\tMoreMoney\020\006\022\013\n\007NoR" +
-      "ound\020\007\022\017\n\013InOtherGame\020\010\022\n\n\006NoSeat\020\t\022\016\n\nN" +
-      "ullPlayer\020\n\022\014\n\010NotLogin\020\013\022\n\n\006NoRoom\020\014\022\014\n" +
-      "\010RmiError\020\r\022\020\n\014BalanceError\020\016\022\025\n\021Illegal" +
-      "ParamError\020\017\022\020\n\014EntryProcess\020\020\022\r\n\tNotInG" +
-      "ame\020\021\022\017\n\013ServerError\020\022\022\026\n\022LoginAtOtherDe" +
-      "vice\020\023*]\n\016ExitGameReason\022\013\n\007Usually\020\001\022\010\n" +
-      "\004Kick\020\002\022\013\n\007OffLine\020\003\022\024\n\020LoginOtherDevice",
-      "\020\004\022\021\n\rVersionUpdate\020\005"
+      "e.protocol.world.MsgIndication\0229\n\tmsgSer" +
+      "ver\030\004 \001(\0132&.com.dafagame.protocol.world." +
+      "MsgServer\"O\n\tMsgServer\022\r\n\005proto\030\001 \002(\005\022\014\n" +
+      "\004data\030\002 \002(\014\022\020\n\010gameCode\030\003 \002(\t\022\023\n\013subServ" +
+      "erId\030\004 \002(\t\":\n\nMsgReceive\022\013\n\003uid\030\001 \001(\005\022\021\n",
+      "\tprotoType\030\002 \002(\005\022\014\n\004data\030\003 \002(\014\"J\n\007MsgSen" +
+      "d\022\014\n\004uids\030\001 \003(\005\022\021\n\tprotoType\030\002 \002(\005\022\014\n\004da" +
+      "ta\030\003 \002(\014\022\020\n\010reqProto\030\004 \001(\005\"N\n\rMsgIndicat" +
+      "ion\022\020\n\010serverId\030\001 \002(\t\022\016\n\006roomId\030\002 \002(\t\022\r\n" +
+      "\005proto\030\003 \002(\005\022\014\n\004data\030\004 \002(\014\"\222\001\n\014EnterGame" +
+      "Req\022\020\n\010gameCode\030\001 \002(\t\022\021\n\troundType\030\002 \002(\t" +
+      "\0223\n\006player\030\003 \001(\0132#.com.dafagame.protocol" +
+      ".world.Player\022\022\n\nroomNumber\030\004 \001(\t\022\024\n\014tak" +
+      "enInMoney\030\005 \001(\t\"\240\001\n\014EnterGameRes\022\021\n\troun" +
+      "dType\030\001 \001(\t\0229\n\terrorCode\030\002 \002(\0162&.com.daf",
+      "agame.protocol.world.ErrorCode\022\013\n\003msg\030\003 " +
+      "\001(\t\022\016\n\006roomId\030\004 \001(\t\022\020\n\010gameCode\030\005 \001(\t\022\023\n" +
+      "\013subServerId\030\006 \001(\t\"\035\n\013ExitGameReq\022\016\n\006rea" +
+      "son\030\001 \002(\005\"U\n\013ExitGameRes\0229\n\terrorCode\030\001 " +
+      "\002(\0162&.com.dafagame.protocol.world.ErrorC" +
+      "ode\022\013\n\003msg\030\002 \001(\t\"\035\n\013GameLampNtf\022\016\n\006array" +
+      "s\030\001 \003(\t\"c\n\020BalanceChangeNtf\022\013\n\003uid\030\001 \001(\005" +
+      "\022\016\n\006amount\030\002 \002(\t\022\021\n\tdictionId\030\003 \002(\005\022\016\n\006s" +
+      "eatId\030\004 \001(\005\022\017\n\007balance\030\005 \001(\t\"\217\002\n\006Player\022" +
+      "\013\n\003uid\030\001 \002(\005\022\020\n\010userName\030\002 \002(\t\022\020\n\010nickNa",
+      "me\030\003 \002(\t\022\016\n\006avatar\030\004 \002(\005\022\r\n\005grade\030\005 \002(\005\022" +
+      "\022\n\ntenantCode\030\006 \002(\t\022\020\n\010sourceId\030\007 \002(\005\022\020\n" +
+      "\010userType\030\010 \002(\005\022\022\n\nproxyGrade\030\t \002(\005\022\017\n\007f" +
+      "rameId\030\n \002(\005\022\017\n\007balance\030\013 \001(\001\022\023\n\013safeBal" +
+      "ance\030\014 \001(\001\022\014\n\004type\030\r \001(\005\022\020\n\010weaponId\030\016 \001" +
+      "(\005\022\022\n\nweaponList\030\017 \001(\t\"N\n\010ErrorNtf\022\013\n\003er" +
+      "r\030\001 \002(\005\022\023\n\013leaveReason\030\002 \001(\005\022\020\n\010httpCode" +
+      "\030\003 \001(\005\022\016\n\006errDes\030\004 \001(\t*\223\001\n\tProtoType\022\025\n\020" +
+      "EnterGameReqType\020\350\007\022\025\n\020EnterGameResType\020" +
+      "\351\007\022\024\n\017ExitGameReqType\020\352\007\022\024\n\017ExitGameResT",
+      "ype\020\353\007\022\021\n\014ErrorNtfType\020\354\007\022\031\n\024BalanceChan" +
+      "geNtfType\020\355\007*\361\003\n\tErrorCode\022\006\n\002OK\020\001\022\013\n\007No" +
+      "Money\020\002\022\016\n\nPlayerFull\020\003\022\020\n\014GameMaintain\020" +
+      "\004\022\014\n\010GameStop\020\005\022\r\n\tMoreMoney\020\006\022\013\n\007NoRoun" +
+      "d\020\007\022\017\n\013InOtherGame\020\010\022\n\n\006NoSeat\020\t\022\016\n\nNull" +
+      "Player\020\n\022\014\n\010NotLogin\020\013\022\n\n\006NoRoom\020\014\022\014\n\010Rm" +
+      "iError\020\r\022\020\n\014BalanceError\020\016\022\025\n\021IllegalPar" +
+      "amError\020\017\022\020\n\014EntryProcess\020\020\022\r\n\tNotInGame" +
+      "\020\021\022\017\n\013ServerError\020\022\022\026\n\022LoginAtOtherDevic" +
+      "e\020\023\022\024\n\020NotEnoughBalance\020\024\022\017\n\013TimeoutExit",
+      "\020\025\022\017\n\013CloseSocket\020\026\022\021\n\rAlreadyInRoom\020\027\022\017" +
+      "\n\013NoMoneySwap\020\030\022\023\n\017PlayerNotEnough\020\031\022\022\n\016" +
+      "TenantMaintain\020\032\022\014\n\010NoOpExit\020\033\022\024\n\020Servic" +
+      "eFeeChange\020\034\022\022\n\016NotFoundServer\020\035*]\n\016Exit" +
+      "GameReason\022\013\n\007Usually\020\001\022\010\n\004Kick\020\002\022\013\n\007Off" +
+      "Line\020\003\022\024\n\020LoginOtherDevice\020\004\022\021\n\rVersionU" +
+      "pdate\020\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12078,67 +16288,79 @@ public final class World {
     internal_static_com_dafagame_protocol_world_Msg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_Msg_descriptor,
-        new java.lang.String[] { "SendMsg", "ReceiveMsg", "Indication", });
-    internal_static_com_dafagame_protocol_world_MsgReceive_descriptor =
+        new java.lang.String[] { "SendMsg", "ReceiveMsg", "Indication", "MsgServer", });
+    internal_static_com_dafagame_protocol_world_MsgServer_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_com_dafagame_protocol_world_MsgServer_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_world_MsgServer_descriptor,
+        new java.lang.String[] { "Proto", "Data", "GameCode", "SubServerId", });
+    internal_static_com_dafagame_protocol_world_MsgReceive_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_com_dafagame_protocol_world_MsgReceive_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_MsgReceive_descriptor,
         new java.lang.String[] { "Uid", "ProtoType", "Data", });
     internal_static_com_dafagame_protocol_world_MsgSend_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_com_dafagame_protocol_world_MsgSend_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_MsgSend_descriptor,
-        new java.lang.String[] { "Uids", "ProtoType", "Data", });
+        new java.lang.String[] { "Uids", "ProtoType", "Data", "ReqProto", });
     internal_static_com_dafagame_protocol_world_MsgIndication_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_dafagame_protocol_world_MsgIndication_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_MsgIndication_descriptor,
         new java.lang.String[] { "ServerId", "RoomId", "Proto", "Data", });
     internal_static_com_dafagame_protocol_world_EnterGameReq_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_dafagame_protocol_world_EnterGameReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_EnterGameReq_descriptor,
-        new java.lang.String[] { "GameCode", "RoundType", "Player", });
+        new java.lang.String[] { "GameCode", "RoundType", "Player", "RoomNumber", "TakenInMoney", });
     internal_static_com_dafagame_protocol_world_EnterGameRes_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_dafagame_protocol_world_EnterGameRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_EnterGameRes_descriptor,
         new java.lang.String[] { "RoundType", "ErrorCode", "Msg", "RoomId", "GameCode", "SubServerId", });
     internal_static_com_dafagame_protocol_world_ExitGameReq_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_dafagame_protocol_world_ExitGameReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_ExitGameReq_descriptor,
         new java.lang.String[] { "Reason", });
     internal_static_com_dafagame_protocol_world_ExitGameRes_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_com_dafagame_protocol_world_ExitGameRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_ExitGameRes_descriptor,
         new java.lang.String[] { "ErrorCode", "Msg", });
     internal_static_com_dafagame_protocol_world_GameLampNtf_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_com_dafagame_protocol_world_GameLampNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_GameLampNtf_descriptor,
         new java.lang.String[] { "Arrays", });
+    internal_static_com_dafagame_protocol_world_BalanceChangeNtf_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_com_dafagame_protocol_world_BalanceChangeNtf_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_world_BalanceChangeNtf_descriptor,
+        new java.lang.String[] { "Uid", "Amount", "DictionId", "SeatId", "Balance", });
     internal_static_com_dafagame_protocol_world_Player_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_dafagame_protocol_world_Player_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_Player_descriptor,
-        new java.lang.String[] { "Uid", "UserName", "NickName", "Avatar", "Grade", "TenantCode", "SourceId", "UserType", "ProxyGrade", "FrameId", "Balance", "SafeBalance", });
+        new java.lang.String[] { "Uid", "UserName", "NickName", "Avatar", "Grade", "TenantCode", "SourceId", "UserType", "ProxyGrade", "FrameId", "Balance", "SafeBalance", "Type", "WeaponId", "WeaponList", });
     internal_static_com_dafagame_protocol_world_ErrorNtf_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_dafagame_protocol_world_ErrorNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_world_ErrorNtf_descriptor,
-        new java.lang.String[] { "Err", });
+        new java.lang.String[] { "Err", "LeaveReason", "HttpCode", "ErrDes", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

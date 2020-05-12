@@ -92,10 +92,10 @@ public class ResponceMessage {
             //System.out.println("初始化 stateTime："+stateTime+"，status："+status);
         } else if ("709".equals(proto)) { //开始下注通知
             issue = data.get("issue").toString();
-            System.out.println(issue);
+            //System.out.println(issue);
             synchronized (lock) {
                 if (!issue.equals(StartWs.currentIssue)) {
-                    System.out.println("map------" + StartWs.map);
+                    //System.out.println("map------" + StartWs.map);
                     StartWs.currentIssue = issue;
                     StartWs.map.clear();
                     StartWs.map.put(issue, 0);

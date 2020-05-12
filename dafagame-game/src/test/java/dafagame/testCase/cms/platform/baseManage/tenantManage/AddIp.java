@@ -13,7 +13,7 @@ public class AddIp {
     @Test(description = "测试")
     public static void test01() {
         String body = UrlBuilder.custom()
-                .addBuilder("tenantCode", "duke")
+                .addBuilder("tenantCode.txt", "duke")
                 .addBuilder("ip", "192.168.2.1")
                 .addBuilder("remark", "平台专员duke添加")
                 .fullBody();

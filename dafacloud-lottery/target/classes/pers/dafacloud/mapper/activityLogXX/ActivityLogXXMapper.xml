@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.dafacloud.mapper.activityLogXX.ActivityLogXXMapper">
+    <insert id="addActivityLogXX" parameterType="java.util.List">
+		insert into dafacloud_activity.activity_log_dafa
+		(
+		`tenant_code`,
+		`user_id`,
+		`user_name`,
+		`record_code`,
+		`amount`,
+		`activity_type`,
+		`recharge_type`,
+		`is_receive`,
+		`source_id`,
+		`is_test`,
+		`created_date`,
+		`gmt_created`,
+		`gmt_modified`
+		)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(
+			#{item.tenant_code},
+			#{item.user_id},
+			#{item.user_name},
+			#{item.record_code},
+			#{item.amount},
+			#{item.activity_type},
+			#{item.recharge_type},
+			#{item.is_receive},
+			#{item.source_id},
+			#{item.is_test},
+			#{item.created_date},
+			#{item.gmt_created},
+			#{item.gmt_modified}
+			)
+		</foreach>
+	</insert>
+</mapper>

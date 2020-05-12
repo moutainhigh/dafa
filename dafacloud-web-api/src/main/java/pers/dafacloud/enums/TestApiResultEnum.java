@@ -6,11 +6,13 @@ import lombok.Getter;
 public enum TestApiResultEnum {
 
     SUCCESS("1", "成功"),
-    ERROR("-11", "接口返回错误"),
-    DE_ERROR("-12", "依赖接口返回失败"),
-    DE1_ERROR("0", "依赖接口1返回失败"),
-    DE2_ERROR("0", "依赖接口2返回失败"),
-    DE_NO_DATA("-13", "依赖接口未返回数据"),
+    FAIL("-11", "失败"),
+    ERROR("-12", "错误"),
+    DE_ERROR("-13", "依赖接口错误"),
+    //DE_FAIL("-12", "依赖接口失败"),
+    //DE1_ERROR("0", "依赖接口失败"),
+    //DE2_ERROR("0", "依赖接口2返回失败"),
+    DE_NO_DATA("-14", "依赖接口返回空"),
     ;
 
     private String code;

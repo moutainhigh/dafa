@@ -1,0 +1,162 @@
+syntax = "proto2";
+package com.dafagame.protocol.qzsg;
+
+enum GameType{
+    QZSG = 207;
+}
+
+
+enum CardType{
+    LING = 0;
+    YI = 1;
+    ER = 2;
+    SAN = 3;
+    SI = 4;
+    WU = 5;
+    LIU = 6;
+    QI = 7;
+    BA = 8;
+    JIU = 9;
+    HUNSANGONG = 10;
+    XIAOSANGONG = 11;
+    DASANGONG = 12;
+}
+
+//游戏场景的状态
+enum RoomStatus {
+    Idel = 1;           //空闲
+    WaitStart = 2;      //等待开始
+    CallBanker = 3;     //抢庄
+    RandomBanker = 4;   //随机庄家
+    Bet = 5;            //下注
+    SendCards = 6;      //发牌
+    OpenCards = 7;      //开牌
+    Lottery = 8;        //结算
+}
+
+enum PlayerStatus{
+    Bystander = 1;
+    Play = 2;
+}
+
+enum ProtoType{
+    CallReqType = 20711;                //抢庄请求
+    CallResNtfType = 20722;             //抢庄回应广播
+
+    BetReqType = 20733;                 //下注请求
+    BetResNtfType = 20744;              //下注回应广播
+
+    LotteryMsgNtfType = 20755;          //结算数据
+
+    PlayerExitNtfType = 20766;          //玩家退出广播
+    PlayerEnterNtfType = 20777;         //玩家进入广播
+
+    StatusNtfType = 20788;              //状态转换广播
+
+    ScenesReqType = 20701;              //场景请求
+    ScenesResType = 20702;             //场景
+
+    OpenCardsReqType = 20783;           //开牌 搓牌
+    OpenCardsResNtfType = 20784;           //开牌广播
+}
+
+enum ErrorCode{
+    Ok = 1;
+    MultipleError = 2;      //倍数错误
+    NotOptPlayer = 3;       //不是该玩家操作
+    NotInPlaying = 4;       //不在游戏中
+    NotEnoughBalance = 5;   //余额不足
+    StatusError = 6;        //操作状态错误
+    NonePlayer = 7;         //玩家不存在
+}
+
+
+message CallReq{
+    optional int32 callBanker = 1; //0不抢 1抢
+}
+
+message CallResNtf{
+    optional int32 opt = 1;
+    optional int32 callBanker = 2;
+    optional ErrorCode code = 3;
+}
+
+message BetReq{
+    optional int32 multiple = 1;    //下注倍数
+}
+
+message BetResNtf{
+    optional int32 opt = 1;         //操作玩家
+    optional int32 multiple = 2;    //下注倍数
+    optional ErrorCode code = 3;
+}
+
+
+message StatusNtf{
+    optional RoomStatus status = 1;
+    optional int32 time = 2;        //状态设定时间
+    optional string inning = 3;     //局号
+    optional int32 banker = 4;      //庄家
+    repeated int32 players = 5;     //参与游戏的玩家
+    optional string cards = 6;      //发牌阶段牌
+    optional int32 cardsType = 7;   //发牌阶段牌型
+    repeated int32 canBetMulti = 8; //可下注倍数
+}
+
+
+message LotteryMsgNtf{
+    repeated string returnAmount = 1;
+    repeated string balance = 2;
+    optional string cards = 3;
+    repeated int32 cardsType = 4;
+}
+
+message PlayerExitNtf{
+    optional int32 seat = 1;
+}
+message PlayerEnterNtf{
+    optional PlayerInfo player = 1;
+}
+
+
+message PlayerInfo{
+    optional int32 seat = 1;
+    optional int32 grade = 2;           //vip
+    optional string nickName = 3;       //昵称
+    optional int32 avatar = 4;          //头像
+    optional string balance = 5;        //余额
+    optional int32 frame = 6;           //相框
+    optional int32 betMultiple = 7;     //下注倍数
+    optional PlayerStatus status = 8;   //玩家状态
+    optional string cards = 9;         //牌
+    optional int32 cardsType = 10;      //牌型
+    optional int32 callBanker = 11;
+}
+
+message ScenesReq{
+}
+
+message ScenesRes{
+    optional string roundType = 1;      //场次类型
+    optional string roomNumber = 2;     //房号
+    optional string inning = 3;         //局号
+    optional RoomStatus roomStatus = 4; //房间状态
+    repeated PlayerInfo others = 5;    //其他玩家信息
+    optional int32 banker = 6;          //庄家
+    optional int32 baseLimit = 7;      //底分
+    optional int64 countDown = 8;      //状态倒计时
+    optional PlayerInfo own = 9;    //玩家自己信息
+    optional int32 maxMulti = 10;       //牌型最大倍数
+}
+
+message OpenCardsReq{
+
+}
+
+message OpenCardsResNtf{
+    optional string cards = 1;
+    optional int32 cardsType = 2;
+    optional int32 opt = 3;
+    optional ErrorCode code = 4;
+}
+

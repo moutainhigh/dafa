@@ -12,7 +12,7 @@ public class UpdateTenantMaintenanceList {
     @Test(description = "修改维护时间")
     public static void test01() {
         String body = UrlBuilder.custom()
-                .addBuilder("tenantCode", "duke")
+                .addBuilder("tenantCode.txt", "duke")
                 .addBuilder("type", "2") //1 前台维护,2后台维护，3官网维护
                 .addBuilder("endDate", "2019-08-19 17:33:20")
                 .fullBody();

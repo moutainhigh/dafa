@@ -14,7 +14,7 @@ public class UpdateTenantToken {
     public static void test01() {
         String body = UrlBuilder.custom()
                 .addBuilder("isToken", "1")//1开启 0关闭
-               .addBuilder("tenantCode", "duke")
+               .addBuilder("tenantCode.txt", "duke")
                 .fullBody();
         String result = DafaRequest.post(1, updateTenantToken, body);
         JSONObject jsonResult = JSONObject.fromObject(result);

@@ -15,7 +15,7 @@ public class UpdateThirdPartyPaymentExternalState {
     public static void test01() {
         String host = "http://pt.dafagame-testCookie.com";//
         String body = UrlBuilder.custom()
-                .addBuilder("tenantCode", "cindy")
+                .addBuilder("tenantCode.txt", "cindy")
                 .addBuilder("recordCode", "8010803100026699")
                 .addBuilder("amount", "34")
                 .fullBody();

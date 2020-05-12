@@ -28,13 +28,15 @@ import java.nio.charset.Charset;
  */
 public class CreateTenant {
 
-    private static String host = "http://pt.dafagame-pro.com";
+    //private static String host = "http://pt.dafagame-pro.com";
+    private static String host = "http://cms.caishenzhengba.net";
     private static String uploadFilePlatform = host + "/v1/files/new/uploadFilePlatform";
     private static String addTenant = host + "/v1/management/tenant/addTenant";
 
     private static String re = "";
-    private static String tenantCode = "alysia1";
-    private static String url = "asd.asdz.com";
+    private static String tenantCode = "dukeee";
+    private static String url = "asde.asde.com";
+    private static String JSESSIONID = "2FF69DF10797CB85D3CDF3DC3A7F0D60";
 
     public static void main(String[] args) throws Exception {
 
@@ -44,7 +46,7 @@ public class CreateTenant {
                 .build();
 
         CookieStore cookieStore = new BasicCookieStore();
-        BasicClientCookie basicClientCookie = new BasicClientCookie("JSESSIONID", "3A0E3EA2FF375A1CC57FCD719303588E");
+        BasicClientCookie basicClientCookie = new BasicClientCookie("JSESSIONID", JSESSIONID);
         basicClientCookie.setDomain(new URL(host).getHost());
         basicClientCookie.setPath("/");
         cookieStore.addCookie(basicClientCookie);
@@ -59,7 +61,7 @@ public class CreateTenant {
         JSONArray jsonArray = JSONObject.fromObject(re).getJSONArray("data");
         String body = UrlBuilder.custom()
                 .addBuilder("tenantType", "1")
-                .addBuilder("tenantCode", tenantCode)
+                .addBuilder("tenantCode.txt", tenantCode)
                 .addBuilder("admin", tenantCode)
                 .addBuilder("url", url)
                 .addBuilder("password", DigestUtils.md5Hex(tenantCode + DigestUtils.md5Hex("123456")))
@@ -84,16 +86,18 @@ public class CreateTenant {
         System.out.println(result);
     }
 
-
-    public static String uploadFilePlatform(HttpConfig httpConfig) throws Exception {
+    /**
+     * 1.先上传文件
+     */
+    private static String uploadFilePlatform(HttpConfig httpConfig) throws Exception {
         String pwd = "/Users/duke/Documents/大发图片/新建站点new/";
         String gameicon = pwd + "gameicon.png"; //icno图标
         String MasterLogo = pwd + "MasterLogo.png"; //大厅logo
         String WebLogo_Mb = pwd + "WebLogo_Mb.png"; //官网logo
         String CMSLogo = pwd + "CMSLogo.png"; //后台logo
 
-        //String tenantCode = "frankc";
-        //String password = DigestUtils.md5Hex(tenantCode + DigestUtils.md5Hex("123456"));
+        //String tenantCode.txt = "frankc";
+        //String password = DigestUtils.md5Hex(tenantCode.txt + DigestUtils.md5Hex("123456"));
         HttpEntity httpEntity = MultipartEntityBuilder.create()
                 .setCharset(Charset.forName("utf-8"))
                 .addPart("files", new FileBody(new File(gameicon), ContentType.create("image/png", Consts.UTF_8)))
@@ -102,7 +106,7 @@ public class CreateTenant {
                 .addPart("files", new FileBody(new File(CMSLogo), ContentType.create("image/png", Consts.UTF_8)))
 
                 .addPart("serviceFrom", new StringBody("management", ContentType.MULTIPART_FORM_DATA))
-                .addPart("tenantCode", new StringBody(tenantCode, ContentType.MULTIPART_FORM_DATA))
+                .addPart("tenantCode.txt", new StringBody(tenantCode, ContentType.MULTIPART_FORM_DATA))
                 .addPart("checkTypes", new StringBody("8,8,8,8", ContentType.MULTIPART_FORM_DATA))
 
                 .build();
@@ -115,7 +119,7 @@ public class CreateTenant {
                 .addBinaryBody("file", new File(CMSLogo))
 
                 .addTextBody("serviceFrom", "management")
-                .addTextBody("tenantCode", tenantCode)
+                .addTextBody("tenantCode.txt", tenantCode)
                 .addTextBody("checkTypes", "8,8,8,8")
 
                 .build();

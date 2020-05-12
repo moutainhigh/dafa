@@ -31,11 +31,11 @@ public class StartWsProtoClient {
     //private static String url = "ws://game-gate.dafagame-pre.com/v1/game/gameGate";
     //private static String url = "ws://game-gate.dafagame-pro.com/v1/game/gameGate";
 
-    private static final String tenantCode = "demo";
+    private static final String tenantCode = "jessie";
 
     //app请求地址
-    private static String host = "52.139.157.97";
-    private static String url = String.format("ws://%s:7176/v1/game/gameGate", host);
+    private static String host = "23.101.14.122";
+    private static String url = String.format("ws://%s:1082/v1/game/gameGate", host);
 
     private static EventLoopGroup group = new NioEventLoopGroup(1);
     private ChannelInitial channelInitial = new ChannelInitial();
@@ -93,6 +93,7 @@ public class StartWsProtoClient {
                                 .setProto(Gate.ProtoType.GateReqType_VALUE)
                                 .setData(gateReq.toByteString())
                                 .build();
+
                         ByteBuf bf = Unpooled.buffer().writeBytes(clientMsg.toByteArray());
                         BinaryWebSocketFrame binaryWebSocketFrame = new BinaryWebSocketFrame(bf);
                         channel.writeAndFlush(binaryWebSocketFrame);
@@ -118,7 +119,7 @@ public class StartWsProtoClient {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         //String phone = "1311234";
         //for (int i = 500; i < 600; i++) {
         //    new StartWsProtoClient(String.format("%s%s", phone, String.format("%04d", i))).start();
@@ -133,33 +134,62 @@ public class StartWsProtoClient {
         //}
 
         //new StartWsProtoClient("63025749", 102).start();
-        List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/txt/dg-pro-duke.txt"));
-        for (int i = 0; i < 10; i++) {
-            new StartWsProtoClient(users.get(i), 102).start();
+        //List<String> users = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/txt/dg-pro-duke.txt"));
+        //for (int i = 0; i < 10; i++) {
+        //    new StartWsProtoClient(users.get(i), 102).start();
+        //    try {
+        //        Thread.sleep(600);
+        //    } catch (InterruptedException e) {
+        //        e.printStackTrace();
+        //    }
+        //}
+        //
+        //for (int i = 10; i < 20; i++) {
+        //    new StartWsProtoClient(users.get(i), 104).start();
+        //    try {
+        //        Thread.sleep(600);
+        //    } catch (InterruptedException e) {
+        //        e.printStackTrace();
+        //    }
+        //}
+        //
+        //for (int i = 20; i < 30; i++) {
+        //    new StartWsProtoClient(users.get(i), 105).start();
+        //    try {
+        //        Thread.sleep(600);
+        //    } catch (InterruptedException e) {
+        //        e.printStackTrace();
+        //    }
+        //}
+
+        //new StartWsProtoClient("22491998", 205).start();
+        //Thread.sleep(2000);
+        //new StartWsProtoClient("31237108", 205).start();
+        //Thread.sleep(2000);
+        //new StartWsProtoClient("47118496", 205).start();
+        //Thread.sleep(2000);
+        //new StartWsProtoClient("47876132", 205).start();
+
+        //new StartWsProtoClient("88448162", 201).start();
+        List<String> devJessieUsers = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/devJessieUsers.txt"));
+        for (int i = 60; i < 80; i++) {
+            new StartWsProtoClient(devJessieUsers.get(i), 201).start();
             try {
-                Thread.sleep(600);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
 
-        for (int i = 10; i < 20; i++) {
-            new StartWsProtoClient(users.get(i), 104).start();
-            try {
-                Thread.sleep(600);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        //抢庄牌九
+        //new StartWsProtoClient("47876132", 206).start();
 
-        for (int i = 20; i < 30; i++) {
-            new StartWsProtoClient(users.get(i), 105).start();
-            try {
-                Thread.sleep(600);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        //抢庄三公
+        //new StartWsProtoClient("47876132", 207).start();
+
+        //红包扫雷
+        //new StartWsProtoClient("47876132", 107).start();
+        //new StartWsProtoClient("31237108", 107).start();
     }
 
     private static class GameHandlerFactory {
@@ -171,10 +201,18 @@ public class StartWsProtoClient {
                     return new BjlHandler();
                 case 105:
                     return new TbHandler();
+                case 107:
+                    return new HbslHandler();
                 case 201:
                     return new ZjhHandler();
                 case 203:
                     return new DdzHandler();
+                case 205:
+                    return new EbgHandler();
+                case 206:
+                    return new QzpjHandler();
+                case 207:
+                    return new QzsgHandler();
             }
             return null;
         }
@@ -189,7 +227,7 @@ public class StartWsProtoClient {
         String body = UrlBuilder.custom()
                 .addBuilder("inviteCode", "")
                 .addBuilder("accountNumber", this.phone)
-                .addBuilder("password", DafaGameLogin.getPasswordEncode(random, "123qwe")) //"b4e82b683394b50b679dc2b51a79d987"
+                .addBuilder("password", DafaGameLogin.getPasswordEncode(random, "duke123")) //"b4e82b683394b50b679dc2b51a79d987"
                 .addBuilder("userType", "0") //正式0/测试1/遊客2
                 .addBuilder("random", encodeRandom)
                 //.addBuilder("tenantCode", "demo")

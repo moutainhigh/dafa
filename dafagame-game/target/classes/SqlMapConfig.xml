@@ -64,7 +64,12 @@
     </environments>
     <mappers>
         <!--mapper 和 package 不能同时存在，报错is already known to the MapperRegistr -->
-        <mapper resource="mapper/PlatProfitMapper.xml"/>
+        <!--<mapper resource="mapper/PlatProfitMapper.xml"/>-->
+        <mapper resource="mapper/RecordMultiXXMapper.xml"/>
+        <mapper resource="mapper/MultiOpenMessageMapper.xml"/>
+        <mapper resource="mapper/RecordBattleMapper.xml"/>
+        <mapper resource="mapper/BattleDetailsMapper.xml"/>
         <!--<package name="pers.dafagame.mapper"/>-->
+
     </mappers>
 </configuration>

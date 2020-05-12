@@ -14,7 +14,7 @@ public class LotteryBettingInfo {
     private static ExecutorService excutors = Executors.newFixedThreadPool(300);
 
     /**
-     * 线上彩票下注记录，获取数据量
+     * 获取数据量
      */
     public static void lotteryBettingInfoCount() {
         SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("betting");
@@ -29,10 +29,39 @@ public class LotteryBettingInfo {
     }
 
     /**
-     * 线上彩票下注记录，导入到数据库
+     * 查询所有，直接导入
      */
-    public static void lotteryBettingInfo() {
+    private static void getInsetLotteryBettingInfo() {
         SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("betting");
+        LotteryBettingInfoMapper lotteryBettingInfoMapper = sqlSessionTransaction.getMapper(LotteryBettingInfoMapper.class);
+
+        SqlSession sqlSessionTransaction2 = SqlSessionFactoryUtils.openSqlSession("dev");
+        LotteryBettingInfoMapper lotteryBettingInfoMapper2 = sqlSessionTransaction2.getMapper(LotteryBettingInfoMapper.class);
+
+        List<String> tenantCodes = FileUtil.readFile(LotteryBettingInfo.class.getResourceAsStream("/tenantCode.txt"));
+        System.out.println("tenantCodes：" + tenantCodes);
+        for (int i = 0; i < tenantCodes.size(); i++) {
+            System.out.println("当前：" + i);
+            String tenantCode = tenantCodes.get(i);
+            List<Map> list = lotteryBettingInfoMapper.getLotteryBetingInfo(tenantCode);
+            System.out.println(tenantCode + "查询数据量" + list.size());
+            if (list.size() == 0) {
+                System.out.println(tenantCode + " -  " + list.size());
+                continue;
+            }
+            int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(list);
+            System.out.println(tenantCode + "- 写入数据量 - " + result + " - ");
+        }
+
+    }
+
+
+    /**
+     * 分站，分天，每10000条写入一次
+     */
+    public static void getInsetLotteryBettingInfoLoop(String date) {
+        SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("betting");
+        //SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("bettingHistory");
         LotteryBettingInfoMapper lotteryBettingInfoMapper = sqlSessionTransaction.getMapper(LotteryBettingInfoMapper.class);
 
         SqlSession sqlSessionTransaction2 = SqlSessionFactoryUtils.openSqlSession("dev");
@@ -40,84 +69,67 @@ public class LotteryBettingInfo {
 
         List<String> tenantCodes = FileUtil.readFile(LotteryBettingInfo.class.getResourceAsStream("/tenantCode.txt"));
         for (int i = 0; i < tenantCodes.size(); i++) {
-            System.out.println("当前：" + i);
-            getInsetLotteryBettingInfo(lotteryBettingInfoMapper, lotteryBettingInfoMapper2, tenantCodes.get(i));
-        }
-    }
-
-
-    /**
-     * 彩票下注记录，先查询线上数据再写入测试库
-     *
-     * @param lotteryBettingInfoMapper  线上库
-     * @param lotteryBettingInfoMapper2 dev1库
-     */
-    public static void getInsetLotteryBettingInfo(LotteryBettingInfoMapper lotteryBettingInfoMapper,
-                                                  LotteryBettingInfoMapper lotteryBettingInfoMapper2, String tenantCode) {
-        List<Map> list = lotteryBettingInfoMapper.getLotteryBetingInfo(tenantCode);
-        System.out.println("查询数据" + list.size());
-        if (list.size() == 0) {
-            System.out.println(list.size() + "-" + tenantCode);
-            return;
-        }
-        int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(list);
-        System.out.println("-" + result + "-" + tenantCode);
-    }
-
-    /**
-     * 线上彩票下注记录，导入到数据库
-     */
-    public static void lotteryBettingInfo2(String date) {
-        SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("betting");
-        LotteryBettingInfoMapper lotteryBettingInfoMapper = sqlSessionTransaction.getMapper(LotteryBettingInfoMapper.class);
-
-        SqlSession sqlSessionTransaction2 = SqlSessionFactoryUtils.openSqlSession("dev");
-        LotteryBettingInfoMapper lotteryBettingInfoMapper2 = sqlSessionTransaction2.getMapper(LotteryBettingInfoMapper.class);
-
-        List<String> tenantCodes = FileUtil.readFile(LotteryBettingInfo.class.getResourceAsStream("/tenantCode.txt"));
-        for (int i = 0; i < 1; i++) {
-            System.out.println("当前：" + i);
-            getInsetLotteryBettingInfoLoop(lotteryBettingInfoMapper, lotteryBettingInfoMapper2, "huicai", date);
-        }
-    }
-
-    /**
-     * 彩票下注记录，先查询线上数据再写入测试库，每10000条写入一次
-     *
-     * @param lotteryBettingInfoMapper  线上库
-     * @param lotteryBettingInfoMapper2 dev1库
-     * @param tenantCode                站长编码，每次处理一个站
-     */
-    public static void getInsetLotteryBettingInfoLoop(LotteryBettingInfoMapper lotteryBettingInfoMapper,
-                                                      LotteryBettingInfoMapper lotteryBettingInfoMapper2, String tenantCode, String date) {
-        String maxId = "0";
-        for (int i = 0; i < 10000; i++) {
-            System.out.println(maxId);
-            List<Map> list = lotteryBettingInfoMapper.getLotteryBetingInfoDx(tenantCode, date, maxId);
-            System.out.println(date + " - " + tenantCode + " - 查询数据" + list.size());
-            if (list.size() == 0) {
-                return;
+            String tenantCode = tenantCodes.get(i);
+            System.out.println(tenantCode + " - " + date + " 当前: " + i);
+            String maxId = "0";
+            for (int j = 0; j < 10000; j++) {
+                System.out.println("maxId :" + maxId);
+                List<Map> list = lotteryBettingInfoMapper.getLotteryBetingInfoDx(tenantCode, date, maxId);
+                System.out.println(date + " - " + tenantCode + " - 查询数据 " + list.size());
+                if (list.size() == 0) {
+                    break;
+                }
+                if (list.size() < 10000) {
+                    int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(list);
+                    System.out.println(tenantCode + " - " + date + " 写入尾数- " + result);
+                    list.clear();
+                    break;
+                } else {
+                    int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(list);
+                    System.out.println(tenantCode + " - " + date + " 写入整数 - " + result);
+                }
+                maxId = list.get(list.size() - 1).get("id").toString();
+                list.clear();
             }
-            if (list.size() < 10000) {
-                int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(list);
-                System.out.println(date + "写入尾数-" + result + "-" + tenantCode);
-                return;
-            } else {
-                int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(list);
-                System.out.println(date + "写入-" + result + "-" + tenantCode);
-            }
-            maxId = list.get(list.size() - 1).get("id").toString();
-            list.clear();
+            //List<List<Map>> lists = ListSplit.split(list, 10000);
+            //for (int i = 0; i < lists.size(); i++) {
+            //    int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(lists.get(i));
+            //    System.out.println(date + "写入-" + result + "-" + tenantCode);
+            //}
         }
-        //List<List<Map>> lists = ListSplit.split(list, 10000);
-        //for (int i = 0; i < lists.size(); i++) {
-        //    int result = lotteryBettingInfoMapper2.insertLotteryBetingInfo(lists.get(i));
-        //    System.out.println(date + "写入-" + result + "-" + tenantCode);
-        //}
+
+
     }
 
     public static void main(String[] args) {
-        excutors.execute(() -> lotteryBettingInfo2("2019-11-29"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-11"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-10"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-09"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-08"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-07"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-06"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-05"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-04"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-03"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-02"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-01"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-17"));
+        excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-05-04"));
+
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-31"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-30"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-29"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-28"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-27"));
+
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-26"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-25"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-24"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-23"));
+        //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-22"));
+
+
+        //getInsetLotteryBettingInfo();
 
     }
 }

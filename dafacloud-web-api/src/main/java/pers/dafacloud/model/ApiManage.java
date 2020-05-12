@@ -36,6 +36,9 @@ public class ApiManage {
     private String host; //全局host
     private boolean isLoginReq = false;
 
+    private String assertType;
+    private String assertContent;
+
     private int pageNum;
     private int pageSize;
 

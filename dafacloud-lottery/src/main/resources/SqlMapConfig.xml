@@ -14,6 +14,15 @@
                 <property name="url" value="jdbc:mysql://tester.cluster-cmysgwjezdbr.ap-southeast-1.rds.amazonaws.com?useSSL=false&amp;characterEncoding=utf8"/>
                 <property name="username" value="test-web" />
                 <property name="password" value="ms168169" />
+
+                <!--<property name="poolMaximumIdleConnections" value="0"/>-->
+                <!--<property name="poolMaximumActiveConnections" value="100"/>-->
+                <!--<property name="poolPingQuery" value="SELECT 1 FROM DUAL" />-->
+                <!--<property name="poolPingEnabled" value="true" />-->
+                <!--
+                https://blog.csdn.net/junehappylove/article/details/78323489
+                具体可以参考mybatis的源码org.apache.ibatis.datasource.pooled.PooledDataSource
+                -->
             </dataSource>
         </environment>
         <environment id="lottery">
@@ -33,9 +42,18 @@
             <!-- 配置数据源，采用mybatis连接池 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://18.139.94.243:8312?useSSL=false&amp;characterEncoding=utf8" />
+                <property name="url" value="jdbc:mysql://18.139.94.243:8312/dafacloud_betting?useSSL=false&amp;characterEncoding=utf8" />
                 <property name="username" value="us31jw9" />
                 <property name="password" value="KzrdFtgXILlE" />
+            </dataSource>
+        </environment>
+        <environment id="bettingHistory">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://18.139.94.243:8325/dafacloud_betting_history?useSSL=false&amp;characterEncoding=utf8" />
+                <property name="username" value="uz96kmr" />
+                <property name="password" value="1Nb9g31kXZOc" />
             </dataSource>
         </environment>
         <environment id="transaction">
@@ -64,7 +82,7 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver" />
-                <property name="url" value="jdbc:mysql://3.0.170.87:8316" />
+                <property name="url" value="jdbc:mysql://18.139.94.243:8322/dafacloud_game?useSSL=false&amp;characterEncoding=utf8" />
                 <property name="username" value="u8rlrg7" />
                 <property name="password" value="BGsJpwOYb2wt" />
             </dataSource>

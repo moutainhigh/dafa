@@ -13,7 +13,7 @@ public class DeleteUrl {
     @Test(description = "厅主域名批量删除")
     public static void test01() {
         String body  = UrlBuilder.custom()
-                .addBuilder("tenantCode","")
+                .addBuilder("tenantCode.txt","")
                 .addBuilder("ids","")
                 .fullBody();
         String result = DafaRequest.post(1,deleteUrl,body);

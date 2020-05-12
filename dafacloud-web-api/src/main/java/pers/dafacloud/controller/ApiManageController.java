@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pers.dafacloud.model.ApiManage;
 import pers.dafacloud.server.ApiManageServer;
 import pers.dafacloud.server.TestRequestApiServer;
+import pers.dafacloud.server.TestRequestApiServer0;
 import pers.dafacloud.utils.Response;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +28,7 @@ public class ApiManageController {
     ApiManageServer apiManageServer;
 
     @Autowired
-    TestRequestApiServer testRequestApiServer;
+    TestRequestApiServer0 testRequestApiServer;
 
     @GetMapping("/apiManageBatchTest")
     public Response queryApiBatchTest(String host, String cookie, String testBatch, String groupsApi, String owner) throws Exception {
@@ -38,9 +39,11 @@ public class ApiManageController {
     public Response testRequestApi(int id, String host, String cookie, HttpServletRequest request) throws Exception {
         request.getCookies();
         if (StringUtils.isEmpty(cookie)) {
-            for (javax.servlet.http.Cookie requestCookie0 : request.getCookies()) {
-                if ("JSESSIONID".equals(requestCookie0.getName())) {
-                    cookie = requestCookie0.getValue(); //c_sessionId
+            if (request.getCookies() != null) {
+                for (javax.servlet.http.Cookie requestCookie0 : request.getCookies()) {
+                    if ("JSESSIONID".equals(requestCookie0.getName())) {
+                        cookie = requestCookie0.getValue(); //c_sessionId
+                    }
                 }
             }
         }

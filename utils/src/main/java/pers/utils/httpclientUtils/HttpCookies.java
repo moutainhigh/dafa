@@ -27,10 +27,11 @@ public class HttpCookies {
     public HttpCookies setBasicClientCookie(String host, String cookieName, String cookieValue) {
         BasicClientCookie basicClientCookie = new BasicClientCookie(cookieName, cookieValue);
         try {
-            basicClientCookie.setDomain(new URL(host).getHost());
+                basicClientCookie.setDomain(new URL(host).getHost());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+        basicClientCookie.setVersion(0);
         basicClientCookie.setPath("/");
         this.cookieStore.addCookie(basicClientCookie);
         return this;

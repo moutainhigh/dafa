@@ -13,11 +13,13 @@ pers/utils/dafaRequest/DafaRequest.class
 pers/utils/jsonUtils/HttpResponse.class
 pers/utils/randomNameAddrIP/RandomIP.class
 pers/utils/propertiesUtils/PropertiesUtil.class
+pers/utils/jsonUtils/JsonFormat.class
 pers/utils/urlUtils/Params.class
 pers/utils/jsonUtils/JsonUtils.class
 pers/utils/StringUtils/Analysis8JinZhi.class
 pers/utils/assertUtils/AssertUtil.class
 pers/utils/fileUtils/FileUtil.class
+pers/utils/randomNameAddrIP/RandomPhoneCode.class
 pers/utils/httpclientUtils/HttpHeader.class
 pers/utils/jsonUtils/JsonArrayBuilder.class
 pers/utils/httpUtils/SSLClientCustom.class
@@ -33,6 +35,7 @@ pers/utils/httpUtils/SSLClientCustom$1.class
 pers/utils/httpclientUtils/SSLClientCustom$1.class
 pers/utils/jsonUtils/Response2.class
 pers/utils/httpclientUtils/HttpResult.class
+pers/utils/Md5HA1/AesEncodeUtil.class
 pers/utils/randomNameAddrIP/RandomName.class
 pers/utils/httpclientUtils/SSLClientCustom.class
 pers/utils/httpUtils/Request.class

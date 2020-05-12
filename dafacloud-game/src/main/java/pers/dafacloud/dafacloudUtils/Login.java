@@ -33,7 +33,7 @@ public class Login {
                 .other("x-remote-IP", ip)
                 .other("X-Real-IP", ip)
                 .build();
-        String body = getLoginBody(username, "123456");
+        String body = getLoginBody(username, "123qwe");
         HttpCookies httpCookies = HttpCookies.custom();
         HttpConfig httpConfig = HttpConfig.custom().url(login).body(body).headers(headers).context(httpCookies.getContext());
         String result = DafaRequest.post(httpConfig);

@@ -5,8 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pers.dafacloud.configuration.DataSourceType;
 import pers.dafacloud.mapper.ApiManageMapper;
-import pers.dafacloud.mapper.apiContent.ApiContentMapper;
-import pers.dafacloud.model.ApiContent;
 import pers.dafacloud.model.ApiManage;
 import pers.dafacloud.utils.dataSource.MyDataSource;
 
@@ -30,11 +28,6 @@ public class ApiManageServer {
     public List<ApiManage> getBatchTestApiList(String groupsApi, String owner) {
         return apiManageMapper.getBatchTestApiList(groupsApi, owner);
     }
-
-    //@MyDataSource(DataSourceType.dev1)
-    //public List<ApiContent> queryApiBatchTest(String groupsApi, String owner) {
-    //    return apiContentMapper.queryApiBatchTest(groupsApi, owner);
-    //}
 
     @MyDataSource(DataSourceType.dev1)
     public int getApiListCount(ApiManage apiManage) {

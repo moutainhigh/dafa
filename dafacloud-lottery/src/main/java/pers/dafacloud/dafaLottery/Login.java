@@ -1,5 +1,6 @@
 package pers.dafacloud.dafaLottery;
 
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
 import pers.dafacloud.constant.LotteryConstant;
@@ -18,7 +19,8 @@ import java.util.concurrent.Executors;
 
 public class Login {
 
-    private static String host = LotteryConstant.host;
+    //private static String host = LotteryConstant.host;
+    private static String host = BettingRunning.host;
     private static String loginUrl = host + "/v1/users/login";
     private static ExecutorService execute = Executors.newFixedThreadPool(300);
 
@@ -30,21 +32,34 @@ public class Login {
      */
     public static HttpConfig loginReturnHttpConfig(String username) {
         String ip = RandomIP.getRandomIp();
-        Header[] headers = HttpHeader.custom()
+        HttpHeader httpHeader = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
                 .other("x-forwarded-for", ip)
                 .other("x-remote-IP", ip)
-                .other("X-Real-IP", ip)
-                .build();
-        String body = getLoginBody(username, "123456");
+                .other("X-Real-IP", ip);
+        String body = getLoginBody(username, "123qwe");
         HttpCookies httpCookies = HttpCookies.custom();
         //手动设置cookie
         //httpCookies.getCookieStore().addCookie(DafaCloudLogin.productCookie("63550DAE2429C93A798049352B63AD1C",host));
-        HttpConfig httpConfig = HttpConfig.custom().url(loginUrl).body(body).headers(headers).context(httpCookies.getContext());
+        HttpConfig httpConfig = HttpConfig.custom().url(loginUrl).body(body).headers(httpHeader.build()).context(httpCookies.getContext());
         String result = DafaRequest.post(httpConfig);
-        System.out.println(result);
-
+        System.out.println(username + " - " + result);
+        JSONObject resultObj = JSONObject.parseObject(result);
+        JSONObject dataObj = resultObj.getJSONObject("data");
+        if (result == null || !result.contains("成功"))
+            throw new RuntimeException("登录失败");
+        if (dataObj != null) {
+            String token = dataObj.getString("token");
+            HttpHeader httpHeader0 = HttpHeader.custom()
+                    .contentType("application/x-www-form-urlencoded;charset=UTF-8")
+                    .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
+                    .other("x-forwarded-for", ip)
+                    .other("x-remote-IP", ip)
+                    .other("X-Real-IP", ip)
+                    .other("X-Token", token);
+            httpConfig.headers(httpHeader0.build());
+        }
         return httpConfig;
     }
 
@@ -110,7 +125,7 @@ public class Login {
 
 
     public static void main(String[] args) throws Exception {
-        List<String> users = new ArrayList<>(Arrays.asList("dafai0002","dafai0003","dafai0005","dafai0006"));
+        List<String> users = new ArrayList<>(Arrays.asList("dafai0002", "dafai0003", "dafai0005", "dafai0006"));
         multithreadingLoglin(users);
     }
 }
