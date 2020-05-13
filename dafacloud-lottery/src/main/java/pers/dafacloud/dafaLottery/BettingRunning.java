@@ -18,10 +18,21 @@ public class BettingRunning {
 
     public static void main(String[] args) {
         List<LotteryObj> lotteryObjList = new ArrayList<>();
-        //lotteryObjList.add(new LotteryObj("1407", "yfk3", 1, 10));
-        //lotteryObjList.add(new LotteryObj("1008", "yfssc", 1, 10));
-        //lotteryObjList.add(new LotteryObj("1304", "yfpk10", 1, 10));
-        lotteryObjList.add(new LotteryObj("1418", "yfk3", 1, 10));
+        lotteryObjList.add(new LotteryObj("1407", "yfk3", 1, 10));
+        lotteryObjList.add(new LotteryObj("1008", "yfssc", 1, 10));
+        lotteryObjList.add(new LotteryObj("1304", "yfpk10", 1, 10));
+        lotteryObjList.add(new LotteryObj("1305", "yflhc", 1, 10));
+
+        lotteryObjList.add(new LotteryObj("1413", "sfks", 1, 20));
+        lotteryObjList.add(new LotteryObj("1010", "sfssc", 1, 20));
+        lotteryObjList.add(new LotteryObj("1314", "sfpk10", 1, 20));
+
+        lotteryObjList.add(new LotteryObj("1412", "wfk3", 1, 10));
+        lotteryObjList.add(new LotteryObj("1009", "wfssc", 1, 10));
+        lotteryObjList.add(new LotteryObj("1306", "wfpk10", 1, 10));
+        lotteryObjList.add(new LotteryObj("1300", "wflhc", 1, 10));
+
+
         new Betting(host, lotteryObjList, false, 2);
         //new Betting(LotteryConstant.host, "1407,yfk3,10,10", false, true, true).run(2);
     }

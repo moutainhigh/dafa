@@ -23,6 +23,8 @@ enum PlayerStatus{
     Play = 2;
     //输
     Lose = 3;
+    //比牌输
+    CLose = 4;
 }
 
 //
@@ -129,20 +131,25 @@ message ScenesData{
     optional int32 maxRing = 13;            //最大圈数
     optional PlayerInfo own = 14;           //自己
     optional int32 banker = 15;             //庄家
+    optional int32 maxOptTime = 16;
+    optional int32 studeSeat = 17;          //如果有梭哈
 }
 
 //游戏开始
 message StartGameNtf{
-    optional int32 opt = 1;             //操作玩家，即庄家
+    optional int32 opt = 1;             //操作玩家
     repeated int32 gamePlayers = 2;     //参与游戏的玩家
     optional int64 time = 3;            //操作时间
     optional string inning = 4;         //局号
+    optional int32 banker = 5;          //庄家
+    optional bool kill = 6;
 }
 //机器人消息
 message RobotMsg{
     repeated int32 cards = 1;
     repeated int32 gamePlayers = 2;     //参与游戏的玩家
     optional string cs = 3;             //牌
+    repeated int32 real = 4;
 }
 
 message RobotExitMsg{
@@ -152,6 +159,7 @@ message RobotExitMsg{
     optional bool isMaintain = 4;       //是否维护
     optional int32 realCount = 5;       //真人玩家
     optional int32 playerCount = 6;     //房间人数
+    optional bool isMatchPlayer = 7;    //是否优先匹配玩家
 }
 
 //房间空闲广播
@@ -174,6 +182,7 @@ message PlayerInfo{
     optional string cards = 11;
     optional int32 cardsType = 12;
     optional int32 type = 13;           //0 玩家  -1测试账号 1 - 4 机器人类型
+    optional bool isFollowEnd = 14;       //是否跟到底
 }
 
 //玩家进入房间通知
@@ -218,6 +227,7 @@ message SeeCardRes{
     optional ErrorCode code = 1;
     optional string cards = 2;     //手牌
     optional int32 cardsType = 3;
+    optional bool seeCard = 4;
 }
 
 //看牌广播
@@ -308,6 +318,7 @@ message GameOverNtf{
     repeated int32 cardsType = 5;
     optional int32 overSeat = 6;      //退还玩家
     optional string overAmount = 7;   //退还金额
+    optional string compared = 8;
 }
 
 //跟梭哈

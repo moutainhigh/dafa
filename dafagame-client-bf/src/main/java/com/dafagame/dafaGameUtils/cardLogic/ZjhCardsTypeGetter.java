@@ -66,7 +66,7 @@ public class ZjhCardsTypeGetter {
      * @return
      * @Description:是否顺金
      */
-    private static boolean isShunJin(List<ZjhCard> cards) {
+    public static boolean isShunJin(List<ZjhCard> cards) {
 
         return isShunZi(cards) && isJinHua(cards);
     }
@@ -76,7 +76,7 @@ public class ZjhCardsTypeGetter {
      * @return
      * @Description:是否顺子
      */
-    private static boolean isShunZi(List<ZjhCard> cards) {
+    public static boolean isShunZi(List<ZjhCard> cards) {
         TreeSet<Integer> cardNums = new TreeSet<>();
         TreeSet<Integer> cardPowers = new TreeSet<>();
         for (ZjhCard card : cards) {

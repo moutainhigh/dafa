@@ -38,7 +38,7 @@ public final class Zjh {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static GameType valueOf(int value) {
       return forNumber(value);
     }
@@ -72,7 +72,7 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.getDescriptor().getEnumTypes().get(0);
+      return Zjh.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final GameType[] VALUES = values();
@@ -80,7 +80,7 @@ public final class Zjh {
     public static GameType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
@@ -194,7 +194,7 @@ public final class Zjh {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static Status valueOf(int value) {
       return forNumber(value);
     }
@@ -232,7 +232,7 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.getDescriptor().getEnumTypes().get(1);
+      return Zjh.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final Status[] VALUES = values();
@@ -240,7 +240,7 @@ public final class Zjh {
     public static Status valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
@@ -284,6 +284,14 @@ public final class Zjh {
      * <code>Lose = 3;</code>
      */
     Lose(3),
+    /**
+     * <pre>
+     *比牌输
+     * </pre>
+     *
+     * <code>CLose = 4;</code>
+     */
+    CLose(4),
     ;
 
     /**
@@ -310,6 +318,14 @@ public final class Zjh {
      * <code>Lose = 3;</code>
      */
     public static final int Lose_VALUE = 3;
+    /**
+     * <pre>
+     *比牌输
+     * </pre>
+     *
+     * <code>CLose = 4;</code>
+     */
+    public static final int CLose_VALUE = 4;
 
 
     public final int getNumber() {
@@ -319,7 +335,7 @@ public final class Zjh {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static PlayerStatus valueOf(int value) {
       return forNumber(value);
     }
@@ -329,6 +345,7 @@ public final class Zjh {
         case 1: return Bystander;
         case 2: return Play;
         case 3: return Lose;
+        case 4: return CLose;
         default: return null;
       }
     }
@@ -355,7 +372,7 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.getDescriptor().getEnumTypes().get(2);
+      return Zjh.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final PlayerStatus[] VALUES = values();
@@ -363,7 +380,7 @@ public final class Zjh {
     public static PlayerStatus valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
@@ -509,7 +526,7 @@ public final class Zjh {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static PokerType valueOf(int value) {
       return forNumber(value);
     }
@@ -549,7 +566,7 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.getDescriptor().getEnumTypes().get(3);
+      return Zjh.getDescriptor().getEnumTypes().get(3);
     }
 
     private static final PokerType[] VALUES = values();
@@ -557,7 +574,7 @@ public final class Zjh {
     public static PokerType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
@@ -1144,7 +1161,7 @@ public final class Zjh {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static ProtoType valueOf(int value) {
       return forNumber(value);
     }
@@ -1214,7 +1231,7 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.getDescriptor().getEnumTypes().get(4);
+      return Zjh.getDescriptor().getEnumTypes().get(4);
     }
 
     private static final ProtoType[] VALUES = values();
@@ -1222,7 +1239,7 @@ public final class Zjh {
     public static ProtoType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
@@ -1357,7 +1374,7 @@ public final class Zjh {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static ErrorCode valueOf(int value) {
       return forNumber(value);
     }
@@ -1397,7 +1414,7 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.getDescriptor().getEnumTypes().get(5);
+      return Zjh.getDescriptor().getEnumTypes().get(5);
     }
 
     private static final ErrorCode[] VALUES = values();
@@ -1405,7 +1422,7 @@ public final class Zjh {
     public static ErrorCode valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
@@ -1431,7 +1448,7 @@ public final class Zjh {
      *
      * <code>repeated double addChipEnum = 1;</code>
      */
-    java.util.List<java.lang.Double> getAddChipEnumList();
+    java.util.List<Double> getAddChipEnumList();
     /**
      * <pre>
      *房间加注类型
@@ -1490,7 +1507,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
      */
-    java.util.List<com.dafagame.protocol.zjh.Zjh.PlayerInfo> 
+    java.util.List<PlayerInfo>
         getOthersList();
     /**
      * <pre>
@@ -1499,7 +1516,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.PlayerInfo getOthers(int index);
+    PlayerInfo getOthers(int index);
     /**
      * <pre>
      *其他玩家
@@ -1515,7 +1532,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
      */
-    java.util.List<? extends com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder> 
+    java.util.List<? extends PlayerInfoOrBuilder>
         getOthersOrBuilderList();
     /**
      * <pre>
@@ -1524,8 +1541,8 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder getOthersOrBuilder(
-        int index);
+    PlayerInfoOrBuilder getOthersOrBuilder(
+            int index);
 
     /**
      * <pre>
@@ -1576,7 +1593,7 @@ public final class Zjh {
      *
      * <code>optional string roomNumber = 7;</code>
      */
-    java.lang.String getRoomNumber();
+    String getRoomNumber();
     /**
      * <pre>
      *房号
@@ -1602,7 +1619,7 @@ public final class Zjh {
      *
      * <code>optional string inning = 8;</code>
      */
-    java.lang.String getInning();
+    String getInning();
     /**
      * <pre>
      *局号
@@ -1628,7 +1645,7 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.Status roomStatus = 9;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.Status getRoomStatus();
+    Status getRoomStatus();
 
     /**
      * <pre>
@@ -1645,7 +1662,7 @@ public final class Zjh {
      *
      * <code>optional string roomPreBet = 10;</code>
      */
-    java.lang.String getRoomPreBet();
+    String getRoomPreBet();
     /**
      * <pre>
      *房间当前下注
@@ -1688,7 +1705,7 @@ public final class Zjh {
      *
      * <code>optional string roundType = 12;</code>
      */
-    java.lang.String getRoundType();
+    String getRoundType();
     /**
      * <pre>
      *场次类型
@@ -1731,7 +1748,7 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.PlayerInfo getOwn();
+    PlayerInfo getOwn();
     /**
      * <pre>
      *自己
@@ -1739,7 +1756,7 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder getOwnOrBuilder();
+    PlayerInfoOrBuilder getOwnOrBuilder();
 
     /**
      * <pre>
@@ -1757,6 +1774,32 @@ public final class Zjh {
      * <code>optional int32 banker = 15;</code>
      */
     int getBanker();
+
+    /**
+     * <code>optional int32 maxOptTime = 16;</code>
+     */
+    boolean hasMaxOptTime();
+    /**
+     * <code>optional int32 maxOptTime = 16;</code>
+     */
+    int getMaxOptTime();
+
+    /**
+     * <pre>
+     *如果有梭哈
+     * </pre>
+     *
+     * <code>optional int32 studeSeat = 17;</code>
+     */
+    boolean hasStudeSeat();
+    /**
+     * <pre>
+     *如果有梭哈
+     * </pre>
+     *
+     * <code>optional int32 studeSeat = 17;</code>
+     */
+    int getStudeSeat();
   }
   /**
    * <pre>
@@ -1789,9 +1832,11 @@ public final class Zjh {
       roundType_ = "";
       maxRing_ = 0;
       banker_ = 0;
+      maxOptTime_ = 0;
+      studeSeat_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1821,7 +1866,7 @@ public final class Zjh {
             }
             case 9: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                addChipEnum_ = new java.util.ArrayList<java.lang.Double>();
+                addChipEnum_ = new java.util.ArrayList<Double>();
                 mutable_bitField0_ |= 0x00000001;
               }
               addChipEnum_.add(input.readDouble());
@@ -1831,7 +1876,7 @@ public final class Zjh {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
-                addChipEnum_ = new java.util.ArrayList<java.lang.Double>();
+                addChipEnum_ = new java.util.ArrayList<Double>();
                 mutable_bitField0_ |= 0x00000001;
               }
               while (input.getBytesUntilLimit() > 0) {
@@ -1852,11 +1897,11 @@ public final class Zjh {
             }
             case 34: {
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                others_ = new java.util.ArrayList<com.dafagame.protocol.zjh.Zjh.PlayerInfo>();
+                others_ = new java.util.ArrayList<PlayerInfo>();
                 mutable_bitField0_ |= 0x00000008;
               }
               others_.add(
-                  input.readMessage(com.dafagame.protocol.zjh.Zjh.PlayerInfo.PARSER, extensionRegistry));
+                  input.readMessage(PlayerInfo.PARSER, extensionRegistry));
               break;
             }
             case 40: {
@@ -1883,7 +1928,7 @@ public final class Zjh {
             }
             case 72: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.Status value = com.dafagame.protocol.zjh.Zjh.Status.valueOf(rawValue);
+              Status value = Status.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(9, rawValue);
               } else {
@@ -1915,11 +1960,11 @@ public final class Zjh {
               break;
             }
             case 114: {
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder subBuilder = null;
+              PlayerInfo.Builder subBuilder = null;
               if (((bitField0_ & 0x00000800) == 0x00000800)) {
                 subBuilder = own_.toBuilder();
               }
-              own_ = input.readMessage(com.dafagame.protocol.zjh.Zjh.PlayerInfo.PARSER, extensionRegistry);
+              own_ = input.readMessage(PlayerInfo.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(own_);
                 own_ = subBuilder.buildPartial();
@@ -1930,6 +1975,16 @@ public final class Zjh {
             case 120: {
               bitField0_ |= 0x00001000;
               banker_ = input.readInt32();
+              break;
+            }
+            case 128: {
+              bitField0_ |= 0x00002000;
+              maxOptTime_ = input.readInt32();
+              break;
+            }
+            case 136: {
+              bitField0_ |= 0x00004000;
+              studeSeat_ = input.readInt32();
               break;
             }
           }
@@ -1952,19 +2007,19 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.ScenesData.class, com.dafagame.protocol.zjh.Zjh.ScenesData.Builder.class);
+              ScenesData.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int ADDCHIPENUM_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Double> addChipEnum_;
+    private java.util.List<Double> addChipEnum_;
     /**
      * <pre>
      *房间加注类型
@@ -1972,7 +2027,7 @@ public final class Zjh {
      *
      * <code>repeated double addChipEnum = 1;</code>
      */
-    public java.util.List<java.lang.Double>
+    public java.util.List<Double>
         getAddChipEnumList() {
       return addChipEnum_;
     }
@@ -2044,7 +2099,7 @@ public final class Zjh {
     }
 
     public static final int OTHERS_FIELD_NUMBER = 4;
-    private java.util.List<com.dafagame.protocol.zjh.Zjh.PlayerInfo> others_;
+    private java.util.List<PlayerInfo> others_;
     /**
      * <pre>
      *其他玩家
@@ -2052,7 +2107,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
      */
-    public java.util.List<com.dafagame.protocol.zjh.Zjh.PlayerInfo> getOthersList() {
+    public java.util.List<PlayerInfo> getOthersList() {
       return others_;
     }
     /**
@@ -2062,7 +2117,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
      */
-    public java.util.List<? extends com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder> 
+    public java.util.List<? extends PlayerInfoOrBuilder>
         getOthersOrBuilderList() {
       return others_;
     }
@@ -2083,7 +2138,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.PlayerInfo getOthers(int index) {
+    public PlayerInfo getOthers(int index) {
       return others_.get(index);
     }
     /**
@@ -2093,7 +2148,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder getOthersOrBuilder(
+    public PlayerInfoOrBuilder getOthersOrBuilder(
         int index) {
       return others_.get(index);
     }
@@ -2145,7 +2200,7 @@ public final class Zjh {
     }
 
     public static final int ROOMNUMBER_FIELD_NUMBER = 7;
-    private volatile java.lang.Object roomNumber_;
+    private volatile Object roomNumber_;
     /**
      * <pre>
      *房号
@@ -2163,14 +2218,14 @@ public final class Zjh {
      *
      * <code>optional string roomNumber = 7;</code>
      */
-    public java.lang.String getRoomNumber() {
-      java.lang.Object ref = roomNumber_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getRoomNumber() {
+      Object ref = roomNumber_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           roomNumber_ = s;
         }
@@ -2186,11 +2241,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getRoomNumberBytes() {
-      java.lang.Object ref = roomNumber_;
-      if (ref instanceof java.lang.String) {
+      Object ref = roomNumber_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         roomNumber_ = b;
         return b;
       } else {
@@ -2199,7 +2254,7 @@ public final class Zjh {
     }
 
     public static final int INNING_FIELD_NUMBER = 8;
-    private volatile java.lang.Object inning_;
+    private volatile Object inning_;
     /**
      * <pre>
      *局号
@@ -2217,14 +2272,14 @@ public final class Zjh {
      *
      * <code>optional string inning = 8;</code>
      */
-    public java.lang.String getInning() {
-      java.lang.Object ref = inning_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getInning() {
+      Object ref = inning_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           inning_ = s;
         }
@@ -2240,11 +2295,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getInningBytes() {
-      java.lang.Object ref = inning_;
-      if (ref instanceof java.lang.String) {
+      Object ref = inning_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         inning_ = b;
         return b;
       } else {
@@ -2271,13 +2326,13 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.Status roomStatus = 9;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.Status getRoomStatus() {
-      com.dafagame.protocol.zjh.Zjh.Status result = com.dafagame.protocol.zjh.Zjh.Status.valueOf(roomStatus_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.Status.Idel : result;
+    public Status getRoomStatus() {
+      Status result = Status.valueOf(roomStatus_);
+      return result == null ? Status.Idel : result;
     }
 
     public static final int ROOMPREBET_FIELD_NUMBER = 10;
-    private volatile java.lang.Object roomPreBet_;
+    private volatile Object roomPreBet_;
     /**
      * <pre>
      *房间当前下注
@@ -2295,14 +2350,14 @@ public final class Zjh {
      *
      * <code>optional string roomPreBet = 10;</code>
      */
-    public java.lang.String getRoomPreBet() {
-      java.lang.Object ref = roomPreBet_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getRoomPreBet() {
+      Object ref = roomPreBet_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           roomPreBet_ = s;
         }
@@ -2318,11 +2373,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getRoomPreBetBytes() {
-      java.lang.Object ref = roomPreBet_;
-      if (ref instanceof java.lang.String) {
+      Object ref = roomPreBet_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         roomPreBet_ = b;
         return b;
       } else {
@@ -2354,7 +2409,7 @@ public final class Zjh {
     }
 
     public static final int ROUNDTYPE_FIELD_NUMBER = 12;
-    private volatile java.lang.Object roundType_;
+    private volatile Object roundType_;
     /**
      * <pre>
      *场次类型
@@ -2372,14 +2427,14 @@ public final class Zjh {
      *
      * <code>optional string roundType = 12;</code>
      */
-    public java.lang.String getRoundType() {
-      java.lang.Object ref = roundType_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getRoundType() {
+      Object ref = roundType_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           roundType_ = s;
         }
@@ -2395,11 +2450,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getRoundTypeBytes() {
-      java.lang.Object ref = roundType_;
-      if (ref instanceof java.lang.String) {
+      Object ref = roundType_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         roundType_ = b;
         return b;
       } else {
@@ -2431,7 +2486,7 @@ public final class Zjh {
     }
 
     public static final int OWN_FIELD_NUMBER = 14;
-    private com.dafagame.protocol.zjh.Zjh.PlayerInfo own_;
+    private PlayerInfo own_;
     /**
      * <pre>
      *自己
@@ -2449,8 +2504,8 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.PlayerInfo getOwn() {
-      return own_ == null ? com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance() : own_;
+    public PlayerInfo getOwn() {
+      return own_ == null ? PlayerInfo.getDefaultInstance() : own_;
     }
     /**
      * <pre>
@@ -2459,8 +2514,8 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder getOwnOrBuilder() {
-      return own_ == null ? com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance() : own_;
+    public PlayerInfoOrBuilder getOwnOrBuilder() {
+      return own_ == null ? PlayerInfo.getDefaultInstance() : own_;
     }
 
     public static final int BANKER_FIELD_NUMBER = 15;
@@ -2484,6 +2539,44 @@ public final class Zjh {
      */
     public int getBanker() {
       return banker_;
+    }
+
+    public static final int MAXOPTTIME_FIELD_NUMBER = 16;
+    private int maxOptTime_;
+    /**
+     * <code>optional int32 maxOptTime = 16;</code>
+     */
+    public boolean hasMaxOptTime() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    /**
+     * <code>optional int32 maxOptTime = 16;</code>
+     */
+    public int getMaxOptTime() {
+      return maxOptTime_;
+    }
+
+    public static final int STUDESEAT_FIELD_NUMBER = 17;
+    private int studeSeat_;
+    /**
+     * <pre>
+     *如果有梭哈
+     * </pre>
+     *
+     * <code>optional int32 studeSeat = 17;</code>
+     */
+    public boolean hasStudeSeat() {
+      return ((bitField0_ & 0x00004000) == 0x00004000);
+    }
+    /**
+     * <pre>
+     *如果有梭哈
+     * </pre>
+     *
+     * <code>optional int32 studeSeat = 17;</code>
+     */
+    public int getStudeSeat() {
+      return studeSeat_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2542,6 +2635,12 @@ public final class Zjh {
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         output.writeInt32(15, banker_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        output.writeInt32(16, maxOptTime_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        output.writeInt32(17, studeSeat_);
       }
       unknownFields.writeTo(output);
     }
@@ -2609,20 +2708,28 @@ public final class Zjh {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(15, banker_);
       }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(16, maxOptTime_);
+      }
+      if (((bitField0_ & 0x00004000) == 0x00004000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(17, studeSeat_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.ScenesData)) {
+      if (!(obj instanceof ScenesData)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.ScenesData other = (com.dafagame.protocol.zjh.Zjh.ScenesData) obj;
+      ScenesData other = (ScenesData) obj;
 
       boolean result = true;
       result = result && getAddChipEnumList()
@@ -2630,8 +2737,8 @@ public final class Zjh {
       result = result && (hasBaseChip() == other.hasBaseChip());
       if (hasBaseChip()) {
         result = result && (
-            java.lang.Double.doubleToLongBits(getBaseChip())
-            == java.lang.Double.doubleToLongBits(
+            Double.doubleToLongBits(getBaseChip())
+            == Double.doubleToLongBits(
                 other.getBaseChip()));
       }
       result = result && (hasRing() == other.hasRing());
@@ -2695,11 +2802,21 @@ public final class Zjh {
         result = result && (getBanker()
             == other.getBanker());
       }
+      result = result && (hasMaxOptTime() == other.hasMaxOptTime());
+      if (hasMaxOptTime()) {
+        result = result && (getMaxOptTime()
+            == other.getMaxOptTime());
+      }
+      result = result && (hasStudeSeat() == other.hasStudeSeat());
+      if (hasStudeSeat()) {
+        result = result && (getStudeSeat()
+            == other.getStudeSeat());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2713,7 +2830,7 @@ public final class Zjh {
       if (hasBaseChip()) {
         hash = (37 * hash) + BASECHIP_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getBaseChip()));
+            Double.doubleToLongBits(getBaseChip()));
       }
       if (hasRing()) {
         hash = (37 * hash) + RING_FIELD_NUMBER;
@@ -2769,74 +2886,82 @@ public final class Zjh {
         hash = (37 * hash) + BANKER_FIELD_NUMBER;
         hash = (53 * hash) + getBanker();
       }
+      if (hasMaxOptTime()) {
+        hash = (37 * hash) + MAXOPTTIME_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxOptTime();
+      }
+      if (hasStudeSeat()) {
+        hash = (37 * hash) + STUDESEAT_FIELD_NUMBER;
+        hash = (53 * hash) + getStudeSeat();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(
+    public static ScenesData parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(
+    public static ScenesData parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(
+    public static ScenesData parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(
+    public static ScenesData parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(byte[] data)
+    public static ScenesData parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(
+    public static ScenesData parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(java.io.InputStream input)
+    public static ScenesData parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(
+    public static ScenesData parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseDelimitedFrom(java.io.InputStream input)
+    public static ScenesData parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseDelimitedFrom(
+    public static ScenesData parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(
+    public static ScenesData parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData parseFrom(
+    public static ScenesData parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2848,7 +2973,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.ScenesData prototype) {
+    public static Builder newBuilder(ScenesData prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2856,9 +2981,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2872,17 +2997,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.ScenesData)
-        com.dafagame.protocol.zjh.Zjh.ScenesDataOrBuilder {
+        ScenesDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.ScenesData.class, com.dafagame.protocol.zjh.Zjh.ScenesData.Builder.class);
+                ScenesData.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.ScenesData.newBuilder()
@@ -2891,7 +3016,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2942,28 +3067,32 @@ public final class Zjh {
         bitField0_ = (bitField0_ & ~0x00002000);
         banker_ = 0;
         bitField0_ = (bitField0_ & ~0x00004000);
+        maxOptTime_ = 0;
+        bitField0_ = (bitField0_ & ~0x00008000);
+        studeSeat_ = 0;
+        bitField0_ = (bitField0_ & ~0x00010000);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesData_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ScenesData getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.ScenesData.getDefaultInstance();
+      public ScenesData getDefaultInstanceForType() {
+        return ScenesData.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ScenesData build() {
-        com.dafagame.protocol.zjh.Zjh.ScenesData result = buildPartial();
+      public ScenesData build() {
+        ScenesData result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ScenesData buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.ScenesData result = new com.dafagame.protocol.zjh.Zjh.ScenesData(this);
+      public ScenesData buildPartial() {
+        ScenesData result = new ScenesData(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3036,6 +3165,14 @@ public final class Zjh {
           to_bitField0_ |= 0x00001000;
         }
         result.banker_ = banker_;
+        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.maxOptTime_ = maxOptTime_;
+        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
+          to_bitField0_ |= 0x00004000;
+        }
+        result.studeSeat_ = studeSeat_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3046,7 +3183,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -3059,25 +3196,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.ScenesData) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.ScenesData)other);
+        if (other instanceof ScenesData) {
+          return mergeFrom((ScenesData)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.ScenesData other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.ScenesData.getDefaultInstance()) return this;
+      public Builder mergeFrom(ScenesData other) {
+        if (other == ScenesData.getDefaultInstance()) return this;
         if (!other.addChipEnum_.isEmpty()) {
           if (addChipEnum_.isEmpty()) {
             addChipEnum_ = other.addChipEnum_;
@@ -3161,6 +3298,12 @@ public final class Zjh {
         if (other.hasBanker()) {
           setBanker(other.getBanker());
         }
+        if (other.hasMaxOptTime()) {
+          setMaxOptTime(other.getMaxOptTime());
+        }
+        if (other.hasStudeSeat()) {
+          setStudeSeat(other.getStudeSeat());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3174,11 +3317,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.ScenesData parsedMessage = null;
+        ScenesData parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.ScenesData) e.getUnfinishedMessage();
+          parsedMessage = (ScenesData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3189,10 +3332,10 @@ public final class Zjh {
       }
       private int bitField0_;
 
-      private java.util.List<java.lang.Double> addChipEnum_ = java.util.Collections.emptyList();
+      private java.util.List<Double> addChipEnum_ = java.util.Collections.emptyList();
       private void ensureAddChipEnumIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          addChipEnum_ = new java.util.ArrayList<java.lang.Double>(addChipEnum_);
+          addChipEnum_ = new java.util.ArrayList<Double>(addChipEnum_);
           bitField0_ |= 0x00000001;
          }
       }
@@ -3203,7 +3346,7 @@ public final class Zjh {
        *
        * <code>repeated double addChipEnum = 1;</code>
        */
-      public java.util.List<java.lang.Double>
+      public java.util.List<Double>
           getAddChipEnumList() {
         return java.util.Collections.unmodifiableList(addChipEnum_);
       }
@@ -3262,7 +3405,7 @@ public final class Zjh {
        * <code>repeated double addChipEnum = 1;</code>
        */
       public Builder addAllAddChipEnum(
-          java.lang.Iterable<? extends java.lang.Double> values) {
+          Iterable<? extends Double> values) {
         ensureAddChipEnumIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, addChipEnum_);
@@ -3379,17 +3522,17 @@ public final class Zjh {
         return this;
       }
 
-      private java.util.List<com.dafagame.protocol.zjh.Zjh.PlayerInfo> others_ =
+      private java.util.List<PlayerInfo> others_ =
         java.util.Collections.emptyList();
       private void ensureOthersIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          others_ = new java.util.ArrayList<com.dafagame.protocol.zjh.Zjh.PlayerInfo>(others_);
+          others_ = new java.util.ArrayList<PlayerInfo>(others_);
           bitField0_ |= 0x00000008;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.zjh.Zjh.PlayerInfo, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder, com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder> othersBuilder_;
+          PlayerInfo, PlayerInfo.Builder, PlayerInfoOrBuilder> othersBuilder_;
 
       /**
        * <pre>
@@ -3398,7 +3541,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
-      public java.util.List<com.dafagame.protocol.zjh.Zjh.PlayerInfo> getOthersList() {
+      public java.util.List<PlayerInfo> getOthersList() {
         if (othersBuilder_ == null) {
           return java.util.Collections.unmodifiableList(others_);
         } else {
@@ -3426,7 +3569,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo getOthers(int index) {
+      public PlayerInfo getOthers(int index) {
         if (othersBuilder_ == null) {
           return others_.get(index);
         } else {
@@ -3441,7 +3584,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
       public Builder setOthers(
-          int index, com.dafagame.protocol.zjh.Zjh.PlayerInfo value) {
+          int index, PlayerInfo value) {
         if (othersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3462,7 +3605,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
       public Builder setOthers(
-          int index, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder builderForValue) {
+          int index, PlayerInfo.Builder builderForValue) {
         if (othersBuilder_ == null) {
           ensureOthersIsMutable();
           others_.set(index, builderForValue.build());
@@ -3479,7 +3622,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
-      public Builder addOthers(com.dafagame.protocol.zjh.Zjh.PlayerInfo value) {
+      public Builder addOthers(PlayerInfo value) {
         if (othersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3500,7 +3643,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
       public Builder addOthers(
-          int index, com.dafagame.protocol.zjh.Zjh.PlayerInfo value) {
+          int index, PlayerInfo value) {
         if (othersBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3521,7 +3664,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
       public Builder addOthers(
-          com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder builderForValue) {
+          PlayerInfo.Builder builderForValue) {
         if (othersBuilder_ == null) {
           ensureOthersIsMutable();
           others_.add(builderForValue.build());
@@ -3539,7 +3682,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
       public Builder addOthers(
-          int index, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder builderForValue) {
+          int index, PlayerInfo.Builder builderForValue) {
         if (othersBuilder_ == null) {
           ensureOthersIsMutable();
           others_.add(index, builderForValue.build());
@@ -3557,7 +3700,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
       public Builder addAllOthers(
-          java.lang.Iterable<? extends com.dafagame.protocol.zjh.Zjh.PlayerInfo> values) {
+          Iterable<? extends PlayerInfo> values) {
         if (othersBuilder_ == null) {
           ensureOthersIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3609,7 +3752,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder getOthersBuilder(
+      public PlayerInfo.Builder getOthersBuilder(
           int index) {
         return getOthersFieldBuilder().getBuilder(index);
       }
@@ -3620,7 +3763,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder getOthersOrBuilder(
+      public PlayerInfoOrBuilder getOthersOrBuilder(
           int index) {
         if (othersBuilder_ == null) {
           return others_.get(index);  } else {
@@ -3634,7 +3777,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
-      public java.util.List<? extends com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder> 
+      public java.util.List<? extends PlayerInfoOrBuilder>
            getOthersOrBuilderList() {
         if (othersBuilder_ != null) {
           return othersBuilder_.getMessageOrBuilderList();
@@ -3649,9 +3792,9 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder addOthersBuilder() {
+      public PlayerInfo.Builder addOthersBuilder() {
         return getOthersFieldBuilder().addBuilder(
-            com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance());
+            PlayerInfo.getDefaultInstance());
       }
       /**
        * <pre>
@@ -3660,10 +3803,10 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder addOthersBuilder(
+      public PlayerInfo.Builder addOthersBuilder(
           int index) {
         return getOthersFieldBuilder().addBuilder(
-            index, com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance());
+            index, PlayerInfo.getDefaultInstance());
       }
       /**
        * <pre>
@@ -3672,16 +3815,16 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.PlayerInfo others = 4;</code>
        */
-      public java.util.List<com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder> 
+      public java.util.List<PlayerInfo.Builder>
            getOthersBuilderList() {
         return getOthersFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.zjh.Zjh.PlayerInfo, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder, com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder> 
+          PlayerInfo, PlayerInfo.Builder, PlayerInfoOrBuilder>
           getOthersFieldBuilder() {
         if (othersBuilder_ == null) {
           othersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder, com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder>(
+              PlayerInfo, PlayerInfo.Builder, PlayerInfoOrBuilder>(
                   others_,
                   ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
@@ -3787,7 +3930,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object roomNumber_ = "";
+      private Object roomNumber_ = "";
       /**
        * <pre>
        *房号
@@ -3805,18 +3948,18 @@ public final class Zjh {
        *
        * <code>optional string roomNumber = 7;</code>
        */
-      public java.lang.String getRoomNumber() {
-        java.lang.Object ref = roomNumber_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getRoomNumber() {
+        Object ref = roomNumber_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             roomNumber_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -3828,11 +3971,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getRoomNumberBytes() {
-        java.lang.Object ref = roomNumber_;
+        Object ref = roomNumber_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           roomNumber_ = b;
           return b;
         } else {
@@ -3847,7 +3990,7 @@ public final class Zjh {
        * <code>optional string roomNumber = 7;</code>
        */
       public Builder setRoomNumber(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3887,7 +4030,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object inning_ = "";
+      private Object inning_ = "";
       /**
        * <pre>
        *局号
@@ -3905,18 +4048,18 @@ public final class Zjh {
        *
        * <code>optional string inning = 8;</code>
        */
-      public java.lang.String getInning() {
-        java.lang.Object ref = inning_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getInning() {
+        Object ref = inning_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             inning_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -3928,11 +4071,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getInningBytes() {
-        java.lang.Object ref = inning_;
+        Object ref = inning_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           inning_ = b;
           return b;
         } else {
@@ -3947,7 +4090,7 @@ public final class Zjh {
        * <code>optional string inning = 8;</code>
        */
       public Builder setInning(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -4005,9 +4148,9 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.Status roomStatus = 9;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.Status getRoomStatus() {
-        com.dafagame.protocol.zjh.Zjh.Status result = com.dafagame.protocol.zjh.Zjh.Status.valueOf(roomStatus_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.Status.Idel : result;
+      public Status getRoomStatus() {
+        Status result = Status.valueOf(roomStatus_);
+        return result == null ? Status.Idel : result;
       }
       /**
        * <pre>
@@ -4016,7 +4159,7 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.Status roomStatus = 9;</code>
        */
-      public Builder setRoomStatus(com.dafagame.protocol.zjh.Zjh.Status value) {
+      public Builder setRoomStatus(Status value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -4039,7 +4182,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object roomPreBet_ = "";
+      private Object roomPreBet_ = "";
       /**
        * <pre>
        *房间当前下注
@@ -4057,18 +4200,18 @@ public final class Zjh {
        *
        * <code>optional string roomPreBet = 10;</code>
        */
-      public java.lang.String getRoomPreBet() {
-        java.lang.Object ref = roomPreBet_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getRoomPreBet() {
+        Object ref = roomPreBet_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             roomPreBet_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -4080,11 +4223,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getRoomPreBetBytes() {
-        java.lang.Object ref = roomPreBet_;
+        Object ref = roomPreBet_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           roomPreBet_ = b;
           return b;
         } else {
@@ -4099,7 +4242,7 @@ public final class Zjh {
        * <code>optional string roomPreBet = 10;</code>
        */
       public Builder setRoomPreBet(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -4187,7 +4330,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object roundType_ = "";
+      private Object roundType_ = "";
       /**
        * <pre>
        *场次类型
@@ -4205,18 +4348,18 @@ public final class Zjh {
        *
        * <code>optional string roundType = 12;</code>
        */
-      public java.lang.String getRoundType() {
-        java.lang.Object ref = roundType_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getRoundType() {
+        Object ref = roundType_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             roundType_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -4228,11 +4371,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getRoundTypeBytes() {
-        java.lang.Object ref = roundType_;
+        Object ref = roundType_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           roundType_ = b;
           return b;
         } else {
@@ -4247,7 +4390,7 @@ public final class Zjh {
        * <code>optional string roundType = 12;</code>
        */
       public Builder setRoundType(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -4335,9 +4478,9 @@ public final class Zjh {
         return this;
       }
 
-      private com.dafagame.protocol.zjh.Zjh.PlayerInfo own_ = null;
+      private PlayerInfo own_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.zjh.Zjh.PlayerInfo, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder, com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder> ownBuilder_;
+          PlayerInfo, PlayerInfo.Builder, PlayerInfoOrBuilder> ownBuilder_;
       /**
        * <pre>
        *自己
@@ -4355,9 +4498,9 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo getOwn() {
+      public PlayerInfo getOwn() {
         if (ownBuilder_ == null) {
-          return own_ == null ? com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance() : own_;
+          return own_ == null ? PlayerInfo.getDefaultInstance() : own_;
         } else {
           return ownBuilder_.getMessage();
         }
@@ -4369,7 +4512,7 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
        */
-      public Builder setOwn(com.dafagame.protocol.zjh.Zjh.PlayerInfo value) {
+      public Builder setOwn(PlayerInfo value) {
         if (ownBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4390,7 +4533,7 @@ public final class Zjh {
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
        */
       public Builder setOwn(
-          com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder builderForValue) {
+          PlayerInfo.Builder builderForValue) {
         if (ownBuilder_ == null) {
           own_ = builderForValue.build();
           onChanged();
@@ -4407,13 +4550,13 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
        */
-      public Builder mergeOwn(com.dafagame.protocol.zjh.Zjh.PlayerInfo value) {
+      public Builder mergeOwn(PlayerInfo value) {
         if (ownBuilder_ == null) {
           if (((bitField0_ & 0x00002000) == 0x00002000) &&
               own_ != null &&
-              own_ != com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance()) {
+              own_ != PlayerInfo.getDefaultInstance()) {
             own_ =
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo.newBuilder(own_).mergeFrom(value).buildPartial();
+              PlayerInfo.newBuilder(own_).mergeFrom(value).buildPartial();
           } else {
             own_ = value;
           }
@@ -4448,7 +4591,7 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder getOwnBuilder() {
+      public PlayerInfo.Builder getOwnBuilder() {
         bitField0_ |= 0x00002000;
         onChanged();
         return getOwnFieldBuilder().getBuilder();
@@ -4460,12 +4603,12 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder getOwnOrBuilder() {
+      public PlayerInfoOrBuilder getOwnOrBuilder() {
         if (ownBuilder_ != null) {
           return ownBuilder_.getMessageOrBuilder();
         } else {
           return own_ == null ?
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance() : own_;
+              PlayerInfo.getDefaultInstance() : own_;
         }
       }
       /**
@@ -4476,11 +4619,11 @@ public final class Zjh {
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo own = 14;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.zjh.Zjh.PlayerInfo, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder, com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder> 
+          PlayerInfo, PlayerInfo.Builder, PlayerInfoOrBuilder>
           getOwnFieldBuilder() {
         if (ownBuilder_ == null) {
           ownBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder, com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder>(
+              PlayerInfo, PlayerInfo.Builder, PlayerInfoOrBuilder>(
                   getOwn(),
                   getParentForChildren(),
                   isClean());
@@ -4536,6 +4679,86 @@ public final class Zjh {
         onChanged();
         return this;
       }
+
+      private int maxOptTime_ ;
+      /**
+       * <code>optional int32 maxOptTime = 16;</code>
+       */
+      public boolean hasMaxOptTime() {
+        return ((bitField0_ & 0x00008000) == 0x00008000);
+      }
+      /**
+       * <code>optional int32 maxOptTime = 16;</code>
+       */
+      public int getMaxOptTime() {
+        return maxOptTime_;
+      }
+      /**
+       * <code>optional int32 maxOptTime = 16;</code>
+       */
+      public Builder setMaxOptTime(int value) {
+        bitField0_ |= 0x00008000;
+        maxOptTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 maxOptTime = 16;</code>
+       */
+      public Builder clearMaxOptTime() {
+        bitField0_ = (bitField0_ & ~0x00008000);
+        maxOptTime_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int studeSeat_ ;
+      /**
+       * <pre>
+       *如果有梭哈
+       * </pre>
+       *
+       * <code>optional int32 studeSeat = 17;</code>
+       */
+      public boolean hasStudeSeat() {
+        return ((bitField0_ & 0x00010000) == 0x00010000);
+      }
+      /**
+       * <pre>
+       *如果有梭哈
+       * </pre>
+       *
+       * <code>optional int32 studeSeat = 17;</code>
+       */
+      public int getStudeSeat() {
+        return studeSeat_;
+      }
+      /**
+       * <pre>
+       *如果有梭哈
+       * </pre>
+       *
+       * <code>optional int32 studeSeat = 17;</code>
+       */
+      public Builder setStudeSeat(int value) {
+        bitField0_ |= 0x00010000;
+        studeSeat_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *如果有梭哈
+       * </pre>
+       *
+       * <code>optional int32 studeSeat = 17;</code>
+       */
+      public Builder clearStudeSeat() {
+        bitField0_ = (bitField0_ & ~0x00010000);
+        studeSeat_ = 0;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -4551,16 +4774,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.ScenesData)
-    private static final com.dafagame.protocol.zjh.Zjh.ScenesData DEFAULT_INSTANCE;
+    private static final ScenesData DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.ScenesData();
+      DEFAULT_INSTANCE = new ScenesData();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.ScenesData getDefaultInstance() {
+    public static ScenesData getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<ScenesData>
+    @Deprecated public static final com.google.protobuf.Parser<ScenesData>
         PARSER = new com.google.protobuf.AbstractParser<ScenesData>() {
       public ScenesData parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -4574,12 +4797,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<ScenesData> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.ScenesData getDefaultInstanceForType() {
+    public ScenesData getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4591,7 +4814,7 @@ public final class Zjh {
 
     /**
      * <pre>
-     *操作玩家，即庄家
+     *操作玩家
      * </pre>
      *
      * <code>optional int32 opt = 1;</code>
@@ -4599,7 +4822,7 @@ public final class Zjh {
     boolean hasOpt();
     /**
      * <pre>
-     *操作玩家，即庄家
+     *操作玩家
      * </pre>
      *
      * <code>optional int32 opt = 1;</code>
@@ -4613,7 +4836,7 @@ public final class Zjh {
      *
      * <code>repeated int32 gamePlayers = 2;</code>
      */
-    java.util.List<java.lang.Integer> getGamePlayersList();
+    java.util.List<Integer> getGamePlayersList();
     /**
      * <pre>
      *参与游戏的玩家
@@ -4663,7 +4886,7 @@ public final class Zjh {
      *
      * <code>optional string inning = 4;</code>
      */
-    java.lang.String getInning();
+    String getInning();
     /**
      * <pre>
      *局号
@@ -4673,6 +4896,32 @@ public final class Zjh {
      */
     com.google.protobuf.ByteString
         getInningBytes();
+
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional int32 banker = 5;</code>
+     */
+    boolean hasBanker();
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional int32 banker = 5;</code>
+     */
+    int getBanker();
+
+    /**
+     * <code>optional bool kill = 6;</code>
+     */
+    boolean hasKill();
+    /**
+     * <code>optional bool kill = 6;</code>
+     */
+    boolean getKill();
   }
   /**
    * <pre>
@@ -4695,9 +4944,11 @@ public final class Zjh {
       gamePlayers_ = java.util.Collections.emptyList();
       time_ = 0L;
       inning_ = "";
+      banker_ = 0;
+      kill_ = false;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4732,7 +4983,7 @@ public final class Zjh {
             }
             case 16: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                gamePlayers_ = new java.util.ArrayList<java.lang.Integer>();
+                gamePlayers_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000002;
               }
               gamePlayers_.add(input.readInt32());
@@ -4742,7 +4993,7 @@ public final class Zjh {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
-                gamePlayers_ = new java.util.ArrayList<java.lang.Integer>();
+                gamePlayers_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000002;
               }
               while (input.getBytesUntilLimit() > 0) {
@@ -4762,6 +5013,16 @@ public final class Zjh {
               inning_ = bs;
               break;
             }
+            case 40: {
+              bitField0_ |= 0x00000008;
+              banker_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000010;
+              kill_ = input.readBool();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4779,14 +5040,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.StartGameNtf.class, com.dafagame.protocol.zjh.Zjh.StartGameNtf.Builder.class);
+              StartGameNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -4794,7 +5055,7 @@ public final class Zjh {
     private int opt_;
     /**
      * <pre>
-     *操作玩家，即庄家
+     *操作玩家
      * </pre>
      *
      * <code>optional int32 opt = 1;</code>
@@ -4804,7 +5065,7 @@ public final class Zjh {
     }
     /**
      * <pre>
-     *操作玩家，即庄家
+     *操作玩家
      * </pre>
      *
      * <code>optional int32 opt = 1;</code>
@@ -4814,7 +5075,7 @@ public final class Zjh {
     }
 
     public static final int GAMEPLAYERS_FIELD_NUMBER = 2;
-    private java.util.List<java.lang.Integer> gamePlayers_;
+    private java.util.List<Integer> gamePlayers_;
     /**
      * <pre>
      *参与游戏的玩家
@@ -4822,7 +5083,7 @@ public final class Zjh {
      *
      * <code>repeated int32 gamePlayers = 2;</code>
      */
-    public java.util.List<java.lang.Integer>
+    public java.util.List<Integer>
         getGamePlayersList() {
       return gamePlayers_;
     }
@@ -4871,7 +5132,7 @@ public final class Zjh {
     }
 
     public static final int INNING_FIELD_NUMBER = 4;
-    private volatile java.lang.Object inning_;
+    private volatile Object inning_;
     /**
      * <pre>
      *局号
@@ -4889,14 +5150,14 @@ public final class Zjh {
      *
      * <code>optional string inning = 4;</code>
      */
-    public java.lang.String getInning() {
-      java.lang.Object ref = inning_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getInning() {
+      Object ref = inning_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           inning_ = s;
         }
@@ -4912,16 +5173,54 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getInningBytes() {
-      java.lang.Object ref = inning_;
-      if (ref instanceof java.lang.String) {
+      Object ref = inning_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         inning_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int BANKER_FIELD_NUMBER = 5;
+    private int banker_;
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional int32 banker = 5;</code>
+     */
+    public boolean hasBanker() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *庄家
+     * </pre>
+     *
+     * <code>optional int32 banker = 5;</code>
+     */
+    public int getBanker() {
+      return banker_;
+    }
+
+    public static final int KILL_FIELD_NUMBER = 6;
+    private boolean kill_;
+    /**
+     * <code>optional bool kill = 6;</code>
+     */
+    public boolean hasKill() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional bool kill = 6;</code>
+     */
+    public boolean getKill() {
+      return kill_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4947,6 +5246,12 @@ public final class Zjh {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, inning_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(5, banker_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBool(6, kill_);
       }
       unknownFields.writeTo(output);
     }
@@ -4976,20 +5281,28 @@ public final class Zjh {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, inning_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, banker_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, kill_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.StartGameNtf)) {
+      if (!(obj instanceof StartGameNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.StartGameNtf other = (com.dafagame.protocol.zjh.Zjh.StartGameNtf) obj;
+      StartGameNtf other = (StartGameNtf) obj;
 
       boolean result = true;
       result = result && (hasOpt() == other.hasOpt());
@@ -5009,11 +5322,21 @@ public final class Zjh {
         result = result && getInning()
             .equals(other.getInning());
       }
+      result = result && (hasBanker() == other.hasBanker());
+      if (hasBanker()) {
+        result = result && (getBanker()
+            == other.getBanker());
+      }
+      result = result && (hasKill() == other.hasKill());
+      if (hasKill()) {
+        result = result && (getKill()
+            == other.getKill());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -5037,74 +5360,83 @@ public final class Zjh {
         hash = (37 * hash) + INNING_FIELD_NUMBER;
         hash = (53 * hash) + getInning().hashCode();
       }
+      if (hasBanker()) {
+        hash = (37 * hash) + BANKER_FIELD_NUMBER;
+        hash = (53 * hash) + getBanker();
+      }
+      if (hasKill()) {
+        hash = (37 * hash) + KILL_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getKill());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(
+    public static StartGameNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(
+    public static StartGameNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(
+    public static StartGameNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(
+    public static StartGameNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(byte[] data)
+    public static StartGameNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(
+    public static StartGameNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(java.io.InputStream input)
+    public static StartGameNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(
+    public static StartGameNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseDelimitedFrom(java.io.InputStream input)
+    public static StartGameNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseDelimitedFrom(
+    public static StartGameNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(
+    public static StartGameNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf parseFrom(
+    public static StartGameNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5116,7 +5448,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.StartGameNtf prototype) {
+    public static Builder newBuilder(StartGameNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -5124,9 +5456,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -5140,17 +5472,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.StartGameNtf)
-        com.dafagame.protocol.zjh.Zjh.StartGameNtfOrBuilder {
+        StartGameNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.StartGameNtf.class, com.dafagame.protocol.zjh.Zjh.StartGameNtf.Builder.class);
+                StartGameNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.StartGameNtf.newBuilder()
@@ -5159,7 +5491,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -5178,28 +5510,32 @@ public final class Zjh {
         bitField0_ = (bitField0_ & ~0x00000004);
         inning_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        banker_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        kill_ = false;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_StartGameNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.StartGameNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.StartGameNtf.getDefaultInstance();
+      public StartGameNtf getDefaultInstanceForType() {
+        return StartGameNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.StartGameNtf build() {
-        com.dafagame.protocol.zjh.Zjh.StartGameNtf result = buildPartial();
+      public StartGameNtf build() {
+        StartGameNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.StartGameNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.StartGameNtf result = new com.dafagame.protocol.zjh.Zjh.StartGameNtf(this);
+      public StartGameNtf buildPartial() {
+        StartGameNtf result = new StartGameNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5219,6 +5555,14 @@ public final class Zjh {
           to_bitField0_ |= 0x00000004;
         }
         result.inning_ = inning_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.banker_ = banker_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.kill_ = kill_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5229,7 +5573,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -5242,25 +5586,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.StartGameNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.StartGameNtf)other);
+        if (other instanceof StartGameNtf) {
+          return mergeFrom((StartGameNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.StartGameNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.StartGameNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(StartGameNtf other) {
+        if (other == StartGameNtf.getDefaultInstance()) return this;
         if (other.hasOpt()) {
           setOpt(other.getOpt());
         }
@@ -5282,6 +5626,12 @@ public final class Zjh {
           inning_ = other.inning_;
           onChanged();
         }
+        if (other.hasBanker()) {
+          setBanker(other.getBanker());
+        }
+        if (other.hasKill()) {
+          setKill(other.getKill());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5295,11 +5645,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.StartGameNtf parsedMessage = null;
+        StartGameNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.StartGameNtf) e.getUnfinishedMessage();
+          parsedMessage = (StartGameNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5313,7 +5663,7 @@ public final class Zjh {
       private int opt_ ;
       /**
        * <pre>
-       *操作玩家，即庄家
+       *操作玩家
        * </pre>
        *
        * <code>optional int32 opt = 1;</code>
@@ -5323,7 +5673,7 @@ public final class Zjh {
       }
       /**
        * <pre>
-       *操作玩家，即庄家
+       *操作玩家
        * </pre>
        *
        * <code>optional int32 opt = 1;</code>
@@ -5333,7 +5683,7 @@ public final class Zjh {
       }
       /**
        * <pre>
-       *操作玩家，即庄家
+       *操作玩家
        * </pre>
        *
        * <code>optional int32 opt = 1;</code>
@@ -5346,7 +5696,7 @@ public final class Zjh {
       }
       /**
        * <pre>
-       *操作玩家，即庄家
+       *操作玩家
        * </pre>
        *
        * <code>optional int32 opt = 1;</code>
@@ -5358,10 +5708,10 @@ public final class Zjh {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> gamePlayers_ = java.util.Collections.emptyList();
+      private java.util.List<Integer> gamePlayers_ = java.util.Collections.emptyList();
       private void ensureGamePlayersIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          gamePlayers_ = new java.util.ArrayList<java.lang.Integer>(gamePlayers_);
+          gamePlayers_ = new java.util.ArrayList<Integer>(gamePlayers_);
           bitField0_ |= 0x00000002;
          }
       }
@@ -5372,7 +5722,7 @@ public final class Zjh {
        *
        * <code>repeated int32 gamePlayers = 2;</code>
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<Integer>
           getGamePlayersList() {
         return java.util.Collections.unmodifiableList(gamePlayers_);
       }
@@ -5431,7 +5781,7 @@ public final class Zjh {
        * <code>repeated int32 gamePlayers = 2;</code>
        */
       public Builder addAllGamePlayers(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          Iterable<? extends Integer> values) {
         ensureGamePlayersIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, gamePlayers_);
@@ -5500,7 +5850,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object inning_ = "";
+      private Object inning_ = "";
       /**
        * <pre>
        *局号
@@ -5518,18 +5868,18 @@ public final class Zjh {
        *
        * <code>optional string inning = 4;</code>
        */
-      public java.lang.String getInning() {
-        java.lang.Object ref = inning_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getInning() {
+        Object ref = inning_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             inning_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -5541,11 +5891,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getInningBytes() {
-        java.lang.Object ref = inning_;
+        Object ref = inning_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           inning_ = b;
           return b;
         } else {
@@ -5560,7 +5910,7 @@ public final class Zjh {
        * <code>optional string inning = 4;</code>
        */
       public Builder setInning(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -5599,6 +5949,86 @@ public final class Zjh {
         onChanged();
         return this;
       }
+
+      private int banker_ ;
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional int32 banker = 5;</code>
+       */
+      public boolean hasBanker() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional int32 banker = 5;</code>
+       */
+      public int getBanker() {
+        return banker_;
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional int32 banker = 5;</code>
+       */
+      public Builder setBanker(int value) {
+        bitField0_ |= 0x00000010;
+        banker_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *庄家
+       * </pre>
+       *
+       * <code>optional int32 banker = 5;</code>
+       */
+      public Builder clearBanker() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        banker_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean kill_ ;
+      /**
+       * <code>optional bool kill = 6;</code>
+       */
+      public boolean hasKill() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional bool kill = 6;</code>
+       */
+      public boolean getKill() {
+        return kill_;
+      }
+      /**
+       * <code>optional bool kill = 6;</code>
+       */
+      public Builder setKill(boolean value) {
+        bitField0_ |= 0x00000020;
+        kill_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool kill = 6;</code>
+       */
+      public Builder clearKill() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        kill_ = false;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -5614,16 +6044,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.StartGameNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.StartGameNtf DEFAULT_INSTANCE;
+    private static final StartGameNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.StartGameNtf();
+      DEFAULT_INSTANCE = new StartGameNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.StartGameNtf getDefaultInstance() {
+    public static StartGameNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<StartGameNtf>
+    @Deprecated public static final com.google.protobuf.Parser<StartGameNtf>
         PARSER = new com.google.protobuf.AbstractParser<StartGameNtf>() {
       public StartGameNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -5637,12 +6067,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<StartGameNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.StartGameNtf getDefaultInstanceForType() {
+    public StartGameNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5655,7 +6085,7 @@ public final class Zjh {
     /**
      * <code>repeated int32 cards = 1;</code>
      */
-    java.util.List<java.lang.Integer> getCardsList();
+    java.util.List<Integer> getCardsList();
     /**
      * <code>repeated int32 cards = 1;</code>
      */
@@ -5672,7 +6102,7 @@ public final class Zjh {
      *
      * <code>repeated int32 gamePlayers = 2;</code>
      */
-    java.util.List<java.lang.Integer> getGamePlayersList();
+    java.util.List<Integer> getGamePlayersList();
     /**
      * <pre>
      *参与游戏的玩家
@@ -5705,7 +6135,7 @@ public final class Zjh {
      *
      * <code>optional string cs = 3;</code>
      */
-    java.lang.String getCs();
+    String getCs();
     /**
      * <pre>
      *牌
@@ -5715,6 +6145,19 @@ public final class Zjh {
      */
     com.google.protobuf.ByteString
         getCsBytes();
+
+    /**
+     * <code>repeated int32 real = 4;</code>
+     */
+    java.util.List<Integer> getRealList();
+    /**
+     * <code>repeated int32 real = 4;</code>
+     */
+    int getRealCount();
+    /**
+     * <code>repeated int32 real = 4;</code>
+     */
+    int getReal(int index);
   }
   /**
    * <pre>
@@ -5736,9 +6179,10 @@ public final class Zjh {
       cards_ = java.util.Collections.emptyList();
       gamePlayers_ = java.util.Collections.emptyList();
       cs_ = "";
+      real_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5768,7 +6212,7 @@ public final class Zjh {
             }
             case 8: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                cards_ = new java.util.ArrayList<java.lang.Integer>();
+                cards_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000001;
               }
               cards_.add(input.readInt32());
@@ -5778,7 +6222,7 @@ public final class Zjh {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
-                cards_ = new java.util.ArrayList<java.lang.Integer>();
+                cards_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000001;
               }
               while (input.getBytesUntilLimit() > 0) {
@@ -5789,7 +6233,7 @@ public final class Zjh {
             }
             case 16: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                gamePlayers_ = new java.util.ArrayList<java.lang.Integer>();
+                gamePlayers_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000002;
               }
               gamePlayers_.add(input.readInt32());
@@ -5799,7 +6243,7 @@ public final class Zjh {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
-                gamePlayers_ = new java.util.ArrayList<java.lang.Integer>();
+                gamePlayers_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000002;
               }
               while (input.getBytesUntilLimit() > 0) {
@@ -5812,6 +6256,27 @@ public final class Zjh {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
               cs_ = bs;
+              break;
+            }
+            case 32: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                real_ = new java.util.ArrayList<Integer>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              real_.add(input.readInt32());
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
+                real_ = new java.util.ArrayList<Integer>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                real_.add(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
           }
@@ -5828,29 +6293,32 @@ public final class Zjh {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           gamePlayers_ = java.util.Collections.unmodifiableList(gamePlayers_);
         }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          real_ = java.util.Collections.unmodifiableList(real_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.RobotMsg.class, com.dafagame.protocol.zjh.Zjh.RobotMsg.Builder.class);
+              RobotMsg.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int CARDS_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Integer> cards_;
+    private java.util.List<Integer> cards_;
     /**
      * <code>repeated int32 cards = 1;</code>
      */
-    public java.util.List<java.lang.Integer>
+    public java.util.List<Integer>
         getCardsList() {
       return cards_;
     }
@@ -5868,7 +6336,7 @@ public final class Zjh {
     }
 
     public static final int GAMEPLAYERS_FIELD_NUMBER = 2;
-    private java.util.List<java.lang.Integer> gamePlayers_;
+    private java.util.List<Integer> gamePlayers_;
     /**
      * <pre>
      *参与游戏的玩家
@@ -5876,7 +6344,7 @@ public final class Zjh {
      *
      * <code>repeated int32 gamePlayers = 2;</code>
      */
-    public java.util.List<java.lang.Integer>
+    public java.util.List<Integer>
         getGamePlayersList() {
       return gamePlayers_;
     }
@@ -5902,7 +6370,7 @@ public final class Zjh {
     }
 
     public static final int CS_FIELD_NUMBER = 3;
-    private volatile java.lang.Object cs_;
+    private volatile Object cs_;
     /**
      * <pre>
      *牌
@@ -5920,14 +6388,14 @@ public final class Zjh {
      *
      * <code>optional string cs = 3;</code>
      */
-    public java.lang.String getCs() {
-      java.lang.Object ref = cs_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getCs() {
+      Object ref = cs_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           cs_ = s;
         }
@@ -5943,16 +6411,38 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getCsBytes() {
-      java.lang.Object ref = cs_;
-      if (ref instanceof java.lang.String) {
+      Object ref = cs_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         cs_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int REAL_FIELD_NUMBER = 4;
+    private java.util.List<Integer> real_;
+    /**
+     * <code>repeated int32 real = 4;</code>
+     */
+    public java.util.List<Integer>
+        getRealList() {
+      return real_;
+    }
+    /**
+     * <code>repeated int32 real = 4;</code>
+     */
+    public int getRealCount() {
+      return real_.size();
+    }
+    /**
+     * <code>repeated int32 real = 4;</code>
+     */
+    public int getReal(int index) {
+      return real_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5975,6 +6465,9 @@ public final class Zjh {
       }
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, cs_);
+      }
+      for (int i = 0; i < real_.size(); i++) {
+        output.writeInt32(4, real_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -6005,20 +6498,29 @@ public final class Zjh {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, cs_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < real_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(real_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getRealList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.RobotMsg)) {
+      if (!(obj instanceof RobotMsg)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.RobotMsg other = (com.dafagame.protocol.zjh.Zjh.RobotMsg) obj;
+      RobotMsg other = (RobotMsg) obj;
 
       boolean result = true;
       result = result && getCardsList()
@@ -6030,11 +6532,13 @@ public final class Zjh {
         result = result && getCs()
             .equals(other.getCs());
       }
+      result = result && getRealList()
+          .equals(other.getRealList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -6053,74 +6557,78 @@ public final class Zjh {
         hash = (37 * hash) + CS_FIELD_NUMBER;
         hash = (53 * hash) + getCs().hashCode();
       }
+      if (getRealCount() > 0) {
+        hash = (37 * hash) + REAL_FIELD_NUMBER;
+        hash = (53 * hash) + getRealList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(
+    public static RobotMsg parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(
+    public static RobotMsg parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(
+    public static RobotMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(
+    public static RobotMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(byte[] data)
+    public static RobotMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(
+    public static RobotMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(java.io.InputStream input)
+    public static RobotMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(
+    public static RobotMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseDelimitedFrom(java.io.InputStream input)
+    public static RobotMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseDelimitedFrom(
+    public static RobotMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(
+    public static RobotMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg parseFrom(
+    public static RobotMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6132,7 +6640,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.RobotMsg prototype) {
+    public static Builder newBuilder(RobotMsg prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -6140,9 +6648,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6156,17 +6664,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.RobotMsg)
-        com.dafagame.protocol.zjh.Zjh.RobotMsgOrBuilder {
+        RobotMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.RobotMsg.class, com.dafagame.protocol.zjh.Zjh.RobotMsg.Builder.class);
+                RobotMsg.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.RobotMsg.newBuilder()
@@ -6175,7 +6683,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -6192,28 +6700,30 @@ public final class Zjh {
         bitField0_ = (bitField0_ & ~0x00000002);
         cs_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        real_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_RobotMsg_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.RobotMsg getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.RobotMsg.getDefaultInstance();
+      public RobotMsg getDefaultInstanceForType() {
+        return RobotMsg.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.RobotMsg build() {
-        com.dafagame.protocol.zjh.Zjh.RobotMsg result = buildPartial();
+      public RobotMsg build() {
+        RobotMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.RobotMsg buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.RobotMsg result = new com.dafagame.protocol.zjh.Zjh.RobotMsg(this);
+      public RobotMsg buildPartial() {
+        RobotMsg result = new RobotMsg(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6230,6 +6740,11 @@ public final class Zjh {
           to_bitField0_ |= 0x00000001;
         }
         result.cs_ = cs_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          real_ = java.util.Collections.unmodifiableList(real_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.real_ = real_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6240,7 +6755,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -6253,25 +6768,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.RobotMsg) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.RobotMsg)other);
+        if (other instanceof RobotMsg) {
+          return mergeFrom((RobotMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.RobotMsg other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.RobotMsg.getDefaultInstance()) return this;
+      public Builder mergeFrom(RobotMsg other) {
+        if (other == RobotMsg.getDefaultInstance()) return this;
         if (!other.cards_.isEmpty()) {
           if (cards_.isEmpty()) {
             cards_ = other.cards_;
@@ -6297,6 +6812,16 @@ public final class Zjh {
           cs_ = other.cs_;
           onChanged();
         }
+        if (!other.real_.isEmpty()) {
+          if (real_.isEmpty()) {
+            real_ = other.real_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureRealIsMutable();
+            real_.addAll(other.real_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6310,11 +6835,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.RobotMsg parsedMessage = null;
+        RobotMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.RobotMsg) e.getUnfinishedMessage();
+          parsedMessage = (RobotMsg) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6325,17 +6850,17 @@ public final class Zjh {
       }
       private int bitField0_;
 
-      private java.util.List<java.lang.Integer> cards_ = java.util.Collections.emptyList();
+      private java.util.List<Integer> cards_ = java.util.Collections.emptyList();
       private void ensureCardsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          cards_ = new java.util.ArrayList<java.lang.Integer>(cards_);
+          cards_ = new java.util.ArrayList<Integer>(cards_);
           bitField0_ |= 0x00000001;
          }
       }
       /**
        * <code>repeated int32 cards = 1;</code>
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<Integer>
           getCardsList() {
         return java.util.Collections.unmodifiableList(cards_);
       }
@@ -6374,7 +6899,7 @@ public final class Zjh {
        * <code>repeated int32 cards = 1;</code>
        */
       public Builder addAllCards(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          Iterable<? extends Integer> values) {
         ensureCardsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, cards_);
@@ -6391,10 +6916,10 @@ public final class Zjh {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> gamePlayers_ = java.util.Collections.emptyList();
+      private java.util.List<Integer> gamePlayers_ = java.util.Collections.emptyList();
       private void ensureGamePlayersIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          gamePlayers_ = new java.util.ArrayList<java.lang.Integer>(gamePlayers_);
+          gamePlayers_ = new java.util.ArrayList<Integer>(gamePlayers_);
           bitField0_ |= 0x00000002;
          }
       }
@@ -6405,7 +6930,7 @@ public final class Zjh {
        *
        * <code>repeated int32 gamePlayers = 2;</code>
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<Integer>
           getGamePlayersList() {
         return java.util.Collections.unmodifiableList(gamePlayers_);
       }
@@ -6464,7 +6989,7 @@ public final class Zjh {
        * <code>repeated int32 gamePlayers = 2;</code>
        */
       public Builder addAllGamePlayers(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          Iterable<? extends Integer> values) {
         ensureGamePlayersIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, gamePlayers_);
@@ -6485,7 +7010,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object cs_ = "";
+      private Object cs_ = "";
       /**
        * <pre>
        *牌
@@ -6503,18 +7028,18 @@ public final class Zjh {
        *
        * <code>optional string cs = 3;</code>
        */
-      public java.lang.String getCs() {
-        java.lang.Object ref = cs_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getCs() {
+        Object ref = cs_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             cs_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -6526,11 +7051,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getCsBytes() {
-        java.lang.Object ref = cs_;
+        Object ref = cs_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           cs_ = b;
           return b;
         } else {
@@ -6545,7 +7070,7 @@ public final class Zjh {
        * <code>optional string cs = 3;</code>
        */
       public Builder setCs(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -6584,6 +7109,72 @@ public final class Zjh {
         onChanged();
         return this;
       }
+
+      private java.util.List<Integer> real_ = java.util.Collections.emptyList();
+      private void ensureRealIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          real_ = new java.util.ArrayList<Integer>(real_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated int32 real = 4;</code>
+       */
+      public java.util.List<Integer>
+          getRealList() {
+        return java.util.Collections.unmodifiableList(real_);
+      }
+      /**
+       * <code>repeated int32 real = 4;</code>
+       */
+      public int getRealCount() {
+        return real_.size();
+      }
+      /**
+       * <code>repeated int32 real = 4;</code>
+       */
+      public int getReal(int index) {
+        return real_.get(index);
+      }
+      /**
+       * <code>repeated int32 real = 4;</code>
+       */
+      public Builder setReal(
+          int index, int value) {
+        ensureRealIsMutable();
+        real_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 real = 4;</code>
+       */
+      public Builder addReal(int value) {
+        ensureRealIsMutable();
+        real_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 real = 4;</code>
+       */
+      public Builder addAllReal(
+          Iterable<? extends Integer> values) {
+        ensureRealIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, real_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 real = 4;</code>
+       */
+      public Builder clearReal() {
+        real_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -6599,16 +7190,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.RobotMsg)
-    private static final com.dafagame.protocol.zjh.Zjh.RobotMsg DEFAULT_INSTANCE;
+    private static final RobotMsg DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.RobotMsg();
+      DEFAULT_INSTANCE = new RobotMsg();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.RobotMsg getDefaultInstance() {
+    public static RobotMsg getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RobotMsg>
+    @Deprecated public static final com.google.protobuf.Parser<RobotMsg>
         PARSER = new com.google.protobuf.AbstractParser<RobotMsg>() {
       public RobotMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -6622,12 +7213,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RobotMsg> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.RobotMsg getDefaultInstanceForType() {
+    public RobotMsg getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6644,7 +7235,7 @@ public final class Zjh {
     /**
      * <code>optional string roundType = 1;</code>
      */
-    java.lang.String getRoundType();
+    String getRoundType();
     /**
      * <code>optional string roundType = 1;</code>
      */
@@ -6658,7 +7249,7 @@ public final class Zjh {
     /**
      * <code>optional string roomNumber = 2;</code>
      */
-    java.lang.String getRoomNumber();
+    String getRoomNumber();
     /**
      * <code>optional string roomNumber = 2;</code>
      */
@@ -6732,6 +7323,23 @@ public final class Zjh {
      * <code>optional int32 playerCount = 6;</code>
      */
     int getPlayerCount();
+
+    /**
+     * <pre>
+     *是否优先匹配玩家
+     * </pre>
+     *
+     * <code>optional bool isMatchPlayer = 7;</code>
+     */
+    boolean hasIsMatchPlayer();
+    /**
+     * <pre>
+     *是否优先匹配玩家
+     * </pre>
+     *
+     * <code>optional bool isMatchPlayer = 7;</code>
+     */
+    boolean getIsMatchPlayer();
   }
   /**
    * Protobuf type {@code com.dafagame.protocol.zjh.RobotExitMsg}
@@ -6752,9 +7360,10 @@ public final class Zjh {
       isMaintain_ = false;
       realCount_ = 0;
       playerCount_ = 0;
+      isMatchPlayer_ = false;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -6814,6 +7423,11 @@ public final class Zjh {
               playerCount_ = input.readInt32();
               break;
             }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              isMatchPlayer_ = input.readBool();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6828,19 +7442,19 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.RobotExitMsg.class, com.dafagame.protocol.zjh.Zjh.RobotExitMsg.Builder.class);
+              RobotExitMsg.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int ROUNDTYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object roundType_;
+    private volatile Object roundType_;
     /**
      * <code>optional string roundType = 1;</code>
      */
@@ -6850,14 +7464,14 @@ public final class Zjh {
     /**
      * <code>optional string roundType = 1;</code>
      */
-    public java.lang.String getRoundType() {
-      java.lang.Object ref = roundType_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getRoundType() {
+      Object ref = roundType_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           roundType_ = s;
         }
@@ -6869,11 +7483,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getRoundTypeBytes() {
-      java.lang.Object ref = roundType_;
-      if (ref instanceof java.lang.String) {
+      Object ref = roundType_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         roundType_ = b;
         return b;
       } else {
@@ -6882,7 +7496,7 @@ public final class Zjh {
     }
 
     public static final int ROOMNUMBER_FIELD_NUMBER = 2;
-    private volatile java.lang.Object roomNumber_;
+    private volatile Object roomNumber_;
     /**
      * <code>optional string roomNumber = 2;</code>
      */
@@ -6892,14 +7506,14 @@ public final class Zjh {
     /**
      * <code>optional string roomNumber = 2;</code>
      */
-    public java.lang.String getRoomNumber() {
-      java.lang.Object ref = roomNumber_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getRoomNumber() {
+      Object ref = roomNumber_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           roomNumber_ = s;
         }
@@ -6911,11 +7525,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getRoomNumberBytes() {
-      java.lang.Object ref = roomNumber_;
-      if (ref instanceof java.lang.String) {
+      Object ref = roomNumber_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         roomNumber_ = b;
         return b;
       } else {
@@ -7015,6 +7629,29 @@ public final class Zjh {
       return playerCount_;
     }
 
+    public static final int ISMATCHPLAYER_FIELD_NUMBER = 7;
+    private boolean isMatchPlayer_;
+    /**
+     * <pre>
+     *是否优先匹配玩家
+     * </pre>
+     *
+     * <code>optional bool isMatchPlayer = 7;</code>
+     */
+    public boolean hasIsMatchPlayer() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     *是否优先匹配玩家
+     * </pre>
+     *
+     * <code>optional bool isMatchPlayer = 7;</code>
+     */
+    public boolean getIsMatchPlayer() {
+      return isMatchPlayer_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -7044,6 +7681,9 @@ public final class Zjh {
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeInt32(6, playerCount_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBool(7, isMatchPlayer_);
       }
       unknownFields.writeTo(output);
     }
@@ -7075,20 +7715,24 @@ public final class Zjh {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, playerCount_);
       }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(7, isMatchPlayer_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.RobotExitMsg)) {
+      if (!(obj instanceof RobotExitMsg)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.RobotExitMsg other = (com.dafagame.protocol.zjh.Zjh.RobotExitMsg) obj;
+      RobotExitMsg other = (RobotExitMsg) obj;
 
       boolean result = true;
       result = result && (hasRoundType() == other.hasRoundType());
@@ -7121,11 +7765,16 @@ public final class Zjh {
         result = result && (getPlayerCount()
             == other.getPlayerCount());
       }
+      result = result && (hasIsMatchPlayer() == other.hasIsMatchPlayer());
+      if (hasIsMatchPlayer()) {
+        result = result && (getIsMatchPlayer()
+            == other.getIsMatchPlayer());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -7158,74 +7807,79 @@ public final class Zjh {
         hash = (37 * hash) + PLAYERCOUNT_FIELD_NUMBER;
         hash = (53 * hash) + getPlayerCount();
       }
+      if (hasIsMatchPlayer()) {
+        hash = (37 * hash) + ISMATCHPLAYER_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getIsMatchPlayer());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(
+    public static RobotExitMsg parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(
+    public static RobotExitMsg parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(
+    public static RobotExitMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(
+    public static RobotExitMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(byte[] data)
+    public static RobotExitMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(
+    public static RobotExitMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(java.io.InputStream input)
+    public static RobotExitMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(
+    public static RobotExitMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseDelimitedFrom(java.io.InputStream input)
+    public static RobotExitMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseDelimitedFrom(
+    public static RobotExitMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(
+    public static RobotExitMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg parseFrom(
+    public static RobotExitMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7237,7 +7891,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.RobotExitMsg prototype) {
+    public static Builder newBuilder(RobotExitMsg prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -7245,9 +7899,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -7257,17 +7911,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.RobotExitMsg)
-        com.dafagame.protocol.zjh.Zjh.RobotExitMsgOrBuilder {
+        RobotExitMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.RobotExitMsg.class, com.dafagame.protocol.zjh.Zjh.RobotExitMsg.Builder.class);
+                RobotExitMsg.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.RobotExitMsg.newBuilder()
@@ -7276,7 +7930,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -7299,28 +7953,30 @@ public final class Zjh {
         bitField0_ = (bitField0_ & ~0x00000010);
         playerCount_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
+        isMatchPlayer_ = false;
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_RobotExitMsg_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.RobotExitMsg getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.RobotExitMsg.getDefaultInstance();
+      public RobotExitMsg getDefaultInstanceForType() {
+        return RobotExitMsg.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.RobotExitMsg build() {
-        com.dafagame.protocol.zjh.Zjh.RobotExitMsg result = buildPartial();
+      public RobotExitMsg build() {
+        RobotExitMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.RobotExitMsg buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.RobotExitMsg result = new com.dafagame.protocol.zjh.Zjh.RobotExitMsg(this);
+      public RobotExitMsg buildPartial() {
+        RobotExitMsg result = new RobotExitMsg(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7347,6 +8003,10 @@ public final class Zjh {
           to_bitField0_ |= 0x00000020;
         }
         result.playerCount_ = playerCount_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.isMatchPlayer_ = isMatchPlayer_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7357,7 +8017,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -7370,25 +8030,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.RobotExitMsg) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.RobotExitMsg)other);
+        if (other instanceof RobotExitMsg) {
+          return mergeFrom((RobotExitMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.RobotExitMsg other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.RobotExitMsg.getDefaultInstance()) return this;
+      public Builder mergeFrom(RobotExitMsg other) {
+        if (other == RobotExitMsg.getDefaultInstance()) return this;
         if (other.hasRoundType()) {
           bitField0_ |= 0x00000001;
           roundType_ = other.roundType_;
@@ -7411,6 +8071,9 @@ public final class Zjh {
         if (other.hasPlayerCount()) {
           setPlayerCount(other.getPlayerCount());
         }
+        if (other.hasIsMatchPlayer()) {
+          setIsMatchPlayer(other.getIsMatchPlayer());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -7424,11 +8087,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.RobotExitMsg parsedMessage = null;
+        RobotExitMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.RobotExitMsg) e.getUnfinishedMessage();
+          parsedMessage = (RobotExitMsg) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -7439,7 +8102,7 @@ public final class Zjh {
       }
       private int bitField0_;
 
-      private java.lang.Object roundType_ = "";
+      private Object roundType_ = "";
       /**
        * <code>optional string roundType = 1;</code>
        */
@@ -7449,18 +8112,18 @@ public final class Zjh {
       /**
        * <code>optional string roundType = 1;</code>
        */
-      public java.lang.String getRoundType() {
-        java.lang.Object ref = roundType_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getRoundType() {
+        Object ref = roundType_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             roundType_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -7468,11 +8131,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getRoundTypeBytes() {
-        java.lang.Object ref = roundType_;
+        Object ref = roundType_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           roundType_ = b;
           return b;
         } else {
@@ -7483,7 +8146,7 @@ public final class Zjh {
        * <code>optional string roundType = 1;</code>
        */
       public Builder setRoundType(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -7515,7 +8178,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object roomNumber_ = "";
+      private Object roomNumber_ = "";
       /**
        * <code>optional string roomNumber = 2;</code>
        */
@@ -7525,18 +8188,18 @@ public final class Zjh {
       /**
        * <code>optional string roomNumber = 2;</code>
        */
-      public java.lang.String getRoomNumber() {
-        java.lang.Object ref = roomNumber_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getRoomNumber() {
+        Object ref = roomNumber_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             roomNumber_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -7544,11 +8207,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getRoomNumberBytes() {
-        java.lang.Object ref = roomNumber_;
+        Object ref = roomNumber_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           roomNumber_ = b;
           return b;
         } else {
@@ -7559,7 +8222,7 @@ public final class Zjh {
        * <code>optional string roomNumber = 2;</code>
        */
       public Builder setRoomNumber(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -7782,6 +8445,54 @@ public final class Zjh {
         onChanged();
         return this;
       }
+
+      private boolean isMatchPlayer_ ;
+      /**
+       * <pre>
+       *是否优先匹配玩家
+       * </pre>
+       *
+       * <code>optional bool isMatchPlayer = 7;</code>
+       */
+      public boolean hasIsMatchPlayer() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <pre>
+       *是否优先匹配玩家
+       * </pre>
+       *
+       * <code>optional bool isMatchPlayer = 7;</code>
+       */
+      public boolean getIsMatchPlayer() {
+        return isMatchPlayer_;
+      }
+      /**
+       * <pre>
+       *是否优先匹配玩家
+       * </pre>
+       *
+       * <code>optional bool isMatchPlayer = 7;</code>
+       */
+      public Builder setIsMatchPlayer(boolean value) {
+        bitField0_ |= 0x00000040;
+        isMatchPlayer_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *是否优先匹配玩家
+       * </pre>
+       *
+       * <code>optional bool isMatchPlayer = 7;</code>
+       */
+      public Builder clearIsMatchPlayer() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        isMatchPlayer_ = false;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -7797,16 +8508,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.RobotExitMsg)
-    private static final com.dafagame.protocol.zjh.Zjh.RobotExitMsg DEFAULT_INSTANCE;
+    private static final RobotExitMsg DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.RobotExitMsg();
+      DEFAULT_INSTANCE = new RobotExitMsg();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.RobotExitMsg getDefaultInstance() {
+    public static RobotExitMsg getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RobotExitMsg>
+    @Deprecated public static final com.google.protobuf.Parser<RobotExitMsg>
         PARSER = new com.google.protobuf.AbstractParser<RobotExitMsg>() {
       public RobotExitMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -7820,12 +8531,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RobotExitMsg> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.RobotExitMsg getDefaultInstanceForType() {
+    public RobotExitMsg getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7854,7 +8565,7 @@ public final class Zjh {
     private IdelGameNtf() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -7895,14 +8606,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.IdelGameNtf.class, com.dafagame.protocol.zjh.Zjh.IdelGameNtf.Builder.class);
+              IdelGameNtf.class, Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7930,22 +8641,22 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.IdelGameNtf)) {
+      if (!(obj instanceof IdelGameNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.IdelGameNtf other = (com.dafagame.protocol.zjh.Zjh.IdelGameNtf) obj;
+      IdelGameNtf other = (IdelGameNtf) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -7957,69 +8668,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(
+    public static IdelGameNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(
+    public static IdelGameNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(
+    public static IdelGameNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(
+    public static IdelGameNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(byte[] data)
+    public static IdelGameNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(
+    public static IdelGameNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(java.io.InputStream input)
+    public static IdelGameNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(
+    public static IdelGameNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseDelimitedFrom(java.io.InputStream input)
+    public static IdelGameNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseDelimitedFrom(
+    public static IdelGameNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(
+    public static IdelGameNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf parseFrom(
+    public static IdelGameNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8031,7 +8742,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.IdelGameNtf prototype) {
+    public static Builder newBuilder(IdelGameNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -8039,9 +8750,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -8055,17 +8766,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.IdelGameNtf)
-        com.dafagame.protocol.zjh.Zjh.IdelGameNtfOrBuilder {
+        IdelGameNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.IdelGameNtf.class, com.dafagame.protocol.zjh.Zjh.IdelGameNtf.Builder.class);
+                IdelGameNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.IdelGameNtf.newBuilder()
@@ -8074,7 +8785,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -8090,23 +8801,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_IdelGameNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.IdelGameNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.IdelGameNtf.getDefaultInstance();
+      public IdelGameNtf getDefaultInstanceForType() {
+        return IdelGameNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.IdelGameNtf build() {
-        com.dafagame.protocol.zjh.Zjh.IdelGameNtf result = buildPartial();
+      public IdelGameNtf build() {
+        IdelGameNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.IdelGameNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.IdelGameNtf result = new com.dafagame.protocol.zjh.Zjh.IdelGameNtf(this);
+      public IdelGameNtf buildPartial() {
+        IdelGameNtf result = new IdelGameNtf(this);
         onBuilt();
         return result;
       }
@@ -8116,7 +8827,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -8129,25 +8840,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.IdelGameNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.IdelGameNtf)other);
+        if (other instanceof IdelGameNtf) {
+          return mergeFrom((IdelGameNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.IdelGameNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.IdelGameNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(IdelGameNtf other) {
+        if (other == IdelGameNtf.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -8161,11 +8872,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.IdelGameNtf parsedMessage = null;
+        IdelGameNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.IdelGameNtf) e.getUnfinishedMessage();
+          parsedMessage = (IdelGameNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -8189,16 +8900,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.IdelGameNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.IdelGameNtf DEFAULT_INSTANCE;
+    private static final IdelGameNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.IdelGameNtf();
+      DEFAULT_INSTANCE = new IdelGameNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.IdelGameNtf getDefaultInstance() {
+    public static IdelGameNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<IdelGameNtf>
+    @Deprecated public static final com.google.protobuf.Parser<IdelGameNtf>
         PARSER = new com.google.protobuf.AbstractParser<IdelGameNtf>() {
       public IdelGameNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -8212,12 +8923,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<IdelGameNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.IdelGameNtf getDefaultInstanceForType() {
+    public IdelGameNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -8276,7 +8987,7 @@ public final class Zjh {
      *
      * <code>optional string nickName = 3;</code>
      */
-    java.lang.String getNickName();
+    String getNickName();
     /**
      * <pre>
      *昵称
@@ -8319,7 +9030,7 @@ public final class Zjh {
      *
      * <code>optional string balance = 5;</code>
      */
-    java.lang.String getBalance();
+    String getBalance();
     /**
      * <pre>
      *余额
@@ -8345,7 +9056,7 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerStatus status = 6;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.PlayerStatus getStatus();
+    PlayerStatus getStatus();
 
     /**
      * <pre>
@@ -8379,7 +9090,7 @@ public final class Zjh {
      *
      * <code>optional string totalBet = 8;</code>
      */
-    java.lang.String getTotalBet();
+    String getTotalBet();
     /**
      * <pre>
      *当前总下注
@@ -8431,7 +9142,7 @@ public final class Zjh {
     /**
      * <code>optional string cards = 11;</code>
      */
-    java.lang.String getCards();
+    String getCards();
     /**
      * <code>optional string cards = 11;</code>
      */
@@ -8463,6 +9174,23 @@ public final class Zjh {
      * <code>optional int32 type = 13;</code>
      */
     int getType();
+
+    /**
+     * <pre>
+     *是否跟到底
+     * </pre>
+     *
+     * <code>optional bool isFollowEnd = 14;</code>
+     */
+    boolean hasIsFollowEnd();
+    /**
+     * <pre>
+     *是否跟到底
+     * </pre>
+     *
+     * <code>optional bool isFollowEnd = 14;</code>
+     */
+    boolean getIsFollowEnd();
   }
   /**
    * <pre>
@@ -8494,9 +9222,10 @@ public final class Zjh {
       cards_ = "";
       cardsType_ = 0;
       type_ = 0;
+      isFollowEnd_ = false;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -8553,7 +9282,7 @@ public final class Zjh {
             }
             case 48: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.PlayerStatus value = com.dafagame.protocol.zjh.Zjh.PlayerStatus.valueOf(rawValue);
+              PlayerStatus value = PlayerStatus.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(6, rawValue);
               } else {
@@ -8599,6 +9328,11 @@ public final class Zjh {
               type_ = input.readInt32();
               break;
             }
+            case 112: {
+              bitField0_ |= 0x00002000;
+              isFollowEnd_ = input.readBool();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -8613,14 +9347,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo.class, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder.class);
+              PlayerInfo.class, Builder.class);
     }
 
     private int bitField0_;
@@ -8671,7 +9405,7 @@ public final class Zjh {
     }
 
     public static final int NICKNAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object nickName_;
+    private volatile Object nickName_;
     /**
      * <pre>
      *昵称
@@ -8689,14 +9423,14 @@ public final class Zjh {
      *
      * <code>optional string nickName = 3;</code>
      */
-    public java.lang.String getNickName() {
-      java.lang.Object ref = nickName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getNickName() {
+      Object ref = nickName_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           nickName_ = s;
         }
@@ -8712,11 +9446,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getNickNameBytes() {
-      java.lang.Object ref = nickName_;
-      if (ref instanceof java.lang.String) {
+      Object ref = nickName_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         nickName_ = b;
         return b;
       } else {
@@ -8748,7 +9482,7 @@ public final class Zjh {
     }
 
     public static final int BALANCE_FIELD_NUMBER = 5;
-    private volatile java.lang.Object balance_;
+    private volatile Object balance_;
     /**
      * <pre>
      *余额
@@ -8766,14 +9500,14 @@ public final class Zjh {
      *
      * <code>optional string balance = 5;</code>
      */
-    public java.lang.String getBalance() {
-      java.lang.Object ref = balance_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getBalance() {
+      Object ref = balance_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           balance_ = s;
         }
@@ -8789,11 +9523,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getBalanceBytes() {
-      java.lang.Object ref = balance_;
-      if (ref instanceof java.lang.String) {
+      Object ref = balance_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         balance_ = b;
         return b;
       } else {
@@ -8820,9 +9554,9 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerStatus status = 6;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.PlayerStatus getStatus() {
-      com.dafagame.protocol.zjh.Zjh.PlayerStatus result = com.dafagame.protocol.zjh.Zjh.PlayerStatus.valueOf(status_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.PlayerStatus.Bystander : result;
+    public PlayerStatus getStatus() {
+      PlayerStatus result = PlayerStatus.valueOf(status_);
+      return result == null ? PlayerStatus.Bystander : result;
     }
 
     public static final int FRAME_FIELD_NUMBER = 7;
@@ -8849,7 +9583,7 @@ public final class Zjh {
     }
 
     public static final int TOTALBET_FIELD_NUMBER = 8;
-    private volatile java.lang.Object totalBet_;
+    private volatile Object totalBet_;
     /**
      * <pre>
      *当前总下注
@@ -8867,14 +9601,14 @@ public final class Zjh {
      *
      * <code>optional string totalBet = 8;</code>
      */
-    public java.lang.String getTotalBet() {
-      java.lang.Object ref = totalBet_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getTotalBet() {
+      Object ref = totalBet_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           totalBet_ = s;
         }
@@ -8890,11 +9624,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getTotalBetBytes() {
-      java.lang.Object ref = totalBet_;
-      if (ref instanceof java.lang.String) {
+      Object ref = totalBet_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         totalBet_ = b;
         return b;
       } else {
@@ -8949,7 +9683,7 @@ public final class Zjh {
     }
 
     public static final int CARDS_FIELD_NUMBER = 11;
-    private volatile java.lang.Object cards_;
+    private volatile Object cards_;
     /**
      * <code>optional string cards = 11;</code>
      */
@@ -8959,14 +9693,14 @@ public final class Zjh {
     /**
      * <code>optional string cards = 11;</code>
      */
-    public java.lang.String getCards() {
-      java.lang.Object ref = cards_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getCards() {
+      Object ref = cards_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           cards_ = s;
         }
@@ -8978,11 +9712,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getCardsBytes() {
-      java.lang.Object ref = cards_;
-      if (ref instanceof java.lang.String) {
+      Object ref = cards_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         cards_ = b;
         return b;
       } else {
@@ -9026,6 +9760,29 @@ public final class Zjh {
      */
     public int getType() {
       return type_;
+    }
+
+    public static final int ISFOLLOWEND_FIELD_NUMBER = 14;
+    private boolean isFollowEnd_;
+    /**
+     * <pre>
+     *是否跟到底
+     * </pre>
+     *
+     * <code>optional bool isFollowEnd = 14;</code>
+     */
+    public boolean hasIsFollowEnd() {
+      return ((bitField0_ & 0x00002000) == 0x00002000);
+    }
+    /**
+     * <pre>
+     *是否跟到底
+     * </pre>
+     *
+     * <code>optional bool isFollowEnd = 14;</code>
+     */
+    public boolean getIsFollowEnd() {
+      return isFollowEnd_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9078,6 +9835,9 @@ public final class Zjh {
       }
       if (((bitField0_ & 0x00001000) == 0x00001000)) {
         output.writeInt32(13, type_);
+      }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        output.writeBool(14, isFollowEnd_);
       }
       unknownFields.writeTo(output);
     }
@@ -9135,20 +9895,24 @@ public final class Zjh {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(13, type_);
       }
+      if (((bitField0_ & 0x00002000) == 0x00002000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(14, isFollowEnd_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.PlayerInfo)) {
+      if (!(obj instanceof PlayerInfo)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.PlayerInfo other = (com.dafagame.protocol.zjh.Zjh.PlayerInfo) obj;
+      PlayerInfo other = (PlayerInfo) obj;
 
       boolean result = true;
       result = result && (hasSeatId() == other.hasSeatId());
@@ -9215,11 +9979,16 @@ public final class Zjh {
         result = result && (getType()
             == other.getType());
       }
+      result = result && (hasIsFollowEnd() == other.hasIsFollowEnd());
+      if (hasIsFollowEnd()) {
+        result = result && (getIsFollowEnd()
+            == other.getIsFollowEnd());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -9280,74 +10049,79 @@ public final class Zjh {
         hash = (37 * hash) + TYPE_FIELD_NUMBER;
         hash = (53 * hash) + getType();
       }
+      if (hasIsFollowEnd()) {
+        hash = (37 * hash) + ISFOLLOWEND_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getIsFollowEnd());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(
+    public static PlayerInfo parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(
+    public static PlayerInfo parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(
+    public static PlayerInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(
+    public static PlayerInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(byte[] data)
+    public static PlayerInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(
+    public static PlayerInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(java.io.InputStream input)
+    public static PlayerInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(
+    public static PlayerInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseDelimitedFrom(java.io.InputStream input)
+    public static PlayerInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseDelimitedFrom(
+    public static PlayerInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(
+    public static PlayerInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo parseFrom(
+    public static PlayerInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -9359,7 +10133,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.PlayerInfo prototype) {
+    public static Builder newBuilder(PlayerInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -9367,9 +10141,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -9383,17 +10157,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.PlayerInfo)
-        com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder {
+        PlayerInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.PlayerInfo.class, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder.class);
+                PlayerInfo.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.PlayerInfo.newBuilder()
@@ -9402,7 +10176,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -9439,28 +10213,30 @@ public final class Zjh {
         bitField0_ = (bitField0_ & ~0x00000800);
         type_ = 0;
         bitField0_ = (bitField0_ & ~0x00001000);
+        isFollowEnd_ = false;
+        bitField0_ = (bitField0_ & ~0x00002000);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_PlayerInfo_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance();
+      public PlayerInfo getDefaultInstanceForType() {
+        return PlayerInfo.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo build() {
-        com.dafagame.protocol.zjh.Zjh.PlayerInfo result = buildPartial();
+      public PlayerInfo build() {
+        PlayerInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.PlayerInfo result = new com.dafagame.protocol.zjh.Zjh.PlayerInfo(this);
+      public PlayerInfo buildPartial() {
+        PlayerInfo result = new PlayerInfo(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -9515,6 +10291,10 @@ public final class Zjh {
           to_bitField0_ |= 0x00001000;
         }
         result.type_ = type_;
+        if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+          to_bitField0_ |= 0x00002000;
+        }
+        result.isFollowEnd_ = isFollowEnd_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -9525,7 +10305,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -9538,25 +10318,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.PlayerInfo) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.PlayerInfo)other);
+        if (other instanceof PlayerInfo) {
+          return mergeFrom((PlayerInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.PlayerInfo other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance()) return this;
+      public Builder mergeFrom(PlayerInfo other) {
+        if (other == PlayerInfo.getDefaultInstance()) return this;
         if (other.hasSeatId()) {
           setSeatId(other.getSeatId());
         }
@@ -9604,6 +10384,9 @@ public final class Zjh {
         if (other.hasType()) {
           setType(other.getType());
         }
+        if (other.hasIsFollowEnd()) {
+          setIsFollowEnd(other.getIsFollowEnd());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -9617,11 +10400,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.PlayerInfo parsedMessage = null;
+        PlayerInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.PlayerInfo) e.getUnfinishedMessage();
+          parsedMessage = (PlayerInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -9728,7 +10511,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object nickName_ = "";
+      private Object nickName_ = "";
       /**
        * <pre>
        *昵称
@@ -9746,18 +10529,18 @@ public final class Zjh {
        *
        * <code>optional string nickName = 3;</code>
        */
-      public java.lang.String getNickName() {
-        java.lang.Object ref = nickName_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getNickName() {
+        Object ref = nickName_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             nickName_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -9769,11 +10552,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getNickNameBytes() {
-        java.lang.Object ref = nickName_;
+        Object ref = nickName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           nickName_ = b;
           return b;
         } else {
@@ -9788,7 +10571,7 @@ public final class Zjh {
        * <code>optional string nickName = 3;</code>
        */
       public Builder setNickName(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -9876,7 +10659,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object balance_ = "";
+      private Object balance_ = "";
       /**
        * <pre>
        *余额
@@ -9894,18 +10677,18 @@ public final class Zjh {
        *
        * <code>optional string balance = 5;</code>
        */
-      public java.lang.String getBalance() {
-        java.lang.Object ref = balance_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getBalance() {
+        Object ref = balance_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             balance_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -9917,11 +10700,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getBalanceBytes() {
-        java.lang.Object ref = balance_;
+        Object ref = balance_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           balance_ = b;
           return b;
         } else {
@@ -9936,7 +10719,7 @@ public final class Zjh {
        * <code>optional string balance = 5;</code>
        */
       public Builder setBalance(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -9994,9 +10777,9 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerStatus status = 6;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerStatus getStatus() {
-        com.dafagame.protocol.zjh.Zjh.PlayerStatus result = com.dafagame.protocol.zjh.Zjh.PlayerStatus.valueOf(status_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.PlayerStatus.Bystander : result;
+      public PlayerStatus getStatus() {
+        PlayerStatus result = PlayerStatus.valueOf(status_);
+        return result == null ? PlayerStatus.Bystander : result;
       }
       /**
        * <pre>
@@ -10005,7 +10788,7 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerStatus status = 6;</code>
        */
-      public Builder setStatus(com.dafagame.protocol.zjh.Zjh.PlayerStatus value) {
+      public Builder setStatus(PlayerStatus value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -10076,7 +10859,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object totalBet_ = "";
+      private Object totalBet_ = "";
       /**
        * <pre>
        *当前总下注
@@ -10094,18 +10877,18 @@ public final class Zjh {
        *
        * <code>optional string totalBet = 8;</code>
        */
-      public java.lang.String getTotalBet() {
-        java.lang.Object ref = totalBet_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getTotalBet() {
+        Object ref = totalBet_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             totalBet_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -10117,11 +10900,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getTotalBetBytes() {
-        java.lang.Object ref = totalBet_;
+        Object ref = totalBet_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           totalBet_ = b;
           return b;
         } else {
@@ -10136,7 +10919,7 @@ public final class Zjh {
        * <code>optional string totalBet = 8;</code>
        */
       public Builder setTotalBet(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -10272,7 +11055,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object cards_ = "";
+      private Object cards_ = "";
       /**
        * <code>optional string cards = 11;</code>
        */
@@ -10282,18 +11065,18 @@ public final class Zjh {
       /**
        * <code>optional string cards = 11;</code>
        */
-      public java.lang.String getCards() {
-        java.lang.Object ref = cards_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getCards() {
+        Object ref = cards_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             cards_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -10301,11 +11084,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getCardsBytes() {
-        java.lang.Object ref = cards_;
+        Object ref = cards_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           cards_ = b;
           return b;
         } else {
@@ -10316,7 +11099,7 @@ public final class Zjh {
        * <code>optional string cards = 11;</code>
        */
       public Builder setCards(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -10427,6 +11210,54 @@ public final class Zjh {
         onChanged();
         return this;
       }
+
+      private boolean isFollowEnd_ ;
+      /**
+       * <pre>
+       *是否跟到底
+       * </pre>
+       *
+       * <code>optional bool isFollowEnd = 14;</code>
+       */
+      public boolean hasIsFollowEnd() {
+        return ((bitField0_ & 0x00002000) == 0x00002000);
+      }
+      /**
+       * <pre>
+       *是否跟到底
+       * </pre>
+       *
+       * <code>optional bool isFollowEnd = 14;</code>
+       */
+      public boolean getIsFollowEnd() {
+        return isFollowEnd_;
+      }
+      /**
+       * <pre>
+       *是否跟到底
+       * </pre>
+       *
+       * <code>optional bool isFollowEnd = 14;</code>
+       */
+      public Builder setIsFollowEnd(boolean value) {
+        bitField0_ |= 0x00002000;
+        isFollowEnd_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *是否跟到底
+       * </pre>
+       *
+       * <code>optional bool isFollowEnd = 14;</code>
+       */
+      public Builder clearIsFollowEnd() {
+        bitField0_ = (bitField0_ & ~0x00002000);
+        isFollowEnd_ = false;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -10442,16 +11273,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.PlayerInfo)
-    private static final com.dafagame.protocol.zjh.Zjh.PlayerInfo DEFAULT_INSTANCE;
+    private static final PlayerInfo DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.PlayerInfo();
+      DEFAULT_INSTANCE = new PlayerInfo();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.PlayerInfo getDefaultInstance() {
+    public static PlayerInfo getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<PlayerInfo>
+    @Deprecated public static final com.google.protobuf.Parser<PlayerInfo>
         PARSER = new com.google.protobuf.AbstractParser<PlayerInfo>() {
       public PlayerInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -10465,12 +11296,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<PlayerInfo> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.PlayerInfo getDefaultInstanceForType() {
+    public PlayerInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10495,7 +11326,7 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.PlayerInfo getPlayer();
+    PlayerInfo getPlayer();
     /**
      * <pre>
      *玩家信息
@@ -10503,7 +11334,7 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder getPlayerOrBuilder();
+    PlayerInfoOrBuilder getPlayerOrBuilder();
   }
   /**
    * <pre>
@@ -10524,7 +11355,7 @@ public final class Zjh {
     private EnterRoomNtf() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -10553,11 +11384,11 @@ public final class Zjh {
               break;
             }
             case 10: {
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder subBuilder = null;
+              PlayerInfo.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = player_.toBuilder();
               }
-              player_ = input.readMessage(com.dafagame.protocol.zjh.Zjh.PlayerInfo.PARSER, extensionRegistry);
+              player_ = input.readMessage(PlayerInfo.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(player_);
                 player_ = subBuilder.buildPartial();
@@ -10579,19 +11410,19 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.EnterRoomNtf.class, com.dafagame.protocol.zjh.Zjh.EnterRoomNtf.Builder.class);
+              EnterRoomNtf.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int PLAYER_FIELD_NUMBER = 1;
-    private com.dafagame.protocol.zjh.Zjh.PlayerInfo player_;
+    private PlayerInfo player_;
     /**
      * <pre>
      *玩家信息
@@ -10609,8 +11440,8 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.PlayerInfo getPlayer() {
-      return player_ == null ? com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance() : player_;
+    public PlayerInfo getPlayer() {
+      return player_ == null ? PlayerInfo.getDefaultInstance() : player_;
     }
     /**
      * <pre>
@@ -10619,8 +11450,8 @@ public final class Zjh {
      *
      * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder getPlayerOrBuilder() {
-      return player_ == null ? com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance() : player_;
+    public PlayerInfoOrBuilder getPlayerOrBuilder() {
+      return player_ == null ? PlayerInfo.getDefaultInstance() : player_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10655,15 +11486,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.EnterRoomNtf)) {
+      if (!(obj instanceof EnterRoomNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.EnterRoomNtf other = (com.dafagame.protocol.zjh.Zjh.EnterRoomNtf) obj;
+      EnterRoomNtf other = (EnterRoomNtf) obj;
 
       boolean result = true;
       result = result && (hasPlayer() == other.hasPlayer());
@@ -10675,7 +11506,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -10691,69 +11522,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(
+    public static EnterRoomNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(
+    public static EnterRoomNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(
+    public static EnterRoomNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(
+    public static EnterRoomNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(byte[] data)
+    public static EnterRoomNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(
+    public static EnterRoomNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(java.io.InputStream input)
+    public static EnterRoomNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(
+    public static EnterRoomNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseDelimitedFrom(java.io.InputStream input)
+    public static EnterRoomNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseDelimitedFrom(
+    public static EnterRoomNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(
+    public static EnterRoomNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parseFrom(
+    public static EnterRoomNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10765,7 +11596,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.EnterRoomNtf prototype) {
+    public static Builder newBuilder(EnterRoomNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -10773,9 +11604,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -10789,17 +11620,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.EnterRoomNtf)
-        com.dafagame.protocol.zjh.Zjh.EnterRoomNtfOrBuilder {
+        EnterRoomNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.EnterRoomNtf.class, com.dafagame.protocol.zjh.Zjh.EnterRoomNtf.Builder.class);
+                EnterRoomNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.EnterRoomNtf.newBuilder()
@@ -10808,7 +11639,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -10831,23 +11662,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.EnterRoomNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.EnterRoomNtf.getDefaultInstance();
+      public EnterRoomNtf getDefaultInstanceForType() {
+        return EnterRoomNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.EnterRoomNtf build() {
-        com.dafagame.protocol.zjh.Zjh.EnterRoomNtf result = buildPartial();
+      public EnterRoomNtf build() {
+        EnterRoomNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.EnterRoomNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.EnterRoomNtf result = new com.dafagame.protocol.zjh.Zjh.EnterRoomNtf(this);
+      public EnterRoomNtf buildPartial() {
+        EnterRoomNtf result = new EnterRoomNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10868,7 +11699,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -10881,25 +11712,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.EnterRoomNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.EnterRoomNtf)other);
+        if (other instanceof EnterRoomNtf) {
+          return mergeFrom((EnterRoomNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.EnterRoomNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.EnterRoomNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(EnterRoomNtf other) {
+        if (other == EnterRoomNtf.getDefaultInstance()) return this;
         if (other.hasPlayer()) {
           mergePlayer(other.getPlayer());
         }
@@ -10916,11 +11747,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.EnterRoomNtf parsedMessage = null;
+        EnterRoomNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.EnterRoomNtf) e.getUnfinishedMessage();
+          parsedMessage = (EnterRoomNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -10931,9 +11762,9 @@ public final class Zjh {
       }
       private int bitField0_;
 
-      private com.dafagame.protocol.zjh.Zjh.PlayerInfo player_ = null;
+      private PlayerInfo player_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.zjh.Zjh.PlayerInfo, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder, com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder> playerBuilder_;
+          PlayerInfo, PlayerInfo.Builder, PlayerInfoOrBuilder> playerBuilder_;
       /**
        * <pre>
        *玩家信息
@@ -10951,9 +11782,9 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo getPlayer() {
+      public PlayerInfo getPlayer() {
         if (playerBuilder_ == null) {
-          return player_ == null ? com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance() : player_;
+          return player_ == null ? PlayerInfo.getDefaultInstance() : player_;
         } else {
           return playerBuilder_.getMessage();
         }
@@ -10965,7 +11796,7 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
        */
-      public Builder setPlayer(com.dafagame.protocol.zjh.Zjh.PlayerInfo value) {
+      public Builder setPlayer(PlayerInfo value) {
         if (playerBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -10986,7 +11817,7 @@ public final class Zjh {
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
        */
       public Builder setPlayer(
-          com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder builderForValue) {
+          PlayerInfo.Builder builderForValue) {
         if (playerBuilder_ == null) {
           player_ = builderForValue.build();
           onChanged();
@@ -11003,13 +11834,13 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
        */
-      public Builder mergePlayer(com.dafagame.protocol.zjh.Zjh.PlayerInfo value) {
+      public Builder mergePlayer(PlayerInfo value) {
         if (playerBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
               player_ != null &&
-              player_ != com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance()) {
+              player_ != PlayerInfo.getDefaultInstance()) {
             player_ =
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo.newBuilder(player_).mergeFrom(value).buildPartial();
+              PlayerInfo.newBuilder(player_).mergeFrom(value).buildPartial();
           } else {
             player_ = value;
           }
@@ -11044,7 +11875,7 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder getPlayerBuilder() {
+      public PlayerInfo.Builder getPlayerBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getPlayerFieldBuilder().getBuilder();
@@ -11056,12 +11887,12 @@ public final class Zjh {
        *
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder getPlayerOrBuilder() {
+      public PlayerInfoOrBuilder getPlayerOrBuilder() {
         if (playerBuilder_ != null) {
           return playerBuilder_.getMessageOrBuilder();
         } else {
           return player_ == null ?
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo.getDefaultInstance() : player_;
+              PlayerInfo.getDefaultInstance() : player_;
         }
       }
       /**
@@ -11072,11 +11903,11 @@ public final class Zjh {
        * <code>optional .com.dafagame.protocol.zjh.PlayerInfo player = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.zjh.Zjh.PlayerInfo, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder, com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder> 
+          PlayerInfo, PlayerInfo.Builder, PlayerInfoOrBuilder>
           getPlayerFieldBuilder() {
         if (playerBuilder_ == null) {
           playerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.zjh.Zjh.PlayerInfo, com.dafagame.protocol.zjh.Zjh.PlayerInfo.Builder, com.dafagame.protocol.zjh.Zjh.PlayerInfoOrBuilder>(
+              PlayerInfo, PlayerInfo.Builder, PlayerInfoOrBuilder>(
                   getPlayer(),
                   getParentForChildren(),
                   isClean());
@@ -11099,16 +11930,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.EnterRoomNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.EnterRoomNtf DEFAULT_INSTANCE;
+    private static final EnterRoomNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.EnterRoomNtf();
+      DEFAULT_INSTANCE = new EnterRoomNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.EnterRoomNtf getDefaultInstance() {
+    public static EnterRoomNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<EnterRoomNtf>
+    @Deprecated public static final com.google.protobuf.Parser<EnterRoomNtf>
         PARSER = new com.google.protobuf.AbstractParser<EnterRoomNtf>() {
       public EnterRoomNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -11122,12 +11953,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<EnterRoomNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.EnterRoomNtf getDefaultInstanceForType() {
+    public EnterRoomNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11174,7 +12005,7 @@ public final class Zjh {
       seatId_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -11221,14 +12052,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.ExitRoomNtf.class, com.dafagame.protocol.zjh.Zjh.ExitRoomNtf.Builder.class);
+              ExitRoomNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -11287,15 +12118,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.ExitRoomNtf)) {
+      if (!(obj instanceof ExitRoomNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.ExitRoomNtf other = (com.dafagame.protocol.zjh.Zjh.ExitRoomNtf) obj;
+      ExitRoomNtf other = (ExitRoomNtf) obj;
 
       boolean result = true;
       result = result && (hasSeatId() == other.hasSeatId());
@@ -11307,7 +12138,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -11323,69 +12154,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(
+    public static ExitRoomNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(
+    public static ExitRoomNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(
+    public static ExitRoomNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(
+    public static ExitRoomNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(byte[] data)
+    public static ExitRoomNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(
+    public static ExitRoomNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(java.io.InputStream input)
+    public static ExitRoomNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(
+    public static ExitRoomNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseDelimitedFrom(java.io.InputStream input)
+    public static ExitRoomNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseDelimitedFrom(
+    public static ExitRoomNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(
+    public static ExitRoomNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parseFrom(
+    public static ExitRoomNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11397,7 +12228,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.ExitRoomNtf prototype) {
+    public static Builder newBuilder(ExitRoomNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -11405,9 +12236,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -11421,17 +12252,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.ExitRoomNtf)
-        com.dafagame.protocol.zjh.Zjh.ExitRoomNtfOrBuilder {
+        ExitRoomNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.ExitRoomNtf.class, com.dafagame.protocol.zjh.Zjh.ExitRoomNtf.Builder.class);
+                ExitRoomNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.ExitRoomNtf.newBuilder()
@@ -11440,7 +12271,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -11458,23 +12289,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ExitRoomNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.ExitRoomNtf.getDefaultInstance();
+      public ExitRoomNtf getDefaultInstanceForType() {
+        return ExitRoomNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ExitRoomNtf build() {
-        com.dafagame.protocol.zjh.Zjh.ExitRoomNtf result = buildPartial();
+      public ExitRoomNtf build() {
+        ExitRoomNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ExitRoomNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.ExitRoomNtf result = new com.dafagame.protocol.zjh.Zjh.ExitRoomNtf(this);
+      public ExitRoomNtf buildPartial() {
+        ExitRoomNtf result = new ExitRoomNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11491,7 +12322,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -11504,25 +12335,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.ExitRoomNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.ExitRoomNtf)other);
+        if (other instanceof ExitRoomNtf) {
+          return mergeFrom((ExitRoomNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.ExitRoomNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.ExitRoomNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(ExitRoomNtf other) {
+        if (other == ExitRoomNtf.getDefaultInstance()) return this;
         if (other.hasSeatId()) {
           setSeatId(other.getSeatId());
         }
@@ -11539,11 +12370,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.ExitRoomNtf parsedMessage = null;
+        ExitRoomNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.ExitRoomNtf) e.getUnfinishedMessage();
+          parsedMessage = (ExitRoomNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -11616,16 +12447,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.ExitRoomNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.ExitRoomNtf DEFAULT_INSTANCE;
+    private static final ExitRoomNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.ExitRoomNtf();
+      DEFAULT_INSTANCE = new ExitRoomNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.ExitRoomNtf getDefaultInstance() {
+    public static ExitRoomNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<ExitRoomNtf>
+    @Deprecated public static final com.google.protobuf.Parser<ExitRoomNtf>
         PARSER = new com.google.protobuf.AbstractParser<ExitRoomNtf>() {
       public ExitRoomNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -11639,12 +12470,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<ExitRoomNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.ExitRoomNtf getDefaultInstanceForType() {
+    public ExitRoomNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11661,7 +12492,7 @@ public final class Zjh {
     /**
      * <code>required string chip = 1;</code>
      */
-    java.lang.String getChip();
+    String getChip();
     /**
      * <code>required string chip = 1;</code>
      */
@@ -11688,7 +12519,7 @@ public final class Zjh {
       chip_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -11736,19 +12567,19 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.BetReq.class, com.dafagame.protocol.zjh.Zjh.BetReq.Builder.class);
+              BetReq.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int CHIP_FIELD_NUMBER = 1;
-    private volatile java.lang.Object chip_;
+    private volatile Object chip_;
     /**
      * <code>required string chip = 1;</code>
      */
@@ -11758,14 +12589,14 @@ public final class Zjh {
     /**
      * <code>required string chip = 1;</code>
      */
-    public java.lang.String getChip() {
-      java.lang.Object ref = chip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getChip() {
+      Object ref = chip_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           chip_ = s;
         }
@@ -11777,11 +12608,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getChipBytes() {
-      java.lang.Object ref = chip_;
-      if (ref instanceof java.lang.String) {
+      Object ref = chip_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         chip_ = b;
         return b;
       } else {
@@ -11824,15 +12655,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.BetReq)) {
+      if (!(obj instanceof BetReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.BetReq other = (com.dafagame.protocol.zjh.Zjh.BetReq) obj;
+      BetReq other = (BetReq) obj;
 
       boolean result = true;
       result = result && (hasChip() == other.hasChip());
@@ -11844,7 +12675,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -11860,69 +12691,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(
+    public static BetReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(
+    public static BetReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(
+    public static BetReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(
+    public static BetReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(byte[] data)
+    public static BetReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(
+    public static BetReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(java.io.InputStream input)
+    public static BetReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(
+    public static BetReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseDelimitedFrom(java.io.InputStream input)
+    public static BetReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseDelimitedFrom(
+    public static BetReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(
+    public static BetReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetReq parseFrom(
+    public static BetReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11934,7 +12765,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.BetReq prototype) {
+    public static Builder newBuilder(BetReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -11942,9 +12773,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -11958,17 +12789,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.BetReq)
-        com.dafagame.protocol.zjh.Zjh.BetReqOrBuilder {
+        BetReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.BetReq.class, com.dafagame.protocol.zjh.Zjh.BetReq.Builder.class);
+                BetReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.BetReq.newBuilder()
@@ -11977,7 +12808,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -11995,23 +12826,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_BetReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.BetReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.BetReq.getDefaultInstance();
+      public BetReq getDefaultInstanceForType() {
+        return BetReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.BetReq build() {
-        com.dafagame.protocol.zjh.Zjh.BetReq result = buildPartial();
+      public BetReq build() {
+        BetReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.BetReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.BetReq result = new com.dafagame.protocol.zjh.Zjh.BetReq(this);
+      public BetReq buildPartial() {
+        BetReq result = new BetReq(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12028,7 +12859,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -12041,25 +12872,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.BetReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.BetReq)other);
+        if (other instanceof BetReq) {
+          return mergeFrom((BetReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.BetReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.BetReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(BetReq other) {
+        if (other == BetReq.getDefaultInstance()) return this;
         if (other.hasChip()) {
           bitField0_ |= 0x00000001;
           chip_ = other.chip_;
@@ -12081,11 +12912,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.BetReq parsedMessage = null;
+        BetReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.BetReq) e.getUnfinishedMessage();
+          parsedMessage = (BetReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -12096,7 +12927,7 @@ public final class Zjh {
       }
       private int bitField0_;
 
-      private java.lang.Object chip_ = "";
+      private Object chip_ = "";
       /**
        * <code>required string chip = 1;</code>
        */
@@ -12106,18 +12937,18 @@ public final class Zjh {
       /**
        * <code>required string chip = 1;</code>
        */
-      public java.lang.String getChip() {
-        java.lang.Object ref = chip_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getChip() {
+        Object ref = chip_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             chip_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -12125,11 +12956,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getChipBytes() {
-        java.lang.Object ref = chip_;
+        Object ref = chip_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           chip_ = b;
           return b;
         } else {
@@ -12140,7 +12971,7 @@ public final class Zjh {
        * <code>required string chip = 1;</code>
        */
       public Builder setChip(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -12186,16 +13017,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.BetReq)
-    private static final com.dafagame.protocol.zjh.Zjh.BetReq DEFAULT_INSTANCE;
+    private static final BetReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.BetReq();
+      DEFAULT_INSTANCE = new BetReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.BetReq getDefaultInstance() {
+    public static BetReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<BetReq>
+    @Deprecated public static final com.google.protobuf.Parser<BetReq>
         PARSER = new com.google.protobuf.AbstractParser<BetReq>() {
       public BetReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -12209,12 +13040,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<BetReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.BetReq getDefaultInstanceForType() {
+    public BetReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12231,7 +13062,7 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.ErrorCode getCode();
+    ErrorCode getCode();
 
     /**
      * <pre>
@@ -12265,7 +13096,7 @@ public final class Zjh {
      *
      * <code>optional string betChip = 3;</code>
      */
-    java.lang.String getBetChip();
+    String getBetChip();
     /**
      * <pre>
      *下注筹码
@@ -12316,7 +13147,7 @@ public final class Zjh {
       isDark_ = false;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -12346,7 +13177,7 @@ public final class Zjh {
             }
             case 8: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.ErrorCode value = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(rawValue);
+              ErrorCode value = ErrorCode.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -12385,14 +13216,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.BetResNtf.class, com.dafagame.protocol.zjh.Zjh.BetResNtf.Builder.class);
+              BetResNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -12407,9 +13238,9 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-      com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+    public ErrorCode getCode() {
+      ErrorCode result = ErrorCode.valueOf(code_);
+      return result == null ? ErrorCode.OK : result;
     }
 
     public static final int OPT_FIELD_NUMBER = 2;
@@ -12436,7 +13267,7 @@ public final class Zjh {
     }
 
     public static final int BETCHIP_FIELD_NUMBER = 3;
-    private volatile java.lang.Object betChip_;
+    private volatile Object betChip_;
     /**
      * <pre>
      *下注筹码
@@ -12454,14 +13285,14 @@ public final class Zjh {
      *
      * <code>optional string betChip = 3;</code>
      */
-    public java.lang.String getBetChip() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getBetChip() {
+      Object ref = betChip_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           betChip_ = s;
         }
@@ -12477,11 +13308,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getBetChipBytes() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
+      Object ref = betChip_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         betChip_ = b;
         return b;
       } else {
@@ -12564,15 +13395,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.BetResNtf)) {
+      if (!(obj instanceof BetResNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.BetResNtf other = (com.dafagame.protocol.zjh.Zjh.BetResNtf) obj;
+      BetResNtf other = (BetResNtf) obj;
 
       boolean result = true;
       result = result && (hasCode() == other.hasCode());
@@ -12598,7 +13429,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -12627,69 +13458,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(
+    public static BetResNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(
+    public static BetResNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(
+    public static BetResNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(
+    public static BetResNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(byte[] data)
+    public static BetResNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(
+    public static BetResNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(java.io.InputStream input)
+    public static BetResNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(
+    public static BetResNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseDelimitedFrom(java.io.InputStream input)
+    public static BetResNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseDelimitedFrom(
+    public static BetResNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(
+    public static BetResNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf parseFrom(
+    public static BetResNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12701,7 +13532,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.BetResNtf prototype) {
+    public static Builder newBuilder(BetResNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -12709,9 +13540,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -12725,17 +13556,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.BetResNtf)
-        com.dafagame.protocol.zjh.Zjh.BetResNtfOrBuilder {
+        BetResNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.BetResNtf.class, com.dafagame.protocol.zjh.Zjh.BetResNtf.Builder.class);
+                BetResNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.BetResNtf.newBuilder()
@@ -12744,7 +13575,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -12768,23 +13599,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_BetResNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.BetResNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.BetResNtf.getDefaultInstance();
+      public BetResNtf getDefaultInstanceForType() {
+        return BetResNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.BetResNtf build() {
-        com.dafagame.protocol.zjh.Zjh.BetResNtf result = buildPartial();
+      public BetResNtf build() {
+        BetResNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.BetResNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.BetResNtf result = new com.dafagame.protocol.zjh.Zjh.BetResNtf(this);
+      public BetResNtf buildPartial() {
+        BetResNtf result = new BetResNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12813,7 +13644,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -12826,25 +13657,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.BetResNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.BetResNtf)other);
+        if (other instanceof BetResNtf) {
+          return mergeFrom((BetResNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.BetResNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.BetResNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(BetResNtf other) {
+        if (other == BetResNtf.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
@@ -12872,11 +13703,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.BetResNtf parsedMessage = null;
+        BetResNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.BetResNtf) e.getUnfinishedMessage();
+          parsedMessage = (BetResNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -12897,14 +13728,14 @@ public final class Zjh {
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-        com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+      public ErrorCode getCode() {
+        ErrorCode result = ErrorCode.valueOf(code_);
+        return result == null ? ErrorCode.OK : result;
       }
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public Builder setCode(com.dafagame.protocol.zjh.Zjh.ErrorCode value) {
+      public Builder setCode(ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -12971,7 +13802,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object betChip_ = "";
+      private Object betChip_ = "";
       /**
        * <pre>
        *下注筹码
@@ -12989,18 +13820,18 @@ public final class Zjh {
        *
        * <code>optional string betChip = 3;</code>
        */
-      public java.lang.String getBetChip() {
-        java.lang.Object ref = betChip_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getBetChip() {
+        Object ref = betChip_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             betChip_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -13012,11 +13843,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getBetChipBytes() {
-        java.lang.Object ref = betChip_;
+        Object ref = betChip_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           betChip_ = b;
           return b;
         } else {
@@ -13031,7 +13862,7 @@ public final class Zjh {
        * <code>optional string betChip = 3;</code>
        */
       public Builder setBetChip(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -13133,16 +13964,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.BetResNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.BetResNtf DEFAULT_INSTANCE;
+    private static final BetResNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.BetResNtf();
+      DEFAULT_INSTANCE = new BetResNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.BetResNtf getDefaultInstance() {
+    public static BetResNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<BetResNtf>
+    @Deprecated public static final com.google.protobuf.Parser<BetResNtf>
         PARSER = new com.google.protobuf.AbstractParser<BetResNtf>() {
       public BetResNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -13156,12 +13987,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<BetResNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.BetResNtf getDefaultInstanceForType() {
+    public BetResNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13190,7 +14021,7 @@ public final class Zjh {
     private FollowEndReq() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -13231,14 +14062,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.FollowEndReq.class, com.dafagame.protocol.zjh.Zjh.FollowEndReq.Builder.class);
+              FollowEndReq.class, Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -13266,22 +14097,22 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.FollowEndReq)) {
+      if (!(obj instanceof FollowEndReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.FollowEndReq other = (com.dafagame.protocol.zjh.Zjh.FollowEndReq) obj;
+      FollowEndReq other = (FollowEndReq) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -13293,69 +14124,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(
+    public static FollowEndReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(
+    public static FollowEndReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(
+    public static FollowEndReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(
+    public static FollowEndReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(byte[] data)
+    public static FollowEndReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(
+    public static FollowEndReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(java.io.InputStream input)
+    public static FollowEndReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(
+    public static FollowEndReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseDelimitedFrom(java.io.InputStream input)
+    public static FollowEndReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseDelimitedFrom(
+    public static FollowEndReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(
+    public static FollowEndReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq parseFrom(
+    public static FollowEndReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13367,7 +14198,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.FollowEndReq prototype) {
+    public static Builder newBuilder(FollowEndReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -13375,9 +14206,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -13391,17 +14222,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.FollowEndReq)
-        com.dafagame.protocol.zjh.Zjh.FollowEndReqOrBuilder {
+        FollowEndReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.FollowEndReq.class, com.dafagame.protocol.zjh.Zjh.FollowEndReq.Builder.class);
+                FollowEndReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.FollowEndReq.newBuilder()
@@ -13410,7 +14241,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -13426,23 +14257,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowEndReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.FollowEndReq.getDefaultInstance();
+      public FollowEndReq getDefaultInstanceForType() {
+        return FollowEndReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowEndReq build() {
-        com.dafagame.protocol.zjh.Zjh.FollowEndReq result = buildPartial();
+      public FollowEndReq build() {
+        FollowEndReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowEndReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.FollowEndReq result = new com.dafagame.protocol.zjh.Zjh.FollowEndReq(this);
+      public FollowEndReq buildPartial() {
+        FollowEndReq result = new FollowEndReq(this);
         onBuilt();
         return result;
       }
@@ -13452,7 +14283,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -13465,25 +14296,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.FollowEndReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.FollowEndReq)other);
+        if (other instanceof FollowEndReq) {
+          return mergeFrom((FollowEndReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.FollowEndReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.FollowEndReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(FollowEndReq other) {
+        if (other == FollowEndReq.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -13497,11 +14328,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.FollowEndReq parsedMessage = null;
+        FollowEndReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.FollowEndReq) e.getUnfinishedMessage();
+          parsedMessage = (FollowEndReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -13525,16 +14356,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.FollowEndReq)
-    private static final com.dafagame.protocol.zjh.Zjh.FollowEndReq DEFAULT_INSTANCE;
+    private static final FollowEndReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.FollowEndReq();
+      DEFAULT_INSTANCE = new FollowEndReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndReq getDefaultInstance() {
+    public static FollowEndReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<FollowEndReq>
+    @Deprecated public static final com.google.protobuf.Parser<FollowEndReq>
         PARSER = new com.google.protobuf.AbstractParser<FollowEndReq>() {
       public FollowEndReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -13548,12 +14379,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<FollowEndReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.FollowEndReq getDefaultInstanceForType() {
+    public FollowEndReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13570,7 +14401,7 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.ErrorCode getCode();
+    ErrorCode getCode();
 
     /**
      * <pre>
@@ -13610,7 +14441,7 @@ public final class Zjh {
       opt_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -13640,7 +14471,7 @@ public final class Zjh {
             }
             case 8: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.ErrorCode value = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(rawValue);
+              ErrorCode value = ErrorCode.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -13668,14 +14499,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.FollowEndResNtf.class, com.dafagame.protocol.zjh.Zjh.FollowEndResNtf.Builder.class);
+              FollowEndResNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -13690,9 +14521,9 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-      com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+    public ErrorCode getCode() {
+      ErrorCode result = ErrorCode.valueOf(code_);
+      return result == null ? ErrorCode.OK : result;
     }
 
     public static final int OPT_FIELD_NUMBER = 2;
@@ -13757,15 +14588,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.FollowEndResNtf)) {
+      if (!(obj instanceof FollowEndResNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.FollowEndResNtf other = (com.dafagame.protocol.zjh.Zjh.FollowEndResNtf) obj;
+      FollowEndResNtf other = (FollowEndResNtf) obj;
 
       boolean result = true;
       result = result && (hasCode() == other.hasCode());
@@ -13781,7 +14612,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -13801,69 +14632,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(
+    public static FollowEndResNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(
+    public static FollowEndResNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(
+    public static FollowEndResNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(
+    public static FollowEndResNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(byte[] data)
+    public static FollowEndResNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(
+    public static FollowEndResNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(java.io.InputStream input)
+    public static FollowEndResNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(
+    public static FollowEndResNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseDelimitedFrom(java.io.InputStream input)
+    public static FollowEndResNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseDelimitedFrom(
+    public static FollowEndResNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(
+    public static FollowEndResNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parseFrom(
+    public static FollowEndResNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -13875,7 +14706,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.FollowEndResNtf prototype) {
+    public static Builder newBuilder(FollowEndResNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -13883,9 +14714,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -13899,17 +14730,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.FollowEndResNtf)
-        com.dafagame.protocol.zjh.Zjh.FollowEndResNtfOrBuilder {
+        FollowEndResNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.FollowEndResNtf.class, com.dafagame.protocol.zjh.Zjh.FollowEndResNtf.Builder.class);
+                FollowEndResNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.FollowEndResNtf.newBuilder()
@@ -13918,7 +14749,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -13938,23 +14769,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowEndResNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.FollowEndResNtf.getDefaultInstance();
+      public FollowEndResNtf getDefaultInstanceForType() {
+        return FollowEndResNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowEndResNtf build() {
-        com.dafagame.protocol.zjh.Zjh.FollowEndResNtf result = buildPartial();
+      public FollowEndResNtf build() {
+        FollowEndResNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowEndResNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.FollowEndResNtf result = new com.dafagame.protocol.zjh.Zjh.FollowEndResNtf(this);
+      public FollowEndResNtf buildPartial() {
+        FollowEndResNtf result = new FollowEndResNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -13975,7 +14806,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -13988,25 +14819,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.FollowEndResNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.FollowEndResNtf)other);
+        if (other instanceof FollowEndResNtf) {
+          return mergeFrom((FollowEndResNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.FollowEndResNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.FollowEndResNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(FollowEndResNtf other) {
+        if (other == FollowEndResNtf.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
@@ -14026,11 +14857,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.FollowEndResNtf parsedMessage = null;
+        FollowEndResNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.FollowEndResNtf) e.getUnfinishedMessage();
+          parsedMessage = (FollowEndResNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14051,14 +14882,14 @@ public final class Zjh {
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-        com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+      public ErrorCode getCode() {
+        ErrorCode result = ErrorCode.valueOf(code_);
+        return result == null ? ErrorCode.OK : result;
       }
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public Builder setCode(com.dafagame.protocol.zjh.Zjh.ErrorCode value) {
+      public Builder setCode(ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -14139,16 +14970,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.FollowEndResNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.FollowEndResNtf DEFAULT_INSTANCE;
+    private static final FollowEndResNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.FollowEndResNtf();
+      DEFAULT_INSTANCE = new FollowEndResNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.FollowEndResNtf getDefaultInstance() {
+    public static FollowEndResNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<FollowEndResNtf>
+    @Deprecated public static final com.google.protobuf.Parser<FollowEndResNtf>
         PARSER = new com.google.protobuf.AbstractParser<FollowEndResNtf>() {
       public FollowEndResNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -14162,12 +14993,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<FollowEndResNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.FollowEndResNtf getDefaultInstanceForType() {
+    public FollowEndResNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14196,7 +15027,7 @@ public final class Zjh {
     private SeeCardReq() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -14237,14 +15068,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.SeeCardReq.class, com.dafagame.protocol.zjh.Zjh.SeeCardReq.Builder.class);
+              SeeCardReq.class, Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14272,22 +15103,22 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.SeeCardReq)) {
+      if (!(obj instanceof SeeCardReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.SeeCardReq other = (com.dafagame.protocol.zjh.Zjh.SeeCardReq) obj;
+      SeeCardReq other = (SeeCardReq) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -14299,69 +15130,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(
+    public static SeeCardReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(
+    public static SeeCardReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(
+    public static SeeCardReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(
+    public static SeeCardReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(byte[] data)
+    public static SeeCardReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(
+    public static SeeCardReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(java.io.InputStream input)
+    public static SeeCardReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(
+    public static SeeCardReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseDelimitedFrom(java.io.InputStream input)
+    public static SeeCardReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseDelimitedFrom(
+    public static SeeCardReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(
+    public static SeeCardReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq parseFrom(
+    public static SeeCardReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -14373,7 +15204,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.SeeCardReq prototype) {
+    public static Builder newBuilder(SeeCardReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -14381,9 +15212,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -14397,17 +15228,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.SeeCardReq)
-        com.dafagame.protocol.zjh.Zjh.SeeCardReqOrBuilder {
+        SeeCardReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.SeeCardReq.class, com.dafagame.protocol.zjh.Zjh.SeeCardReq.Builder.class);
+                SeeCardReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.SeeCardReq.newBuilder()
@@ -14416,7 +15247,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -14432,23 +15263,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SeeCardReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.SeeCardReq.getDefaultInstance();
+      public SeeCardReq getDefaultInstanceForType() {
+        return SeeCardReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SeeCardReq build() {
-        com.dafagame.protocol.zjh.Zjh.SeeCardReq result = buildPartial();
+      public SeeCardReq build() {
+        SeeCardReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SeeCardReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.SeeCardReq result = new com.dafagame.protocol.zjh.Zjh.SeeCardReq(this);
+      public SeeCardReq buildPartial() {
+        SeeCardReq result = new SeeCardReq(this);
         onBuilt();
         return result;
       }
@@ -14458,7 +15289,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -14471,25 +15302,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.SeeCardReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.SeeCardReq)other);
+        if (other instanceof SeeCardReq) {
+          return mergeFrom((SeeCardReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.SeeCardReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.SeeCardReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(SeeCardReq other) {
+        if (other == SeeCardReq.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -14503,11 +15334,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.SeeCardReq parsedMessage = null;
+        SeeCardReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.SeeCardReq) e.getUnfinishedMessage();
+          parsedMessage = (SeeCardReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14531,16 +15362,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.SeeCardReq)
-    private static final com.dafagame.protocol.zjh.Zjh.SeeCardReq DEFAULT_INSTANCE;
+    private static final SeeCardReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.SeeCardReq();
+      DEFAULT_INSTANCE = new SeeCardReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardReq getDefaultInstance() {
+    public static SeeCardReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<SeeCardReq>
+    @Deprecated public static final com.google.protobuf.Parser<SeeCardReq>
         PARSER = new com.google.protobuf.AbstractParser<SeeCardReq>() {
       public SeeCardReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -14554,12 +15385,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SeeCardReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.SeeCardReq getDefaultInstanceForType() {
+    public SeeCardReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14576,7 +15407,7 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.ErrorCode getCode();
+    ErrorCode getCode();
 
     /**
      * <pre>
@@ -14593,7 +15424,7 @@ public final class Zjh {
      *
      * <code>optional string cards = 2;</code>
      */
-    java.lang.String getCards();
+    String getCards();
     /**
      * <pre>
      *手牌
@@ -14612,6 +15443,15 @@ public final class Zjh {
      * <code>optional int32 cardsType = 3;</code>
      */
     int getCardsType();
+
+    /**
+     * <code>optional bool seeCard = 4;</code>
+     */
+    boolean hasSeeCard();
+    /**
+     * <code>optional bool seeCard = 4;</code>
+     */
+    boolean getSeeCard();
   }
   /**
    * <pre>
@@ -14633,9 +15473,10 @@ public final class Zjh {
       code_ = 1;
       cards_ = "";
       cardsType_ = 0;
+      seeCard_ = false;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -14665,7 +15506,7 @@ public final class Zjh {
             }
             case 8: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.ErrorCode value = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(rawValue);
+              ErrorCode value = ErrorCode.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -14685,6 +15526,11 @@ public final class Zjh {
               cardsType_ = input.readInt32();
               break;
             }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              seeCard_ = input.readBool();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -14699,14 +15545,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.SeeCardRes.class, com.dafagame.protocol.zjh.Zjh.SeeCardRes.Builder.class);
+              SeeCardRes.class, Builder.class);
     }
 
     private int bitField0_;
@@ -14721,13 +15567,13 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-      com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+    public ErrorCode getCode() {
+      ErrorCode result = ErrorCode.valueOf(code_);
+      return result == null ? ErrorCode.OK : result;
     }
 
     public static final int CARDS_FIELD_NUMBER = 2;
-    private volatile java.lang.Object cards_;
+    private volatile Object cards_;
     /**
      * <pre>
      *手牌
@@ -14745,14 +15591,14 @@ public final class Zjh {
      *
      * <code>optional string cards = 2;</code>
      */
-    public java.lang.String getCards() {
-      java.lang.Object ref = cards_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getCards() {
+      Object ref = cards_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           cards_ = s;
         }
@@ -14768,11 +15614,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getCardsBytes() {
-      java.lang.Object ref = cards_;
-      if (ref instanceof java.lang.String) {
+      Object ref = cards_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         cards_ = b;
         return b;
       } else {
@@ -14793,6 +15639,21 @@ public final class Zjh {
      */
     public int getCardsType() {
       return cardsType_;
+    }
+
+    public static final int SEECARD_FIELD_NUMBER = 4;
+    private boolean seeCard_;
+    /**
+     * <code>optional bool seeCard = 4;</code>
+     */
+    public boolean hasSeeCard() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional bool seeCard = 4;</code>
+     */
+    public boolean getSeeCard() {
+      return seeCard_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14816,6 +15677,9 @@ public final class Zjh {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, cardsType_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBool(4, seeCard_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -14835,20 +15699,24 @@ public final class Zjh {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, cardsType_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, seeCard_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.SeeCardRes)) {
+      if (!(obj instanceof SeeCardRes)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.SeeCardRes other = (com.dafagame.protocol.zjh.Zjh.SeeCardRes) obj;
+      SeeCardRes other = (SeeCardRes) obj;
 
       boolean result = true;
       result = result && (hasCode() == other.hasCode());
@@ -14865,11 +15733,16 @@ public final class Zjh {
         result = result && (getCardsType()
             == other.getCardsType());
       }
+      result = result && (hasSeeCard() == other.hasSeeCard());
+      if (hasSeeCard()) {
+        result = result && (getSeeCard()
+            == other.getSeeCard());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -14888,74 +15761,79 @@ public final class Zjh {
         hash = (37 * hash) + CARDSTYPE_FIELD_NUMBER;
         hash = (53 * hash) + getCardsType();
       }
+      if (hasSeeCard()) {
+        hash = (37 * hash) + SEECARD_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getSeeCard());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(
+    public static SeeCardRes parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(
+    public static SeeCardRes parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(
+    public static SeeCardRes parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(
+    public static SeeCardRes parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(byte[] data)
+    public static SeeCardRes parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(
+    public static SeeCardRes parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(java.io.InputStream input)
+    public static SeeCardRes parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(
+    public static SeeCardRes parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseDelimitedFrom(java.io.InputStream input)
+    public static SeeCardRes parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseDelimitedFrom(
+    public static SeeCardRes parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(
+    public static SeeCardRes parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes parseFrom(
+    public static SeeCardRes parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -14967,7 +15845,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.SeeCardRes prototype) {
+    public static Builder newBuilder(SeeCardRes prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -14975,9 +15853,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -14991,17 +15869,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.SeeCardRes)
-        com.dafagame.protocol.zjh.Zjh.SeeCardResOrBuilder {
+        SeeCardResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.SeeCardRes.class, com.dafagame.protocol.zjh.Zjh.SeeCardRes.Builder.class);
+                SeeCardRes.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.SeeCardRes.newBuilder()
@@ -15010,7 +15888,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -15027,28 +15905,30 @@ public final class Zjh {
         bitField0_ = (bitField0_ & ~0x00000002);
         cardsType_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
+        seeCard_ = false;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardRes_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SeeCardRes getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.SeeCardRes.getDefaultInstance();
+      public SeeCardRes getDefaultInstanceForType() {
+        return SeeCardRes.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SeeCardRes build() {
-        com.dafagame.protocol.zjh.Zjh.SeeCardRes result = buildPartial();
+      public SeeCardRes build() {
+        SeeCardRes result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SeeCardRes buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.SeeCardRes result = new com.dafagame.protocol.zjh.Zjh.SeeCardRes(this);
+      public SeeCardRes buildPartial() {
+        SeeCardRes result = new SeeCardRes(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -15063,6 +15943,10 @@ public final class Zjh {
           to_bitField0_ |= 0x00000004;
         }
         result.cardsType_ = cardsType_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.seeCard_ = seeCard_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -15073,7 +15957,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -15086,25 +15970,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.SeeCardRes) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.SeeCardRes)other);
+        if (other instanceof SeeCardRes) {
+          return mergeFrom((SeeCardRes)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.SeeCardRes other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.SeeCardRes.getDefaultInstance()) return this;
+      public Builder mergeFrom(SeeCardRes other) {
+        if (other == SeeCardRes.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
@@ -15115,6 +15999,9 @@ public final class Zjh {
         }
         if (other.hasCardsType()) {
           setCardsType(other.getCardsType());
+        }
+        if (other.hasSeeCard()) {
+          setSeeCard(other.getSeeCard());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -15129,11 +16016,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.SeeCardRes parsedMessage = null;
+        SeeCardRes parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.SeeCardRes) e.getUnfinishedMessage();
+          parsedMessage = (SeeCardRes) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -15154,14 +16041,14 @@ public final class Zjh {
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-        com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+      public ErrorCode getCode() {
+        ErrorCode result = ErrorCode.valueOf(code_);
+        return result == null ? ErrorCode.OK : result;
       }
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public Builder setCode(com.dafagame.protocol.zjh.Zjh.ErrorCode value) {
+      public Builder setCode(ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -15180,7 +16067,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object cards_ = "";
+      private Object cards_ = "";
       /**
        * <pre>
        *手牌
@@ -15198,18 +16085,18 @@ public final class Zjh {
        *
        * <code>optional string cards = 2;</code>
        */
-      public java.lang.String getCards() {
-        java.lang.Object ref = cards_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getCards() {
+        Object ref = cards_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             cards_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -15221,11 +16108,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getCardsBytes() {
-        java.lang.Object ref = cards_;
+        Object ref = cards_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           cards_ = b;
           return b;
         } else {
@@ -15240,7 +16127,7 @@ public final class Zjh {
        * <code>optional string cards = 2;</code>
        */
       public Builder setCards(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -15311,6 +16198,38 @@ public final class Zjh {
         onChanged();
         return this;
       }
+
+      private boolean seeCard_ ;
+      /**
+       * <code>optional bool seeCard = 4;</code>
+       */
+      public boolean hasSeeCard() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bool seeCard = 4;</code>
+       */
+      public boolean getSeeCard() {
+        return seeCard_;
+      }
+      /**
+       * <code>optional bool seeCard = 4;</code>
+       */
+      public Builder setSeeCard(boolean value) {
+        bitField0_ |= 0x00000008;
+        seeCard_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool seeCard = 4;</code>
+       */
+      public Builder clearSeeCard() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        seeCard_ = false;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -15326,16 +16245,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.SeeCardRes)
-    private static final com.dafagame.protocol.zjh.Zjh.SeeCardRes DEFAULT_INSTANCE;
+    private static final SeeCardRes DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.SeeCardRes();
+      DEFAULT_INSTANCE = new SeeCardRes();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardRes getDefaultInstance() {
+    public static SeeCardRes getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<SeeCardRes>
+    @Deprecated public static final com.google.protobuf.Parser<SeeCardRes>
         PARSER = new com.google.protobuf.AbstractParser<SeeCardRes>() {
       public SeeCardRes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -15349,12 +16268,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SeeCardRes> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.SeeCardRes getDefaultInstanceForType() {
+    public SeeCardRes getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15401,7 +16320,7 @@ public final class Zjh {
       opt_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -15448,14 +16367,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.SeeCardNtf.class, com.dafagame.protocol.zjh.Zjh.SeeCardNtf.Builder.class);
+              SeeCardNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -15518,15 +16437,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.SeeCardNtf)) {
+      if (!(obj instanceof SeeCardNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.SeeCardNtf other = (com.dafagame.protocol.zjh.Zjh.SeeCardNtf) obj;
+      SeeCardNtf other = (SeeCardNtf) obj;
 
       boolean result = true;
       result = result && (hasOpt() == other.hasOpt());
@@ -15538,7 +16457,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -15554,69 +16473,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(
+    public static SeeCardNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(
+    public static SeeCardNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(
+    public static SeeCardNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(
+    public static SeeCardNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(byte[] data)
+    public static SeeCardNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(
+    public static SeeCardNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(java.io.InputStream input)
+    public static SeeCardNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(
+    public static SeeCardNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseDelimitedFrom(java.io.InputStream input)
+    public static SeeCardNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseDelimitedFrom(
+    public static SeeCardNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(
+    public static SeeCardNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf parseFrom(
+    public static SeeCardNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -15628,7 +16547,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.SeeCardNtf prototype) {
+    public static Builder newBuilder(SeeCardNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -15636,9 +16555,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -15652,17 +16571,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.SeeCardNtf)
-        com.dafagame.protocol.zjh.Zjh.SeeCardNtfOrBuilder {
+        SeeCardNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.SeeCardNtf.class, com.dafagame.protocol.zjh.Zjh.SeeCardNtf.Builder.class);
+                SeeCardNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.SeeCardNtf.newBuilder()
@@ -15671,7 +16590,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -15689,23 +16608,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SeeCardNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SeeCardNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.SeeCardNtf.getDefaultInstance();
+      public SeeCardNtf getDefaultInstanceForType() {
+        return SeeCardNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SeeCardNtf build() {
-        com.dafagame.protocol.zjh.Zjh.SeeCardNtf result = buildPartial();
+      public SeeCardNtf build() {
+        SeeCardNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SeeCardNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.SeeCardNtf result = new com.dafagame.protocol.zjh.Zjh.SeeCardNtf(this);
+      public SeeCardNtf buildPartial() {
+        SeeCardNtf result = new SeeCardNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -15722,7 +16641,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -15735,25 +16654,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.SeeCardNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.SeeCardNtf)other);
+        if (other instanceof SeeCardNtf) {
+          return mergeFrom((SeeCardNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.SeeCardNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.SeeCardNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(SeeCardNtf other) {
+        if (other == SeeCardNtf.getDefaultInstance()) return this;
         if (other.hasOpt()) {
           setOpt(other.getOpt());
         }
@@ -15773,11 +16692,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.SeeCardNtf parsedMessage = null;
+        SeeCardNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.SeeCardNtf) e.getUnfinishedMessage();
+          parsedMessage = (SeeCardNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -15850,16 +16769,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.SeeCardNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.SeeCardNtf DEFAULT_INSTANCE;
+    private static final SeeCardNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.SeeCardNtf();
+      DEFAULT_INSTANCE = new SeeCardNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.SeeCardNtf getDefaultInstance() {
+    public static SeeCardNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<SeeCardNtf>
+    @Deprecated public static final com.google.protobuf.Parser<SeeCardNtf>
         PARSER = new com.google.protobuf.AbstractParser<SeeCardNtf>() {
       public SeeCardNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -15873,12 +16792,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SeeCardNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.SeeCardNtf getDefaultInstanceForType() {
+    public SeeCardNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -15925,7 +16844,7 @@ public final class Zjh {
       other_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -15972,14 +16891,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.CompareReq.class, com.dafagame.protocol.zjh.Zjh.CompareReq.Builder.class);
+              CompareReq.class, Builder.class);
     }
 
     private int bitField0_;
@@ -16042,15 +16961,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.CompareReq)) {
+      if (!(obj instanceof CompareReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.CompareReq other = (com.dafagame.protocol.zjh.Zjh.CompareReq) obj;
+      CompareReq other = (CompareReq) obj;
 
       boolean result = true;
       result = result && (hasOther() == other.hasOther());
@@ -16062,7 +16981,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -16078,69 +16997,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(
+    public static CompareReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(
+    public static CompareReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(
+    public static CompareReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(
+    public static CompareReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(byte[] data)
+    public static CompareReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(
+    public static CompareReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(java.io.InputStream input)
+    public static CompareReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(
+    public static CompareReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseDelimitedFrom(java.io.InputStream input)
+    public static CompareReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseDelimitedFrom(
+    public static CompareReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(
+    public static CompareReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq parseFrom(
+    public static CompareReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -16152,7 +17071,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.CompareReq prototype) {
+    public static Builder newBuilder(CompareReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -16160,9 +17079,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -16176,17 +17095,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.CompareReq)
-        com.dafagame.protocol.zjh.Zjh.CompareReqOrBuilder {
+        CompareReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.CompareReq.class, com.dafagame.protocol.zjh.Zjh.CompareReq.Builder.class);
+                CompareReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.CompareReq.newBuilder()
@@ -16195,7 +17114,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -16213,23 +17132,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CompareReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CompareReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.CompareReq.getDefaultInstance();
+      public CompareReq getDefaultInstanceForType() {
+        return CompareReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CompareReq build() {
-        com.dafagame.protocol.zjh.Zjh.CompareReq result = buildPartial();
+      public CompareReq build() {
+        CompareReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CompareReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.CompareReq result = new com.dafagame.protocol.zjh.Zjh.CompareReq(this);
+      public CompareReq buildPartial() {
+        CompareReq result = new CompareReq(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16246,7 +17165,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -16259,25 +17178,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.CompareReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.CompareReq)other);
+        if (other instanceof CompareReq) {
+          return mergeFrom((CompareReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.CompareReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.CompareReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(CompareReq other) {
+        if (other == CompareReq.getDefaultInstance()) return this;
         if (other.hasOther()) {
           setOther(other.getOther());
         }
@@ -16297,11 +17216,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.CompareReq parsedMessage = null;
+        CompareReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.CompareReq) e.getUnfinishedMessage();
+          parsedMessage = (CompareReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -16374,16 +17293,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.CompareReq)
-    private static final com.dafagame.protocol.zjh.Zjh.CompareReq DEFAULT_INSTANCE;
+    private static final CompareReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.CompareReq();
+      DEFAULT_INSTANCE = new CompareReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CompareReq getDefaultInstance() {
+    public static CompareReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CompareReq>
+    @Deprecated public static final com.google.protobuf.Parser<CompareReq>
         PARSER = new com.google.protobuf.AbstractParser<CompareReq>() {
       public CompareReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -16397,12 +17316,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<CompareReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.CompareReq getDefaultInstanceForType() {
+    public CompareReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -16419,7 +17338,7 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.ErrorCode getCode();
+    ErrorCode getCode();
 
     /**
      * <pre>
@@ -16470,7 +17389,7 @@ public final class Zjh {
      *
      * <code>optional string betChip = 4;</code>
      */
-    java.lang.String getBetChip();
+    String getBetChip();
     /**
      * <pre>
      *操作总下注筹码
@@ -16558,7 +17477,7 @@ public final class Zjh {
       realCount_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -16588,7 +17507,7 @@ public final class Zjh {
             }
             case 8: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.ErrorCode value = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(rawValue);
+              ErrorCode value = ErrorCode.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -16642,14 +17561,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.CompareResNtf.class, com.dafagame.protocol.zjh.Zjh.CompareResNtf.Builder.class);
+              CompareResNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -16664,9 +17583,9 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-      com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+    public ErrorCode getCode() {
+      ErrorCode result = ErrorCode.valueOf(code_);
+      return result == null ? ErrorCode.OK : result;
     }
 
     public static final int OPT_FIELD_NUMBER = 2;
@@ -16716,7 +17635,7 @@ public final class Zjh {
     }
 
     public static final int BETCHIP_FIELD_NUMBER = 4;
-    private volatile java.lang.Object betChip_;
+    private volatile Object betChip_;
     /**
      * <pre>
      *操作总下注筹码
@@ -16734,14 +17653,14 @@ public final class Zjh {
      *
      * <code>optional string betChip = 4;</code>
      */
-    public java.lang.String getBetChip() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getBetChip() {
+      Object ref = betChip_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           betChip_ = s;
         }
@@ -16757,11 +17676,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getBetChipBytes() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
+      Object ref = betChip_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         betChip_ = b;
         return b;
       } else {
@@ -16911,15 +17830,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.CompareResNtf)) {
+      if (!(obj instanceof CompareResNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.CompareResNtf other = (com.dafagame.protocol.zjh.Zjh.CompareResNtf) obj;
+      CompareResNtf other = (CompareResNtf) obj;
 
       boolean result = true;
       result = result && (hasCode() == other.hasCode());
@@ -16960,7 +17879,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -17001,69 +17920,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(
+    public static CompareResNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(
+    public static CompareResNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(
+    public static CompareResNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(
+    public static CompareResNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(byte[] data)
+    public static CompareResNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(
+    public static CompareResNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(java.io.InputStream input)
+    public static CompareResNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(
+    public static CompareResNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseDelimitedFrom(java.io.InputStream input)
+    public static CompareResNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseDelimitedFrom(
+    public static CompareResNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(
+    public static CompareResNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf parseFrom(
+    public static CompareResNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -17075,7 +17994,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.CompareResNtf prototype) {
+    public static Builder newBuilder(CompareResNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -17083,9 +18002,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -17099,17 +18018,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.CompareResNtf)
-        com.dafagame.protocol.zjh.Zjh.CompareResNtfOrBuilder {
+        CompareResNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.CompareResNtf.class, com.dafagame.protocol.zjh.Zjh.CompareResNtf.Builder.class);
+                CompareResNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.CompareResNtf.newBuilder()
@@ -17118,7 +18037,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -17148,23 +18067,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CompareResNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CompareResNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.CompareResNtf.getDefaultInstance();
+      public CompareResNtf getDefaultInstanceForType() {
+        return CompareResNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CompareResNtf build() {
-        com.dafagame.protocol.zjh.Zjh.CompareResNtf result = buildPartial();
+      public CompareResNtf build() {
+        CompareResNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CompareResNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.CompareResNtf result = new com.dafagame.protocol.zjh.Zjh.CompareResNtf(this);
+      public CompareResNtf buildPartial() {
+        CompareResNtf result = new CompareResNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -17205,7 +18124,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -17218,25 +18137,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.CompareResNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.CompareResNtf)other);
+        if (other instanceof CompareResNtf) {
+          return mergeFrom((CompareResNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.CompareResNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.CompareResNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(CompareResNtf other) {
+        if (other == CompareResNtf.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
@@ -17273,11 +18192,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.CompareResNtf parsedMessage = null;
+        CompareResNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.CompareResNtf) e.getUnfinishedMessage();
+          parsedMessage = (CompareResNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -17298,14 +18217,14 @@ public final class Zjh {
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-        com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+      public ErrorCode getCode() {
+        ErrorCode result = ErrorCode.valueOf(code_);
+        return result == null ? ErrorCode.OK : result;
       }
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public Builder setCode(com.dafagame.protocol.zjh.Zjh.ErrorCode value) {
+      public Builder setCode(ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -17420,7 +18339,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object betChip_ = "";
+      private Object betChip_ = "";
       /**
        * <pre>
        *操作总下注筹码
@@ -17438,18 +18357,18 @@ public final class Zjh {
        *
        * <code>optional string betChip = 4;</code>
        */
-      public java.lang.String getBetChip() {
-        java.lang.Object ref = betChip_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getBetChip() {
+        Object ref = betChip_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             betChip_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -17461,11 +18380,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getBetChipBytes() {
-        java.lang.Object ref = betChip_;
+        Object ref = betChip_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           betChip_ = b;
           return b;
         } else {
@@ -17480,7 +18399,7 @@ public final class Zjh {
        * <code>optional string betChip = 4;</code>
        */
       public Builder setBetChip(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -17678,16 +18597,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.CompareResNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.CompareResNtf DEFAULT_INSTANCE;
+    private static final CompareResNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.CompareResNtf();
+      DEFAULT_INSTANCE = new CompareResNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CompareResNtf getDefaultInstance() {
+    public static CompareResNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CompareResNtf>
+    @Deprecated public static final com.google.protobuf.Parser<CompareResNtf>
         PARSER = new com.google.protobuf.AbstractParser<CompareResNtf>() {
       public CompareResNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -17701,12 +18620,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<CompareResNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.CompareResNtf getDefaultInstanceForType() {
+    public CompareResNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17735,7 +18654,7 @@ public final class Zjh {
     private GiveUpReq() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -17776,14 +18695,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.GiveUpReq.class, com.dafagame.protocol.zjh.Zjh.GiveUpReq.Builder.class);
+              GiveUpReq.class, Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -17811,22 +18730,22 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.GiveUpReq)) {
+      if (!(obj instanceof GiveUpReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.GiveUpReq other = (com.dafagame.protocol.zjh.Zjh.GiveUpReq) obj;
+      GiveUpReq other = (GiveUpReq) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -17838,69 +18757,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(
+    public static GiveUpReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(
+    public static GiveUpReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(
+    public static GiveUpReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(
+    public static GiveUpReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(byte[] data)
+    public static GiveUpReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(
+    public static GiveUpReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(java.io.InputStream input)
+    public static GiveUpReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(
+    public static GiveUpReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseDelimitedFrom(java.io.InputStream input)
+    public static GiveUpReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseDelimitedFrom(
+    public static GiveUpReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(
+    public static GiveUpReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq parseFrom(
+    public static GiveUpReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -17912,7 +18831,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.GiveUpReq prototype) {
+    public static Builder newBuilder(GiveUpReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -17920,9 +18839,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -17936,17 +18855,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.GiveUpReq)
-        com.dafagame.protocol.zjh.Zjh.GiveUpReqOrBuilder {
+        GiveUpReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.GiveUpReq.class, com.dafagame.protocol.zjh.Zjh.GiveUpReq.Builder.class);
+                GiveUpReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.GiveUpReq.newBuilder()
@@ -17955,7 +18874,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -17971,23 +18890,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GiveUpReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.GiveUpReq.getDefaultInstance();
+      public GiveUpReq getDefaultInstanceForType() {
+        return GiveUpReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GiveUpReq build() {
-        com.dafagame.protocol.zjh.Zjh.GiveUpReq result = buildPartial();
+      public GiveUpReq build() {
+        GiveUpReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GiveUpReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.GiveUpReq result = new com.dafagame.protocol.zjh.Zjh.GiveUpReq(this);
+      public GiveUpReq buildPartial() {
+        GiveUpReq result = new GiveUpReq(this);
         onBuilt();
         return result;
       }
@@ -17997,7 +18916,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -18010,25 +18929,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.GiveUpReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.GiveUpReq)other);
+        if (other instanceof GiveUpReq) {
+          return mergeFrom((GiveUpReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.GiveUpReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.GiveUpReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(GiveUpReq other) {
+        if (other == GiveUpReq.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -18042,11 +18961,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.GiveUpReq parsedMessage = null;
+        GiveUpReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.GiveUpReq) e.getUnfinishedMessage();
+          parsedMessage = (GiveUpReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -18070,16 +18989,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.GiveUpReq)
-    private static final com.dafagame.protocol.zjh.Zjh.GiveUpReq DEFAULT_INSTANCE;
+    private static final GiveUpReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.GiveUpReq();
+      DEFAULT_INSTANCE = new GiveUpReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpReq getDefaultInstance() {
+    public static GiveUpReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GiveUpReq>
+    @Deprecated public static final com.google.protobuf.Parser<GiveUpReq>
         PARSER = new com.google.protobuf.AbstractParser<GiveUpReq>() {
       public GiveUpReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -18093,12 +19012,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GiveUpReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.GiveUpReq getDefaultInstanceForType() {
+    public GiveUpReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18115,7 +19034,7 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.ErrorCode getCode();
+    ErrorCode getCode();
 
     /**
      * <pre>
@@ -18183,7 +19102,7 @@ public final class Zjh {
       realCount_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -18213,7 +19132,7 @@ public final class Zjh {
             }
             case 8: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.ErrorCode value = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(rawValue);
+              ErrorCode value = ErrorCode.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -18251,14 +19170,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.GiveUpResNtf.class, com.dafagame.protocol.zjh.Zjh.GiveUpResNtf.Builder.class);
+              GiveUpResNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -18273,9 +19192,9 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-      com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+    public ErrorCode getCode() {
+      ErrorCode result = ErrorCode.valueOf(code_);
+      return result == null ? ErrorCode.OK : result;
     }
 
     public static final int OPT_FIELD_NUMBER = 2;
@@ -18392,15 +19311,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.GiveUpResNtf)) {
+      if (!(obj instanceof GiveUpResNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.GiveUpResNtf other = (com.dafagame.protocol.zjh.Zjh.GiveUpResNtf) obj;
+      GiveUpResNtf other = (GiveUpResNtf) obj;
 
       boolean result = true;
       result = result && (hasCode() == other.hasCode());
@@ -18426,7 +19345,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -18454,69 +19373,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(
+    public static GiveUpResNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(
+    public static GiveUpResNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(
+    public static GiveUpResNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(
+    public static GiveUpResNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(byte[] data)
+    public static GiveUpResNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(
+    public static GiveUpResNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(java.io.InputStream input)
+    public static GiveUpResNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(
+    public static GiveUpResNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseDelimitedFrom(java.io.InputStream input)
+    public static GiveUpResNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseDelimitedFrom(
+    public static GiveUpResNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(
+    public static GiveUpResNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parseFrom(
+    public static GiveUpResNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -18528,7 +19447,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.GiveUpResNtf prototype) {
+    public static Builder newBuilder(GiveUpResNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -18536,9 +19455,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -18552,17 +19471,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.GiveUpResNtf)
-        com.dafagame.protocol.zjh.Zjh.GiveUpResNtfOrBuilder {
+        GiveUpResNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.GiveUpResNtf.class, com.dafagame.protocol.zjh.Zjh.GiveUpResNtf.Builder.class);
+                GiveUpResNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.GiveUpResNtf.newBuilder()
@@ -18571,7 +19490,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -18595,23 +19514,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GiveUpResNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.GiveUpResNtf.getDefaultInstance();
+      public GiveUpResNtf getDefaultInstanceForType() {
+        return GiveUpResNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GiveUpResNtf build() {
-        com.dafagame.protocol.zjh.Zjh.GiveUpResNtf result = buildPartial();
+      public GiveUpResNtf build() {
+        GiveUpResNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GiveUpResNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.GiveUpResNtf result = new com.dafagame.protocol.zjh.Zjh.GiveUpResNtf(this);
+      public GiveUpResNtf buildPartial() {
+        GiveUpResNtf result = new GiveUpResNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -18640,7 +19559,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -18653,25 +19572,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.GiveUpResNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.GiveUpResNtf)other);
+        if (other instanceof GiveUpResNtf) {
+          return mergeFrom((GiveUpResNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.GiveUpResNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.GiveUpResNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(GiveUpResNtf other) {
+        if (other == GiveUpResNtf.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
@@ -18697,11 +19616,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.GiveUpResNtf parsedMessage = null;
+        GiveUpResNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.GiveUpResNtf) e.getUnfinishedMessage();
+          parsedMessage = (GiveUpResNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -18722,14 +19641,14 @@ public final class Zjh {
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-        com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+      public ErrorCode getCode() {
+        ErrorCode result = ErrorCode.valueOf(code_);
+        return result == null ? ErrorCode.OK : result;
       }
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public Builder setCode(com.dafagame.protocol.zjh.Zjh.ErrorCode value) {
+      public Builder setCode(ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -18890,16 +19809,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.GiveUpResNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.GiveUpResNtf DEFAULT_INSTANCE;
+    private static final GiveUpResNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.GiveUpResNtf();
+      DEFAULT_INSTANCE = new GiveUpResNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GiveUpResNtf getDefaultInstance() {
+    public static GiveUpResNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GiveUpResNtf>
+    @Deprecated public static final com.google.protobuf.Parser<GiveUpResNtf>
         PARSER = new com.google.protobuf.AbstractParser<GiveUpResNtf>() {
       public GiveUpResNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -18913,12 +19832,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GiveUpResNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.GiveUpResNtf getDefaultInstanceForType() {
+    public GiveUpResNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18947,7 +19866,7 @@ public final class Zjh {
     private StudReq() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -18988,14 +19907,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.StudReq.class, com.dafagame.protocol.zjh.Zjh.StudReq.Builder.class);
+              StudReq.class, Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -19023,22 +19942,22 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.StudReq)) {
+      if (!(obj instanceof StudReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.StudReq other = (com.dafagame.protocol.zjh.Zjh.StudReq) obj;
+      StudReq other = (StudReq) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -19050,69 +19969,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(
+    public static StudReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(
+    public static StudReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(
+    public static StudReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(
+    public static StudReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(byte[] data)
+    public static StudReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(
+    public static StudReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(java.io.InputStream input)
+    public static StudReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(
+    public static StudReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseDelimitedFrom(java.io.InputStream input)
+    public static StudReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseDelimitedFrom(
+    public static StudReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(
+    public static StudReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudReq parseFrom(
+    public static StudReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -19124,7 +20043,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.StudReq prototype) {
+    public static Builder newBuilder(StudReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -19132,9 +20051,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -19148,17 +20067,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.StudReq)
-        com.dafagame.protocol.zjh.Zjh.StudReqOrBuilder {
+        StudReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.StudReq.class, com.dafagame.protocol.zjh.Zjh.StudReq.Builder.class);
+                StudReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.StudReq.newBuilder()
@@ -19167,7 +20086,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -19183,23 +20102,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_StudReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.StudReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.StudReq.getDefaultInstance();
+      public StudReq getDefaultInstanceForType() {
+        return StudReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.StudReq build() {
-        com.dafagame.protocol.zjh.Zjh.StudReq result = buildPartial();
+      public StudReq build() {
+        StudReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.StudReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.StudReq result = new com.dafagame.protocol.zjh.Zjh.StudReq(this);
+      public StudReq buildPartial() {
+        StudReq result = new StudReq(this);
         onBuilt();
         return result;
       }
@@ -19209,7 +20128,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -19222,25 +20141,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.StudReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.StudReq)other);
+        if (other instanceof StudReq) {
+          return mergeFrom((StudReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.StudReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.StudReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(StudReq other) {
+        if (other == StudReq.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -19254,11 +20173,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.StudReq parsedMessage = null;
+        StudReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.StudReq) e.getUnfinishedMessage();
+          parsedMessage = (StudReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -19282,16 +20201,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.StudReq)
-    private static final com.dafagame.protocol.zjh.Zjh.StudReq DEFAULT_INSTANCE;
+    private static final StudReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.StudReq();
+      DEFAULT_INSTANCE = new StudReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.StudReq getDefaultInstance() {
+    public static StudReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<StudReq>
+    @Deprecated public static final com.google.protobuf.Parser<StudReq>
         PARSER = new com.google.protobuf.AbstractParser<StudReq>() {
       public StudReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -19305,12 +20224,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<StudReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.StudReq getDefaultInstanceForType() {
+    public StudReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -19327,7 +20246,7 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.ErrorCode getCode();
+    ErrorCode getCode();
 
     /**
      * <pre>
@@ -19378,7 +20297,7 @@ public final class Zjh {
      *
      * <code>optional string betChip = 4;</code>
      */
-    java.lang.String getBetChip();
+    String getBetChip();
     /**
      * <pre>
      *下注筹码
@@ -19450,7 +20369,7 @@ public final class Zjh {
       isDark_ = false;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -19480,7 +20399,7 @@ public final class Zjh {
             }
             case 8: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.ErrorCode value = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(rawValue);
+              ErrorCode value = ErrorCode.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -19534,14 +20453,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.StudResNtf.class, com.dafagame.protocol.zjh.Zjh.StudResNtf.Builder.class);
+              StudResNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -19556,9 +20475,9 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-      com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+    public ErrorCode getCode() {
+      ErrorCode result = ErrorCode.valueOf(code_);
+      return result == null ? ErrorCode.OK : result;
     }
 
     public static final int OPT_FIELD_NUMBER = 2;
@@ -19608,7 +20527,7 @@ public final class Zjh {
     }
 
     public static final int BETCHIP_FIELD_NUMBER = 4;
-    private volatile java.lang.Object betChip_;
+    private volatile Object betChip_;
     /**
      * <pre>
      *下注筹码
@@ -19626,14 +20545,14 @@ public final class Zjh {
      *
      * <code>optional string betChip = 4;</code>
      */
-    public java.lang.String getBetChip() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getBetChip() {
+      Object ref = betChip_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           betChip_ = s;
         }
@@ -19649,11 +20568,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getBetChipBytes() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
+      Object ref = betChip_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         betChip_ = b;
         return b;
       } else {
@@ -19787,15 +20706,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.StudResNtf)) {
+      if (!(obj instanceof StudResNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.StudResNtf other = (com.dafagame.protocol.zjh.Zjh.StudResNtf) obj;
+      StudResNtf other = (StudResNtf) obj;
 
       boolean result = true;
       result = result && (hasCode() == other.hasCode());
@@ -19836,7 +20755,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -19878,69 +20797,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(
+    public static StudResNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(
+    public static StudResNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(
+    public static StudResNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(
+    public static StudResNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(byte[] data)
+    public static StudResNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(
+    public static StudResNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(java.io.InputStream input)
+    public static StudResNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(
+    public static StudResNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseDelimitedFrom(java.io.InputStream input)
+    public static StudResNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseDelimitedFrom(
+    public static StudResNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(
+    public static StudResNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf parseFrom(
+    public static StudResNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -19952,7 +20871,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.StudResNtf prototype) {
+    public static Builder newBuilder(StudResNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -19960,9 +20879,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -19976,17 +20895,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.StudResNtf)
-        com.dafagame.protocol.zjh.Zjh.StudResNtfOrBuilder {
+        StudResNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.StudResNtf.class, com.dafagame.protocol.zjh.Zjh.StudResNtf.Builder.class);
+                StudResNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.StudResNtf.newBuilder()
@@ -19995,7 +20914,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -20025,23 +20944,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_StudResNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.StudResNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.StudResNtf.getDefaultInstance();
+      public StudResNtf getDefaultInstanceForType() {
+        return StudResNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.StudResNtf build() {
-        com.dafagame.protocol.zjh.Zjh.StudResNtf result = buildPartial();
+      public StudResNtf build() {
+        StudResNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.StudResNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.StudResNtf result = new com.dafagame.protocol.zjh.Zjh.StudResNtf(this);
+      public StudResNtf buildPartial() {
+        StudResNtf result = new StudResNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -20082,7 +21001,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -20095,25 +21014,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.StudResNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.StudResNtf)other);
+        if (other instanceof StudResNtf) {
+          return mergeFrom((StudResNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.StudResNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.StudResNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(StudResNtf other) {
+        if (other == StudResNtf.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
@@ -20150,11 +21069,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.StudResNtf parsedMessage = null;
+        StudResNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.StudResNtf) e.getUnfinishedMessage();
+          parsedMessage = (StudResNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -20175,14 +21094,14 @@ public final class Zjh {
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-        com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+      public ErrorCode getCode() {
+        ErrorCode result = ErrorCode.valueOf(code_);
+        return result == null ? ErrorCode.OK : result;
       }
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public Builder setCode(com.dafagame.protocol.zjh.Zjh.ErrorCode value) {
+      public Builder setCode(ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -20297,7 +21216,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object betChip_ = "";
+      private Object betChip_ = "";
       /**
        * <pre>
        *下注筹码
@@ -20315,18 +21234,18 @@ public final class Zjh {
        *
        * <code>optional string betChip = 4;</code>
        */
-      public java.lang.String getBetChip() {
-        java.lang.Object ref = betChip_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getBetChip() {
+        Object ref = betChip_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             betChip_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -20338,11 +21257,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getBetChipBytes() {
-        java.lang.Object ref = betChip_;
+        Object ref = betChip_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           betChip_ = b;
           return b;
         } else {
@@ -20357,7 +21276,7 @@ public final class Zjh {
        * <code>optional string betChip = 4;</code>
        */
       public Builder setBetChip(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -20523,16 +21442,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.StudResNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.StudResNtf DEFAULT_INSTANCE;
+    private static final StudResNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.StudResNtf();
+      DEFAULT_INSTANCE = new StudResNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.StudResNtf getDefaultInstance() {
+    public static StudResNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<StudResNtf>
+    @Deprecated public static final com.google.protobuf.Parser<StudResNtf>
         PARSER = new com.google.protobuf.AbstractParser<StudResNtf>() {
       public StudResNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -20546,12 +21465,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<StudResNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.StudResNtf getDefaultInstanceForType() {
+    public StudResNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -20580,7 +21499,7 @@ public final class Zjh {
     private AllInReq() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -20621,14 +21540,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.AllInReq.class, com.dafagame.protocol.zjh.Zjh.AllInReq.Builder.class);
+              AllInReq.class, Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -20656,22 +21575,22 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.AllInReq)) {
+      if (!(obj instanceof AllInReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.AllInReq other = (com.dafagame.protocol.zjh.Zjh.AllInReq) obj;
+      AllInReq other = (AllInReq) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -20683,69 +21602,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(
+    public static AllInReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(
+    public static AllInReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(
+    public static AllInReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(
+    public static AllInReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(byte[] data)
+    public static AllInReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(
+    public static AllInReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(java.io.InputStream input)
+    public static AllInReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(
+    public static AllInReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseDelimitedFrom(java.io.InputStream input)
+    public static AllInReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseDelimitedFrom(
+    public static AllInReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(
+    public static AllInReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq parseFrom(
+    public static AllInReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -20757,7 +21676,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.AllInReq prototype) {
+    public static Builder newBuilder(AllInReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -20765,9 +21684,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -20781,17 +21700,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.AllInReq)
-        com.dafagame.protocol.zjh.Zjh.AllInReqOrBuilder {
+        AllInReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.AllInReq.class, com.dafagame.protocol.zjh.Zjh.AllInReq.Builder.class);
+                AllInReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.AllInReq.newBuilder()
@@ -20800,7 +21719,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -20816,23 +21735,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_AllInReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.AllInReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.AllInReq.getDefaultInstance();
+      public AllInReq getDefaultInstanceForType() {
+        return AllInReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.AllInReq build() {
-        com.dafagame.protocol.zjh.Zjh.AllInReq result = buildPartial();
+      public AllInReq build() {
+        AllInReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.AllInReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.AllInReq result = new com.dafagame.protocol.zjh.Zjh.AllInReq(this);
+      public AllInReq buildPartial() {
+        AllInReq result = new AllInReq(this);
         onBuilt();
         return result;
       }
@@ -20842,7 +21761,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -20855,25 +21774,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.AllInReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.AllInReq)other);
+        if (other instanceof AllInReq) {
+          return mergeFrom((AllInReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.AllInReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.AllInReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(AllInReq other) {
+        if (other == AllInReq.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -20887,11 +21806,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.AllInReq parsedMessage = null;
+        AllInReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.AllInReq) e.getUnfinishedMessage();
+          parsedMessage = (AllInReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -20915,16 +21834,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.AllInReq)
-    private static final com.dafagame.protocol.zjh.Zjh.AllInReq DEFAULT_INSTANCE;
+    private static final AllInReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.AllInReq();
+      DEFAULT_INSTANCE = new AllInReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.AllInReq getDefaultInstance() {
+    public static AllInReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<AllInReq>
+    @Deprecated public static final com.google.protobuf.Parser<AllInReq>
         PARSER = new com.google.protobuf.AbstractParser<AllInReq>() {
       public AllInReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -20938,12 +21857,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<AllInReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.AllInReq getDefaultInstanceForType() {
+    public AllInReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -20960,7 +21879,7 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.ErrorCode getCode();
+    ErrorCode getCode();
 
     /**
      * <pre>
@@ -20995,7 +21914,7 @@ public final class Zjh {
     /**
      * <code>optional string betChip = 4;</code>
      */
-    java.lang.String getBetChip();
+    String getBetChip();
     /**
      * <code>optional string betChip = 4;</code>
      */
@@ -21025,7 +21944,7 @@ public final class Zjh {
       betChip_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -21055,7 +21974,7 @@ public final class Zjh {
             }
             case 8: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.ErrorCode value = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(rawValue);
+              ErrorCode value = ErrorCode.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
               } else {
@@ -21094,14 +22013,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.AllInResNtf.class, com.dafagame.protocol.zjh.Zjh.AllInResNtf.Builder.class);
+              AllInResNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -21116,9 +22035,9 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-      com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+    public ErrorCode getCode() {
+      ErrorCode result = ErrorCode.valueOf(code_);
+      return result == null ? ErrorCode.OK : result;
     }
 
     public static final int OPT_FIELD_NUMBER = 2;
@@ -21160,7 +22079,7 @@ public final class Zjh {
     }
 
     public static final int BETCHIP_FIELD_NUMBER = 4;
-    private volatile java.lang.Object betChip_;
+    private volatile Object betChip_;
     /**
      * <code>optional string betChip = 4;</code>
      */
@@ -21170,14 +22089,14 @@ public final class Zjh {
     /**
      * <code>optional string betChip = 4;</code>
      */
-    public java.lang.String getBetChip() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getBetChip() {
+      Object ref = betChip_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           betChip_ = s;
         }
@@ -21189,11 +22108,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getBetChipBytes() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
+      Object ref = betChip_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         betChip_ = b;
         return b;
       } else {
@@ -21253,15 +22172,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.AllInResNtf)) {
+      if (!(obj instanceof AllInResNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.AllInResNtf other = (com.dafagame.protocol.zjh.Zjh.AllInResNtf) obj;
+      AllInResNtf other = (AllInResNtf) obj;
 
       boolean result = true;
       result = result && (hasCode() == other.hasCode());
@@ -21287,7 +22206,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -21315,69 +22234,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(
+    public static AllInResNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(
+    public static AllInResNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(
+    public static AllInResNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(
+    public static AllInResNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(byte[] data)
+    public static AllInResNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(
+    public static AllInResNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(java.io.InputStream input)
+    public static AllInResNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(
+    public static AllInResNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseDelimitedFrom(java.io.InputStream input)
+    public static AllInResNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseDelimitedFrom(
+    public static AllInResNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(
+    public static AllInResNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf parseFrom(
+    public static AllInResNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -21389,7 +22308,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.AllInResNtf prototype) {
+    public static Builder newBuilder(AllInResNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -21397,9 +22316,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -21413,17 +22332,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.AllInResNtf)
-        com.dafagame.protocol.zjh.Zjh.AllInResNtfOrBuilder {
+        AllInResNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.AllInResNtf.class, com.dafagame.protocol.zjh.Zjh.AllInResNtf.Builder.class);
+                AllInResNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.AllInResNtf.newBuilder()
@@ -21432,7 +22351,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -21456,23 +22375,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_AllInResNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.AllInResNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.AllInResNtf.getDefaultInstance();
+      public AllInResNtf getDefaultInstanceForType() {
+        return AllInResNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.AllInResNtf build() {
-        com.dafagame.protocol.zjh.Zjh.AllInResNtf result = buildPartial();
+      public AllInResNtf build() {
+        AllInResNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.AllInResNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.AllInResNtf result = new com.dafagame.protocol.zjh.Zjh.AllInResNtf(this);
+      public AllInResNtf buildPartial() {
+        AllInResNtf result = new AllInResNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -21501,7 +22420,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -21514,25 +22433,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.AllInResNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.AllInResNtf)other);
+        if (other instanceof AllInResNtf) {
+          return mergeFrom((AllInResNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.AllInResNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.AllInResNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(AllInResNtf other) {
+        if (other == AllInResNtf.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
@@ -21560,11 +22479,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.AllInResNtf parsedMessage = null;
+        AllInResNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.AllInResNtf) e.getUnfinishedMessage();
+          parsedMessage = (AllInResNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -21585,14 +22504,14 @@ public final class Zjh {
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-        com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+      public ErrorCode getCode() {
+        ErrorCode result = ErrorCode.valueOf(code_);
+        return result == null ? ErrorCode.OK : result;
       }
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 1;</code>
        */
-      public Builder setCode(com.dafagame.protocol.zjh.Zjh.ErrorCode value) {
+      public Builder setCode(ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -21691,7 +22610,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object betChip_ = "";
+      private Object betChip_ = "";
       /**
        * <code>optional string betChip = 4;</code>
        */
@@ -21701,18 +22620,18 @@ public final class Zjh {
       /**
        * <code>optional string betChip = 4;</code>
        */
-      public java.lang.String getBetChip() {
-        java.lang.Object ref = betChip_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getBetChip() {
+        Object ref = betChip_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             betChip_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -21720,11 +22639,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getBetChipBytes() {
-        java.lang.Object ref = betChip_;
+        Object ref = betChip_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           betChip_ = b;
           return b;
         } else {
@@ -21735,7 +22654,7 @@ public final class Zjh {
        * <code>optional string betChip = 4;</code>
        */
       public Builder setBetChip(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -21781,16 +22700,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.AllInResNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.AllInResNtf DEFAULT_INSTANCE;
+    private static final AllInResNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.AllInResNtf();
+      DEFAULT_INSTANCE = new AllInResNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.AllInResNtf getDefaultInstance() {
+    public static AllInResNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<AllInResNtf>
+    @Deprecated public static final com.google.protobuf.Parser<AllInResNtf>
         PARSER = new com.google.protobuf.AbstractParser<AllInResNtf>() {
       public AllInResNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -21804,12 +22723,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<AllInResNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.AllInResNtf getDefaultInstanceForType() {
+    public AllInResNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -21848,7 +22767,7 @@ public final class Zjh {
       seatId_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -21895,14 +22814,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.OffLineNtf.class, com.dafagame.protocol.zjh.Zjh.OffLineNtf.Builder.class);
+              OffLineNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -21953,15 +22872,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.OffLineNtf)) {
+      if (!(obj instanceof OffLineNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.OffLineNtf other = (com.dafagame.protocol.zjh.Zjh.OffLineNtf) obj;
+      OffLineNtf other = (OffLineNtf) obj;
 
       boolean result = true;
       result = result && (hasSeatId() == other.hasSeatId());
@@ -21973,7 +22892,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -21989,69 +22908,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(
+    public static OffLineNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(
+    public static OffLineNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(
+    public static OffLineNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(
+    public static OffLineNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(byte[] data)
+    public static OffLineNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(
+    public static OffLineNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(java.io.InputStream input)
+    public static OffLineNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(
+    public static OffLineNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseDelimitedFrom(java.io.InputStream input)
+    public static OffLineNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseDelimitedFrom(
+    public static OffLineNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(
+    public static OffLineNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf parseFrom(
+    public static OffLineNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -22063,7 +22982,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.OffLineNtf prototype) {
+    public static Builder newBuilder(OffLineNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -22071,9 +22990,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -22087,17 +23006,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.OffLineNtf)
-        com.dafagame.protocol.zjh.Zjh.OffLineNtfOrBuilder {
+        OffLineNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.OffLineNtf.class, com.dafagame.protocol.zjh.Zjh.OffLineNtf.Builder.class);
+                OffLineNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.OffLineNtf.newBuilder()
@@ -22106,7 +23025,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -22124,23 +23043,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.OffLineNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.OffLineNtf.getDefaultInstance();
+      public OffLineNtf getDefaultInstanceForType() {
+        return OffLineNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.OffLineNtf build() {
-        com.dafagame.protocol.zjh.Zjh.OffLineNtf result = buildPartial();
+      public OffLineNtf build() {
+        OffLineNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.OffLineNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.OffLineNtf result = new com.dafagame.protocol.zjh.Zjh.OffLineNtf(this);
+      public OffLineNtf buildPartial() {
+        OffLineNtf result = new OffLineNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -22157,7 +23076,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -22170,25 +23089,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.OffLineNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.OffLineNtf)other);
+        if (other instanceof OffLineNtf) {
+          return mergeFrom((OffLineNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.OffLineNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.OffLineNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(OffLineNtf other) {
+        if (other == OffLineNtf.getDefaultInstance()) return this;
         if (other.hasSeatId()) {
           setSeatId(other.getSeatId());
         }
@@ -22205,11 +23124,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.OffLineNtf parsedMessage = null;
+        OffLineNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.OffLineNtf) e.getUnfinishedMessage();
+          parsedMessage = (OffLineNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -22266,16 +23185,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.OffLineNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.OffLineNtf DEFAULT_INSTANCE;
+    private static final OffLineNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.OffLineNtf();
+      DEFAULT_INSTANCE = new OffLineNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.OffLineNtf getDefaultInstance() {
+    public static OffLineNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<OffLineNtf>
+    @Deprecated public static final com.google.protobuf.Parser<OffLineNtf>
         PARSER = new com.google.protobuf.AbstractParser<OffLineNtf>() {
       public OffLineNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -22289,12 +23208,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<OffLineNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.OffLineNtf getDefaultInstanceForType() {
+    public OffLineNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -22333,7 +23252,7 @@ public final class Zjh {
       seatId_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -22380,14 +23299,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.ReConnectNtf.class, com.dafagame.protocol.zjh.Zjh.ReConnectNtf.Builder.class);
+              ReConnectNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -22442,15 +23361,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.ReConnectNtf)) {
+      if (!(obj instanceof ReConnectNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.ReConnectNtf other = (com.dafagame.protocol.zjh.Zjh.ReConnectNtf) obj;
+      ReConnectNtf other = (ReConnectNtf) obj;
 
       boolean result = true;
       result = result && (hasSeatId() == other.hasSeatId());
@@ -22462,7 +23381,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -22478,69 +23397,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(
+    public static ReConnectNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(
+    public static ReConnectNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(
+    public static ReConnectNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(
+    public static ReConnectNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(byte[] data)
+    public static ReConnectNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(
+    public static ReConnectNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(java.io.InputStream input)
+    public static ReConnectNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(
+    public static ReConnectNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseDelimitedFrom(java.io.InputStream input)
+    public static ReConnectNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseDelimitedFrom(
+    public static ReConnectNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(
+    public static ReConnectNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf parseFrom(
+    public static ReConnectNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -22552,7 +23471,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.ReConnectNtf prototype) {
+    public static Builder newBuilder(ReConnectNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -22560,9 +23479,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -22576,17 +23495,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.ReConnectNtf)
-        com.dafagame.protocol.zjh.Zjh.ReConnectNtfOrBuilder {
+        ReConnectNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.ReConnectNtf.class, com.dafagame.protocol.zjh.Zjh.ReConnectNtf.Builder.class);
+                ReConnectNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.ReConnectNtf.newBuilder()
@@ -22595,7 +23514,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -22613,23 +23532,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ReConnectNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ReConnectNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.ReConnectNtf.getDefaultInstance();
+      public ReConnectNtf getDefaultInstanceForType() {
+        return ReConnectNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ReConnectNtf build() {
-        com.dafagame.protocol.zjh.Zjh.ReConnectNtf result = buildPartial();
+      public ReConnectNtf build() {
+        ReConnectNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ReConnectNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.ReConnectNtf result = new com.dafagame.protocol.zjh.Zjh.ReConnectNtf(this);
+      public ReConnectNtf buildPartial() {
+        ReConnectNtf result = new ReConnectNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -22646,7 +23565,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -22659,25 +23578,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.ReConnectNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.ReConnectNtf)other);
+        if (other instanceof ReConnectNtf) {
+          return mergeFrom((ReConnectNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.ReConnectNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.ReConnectNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(ReConnectNtf other) {
+        if (other == ReConnectNtf.getDefaultInstance()) return this;
         if (other.hasSeatId()) {
           setSeatId(other.getSeatId());
         }
@@ -22697,11 +23616,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.ReConnectNtf parsedMessage = null;
+        ReConnectNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.ReConnectNtf) e.getUnfinishedMessage();
+          parsedMessage = (ReConnectNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -22758,16 +23677,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.ReConnectNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.ReConnectNtf DEFAULT_INSTANCE;
+    private static final ReConnectNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.ReConnectNtf();
+      DEFAULT_INSTANCE = new ReConnectNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.ReConnectNtf getDefaultInstance() {
+    public static ReConnectNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<ReConnectNtf>
+    @Deprecated public static final com.google.protobuf.Parser<ReConnectNtf>
         PARSER = new com.google.protobuf.AbstractParser<ReConnectNtf>() {
       public ReConnectNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -22781,12 +23700,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<ReConnectNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.ReConnectNtf getDefaultInstanceForType() {
+    public ReConnectNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -22843,7 +23762,7 @@ public final class Zjh {
       time_ = 0L;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -22895,14 +23814,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf.class, com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf.Builder.class);
+              OffLineWaitingNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -22983,15 +23902,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf)) {
+      if (!(obj instanceof OffLineWaitingNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf other = (com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf) obj;
+      OffLineWaitingNtf other = (OffLineWaitingNtf) obj;
 
       boolean result = true;
       result = result && (hasSeatId() == other.hasSeatId());
@@ -23008,7 +23927,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -23029,69 +23948,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(
+    public static OffLineWaitingNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(
+    public static OffLineWaitingNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(
+    public static OffLineWaitingNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(
+    public static OffLineWaitingNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(byte[] data)
+    public static OffLineWaitingNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(
+    public static OffLineWaitingNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(java.io.InputStream input)
+    public static OffLineWaitingNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(
+    public static OffLineWaitingNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseDelimitedFrom(java.io.InputStream input)
+    public static OffLineWaitingNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseDelimitedFrom(
+    public static OffLineWaitingNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(
+    public static OffLineWaitingNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parseFrom(
+    public static OffLineWaitingNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -23103,7 +24022,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf prototype) {
+    public static Builder newBuilder(OffLineWaitingNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -23111,9 +24030,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -23127,17 +24046,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.OffLineWaitingNtf)
-        com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtfOrBuilder {
+        OffLineWaitingNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf.class, com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf.Builder.class);
+                OffLineWaitingNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf.newBuilder()
@@ -23146,7 +24065,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -23166,23 +24085,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf.getDefaultInstance();
+      public OffLineWaitingNtf getDefaultInstanceForType() {
+        return OffLineWaitingNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf build() {
-        com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf result = buildPartial();
+      public OffLineWaitingNtf build() {
+        OffLineWaitingNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf result = new com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf(this);
+      public OffLineWaitingNtf buildPartial() {
+        OffLineWaitingNtf result = new OffLineWaitingNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -23203,7 +24122,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -23216,25 +24135,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf)other);
+        if (other instanceof OffLineWaitingNtf) {
+          return mergeFrom((OffLineWaitingNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(OffLineWaitingNtf other) {
+        if (other == OffLineWaitingNtf.getDefaultInstance()) return this;
         if (other.hasSeatId()) {
           setSeatId(other.getSeatId());
         }
@@ -23254,11 +24173,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf parsedMessage = null;
+        OffLineWaitingNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf) e.getUnfinishedMessage();
+          parsedMessage = (OffLineWaitingNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -23363,16 +24282,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.OffLineWaitingNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf DEFAULT_INSTANCE;
+    private static final OffLineWaitingNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf();
+      DEFAULT_INSTANCE = new OffLineWaitingNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf getDefaultInstance() {
+    public static OffLineWaitingNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<OffLineWaitingNtf>
+    @Deprecated public static final com.google.protobuf.Parser<OffLineWaitingNtf>
         PARSER = new com.google.protobuf.AbstractParser<OffLineWaitingNtf>() {
       public OffLineWaitingNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -23386,12 +24305,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<OffLineWaitingNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.OffLineWaitingNtf getDefaultInstanceForType() {
+    public OffLineWaitingNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -23430,7 +24349,7 @@ public final class Zjh {
       time_ = 0L;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -23477,14 +24396,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.WaittingStartNtf.class, com.dafagame.protocol.zjh.Zjh.WaittingStartNtf.Builder.class);
+              WaittingStartNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -23535,15 +24454,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.WaittingStartNtf)) {
+      if (!(obj instanceof WaittingStartNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.WaittingStartNtf other = (com.dafagame.protocol.zjh.Zjh.WaittingStartNtf) obj;
+      WaittingStartNtf other = (WaittingStartNtf) obj;
 
       boolean result = true;
       result = result && (hasTime() == other.hasTime());
@@ -23555,7 +24474,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -23572,69 +24491,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(
+    public static WaittingStartNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(
+    public static WaittingStartNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(
+    public static WaittingStartNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(
+    public static WaittingStartNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(byte[] data)
+    public static WaittingStartNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(
+    public static WaittingStartNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(java.io.InputStream input)
+    public static WaittingStartNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(
+    public static WaittingStartNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseDelimitedFrom(java.io.InputStream input)
+    public static WaittingStartNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseDelimitedFrom(
+    public static WaittingStartNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(
+    public static WaittingStartNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parseFrom(
+    public static WaittingStartNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -23646,7 +24565,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.WaittingStartNtf prototype) {
+    public static Builder newBuilder(WaittingStartNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -23654,9 +24573,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -23670,17 +24589,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.WaittingStartNtf)
-        com.dafagame.protocol.zjh.Zjh.WaittingStartNtfOrBuilder {
+        WaittingStartNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.WaittingStartNtf.class, com.dafagame.protocol.zjh.Zjh.WaittingStartNtf.Builder.class);
+                WaittingStartNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.WaittingStartNtf.newBuilder()
@@ -23689,7 +24608,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -23707,23 +24626,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.WaittingStartNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.WaittingStartNtf.getDefaultInstance();
+      public WaittingStartNtf getDefaultInstanceForType() {
+        return WaittingStartNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.WaittingStartNtf build() {
-        com.dafagame.protocol.zjh.Zjh.WaittingStartNtf result = buildPartial();
+      public WaittingStartNtf build() {
+        WaittingStartNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.WaittingStartNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.WaittingStartNtf result = new com.dafagame.protocol.zjh.Zjh.WaittingStartNtf(this);
+      public WaittingStartNtf buildPartial() {
+        WaittingStartNtf result = new WaittingStartNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -23740,7 +24659,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -23753,25 +24672,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.WaittingStartNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.WaittingStartNtf)other);
+        if (other instanceof WaittingStartNtf) {
+          return mergeFrom((WaittingStartNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.WaittingStartNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.WaittingStartNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(WaittingStartNtf other) {
+        if (other == WaittingStartNtf.getDefaultInstance()) return this;
         if (other.hasTime()) {
           setTime(other.getTime());
         }
@@ -23788,11 +24707,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.WaittingStartNtf parsedMessage = null;
+        WaittingStartNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.WaittingStartNtf) e.getUnfinishedMessage();
+          parsedMessage = (WaittingStartNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -23849,16 +24768,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.WaittingStartNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.WaittingStartNtf DEFAULT_INSTANCE;
+    private static final WaittingStartNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.WaittingStartNtf();
+      DEFAULT_INSTANCE = new WaittingStartNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.WaittingStartNtf getDefaultInstance() {
+    public static WaittingStartNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<WaittingStartNtf>
+    @Deprecated public static final com.google.protobuf.Parser<WaittingStartNtf>
         PARSER = new com.google.protobuf.AbstractParser<WaittingStartNtf>() {
       public WaittingStartNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -23872,12 +24791,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<WaittingStartNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.WaittingStartNtf getDefaultInstanceForType() {
+    public WaittingStartNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -23911,7 +24830,7 @@ public final class Zjh {
      *
      * <code>optional string returnAmount = 2;</code>
      */
-    java.lang.String getReturnAmount();
+    String getReturnAmount();
     /**
      * <pre>
      *派彩金额
@@ -23929,7 +24848,7 @@ public final class Zjh {
     /**
      * <code>optional string balance = 3;</code>
      */
-    java.lang.String getBalance();
+    String getBalance();
     /**
      * <code>optional string balance = 3;</code>
      */
@@ -23939,7 +24858,7 @@ public final class Zjh {
     /**
      * <code>repeated string cards = 4;</code>
      */
-    java.util.List<java.lang.String>
+    java.util.List<String>
         getCardsList();
     /**
      * <code>repeated string cards = 4;</code>
@@ -23948,7 +24867,7 @@ public final class Zjh {
     /**
      * <code>repeated string cards = 4;</code>
      */
-    java.lang.String getCards(int index);
+    String getCards(int index);
     /**
      * <code>repeated string cards = 4;</code>
      */
@@ -23958,7 +24877,7 @@ public final class Zjh {
     /**
      * <code>repeated int32 cardsType = 5;</code>
      */
-    java.util.List<java.lang.Integer> getCardsTypeList();
+    java.util.List<Integer> getCardsTypeList();
     /**
      * <code>repeated int32 cardsType = 5;</code>
      */
@@ -24000,7 +24919,7 @@ public final class Zjh {
      *
      * <code>optional string overAmount = 7;</code>
      */
-    java.lang.String getOverAmount();
+    String getOverAmount();
     /**
      * <pre>
      *退还金额
@@ -24010,6 +24929,20 @@ public final class Zjh {
      */
     com.google.protobuf.ByteString
         getOverAmountBytes();
+
+    /**
+     * <code>optional string compared = 8;</code>
+     */
+    boolean hasCompared();
+    /**
+     * <code>optional string compared = 8;</code>
+     */
+    String getCompared();
+    /**
+     * <code>optional string compared = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getComparedBytes();
   }
   /**
    * Protobuf type {@code com.dafagame.protocol.zjh.GameOverNtf}
@@ -24031,9 +24964,10 @@ public final class Zjh {
       cardsType_ = java.util.Collections.emptyList();
       overSeat_ = 0;
       overAmount_ = "";
+      compared_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -24089,7 +25023,7 @@ public final class Zjh {
             }
             case 40: {
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                cardsType_ = new java.util.ArrayList<java.lang.Integer>();
+                cardsType_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000010;
               }
               cardsType_.add(input.readInt32());
@@ -24099,7 +25033,7 @@ public final class Zjh {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
-                cardsType_ = new java.util.ArrayList<java.lang.Integer>();
+                cardsType_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000010;
               }
               while (input.getBytesUntilLimit() > 0) {
@@ -24117,6 +25051,12 @@ public final class Zjh {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
               overAmount_ = bs;
+              break;
+            }
+            case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              compared_ = bs;
               break;
             }
           }
@@ -24139,14 +25079,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.GameOverNtf.class, com.dafagame.protocol.zjh.Zjh.GameOverNtf.Builder.class);
+              GameOverNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -24166,7 +25106,7 @@ public final class Zjh {
     }
 
     public static final int RETURNAMOUNT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object returnAmount_;
+    private volatile Object returnAmount_;
     /**
      * <pre>
      *派彩金额
@@ -24184,14 +25124,14 @@ public final class Zjh {
      *
      * <code>optional string returnAmount = 2;</code>
      */
-    public java.lang.String getReturnAmount() {
-      java.lang.Object ref = returnAmount_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getReturnAmount() {
+      Object ref = returnAmount_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           returnAmount_ = s;
         }
@@ -24207,11 +25147,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getReturnAmountBytes() {
-      java.lang.Object ref = returnAmount_;
-      if (ref instanceof java.lang.String) {
+      Object ref = returnAmount_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         returnAmount_ = b;
         return b;
       } else {
@@ -24220,7 +25160,7 @@ public final class Zjh {
     }
 
     public static final int BALANCE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object balance_;
+    private volatile Object balance_;
     /**
      * <code>optional string balance = 3;</code>
      */
@@ -24230,14 +25170,14 @@ public final class Zjh {
     /**
      * <code>optional string balance = 3;</code>
      */
-    public java.lang.String getBalance() {
-      java.lang.Object ref = balance_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getBalance() {
+      Object ref = balance_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           balance_ = s;
         }
@@ -24249,11 +25189,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getBalanceBytes() {
-      java.lang.Object ref = balance_;
-      if (ref instanceof java.lang.String) {
+      Object ref = balance_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         balance_ = b;
         return b;
       } else {
@@ -24279,7 +25219,7 @@ public final class Zjh {
     /**
      * <code>repeated string cards = 4;</code>
      */
-    public java.lang.String getCards(int index) {
+    public String getCards(int index) {
       return cards_.get(index);
     }
     /**
@@ -24291,11 +25231,11 @@ public final class Zjh {
     }
 
     public static final int CARDSTYPE_FIELD_NUMBER = 5;
-    private java.util.List<java.lang.Integer> cardsType_;
+    private java.util.List<Integer> cardsType_;
     /**
      * <code>repeated int32 cardsType = 5;</code>
      */
-    public java.util.List<java.lang.Integer>
+    public java.util.List<Integer>
         getCardsTypeList() {
       return cardsType_;
     }
@@ -24336,7 +25276,7 @@ public final class Zjh {
     }
 
     public static final int OVERAMOUNT_FIELD_NUMBER = 7;
-    private volatile java.lang.Object overAmount_;
+    private volatile Object overAmount_;
     /**
      * <pre>
      *退还金额
@@ -24354,14 +25294,14 @@ public final class Zjh {
      *
      * <code>optional string overAmount = 7;</code>
      */
-    public java.lang.String getOverAmount() {
-      java.lang.Object ref = overAmount_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getOverAmount() {
+      Object ref = overAmount_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           overAmount_ = s;
         }
@@ -24377,12 +25317,54 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getOverAmountBytes() {
-      java.lang.Object ref = overAmount_;
-      if (ref instanceof java.lang.String) {
+      Object ref = overAmount_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         overAmount_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COMPARED_FIELD_NUMBER = 8;
+    private volatile Object compared_;
+    /**
+     * <code>optional string compared = 8;</code>
+     */
+    public boolean hasCompared() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional string compared = 8;</code>
+     */
+    public String getCompared() {
+      Object ref = compared_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          compared_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string compared = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getComparedBytes() {
+      Object ref = compared_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        compared_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -24421,6 +25403,9 @@ public final class Zjh {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, overAmount_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, compared_);
       }
       unknownFields.writeTo(output);
     }
@@ -24464,20 +25449,23 @@ public final class Zjh {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, overAmount_);
       }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, compared_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.GameOverNtf)) {
+      if (!(obj instanceof GameOverNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.GameOverNtf other = (com.dafagame.protocol.zjh.Zjh.GameOverNtf) obj;
+      GameOverNtf other = (GameOverNtf) obj;
 
       boolean result = true;
       result = result && (hasWinner() == other.hasWinner());
@@ -24509,11 +25497,16 @@ public final class Zjh {
         result = result && getOverAmount()
             .equals(other.getOverAmount());
       }
+      result = result && (hasCompared() == other.hasCompared());
+      if (hasCompared()) {
+        result = result && getCompared()
+            .equals(other.getCompared());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -24548,74 +25541,78 @@ public final class Zjh {
         hash = (37 * hash) + OVERAMOUNT_FIELD_NUMBER;
         hash = (53 * hash) + getOverAmount().hashCode();
       }
+      if (hasCompared()) {
+        hash = (37 * hash) + COMPARED_FIELD_NUMBER;
+        hash = (53 * hash) + getCompared().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(
+    public static GameOverNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(
+    public static GameOverNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(
+    public static GameOverNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(
+    public static GameOverNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(byte[] data)
+    public static GameOverNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(
+    public static GameOverNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(java.io.InputStream input)
+    public static GameOverNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(
+    public static GameOverNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseDelimitedFrom(java.io.InputStream input)
+    public static GameOverNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseDelimitedFrom(
+    public static GameOverNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(
+    public static GameOverNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf parseFrom(
+    public static GameOverNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -24627,7 +25624,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.GameOverNtf prototype) {
+    public static Builder newBuilder(GameOverNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -24635,9 +25632,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -24647,17 +25644,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.GameOverNtf)
-        com.dafagame.protocol.zjh.Zjh.GameOverNtfOrBuilder {
+        GameOverNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.GameOverNtf.class, com.dafagame.protocol.zjh.Zjh.GameOverNtf.Builder.class);
+                GameOverNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.GameOverNtf.newBuilder()
@@ -24666,7 +25663,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -24691,28 +25688,30 @@ public final class Zjh {
         bitField0_ = (bitField0_ & ~0x00000020);
         overAmount_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
+        compared_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameOverNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameOverNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.GameOverNtf.getDefaultInstance();
+      public GameOverNtf getDefaultInstanceForType() {
+        return GameOverNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameOverNtf build() {
-        com.dafagame.protocol.zjh.Zjh.GameOverNtf result = buildPartial();
+      public GameOverNtf build() {
+        GameOverNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameOverNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.GameOverNtf result = new com.dafagame.protocol.zjh.Zjh.GameOverNtf(this);
+      public GameOverNtf buildPartial() {
+        GameOverNtf result = new GameOverNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -24745,6 +25744,10 @@ public final class Zjh {
           to_bitField0_ |= 0x00000010;
         }
         result.overAmount_ = overAmount_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.compared_ = compared_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -24755,7 +25758,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -24768,25 +25771,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.GameOverNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.GameOverNtf)other);
+        if (other instanceof GameOverNtf) {
+          return mergeFrom((GameOverNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.GameOverNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.GameOverNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(GameOverNtf other) {
+        if (other == GameOverNtf.getDefaultInstance()) return this;
         if (other.hasWinner()) {
           setWinner(other.getWinner());
         }
@@ -24828,6 +25831,11 @@ public final class Zjh {
           overAmount_ = other.overAmount_;
           onChanged();
         }
+        if (other.hasCompared()) {
+          bitField0_ |= 0x00000080;
+          compared_ = other.compared_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -24841,11 +25849,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.GameOverNtf parsedMessage = null;
+        GameOverNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.GameOverNtf) e.getUnfinishedMessage();
+          parsedMessage = (GameOverNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -24888,7 +25896,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object returnAmount_ = "";
+      private Object returnAmount_ = "";
       /**
        * <pre>
        *派彩金额
@@ -24906,18 +25914,18 @@ public final class Zjh {
        *
        * <code>optional string returnAmount = 2;</code>
        */
-      public java.lang.String getReturnAmount() {
-        java.lang.Object ref = returnAmount_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getReturnAmount() {
+        Object ref = returnAmount_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             returnAmount_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -24929,11 +25937,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getReturnAmountBytes() {
-        java.lang.Object ref = returnAmount_;
+        Object ref = returnAmount_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           returnAmount_ = b;
           return b;
         } else {
@@ -24948,7 +25956,7 @@ public final class Zjh {
        * <code>optional string returnAmount = 2;</code>
        */
       public Builder setReturnAmount(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -24988,7 +25996,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object balance_ = "";
+      private Object balance_ = "";
       /**
        * <code>optional string balance = 3;</code>
        */
@@ -24998,18 +26006,18 @@ public final class Zjh {
       /**
        * <code>optional string balance = 3;</code>
        */
-      public java.lang.String getBalance() {
-        java.lang.Object ref = balance_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getBalance() {
+        Object ref = balance_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             balance_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -25017,11 +26025,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getBalanceBytes() {
-        java.lang.Object ref = balance_;
+        Object ref = balance_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           balance_ = b;
           return b;
         } else {
@@ -25032,7 +26040,7 @@ public final class Zjh {
        * <code>optional string balance = 3;</code>
        */
       public Builder setBalance(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -25087,7 +26095,7 @@ public final class Zjh {
       /**
        * <code>repeated string cards = 4;</code>
        */
-      public java.lang.String getCards(int index) {
+      public String getCards(int index) {
         return cards_.get(index);
       }
       /**
@@ -25101,7 +26109,7 @@ public final class Zjh {
        * <code>repeated string cards = 4;</code>
        */
       public Builder setCards(
-          int index, java.lang.String value) {
+          int index, String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -25114,7 +26122,7 @@ public final class Zjh {
        * <code>repeated string cards = 4;</code>
        */
       public Builder addCards(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -25127,7 +26135,7 @@ public final class Zjh {
        * <code>repeated string cards = 4;</code>
        */
       public Builder addAllCards(
-          java.lang.Iterable<java.lang.String> values) {
+          Iterable<String> values) {
         ensureCardsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, cards_);
@@ -25157,17 +26165,17 @@ public final class Zjh {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> cardsType_ = java.util.Collections.emptyList();
+      private java.util.List<Integer> cardsType_ = java.util.Collections.emptyList();
       private void ensureCardsTypeIsMutable() {
         if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          cardsType_ = new java.util.ArrayList<java.lang.Integer>(cardsType_);
+          cardsType_ = new java.util.ArrayList<Integer>(cardsType_);
           bitField0_ |= 0x00000010;
          }
       }
       /**
        * <code>repeated int32 cardsType = 5;</code>
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<Integer>
           getCardsTypeList() {
         return java.util.Collections.unmodifiableList(cardsType_);
       }
@@ -25206,7 +26214,7 @@ public final class Zjh {
        * <code>repeated int32 cardsType = 5;</code>
        */
       public Builder addAllCardsType(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          Iterable<? extends Integer> values) {
         ensureCardsTypeIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, cardsType_);
@@ -25271,7 +26279,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object overAmount_ = "";
+      private Object overAmount_ = "";
       /**
        * <pre>
        *退还金额
@@ -25289,18 +26297,18 @@ public final class Zjh {
        *
        * <code>optional string overAmount = 7;</code>
        */
-      public java.lang.String getOverAmount() {
-        java.lang.Object ref = overAmount_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getOverAmount() {
+        Object ref = overAmount_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             overAmount_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -25312,11 +26320,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getOverAmountBytes() {
-        java.lang.Object ref = overAmount_;
+        Object ref = overAmount_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           overAmount_ = b;
           return b;
         } else {
@@ -25331,7 +26339,7 @@ public final class Zjh {
        * <code>optional string overAmount = 7;</code>
        */
       public Builder setOverAmount(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -25370,6 +26378,82 @@ public final class Zjh {
         onChanged();
         return this;
       }
+
+      private Object compared_ = "";
+      /**
+       * <code>optional string compared = 8;</code>
+       */
+      public boolean hasCompared() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional string compared = 8;</code>
+       */
+      public String getCompared() {
+        Object ref = compared_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            compared_ = s;
+          }
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>optional string compared = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getComparedBytes() {
+        Object ref = compared_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          compared_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string compared = 8;</code>
+       */
+      public Builder setCompared(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        compared_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string compared = 8;</code>
+       */
+      public Builder clearCompared() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        compared_ = getDefaultInstance().getCompared();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string compared = 8;</code>
+       */
+      public Builder setComparedBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        compared_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -25385,16 +26469,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.GameOverNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.GameOverNtf DEFAULT_INSTANCE;
+    private static final GameOverNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.GameOverNtf();
+      DEFAULT_INSTANCE = new GameOverNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GameOverNtf getDefaultInstance() {
+    public static GameOverNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GameOverNtf>
+    @Deprecated public static final com.google.protobuf.Parser<GameOverNtf>
         PARSER = new com.google.protobuf.AbstractParser<GameOverNtf>() {
       public GameOverNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -25408,12 +26492,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GameOverNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.GameOverNtf getDefaultInstanceForType() {
+    public GameOverNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -25442,7 +26526,7 @@ public final class Zjh {
     private FollowStudReq() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -25483,14 +26567,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.FollowStudReq.class, com.dafagame.protocol.zjh.Zjh.FollowStudReq.Builder.class);
+              FollowStudReq.class, Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -25518,22 +26602,22 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.FollowStudReq)) {
+      if (!(obj instanceof FollowStudReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.FollowStudReq other = (com.dafagame.protocol.zjh.Zjh.FollowStudReq) obj;
+      FollowStudReq other = (FollowStudReq) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -25545,69 +26629,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(
+    public static FollowStudReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(
+    public static FollowStudReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(
+    public static FollowStudReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(
+    public static FollowStudReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(byte[] data)
+    public static FollowStudReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(
+    public static FollowStudReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(java.io.InputStream input)
+    public static FollowStudReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(
+    public static FollowStudReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseDelimitedFrom(java.io.InputStream input)
+    public static FollowStudReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseDelimitedFrom(
+    public static FollowStudReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(
+    public static FollowStudReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq parseFrom(
+    public static FollowStudReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -25619,7 +26703,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.FollowStudReq prototype) {
+    public static Builder newBuilder(FollowStudReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -25627,9 +26711,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -25643,17 +26727,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.FollowStudReq)
-        com.dafagame.protocol.zjh.Zjh.FollowStudReqOrBuilder {
+        FollowStudReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.FollowStudReq.class, com.dafagame.protocol.zjh.Zjh.FollowStudReq.Builder.class);
+                FollowStudReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.FollowStudReq.newBuilder()
@@ -25662,7 +26746,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -25678,23 +26762,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowStudReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.FollowStudReq.getDefaultInstance();
+      public FollowStudReq getDefaultInstanceForType() {
+        return FollowStudReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowStudReq build() {
-        com.dafagame.protocol.zjh.Zjh.FollowStudReq result = buildPartial();
+      public FollowStudReq build() {
+        FollowStudReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowStudReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.FollowStudReq result = new com.dafagame.protocol.zjh.Zjh.FollowStudReq(this);
+      public FollowStudReq buildPartial() {
+        FollowStudReq result = new FollowStudReq(this);
         onBuilt();
         return result;
       }
@@ -25704,7 +26788,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -25717,25 +26801,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.FollowStudReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.FollowStudReq)other);
+        if (other instanceof FollowStudReq) {
+          return mergeFrom((FollowStudReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.FollowStudReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.FollowStudReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(FollowStudReq other) {
+        if (other == FollowStudReq.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -25749,11 +26833,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.FollowStudReq parsedMessage = null;
+        FollowStudReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.FollowStudReq) e.getUnfinishedMessage();
+          parsedMessage = (FollowStudReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -25777,16 +26861,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.FollowStudReq)
-    private static final com.dafagame.protocol.zjh.Zjh.FollowStudReq DEFAULT_INSTANCE;
+    private static final FollowStudReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.FollowStudReq();
+      DEFAULT_INSTANCE = new FollowStudReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudReq getDefaultInstance() {
+    public static FollowStudReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<FollowStudReq>
+    @Deprecated public static final com.google.protobuf.Parser<FollowStudReq>
         PARSER = new com.google.protobuf.AbstractParser<FollowStudReq>() {
       public FollowStudReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -25800,12 +26884,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<FollowStudReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.FollowStudReq getDefaultInstanceForType() {
+    public FollowStudReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -25831,7 +26915,7 @@ public final class Zjh {
     /**
      * <code>optional string betChip = 2;</code>
      */
-    java.lang.String getBetChip();
+    String getBetChip();
     /**
      * <code>optional string betChip = 2;</code>
      */
@@ -25865,7 +26949,7 @@ public final class Zjh {
       ring_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -25923,14 +27007,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.FollowStudResNtf.class, com.dafagame.protocol.zjh.Zjh.FollowStudResNtf.Builder.class);
+              FollowStudResNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -25950,7 +27034,7 @@ public final class Zjh {
     }
 
     public static final int BETCHIP_FIELD_NUMBER = 2;
-    private volatile java.lang.Object betChip_;
+    private volatile Object betChip_;
     /**
      * <code>optional string betChip = 2;</code>
      */
@@ -25960,14 +27044,14 @@ public final class Zjh {
     /**
      * <code>optional string betChip = 2;</code>
      */
-    public java.lang.String getBetChip() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getBetChip() {
+      Object ref = betChip_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           betChip_ = s;
         }
@@ -25979,11 +27063,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getBetChipBytes() {
-      java.lang.Object ref = betChip_;
-      if (ref instanceof java.lang.String) {
+      Object ref = betChip_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         betChip_ = b;
         return b;
       } else {
@@ -26051,15 +27135,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.FollowStudResNtf)) {
+      if (!(obj instanceof FollowStudResNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.FollowStudResNtf other = (com.dafagame.protocol.zjh.Zjh.FollowStudResNtf) obj;
+      FollowStudResNtf other = (FollowStudResNtf) obj;
 
       boolean result = true;
       result = result && (hasOpt() == other.hasOpt());
@@ -26081,7 +27165,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -26105,69 +27189,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(
+    public static FollowStudResNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(
+    public static FollowStudResNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(
+    public static FollowStudResNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(
+    public static FollowStudResNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(byte[] data)
+    public static FollowStudResNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(
+    public static FollowStudResNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(java.io.InputStream input)
+    public static FollowStudResNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(
+    public static FollowStudResNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseDelimitedFrom(java.io.InputStream input)
+    public static FollowStudResNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseDelimitedFrom(
+    public static FollowStudResNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(
+    public static FollowStudResNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parseFrom(
+    public static FollowStudResNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -26179,7 +27263,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.FollowStudResNtf prototype) {
+    public static Builder newBuilder(FollowStudResNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -26187,9 +27271,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -26199,17 +27283,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.FollowStudResNtf)
-        com.dafagame.protocol.zjh.Zjh.FollowStudResNtfOrBuilder {
+        FollowStudResNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.FollowStudResNtf.class, com.dafagame.protocol.zjh.Zjh.FollowStudResNtf.Builder.class);
+                FollowStudResNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.FollowStudResNtf.newBuilder()
@@ -26218,7 +27302,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -26240,23 +27324,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowStudResNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.FollowStudResNtf.getDefaultInstance();
+      public FollowStudResNtf getDefaultInstanceForType() {
+        return FollowStudResNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowStudResNtf build() {
-        com.dafagame.protocol.zjh.Zjh.FollowStudResNtf result = buildPartial();
+      public FollowStudResNtf build() {
+        FollowStudResNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.FollowStudResNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.FollowStudResNtf result = new com.dafagame.protocol.zjh.Zjh.FollowStudResNtf(this);
+      public FollowStudResNtf buildPartial() {
+        FollowStudResNtf result = new FollowStudResNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -26281,7 +27365,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -26294,25 +27378,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.FollowStudResNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.FollowStudResNtf)other);
+        if (other instanceof FollowStudResNtf) {
+          return mergeFrom((FollowStudResNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.FollowStudResNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.FollowStudResNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(FollowStudResNtf other) {
+        if (other == FollowStudResNtf.getDefaultInstance()) return this;
         if (other.hasOpt()) {
           setOpt(other.getOpt());
         }
@@ -26337,11 +27421,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.FollowStudResNtf parsedMessage = null;
+        FollowStudResNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.FollowStudResNtf) e.getUnfinishedMessage();
+          parsedMessage = (FollowStudResNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -26384,7 +27468,7 @@ public final class Zjh {
         return this;
       }
 
-      private java.lang.Object betChip_ = "";
+      private Object betChip_ = "";
       /**
        * <code>optional string betChip = 2;</code>
        */
@@ -26394,18 +27478,18 @@ public final class Zjh {
       /**
        * <code>optional string betChip = 2;</code>
        */
-      public java.lang.String getBetChip() {
-        java.lang.Object ref = betChip_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getBetChip() {
+        Object ref = betChip_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             betChip_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -26413,11 +27497,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getBetChipBytes() {
-        java.lang.Object ref = betChip_;
+        Object ref = betChip_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           betChip_ = b;
           return b;
         } else {
@@ -26428,7 +27512,7 @@ public final class Zjh {
        * <code>optional string betChip = 2;</code>
        */
       public Builder setBetChip(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -26506,16 +27590,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.FollowStudResNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.FollowStudResNtf DEFAULT_INSTANCE;
+    private static final FollowStudResNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.FollowStudResNtf();
+      DEFAULT_INSTANCE = new FollowStudResNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.FollowStudResNtf getDefaultInstance() {
+    public static FollowStudResNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<FollowStudResNtf>
+    @Deprecated public static final com.google.protobuf.Parser<FollowStudResNtf>
         PARSER = new com.google.protobuf.AbstractParser<FollowStudResNtf>() {
       public FollowStudResNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -26529,12 +27613,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<FollowStudResNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.FollowStudResNtf getDefaultInstanceForType() {
+    public FollowStudResNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -26568,7 +27652,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
      */
-    java.util.List<com.dafagame.protocol.zjh.Zjh.CompareInfo> 
+    java.util.List<CompareInfo>
         getInfoList();
     /**
      * <pre>
@@ -26577,7 +27661,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.CompareInfo getInfo(int index);
+    CompareInfo getInfo(int index);
     /**
      * <pre>
      *各自比牌结果
@@ -26593,7 +27677,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
      */
-    java.util.List<? extends com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder> 
+    java.util.List<? extends CompareInfoOrBuilder>
         getInfoOrBuilderList();
     /**
      * <pre>
@@ -26602,8 +27686,8 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder getInfoOrBuilder(
-        int index);
+    CompareInfoOrBuilder getInfoOrBuilder(
+            int index);
 
     /**
      * <pre>
@@ -26668,7 +27752,7 @@ public final class Zjh {
       realCount_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -26703,11 +27787,11 @@ public final class Zjh {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                info_ = new java.util.ArrayList<com.dafagame.protocol.zjh.Zjh.CompareInfo>();
+                info_ = new java.util.ArrayList<CompareInfo>();
                 mutable_bitField0_ |= 0x00000002;
               }
               info_.add(
-                  input.readMessage(com.dafagame.protocol.zjh.Zjh.CompareInfo.PARSER, extensionRegistry));
+                  input.readMessage(CompareInfo.PARSER, extensionRegistry));
               break;
             }
             case 24: {
@@ -26742,14 +27826,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.SystemCompareNtf.class, com.dafagame.protocol.zjh.Zjh.SystemCompareNtf.Builder.class);
+              SystemCompareNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -26777,7 +27861,7 @@ public final class Zjh {
     }
 
     public static final int INFO_FIELD_NUMBER = 2;
-    private java.util.List<com.dafagame.protocol.zjh.Zjh.CompareInfo> info_;
+    private java.util.List<CompareInfo> info_;
     /**
      * <pre>
      *各自比牌结果
@@ -26785,7 +27869,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
      */
-    public java.util.List<com.dafagame.protocol.zjh.Zjh.CompareInfo> getInfoList() {
+    public java.util.List<CompareInfo> getInfoList() {
       return info_;
     }
     /**
@@ -26795,7 +27879,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
      */
-    public java.util.List<? extends com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder> 
+    public java.util.List<? extends CompareInfoOrBuilder>
         getInfoOrBuilderList() {
       return info_;
     }
@@ -26816,7 +27900,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.CompareInfo getInfo(int index) {
+    public CompareInfo getInfo(int index) {
       return info_.get(index);
     }
     /**
@@ -26826,7 +27910,7 @@ public final class Zjh {
      *
      * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder getInfoOrBuilder(
+    public CompareInfoOrBuilder getInfoOrBuilder(
         int index) {
       return info_.get(index);
     }
@@ -26952,15 +28036,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.SystemCompareNtf)) {
+      if (!(obj instanceof SystemCompareNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.SystemCompareNtf other = (com.dafagame.protocol.zjh.Zjh.SystemCompareNtf) obj;
+      SystemCompareNtf other = (SystemCompareNtf) obj;
 
       boolean result = true;
       result = result && (hasWinner() == other.hasWinner());
@@ -26989,7 +28073,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -27023,69 +28107,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(
+    public static SystemCompareNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(
+    public static SystemCompareNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(
+    public static SystemCompareNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(
+    public static SystemCompareNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(byte[] data)
+    public static SystemCompareNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(
+    public static SystemCompareNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(java.io.InputStream input)
+    public static SystemCompareNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(
+    public static SystemCompareNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseDelimitedFrom(java.io.InputStream input)
+    public static SystemCompareNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseDelimitedFrom(
+    public static SystemCompareNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(
+    public static SystemCompareNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parseFrom(
+    public static SystemCompareNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -27097,7 +28181,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.SystemCompareNtf prototype) {
+    public static Builder newBuilder(SystemCompareNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -27105,9 +28189,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -27117,17 +28201,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.SystemCompareNtf)
-        com.dafagame.protocol.zjh.Zjh.SystemCompareNtfOrBuilder {
+        SystemCompareNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.SystemCompareNtf.class, com.dafagame.protocol.zjh.Zjh.SystemCompareNtf.Builder.class);
+                SystemCompareNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.SystemCompareNtf.newBuilder()
@@ -27136,7 +28220,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -27167,23 +28251,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SystemCompareNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.SystemCompareNtf.getDefaultInstance();
+      public SystemCompareNtf getDefaultInstanceForType() {
+        return SystemCompareNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SystemCompareNtf build() {
-        com.dafagame.protocol.zjh.Zjh.SystemCompareNtf result = buildPartial();
+      public SystemCompareNtf build() {
+        SystemCompareNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.SystemCompareNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.SystemCompareNtf result = new com.dafagame.protocol.zjh.Zjh.SystemCompareNtf(this);
+      public SystemCompareNtf buildPartial() {
+        SystemCompareNtf result = new SystemCompareNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -27221,7 +28305,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -27234,25 +28318,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.SystemCompareNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.SystemCompareNtf)other);
+        if (other instanceof SystemCompareNtf) {
+          return mergeFrom((SystemCompareNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.SystemCompareNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.SystemCompareNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(SystemCompareNtf other) {
+        if (other == SystemCompareNtf.getDefaultInstance()) return this;
         if (other.hasWinner()) {
           setWinner(other.getWinner());
         }
@@ -27304,11 +28388,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.SystemCompareNtf parsedMessage = null;
+        SystemCompareNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.SystemCompareNtf) e.getUnfinishedMessage();
+          parsedMessage = (SystemCompareNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -27367,17 +28451,17 @@ public final class Zjh {
         return this;
       }
 
-      private java.util.List<com.dafagame.protocol.zjh.Zjh.CompareInfo> info_ =
+      private java.util.List<CompareInfo> info_ =
         java.util.Collections.emptyList();
       private void ensureInfoIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          info_ = new java.util.ArrayList<com.dafagame.protocol.zjh.Zjh.CompareInfo>(info_);
+          info_ = new java.util.ArrayList<CompareInfo>(info_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.zjh.Zjh.CompareInfo, com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder, com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder> infoBuilder_;
+          CompareInfo, CompareInfo.Builder, CompareInfoOrBuilder> infoBuilder_;
 
       /**
        * <pre>
@@ -27386,7 +28470,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
-      public java.util.List<com.dafagame.protocol.zjh.Zjh.CompareInfo> getInfoList() {
+      public java.util.List<CompareInfo> getInfoList() {
         if (infoBuilder_ == null) {
           return java.util.Collections.unmodifiableList(info_);
         } else {
@@ -27414,7 +28498,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.CompareInfo getInfo(int index) {
+      public CompareInfo getInfo(int index) {
         if (infoBuilder_ == null) {
           return info_.get(index);
         } else {
@@ -27429,7 +28513,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
       public Builder setInfo(
-          int index, com.dafagame.protocol.zjh.Zjh.CompareInfo value) {
+          int index, CompareInfo value) {
         if (infoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -27450,7 +28534,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
       public Builder setInfo(
-          int index, com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder builderForValue) {
+          int index, CompareInfo.Builder builderForValue) {
         if (infoBuilder_ == null) {
           ensureInfoIsMutable();
           info_.set(index, builderForValue.build());
@@ -27467,7 +28551,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
-      public Builder addInfo(com.dafagame.protocol.zjh.Zjh.CompareInfo value) {
+      public Builder addInfo(CompareInfo value) {
         if (infoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -27488,7 +28572,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
       public Builder addInfo(
-          int index, com.dafagame.protocol.zjh.Zjh.CompareInfo value) {
+          int index, CompareInfo value) {
         if (infoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -27509,7 +28593,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
       public Builder addInfo(
-          com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder builderForValue) {
+          CompareInfo.Builder builderForValue) {
         if (infoBuilder_ == null) {
           ensureInfoIsMutable();
           info_.add(builderForValue.build());
@@ -27527,7 +28611,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
       public Builder addInfo(
-          int index, com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder builderForValue) {
+          int index, CompareInfo.Builder builderForValue) {
         if (infoBuilder_ == null) {
           ensureInfoIsMutable();
           info_.add(index, builderForValue.build());
@@ -27545,7 +28629,7 @@ public final class Zjh {
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
       public Builder addAllInfo(
-          java.lang.Iterable<? extends com.dafagame.protocol.zjh.Zjh.CompareInfo> values) {
+          Iterable<? extends CompareInfo> values) {
         if (infoBuilder_ == null) {
           ensureInfoIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -27597,7 +28681,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder getInfoBuilder(
+      public CompareInfo.Builder getInfoBuilder(
           int index) {
         return getInfoFieldBuilder().getBuilder(index);
       }
@@ -27608,7 +28692,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder getInfoOrBuilder(
+      public CompareInfoOrBuilder getInfoOrBuilder(
           int index) {
         if (infoBuilder_ == null) {
           return info_.get(index);  } else {
@@ -27622,7 +28706,7 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
-      public java.util.List<? extends com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder> 
+      public java.util.List<? extends CompareInfoOrBuilder>
            getInfoOrBuilderList() {
         if (infoBuilder_ != null) {
           return infoBuilder_.getMessageOrBuilderList();
@@ -27637,9 +28721,9 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder addInfoBuilder() {
+      public CompareInfo.Builder addInfoBuilder() {
         return getInfoFieldBuilder().addBuilder(
-            com.dafagame.protocol.zjh.Zjh.CompareInfo.getDefaultInstance());
+            CompareInfo.getDefaultInstance());
       }
       /**
        * <pre>
@@ -27648,10 +28732,10 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder addInfoBuilder(
+      public CompareInfo.Builder addInfoBuilder(
           int index) {
         return getInfoFieldBuilder().addBuilder(
-            index, com.dafagame.protocol.zjh.Zjh.CompareInfo.getDefaultInstance());
+            index, CompareInfo.getDefaultInstance());
       }
       /**
        * <pre>
@@ -27660,16 +28744,16 @@ public final class Zjh {
        *
        * <code>repeated .com.dafagame.protocol.zjh.CompareInfo info = 2;</code>
        */
-      public java.util.List<com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder> 
+      public java.util.List<CompareInfo.Builder>
            getInfoBuilderList() {
         return getInfoFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.zjh.Zjh.CompareInfo, com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder, com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder> 
+          CompareInfo, CompareInfo.Builder, CompareInfoOrBuilder>
           getInfoFieldBuilder() {
         if (infoBuilder_ == null) {
           infoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.dafagame.protocol.zjh.Zjh.CompareInfo, com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder, com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder>(
+              CompareInfo, CompareInfo.Builder, CompareInfoOrBuilder>(
                   info_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -27821,16 +28905,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.SystemCompareNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.SystemCompareNtf DEFAULT_INSTANCE;
+    private static final SystemCompareNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.SystemCompareNtf();
+      DEFAULT_INSTANCE = new SystemCompareNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.SystemCompareNtf getDefaultInstance() {
+    public static SystemCompareNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<SystemCompareNtf>
+    @Deprecated public static final com.google.protobuf.Parser<SystemCompareNtf>
         PARSER = new com.google.protobuf.AbstractParser<SystemCompareNtf>() {
       public SystemCompareNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -27844,12 +28928,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SystemCompareNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.SystemCompareNtf getDefaultInstanceForType() {
+    public SystemCompareNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -27904,7 +28988,7 @@ public final class Zjh {
       winner_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -27961,14 +29045,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.CompareInfo.class, com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder.class);
+              CompareInfo.class, Builder.class);
     }
 
     private int bitField0_;
@@ -28063,15 +29147,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.CompareInfo)) {
+      if (!(obj instanceof CompareInfo)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.CompareInfo other = (com.dafagame.protocol.zjh.Zjh.CompareInfo) obj;
+      CompareInfo other = (CompareInfo) obj;
 
       boolean result = true;
       result = result && (hasOpt() == other.hasOpt());
@@ -28093,7 +29177,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -28117,69 +29201,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(
+    public static CompareInfo parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(
+    public static CompareInfo parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(
+    public static CompareInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(
+    public static CompareInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(byte[] data)
+    public static CompareInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(
+    public static CompareInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(java.io.InputStream input)
+    public static CompareInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(
+    public static CompareInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseDelimitedFrom(java.io.InputStream input)
+    public static CompareInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseDelimitedFrom(
+    public static CompareInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(
+    public static CompareInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo parseFrom(
+    public static CompareInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -28191,7 +29275,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.CompareInfo prototype) {
+    public static Builder newBuilder(CompareInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -28199,9 +29283,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -28211,17 +29295,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.CompareInfo)
-        com.dafagame.protocol.zjh.Zjh.CompareInfoOrBuilder {
+        CompareInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.CompareInfo.class, com.dafagame.protocol.zjh.Zjh.CompareInfo.Builder.class);
+                CompareInfo.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.CompareInfo.newBuilder()
@@ -28230,7 +29314,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -28252,23 +29336,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CompareInfo_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CompareInfo getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.CompareInfo.getDefaultInstance();
+      public CompareInfo getDefaultInstanceForType() {
+        return CompareInfo.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CompareInfo build() {
-        com.dafagame.protocol.zjh.Zjh.CompareInfo result = buildPartial();
+      public CompareInfo build() {
+        CompareInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CompareInfo buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.CompareInfo result = new com.dafagame.protocol.zjh.Zjh.CompareInfo(this);
+      public CompareInfo buildPartial() {
+        CompareInfo result = new CompareInfo(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -28293,7 +29377,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -28306,25 +29390,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.CompareInfo) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.CompareInfo)other);
+        if (other instanceof CompareInfo) {
+          return mergeFrom((CompareInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.CompareInfo other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.CompareInfo.getDefaultInstance()) return this;
+      public Builder mergeFrom(CompareInfo other) {
+        if (other == CompareInfo.getDefaultInstance()) return this;
         if (other.hasOpt()) {
           setOpt(other.getOpt());
         }
@@ -28347,11 +29431,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.CompareInfo parsedMessage = null;
+        CompareInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.CompareInfo) e.getUnfinishedMessage();
+          parsedMessage = (CompareInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -28472,16 +29556,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.CompareInfo)
-    private static final com.dafagame.protocol.zjh.Zjh.CompareInfo DEFAULT_INSTANCE;
+    private static final CompareInfo DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.CompareInfo();
+      DEFAULT_INSTANCE = new CompareInfo();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CompareInfo getDefaultInstance() {
+    public static CompareInfo getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CompareInfo>
+    @Deprecated public static final com.google.protobuf.Parser<CompareInfo>
         PARSER = new com.google.protobuf.AbstractParser<CompareInfo>() {
       public CompareInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -28495,12 +29579,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<CompareInfo> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.CompareInfo getDefaultInstanceForType() {
+    public CompareInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -28525,7 +29609,7 @@ public final class Zjh {
     private CleanFollowEndReq() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -28566,14 +29650,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq.class, com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq.Builder.class);
+              CleanFollowEndReq.class, Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -28601,22 +29685,22 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq)) {
+      if (!(obj instanceof CleanFollowEndReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq other = (com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq) obj;
+      CleanFollowEndReq other = (CleanFollowEndReq) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -28628,69 +29712,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(
+    public static CleanFollowEndReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(
+    public static CleanFollowEndReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(
+    public static CleanFollowEndReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(
+    public static CleanFollowEndReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(byte[] data)
+    public static CleanFollowEndReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(
+    public static CleanFollowEndReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(java.io.InputStream input)
+    public static CleanFollowEndReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(
+    public static CleanFollowEndReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseDelimitedFrom(java.io.InputStream input)
+    public static CleanFollowEndReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseDelimitedFrom(
+    public static CleanFollowEndReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(
+    public static CleanFollowEndReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parseFrom(
+    public static CleanFollowEndReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -28702,7 +29786,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq prototype) {
+    public static Builder newBuilder(CleanFollowEndReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -28710,9 +29794,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -28722,17 +29806,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.CleanFollowEndReq)
-        com.dafagame.protocol.zjh.Zjh.CleanFollowEndReqOrBuilder {
+        CleanFollowEndReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq.class, com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq.Builder.class);
+                CleanFollowEndReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq.newBuilder()
@@ -28741,7 +29825,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -28757,23 +29841,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq.getDefaultInstance();
+      public CleanFollowEndReq getDefaultInstanceForType() {
+        return CleanFollowEndReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq build() {
-        com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq result = buildPartial();
+      public CleanFollowEndReq build() {
+        CleanFollowEndReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq result = new com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq(this);
+      public CleanFollowEndReq buildPartial() {
+        CleanFollowEndReq result = new CleanFollowEndReq(this);
         onBuilt();
         return result;
       }
@@ -28783,7 +29867,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -28796,25 +29880,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq)other);
+        if (other instanceof CleanFollowEndReq) {
+          return mergeFrom((CleanFollowEndReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(CleanFollowEndReq other) {
+        if (other == CleanFollowEndReq.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -28828,11 +29912,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq parsedMessage = null;
+        CleanFollowEndReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq) e.getUnfinishedMessage();
+          parsedMessage = (CleanFollowEndReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -28856,16 +29940,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.CleanFollowEndReq)
-    private static final com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq DEFAULT_INSTANCE;
+    private static final CleanFollowEndReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq();
+      DEFAULT_INSTANCE = new CleanFollowEndReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq getDefaultInstance() {
+    public static CleanFollowEndReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CleanFollowEndReq>
+    @Deprecated public static final com.google.protobuf.Parser<CleanFollowEndReq>
         PARSER = new com.google.protobuf.AbstractParser<CleanFollowEndReq>() {
       public CleanFollowEndReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -28879,12 +29963,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<CleanFollowEndReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.CleanFollowEndReq getDefaultInstanceForType() {
+    public CleanFollowEndReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -28910,7 +29994,7 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 2;</code>
      */
-    com.dafagame.protocol.zjh.Zjh.ErrorCode getCode();
+    ErrorCode getCode();
   }
   /**
    * Protobuf type {@code com.dafagame.protocol.zjh.CleanFollowEndResNtf}
@@ -28929,7 +30013,7 @@ public final class Zjh {
       code_ = 1;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -28964,7 +30048,7 @@ public final class Zjh {
             }
             case 16: {
               int rawValue = input.readEnum();
-              com.dafagame.protocol.zjh.Zjh.ErrorCode value = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(rawValue);
+              ErrorCode value = ErrorCode.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(2, rawValue);
               } else {
@@ -28987,14 +30071,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf.class, com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf.Builder.class);
+              CleanFollowEndResNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -29024,9 +30108,9 @@ public final class Zjh {
     /**
      * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 2;</code>
      */
-    public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-      com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-      return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+    public ErrorCode getCode() {
+      ErrorCode result = ErrorCode.valueOf(code_);
+      return result == null ? ErrorCode.OK : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -29068,15 +30152,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf)) {
+      if (!(obj instanceof CleanFollowEndResNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf other = (com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf) obj;
+      CleanFollowEndResNtf other = (CleanFollowEndResNtf) obj;
 
       boolean result = true;
       result = result && (hasOpt() == other.hasOpt());
@@ -29092,7 +30176,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -29112,69 +30196,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(
+    public static CleanFollowEndResNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(
+    public static CleanFollowEndResNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(
+    public static CleanFollowEndResNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(
+    public static CleanFollowEndResNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(byte[] data)
+    public static CleanFollowEndResNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(
+    public static CleanFollowEndResNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(java.io.InputStream input)
+    public static CleanFollowEndResNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(
+    public static CleanFollowEndResNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseDelimitedFrom(java.io.InputStream input)
+    public static CleanFollowEndResNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseDelimitedFrom(
+    public static CleanFollowEndResNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(
+    public static CleanFollowEndResNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parseFrom(
+    public static CleanFollowEndResNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -29186,7 +30270,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf prototype) {
+    public static Builder newBuilder(CleanFollowEndResNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -29194,9 +30278,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -29206,17 +30290,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.CleanFollowEndResNtf)
-        com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtfOrBuilder {
+        CleanFollowEndResNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf.class, com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf.Builder.class);
+                CleanFollowEndResNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf.newBuilder()
@@ -29225,7 +30309,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -29245,23 +30329,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf.getDefaultInstance();
+      public CleanFollowEndResNtf getDefaultInstanceForType() {
+        return CleanFollowEndResNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf build() {
-        com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf result = buildPartial();
+      public CleanFollowEndResNtf build() {
+        CleanFollowEndResNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf result = new com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf(this);
+      public CleanFollowEndResNtf buildPartial() {
+        CleanFollowEndResNtf result = new CleanFollowEndResNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -29282,7 +30366,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -29295,25 +30379,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf)other);
+        if (other instanceof CleanFollowEndResNtf) {
+          return mergeFrom((CleanFollowEndResNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(CleanFollowEndResNtf other) {
+        if (other == CleanFollowEndResNtf.getDefaultInstance()) return this;
         if (other.hasOpt()) {
           setOpt(other.getOpt());
         }
@@ -29333,11 +30417,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf parsedMessage = null;
+        CleanFollowEndResNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf) e.getUnfinishedMessage();
+          parsedMessage = (CleanFollowEndResNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -29390,14 +30474,14 @@ public final class Zjh {
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 2;</code>
        */
-      public com.dafagame.protocol.zjh.Zjh.ErrorCode getCode() {
-        com.dafagame.protocol.zjh.Zjh.ErrorCode result = com.dafagame.protocol.zjh.Zjh.ErrorCode.valueOf(code_);
-        return result == null ? com.dafagame.protocol.zjh.Zjh.ErrorCode.OK : result;
+      public ErrorCode getCode() {
+        ErrorCode result = ErrorCode.valueOf(code_);
+        return result == null ? ErrorCode.OK : result;
       }
       /**
        * <code>optional .com.dafagame.protocol.zjh.ErrorCode code = 2;</code>
        */
-      public Builder setCode(com.dafagame.protocol.zjh.Zjh.ErrorCode value) {
+      public Builder setCode(ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -29430,16 +30514,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.CleanFollowEndResNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf DEFAULT_INSTANCE;
+    private static final CleanFollowEndResNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf();
+      DEFAULT_INSTANCE = new CleanFollowEndResNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf getDefaultInstance() {
+    public static CleanFollowEndResNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CleanFollowEndResNtf>
+    @Deprecated public static final com.google.protobuf.Parser<CleanFollowEndResNtf>
         PARSER = new com.google.protobuf.AbstractParser<CleanFollowEndResNtf>() {
       public CleanFollowEndResNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -29453,12 +30537,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<CleanFollowEndResNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.CleanFollowEndResNtf getDefaultInstanceForType() {
+    public CleanFollowEndResNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -29537,7 +30621,7 @@ public final class Zjh {
       ring_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -29594,14 +30678,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.NextActionNtf.class, com.dafagame.protocol.zjh.Zjh.NextActionNtf.Builder.class);
+              NextActionNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -29720,15 +30804,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.NextActionNtf)) {
+      if (!(obj instanceof NextActionNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.NextActionNtf other = (com.dafagame.protocol.zjh.Zjh.NextActionNtf) obj;
+      NextActionNtf other = (NextActionNtf) obj;
 
       boolean result = true;
       result = result && (hasOpt() == other.hasOpt());
@@ -29750,7 +30834,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -29775,69 +30859,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(
+    public static NextActionNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(
+    public static NextActionNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(
+    public static NextActionNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(
+    public static NextActionNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(byte[] data)
+    public static NextActionNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(
+    public static NextActionNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(java.io.InputStream input)
+    public static NextActionNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(
+    public static NextActionNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseDelimitedFrom(java.io.InputStream input)
+    public static NextActionNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseDelimitedFrom(
+    public static NextActionNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(
+    public static NextActionNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf parseFrom(
+    public static NextActionNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -29849,7 +30933,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.NextActionNtf prototype) {
+    public static Builder newBuilder(NextActionNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -29857,9 +30941,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -29869,17 +30953,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.NextActionNtf)
-        com.dafagame.protocol.zjh.Zjh.NextActionNtfOrBuilder {
+        NextActionNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.NextActionNtf.class, com.dafagame.protocol.zjh.Zjh.NextActionNtf.Builder.class);
+                NextActionNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.NextActionNtf.newBuilder()
@@ -29888,7 +30972,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -29910,23 +30994,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_NextActionNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.NextActionNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.NextActionNtf.getDefaultInstance();
+      public NextActionNtf getDefaultInstanceForType() {
+        return NextActionNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.NextActionNtf build() {
-        com.dafagame.protocol.zjh.Zjh.NextActionNtf result = buildPartial();
+      public NextActionNtf build() {
+        NextActionNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.NextActionNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.NextActionNtf result = new com.dafagame.protocol.zjh.Zjh.NextActionNtf(this);
+      public NextActionNtf buildPartial() {
+        NextActionNtf result = new NextActionNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -29951,7 +31035,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -29964,25 +31048,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.NextActionNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.NextActionNtf)other);
+        if (other instanceof NextActionNtf) {
+          return mergeFrom((NextActionNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.NextActionNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.NextActionNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(NextActionNtf other) {
+        if (other == NextActionNtf.getDefaultInstance()) return this;
         if (other.hasOpt()) {
           setOpt(other.getOpt());
         }
@@ -30005,11 +31089,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.NextActionNtf parsedMessage = null;
+        NextActionNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.NextActionNtf) e.getUnfinishedMessage();
+          parsedMessage = (NextActionNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -30178,16 +31262,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.NextActionNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.NextActionNtf DEFAULT_INSTANCE;
+    private static final NextActionNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.NextActionNtf();
+      DEFAULT_INSTANCE = new NextActionNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.NextActionNtf getDefaultInstance() {
+    public static NextActionNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<NextActionNtf>
+    @Deprecated public static final com.google.protobuf.Parser<NextActionNtf>
         PARSER = new com.google.protobuf.AbstractParser<NextActionNtf>() {
       public NextActionNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -30201,12 +31285,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<NextActionNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.NextActionNtf getDefaultInstanceForType() {
+    public NextActionNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -30249,7 +31333,7 @@ public final class Zjh {
       state_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -30296,14 +31380,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.GameMaintainNtf.class, com.dafagame.protocol.zjh.Zjh.GameMaintainNtf.Builder.class);
+              GameMaintainNtf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -30362,15 +31446,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.GameMaintainNtf)) {
+      if (!(obj instanceof GameMaintainNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.GameMaintainNtf other = (com.dafagame.protocol.zjh.Zjh.GameMaintainNtf) obj;
+      GameMaintainNtf other = (GameMaintainNtf) obj;
 
       boolean result = true;
       result = result && (hasState() == other.hasState());
@@ -30382,7 +31466,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -30398,69 +31482,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(
+    public static GameMaintainNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(
+    public static GameMaintainNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(
+    public static GameMaintainNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(
+    public static GameMaintainNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(byte[] data)
+    public static GameMaintainNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(
+    public static GameMaintainNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(java.io.InputStream input)
+    public static GameMaintainNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(
+    public static GameMaintainNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseDelimitedFrom(java.io.InputStream input)
+    public static GameMaintainNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseDelimitedFrom(
+    public static GameMaintainNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(
+    public static GameMaintainNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parseFrom(
+    public static GameMaintainNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -30472,7 +31556,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.GameMaintainNtf prototype) {
+    public static Builder newBuilder(GameMaintainNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -30480,9 +31564,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -30492,17 +31576,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.GameMaintainNtf)
-        com.dafagame.protocol.zjh.Zjh.GameMaintainNtfOrBuilder {
+        GameMaintainNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.GameMaintainNtf.class, com.dafagame.protocol.zjh.Zjh.GameMaintainNtf.Builder.class);
+                GameMaintainNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.GameMaintainNtf.newBuilder()
@@ -30511,7 +31595,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -30529,23 +31613,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameMaintainNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.GameMaintainNtf.getDefaultInstance();
+      public GameMaintainNtf getDefaultInstanceForType() {
+        return GameMaintainNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameMaintainNtf build() {
-        com.dafagame.protocol.zjh.Zjh.GameMaintainNtf result = buildPartial();
+      public GameMaintainNtf build() {
+        GameMaintainNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameMaintainNtf buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.GameMaintainNtf result = new com.dafagame.protocol.zjh.Zjh.GameMaintainNtf(this);
+      public GameMaintainNtf buildPartial() {
+        GameMaintainNtf result = new GameMaintainNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -30562,7 +31646,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -30575,25 +31659,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.GameMaintainNtf) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.GameMaintainNtf)other);
+        if (other instanceof GameMaintainNtf) {
+          return mergeFrom((GameMaintainNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.GameMaintainNtf other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.GameMaintainNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(GameMaintainNtf other) {
+        if (other == GameMaintainNtf.getDefaultInstance()) return this;
         if (other.hasState()) {
           setState(other.getState());
         }
@@ -30610,11 +31694,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.GameMaintainNtf parsedMessage = null;
+        GameMaintainNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.GameMaintainNtf) e.getUnfinishedMessage();
+          parsedMessage = (GameMaintainNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -30687,16 +31771,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.GameMaintainNtf)
-    private static final com.dafagame.protocol.zjh.Zjh.GameMaintainNtf DEFAULT_INSTANCE;
+    private static final GameMaintainNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.GameMaintainNtf();
+      DEFAULT_INSTANCE = new GameMaintainNtf();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GameMaintainNtf getDefaultInstance() {
+    public static GameMaintainNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GameMaintainNtf>
+    @Deprecated public static final com.google.protobuf.Parser<GameMaintainNtf>
         PARSER = new com.google.protobuf.AbstractParser<GameMaintainNtf>() {
       public GameMaintainNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -30710,12 +31794,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GameMaintainNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.GameMaintainNtf getDefaultInstanceForType() {
+    public GameMaintainNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -30732,7 +31816,7 @@ public final class Zjh {
     /**
      * <code>required string roundType = 1;</code>
      */
-    java.lang.String getRoundType();
+    String getRoundType();
     /**
      * <code>required string roundType = 1;</code>
      */
@@ -30755,7 +31839,7 @@ public final class Zjh {
       roundType_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -30803,19 +31887,19 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.ScenesReq.class, com.dafagame.protocol.zjh.Zjh.ScenesReq.Builder.class);
+              ScenesReq.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int ROUNDTYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object roundType_;
+    private volatile Object roundType_;
     /**
      * <code>required string roundType = 1;</code>
      */
@@ -30825,14 +31909,14 @@ public final class Zjh {
     /**
      * <code>required string roundType = 1;</code>
      */
-    public java.lang.String getRoundType() {
-      java.lang.Object ref = roundType_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getRoundType() {
+      Object ref = roundType_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           roundType_ = s;
         }
@@ -30844,11 +31928,11 @@ public final class Zjh {
      */
     public com.google.protobuf.ByteString
         getRoundTypeBytes() {
-      java.lang.Object ref = roundType_;
-      if (ref instanceof java.lang.String) {
+      Object ref = roundType_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         roundType_ = b;
         return b;
       } else {
@@ -30891,15 +31975,15 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.ScenesReq)) {
+      if (!(obj instanceof ScenesReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.ScenesReq other = (com.dafagame.protocol.zjh.Zjh.ScenesReq) obj;
+      ScenesReq other = (ScenesReq) obj;
 
       boolean result = true;
       result = result && (hasRoundType() == other.hasRoundType());
@@ -30911,7 +31995,7 @@ public final class Zjh {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -30927,69 +32011,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(
+    public static ScenesReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(
+    public static ScenesReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(
+    public static ScenesReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(
+    public static ScenesReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(byte[] data)
+    public static ScenesReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(
+    public static ScenesReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(java.io.InputStream input)
+    public static ScenesReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(
+    public static ScenesReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseDelimitedFrom(java.io.InputStream input)
+    public static ScenesReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseDelimitedFrom(
+    public static ScenesReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(
+    public static ScenesReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq parseFrom(
+    public static ScenesReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -31001,7 +32085,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.ScenesReq prototype) {
+    public static Builder newBuilder(ScenesReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -31009,9 +32093,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -31021,17 +32105,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.ScenesReq)
-        com.dafagame.protocol.zjh.Zjh.ScenesReqOrBuilder {
+        ScenesReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.ScenesReq.class, com.dafagame.protocol.zjh.Zjh.ScenesReq.Builder.class);
+                ScenesReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.ScenesReq.newBuilder()
@@ -31040,7 +32124,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -31058,23 +32142,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_ScenesReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ScenesReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.ScenesReq.getDefaultInstance();
+      public ScenesReq getDefaultInstanceForType() {
+        return ScenesReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ScenesReq build() {
-        com.dafagame.protocol.zjh.Zjh.ScenesReq result = buildPartial();
+      public ScenesReq build() {
+        ScenesReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.ScenesReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.ScenesReq result = new com.dafagame.protocol.zjh.Zjh.ScenesReq(this);
+      public ScenesReq buildPartial() {
+        ScenesReq result = new ScenesReq(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -31091,7 +32175,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -31104,25 +32188,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.ScenesReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.ScenesReq)other);
+        if (other instanceof ScenesReq) {
+          return mergeFrom((ScenesReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.ScenesReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.ScenesReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(ScenesReq other) {
+        if (other == ScenesReq.getDefaultInstance()) return this;
         if (other.hasRoundType()) {
           bitField0_ |= 0x00000001;
           roundType_ = other.roundType_;
@@ -31144,11 +32228,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.ScenesReq parsedMessage = null;
+        ScenesReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.ScenesReq) e.getUnfinishedMessage();
+          parsedMessage = (ScenesReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -31159,7 +32243,7 @@ public final class Zjh {
       }
       private int bitField0_;
 
-      private java.lang.Object roundType_ = "";
+      private Object roundType_ = "";
       /**
        * <code>required string roundType = 1;</code>
        */
@@ -31169,18 +32253,18 @@ public final class Zjh {
       /**
        * <code>required string roundType = 1;</code>
        */
-      public java.lang.String getRoundType() {
-        java.lang.Object ref = roundType_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getRoundType() {
+        Object ref = roundType_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             roundType_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -31188,11 +32272,11 @@ public final class Zjh {
        */
       public com.google.protobuf.ByteString
           getRoundTypeBytes() {
-        java.lang.Object ref = roundType_;
+        Object ref = roundType_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           roundType_ = b;
           return b;
         } else {
@@ -31203,7 +32287,7 @@ public final class Zjh {
        * <code>required string roundType = 1;</code>
        */
       public Builder setRoundType(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -31249,16 +32333,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.ScenesReq)
-    private static final com.dafagame.protocol.zjh.Zjh.ScenesReq DEFAULT_INSTANCE;
+    private static final ScenesReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.ScenesReq();
+      DEFAULT_INSTANCE = new ScenesReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.ScenesReq getDefaultInstance() {
+    public static ScenesReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<ScenesReq>
+    @Deprecated public static final com.google.protobuf.Parser<ScenesReq>
         PARSER = new com.google.protobuf.AbstractParser<ScenesReq>() {
       public ScenesReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -31272,12 +32356,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<ScenesReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.ScenesReq getDefaultInstanceForType() {
+    public ScenesReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -31302,7 +32386,7 @@ public final class Zjh {
     private GameRuleReq() {
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -31343,14 +32427,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.GameRuleReq.class, com.dafagame.protocol.zjh.Zjh.GameRuleReq.Builder.class);
+              GameRuleReq.class, Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -31378,22 +32462,22 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.GameRuleReq)) {
+      if (!(obj instanceof GameRuleReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.GameRuleReq other = (com.dafagame.protocol.zjh.Zjh.GameRuleReq) obj;
+      GameRuleReq other = (GameRuleReq) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -31405,69 +32489,69 @@ public final class Zjh {
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(
+    public static GameRuleReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(
+    public static GameRuleReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(
+    public static GameRuleReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(
+    public static GameRuleReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(byte[] data)
+    public static GameRuleReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(
+    public static GameRuleReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(java.io.InputStream input)
+    public static GameRuleReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(
+    public static GameRuleReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseDelimitedFrom(java.io.InputStream input)
+    public static GameRuleReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseDelimitedFrom(
+    public static GameRuleReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(
+    public static GameRuleReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq parseFrom(
+    public static GameRuleReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -31479,7 +32563,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.GameRuleReq prototype) {
+    public static Builder newBuilder(GameRuleReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -31487,9 +32571,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -31499,17 +32583,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.GameRuleReq)
-        com.dafagame.protocol.zjh.Zjh.GameRuleReqOrBuilder {
+        GameRuleReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.GameRuleReq.class, com.dafagame.protocol.zjh.Zjh.GameRuleReq.Builder.class);
+                GameRuleReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.GameRuleReq.newBuilder()
@@ -31518,7 +32602,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -31534,23 +32618,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleReq_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameRuleReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.GameRuleReq.getDefaultInstance();
+      public GameRuleReq getDefaultInstanceForType() {
+        return GameRuleReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameRuleReq build() {
-        com.dafagame.protocol.zjh.Zjh.GameRuleReq result = buildPartial();
+      public GameRuleReq build() {
+        GameRuleReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameRuleReq buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.GameRuleReq result = new com.dafagame.protocol.zjh.Zjh.GameRuleReq(this);
+      public GameRuleReq buildPartial() {
+        GameRuleReq result = new GameRuleReq(this);
         onBuilt();
         return result;
       }
@@ -31560,7 +32644,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -31573,25 +32657,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.GameRuleReq) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.GameRuleReq)other);
+        if (other instanceof GameRuleReq) {
+          return mergeFrom((GameRuleReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.GameRuleReq other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.GameRuleReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(GameRuleReq other) {
+        if (other == GameRuleReq.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -31605,11 +32689,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.GameRuleReq parsedMessage = null;
+        GameRuleReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.GameRuleReq) e.getUnfinishedMessage();
+          parsedMessage = (GameRuleReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -31633,16 +32717,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.GameRuleReq)
-    private static final com.dafagame.protocol.zjh.Zjh.GameRuleReq DEFAULT_INSTANCE;
+    private static final GameRuleReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.GameRuleReq();
+      DEFAULT_INSTANCE = new GameRuleReq();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleReq getDefaultInstance() {
+    public static GameRuleReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GameRuleReq>
+    @Deprecated public static final com.google.protobuf.Parser<GameRuleReq>
         PARSER = new com.google.protobuf.AbstractParser<GameRuleReq>() {
       public GameRuleReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -31656,12 +32740,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GameRuleReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.GameRuleReq getDefaultInstanceForType() {
+    public GameRuleReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -31704,7 +32788,7 @@ public final class Zjh {
       service_ = 0D;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -31751,14 +32835,14 @@ public final class Zjh {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_descriptor;
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_fieldAccessorTable
+      return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.zjh.Zjh.GameRuleRes.class, com.dafagame.protocol.zjh.Zjh.GameRuleRes.Builder.class);
+              GameRuleRes.class, Builder.class);
     }
 
     private int bitField0_;
@@ -31817,29 +32901,29 @@ public final class Zjh {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.zjh.Zjh.GameRuleRes)) {
+      if (!(obj instanceof GameRuleRes)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.zjh.Zjh.GameRuleRes other = (com.dafagame.protocol.zjh.Zjh.GameRuleRes) obj;
+      GameRuleRes other = (GameRuleRes) obj;
 
       boolean result = true;
       result = result && (hasService() == other.hasService());
       if (hasService()) {
         result = result && (
-            java.lang.Double.doubleToLongBits(getService())
-            == java.lang.Double.doubleToLongBits(
+            Double.doubleToLongBits(getService())
+            == Double.doubleToLongBits(
                 other.getService()));
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -31849,76 +32933,76 @@ public final class Zjh {
       if (hasService()) {
         hash = (37 * hash) + SERVICE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getService()));
+            Double.doubleToLongBits(getService()));
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(
+    public static GameRuleRes parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(
+    public static GameRuleRes parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(
+    public static GameRuleRes parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(
+    public static GameRuleRes parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(byte[] data)
+    public static GameRuleRes parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(
+    public static GameRuleRes parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(java.io.InputStream input)
+    public static GameRuleRes parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(
+    public static GameRuleRes parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseDelimitedFrom(java.io.InputStream input)
+    public static GameRuleRes parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseDelimitedFrom(
+    public static GameRuleRes parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(
+    public static GameRuleRes parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes parseFrom(
+    public static GameRuleRes parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -31930,7 +33014,7 @@ public final class Zjh {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.zjh.Zjh.GameRuleRes prototype) {
+    public static Builder newBuilder(GameRuleRes prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -31938,9 +33022,9 @@ public final class Zjh {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -31950,17 +33034,17 @@ public final class Zjh {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.zjh.GameRuleRes)
-        com.dafagame.protocol.zjh.Zjh.GameRuleResOrBuilder {
+        GameRuleResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_fieldAccessorTable
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.zjh.Zjh.GameRuleRes.class, com.dafagame.protocol.zjh.Zjh.GameRuleRes.Builder.class);
+                GameRuleRes.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.zjh.Zjh.GameRuleRes.newBuilder()
@@ -31969,7 +33053,7 @@ public final class Zjh {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -31987,23 +33071,23 @@ public final class Zjh {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.zjh.Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_descriptor;
+        return Zjh.internal_static_com_dafagame_protocol_zjh_GameRuleRes_descriptor;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameRuleRes getDefaultInstanceForType() {
-        return com.dafagame.protocol.zjh.Zjh.GameRuleRes.getDefaultInstance();
+      public GameRuleRes getDefaultInstanceForType() {
+        return GameRuleRes.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameRuleRes build() {
-        com.dafagame.protocol.zjh.Zjh.GameRuleRes result = buildPartial();
+      public GameRuleRes build() {
+        GameRuleRes result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.zjh.Zjh.GameRuleRes buildPartial() {
-        com.dafagame.protocol.zjh.Zjh.GameRuleRes result = new com.dafagame.protocol.zjh.Zjh.GameRuleRes(this);
+      public GameRuleRes buildPartial() {
+        GameRuleRes result = new GameRuleRes(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -32020,7 +33104,7 @@ public final class Zjh {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -32033,25 +33117,25 @@ public final class Zjh {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.zjh.Zjh.GameRuleRes) {
-          return mergeFrom((com.dafagame.protocol.zjh.Zjh.GameRuleRes)other);
+        if (other instanceof GameRuleRes) {
+          return mergeFrom((GameRuleRes)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.zjh.Zjh.GameRuleRes other) {
-        if (other == com.dafagame.protocol.zjh.Zjh.GameRuleRes.getDefaultInstance()) return this;
+      public Builder mergeFrom(GameRuleRes other) {
+        if (other == GameRuleRes.getDefaultInstance()) return this;
         if (other.hasService()) {
           setService(other.getService());
         }
@@ -32068,11 +33152,11 @@ public final class Zjh {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.zjh.Zjh.GameRuleRes parsedMessage = null;
+        GameRuleRes parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.zjh.Zjh.GameRuleRes) e.getUnfinishedMessage();
+          parsedMessage = (GameRuleRes) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -32145,16 +33229,16 @@ public final class Zjh {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.zjh.GameRuleRes)
-    private static final com.dafagame.protocol.zjh.Zjh.GameRuleRes DEFAULT_INSTANCE;
+    private static final GameRuleRes DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.zjh.Zjh.GameRuleRes();
+      DEFAULT_INSTANCE = new GameRuleRes();
     }
 
-    public static com.dafagame.protocol.zjh.Zjh.GameRuleRes getDefaultInstance() {
+    public static GameRuleRes getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GameRuleRes>
+    @Deprecated public static final com.google.protobuf.Parser<GameRuleRes>
         PARSER = new com.google.protobuf.AbstractParser<GameRuleRes>() {
       public GameRuleRes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -32168,12 +33252,12 @@ public final class Zjh {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GameRuleRes> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.zjh.Zjh.GameRuleRes getDefaultInstanceForType() {
+    public GameRuleRes getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -32382,8 +33466,8 @@ public final class Zjh {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
-      "\n\tZjh.proto\022\031com.dafagame.protocol.zjh\"\202" +
+    String[] descriptorData = {
+      "\n\tZjh.proto\022\031com.dafagame.protocol.zjh\"\251" +
       "\003\n\nScenesData\022\023\n\013addChipEnum\030\001 \003(\001\022\020\n\010ba" +
       "seChip\030\002 \001(\001\022\014\n\004ring\030\003 \001(\005\0225\n\006others\030\004 \003" +
       "(\0132%.com.dafagame.protocol.zjh.PlayerInf" +
@@ -32393,102 +33477,106 @@ public final class Zjh {
       "us\022\022\n\nroomPreBet\030\n \001(\t\022\023\n\013roomPreDark\030\013 " +
       "\001(\010\022\021\n\troundType\030\014 \001(\t\022\017\n\007maxRing\030\r \001(\005\022" +
       "2\n\003own\030\016 \001(\0132%.com.dafagame.protocol.zjh",
-      ".PlayerInfo\022\016\n\006banker\030\017 \001(\005\"N\n\014StartGame" +
-      "Ntf\022\013\n\003opt\030\001 \001(\005\022\023\n\013gamePlayers\030\002 \003(\005\022\014\n" +
-      "\004time\030\003 \001(\003\022\016\n\006inning\030\004 \001(\t\":\n\010RobotMsg\022" +
-      "\r\n\005cards\030\001 \003(\005\022\023\n\013gamePlayers\030\002 \003(\005\022\n\n\002c" +
-      "s\030\003 \001(\t\"\202\001\n\014RobotExitMsg\022\021\n\troundType\030\001 " +
-      "\001(\t\022\022\n\nroomNumber\030\002 \001(\t\022\017\n\007isExtra\030\003 \001(\010" +
-      "\022\022\n\nisMaintain\030\004 \001(\010\022\021\n\trealCount\030\005 \001(\005\022" +
-      "\023\n\013playerCount\030\006 \001(\005\"\r\n\013IdelGameNtf\"\213\002\n\n" +
-      "PlayerInfo\022\016\n\006seatId\030\001 \001(\005\022\r\n\005grade\030\002 \001(" +
-      "\005\022\020\n\010nickName\030\003 \001(\t\022\016\n\006avatar\030\004 \001(\005\022\017\n\007b",
-      "alance\030\005 \001(\t\0227\n\006status\030\006 \001(\0162\'.com.dafag" +
-      "ame.protocol.zjh.PlayerStatus\022\r\n\005frame\030\007" +
-      " \001(\005\022\020\n\010totalBet\030\010 \001(\t\022\021\n\tisOffLine\030\t \001(" +
-      "\010\022\016\n\006isDark\030\n \001(\010\022\r\n\005cards\030\013 \001(\t\022\021\n\tcard" +
-      "sType\030\014 \001(\005\022\014\n\004type\030\r \001(\005\"E\n\014EnterRoomNt" +
-      "f\0225\n\006player\030\001 \001(\0132%.com.dafagame.protoco" +
-      "l.zjh.PlayerInfo\"\035\n\013ExitRoomNtf\022\016\n\006seatI" +
-      "d\030\001 \001(\005\"\026\n\006BetReq\022\014\n\004chip\030\001 \002(\t\"m\n\tBetRe" +
-      "sNtf\0222\n\004code\030\001 \001(\0162$.com.dafagame.protoc" +
-      "ol.zjh.ErrorCode\022\013\n\003opt\030\002 \001(\005\022\017\n\007betChip",
-      "\030\003 \001(\t\022\016\n\006isDark\030\004 \001(\010\"\016\n\014FollowEndReq\"R" +
-      "\n\017FollowEndResNtf\0222\n\004code\030\001 \001(\0162$.com.da" +
-      "fagame.protocol.zjh.ErrorCode\022\013\n\003opt\030\002 \001" +
-      "(\005\"\014\n\nSeeCardReq\"b\n\nSeeCardRes\0222\n\004code\030\001" +
-      " \001(\0162$.com.dafagame.protocol.zjh.ErrorCo" +
-      "de\022\r\n\005cards\030\002 \001(\t\022\021\n\tcardsType\030\003 \001(\005\"\031\n\n" +
-      "SeeCardNtf\022\013\n\003opt\030\001 \002(\005\"\033\n\nCompareReq\022\r\n" +
-      "\005other\030\001 \002(\005\"\241\001\n\rCompareResNtf\0222\n\004code\030\001" +
-      " \001(\0162$.com.dafagame.protocol.zjh.ErrorCo" +
-      "de\022\013\n\003opt\030\002 \001(\005\022\r\n\005other\030\003 \001(\005\022\017\n\007betChi",
-      "p\030\004 \001(\t\022\016\n\006winner\030\005 \001(\005\022\014\n\004time\030\006 \001(\003\022\021\n" +
-      "\trealCount\030\007 \001(\005\"\013\n\tGiveUpReq\"p\n\014GiveUpR" +
-      "esNtf\0222\n\004code\030\001 \001(\0162$.com.dafagame.proto" +
-      "col.zjh.ErrorCode\022\013\n\003opt\030\002 \001(\005\022\014\n\004ring\030\003" +
-      " \001(\005\022\021\n\trealCount\030\004 \001(\005\"\t\n\007StudReq\"\233\001\n\nS" +
-      "tudResNtf\0222\n\004code\030\001 \001(\0162$.com.dafagame.p" +
-      "rotocol.zjh.ErrorCode\022\013\n\003opt\030\002 \001(\005\022\017\n\007ne" +
-      "xtOpt\030\003 \001(\005\022\017\n\007betChip\030\004 \001(\t\022\014\n\004time\030\005 \001" +
-      "(\003\022\014\n\004ring\030\006 \001(\005\022\016\n\006isDark\030\007 \001(\010\"\n\n\010AllI" +
-      "nReq\"m\n\013AllInResNtf\0222\n\004code\030\001 \001(\0162$.com.",
-      "dafagame.protocol.zjh.ErrorCode\022\013\n\003opt\030\002" +
-      " \001(\005\022\014\n\004ring\030\003 \001(\005\022\017\n\007betChip\030\004 \001(\t\"\034\n\nO" +
-      "ffLineNtf\022\016\n\006seatId\030\001 \001(\005\"\036\n\014ReConnectNt" +
-      "f\022\016\n\006seatId\030\001 \002(\005\"1\n\021OffLineWaitingNtf\022\016" +
-      "\n\006seatId\030\001 \001(\005\022\014\n\004time\030\002 \001(\003\" \n\020Waitting" +
-      "StartNtf\022\014\n\004time\030\001 \001(\003\"\214\001\n\013GameOverNtf\022\016" +
-      "\n\006winner\030\001 \001(\005\022\024\n\014returnAmount\030\002 \001(\t\022\017\n\007" +
-      "balance\030\003 \001(\t\022\r\n\005cards\030\004 \003(\t\022\021\n\tcardsTyp" +
-      "e\030\005 \003(\005\022\020\n\010overSeat\030\006 \001(\005\022\022\n\noverAmount\030" +
-      "\007 \001(\t\"\017\n\rFollowStudReq\">\n\020FollowStudResN",
-      "tf\022\013\n\003opt\030\001 \001(\005\022\017\n\007betChip\030\002 \001(\t\022\014\n\004ring" +
-      "\030\003 \001(\005\"\211\001\n\020SystemCompareNtf\022\016\n\006winner\030\001 " +
-      "\001(\005\0224\n\004info\030\002 \003(\0132&.com.dafagame.protoco" +
-      "l.zjh.CompareInfo\022\016\n\006isOver\030\003 \001(\010\022\014\n\004tim" +
-      "e\030\004 \001(\003\022\021\n\trealCount\030\005 \001(\005\"9\n\013CompareInf" +
-      "o\022\013\n\003opt\030\001 \001(\005\022\r\n\005other\030\002 \001(\005\022\016\n\006winner\030" +
-      "\003 \001(\005\"\023\n\021CleanFollowEndReq\"W\n\024CleanFollo" +
-      "wEndResNtf\022\013\n\003opt\030\001 \001(\005\0222\n\004code\030\002 \001(\0162$." +
-      "com.dafagame.protocol.zjh.ErrorCode\"8\n\rN" +
-      "extActionNtf\022\013\n\003opt\030\001 \001(\005\022\014\n\004time\030\002 \001(\003\022",
-      "\014\n\004ring\030\003 \001(\005\" \n\017GameMaintainNtf\022\r\n\005stat" +
-      "e\030\001 \001(\005\"\036\n\tScenesReq\022\021\n\troundType\030\001 \002(\t\"" +
-      "\r\n\013GameRuleReq\"\036\n\013GameRuleRes\022\017\n\007service" +
-      "\030\001 \001(\001*\024\n\010GameType\022\010\n\003ZJH\020\311\001*K\n\006Status\022\010" +
-      "\n\004Idel\020\001\022\020\n\014StartWaiting\020\002\022\013\n\007Playing\020\003\022" +
-      "\013\n\007Lottery\020\004\022\013\n\007Compare\020\005*1\n\014PlayerStatu" +
-      "s\022\r\n\tBystander\020\001\022\010\n\004Play\020\002\022\010\n\004Lose\020\003*h\n\t" +
-      "PokerType\022\r\n\tER_SAN_WU\020\000\022\014\n\010DAN_ZHAN\020\001\022\n" +
-      "\n\006DUI_ZI\020\002\022\013\n\007SHUN_ZI\020\003\022\013\n\007JIN_HUA\020\004\022\014\n\010" +
-      "SHUN_JIN\020\005\022\n\n\006BAO_ZI\020\006*\372\006\n\tProtoType\022\026\n\020",
-      "FollowEndReqType\020\205\235\001\022\031\n\023FollowEndResNtfT" +
-      "ype\020\214\235\001\022\020\n\nBetReqType\020\206\235\001\022\023\n\rBetResNtfTy" +
-      "pe\020\215\235\001\022\024\n\016SeeCardReqType\020\207\235\001\022\024\n\016SeeCardR" +
-      "esType\020\216\235\001\022\024\n\016SeeCardNtfType\020\227\235\001\022\024\n\016Comp" +
-      "areReqType\020\210\235\001\022\027\n\021CompareResNtfType\020\217\235\001\022" +
-      "\023\n\rGiveUpReqType\020\211\235\001\022\026\n\020GiveUpResNtfType" +
-      "\020\220\235\001\022\021\n\013StudReqType\020\212\235\001\022\024\n\016StudResNtfTyp" +
-      "e\020\221\235\001\022\022\n\014AllInReqType\020\213\235\001\022\025\n\017AllInResNtf" +
-      "Type\020\222\235\001\022\026\n\020StartGameNtfType\020\223\235\001\022\026\n\020Ente" +
-      "rRoomNtfType\020\224\235\001\022\025\n\017ExitRoomNtfType\020\225\235\001\022",
-      "\024\n\016ScenesDataType\020\226\235\001\022\024\n\016OffLineNtfType\020" +
-      "\230\235\001\022\026\n\020ReConnectNtfType\020\231\235\001\022\033\n\025OffLineWa" +
-      "itingNtfType\020\232\235\001\022\025\n\017IdelGameNtfType\020\233\235\001\022" +
-      "\032\n\024WaittingStartNtfType\020\234\235\001\022\027\n\021FollowStu" +
-      "dReqType\020\235\235\001\022\032\n\024FollowStudResNtfType\020\236\235\001" +
-      "\022\032\n\024SystemCompareNtfType\020\237\235\001\022\033\n\025CleanFol" +
-      "lowEndReqType\020\240\235\001\022\036\n\030CleanFollowEndResNt" +
-      "fType\020\241\235\001\022\027\n\021NextActionNtfType\020\242\235\001\022\025\n\017Ga" +
-      "meOverNtfType\020\243\235\001\022\031\n\023GameMaintainNtfType" +
-      "\020\244\235\001\022\022\n\014RobotMsgType\020\245\235\001\022\026\n\020RobotExitMsg",
-      "Type\020\246\235\001\022\023\n\rScenesReqType\020\247\235\001\022\025\n\017GameRul" +
-      "eReqType\020\250\235\001\022\025\n\017GameRuleResType\020\251\235\001*\206\001\n\t" +
-      "ErrorCode\022\006\n\002OK\020\001\022\r\n\tChipError\020\002\022\020\n\014NotO" +
-      "ptPlayer\020\003\022\020\n\014NotInPlaying\020\004\022\024\n\020NotEnoug" +
-      "hBalance\020\005\022\030\n\024FirstRingCantCompare\020\006\022\016\n\n" +
-      "NonePlayer\020\007"
+      ".PlayerInfo\022\016\n\006banker\030\017 \001(\005\022\022\n\nmaxOptTim" +
+      "e\030\020 \001(\005\022\021\n\tstudeSeat\030\021 \001(\005\"l\n\014StartGameN" +
+      "tf\022\013\n\003opt\030\001 \001(\005\022\023\n\013gamePlayers\030\002 \003(\005\022\014\n\004" +
+      "time\030\003 \001(\003\022\016\n\006inning\030\004 \001(\t\022\016\n\006banker\030\005 \001" +
+      "(\005\022\014\n\004kill\030\006 \001(\010\"H\n\010RobotMsg\022\r\n\005cards\030\001 " +
+      "\003(\005\022\023\n\013gamePlayers\030\002 \003(\005\022\n\n\002cs\030\003 \001(\t\022\014\n\004" +
+      "real\030\004 \003(\005\"\231\001\n\014RobotExitMsg\022\021\n\troundType" +
+      "\030\001 \001(\t\022\022\n\nroomNumber\030\002 \001(\t\022\017\n\007isExtra\030\003 " +
+      "\001(\010\022\022\n\nisMaintain\030\004 \001(\010\022\021\n\trealCount\030\005 \001" +
+      "(\005\022\023\n\013playerCount\030\006 \001(\005\022\025\n\risMatchPlayer",
+      "\030\007 \001(\010\"\r\n\013IdelGameNtf\"\240\002\n\nPlayerInfo\022\016\n\006" +
+      "seatId\030\001 \001(\005\022\r\n\005grade\030\002 \001(\005\022\020\n\010nickName\030" +
+      "\003 \001(\t\022\016\n\006avatar\030\004 \001(\005\022\017\n\007balance\030\005 \001(\t\0227" +
+      "\n\006status\030\006 \001(\0162\'.com.dafagame.protocol.z" +
+      "jh.PlayerStatus\022\r\n\005frame\030\007 \001(\005\022\020\n\010totalB" +
+      "et\030\010 \001(\t\022\021\n\tisOffLine\030\t \001(\010\022\016\n\006isDark\030\n " +
+      "\001(\010\022\r\n\005cards\030\013 \001(\t\022\021\n\tcardsType\030\014 \001(\005\022\014\n" +
+      "\004type\030\r \001(\005\022\023\n\013isFollowEnd\030\016 \001(\010\"E\n\014Ente" +
+      "rRoomNtf\0225\n\006player\030\001 \001(\0132%.com.dafagame." +
+      "protocol.zjh.PlayerInfo\"\035\n\013ExitRoomNtf\022\016",
+      "\n\006seatId\030\001 \001(\005\"\026\n\006BetReq\022\014\n\004chip\030\001 \002(\t\"m" +
+      "\n\tBetResNtf\0222\n\004code\030\001 \001(\0162$.com.dafagame" +
+      ".protocol.zjh.ErrorCode\022\013\n\003opt\030\002 \001(\005\022\017\n\007" +
+      "betChip\030\003 \001(\t\022\016\n\006isDark\030\004 \001(\010\"\016\n\014FollowE" +
+      "ndReq\"R\n\017FollowEndResNtf\0222\n\004code\030\001 \001(\0162$" +
+      ".com.dafagame.protocol.zjh.ErrorCode\022\013\n\003" +
+      "opt\030\002 \001(\005\"\014\n\nSeeCardReq\"s\n\nSeeCardRes\0222\n" +
+      "\004code\030\001 \001(\0162$.com.dafagame.protocol.zjh." +
+      "ErrorCode\022\r\n\005cards\030\002 \001(\t\022\021\n\tcardsType\030\003 " +
+      "\001(\005\022\017\n\007seeCard\030\004 \001(\010\"\031\n\nSeeCardNtf\022\013\n\003op",
+      "t\030\001 \002(\005\"\033\n\nCompareReq\022\r\n\005other\030\001 \002(\005\"\241\001\n" +
+      "\rCompareResNtf\0222\n\004code\030\001 \001(\0162$.com.dafag" +
+      "ame.protocol.zjh.ErrorCode\022\013\n\003opt\030\002 \001(\005\022" +
+      "\r\n\005other\030\003 \001(\005\022\017\n\007betChip\030\004 \001(\t\022\016\n\006winne" +
+      "r\030\005 \001(\005\022\014\n\004time\030\006 \001(\003\022\021\n\trealCount\030\007 \001(\005" +
+      "\"\013\n\tGiveUpReq\"p\n\014GiveUpResNtf\0222\n\004code\030\001 " +
+      "\001(\0162$.com.dafagame.protocol.zjh.ErrorCod" +
+      "e\022\013\n\003opt\030\002 \001(\005\022\014\n\004ring\030\003 \001(\005\022\021\n\trealCoun" +
+      "t\030\004 \001(\005\"\t\n\007StudReq\"\233\001\n\nStudResNtf\0222\n\004cod" +
+      "e\030\001 \001(\0162$.com.dafagame.protocol.zjh.Erro",
+      "rCode\022\013\n\003opt\030\002 \001(\005\022\017\n\007nextOpt\030\003 \001(\005\022\017\n\007b" +
+      "etChip\030\004 \001(\t\022\014\n\004time\030\005 \001(\003\022\014\n\004ring\030\006 \001(\005" +
+      "\022\016\n\006isDark\030\007 \001(\010\"\n\n\010AllInReq\"m\n\013AllInRes" +
+      "Ntf\0222\n\004code\030\001 \001(\0162$.com.dafagame.protoco" +
+      "l.zjh.ErrorCode\022\013\n\003opt\030\002 \001(\005\022\014\n\004ring\030\003 \001" +
+      "(\005\022\017\n\007betChip\030\004 \001(\t\"\034\n\nOffLineNtf\022\016\n\006sea" +
+      "tId\030\001 \001(\005\"\036\n\014ReConnectNtf\022\016\n\006seatId\030\001 \002(" +
+      "\005\"1\n\021OffLineWaitingNtf\022\016\n\006seatId\030\001 \001(\005\022\014" +
+      "\n\004time\030\002 \001(\003\" \n\020WaittingStartNtf\022\014\n\004time" +
+      "\030\001 \001(\003\"\236\001\n\013GameOverNtf\022\016\n\006winner\030\001 \001(\005\022\024",
+      "\n\014returnAmount\030\002 \001(\t\022\017\n\007balance\030\003 \001(\t\022\r\n" +
+      "\005cards\030\004 \003(\t\022\021\n\tcardsType\030\005 \003(\005\022\020\n\010overS" +
+      "eat\030\006 \001(\005\022\022\n\noverAmount\030\007 \001(\t\022\020\n\010compare" +
+      "d\030\010 \001(\t\"\017\n\rFollowStudReq\">\n\020FollowStudRe" +
+      "sNtf\022\013\n\003opt\030\001 \001(\005\022\017\n\007betChip\030\002 \001(\t\022\014\n\004ri" +
+      "ng\030\003 \001(\005\"\211\001\n\020SystemCompareNtf\022\016\n\006winner\030" +
+      "\001 \001(\005\0224\n\004info\030\002 \003(\0132&.com.dafagame.proto" +
+      "col.zjh.CompareInfo\022\016\n\006isOver\030\003 \001(\010\022\014\n\004t" +
+      "ime\030\004 \001(\003\022\021\n\trealCount\030\005 \001(\005\"9\n\013CompareI" +
+      "nfo\022\013\n\003opt\030\001 \001(\005\022\r\n\005other\030\002 \001(\005\022\016\n\006winne",
+      "r\030\003 \001(\005\"\023\n\021CleanFollowEndReq\"W\n\024CleanFol" +
+      "lowEndResNtf\022\013\n\003opt\030\001 \001(\005\0222\n\004code\030\002 \001(\0162" +
+      "$.com.dafagame.protocol.zjh.ErrorCode\"8\n" +
+      "\rNextActionNtf\022\013\n\003opt\030\001 \001(\005\022\014\n\004time\030\002 \001(" +
+      "\003\022\014\n\004ring\030\003 \001(\005\" \n\017GameMaintainNtf\022\r\n\005st" +
+      "ate\030\001 \001(\005\"\036\n\tScenesReq\022\021\n\troundType\030\001 \002(" +
+      "\t\"\r\n\013GameRuleReq\"\036\n\013GameRuleRes\022\017\n\007servi" +
+      "ce\030\001 \001(\001*\024\n\010GameType\022\010\n\003ZJH\020\311\001*K\n\006Status" +
+      "\022\010\n\004Idel\020\001\022\020\n\014StartWaiting\020\002\022\013\n\007Playing\020" +
+      "\003\022\013\n\007Lottery\020\004\022\013\n\007Compare\020\005*<\n\014PlayerSta",
+      "tus\022\r\n\tBystander\020\001\022\010\n\004Play\020\002\022\010\n\004Lose\020\003\022\t" +
+      "\n\005CLose\020\004*h\n\tPokerType\022\r\n\tER_SAN_WU\020\000\022\014\n" +
+      "\010DAN_ZHAN\020\001\022\n\n\006DUI_ZI\020\002\022\013\n\007SHUN_ZI\020\003\022\013\n\007" +
+      "JIN_HUA\020\004\022\014\n\010SHUN_JIN\020\005\022\n\n\006BAO_ZI\020\006*\372\006\n\t" +
+      "ProtoType\022\026\n\020FollowEndReqType\020\205\235\001\022\031\n\023Fol" +
+      "lowEndResNtfType\020\214\235\001\022\020\n\nBetReqType\020\206\235\001\022\023" +
+      "\n\rBetResNtfType\020\215\235\001\022\024\n\016SeeCardReqType\020\207\235" +
+      "\001\022\024\n\016SeeCardResType\020\216\235\001\022\024\n\016SeeCardNtfTyp" +
+      "e\020\227\235\001\022\024\n\016CompareReqType\020\210\235\001\022\027\n\021CompareRe" +
+      "sNtfType\020\217\235\001\022\023\n\rGiveUpReqType\020\211\235\001\022\026\n\020Giv",
+      "eUpResNtfType\020\220\235\001\022\021\n\013StudReqType\020\212\235\001\022\024\n\016" +
+      "StudResNtfType\020\221\235\001\022\022\n\014AllInReqType\020\213\235\001\022\025" +
+      "\n\017AllInResNtfType\020\222\235\001\022\026\n\020StartGameNtfTyp" +
+      "e\020\223\235\001\022\026\n\020EnterRoomNtfType\020\224\235\001\022\025\n\017ExitRoo" +
+      "mNtfType\020\225\235\001\022\024\n\016ScenesDataType\020\226\235\001\022\024\n\016Of" +
+      "fLineNtfType\020\230\235\001\022\026\n\020ReConnectNtfType\020\231\235\001" +
+      "\022\033\n\025OffLineWaitingNtfType\020\232\235\001\022\025\n\017IdelGam" +
+      "eNtfType\020\233\235\001\022\032\n\024WaittingStartNtfType\020\234\235\001" +
+      "\022\027\n\021FollowStudReqType\020\235\235\001\022\032\n\024FollowStudR" +
+      "esNtfType\020\236\235\001\022\032\n\024SystemCompareNtfType\020\237\235",
+      "\001\022\033\n\025CleanFollowEndReqType\020\240\235\001\022\036\n\030CleanF" +
+      "ollowEndResNtfType\020\241\235\001\022\027\n\021NextActionNtfT" +
+      "ype\020\242\235\001\022\025\n\017GameOverNtfType\020\243\235\001\022\031\n\023GameMa" +
+      "intainNtfType\020\244\235\001\022\022\n\014RobotMsgType\020\245\235\001\022\026\n" +
+      "\020RobotExitMsgType\020\246\235\001\022\023\n\rScenesReqType\020\247" +
+      "\235\001\022\025\n\017GameRuleReqType\020\250\235\001\022\025\n\017GameRuleRes" +
+      "Type\020\251\235\001*\206\001\n\tErrorCode\022\006\n\002OK\020\001\022\r\n\tChipEr" +
+      "ror\020\002\022\020\n\014NotOptPlayer\020\003\022\020\n\014NotInPlaying\020" +
+      "\004\022\024\n\020NotEnoughBalance\020\005\022\030\n\024FirstRingCant" +
+      "Compare\020\006\022\016\n\nNonePlayer\020\007"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -32507,235 +33595,235 @@ public final class Zjh {
     internal_static_com_dafagame_protocol_zjh_ScenesData_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_ScenesData_descriptor,
-        new java.lang.String[] { "AddChipEnum", "BaseChip", "Ring", "Others", "Opt", "OptTime", "RoomNumber", "Inning", "RoomStatus", "RoomPreBet", "RoomPreDark", "RoundType", "MaxRing", "Own", "Banker", });
+        new String[] { "AddChipEnum", "BaseChip", "Ring", "Others", "Opt", "OptTime", "RoomNumber", "Inning", "RoomStatus", "RoomPreBet", "RoomPreDark", "RoundType", "MaxRing", "Own", "Banker", "MaxOptTime", "StudeSeat", });
     internal_static_com_dafagame_protocol_zjh_StartGameNtf_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_com_dafagame_protocol_zjh_StartGameNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_StartGameNtf_descriptor,
-        new java.lang.String[] { "Opt", "GamePlayers", "Time", "Inning", });
+        new String[] { "Opt", "GamePlayers", "Time", "Inning", "Banker", "Kill", });
     internal_static_com_dafagame_protocol_zjh_RobotMsg_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_dafagame_protocol_zjh_RobotMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_RobotMsg_descriptor,
-        new java.lang.String[] { "Cards", "GamePlayers", "Cs", });
+        new String[] { "Cards", "GamePlayers", "Cs", "Real", });
     internal_static_com_dafagame_protocol_zjh_RobotExitMsg_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_com_dafagame_protocol_zjh_RobotExitMsg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_RobotExitMsg_descriptor,
-        new java.lang.String[] { "RoundType", "RoomNumber", "IsExtra", "IsMaintain", "RealCount", "PlayerCount", });
+        new String[] { "RoundType", "RoomNumber", "IsExtra", "IsMaintain", "RealCount", "PlayerCount", "IsMatchPlayer", });
     internal_static_com_dafagame_protocol_zjh_IdelGameNtf_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_com_dafagame_protocol_zjh_IdelGameNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_IdelGameNtf_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_dafagame_protocol_zjh_PlayerInfo_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_com_dafagame_protocol_zjh_PlayerInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_PlayerInfo_descriptor,
-        new java.lang.String[] { "SeatId", "Grade", "NickName", "Avatar", "Balance", "Status", "Frame", "TotalBet", "IsOffLine", "IsDark", "Cards", "CardsType", "Type", });
+        new String[] { "SeatId", "Grade", "NickName", "Avatar", "Balance", "Status", "Frame", "TotalBet", "IsOffLine", "IsDark", "Cards", "CardsType", "Type", "IsFollowEnd", });
     internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_EnterRoomNtf_descriptor,
-        new java.lang.String[] { "Player", });
+        new String[] { "Player", });
     internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_ExitRoomNtf_descriptor,
-        new java.lang.String[] { "SeatId", });
+        new String[] { "SeatId", });
     internal_static_com_dafagame_protocol_zjh_BetReq_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_com_dafagame_protocol_zjh_BetReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_BetReq_descriptor,
-        new java.lang.String[] { "Chip", });
+        new String[] { "Chip", });
     internal_static_com_dafagame_protocol_zjh_BetResNtf_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_com_dafagame_protocol_zjh_BetResNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_BetResNtf_descriptor,
-        new java.lang.String[] { "Code", "Opt", "BetChip", "IsDark", });
+        new String[] { "Code", "Opt", "BetChip", "IsDark", });
     internal_static_com_dafagame_protocol_zjh_FollowEndReq_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_com_dafagame_protocol_zjh_FollowEndReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_FollowEndReq_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_FollowEndResNtf_descriptor,
-        new java.lang.String[] { "Code", "Opt", });
+        new String[] { "Code", "Opt", });
     internal_static_com_dafagame_protocol_zjh_SeeCardReq_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_com_dafagame_protocol_zjh_SeeCardReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_SeeCardReq_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_dafagame_protocol_zjh_SeeCardRes_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_com_dafagame_protocol_zjh_SeeCardRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_SeeCardRes_descriptor,
-        new java.lang.String[] { "Code", "Cards", "CardsType", });
+        new String[] { "Code", "Cards", "CardsType", "SeeCard", });
     internal_static_com_dafagame_protocol_zjh_SeeCardNtf_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_com_dafagame_protocol_zjh_SeeCardNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_SeeCardNtf_descriptor,
-        new java.lang.String[] { "Opt", });
+        new String[] { "Opt", });
     internal_static_com_dafagame_protocol_zjh_CompareReq_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_com_dafagame_protocol_zjh_CompareReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_CompareReq_descriptor,
-        new java.lang.String[] { "Other", });
+        new String[] { "Other", });
     internal_static_com_dafagame_protocol_zjh_CompareResNtf_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_com_dafagame_protocol_zjh_CompareResNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_CompareResNtf_descriptor,
-        new java.lang.String[] { "Code", "Opt", "Other", "BetChip", "Winner", "Time", "RealCount", });
+        new String[] { "Code", "Opt", "Other", "BetChip", "Winner", "Time", "RealCount", });
     internal_static_com_dafagame_protocol_zjh_GiveUpReq_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_com_dafagame_protocol_zjh_GiveUpReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_GiveUpReq_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_descriptor =
       getDescriptor().getMessageTypes().get(18);
     internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_GiveUpResNtf_descriptor,
-        new java.lang.String[] { "Code", "Opt", "Ring", "RealCount", });
+        new String[] { "Code", "Opt", "Ring", "RealCount", });
     internal_static_com_dafagame_protocol_zjh_StudReq_descriptor =
       getDescriptor().getMessageTypes().get(19);
     internal_static_com_dafagame_protocol_zjh_StudReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_StudReq_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_dafagame_protocol_zjh_StudResNtf_descriptor =
       getDescriptor().getMessageTypes().get(20);
     internal_static_com_dafagame_protocol_zjh_StudResNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_StudResNtf_descriptor,
-        new java.lang.String[] { "Code", "Opt", "NextOpt", "BetChip", "Time", "Ring", "IsDark", });
+        new String[] { "Code", "Opt", "NextOpt", "BetChip", "Time", "Ring", "IsDark", });
     internal_static_com_dafagame_protocol_zjh_AllInReq_descriptor =
       getDescriptor().getMessageTypes().get(21);
     internal_static_com_dafagame_protocol_zjh_AllInReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_AllInReq_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_dafagame_protocol_zjh_AllInResNtf_descriptor =
       getDescriptor().getMessageTypes().get(22);
     internal_static_com_dafagame_protocol_zjh_AllInResNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_AllInResNtf_descriptor,
-        new java.lang.String[] { "Code", "Opt", "Ring", "BetChip", });
+        new String[] { "Code", "Opt", "Ring", "BetChip", });
     internal_static_com_dafagame_protocol_zjh_OffLineNtf_descriptor =
       getDescriptor().getMessageTypes().get(23);
     internal_static_com_dafagame_protocol_zjh_OffLineNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_OffLineNtf_descriptor,
-        new java.lang.String[] { "SeatId", });
+        new String[] { "SeatId", });
     internal_static_com_dafagame_protocol_zjh_ReConnectNtf_descriptor =
       getDescriptor().getMessageTypes().get(24);
     internal_static_com_dafagame_protocol_zjh_ReConnectNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_ReConnectNtf_descriptor,
-        new java.lang.String[] { "SeatId", });
+        new String[] { "SeatId", });
     internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_descriptor =
       getDescriptor().getMessageTypes().get(25);
     internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_OffLineWaitingNtf_descriptor,
-        new java.lang.String[] { "SeatId", "Time", });
+        new String[] { "SeatId", "Time", });
     internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_descriptor =
       getDescriptor().getMessageTypes().get(26);
     internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_WaittingStartNtf_descriptor,
-        new java.lang.String[] { "Time", });
+        new String[] { "Time", });
     internal_static_com_dafagame_protocol_zjh_GameOverNtf_descriptor =
       getDescriptor().getMessageTypes().get(27);
     internal_static_com_dafagame_protocol_zjh_GameOverNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_GameOverNtf_descriptor,
-        new java.lang.String[] { "Winner", "ReturnAmount", "Balance", "Cards", "CardsType", "OverSeat", "OverAmount", });
+        new String[] { "Winner", "ReturnAmount", "Balance", "Cards", "CardsType", "OverSeat", "OverAmount", "Compared", });
     internal_static_com_dafagame_protocol_zjh_FollowStudReq_descriptor =
       getDescriptor().getMessageTypes().get(28);
     internal_static_com_dafagame_protocol_zjh_FollowStudReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_FollowStudReq_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_descriptor =
       getDescriptor().getMessageTypes().get(29);
     internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_FollowStudResNtf_descriptor,
-        new java.lang.String[] { "Opt", "BetChip", "Ring", });
+        new String[] { "Opt", "BetChip", "Ring", });
     internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_descriptor =
       getDescriptor().getMessageTypes().get(30);
     internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_SystemCompareNtf_descriptor,
-        new java.lang.String[] { "Winner", "Info", "IsOver", "Time", "RealCount", });
+        new String[] { "Winner", "Info", "IsOver", "Time", "RealCount", });
     internal_static_com_dafagame_protocol_zjh_CompareInfo_descriptor =
       getDescriptor().getMessageTypes().get(31);
     internal_static_com_dafagame_protocol_zjh_CompareInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_CompareInfo_descriptor,
-        new java.lang.String[] { "Opt", "Other", "Winner", });
+        new String[] { "Opt", "Other", "Winner", });
     internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_descriptor =
       getDescriptor().getMessageTypes().get(32);
     internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_CleanFollowEndReq_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_descriptor =
       getDescriptor().getMessageTypes().get(33);
     internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_CleanFollowEndResNtf_descriptor,
-        new java.lang.String[] { "Opt", "Code", });
+        new String[] { "Opt", "Code", });
     internal_static_com_dafagame_protocol_zjh_NextActionNtf_descriptor =
       getDescriptor().getMessageTypes().get(34);
     internal_static_com_dafagame_protocol_zjh_NextActionNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_NextActionNtf_descriptor,
-        new java.lang.String[] { "Opt", "Time", "Ring", });
+        new String[] { "Opt", "Time", "Ring", });
     internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_descriptor =
       getDescriptor().getMessageTypes().get(35);
     internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_GameMaintainNtf_descriptor,
-        new java.lang.String[] { "State", });
+        new String[] { "State", });
     internal_static_com_dafagame_protocol_zjh_ScenesReq_descriptor =
       getDescriptor().getMessageTypes().get(36);
     internal_static_com_dafagame_protocol_zjh_ScenesReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_ScenesReq_descriptor,
-        new java.lang.String[] { "RoundType", });
+        new String[] { "RoundType", });
     internal_static_com_dafagame_protocol_zjh_GameRuleReq_descriptor =
       getDescriptor().getMessageTypes().get(37);
     internal_static_com_dafagame_protocol_zjh_GameRuleReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_GameRuleReq_descriptor,
-        new java.lang.String[] { });
+        new String[] { });
     internal_static_com_dafagame_protocol_zjh_GameRuleRes_descriptor =
       getDescriptor().getMessageTypes().get(38);
     internal_static_com_dafagame_protocol_zjh_GameRuleRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_zjh_GameRuleRes_descriptor,
-        new java.lang.String[] { "Service", });
+        new String[] { "Service", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

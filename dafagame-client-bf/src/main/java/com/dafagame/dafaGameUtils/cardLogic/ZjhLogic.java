@@ -1,5 +1,9 @@
 package com.dafagame.dafaGameUtils.cardLogic;
 
+import com.dafagame.dafaGameUtils.cardLogic.ZjhCard;
+import com.dafagame.dafaGameUtils.cardLogic.ZjhCards;
+import com.dafagame.dafaGameUtils.cardLogic.ZjhCardsType;
+import com.dafagame.dafaGameUtils.cardLogic.ZjhCardsTypeGetter;
 import com.dafagame.utils.RandomUtil;
 
 import java.util.ArrayList;
@@ -8,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class ZjhLogic {
-    public static List<Integer> cardsTypePro = Arrays.asList(755, 905, 975, 995, 997, 1000);
+    public static List<Integer> cardsTypePro = Arrays.asList(650, 865, 965, 995, 997, 1000);
 
     public static List<ZjhCard> lotter() {
         List<ZjhCard> cards = new ArrayList<>(Arrays.asList(ZjhCard.values()));
@@ -23,39 +27,49 @@ public class ZjhLogic {
         List<ZjhCard> cards = new ArrayList<>(Arrays.asList(ZjhCard.values()));
 
         List<Integer> cardType = new ArrayList<>();
+//        for (int i = 0; i < 5; ++i){
+//            cardType.add(4);
+//        }
 
-        for (; ; ) {
-            int goodCount = 0;
-            for (int i = 0; i < robotCount + realCount; ++i) {
-                int pro = RandomUtil.random(1000);
-                //System.out.println("pro:" + pro);
-                for (int j = 0; j < cardsTypePro.size(); ++j) {
-                    if (pro < cardsTypePro.get(j)) {
+        if (isKill) {
+            for (int i = 0; i < realCount + 1; ++i) {
+                int pro = RandomUtil.random(650, 1000);
+                for (int j = 1; j < cardsTypePro.size(); ++j) {
+                    if (pro <= cardsTypePro.get(j)) {
                         cardType.add(j);
-                        if (j > 0) {
-                            ++goodCount;
-                        }
                         break;
                     }
                 }
             }
-            //System.out.println("-----------------------");
-            if (!isKill || goodCount > realCount + 1) {
-                //System.out.println("goodCount:" + goodCount + ",realCount:" + realCount);
-                break;
+            if (robotCount - 1 > 0) {
+                for (int i = 0; i < robotCount - 1; ++i) {
+                    int pro = RandomUtil.random(1000);
+                    for (int j = 0; j < cardsTypePro.size(); ++j) {
+                        if (pro < cardsTypePro.get(j)) {
+                            cardType.add(j);
+                            break;
+                        }
+                    }
+                }
             }
-            cardType.clear();
+        } else {
+            for (int i = 0; i < robotCount + realCount; ++i) {
+                int pro = RandomUtil.random(1000);
+                for (int j = 0; j < cardsTypePro.size(); ++j) {
+                    if (pro < cardsTypePro.get(j)) {
+                        cardType.add(j);
+                        break;
+                    }
+                }
+            }
         }
-        cardType.clear();
-        cardType.add(3);cardType.add(2);cardType.add(1);cardType.add(0);cardType.add(0);
-        System.out.println(cardType);
+
         cardType.sort((a, b) -> {
             if (!b.equals(a)) {
                 return b > a ? 1 : -1;
             }
             return 0;
         });
-
         List<ZjhCards> sendCards = new ArrayList<>();
         List<ZjhCard> needCards;
         for (int i : cardType) {
@@ -86,9 +100,11 @@ public class ZjhLogic {
                     needCards = new ArrayList<>();
                     break;
             }
+
             cards.removeAll(needCards);
             sendCards.add(new ZjhCards(needCards));
         }
+
         return sendCards;
     }
 
@@ -108,10 +124,10 @@ public class ZjhLogic {
         return resultList;
     }
 
-    public static List<ZjhCard> getShunZhi(List<ZjhCard> cards){
+    public static List<ZjhCard> getShunZhi(List<ZjhCard> cards) {
         List<ZjhCard> resultList = new ArrayList<>();
 
-        for (int i = 0; i < 200; ++i){
+        for (int i = 0; i < 200; ++i) {
             ZjhCard c0 = cards.get(RandomUtil.random(cards.size()));
 
             List<CardSuit> suits = new ArrayList<>(Arrays.asList(CardSuit.values()));
@@ -124,43 +140,43 @@ public class ZjhLogic {
 
             Collections.shuffle(suits);
 
-            for (CardSuit suit : suits){
+            for (CardSuit suit : suits) {
                 int index;
-                if(f){
+                if (f) {
                     index = (c0.ordinal() + 1) % 13 + (suit.ordinal() * 13);
-                }else {
+                } else {
                     int o = (c0.ordinal() - 1) < 0 ? 51 : (c0.ordinal() - 1);
                     index = o % 13 + (suit.ordinal() * 13);
                 }
                 ZjhCard f1 = ZjhCard.values()[index];
-                if(cards.contains(f1)){
+                if (cards.contains(f1)) {
                     c1 = f1;
                     break;
                 }
             }
 
-            if(c1 == null){
+            if (c1 == null) {
                 continue;
             }
 
             Collections.shuffle(suits);
 
-            for (CardSuit suit : suits){
+            for (CardSuit suit : suits) {
                 int index;
-                if(f){
+                if (f) {
                     index = (c0.ordinal() + 2) % 13 + (suit.ordinal() * 13);
-                }else {
+                } else {
                     int o = (c0.ordinal() - 2) < 0 ? 50 : (c0.ordinal() - 2);
                     index = o % 13 + (suit.ordinal() * 13);
                 }
                 ZjhCard f2 = ZjhCard.values()[index];
-                if(cards.contains(f2)){
+                if (cards.contains(f2)) {
                     c2 = f2;
                     break;
                 }
             }
 
-            if(c2 == null){
+            if (c2 == null) {
                 continue;
             }
 
@@ -168,15 +184,13 @@ public class ZjhLogic {
             resultList.add(c1);
             resultList.add(c2);
 
-            if(new ZjhCards(resultList).type!=ZjhCardsType.SHUN_ZI){
-                resultList.clear();
-                continue;
+            if (ZjhCardsTypeGetter.isShunZi(resultList)) {
+                break;
             }
-
-            break;
+            resultList.clear();
         }
 
-        if(resultList.isEmpty()){
+        if (resultList.isEmpty()) {
             return RandomUtil.randomList(cards, 3);
         }
 
@@ -296,9 +310,10 @@ public class ZjhLogic {
                 break;
             }
 
-            if (!resultList.isEmpty()) {
+            if (!resultList.isEmpty() && ZjhCardsTypeGetter.isShunJin(resultList)) {
                 break;
             }
+            resultList.clear();
         }
 
         if (resultList.isEmpty()) {
@@ -365,48 +380,48 @@ public class ZjhLogic {
         return resultList;
     }
 
-//    public static void main(String[] args) {
-//
-//        List<ZjhCards> list;
-//        for(int i = 0; i < 100000; ++i) {
-//            list = newLottery(5);
-//           for(ZjhCards c : list){
-//               System.out.print(c.type.name() + ",");
-////               if(c.midCard == c.maxCard || c.midCard == c.minCard){
-////                   System.out.println("error");
-////               }
-//           }
-//
-//            System.out.println(i);
-//        }
-//
-//
-////
-////        ZjhCard card = ZjhCard.FANG_KUAI_A;
-////
-////        int index =  (card.ordinal() + 2) % 13 + (card.type.ordinal() * 13);
-////
-////        int a = (card.ordinal() - 2) < 0 ? 50 : (card.ordinal() - 1);
-////
-////        int b =  a % 13 + (card.type.ordinal() * 13);
-////        ZjhCard z = ZjhCard.values()[b];
-////
-////
-////        Collections.shuffle(cards);
-////        List<ZjhCard> list;
-////        for (int i = 0; i < 100; ++i){
-////            list = getNeedTypeByRand(cards, 0);
-////            System.out.println(list.get(0).name() + "," + list.get(1).name() + "," + list.get(2).name());
-////            cards.removeAll(list);
-////            List<ZjhCard> c = RandomUtil.randomList(cards, 3);
-////            ZjhCardsType t = ZjhCardsTypeGetter.geCardsType(c);
-////            if(t == ZjhCardsType.DUI_ZI){
-////                System.out.println(i);
-////                break;
-////            }
-////        }
-//    }
-
     public static void main(String[] args) {
+
+        List<ZjhCards> list;
+        for (int i = 0; i < 100000; ++i) {
+            list = newLottery(4, 1, true);
+            if (list.size() != 5) {
+                System.out.println(list);
+                break;
+            }
+            for (ZjhCards c : list) {
+                System.out.print(c.type.name() + ",");
+//               if(c.midCard == c.maxCard || c.midCard == c.minCard){
+//                   System.out.println("error");
+//               }
+            }
+            System.out.println(i + "," + list.size());
+        }
+
+
+//
+//        ZjhCard card = ZjhCard.FANG_KUAI_A;
+//
+//        int index =  (card.ordinal() + 2) % 13 + (card.type.ordinal() * 13);
+//
+//        int a = (card.ordinal() - 2) < 0 ? 50 : (card.ordinal() - 1);
+//
+//        int b =  a % 13 + (card.type.ordinal() * 13);
+//        ZjhCard z = ZjhCard.values()[b];
+//
+//
+//        Collections.shuffle(cards);
+//        List<ZjhCard> list;
+//        for (int i = 0; i < 100; ++i){
+//            list = getNeedTypeByRand(cards, 0);
+//            System.out.println(list.get(0).name() + "," + list.get(1).name() + "," + list.get(2).name());
+//            cards.removeAll(list);
+//            List<ZjhCard> c = RandomUtil.randomList(cards, 3);
+//            ZjhCardsType t = ZjhCardsTypeGetter.geCardsType(c);
+//            if(t == ZjhCardsType.DUI_ZI){
+//                System.out.println(i);
+//                break;
+//            }
+//        }
     }
 }

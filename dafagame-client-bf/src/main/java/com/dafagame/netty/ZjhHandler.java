@@ -75,6 +75,8 @@ public class ZjhHandler extends GameHandler {
     private double winAmount = 0;
     private double bettingAmount = 0;
 
+    private boolean iskill;
+
     //private final static ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
     private double ownBalance;
@@ -196,6 +198,7 @@ public class ZjhHandler extends GameHandler {
                         this.startPlayersNum = this.currentPlayersNum;
                         this.compareRing = 0;
                         this.bettingAmount = 0;
+                        this.iskill = startNtfType.getKill();
                         System.out.println("游戏开始通知,玩家数:" + this.currentPlayersNum);
                         System.out.println(
                                 StringBuilders.custom()
@@ -405,7 +408,7 @@ public class ZjhHandler extends GameHandler {
                             winAmount = -(10 + bettingAmount);
                         }
                         //sb.append(this.inning + " - " + this.ring + " - " + this.compareRing + " - slef【" + this.zjhCards + " , " + this.zjhCards.type + "】");
-                        sb.append(this.inning + ";" + this.startPlayersNum + ";" + this.ring + ";" + this.compareRing + ";" + this.zjhCards + ";" + isWin + ";" + winAmount);
+                        sb.append(this.inning + ";" + this.iskill + ";" + this.startPlayersNum + ";" + this.ring + ";" + this.compareRing + ";" + this.zjhCards + ";" + isWin + ";" + winAmount);
                         //for (int i = 0; i < cardsList.size(); i++) {
                         //    List<ZjhCard> zjhCardList0 = new ArrayList<>();
                         //    for (String s : cardsList.get(i).split(",")) {
@@ -416,8 +419,8 @@ public class ZjhHandler extends GameHandler {
                         //}
                         System.out.println(sb.append("\n").toString());
                         this.isInGame = false;
-                        //FileUtil.writeFile("/usr/duke/a.txt", sb.toString(), true);
-                        FileUtil.writeFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/a.txt", sb.toString(), true);
+                        FileUtil.writeFile("/usr/duke/a.txt", sb.toString(), true);
+                        //FileUtil.writeFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/a.txt", sb.toString(), true);
                         break;
 
                     case Zjh.ProtoType.BetResNtfType_VALUE://下注响应/广播
