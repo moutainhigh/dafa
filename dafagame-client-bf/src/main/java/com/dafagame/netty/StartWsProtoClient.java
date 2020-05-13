@@ -172,7 +172,7 @@ public class StartWsProtoClient {
 
         //new StartWsProtoClient("88448162", 201).start();
         List<String> devJessieUsers = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/devJessieUsers.txt"));
-        for (int i = 60; i < 80; i++) {
+        for (int i = 60; i < 61; i++) {
             new StartWsProtoClient(devJessieUsers.get(i), 201).start();
             try {
                 Thread.sleep(1000);

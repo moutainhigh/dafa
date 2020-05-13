@@ -207,6 +207,7 @@ public class ZjhHandler extends GameHandler {
                                         .add("参与游戏的玩家", startNtfType.getGamePlayersList())
                                         .add("操作时间", startNtfType.getTime())
                                         .add("局号", startNtfType.getInning())
+                                        .add("iskill", startNtfType.getKill())
                                         .build()
                         );
                         if (ownSeatId == startNtfType.getOpt()) {
@@ -419,7 +420,7 @@ public class ZjhHandler extends GameHandler {
                         //}
                         System.out.println(sb.append("\n").toString());
                         this.isInGame = false;
-                        FileUtil.writeFile("/usr/duke/a.txt", sb.toString(), true);
+                        //FileUtil.writeFile("/usr/duke/a.txt", sb.toString(), true);
                         //FileUtil.writeFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/a.txt", sb.toString(), true);
                         break;
 
