@@ -64,18 +64,6 @@ public class Login {
     }
 
     /**
-     * 批量登录
-     * 返回List<HttpConfig>
-     */
-    public static List<HttpConfig> loginLoop(List<String> users) {
-        List<HttpConfig> list = new ArrayList<>();
-        for (int i = 0; i < users.size(); i++) {
-            list.add(loginReturnHttpConfig(users.get(i)));
-        }
-        return list;
-    }
-
-    /**
      * 获取 加密后的loginBody
      * 账号需要转小写
      *
@@ -124,8 +112,13 @@ public class Login {
     }
 
 
-    public static void main(String[] args) throws Exception {
-        List<String> users = new ArrayList<>(Arrays.asList("dafai0002", "dafai0003", "dafai0005", "dafai0006"));
-        multithreadingLoglin(users);
+    public static void main(String[] args) {
+        //List<String> users = new ArrayList<>(Arrays.asList("dafai0002", "dafai0003", "dafai0005", "dafai0006"));
+        //multithreadingLoglin(users);
+
+
+
+
+
     }
 }

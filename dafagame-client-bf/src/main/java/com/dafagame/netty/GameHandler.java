@@ -8,5 +8,5 @@ import pers.utils.httpclientUtils.HttpConfig;
 public abstract class GameHandler extends SimpleChannelInboundHandler {
     protected ClientHandshaker handshaker;
     protected String phone;
-    protected HttpConfig httpConfig;
+    //protected HttpConfig httpConfig;
 }

@@ -120,6 +120,10 @@ public class StartWsProtoClient {
     }
 
     public static void main(String[] args) throws Exception {
+
+        for (String s: args) {
+            System.out.println(s);
+        }
         //String phone = "1311234";
         //for (int i = 500; i < 600; i++) {
         //    new StartWsProtoClient(String.format("%s%s", phone, String.format("%04d", i))).start();
@@ -171,15 +175,15 @@ public class StartWsProtoClient {
         //new StartWsProtoClient("47876132", 205).start();
 
         //new StartWsProtoClient("88448162", 201).start();
-        List<String> devJessieUsers = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/devJessieUsers.txt"));
-        for (int i = 60; i < 61; i++) {
-            new StartWsProtoClient(devJessieUsers.get(i), 201).start();
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        //List<String> devJessieUsers = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/devJessieUsers.txt"));
+        //for (int i = 0; i < 1; i++) {
+        //    new StartWsProtoClient(devJessieUsers.get(i), 201).start();
+        //    try {
+        //        Thread.sleep(1000);
+        //    } catch (InterruptedException e) {
+        //        e.printStackTrace();
+        //    }
+        //}
 
         //抢庄牌九
         //new StartWsProtoClient("47876132", 206).start();
