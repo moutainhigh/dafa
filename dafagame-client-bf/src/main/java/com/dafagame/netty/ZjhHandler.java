@@ -41,6 +41,9 @@ public class ZjhHandler extends GameHandler {
     @Getter
     private HttpConfig httpConfig;
 
+    //@Setter
+    //private String roundType;
+
     private int currentPlayersNum = 0; //当前玩家数量
     private int startPlayersNum = 0; //游戏开始时的玩家数量
 
@@ -124,7 +127,7 @@ public class ZjhHandler extends GameHandler {
                             World.EnterGameReq enterGameReq = World.EnterGameReq
                                     .newBuilder()
                                     .setGameCode("201") //游戏
-                                    .setRoundType("104") //
+                                    .setRoundType(roundType)
                                     .build();
                             sendBf(enterGameReq.toByteString(), World.ProtoType.EnterGameReqType_VALUE, channel);//发送消息
                             System.out.println(World.ProtoType.EnterGameReqType_VALUE + "进入游戏请求 send Success");
@@ -409,7 +412,7 @@ public class ZjhHandler extends GameHandler {
                             winAmount = -(10 + bettingAmount);
                         }
                         //sb.append(this.inning + " - " + this.ring + " - " + this.compareRing + " - slef【" + this.zjhCards + " , " + this.zjhCards.type + "】");
-                        sb.append(this.inning + ";" + this.iskill + ";" + this.startPlayersNum + ";" + this.ring + ";" + this.compareRing + ";" + this.zjhCards + ";" + isWin + ";" + winAmount);
+                        sb.append(this.inning + ";" + this.roundType + ";" + this.iskill + ";" + this.startPlayersNum + ";" + this.ring + ";" + this.compareRing + ";" + this.zjhCards + ";" + isWin + ";" + winAmount);
                         //for (int i = 0; i < cardsList.size(); i++) {
                         //    List<ZjhCard> zjhCardList0 = new ArrayList<>();
                         //    for (String s : cardsList.get(i).split(",")) {
@@ -420,7 +423,7 @@ public class ZjhHandler extends GameHandler {
                         //}
                         System.out.println(sb.append("\n").toString());
                         this.isInGame = false;
-                        //FileUtil.writeFile("/usr/duke/a.txt", sb.toString(), true);
+                        FileUtil.writeFile("/usr/duke/pokerdata.txt", sb.toString(), true);
                         //FileUtil.writeFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/a.txt", sb.toString(), true);
                         break;
 

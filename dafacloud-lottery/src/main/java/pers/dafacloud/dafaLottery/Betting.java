@@ -9,6 +9,7 @@ import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.jsonUtils.JsonArrayBuilder;
 import pers.utils.jsonUtils.JsonObjectBuilder;
+import pers.utils.randomNameAddrIP.RandomIP;
 import pers.utils.urlUtils.UrlBuilder;
 
 import java.util.*;
@@ -17,7 +18,6 @@ import java.util.concurrent.Executors;
 
 public class Betting {
     private static ExecutorService excutors = Executors.newFixedThreadPool(300);
-
 
     private String addBettingUrl;
     private String getBetRebate;
@@ -96,7 +96,7 @@ public class Betting {
             System.out.println(user);
             excutors.execute(() -> bettingExecu(user, betContents, bettingStepTime, lotteryConfig));
             try {
-                Thread.sleep(threadStepTime * 1000);//每隔n秒启动一个线程
+                Thread.sleep(threadStepTime);//每隔n秒启动一个线程
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -118,6 +118,7 @@ public class Betting {
                     .other("x-tenant-code", userArray.length == 3 ? userArray[2] : "dafa")
                     .other("x-user-name", userArray[0])
                     .other("x-source-Id", "1")
+                    //.other("x-client-ip", RandomIP.getRandomIp())
                     .build();
             httpConfig = HttpConfig.custom()
                     .url(addBettingUrl)
@@ -145,7 +146,7 @@ public class Betting {
             //}
             System.out.println(result);
             try {
-                Thread.sleep(bettingStepTime * 1000); //投注间隔时间
+                Thread.sleep(bettingStepTime); //投注间隔时间
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -156,26 +157,48 @@ public class Betting {
      * 随机获取投注记录
      */
     private static String getBettingData(List<String> betContents, String rebate, int lotteryType) {
-        int betContentIndex = (int) (Math.random() * (betContents.size()));
-        String betContent = betContents.get(betContentIndex);
-        String[] betContentArray = betContent.split("`");
-        net.sf.json.JSONObject order1 = JsonObjectBuilder.custom()
-                .put("lotteryCode", betContentArray[0])
-                .put("playDetailCode", betContentArray[1])
-                .put("bettingNumber", betContentArray[2])
-                .put("bettingAmount", betContentArray[3])
-                .put("bettingCount", betContentArray[4])
-                //.put("bettingPoint", rebate.get(getLotteryType(betContentArray[0])))
-                .put("bettingPoint", rebate)
-                .put("bettingIssue", LotteryIssuePrivate.getCurrentIssue(lotteryType))
-                .put("graduationCount", betContentArray[5])
-                .put("bettingUnit", betContentArray[6])
-                .bulid();
-        JSONArray orders = JsonArrayBuilder
-                .custom()
-                .addObject(order1)
-                .bulid();
-        return UrlBuilder.custom().addBuilder("bettingData", orders.toString()).fullBody();
+        JsonArrayBuilder jsonArrayBuilder = JsonArrayBuilder
+                .custom();
+        String betContent = betContents.get((int) (Math.random() * (betContents.size())));
+        String[] betContentArray0 = betContent.split("@");
+        for (int i = 0; i < betContentArray0.length; i++) {
+            String[] betContentArray = betContentArray0[i].split("`");
+            net.sf.json.JSONObject order1 = JsonObjectBuilder.custom()
+                    .put("lotteryCode", betContentArray[0])
+                    .put("playDetailCode", betContentArray[1])
+                    .put("bettingNumber", betContentArray[2])
+                    .put("bettingAmount", betContentArray[3])
+                    .put("bettingCount", betContentArray[4])
+                    //.put("bettingPoint", rebate.get(getLotteryType(betContentArray[0])))
+                    .put("bettingPoint", rebate)
+                    .put("bettingIssue", LotteryIssuePrivate.getCurrentIssue(lotteryType))
+                    .put("graduationCount", betContentArray[5])
+                    .put("bettingUnit", betContentArray[6])
+                    .bulid();
+            jsonArrayBuilder
+                    .addObject(order1);
+        }
+
+        //for (int i = 0; i < 4; i++) {
+        //    int betContentIndex = (int) (Math.random() * (betContents.size()));
+        //    String betContent = betContents.get(betContentIndex);
+        //    String[] betContentArray = betContent.split("`");
+        //    net.sf.json.JSONObject order1 = JsonObjectBuilder.custom()
+        //            .put("lotteryCode", betContentArray[0])
+        //            .put("playDetailCode", betContentArray[1])
+        //            .put("bettingNumber", betContentArray[2])
+        //            .put("bettingAmount", betContentArray[3])
+        //            .put("bettingCount", betContentArray[4])
+        //            //.put("bettingPoint", rebate.get(getLotteryType(betContentArray[0])))
+        //            .put("bettingPoint", rebate)
+        //            .put("bettingIssue", LotteryIssuePrivate.getCurrentIssue(lotteryType))
+        //            .put("graduationCount", betContentArray[5])
+        //            .put("bettingUnit", betContentArray[6])
+        //            .bulid();
+        //    jsonArrayBuilder
+        //            .addObject(order1);
+        //}
+        return UrlBuilder.custom().addBuilder("bettingData", jsonArrayBuilder.bulid().toString()).fullBody();
         //if ("1407".equals(betContentArray[0])) {
         //    return UrlBuilder.custom().addBuilder("bettingData", "[{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"18\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"8.0\",\"bettingUnit\":1,\"bettingIssue\":\"" + LotteryIssuePrivate.getCurrentIssue(isYsw(betContentArray[0])) + "\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"17\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"16\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"15\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"14\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"13\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"12\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"11\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"10\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"9\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"8\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"7\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"5\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"4\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"6.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1},{\"lotteryCode\":\"1407\",\"playDetailCode\":\"1407A10\",\"bettingNumber\":\"3\",\"bettingCount\":1,\"bettingAmount\":1,\"bettingPoint\":\"8.0\",\"bettingUnit\":1,\"bettingIssue\":\"202005011324\",\"graduationCount\":1}]").fullBody();
         //} else if ("1008".equals(betContentArray[0])) {

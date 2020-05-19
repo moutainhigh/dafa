@@ -17,6 +17,7 @@ public class SqlSessionFactoryUtils {
     private static SqlSession transactionSession;
     private static SqlSession reportSession;
     private static SqlSession lotteryGameSession;
+    private static SqlSession aliSession;
 
     private static final Class CLASS_LOCK = SqlSessionFactoryUtils.class;
 
@@ -73,6 +74,11 @@ public class SqlSessionFactoryUtils {
                         devSession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
                     }
                     return devSession;
+                case "ali":
+                    if (aliSession == null) {
+                        aliSession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
+                    }
+                    return aliSession;
                 default:
                     if (devSession == null) {
                         devSession = new SqlSessionFactoryBuilder().build(inputStream, "dev").openSession(true);

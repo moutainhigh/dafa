@@ -51,11 +51,12 @@ public class StartWsProtoClient {
     private String phone;
 
     //构造器
-    private StartWsProtoClient(String phone, int gameCode) {
+    private StartWsProtoClient(String phone, int gameCode, String roundType) {
         this.phone = phone;
 
         GameHandler gameHandler = GameHandlerFactory.newGameHandler(gameCode);
         gameHandler.setPhone(phone);
+        gameHandler.setRoundType(roundType);
         URI uri = URI.create(url);
         this.clientHandshaker = new ClientHandshaker(uri);//握手
         gameHandler.setHandshaker(this.clientHandshaker);//游戏设置握手
@@ -120,10 +121,6 @@ public class StartWsProtoClient {
     }
 
     public static void main(String[] args) throws Exception {
-
-        for (String s: args) {
-            System.out.println(s);
-        }
         //String phone = "1311234";
         //for (int i = 500; i < 600; i++) {
         //    new StartWsProtoClient(String.format("%s%s", phone, String.format("%04d", i))).start();
@@ -175,15 +172,23 @@ public class StartWsProtoClient {
         //new StartWsProtoClient("47876132", 205).start();
 
         //new StartWsProtoClient("88448162", 201).start();
-        //List<String> devJessieUsers = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/devJessieUsers.txt"));
-        //for (int i = 0; i < 1; i++) {
-        //    new StartWsProtoClient(devJessieUsers.get(i), 201).start();
-        //    try {
-        //        Thread.sleep(1000);
-        //    } catch (InterruptedException e) {
-        //        e.printStackTrace();
-        //    }
-        //}
+        List<String> devJessieUsers = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/devJessieUsers.txt"));
+        for (int i = 0; i < 40; i++) {
+            if (i < 10) {
+                new StartWsProtoClient(devJessieUsers.get(i), 201, "101").start();
+            } else if (i < 20) {
+                new StartWsProtoClient(devJessieUsers.get(i), 201, "102").start();
+            } else if (i < 30) {
+                new StartWsProtoClient(devJessieUsers.get(i), 201, "103").start();
+            } else {
+                new StartWsProtoClient(devJessieUsers.get(i), 201, "104").start();
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         //抢庄牌九
         //new StartWsProtoClient("47876132", 206).start();

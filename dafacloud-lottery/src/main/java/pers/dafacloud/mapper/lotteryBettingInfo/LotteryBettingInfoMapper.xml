@@ -76,7 +76,7 @@
 		and is_test = 0
 		and lottery_code = 1407
 		and betting_state in (1,2)
-		and issue in (202005041333,202005041320,202005050046,202005050447)
+		and issue in (202005180001,202005180002,202005180003)
 		and id > #{maxId}
 		order by id asc limit 10000;
 	</select>
@@ -93,7 +93,7 @@
 	</select>
 
     <insert id="insertLotteryBetingInfo" parameterType="java.util.List" keyProperty="id">
-        insert into dafacloud_betting.betting_orders_info_shalv066(
+        insert into dafacloud_betting.betting_orders_info_shalv068(
         tenant_code
         ,user_id
         ,user_name
