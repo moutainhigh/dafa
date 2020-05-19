@@ -410,10 +410,11 @@ public class ZjhHandler extends GameHandler {
                         } else {
                             isWin = "lost";
                             //winAmount = -(10 + bettingAmount);
-                            winAmount = -("101".equals(roundType) ? 0.1
+
+                            winAmount = -(("101".equals(roundType) ? 0.1
                                     : "102".equals(roundType) ? 1
                                     : "103".equals(roundType) ? 5
-                                    : 10 + bettingAmount);
+                                    : 10) + bettingAmount);
                         }
                         //sb.append(this.inning + " - " + this.ring + " - " + this.compareRing + " - slef【" + this.zjhCards + " , " + this.zjhCards.type + "】");
                         sb.append(this.inning + ";" + this.roundType + ";" + this.iskill + ";" + this.startPlayersNum + ";" + this.ring + ";" + this.compareRing + ";" + this.zjhCards + ";" + isWin + ";" + winAmount);
