@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.dafacloud.mapper.BetContentMapper">
+    <select id="getBetContentList" resultType="java.util.Map">
+		select
+		  content
+		from dafa_cloud.bet_content
+		where  content_type = #{contentType}
+		and lottery_code = #{lotteryCode}
+	</select>
+
+    <insert id="insertBetContent" parameterType="java.util.List" keyProperty="id">
+        insert into dafa_cloud.bet_content(
+        content,
+        content_type,
+        lottery_code
+        ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.content},
+            #{item.contentType},
+            #{item.lotteryCode}
+            )
+        </foreach>
+    </insert>
+</mapper>

@@ -53,7 +53,6 @@ public class StartWsProtoClient {
     //构造器
     private StartWsProtoClient(String phone, int gameCode, String roundType) {
         this.phone = phone;
-
         GameHandler gameHandler = GameHandlerFactory.newGameHandler(gameCode);
         gameHandler.setPhone(phone);
         gameHandler.setRoundType(roundType);

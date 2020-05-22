@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.dafacloud.mapper.BetUsersMapper">
+    <select id="getBetUsersList" resultType="java.util.Map">
+        select
+        <if test="type == 1">
+            user_name
+        </if>
+        <if test="type == 2">
+            user_name,
+            user_id,
+            tenant_code
+        </if>
+        from dafa_cloud.bet_user
+        where ev_code = #{evCode}
+        and tenant_code = #{tenantCode}
+        and user_type = #{userType}
+    </select>
+
+    <insert id="insertBetUsers" parameterType="java.util.List" keyProperty="id">
+        insert into dafa_cloud.bet_user(
+        user_name,
+        user_id,
+        tenant_code,
+        ev_code,
+        user_type
+        ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.userName},
+            #{item.userId},
+            #{item.tenantCode},
+            #{item.evCode},
+            #{item.userType}
+            )
+        </foreach>
+    </insert>
+</mapper>

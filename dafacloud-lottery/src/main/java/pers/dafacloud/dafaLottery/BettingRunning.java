@@ -17,21 +17,28 @@ public class BettingRunning {
     //public static String host = "http://dafacloud-pre.com";//pre
 
     public static void main(String[] args) {
-        //List<LotteryObj> lotteryObjList = new ArrayList<>();
-        //lotteryObjList.add(new LotteryObj("1407", "yfk3", 600, 3));
-        //lotteryObjList.add(new LotteryObj("1008", "yfssc", 1, 5));
-        //lotteryObjList.add(new LotteryObj("1304", "yfpk10", 1, 5));
-        //lotteryObjList.add(new LotteryObj("1305", "yflhc", 1, 5));
-        //
-        //lotteryObjList.add(new LotteryObj("1413", "sfks", 1, 5));
-        //lotteryObjList.add(new LotteryObj("1010", "sfssc", 1, 5));
-        //lotteryObjList.add(new LotteryObj("1314", "sfpk10", 1, 5));
-        //
-        //lotteryObjList.add(new LotteryObj("1412", "wfk3", 1, 5));
-        //lotteryObjList.add(new LotteryObj("1009", "wfssc", 1, 5));
-        //lotteryObjList.add(new LotteryObj("1306", "wfpk10", 1, 5));
-        //lotteryObjList.add(new LotteryObj("1300", "wflhc", 1, 5));
-        //new Betting(host, lotteryObjList, false, 100);
+        List<LotteryObj> lotteryObjList = new ArrayList<>();
+        lotteryObjList.add(new LotteryObj("1407", "yfk3", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1008", "yfssc", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1304", "yfpk10", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1305", "yflhc", 2, 5000));
+
+        lotteryObjList.add(new LotteryObj("1413", "sfks", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1010", "sfssc", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1314", "sfpk10", 2, 5000));
+
+        lotteryObjList.add(new LotteryObj("1412", "wfk3", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1009", "wfssc", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1306", "wfpk10", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1300", "wflhc", 2, 5000));
+
+        lotteryObjList.add(new LotteryObj("1418", "yfk3", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1419", "wfk3", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1018", "yfssc", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1019", "wfssc", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1312", "yfpk10", 2, 5000));
+        lotteryObjList.add(new LotteryObj("1313", "wfpk10", 2, 5000));
+        new Betting(host, lotteryObjList, false, 100);
         //new Betting(LotteryConstant.host, "1407,yfk3,10,10", false, true, true).run(2);
 
         //for (; ; ) {

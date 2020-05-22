@@ -24,7 +24,6 @@ package(){
     echo "开始打包"
     cd /usr/duke/github/dafacloud
     mvn clean install -Dmaven.test.skip=true -pl ../dafagame-client-bf -am
-    echo "开始检查程序是否在运行"
 }
 
 is_pid_exist(){
@@ -40,7 +39,13 @@ is_pid_exist(){
 stop(){
     is_pid_exist
     if [[ $? -eq 0 ]]; then
-        echo "${APP_NAME} is already running. pid=${pid}"
+        #echo "${APP_NAME} is already running. pid=${pid}"
+        kill -9 ${pid}
+        if [[ $? -eq 0 ]]; then
+            echo "${APP_NAME}， pid=${pid} kill 成功"
+        else
+            echo "${APP_NAME}， pid=${pid} kill 失败   "
+        fi
     else
         #nohup java -jar ${APP_NAME}  >robotcenter.out 2>&1 &
         echo "${APP_NAME} is not running"

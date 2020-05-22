@@ -2,6 +2,10 @@ package pers.dafacloud.dafaLottery;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.Header;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import pers.dafacloud.server.BetContentServer;
+import pers.dafacloud.server.BetUsersServer;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
@@ -10,13 +14,16 @@ import pers.utils.jsonUtils.JsonArrayBuilder;
 import pers.utils.jsonUtils.JsonObjectBuilder;
 import pers.utils.urlUtils.UrlBuilder;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Component
 public class Betting {
-    public static ExecutorService excutors  = Executors.newFixedThreadPool(300);
+    public static ExecutorService excutors = Executors.newFixedThreadPool(300);
     public static boolean isStop = true;
 
     private String addBettingUrl;
@@ -27,16 +34,36 @@ public class Betting {
     private boolean isFilePoint;//是否使用返点json文件
 
     private EV ev;
+    static String host0;
 
-    public Betting(String host, List<LotteryObj> lotteryObjs, boolean isFilePoint, int threadStepTimeMill) {
+    private static Betting betting;
 
+    private int betContentType;
+
+    @PostConstruct
+    public void init() {
+        betting = this;
+    }
+
+    @Autowired
+    BetUsersServer betUsersServer;
+
+    @Autowired
+    BetContentServer betContentServer;
+
+    public Betting() {
+    }
+
+    public Betting(String host, int betContentType,String urlTenantCode, List<LotteryObj> lotteryObjs, boolean isFilePoint, int threadStepTimeMill) {
+        host0 = host;
         this.addBettingUrl = host + "/v1/betting/addBetting";
         this.getBetRebate = host + "/v1/betting/getBetRebate";
         this.isFilePoint = isFilePoint;
         this.ev = EV.getEV(host);
+        this.betContentType = betContentType;
 
-        List<String> users = null;
-        List<String> usersTenant = null;
+        List<Map> users = null;
+        List<Map> usersTenant = null;
 
         if (ev == null) {
             System.out.println("ev = null");
@@ -47,20 +74,22 @@ public class Betting {
         for (LotteryObj lotteryObj : lotteryObjs) {
             LotteryConfig lotteryConfig = LotteryConfig.getLottery(lotteryObj.getLotteryCode());
             String betContentPath;
-            List<String> userSub = new ArrayList<>();
+            List<Map> userSub = new ArrayList<>();
             if (lotteryConfig == null) {
                 System.out.println("lotteryCode = null");
                 return;
             }
             if (!lotteryConfig.isTenant) {//平台彩种
                 if (users == null) {
-                    if (ev.isIP)
-                        users = FileUtil.readFile(Betting.class.getResourceAsStream(ev.userIP));
+                    if (ev.isIP) // type :1 url 1个字段，2 ip 3个字段 ； userType 1平台 ，2站长彩（要单独区分），
+                        users = betting.betUsersServer.getBetUsersList(2, 1, ev.evCode, urlTenantCode);
+                        //users = FileUtil.readFile(Betting.class.getResourceAsStream(ev.userIP));
                     else
-                        users = FileUtil.readFile(Betting.class.getResourceAsStream(ev.users));
+                        users = betting.betUsersServer.getBetUsersList(1, 1, ev.evCode, urlTenantCode);
+                    //users = FileUtil.readFile(Betting.class.getResourceAsStream(ev.users));
                 }
                 for (int i = 0; i < lotteryObj.getUserCount(); i++) {
-                    userSub.add(users.remove(i));
+                    userSub.add(users.remove(0));
                 }
                 betContentPath = String.format("/betContent/%s.txt", lotteryObj.getBettingContentFileName());
             } else {//站长彩种
@@ -68,13 +97,13 @@ public class Betting {
                     isContainsTenantLottery = true;
                 }
                 if (usersTenant == null) {
-                    usersTenant = FileUtil.readFile(Betting.class.getResourceAsStream(ev.userTenantIP));
+                    //usersTenant = FileUtil.readFile(Betting.class.getResourceAsStream(ev.userTenantIP));
+                    usersTenant = betting.betUsersServer.getBetUsersList(2, 2, ev.evCode, urlTenantCode);
                 }
                 for (int i = 0; i < lotteryObj.getUserCount(); i++) {
                     userSub.add(usersTenant.remove(i));
                 }
                 betContentPath = String.format("/tenantBetContent/%s%s.txt", lotteryObj.getLotteryCode(), lotteryObj.getBettingContentFileName());
-
             }
             bettingLoop(userSub, betContentPath, lotteryObj.getBettingStepTime(), lotteryConfig, threadStepTimeMill);
         }
@@ -91,13 +120,20 @@ public class Betting {
     /**
      * 按每个彩种，用户数量执行
      */
-    private void bettingLoop(List<String> users, String betContentPath, int bettingStepTime, LotteryConfig lotteryConfig, int threadStepTimeMill) {
+    private void bettingLoop(List<Map> users, String betContentPath, int bettingStepTime, LotteryConfig lotteryConfig, int threadStepTimeMill) {
         List<String> betContents = FileUtil.readFile(Betting.class.getResourceAsStream(betContentPath));
-        for (String user : users) {
-            System.out.println(user);
-            excutors.execute(() -> bettingExecu(user, betContents, bettingStepTime, lotteryConfig));
+        //List<Map> betContents = betting.betContentServer.getBetContentList(1, lotteryConfig.code);
+        for (Map usersMap : users) {
+            if (isStop) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+            excutors.execute(() -> bettingExecu(usersMap, betContents, bettingStepTime, lotteryConfig));
             try {
-                Thread.sleep(threadStepTimeMill);//每隔n秒启动一个线程
+                if (ev.isIP)
+                    Thread.sleep(threadStepTimeMill);//每隔n秒启动一个线程
+                else
+                    Thread.sleep(5000);//每隔5秒启动一个线程
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -105,19 +141,18 @@ public class Betting {
     }
 
     /**
-     *
+     * 执行下注
      */
-    private void bettingExecu(String users, List<String> betContents, int bettingStepTime, LotteryConfig lotteryConfig) {
-        String[] userArray = users.split(",");
+    private void bettingExecu(Map usersMap, List<String> betContents, int bettingStepTime, LotteryConfig lotteryConfig) {
         Header[] headers;
         HttpConfig httpConfig;
         if (ev.isIP) {
             headers = HttpHeader.custom()
                     .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                     .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
-                    .other("x-user-id", userArray[1])
-                    .other("x-tenant-code", userArray.length == 3 ? userArray[2] : "dafa")
-                    .other("x-user-name", userArray[0])
+                    .other("x-user-id", usersMap.get("user_id").toString())
+                    .other("x-tenant-code", usersMap.get("tenant_code").toString())
+                    .other("x-user-name", usersMap.get("user_name").toString())
                     .other("x-source-Id", "1")
                     //.other("x-client-ip", RandomIP.getRandomIp())
                     .build();
@@ -125,15 +160,22 @@ public class Betting {
                     .url(addBettingUrl)
                     .headers(headers);
         } else {
-            httpConfig = Login.loginReturnHttpConfig(users);//登录
+            httpConfig = Login.loginReturnHttpConfig(usersMap.get("user_name").toString());//登录
         }
         String rebate;
         if (isFilePoint) {
             rebate = rebateJson.getString(lotteryConfig.code);
         } else {
-            rebate = JSONObject.parseObject(DafaRequest.get(httpConfig.url(getBetRebate + "?lotteryType=" + lotteryConfig.type)))
-                    .getJSONObject("data")
-                    .getString("rebate");
+            String getBetRebateResult = "";
+            try {
+                getBetRebateResult = DafaRequest.get(httpConfig.url(getBetRebate + "?lotteryType=" + lotteryConfig.type));
+                rebate = JSONObject.parseObject(getBetRebateResult)
+                        .getJSONObject("data")
+                        .getString("rebate");
+            } catch (Exception e) {
+                System.out.println("返点获取失败：" + getBetRebateResult);
+                return;
+            }
         }
         //int lotteryType = isYsw(lotteryCode);
         for (int i = 0; i < 100000000; i++) {

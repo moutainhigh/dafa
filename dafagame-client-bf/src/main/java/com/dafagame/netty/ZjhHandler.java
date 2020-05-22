@@ -759,8 +759,8 @@ public class ZjhHandler extends GameHandler {
     }
 
 
-    private boolean canBetting() {
-        return this.state == BjlMsg.State.Betting.getNumber();
-    }
+    //private boolean canBetting() {
+    //    return this.state == BjlMsg.State.Betting.getNumber();
+    //}
 
 }

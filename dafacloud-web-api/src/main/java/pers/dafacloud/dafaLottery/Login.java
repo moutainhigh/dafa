@@ -16,7 +16,8 @@ import java.util.concurrent.Executors;
 public class Login {
 
     //private static String host = LotteryConstant.host;
-    private static String host = BettingRunning.host;
+    //private static String host = BettingRunning.host;
+    private static String host = Betting.host0;
     private static String loginUrl = host + "/v1/users/login";
     private static ExecutorService execute = Executors.newFixedThreadPool(300);
 
@@ -111,9 +112,6 @@ public class Login {
     public static void main(String[] args) {
         //List<String> users = new ArrayList<>(Arrays.asList("dafai0002", "dafai0003", "dafai0005", "dafai0006"));
         //multithreadingLoglin(users);
-
-
-
 
 
     }
