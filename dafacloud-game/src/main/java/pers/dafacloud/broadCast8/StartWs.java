@@ -14,7 +14,7 @@ public class StartWs {
 
     public static void main(String[] args) {
         //List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/users.txt"));
-        task(20000);
+        task(Integer.parseInt(args[0]));
 
     }
 
