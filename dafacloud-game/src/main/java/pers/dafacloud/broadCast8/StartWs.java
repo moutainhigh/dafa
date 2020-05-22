@@ -23,7 +23,7 @@ public class StartWs {
             System.out.println(i);
             try {
                 excutors.execute(SendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
-                Thread.sleep(1);
+                Thread.sleep(10);
             } catch (Exception e) {
                 e.printStackTrace();
             }
