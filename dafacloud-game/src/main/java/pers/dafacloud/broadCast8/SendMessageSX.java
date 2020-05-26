@@ -9,12 +9,12 @@ import java.net.URI;
 import java.util.UUID;
 
 public class SendMessageSX {
-    //static WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+    static WebSocketContainer container = ContainerProvider.getWebSocketContainer();
 
     public static void process() {
         try {
             //System.out.println(ClassLayout.parseInstance(responceMessage).toPrintable());
-            //Session session = container.connectToServer(new ResponceMessage(), URI.create("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis()));
+            Session session = container.connectToServer(new ResponceMessage(), URI.create("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis()));
 
             //session.setMaxIdleTimeout(5000);
             //session.setMaxTextMessageBufferSize(128);//设置缓冲文本大小
