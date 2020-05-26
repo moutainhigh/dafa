@@ -9,12 +9,12 @@ import java.util.concurrent.Executors;
 public class StartWs {
 
     //private static String host = Constants.host;
-    private static ExecutorService excutors = Executors.newFixedThreadPool(300);
+    private static ExecutorService excutors = Executors.newFixedThreadPool(5000);
     //static int count;
 
     public static void main(String[] args) {
         //List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/users.txt"));
-        task(Integer.parseInt(args[0]));
+        task(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
         //task(200);
         //for (int i = 0; i < 20000; i++) {
         //    System.out.println(i);
@@ -30,12 +30,12 @@ public class StartWs {
         //}
     }
 
-    public static void task(int count) {
+    public static void task(int count, int threadTime) {
         for (int i = 0; i < count; i++) {
             System.out.println(i);
             try {
                 excutors.execute(SendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
-                Thread.sleep(10);
+                Thread.sleep(threadTime);
             } catch (Exception e) {
                 e.printStackTrace();
             }
