@@ -14,8 +14,10 @@ public class SendMessageSX {
             ResponceMessage responceMessage = new ResponceMessage();//返回信息类
             Session session = container.connectToServer(responceMessage, URI.create("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid="+UUID.randomUUID()+"_"+System.currentTimeMillis()));
             session.setMaxIdleTimeout(5000);
-            session.setMaxTextMessageBufferSize(2048000);//设置缓冲文本大小
-            session.setMaxBinaryMessageBufferSize(204800);
+            //session.setMaxTextMessageBufferSize(2048000);//设置缓冲文本大小
+            session.setMaxTextMessageBufferSize(128);//设置缓冲文本大小
+            //session.setMaxBinaryMessageBufferSize(204800);
+            session.setMaxBinaryMessageBufferSize(128);
             for (; ; ) {
                 if (session.isOpen()) {
                     session.getBasicRemote().sendText("{\"code\":9}");//发送消息
