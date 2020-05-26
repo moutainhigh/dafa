@@ -1,5 +1,7 @@
 package pers.dafacloud.dafaLottery;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
 import pers.utils.dafaRequest.DafaRequest;
@@ -10,6 +12,7 @@ import pers.utils.randomNameAddrIP.RandomIP;
 import pers.utils.urlUtils.UrlBuilder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -18,19 +21,22 @@ public class Register {
 
     //private static String register = "http://caishen02.com/v1/users/register";
     private static String register = "http://52.76.195.164:8010/v1/users/register";
+    //private static String register = "http://52.77.207.64:8010/v1/users/register";
     private static ExecutorService excutors = Executors.newFixedThreadPool(300);
 
     //多线程只能在main方法中运行
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
-        for (int i = 20121 + 100 + 10; i < 20121 + 100 + 10 + 100; i++) {
-            //list.add(String.format("adafa%05d", i));
-            list.add(String.format("atest%05d", i));
+        //List<String> list = new ArrayList<>(Arrays.asList("dev2td0409".split(",")));
+        for (int i = 0  ; i < 501; i++) {
+        //    //list.add(String.format("adafa%05d", i));
+        //    list.add(String.format("dev2td%04d", i));
+            list.add(String.format("dev1tdf%05d", i));
         }
-        System.out.println(list);
-        //schedule(list);
+        //System.out.println(list);
+        schedule(list);
         // register("adafa00001");
-        registerTask(list);
+        //registerTask(list);
 
     }
 
@@ -41,7 +47,7 @@ public class Register {
      */
     static void schedule(List<String> list) {
         List<List<String>> list0 = ListSplit.split(list, 1000);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < list0.size(); i++) {
             List<String> sub = list0.get(i);
             excutors.execute(() -> registerTask(sub));
         }
@@ -67,7 +73,7 @@ public class Register {
     private static void register(String username) {
         String password = DigestUtils.md5Hex(username + DigestUtils.md5Hex("123qwe"));
         String body = UrlBuilder.custom()
-                .addBuilder("inviteCode", "15940420")
+                .addBuilder("inviteCode", "79512723")
                 .addBuilder("userName", username)
                 .addBuilder("password", password)
                 .fullBody();
@@ -87,6 +93,9 @@ public class Register {
                 .build();
         HttpConfig httpConfig = HttpConfig.custom().body(body).headers(headers).url(register);
         String result = DafaRequest.post(httpConfig);
-        System.out.println("【" + username + "】" + result);
+        if(JSONObject.parseObject(result).getInteger("code")!=1){
+            System.out.println("【" + username + "】" + result);
+        }
     }
+
 }

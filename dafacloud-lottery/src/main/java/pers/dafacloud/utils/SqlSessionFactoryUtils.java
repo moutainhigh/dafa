@@ -11,6 +11,7 @@ import java.io.InputStream;
 public class SqlSessionFactoryUtils {
 
     private static SqlSession devSession;
+    private static SqlSession dev2Session;
     private static SqlSession bettingSession;
     private static SqlSession bettingHistorySession;
     private static SqlSession lotterySession;

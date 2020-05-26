@@ -9,13 +9,25 @@ import java.util.concurrent.Executors;
 public class StartWs {
 
     //private static String host = Constants.host;
-    private static ExecutorService excutors = Executors.newFixedThreadPool(5000);
+    private static ExecutorService excutors = Executors.newFixedThreadPool(300);
     //static int count;
 
     public static void main(String[] args) {
         //List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/users.txt"));
         task(Integer.parseInt(args[0]));
-
+        //task(200);
+        //for (int i = 0; i < 20000; i++) {
+        //    System.out.println(i);
+        //    new Thread(()->{
+        //        //for (;;) {
+        //        //    try {
+        //        //        Thread.sleep(1);
+        //        //    } catch (InterruptedException e) {
+        //        //        e.printStackTrace();
+        //        //    }
+        //        //}
+        //    }).start();
+        //}
     }
 
     public static void task(int count) {
