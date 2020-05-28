@@ -10,8 +10,8 @@ import java.util.List;
 public class BettingRunning {
     //lotteryCode，文件名，用户数量，下单间隔
 
-    public static String host = "http://52.76.195.164:8020";
-    //public static String host = "http://caishen02.com";//dev
+    //public static String host = "http://52.76.195.164:8020";
+    public static String host = "http://caishen02.com";//dev
     //public static String host = "http://52.76.195.164:8020";//dev第一套
     //public static String host = "http://52.77.207.64:8020";//dev第二套
     //public static String host = "http://dafacloud-pre.com";//pre

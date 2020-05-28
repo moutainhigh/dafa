@@ -53,6 +53,7 @@ public class TestRequestApiServer0 {
                 .setHttpConfig(HttpConfig.custom())
                 .setHttpHost(httpHost)
                 .setCookie(cookie);
+        httpConfigHandle.setXTkoen(cookie);
         return taskRequest(apiManage, httpConfigHandle);
     }
 

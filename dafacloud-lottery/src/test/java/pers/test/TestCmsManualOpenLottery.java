@@ -1,5 +1,6 @@
 package pers.test;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.Header;
 import org.testng.annotations.Test;
 import pers.dafacloud.constant.Lottery;
@@ -22,7 +23,7 @@ public class TestCmsManualOpenLottery {
             .headers(headers)
             .context(HttpCookies
                     .custom()
-                    .setBasicClientCookie(host, "JSESSIONID", "BDE3B7AB9E46F22D175B874DAABB53C6")
+                    .setBasicClientCookie(host, "JSESSIONID", "7026C8684F3FF6F58C1CD6BA5AB0278B")
                     .getContext());
 
     @Test(description = "手动开奖")
@@ -44,11 +45,16 @@ public class TestCmsManualOpenLottery {
     public static void test02() {
         String updateOpenNumber = host + "/v1/lottery/updateOpenNumber";
         String lotteryName = "幸运飞艇";
+        String lotteryCode = Lottery.getLotteryCodebyName(lotteryName);
+        if (StringUtils.isEmpty(lotteryCode)) {
+            System.out.println(lotteryName + "的lotteryCode 获取 空");
+            return;
+        }
         String body = UrlBuilder.custom()
-                .addBuilder("lotteryCode", Lottery.getLotteryCodebyName(lotteryName))
+                .addBuilder("lotteryCode", lotteryCode)
                 .addBuilder("lotteryName", lotteryName)
-                .addBuilder("issue", "20200525056")
-                .addBuilder("validateIssue", "20200525056")
+                .addBuilder("issue", "20200527075")
+                .addBuilder("validateIssue", "20200527075")
                 .addBuilder("openNumber", "01,02,03,04,05,06,07,08,09,10")
                 .addBuilder("validateOpenNumber", "01,02,03,04,05,06,07,08,09,10")
                 .addBuilder("reAward", "true")

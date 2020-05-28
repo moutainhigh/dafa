@@ -17,7 +17,7 @@ public class ResponceMessage {
 
     @OnMessage
     public void onMessage(String message) {
-        //System.out.println(message);
+        System.out.println(message);
     }
 
     @OnError

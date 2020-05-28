@@ -15,20 +15,22 @@ public class SendMessageSX {
         try {
             //System.out.println(ClassLayout.parseInstance(responceMessage).toPrintable());
             Session session = container.connectToServer(new ResponceMessage(), URI.create("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis()));
-
-            //session.setMaxIdleTimeout(5000);
-            //session.setMaxTextMessageBufferSize(128);//设置缓冲文本大小
+            System.out.println("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis());
+            //ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=022f4390-e4ce-4541-a719-4b5644f40781_1590553903184
+            //ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=6de1e24e-fa38-49ba-9909-fbaf020a6e32_1590554140920
+            session.setMaxIdleTimeout(5000);
+            session.setMaxTextMessageBufferSize(128);//设置缓冲文本大小
             //session.setMaxBinaryMessageBufferSize(204800);
-            //session.setMaxBinaryMessageBufferSize(128);
+            session.setMaxBinaryMessageBufferSize(128);
             //System.out.println(ClassLayout.parseInstance(session).toPrintable());
             for (; ; ) {
-                //if (session.isOpen()) {
-                //    session.getBasicRemote().sendText("{\"code\":9}");//发送消息
+                if (session.isOpen()) {
+                    session.getBasicRemote().sendText("{\"code\":9}");//发送消息
                     Thread.sleep(3000);
-                //} else {
-                //    break;
-                //}
-
+                    System.out.println(11);
+                } else {
+                    break;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

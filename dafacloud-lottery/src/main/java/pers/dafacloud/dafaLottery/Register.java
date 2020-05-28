@@ -14,6 +14,7 @@ import pers.utils.urlUtils.UrlBuilder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -28,10 +29,11 @@ public class Register {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         //List<String> list = new ArrayList<>(Arrays.asList("dev2td0409".split(",")));
-        for (int i = 0  ; i < 501; i++) {
-        //    //list.add(String.format("adafa%05d", i));
-        //    list.add(String.format("dev2td%04d", i));
-            list.add(String.format("dev1tdf%05d", i));
+        for (int i = 0; i < 1000; i++) {
+            //    //list.add(String.format("adafa%05d", i));
+            //    list.add(String.format("dev2td%04d", i));
+            //list.add(String.format("dev1tdf%05d", i));
+            list.add(String.format("dev1addf%05d", i));
         }
         //System.out.println(list);
         schedule(list);
@@ -49,6 +51,7 @@ public class Register {
         List<List<String>> list0 = ListSplit.split(list, 1000);
         for (int i = 0; i < list0.size(); i++) {
             List<String> sub = list0.get(i);
+            //CountDownLatch countDownLatch = new CountDownLatch(list0.size());
             excutors.execute(() -> registerTask(sub));
         }
     }
@@ -91,10 +94,17 @@ public class Register {
                 //.other("x-user-id", "51321300")
                 //.other("x-user-name", "duke01")
                 .build();
-        HttpConfig httpConfig = HttpConfig.custom().body(body).headers(headers).url(register);
-        String result = DafaRequest.post(httpConfig);
-        if(JSONObject.parseObject(result).getInteger("code")!=1){
-            System.out.println("【" + username + "】" + result);
+        for (int i = 0; i < 10; i++) {
+            HttpConfig httpConfig = HttpConfig.custom().body(body).headers(headers).url(register);
+            String result = DafaRequest.post(httpConfig);
+            if (JSONObject.parseObject(result).getInteger("code") != 1) {
+                System.out.println(i + " -【" + username + "】" + result);
+                if (result.contains("已注册")) {
+                    break;
+                }
+            } else {
+                break;
+            }
         }
     }
 

@@ -1,6 +1,7 @@
 package pers.dafacloud.bean;
 
 import lombok.Getter;
+import lombok.Setter;
 import net.sf.json.JSONArray;
 import org.apache.commons.lang.StringUtils;
 import pers.utils.dafaRequest.DafaRequest;
@@ -11,6 +12,8 @@ import pers.utils.urlUtils.UrlBuilder;
 
 public class HttpConfigHandle {
     private HttpConfig httpConfig;
+    @Setter
+    private String xTkoen;
     @Getter
     private String httpHost;
     private String cookie;
@@ -58,11 +61,13 @@ public class HttpConfigHandle {
         return this;
     }
 
+
     public HttpConfigHandle setHeader(String requestHeader) throws Exception {
         HttpHeader httpHeader = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0")
-                .other("Session-Id", cookie);//cocos使用
+                .other("Session-Id", cookie) //cocos使用
+                .other("X-Token",xTkoen);
         if (StringUtils.isNotEmpty(requestHeader)) { //header不为空则添加header
             JSONArray headersArray;
             try {

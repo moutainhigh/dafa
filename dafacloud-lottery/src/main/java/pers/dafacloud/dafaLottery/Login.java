@@ -57,7 +57,8 @@ public class Login {
                     .other("x-forwarded-for", ip)
                     .other("x-remote-IP", ip)
                     .other("X-Real-IP", ip)
-                    .other("X-Token", token);
+                    .other("X-Token", token)
+                    ;
             httpConfig.headers(httpHeader0.build());
         }
         return httpConfig;
