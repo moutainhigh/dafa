@@ -1,6 +1,7 @@
 package pers.dafacloud.dafaLottery;
 
 import com.alibaba.fastjson.JSONObject;
+import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.apache.http.Header;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,6 +17,7 @@ import pers.utils.urlUtils.UrlBuilder;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -38,6 +40,8 @@ public class Betting {
 
     private static Betting betting;
 
+    private Map<String, List> betContentMap = new HashMap<>();
+
 
     @PostConstruct
     public void init() {
@@ -49,6 +53,7 @@ public class Betting {
 
     @Autowired
     BetContentServer betContentServer;
+
 
     public Betting() {
     }
@@ -108,6 +113,7 @@ public class Betting {
 
                 }
             }
+            betContentMap.put(lotteryConfig.code, betting.betContentServer.getBetContentList(betContentType, lotteryConfig.code));
             bettingLoop(userSub, betContentType, lotteryObj.getBettingStepTime(), lotteryConfig, threadStepTimeMill);
         }
         //返点配置文件
@@ -145,7 +151,7 @@ public class Betting {
      * 执行下注
      */
     private void bettingExecu(Map usersMap, int betContentType, int bettingStepTime, LotteryConfig lotteryConfig) {
-        List<Map> betContents = betting.betContentServer.getBetContentList(betContentType, lotteryConfig.code);
+        //List<Map> betContents = betting.betContentServer.getBetContentList(betContentType, lotteryConfig.code);
         Header[] headers;
         HttpConfig httpConfig;
         if (ev.isIP) {
@@ -184,7 +190,7 @@ public class Betting {
                 Thread.currentThread().interrupt();
                 break;
             }
-            String betContent = getBettingData(betContents, rebate, lotteryConfig.timeType);
+            String betContent = getBettingData(lotteryConfig.code, rebate, lotteryConfig.timeType);
             String result = DafaRequest.post(httpConfig.url(addBettingUrl).body(betContent));//下注请求
             try {
                 if (JSONObject.parseObject(result).getInteger("code") != 1)
@@ -196,17 +202,20 @@ public class Betting {
             try {
                 Thread.sleep(bettingStepTime); //投注间隔时间
             } catch (Exception e) {
+                betContentMap.clear();
                 Thread.currentThread().interrupt();
                 e.printStackTrace();
             }
         }
+        betContentMap.clear();
     }
 
     /**
      * 随机获取投注记录
      */
-    private static String getBettingData(List<Map> betContents, String rebate, int timeType) {
-        String betContent = betContents.get((int) (Math.random() * (betContents.size()))).get("content").toString();
+    private String getBettingData(String lotteryCode, String rebate, int timeType) {
+        //String betContent = betContents.get((int) (Math.random() * (betContents.size()))).get("content").toString();
+        String betContent = betContentMap.get(lotteryCode).get((int) (Math.random() * betContentMap.get(lotteryCode).size())).toString();
         JsonArrayBuilder jsonArrayBuilder = JsonArrayBuilder
                 .custom();
         String[] betContentArray0 = betContent.split("@");
