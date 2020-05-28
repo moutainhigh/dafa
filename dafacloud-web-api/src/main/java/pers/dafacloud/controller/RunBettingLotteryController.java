@@ -44,7 +44,7 @@ public class RunBettingLotteryController {
         }
 
         int betContentType = Integer.parseInt(reqMap.get("betContentType").toString());
-        int threadStepTimeMill =Integer.parseInt(reqMap.get("threadStepTimeMill").toString());
+        int threadStepTimeMill = Integer.parseInt(reqMap.get("threadStepTimeMill").toString());
 
         JSONArray ja;
         try {
@@ -52,26 +52,26 @@ public class RunBettingLotteryController {
         } catch (Exception e) {
             return Response.fail("执行彩种解析失败");
         }
-        if(ja==null || ja.size()== 0)
+        if (ja == null || ja.size() == 0)
             return Response.fail("请选择运行彩种");
 
         List<LotteryObj> lotteryObjList = new ArrayList<>();
         for (Object o : ja) {
             JSONArray lotteryJa = JSONArray.parseArray(o.toString());
-            String lotteyCode = lotteryJa.getString(0);
+            String lotteryCode = lotteryJa.getString(1);
             int userCount;
             int bettingStepTime;
-            if (lotteyCode == null)
+            if (StringUtils.isEmpty(lotteryCode)) {
                 return Response.fail("执行彩种存在空");
-
+            }
             try {
-                userCount = lotteryJa.getInteger(1);
-                bettingStepTime = lotteryJa.getInteger(2);
+                userCount = lotteryJa.getInteger(2);
+                bettingStepTime = lotteryJa.getInteger(3);
             } catch (Exception e) {
                 return Response.fail("用户数或下注间隔解析失败");
             }
 
-            lotteryObjList.add(new LotteryObj(lotteyCode, userCount, bettingStepTime));
+            lotteryObjList.add(new LotteryObj(lotteryCode, userCount, bettingStepTime));
         }
         new Thread(() -> new Betting(host, urlTenantCode, betContentType, lotteryObjList, false, threadStepTimeMill)).start();
         return Response.success("执行中");
