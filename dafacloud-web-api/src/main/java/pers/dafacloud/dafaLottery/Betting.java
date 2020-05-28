@@ -75,6 +75,10 @@ public class Betting {
 
         boolean isContainsTenantLottery = false;
         for (LotteryObj lotteryObj : lotteryObjs) {
+            if (isStop) {
+                betContentMap.clear();
+                break;
+            }
             LotteryConfig lotteryConfig = LotteryConfig.getLottery(lotteryObj.getLotteryCode());
             List<Map> userSub = new ArrayList<>();
             if (lotteryConfig == null) {
@@ -132,7 +136,7 @@ public class Betting {
     private void bettingLoop(List<Map> users, int betContentType, int bettingStepTime, LotteryConfig lotteryConfig, int threadStepTimeMill) {
         for (Map usersMap : users) {
             if (isStop) {
-                Thread.currentThread().interrupt();
+                //Thread.currentThread().interrupt();
                 break;
             }
             excutors.execute(() -> bettingExecu(usersMap, betContentType, bettingStepTime, lotteryConfig));
