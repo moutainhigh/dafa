@@ -40,7 +40,7 @@ public class Betting {
 
     private static Betting betting;
 
-    private Map<String, List> betContentMap = new HashMap<>();
+    private Map<String, List<Map>> betContentMap = new HashMap<>();
 
 
     @PostConstruct
@@ -219,7 +219,10 @@ public class Betting {
      */
     private String getBettingData(String lotteryCode, String rebate, int timeType) {
         //String betContent = betContents.get((int) (Math.random() * (betContents.size()))).get("content").toString();
-        String betContent = betContentMap.get(lotteryCode).get((int) (Math.random() * betContentMap.get(lotteryCode).size())).toString();
+        String betContent =
+                betContentMap.get(lotteryCode)
+                        .get((int) (Math.random() * betContentMap.get(lotteryCode).size())).get("content").toString();
+
         JsonArrayBuilder jsonArrayBuilder = JsonArrayBuilder
                 .custom();
         String[] betContentArray0 = betContent.split("@");
