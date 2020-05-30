@@ -32,7 +32,7 @@ public class RunBettingLotteryController {
         if (!Betting.isStop) {
             return Response.fail("程序正在运行，请先停止");
         }
-        //Betting.isStop = true;
+        Betting.isStop = false;
         String host = reqMap.get("host").toString();
         if (StringUtils.isEmpty(host)) {
             return Response.fail("host空");
