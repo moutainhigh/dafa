@@ -29,10 +29,10 @@ public class RunBettingLotteryController {
 
     @PostMapping("/runBettingLottery")
     public Response runBettingLottery(@RequestParam Map<String, Object> reqMap) {
-        //Betting.isStop = false;
-        if (Betting.isStop) {
+        if (!Betting.isStop) {
             return Response.fail("程序正在运行，请先停止");
         }
+        //Betting.isStop = true;
         String host = reqMap.get("host").toString();
         if (StringUtils.isEmpty(host)) {
             return Response.fail("host空");
