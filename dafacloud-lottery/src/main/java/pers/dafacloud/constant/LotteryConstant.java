@@ -5,7 +5,8 @@ public interface LotteryConstant {
     //String host ="http://dafacloud-test.com";
     //String host = "http://caishen02.com";
     //String host = "http://caishen03.com";
-    String host = "http://pt02.dafacloud-test.com";
+    //String host = "http://pt02.dafacloud-test.com";
+    String host = "http://pt05.dafacloud-test.com";
     //String host = "http://caishen03.com";
     //String host = "http://dafacloud-pre.com";
     //String host = "http://caishen01.com";

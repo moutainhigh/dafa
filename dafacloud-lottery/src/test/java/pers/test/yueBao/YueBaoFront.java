@@ -28,6 +28,7 @@ import java.util.concurrent.Executors;
 public class YueBaoFront {
     private static ExecutorService executors = Executors.newFixedThreadPool(300);
     private static String host = LotteryConstant.host;
+    //private static String host = "http://52.76.195.164:8010";
     //private static String host = "http://caishen03.com";
 
 
@@ -43,7 +44,7 @@ public class YueBaoFront {
             .headers(headers)
             .context(HttpCookies
                     .custom()
-                    .setBasicClientCookie(host, "JSESSIONID", "BDE3B7AB9E46F22D175B874DAABB53C6")
+                    .setBasicClientCookie(host, "JSESSIONID", "E072C82D8763431F704E1E3672ABE91C")
                     .getContext());
 
     private static String rechargeFrontPaymentRecord = host + "/v1/transaction/rechargeFrontPaymentRecord";
@@ -72,7 +73,7 @@ public class YueBaoFront {
     @Test(description = "余额批量人工存入")
     public static void test01a() {
         String saveBatchManualRecord = host + "/v1/transaction/saveBatchManualRecord";
-        List<String> list = FileUtil.readFile(YueBaoFront.class.getResourceAsStream("/users/dev2DafaIP2.txt"));
+        List<String> list = FileUtil.readFile(YueBaoFront.class.getResourceAsStream("/users/dev1TestIp.txt"));
         int size = list.size();
         List<String> list0 = new ArrayList<>();
         for (int i = 0; i < size; i++) {
@@ -86,7 +87,7 @@ public class YueBaoFront {
                         .addBuilder("userName", s0)
                         .addBuilder("amount", "98000")
                         .addBuilder("remark", "1")
-                        .addBuilder("dictionId", "404")
+                        .addBuilder("dictionId", "402")
                         .fullBody();
                 System.out.println(DafaRequest.post(httpConfig.url(saveBatchManualRecord).body(body)));
             }
@@ -141,8 +142,11 @@ public class YueBaoFront {
 
     }
 
+    /**
+     * 余额宝批量存入
+     */
     public static void main(String[] args) {
-        List<String> list = FileUtil.readFile(YueBaoFront.class.getResourceAsStream("/users/dev2DafaIP2.txt"));
+        List<String> list = FileUtil.readFile(YueBaoFront.class.getResourceAsStream("/users/dev1TestIp.txt"));
         System.out.println(list.size());
         //List<String> list = new ArrayList<>(Arrays.asList("dev2td0008,50415228".split(";")));
         schedule(list);
@@ -167,7 +171,7 @@ public class YueBaoFront {
                     .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
                     .other("x-user-name", userArray[0])
                     .other("x-user-id", userArray[1])
-                    .other("x-tenant-code", "dafa")
+                    .other("x-tenant-code", "test")
                     .other("x-token", "111")
                     .other("x-source-Id", "1")
                     .build();
@@ -188,7 +192,8 @@ public class YueBaoFront {
             String body = "money=" + amount + "&direction=BR";
             //verifySafetyPassword();
             for (int j = 0; j < 10; j++) {
-                String result = DafaRequest.post(httpConfig.url("http://52.77.207.64:8090/v1/balance/transferMoney").body(body));
+                String result = DafaRequest.post(httpConfig.url("http://52.76.195.164:8090/v1/balance/transferMoney").body(body));//52.77.207.64
+                System.out.println(result);
                 if (JSONObject.parseObject(result).getInteger("code") != 1) {
                     System.out.println(i + " - j:" + j + " - " + userArray[0] + " - " + amount + " - " + result);
                     try {

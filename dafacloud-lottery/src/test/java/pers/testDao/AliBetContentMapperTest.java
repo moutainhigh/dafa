@@ -14,8 +14,8 @@ public class AliBetContentMapperTest {
 
     public static void main(String[] args) {
         //getBetContent(); //测试读
-        //insertBetContent(); //本地文件读取文件 -> 写入库
-        insertBetContentType();
+        insertBetContent(); //本地文件读取文件 -> 写入库
+        //insertBetContentType(); //按条件 生产注单内容
     }
 
     public static void getBetContent() {
@@ -27,17 +27,17 @@ public class AliBetContentMapperTest {
      * 本地文件读取文件 -> 写入库
      */
     public static void insertBetContent() {
-        List<String> betContents = FileUtil.readFile(AliBetContentMapperTest.class.getResourceAsStream("/tenantBetContent/1419wfk3.txt"));
+        List<String> betContents = FileUtil.readFile(AliBetContentMapperTest.class.getResourceAsStream("/tenantBetContent/ab.txt"));
         List<Map> list = new ArrayList<>();
         Map map;
         for (String betContent : betContents) {
             map = new HashMap();
             map.put("content", betContent);
-            map.put("contentType", 1);
-            map.put("lotteryCode", "1419");
+            map.put("contentType", 2);
+            map.put("lotteryCode", "1304");
             list.add(map);
         }
-        System.out.println(list);
+        System.out.println(list.size());
         aliBetContentMapper.insertBetContent(list);
     }
 

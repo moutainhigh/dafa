@@ -159,7 +159,10 @@ public class Betting {
     private static String getBettingData(List<String> betContents, String rebate, int lotteryType) {
         JsonArrayBuilder jsonArrayBuilder = JsonArrayBuilder
                 .custom();
-        String betContent = betContents.get((int) (Math.random() * (betContents.size())));
+        String amount=String.valueOf(1+(int)(Math.random()*10));
+        String betContent = betContents.get((int) (Math.random() * (betContents.size()))).replace("amount",amount);
+        System.out.println(betContent);
+
         String[] betContentArray0 = betContent.split("@");
         for (int i = 0; i < betContentArray0.length; i++) {
             String[] betContentArray = betContentArray0[i].split("`");

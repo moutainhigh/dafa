@@ -28,7 +28,6 @@ public class SendMessageSX {
                 if (session.isOpen()) {
                     session.getBasicRemote().sendText("{\"code\":9}");//发送消息
                     Thread.sleep(3000);
-                    System.out.println(11);
                 } else {
                     break;
                 }
