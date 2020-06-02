@@ -39,6 +39,7 @@ public class Betting {
     private EV ev;
 
     private static Betting betting;
+    public static String host0;
 
     private Map<String, List<String>> betContentMap = new HashMap<>();
 
@@ -63,6 +64,7 @@ public class Betting {
         this.getBetRebate = host + "/v1/betting/getBetRebate";
         this.isFilePoint = isFilePoint;
         this.ev = EV.getEV(host);
+        host0 = host;
 
         List<Map> users = null;
         List<Map> usersTenant = null;
@@ -131,6 +133,7 @@ public class Betting {
                 rebateJson = jsonObjectPoint.getJSONObject(ev.evName);
         }
     }
+
     /**
      * 按每个彩种，用户数量执行
      */
