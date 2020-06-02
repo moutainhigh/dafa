@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pers.dafacloud.model.ApiManage;
+import pers.dafacloud.entity.ApiManage;
 import pers.dafacloud.server.ApiManageServer;
-import pers.dafacloud.server.TestRequestApiServer;
 import pers.dafacloud.server.TestRequestApiServer0;
 import pers.dafacloud.utils.Response;
 

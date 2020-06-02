@@ -1,7 +1,7 @@
 package pers.dafacloud.mapper.onlineQestion;
 
 import org.apache.ibatis.annotations.Mapper;
-import pers.dafacloud.model.OnlineQuestion;
+import pers.dafacloud.entity.OnlineQuestion;
 
 import java.util.List;
 import java.util.Map;

@@ -13,13 +13,11 @@ import io.netty.handler.codec.http.websocketx.WebSocketClientHandshaker;
 import io.netty.handler.codec.http.websocketx.WebSocketClientHandshakerFactory;
 import io.netty.handler.codec.http.websocketx.WebSocketVersion;
 import io.netty.handler.logging.LoggingHandler;
-import pers.dafacloud.utils.concurrent.CallableTemplate;
 
 import java.net.URI;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
-public class Send extends CallableTemplate<Map<String, String>> {
+public class Send  {
 
 //    private  static EventLoopGroup group = new NioEventLoopGroup();
     private static EventLoopGroup group = new NioEventLoopGroup(16);
@@ -35,7 +33,6 @@ public class Send extends CallableTemplate<Map<String, String>> {
         this.gameID =gameID;
     }
 
-    @Override
     public Map<String, String> process() throws Exception {
         Bootstrap boot = new Bootstrap();
         boot.option(ChannelOption.SO_KEEPALIVE, true)

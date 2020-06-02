@@ -1,7 +1,7 @@
 package pers.dafacloud.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import pers.dafacloud.model.TestApiResult;
+import pers.dafacloud.entity.TestApiResult;
 
 import java.util.List;
 

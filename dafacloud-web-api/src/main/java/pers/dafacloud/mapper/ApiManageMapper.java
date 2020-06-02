@@ -2,7 +2,7 @@ package pers.dafacloud.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import pers.dafacloud.model.ApiManage;
+import pers.dafacloud.entity.ApiManage;
 
 import java.util.List;
 

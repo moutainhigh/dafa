@@ -1,1 +1,0 @@
-[{"path":"v1/a/b","method":1,"parameters":[["state","1","状态"],["lotteryCode","-1","彩种，-1全部"],["dateType","today","today, yesterday ,sevenday"],["pageNum","1","页数"],["pageSize","10","每页条数"]]},{"path":"v1/a/b","method":1,"parameters":[["state","1","状态"],["lotteryCode","-1","彩种，-1全部"],["dateType","today","today, yesterday ,sevenday"],["pageNum","1","页数"],["pageSize","10","每页条数"]]}]

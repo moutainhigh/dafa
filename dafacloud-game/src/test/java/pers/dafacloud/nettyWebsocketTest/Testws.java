@@ -1,31 +1,27 @@
 package pers.dafacloud.nettyWebsocketTest;
 
 import pers.dafacloud.dafacloudUtils.Login;
-import pers.dafacloud.model.BetGameContent;
-import pers.dafacloud.utils.concurrent.CallableTaskFrameWork;
-import pers.dafacloud.utils.concurrent.ICallableTaskFrameWork;
-import pers.dafacloud.utils.enums.Environment;
+import pers.dafacloud.entity.BetGameContent;
 import pers.utils.httpclientUtils.HttpConfig;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 1.用户
  */
 
 public class Testws {
-    private static Environment environment = Environment.DEFAULT;
+    private static String host = "";
     static int betChip[] = null;
 
     //用户
-    private static  int NN = 0;//牛牛
-    private static  int HH = 0;//红黑
-    private static  int LH = 0;//龙虎
-    private static  int BJL = 0;//百家乐
-    private static  int BCBM = 0;//奔驰宝马
-    private static  int SBAO = 500;//骰宝
+    private static int NN = 0;//牛牛
+    private static int HH = 0;//红黑
+    private static int LH = 0;//龙虎
+    private static int BJL = 0;//百家乐
+    private static int BCBM = 0;//奔驰宝马
+    private static int SBAO = 500;//骰宝
 
     //每个用户每次投注筹码数量，例：1,1,5,5,10
     public static int chipCount = 1;//筹码个数
@@ -46,7 +42,6 @@ public class Testws {
 
 
     public static void main(String[] args) throws Exception {
-        ICallableTaskFrameWork callableTaskFrameWork = new CallableTaskFrameWork();
         List<Send> tasks = new ArrayList<>();
         //初始化投注筹码
         betChip = initializateBetChip();
@@ -66,22 +61,22 @@ public class Testws {
         //用户数量
         for (int i = 0; i < NN + HH + LH + BJL + BCBM + SBAO; i++) {
             //String userName = userList.get(i);
-            String userName = String.format("dafai%04d",i+1);
+            String userName = String.format("dafai%04d", i + 1);
             HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);
             String token = Login.getGameToken(httpConfig);
             Send send = null;
             if (i < NN) {
-                send = new Send("ws://" + environment.domain + "/gameServer/?TOKEN=" + token + "&gameId=2001", userName, 2001);
+                send = new Send("ws://" + host + "/gameServer/?TOKEN=" + token + "&gameId=2001", userName, 2001);
             } else if (i < (NN + HH)) {
-                send = new Send("ws://" + environment.domain + "/gameServer/?TOKEN=" + token + "&gameId=2002", userName, 2002);
+                send = new Send("ws://" + host + "/gameServer/?TOKEN=" + token + "&gameId=2002", userName, 2002);
             } else if (i < (NN + HH + LH)) {
-                send = new Send("ws://" + environment.domain + "/gameServer/?TOKEN=" + token + "&gameId=2003", userName, 2003);
+                send = new Send("ws://" + host + "/gameServer/?TOKEN=" + token + "&gameId=2003", userName, 2003);
             } else if (i < (NN + HH + LH + BJL)) {
-                send = new Send("ws://" + environment.domain + "/gameServer/?TOKEN=" + token + "&gameId=2004", userName, 2004);
+                send = new Send("ws://" + host + "/gameServer/?TOKEN=" + token + "&gameId=2004", userName, 2004);
             } else if (i < (NN + HH + LH + BJL + BCBM)) {
-                send = new Send("ws://" + environment.domain + "/gameServer/?TOKEN=" + token + "&gameId=2005", userName, 2005);
+                send = new Send("ws://" + host + "/gameServer/?TOKEN=" + token + "&gameId=2005", userName, 2005);
             } else if (i < (NN + HH + LH + BJL + BCBM + SBAO)) {
-                send = new Send("ws://" + environment.domain + "/gameServer/?TOKEN=" + token + "&gameId=2006", userName, 2006);
+                send = new Send("ws://" + host + "/gameServer/?TOKEN=" + token + "&gameId=2006", userName, 2006);
             }
 
 
@@ -89,7 +84,7 @@ public class Testws {
                 tasks.add(send);
             System.out.println(i + userName);
         }
-        List<Map<String, String>> results = callableTaskFrameWork.submitsAll(tasks);//多线程执行
+        //List<Map<String, String>> results = callableTaskFrameWork.submitsAll(tasks);//多线程执行
         try {
             Thread.sleep(1000000);
         } catch (InterruptedException e) {
@@ -148,9 +143,10 @@ public class Testws {
         }*/
         return betChip;
     }
+
     /**
-     *初始化投注内容
-     * */
+     * 初始化投注内容
+     */
     public static List<BetGameContent> initializateBetContent(int[] i) {
         List<BetGameContent> listBetGameContent = new ArrayList<>();
         //int[] i = {20,20,3};

@@ -1,7 +1,7 @@
 package pers.test;
 
 import pers.dafacloud.constant.LotteryConstant;
-import pers.dafacloud.dafaLottery.Betting;
+import pers.dafacloud.betRun.Betting;
 import pers.dafacloud.dafaLottery.Login;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;

@@ -12,7 +12,7 @@
         parameterType:入参的数据类型
         resultType:返回结果数据类型
      -->
-    <select id="getBetInfo" resultType="pers.dafacloud.model.GetBetInfo">
+    <select id="getBetInfo" resultType="pers.dafacloud.entity.GetBetInfo">
 		select distinct lottery_code  lotteryCode
 		,play_detail_code playDetailCode
 		,betting_number bettingNumber
@@ -24,7 +24,7 @@
 		from dafacloud_betting.betting_orders_info_yct where  lottery_code = 1407 limit 30000
 	</select>
     <!--统计幸运飞艇凌晨出撤单的其实-->
-    <select id="getRecord" resultType="pers.dafacloud.model.GetBetInfo" statementType="STATEMENT">
+    <select id="getRecord" resultType="pers.dafacloud.entity.GetBetInfo" statementType="STATEMENT">
 		select
 		tenant_code tenantCode,
 		user_name username,
@@ -44,7 +44,7 @@
     <!-- 六合彩杀率测试
        statementType="STATEMENT"
     -->
-    <select id="getRecordByIssue" resultType="pers.dafacloud.model.GetBetInfo" >
+    <select id="getRecordByIssue" resultType="pers.dafacloud.entity.GetBetInfo" >
 		select
 		lottery_code lotteryCode,
 		play_detail_code playDetailCode,

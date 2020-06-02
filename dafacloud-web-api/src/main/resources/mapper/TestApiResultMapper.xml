@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pers.dafacloud.mapper.TestApiResultMapper">
-    <select id="searchTestApiResult" parameterType="pers.dafacloud.model.TestApiResult"
-            resultType="pers.dafacloud.model.TestApiResult" flushCache="true" useCache="true">
+    <select id="searchTestApiResult" parameterType="pers.dafacloud.entity.TestApiResult"
+            resultType="pers.dafacloud.entity.TestApiResult" flushCache="true" useCache="true">
         select
         id id
         ,host host
@@ -49,7 +49,7 @@
         limit #{pageNum},#{pageSize}
     </select>
 
-    <select id="searchTestApiResultCount" parameterType="pers.dafacloud.model.ApiManage" resultType="java.lang.Integer"
+    <select id="searchTestApiResultCount" parameterType="pers.dafacloud.entity.ApiManage" resultType="java.lang.Integer"
             flushCache="true" useCache="true">
         select count(1) from test_api_result
         <where>
@@ -77,7 +77,7 @@
         </where>
     </select>
 
-    <insert id="addTestApiResult" parameterType="pers.dafacloud.model.TestApiResult" keyProperty="id">
+    <insert id="addTestApiResult" parameterType="pers.dafacloud.entity.TestApiResult" keyProperty="id">
 		insert into test_api_result(
          api_name
         ,api_path

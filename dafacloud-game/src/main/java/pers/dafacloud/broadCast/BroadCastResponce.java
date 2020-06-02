@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.websocket.*;
 
 @ClientEndpoint(configurator = Config.class)
-//@ClientEndpoint
 @Data
 public class BroadCastResponce {
 

@@ -3,7 +3,7 @@ package pers.dafacloud.controller;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pers.dafacloud.model.TableDetail;
+import pers.dafacloud.entity.TableDetail;
 import pers.dafacloud.server.TableDetailServer;
 import pers.dafacloud.utils.Response;
 

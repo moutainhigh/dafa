@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import pers.dafacloud.configuration.DataSourceType;
 import pers.dafacloud.mapper.ApiManageMapper;
-import pers.dafacloud.model.ApiManage;
+import pers.dafacloud.entity.ApiManage;
 import pers.dafacloud.utils.dataSource.MyDataSource;
 
 import javax.annotation.Resource;

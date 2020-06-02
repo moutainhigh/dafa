@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>pers.dafacloud</groupId>
-    <artifactId>dafacloud-lottery-spring</artifactId>
+    <artifactId>dafacloud-lotteryAttribute-spring</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>dafacloud-lottery-spring</name>
+    <name>dafacloud-lotteryAttribute-spring</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

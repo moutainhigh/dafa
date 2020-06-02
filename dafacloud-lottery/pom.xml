@@ -11,9 +11,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dafacloud-lottery</artifactId>
+    <artifactId>dafacloud-lotteryAttribute</artifactId>
 
-    <name>dafacloud-lottery</name>
+    <name>dafacloud-lotteryAttribute</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -289,7 +289,7 @@
                     <!--</descriptorRefs>-->
                     <!--<archive>-->
                         <!--<manifest>-->
-                            <!--<mainClass>pers.dafacloud.dafaLottery.Betting</mainClass>-->
+                            <!--<mainClass>pers.dafacloud.betRun.Betting</mainClass>-->
                         <!--</manifest>-->
                     <!--</archive>-->
                 <!--</configuration>-->

@@ -12,7 +12,9 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/*充值压测*/
+/**
+ * 充值压测
+ */
 public class RechargeFront {
     private static String host = "http://52.77.207.64:8030";
     private static String rechargeFrontPaymentRecord = host + "/v1/transaction/rechargeFrontPaymentRecord";
@@ -53,14 +55,7 @@ public class RechargeFront {
 
 
     public static void task(HttpConfig httpConfig) {
-        //String body = UrlBuilder.custom()
-        //        .addBuilder("id", "1252")
-        //        .addBuilder("amount", "100")
-        //        .addBuilder("paymentType", "11")
-        //        .addBuilder("remark", "1")
-        //        .fullBody();
         for (; ; ) {
-            //int amount = (int) (Math.random() * 99);
             String result = DafaRequest.post(httpConfig);
             System.out.println(result);
             try {

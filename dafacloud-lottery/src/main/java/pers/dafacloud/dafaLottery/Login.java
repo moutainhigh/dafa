@@ -2,16 +2,13 @@ package pers.dafacloud.dafaLottery;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.http.Header;
-import pers.dafacloud.constant.LotteryConstant;
+import pers.dafacloud.betRun.BettingRun;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpCookies;
 import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.randomNameAddrIP.RandomIP;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -20,7 +17,7 @@ import java.util.concurrent.Executors;
 public class Login {
 
     //private static String host = LotteryConstant.host;
-    private static String host = BettingRunning.host;
+    private static String host = BettingRun.host;
     private static String loginUrl = host + "/v1/users/login";
     private static ExecutorService execute = Executors.newFixedThreadPool(300);
 

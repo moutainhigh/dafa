@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.testng.annotations.Test;
 import pers.dafacloud.constant.LotteryConstant;
-import pers.dafacloud.dafaLottery.Betting;
+import pers.dafacloud.betRun.Betting;
 import pers.dafacloud.dafaLottery.Login;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;

@@ -3,7 +3,7 @@ package pers.dafacloud.server;
 import org.springframework.stereotype.Service;
 import pers.dafacloud.configuration.DataSourceType;
 import pers.dafacloud.mapper.tableDetail.TableDetailMapper;
-import pers.dafacloud.model.TableDetail;
+import pers.dafacloud.entity.TableDetail;
 import pers.dafacloud.utils.dataSource.MyDataSource;
 
 import javax.annotation.Resource;

@@ -1,6 +1,6 @@
 package pers.dafacloud.mapper.summaryPaymentRecord;
 
-import pers.dafacloud.model.SummaryPaymentRecord;
+import pers.dafacloud.entity.SummaryPaymentRecord;
 
 import java.util.List;
 

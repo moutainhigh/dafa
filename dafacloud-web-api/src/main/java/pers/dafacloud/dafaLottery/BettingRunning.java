@@ -1,5 +1,10 @@
 package pers.dafacloud.dafaLottery;
 
+import pers.dafacloud.constant.LotteryConstant;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class BettingRunning {
     //lotteryCode，文件名，用户数量，下单间隔
 
@@ -10,7 +15,8 @@ public class BettingRunning {
     //public static String host = "http://dafacloud-pre.com";//pre
 
     public static void main(String[] args) {
-        //List<LotteryObj> lotteryObjList = new ArrayList<>();
+        Betting.isStop=false;
+        List<LotteryObj> lotteryObjList = new ArrayList<>();
         //lotteryObjList.add(new LotteryObj("1407", "yfk3", 600, 3));
         //lotteryObjList.add(new LotteryObj("1008", "yfssc", 1, 5));
         //lotteryObjList.add(new LotteryObj("1304", "yfpk10", 1, 5));
@@ -23,14 +29,9 @@ public class BettingRunning {
         //lotteryObjList.add(new LotteryObj("1412", "wfk3", 1, 5));
         //lotteryObjList.add(new LotteryObj("1009", "wfssc", 1, 5));
         //lotteryObjList.add(new LotteryObj("1306", "wfpk10", 1, 5));
-        //lotteryObjList.add(new LotteryObj("1300", "wflhc", 1, 5));
-        //new Betting(host, lotteryObjList, false, 100);
-        //new Betting(LotteryConstant.host, "1407,yfk3,10,10", false, true, true).run(2);
+        lotteryObjList.add(new LotteryObj("1300", 1, 5));
+        new Betting(host, "dafa", 1, lotteryObjList, false, 100);
 
-        //for (; ; ) {
-        //    LotteryObj obj = new LotteryObj("1407", "yfk3", 600, 3);
-        //    System.out.println(obj);
-        //}
 
     }
 

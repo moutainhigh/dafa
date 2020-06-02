@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pers.dafacloud.mapper.ApiManageMapper">
-    <select id="getBatchTestApiList"  resultType="pers.dafacloud.model.ApiManage" flushCache="true"
+    <select id="getBatchTestApiList" resultType="pers.dafacloud.entity.ApiManage" flushCache="true"
             useCache="true">
         select
         id id
@@ -32,7 +32,7 @@
         order by sort asc,id desc
     </select>
 
-    <select id="getApiList" parameterType="java.util.Map" resultType="pers.dafacloud.model.ApiManage" flushCache="true"
+    <select id="getApiList" parameterType="java.util.Map" resultType="pers.dafacloud.entity.ApiManage" flushCache="true"
             useCache="true">
         select
         id id
@@ -87,7 +87,7 @@
     </select>
 
 
-    <select id="getApiListCount" parameterType="pers.dafacloud.model.ApiManage" resultType="java.lang.Integer"
+    <select id="getApiListCount" parameterType="pers.dafacloud.entity.ApiManage" resultType="java.lang.Integer"
             flushCache="true" useCache="true">
         select count(1) from api_manage
         <where>
@@ -118,7 +118,7 @@
         </where>
     </select>
 
-    <select id="getApiById" parameterType="java.lang.Integer" resultType="pers.dafacloud.model.ApiManage"
+    <select id="getApiById" parameterType="java.lang.Integer" resultType="pers.dafacloud.entity.ApiManage"
             flushCache="true" useCache="true">
         SELECT
             id id
@@ -147,7 +147,7 @@
     </select>
 
 
-    <update id="updateApi" parameterType="pers.dafacloud.model.ApiManage">
+    <update id="updateApi" parameterType="pers.dafacloud.entity.ApiManage">
 		update api_manage set
 		api_name = #{apiName}
         ,description = #{description}
@@ -169,7 +169,7 @@
 		where id = #{id}
 	</update>
 
-    <insert id="addApi" parameterType="pers.dafacloud.model.ApiManage" keyProperty="id">
+    <insert id="addApi" parameterType="pers.dafacloud.entity.ApiManage" keyProperty="id">
 		insert into api_manage(
 		api_name
         ,description

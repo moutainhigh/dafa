@@ -3,9 +3,7 @@ package pers.dafacloud.server;
 import org.springframework.stereotype.Service;
 import pers.dafacloud.configuration.DataSourceType;
 import pers.dafacloud.mapper.onlineQestion.OnlineQuestionMapper;
-import pers.dafacloud.mapper.tableDetail.TableDetailMapper;
-import pers.dafacloud.model.OnlineQuestion;
-import pers.dafacloud.model.TableDetail;
+import pers.dafacloud.entity.OnlineQuestion;
 import pers.dafacloud.utils.dataSource.MyDataSource;
 
 import javax.annotation.Resource;

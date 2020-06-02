@@ -12,7 +12,7 @@
         parameterType:入参的数据类型
         resultType:返回结果数据类型
      -->
-    <select id="getLotteryConfig"  resultType="pers.dafacloud.model.LotteryConfigPojo">
+    <select id="getLotteryConfig"  resultType="pers.dafacloud.entity.LotteryConfigPojo">
 		select
 		`lottery_type`  lotteryType,
 		 lottery_code lotteryCode,

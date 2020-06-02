@@ -1,7 +1,7 @@
 package pers.dafacloud.mapper.user;
 
 import org.apache.ibatis.annotations.Param;
-import pers.dafacloud.model.User;
+import pers.dafacloud.entity.User;
 
 import java.util.List;
 

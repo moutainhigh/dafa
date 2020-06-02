@@ -2,7 +2,7 @@ package pers.dafacloud.runWSJavaxSX;
 
 import pers.dafacloud.dafacloudUtils.Constants;
 import pers.dafacloud.dafacloudUtils.Login;
-import pers.dafacloud.model.BetGameContent;
+import pers.dafacloud.entity.BetGameContent;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
 

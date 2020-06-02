@@ -12,8 +12,8 @@
         parameterType:入参的数据类型
         resultType:返回结果数据类型
      -->
-    <select id="queryTableDetail" parameterType="pers.dafacloud.model.TableDetail"
-            resultType="pers.dafacloud.model.TableDetail" flushCache="true" useCache="true">
+    <select id="queryTableDetail" parameterType="pers.dafacloud.entity.TableDetail"
+            resultType="pers.dafacloud.entity.TableDetail" flushCache="true" useCache="true">
         select
         id id
         ,table_name_en tableNameEn
@@ -48,7 +48,7 @@
         limit #{pageNum},#{pageSize};
     </select>
 
-    <select id="queryTableDetailCount" parameterType="pers.dafacloud.model.TableDetail" resultType="java.lang.Integer"
+    <select id="queryTableDetailCount" parameterType="pers.dafacloud.entity.TableDetail" resultType="java.lang.Integer"
             flushCache="true" useCache="true">
         select count(1) from table_detail
         <where>
@@ -73,7 +73,7 @@
         </where>
     </select>
 
-    <update id="updateTableDetail" parameterType="pers.dafacloud.model.TableDetail">
+    <update id="updateTableDetail" parameterType="pers.dafacloud.entity.TableDetail">
 		update table_detail set
 		table_name_en = #{tableNameEn}
         ,table_description = #{tableDescription}
@@ -85,7 +85,7 @@
 		where id = #{id}
 	</update>
 
-    <insert id="addTableDetail" parameterType="pers.dafacloud.model.TableDetail" keyProperty="id">
+    <insert id="addTableDetail" parameterType="pers.dafacloud.entity.TableDetail" keyProperty="id">
 		insert into table_detail(
 		     table_name_en
             ,table_description

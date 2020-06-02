@@ -13,6 +13,9 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
+/**
+ * aes解密
+ */
 public class AesEncodeUtil {
 
     //偏移量

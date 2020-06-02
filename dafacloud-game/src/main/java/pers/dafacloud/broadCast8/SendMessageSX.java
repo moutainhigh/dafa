@@ -14,9 +14,9 @@ public class SendMessageSX {
     public static void process() {
         try {
             //System.out.println(ClassLayout.parseInstance(responceMessage).toPrintable());
-            System.out.println("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis());
-            Session session = container.connectToServer(new ResponceMessage(), URI.create("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis()));
-            System.out.println("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis());
+            //System.out.println("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis());
+            Session session = container.connectToServer(new ResponceMessage(), URI.create("ws://dafacloud-pre.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis()));
+            //System.out.println("ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=" + UUID.randomUUID() + "_" + System.currentTimeMillis());
             //ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=022f4390-e4ce-4541-a719-4b5644f40781_1590553903184
             //ws://dafacloud-test.com/v1/broadCast/security?type=8&uuid=6de1e24e-fa38-49ba-9909-fbaf020a6e32_1590554140920
             session.setMaxIdleTimeout(5000);

@@ -1,13 +1,10 @@
 package pers.dafacloud.controller;
 
 import net.sf.json.JSONObject;
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.dafacloud.server.OnlineQuestionServer;
-import pers.dafacloud.utils.SqlSessionFactoryUtils;
-import pers.dafacloud.mapper.onlineQestion.OnlineQuestionMapper;
-import pers.dafacloud.model.OnlineQuestion;
+import pers.dafacloud.entity.OnlineQuestion;
 import pers.dafacloud.utils.excelUtil.ExcelUtiles;
 
 import javax.servlet.http.HttpServletResponse;

@@ -6,6 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * websocket设置请求头
+ * */
 public class Config extends ClientEndpointConfig.Configurator {
 
     @Override
@@ -24,7 +27,7 @@ public class Config extends ClientEndpointConfig.Configurator {
 
     @Override
     public void afterResponse(HandshakeResponse hr) {
-        Map<String, List<String>> headers = hr.getHeaders();
+        //Map<String, List<String>> headers = hr.getHeaders();
         //log.info("headers -> "+headers);
     }
 }

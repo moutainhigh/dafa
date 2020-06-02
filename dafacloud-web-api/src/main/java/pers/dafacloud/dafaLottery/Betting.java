@@ -1,10 +1,11 @@
 package pers.dafacloud.dafaLottery;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.apache.http.Header;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import pers.dafacloud.enums.EV;
+import pers.dafacloud.enums.LotteryConfig;
 import pers.dafacloud.server.BetContentServer;
 import pers.dafacloud.server.BetUsersServer;
 import pers.utils.dafaRequest.DafaRequest;
@@ -25,7 +26,7 @@ import java.util.concurrent.Executors;
 
 @Component
 public class Betting {
-    public static ExecutorService excutors = Executors.newFixedThreadPool(300);
+    public static ExecutorService excutors = Executors.newFixedThreadPool(660);
     public static boolean isStop = true;
 
     private String addBettingUrl;
@@ -36,11 +37,10 @@ public class Betting {
     private boolean isFilePoint;//是否使用返点json文件
 
     private EV ev;
-    static String host0;
 
     private static Betting betting;
 
-    private Map<String, List<Map>> betContentMap = new HashMap<>();
+    private Map<String, List<String>> betContentMap = new HashMap<>();
 
 
     @PostConstruct
@@ -59,7 +59,6 @@ public class Betting {
     }
 
     public Betting(String host, String urlTenantCode, int betContentType, List<LotteryObj> lotteryObjs, boolean isFilePoint, int threadStepTimeMill) {
-        host0 = host;
         this.addBettingUrl = host + "/v1/betting/addBetting";
         this.getBetRebate = host + "/v1/betting/getBetRebate";
         this.isFilePoint = isFilePoint;
@@ -67,6 +66,8 @@ public class Betting {
 
         List<Map> users = null;
         List<Map> usersTenant = null;
+
+        betContentMap.clear();
 
         if (ev == null) {
             System.out.println("ev = null");
@@ -118,28 +119,28 @@ public class Betting {
                 }
             }
             betContentMap.put(lotteryConfig.code, betting.betContentServer.getBetContentList(betContentType, lotteryConfig.code));
-            bettingLoop(userSub, betContentType, lotteryObj.getBettingStepTime(), lotteryConfig, threadStepTimeMill);
+            //betContentMap.put(lotteryConfig.code, FileUtil.readFile("/aa"));
+            bettingLoop(userSub, lotteryObj.getBettingStepTime(), lotteryConfig, threadStepTimeMill);
         }
         //返点配置文件
         if (isFilePoint) {
             JSONObject jsonObjectPoint = JSONObject.parseObject(FileUtil.readFileRetrunString(BettingRunning.class.getResourceAsStream("/pointJson/point.json")));
             if (isContainsTenantLottery)
-                rebateJson = jsonObjectPoint.getJSONObject(ev.evPointTenant);
+                rebateJson = jsonObjectPoint.getJSONObject(ev.evPointTenant);//站长彩
             else
                 rebateJson = jsonObjectPoint.getJSONObject(ev.evName);
         }
     }
-
     /**
      * 按每个彩种，用户数量执行
      */
-    private void bettingLoop(List<Map> users, int betContentType, int bettingStepTime, LotteryConfig lotteryConfig, int threadStepTimeMill) {
+    private void bettingLoop(List<Map> users, int bettingStepTime, LotteryConfig lotteryConfig, int threadStepTimeMill) {
         for (Map usersMap : users) {
             if (isStop) {
                 //Thread.currentThread().interrupt();
                 break;
             }
-            excutors.execute(() -> bettingExecu(usersMap, betContentType, bettingStepTime, lotteryConfig));
+            excutors.execute(() -> bettingExecu(usersMap, bettingStepTime, lotteryConfig));
             try {
                 if (ev.isIP)
                     Thread.sleep(threadStepTimeMill);//每隔n秒启动一个线程
@@ -154,8 +155,7 @@ public class Betting {
     /**
      * 执行下注
      */
-    private void bettingExecu(Map usersMap, int betContentType, int bettingStepTime, LotteryConfig lotteryConfig) {
-        //List<Map> betContents = betting.betContentServer.getBetContentList(betContentType, lotteryConfig.code);
+    private void bettingExecu(Map usersMap, int bettingStepTime, LotteryConfig lotteryConfig) {
         Header[] headers;
         HttpConfig httpConfig;
         if (ev.isIP) {
@@ -204,7 +204,7 @@ public class Betting {
             }
             System.out.println(result);
             try {
-                Thread.sleep(bettingStepTime); //投注间隔时间
+                Thread.sleep(bettingStepTime);//投注间隔时间
             } catch (Exception e) {
                 betContentMap.clear();
                 Thread.currentThread().interrupt();
@@ -220,14 +220,13 @@ public class Betting {
     private String getBettingData(String lotteryCode, String rebate, int timeType) {
         //String betContent = betContents.get((int) (Math.random() * (betContents.size()))).get("content").toString();
         String betContent =
-                betContentMap.get(lotteryCode)
-                        .get((int) (Math.random() * betContentMap.get(lotteryCode).size())).get("content").toString();
+                betContentMap.get(lotteryCode).get((int) (Math.random() * betContentMap.get(lotteryCode).size()));
 
         JsonArrayBuilder jsonArrayBuilder = JsonArrayBuilder
                 .custom();
         String[] betContentArray0 = betContent.split("@");
-        for (int i = 0; i < betContentArray0.length; i++) {
-            String[] betContentArray = betContentArray0[i].split("`");
+        for (String betContent0 : betContentArray0) {
+            String[] betContentArray = betContent0.split("`");
             net.sf.json.JSONObject order1 = JsonObjectBuilder.custom()
                     .put("lotteryCode", betContentArray[0])
                     .put("playDetailCode", betContentArray[1])
@@ -271,5 +270,18 @@ public class Betting {
         //} else {
         //    return null;
         //}
+    }
+
+    public static void main(String[] args) {
+        //Map<String, String> map = new HashMap<>();
+        //map.put("zxcz", "abc");
+        //List<String> result4 = (List<String>) map.values().stream()
+        //        .collect(Collectors.toList());
+        //List<String> result2 = new ArrayList<>(map.values());
+        //List<String> result3 = map.keySet().stream()
+        //        .filter(x -> !"banana".equalsIgnoreCase(x))
+        //        .collect(Collectors.toList());
+        //result2.forEach(System.out::println);
+
     }
 }

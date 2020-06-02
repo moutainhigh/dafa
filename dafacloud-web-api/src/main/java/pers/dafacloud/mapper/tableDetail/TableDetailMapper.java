@@ -1,7 +1,7 @@
 package pers.dafacloud.mapper.tableDetail;
 
 import org.apache.ibatis.annotations.Mapper;
-import pers.dafacloud.model.TableDetail;
+import pers.dafacloud.entity.TableDetail;
 
 import java.util.List;
 

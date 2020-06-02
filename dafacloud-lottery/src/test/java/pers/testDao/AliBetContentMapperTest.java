@@ -1,7 +1,6 @@
 package pers.testDao;
 
 import org.apache.ibatis.session.SqlSession;
-import pers.dafacloud.dafaLottery.Betting;
 import pers.dafacloud.mapper.aliBetContent.AliBetContentMapper;
 import pers.dafacloud.utils.SqlSessionFactoryUtils;
 import pers.utils.fileUtils.FileUtil;
