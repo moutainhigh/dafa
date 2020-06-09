@@ -57,7 +57,7 @@ start(){
   if [[ $? -eq 0 ]]; then
     echo "${APP_NAME} is already running. pid=${pid}"
   else
-    cd /usr/duke/github/dafagame-client-bf/target/lib
+    cd /usr/duke/github/${project_name}/target/lib
     rm -rf /usr/duke/${out}
     nohup java -jar ${APP_NAME}  > /usr/duke/${out}
     echo "${APP_NAME} 启动成功"
