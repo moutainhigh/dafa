@@ -30,4 +30,6 @@ public class Config extends ClientEndpointConfig.Configurator {
         //Map<String, List<String>> headers = hr.getHeaders();
         //log.info("headers -> "+headers);
     }
+
 }
+

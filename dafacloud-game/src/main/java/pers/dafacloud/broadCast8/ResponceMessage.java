@@ -1,9 +1,11 @@
 package pers.dafacloud.broadCast8;
 
 
+import pers.dafacloud.broadCast.Config;
+
 import javax.websocket.*;
 
-@ClientEndpoint
+@ClientEndpoint(configurator = Config.class)
 public class ResponceMessage {
 
     @OnOpen

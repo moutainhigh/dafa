@@ -13,7 +13,11 @@ import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
 import io.netty.handler.codec.http.websocketx.WebSocketFrame;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang.StringUtils;
 import pers.utils.StringUtils.StringBuilders;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class HbslHandler extends GameHandler {
@@ -24,7 +28,13 @@ public class HbslHandler extends GameHandler {
     @Setter
     private boolean isScenesReq = false;//是否进入场景
 
-    static int count = 0;
+    private static int redEnvelopeCount = 0;
+    private int redEnvelopeLength;
+
+    private int uid;
+
+    private String currentRedEnvelopeId;
+
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -41,6 +51,7 @@ public class HbslHandler extends GameHandler {
                 }
                 Gate.ClientMsg clientMsg = Gate.ClientMsg.parseFrom(bytes);
                 //handlerManager.handler(ctx.channel(),clientMsg);
+
                 System.out.println("proto：" + clientMsg.getProto() + "-----------------------------------------------------------------------------");
                 switch (clientMsg.getProto()) {
                     case World.ProtoType.ErrorNtfType_VALUE:// 1004 错误消息通知
@@ -53,16 +64,17 @@ public class HbslHandler extends GameHandler {
                                 StringBuilders.custom()
                                         .add(Gate.ProtoType.GateResType_VALUE + "登陆响应")
                                         .add("昵称", gateRes.getLoginRes().getPlayer().getNickName())
-                                        .add(phone + "登陆回应", gateRes.getLoginRes().toString().replaceAll("\n", ",").replaceAll("\t", ""))
+                                        .add(phone + "/登陆回应", gateRes.getLoginRes().toString().replaceAll("\n", ",").replaceAll("\t", ""))
                                         .add(phone + "code", gateRes.getErrorCode())
                                         .build()
                         );
-                        //uid = gateRes.getLoginRes().getUid(); //设置用户id
+                        uid = gateRes.getLoginRes().getUid(); //用户id
+                        System.out.println(uid);
                         if (!isEnterGame) {
                             World.EnterGameReq enterGameReq = World.EnterGameReq
                                     .newBuilder()
                                     .setGameCode("107") //游戏
-                                    .setRoundType("101")
+                                    .setRoundType(roundType)
                                     .build();
                             sendBf(enterGameReq.toByteString(), World.ProtoType.EnterGameReqType_VALUE, channel);//发送消息
                             System.out.println(World.ProtoType.EnterGameReqType_VALUE + "进入游戏请求 send Success");
@@ -80,62 +92,46 @@ public class HbslHandler extends GameHandler {
                                         .build()
                         );
                         //发送进入场景请求
-                        //if (!isScenesReq) {
-                        //    Hbsl.RoomInformationNtf sceneNtf = Hbsl.RoomInformationNtf.newBuilder().build();
-                        //    sendBf(sceneNtf.toByteString(), Qzsg.ProtoType.ScenesReqType_VALUE, channel);
-                        //    System.out.println("进入场景请求 send Success");
-                        //    isScenesReq = true;
-                        //}
+                        if (!isScenesReq) {
+                            Hbsl.SceneReq sceneNtf = Hbsl.SceneReq.newBuilder().build();
+                            sendBf(sceneNtf.toByteString(), Hbsl.ProtoType.SceneReqType_VALUE, channel);
+                            System.out.println("进入场景请求 send Success");
+                            isScenesReq = true;
+                        }
                         break;
-
-                    case Qzsg.ProtoType.PlayerEnterNtfType_VALUE: //玩家进入游戏广播
-                        Qzsg.PlayerEnterNtf playerEnterNtf = Qzsg.PlayerEnterNtf.parseFrom(clientMsg.getData());
+                    case Hbsl.ProtoType.SceneResType_VALUE: //场景通知
+                        Hbsl.SceneRes sceneRes = Hbsl.SceneRes.parseFrom(clientMsg.getData());
                         System.out.println(StringBuilders.custom()
-                                .add(Qzsg.ProtoType.PlayerEnterNtfType_VALUE + "玩家进入游戏广播")
-                                .add("玩家", playerEnterNtf.getPlayer())
+                                .add(Hbsl.ProtoType.SceneResType_VALUE + "场景通知")
+                                .add("房间场景信息", sceneRes.getSceneNtf())
+                                //.add("", roomInformationNtf.getRankNtf())
+                                .add("红包的配置", sceneRes.getConfig())
+                                .add("当前红包的信息", sceneRes.getRedNtf())
                                 .build());
+                        if (userType == 2)
+                            break;
+                        OutRedEnvelopeReq(channel);//发送红包
                         break;
-
-                    case Hbsl.ProtoType.RoomInformationNtfType_VALUE: //场景通知
-                        Hbsl.RoomInformationNtf roomInformationNtf = Hbsl.RoomInformationNtf.parseFrom(clientMsg.getData());
+                    case Hbsl.ProtoType.RedEnvelopeNtfType_VALUE: //红包信息 （当前红包信息，当前红包的） 1s 钟一次
+                        Hbsl.RedEnvelopeNtf redEnvelopeNtf = Hbsl.RedEnvelopeNtf.parseFrom(clientMsg.getData());
                         System.out.println(StringBuilders.custom()
-                                .add(Hbsl.ProtoType.RoomInformationNtfType_VALUE + "场景通知")
-                                .add("SceneNtf", roomInformationNtf.getSceneNtf())
-                                .add("rankNtf", roomInformationNtf.getRankNtf())
-                                .add("Config", roomInformationNtf.getConfig())
+                                .add(Hbsl.ProtoType.RedEnvelopeNtfType_VALUE + "红包信息】")
+                                .add("红包id", redEnvelopeNtf.getRedEnvelope().getId())
+                                .add("红包生成时间点", redEnvelopeNtf.getRedEnvelope().getCreatedTime())
+                                .add("剩余金钱", redEnvelopeNtf.getRedEnvelope().getTotalMoney())
+                                .add("剩余包数", redEnvelopeNtf.getRedEnvelope().getMultiple())
+                                .add("总包数", redEnvelopeNtf.getRedEnvelope().getTotalMultiple())
+                                .add("雷号", redEnvelopeNtf.getRedEnvelope().getBombNum())
+                                .add("发包人昵称", redEnvelopeNtf.getRedEnvelope().getOwnerName())
                                 .build());
-                        break;
-                    case Hbsl.ProtoType.SceneNtfType_VALUE: //房间信息
-                        Hbsl.SceneNtf sceneNtf = Hbsl.SceneNtf.parseFrom(clientMsg.getData());
-                        System.out.println(StringBuilders.custom()
-                                .add(Hbsl.ProtoType.SceneNtfType_VALUE + "房间信息")
-                                .add("当前的红包", sceneNtf.getRedEnvelope())
-                                .add("红包总数", sceneNtf.getTotal())
-                                .add("当前红包领取排名", sceneNtf.getRanksList())
-                                .build());
-                        String id = sceneNtf.getRedEnvelope().getId();
-                        System.out.println("id:" + id);//1100417
-                        if (sceneNtf.getRedEnvelope() != null && !this.phone.equals("47876132")) {
-                            Hbsl.CrabRedEnvelopeReq crabRedEnvelopeReq = Hbsl.CrabRedEnvelopeReq
-                                    .newBuilder()
-                                    .setId(id)
-                                    .build();
-                            sendBf(crabRedEnvelopeReq.toByteString(), Hbsl.ProtoType.CrabRedEnvelopeReqType_VALUE, channel);
-                            System.out.println(this.phone + "获取红包");
+                        //
+                        if (userType == 1)
+                            break;
+                        if (StringUtils.isEmpty(currentRedEnvelopeId) || !redEnvelopeNtf.getRedEnvelope().getId().equals(currentRedEnvelopeId)) {
+                            currentRedEnvelopeId = redEnvelopeNtf.getRedEnvelope().getId();
+                            sendRedEnvelopeReq(redEnvelopeNtf.getRedEnvelope().getTotalMultiple(), channel);
                         }
 
-                        if (count == 0 && this.phone.equals("47876132")) {
-                            count++;
-                            Hbsl.OutRedEnvelopeReq outRedEnvelopeReq = Hbsl.OutRedEnvelopeReq
-                                    .newBuilder()
-                                    .setMoney(10)
-                                    .setTempIdx(1)
-                                    .setBombNum(1)
-                                    .setRepeated(1)
-                                    .build();
-                            sendBf(outRedEnvelopeReq.toByteString(), Hbsl.ProtoType.OutRedEnvelopeReqType_VALUE, channel);
-                            System.out.println("红包发送");
-                        }
                         break;
 
                     case Hbsl.ProtoType.CrabRedEnvelopeResType_VALUE: //获取红包回应
@@ -149,11 +145,76 @@ public class HbslHandler extends GameHandler {
                                 .add("赔付金额", crabRedEnvelopeRes.getPayMoney())
                                 .build());
                         break;
+                    case Hbsl.ProtoType.OutRedEnvelopeResType_VALUE: //埋雷红包回应
+                        Hbsl.OutRedEnvelopeRes outRedEnvelopeRes = Hbsl.OutRedEnvelopeRes.parseFrom(clientMsg.getData());
+                        System.out.println(StringBuilders.custom()
+                                .add(Hbsl.ProtoType.OutRedEnvelopeResType_VALUE + "埋雷红包回应】")
+                                .add("成功码", outRedEnvelopeRes.getCode())
+                                .add("获取的金钱", outRedEnvelopeRes.getBalance())
+                                .build());
+                        break;
 
-
+                    case Hbsl.ProtoType.SceneNtfType_VALUE: //房间信息
+                        Hbsl.SceneNtf sceneNtf = Hbsl.SceneNtf.parseFrom(clientMsg.getData());
+                        System.out.println(StringBuilders.custom()
+                                .add(Hbsl.ProtoType.SceneNtfType_VALUE + "房间信息】")
+                                //.add("当前红包uid", sceneNtf.getRedUids(0))
+                                .build());
+                        redEnvelopeLength = sceneNtf.getRedUidsList().size();
+                        redEnvelopeCount = sceneNtf.getRedUidsList().stream().filter((Integer i) -> i == uid).collect(Collectors.toList()).size();
+                        break;
                 }
             }
         }
+    }
+
+    public void sendRedEnvelopeReq(int total, Channel channel) {
+        new Thread(() -> {
+            try {
+                Thread.sleep((1 + (int) (Math.random() * 3)) * 1000);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (total != 0) {
+                Hbsl.CrabRedEnvelopeReq crabRedEnvelopeReq =
+                        Hbsl.CrabRedEnvelopeReq.newBuilder()
+                                .setId(currentRedEnvelopeId)
+                                .build();
+                sendBf(crabRedEnvelopeReq.toByteString(), Hbsl.ProtoType.CrabRedEnvelopeReqType_VALUE, channel);
+                System.out.println("打开红包");
+            }
+        }).start();
+    }
+
+
+    public void OutRedEnvelopeReq(Channel channel) {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        new Thread(() -> {
+            for (; ; ) {
+
+                if (redEnvelopeCount < 6 && redEnvelopeLength < 100) {
+                    Hbsl.OutRedEnvelopeReq outRedEnvelopeReq = Hbsl.OutRedEnvelopeReq
+                            .newBuilder()
+                            .setMoney(10)
+                            .setTempIdx(0)
+                            .setRepeated(1)
+                            .setBombNum(6)
+                            .build();
+                    sendBf(outRedEnvelopeReq.toByteString(), Hbsl.ProtoType.OutRedEnvelopeReqType_VALUE, channel);
+                    System.out.println("埋雷红包");
+                }
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
     }
 
     /**

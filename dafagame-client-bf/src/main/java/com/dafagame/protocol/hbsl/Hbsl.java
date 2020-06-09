@@ -38,7 +38,7 @@ public final class Hbsl {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static GameType valueOf(int value) {
       return forNumber(value);
     }
@@ -72,7 +72,7 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.getDescriptor().getEnumTypes().get(0);
+      return Hbsl.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final GameType[] VALUES = values();
@@ -80,7 +80,7 @@ public final class Hbsl {
     public static GameType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
@@ -102,15 +102,7 @@ public final class Hbsl {
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
-     *场景消息
-     * </pre>
-     *
-     * <code>RoomInformationNtfType = 10701;</code>
-     */
-    RoomInformationNtfType(10701),
-    /**
-     * <pre>
-     *发包请求
+     *    RoomInformationNtfType = 10701; //场景消息
      * </pre>
      *
      * <code>OutRedEnvelopeReqType = 10702;</code>
@@ -156,19 +148,83 @@ public final class Hbsl {
      * <code>PlayerRankNtfType = 10707;</code>
      */
     PlayerRankNtfType(10707),
+    /**
+     * <pre>
+     *场景请求
+     * </pre>
+     *
+     * <code>SceneReqType = 10708;</code>
+     */
+    SceneReqType(10708),
+    /**
+     * <pre>
+     *场景回应
+     * </pre>
+     *
+     * <code>SceneResType = 10709;</code>
+     */
+    SceneResType(10709),
+    /**
+     * <pre>
+     *红包列表请求
+     * </pre>
+     *
+     * <code>RedEnvelopeListReqType = 10710;</code>
+     */
+    RedEnvelopeListReqType(10710),
+    /**
+     * <pre>
+     *红包列表回应
+     * </pre>
+     *
+     * <code>RedEnvelopeListResType = 10711;</code>
+     */
+    RedEnvelopeListResType(10711),
+    /**
+     * <pre>
+     *上个红包的榜单
+     * </pre>
+     *
+     * <code>RedRankNtfType = 10712;</code>
+     */
+    RedRankNtfType(10712),
+    /**
+     * <pre>
+     *在线玩家请求
+     * </pre>
+     *
+     * <code>OnlinePlayerReqType = 10713;</code>
+     */
+    OnlinePlayerReqType(10713),
+    /**
+     * <pre>
+     *在线玩家排名回应
+     * </pre>
+     *
+     * <code>OnlinePlayerResType = 10714;</code>
+     */
+    OnlinePlayerResType(10714),
+    /**
+     * <pre>
+     *更改余额变动
+     * </pre>
+     *
+     * <code>BalanceNtfType = 10715;</code>
+     */
+    BalanceNtfType(10715),
+    /**
+     * <pre>
+     *红包信息，一秒钟一次，切换的时候也发送
+     * </pre>
+     *
+     * <code>RedEnvelopeNtfType = 10716;</code>
+     */
+    RedEnvelopeNtfType(10716),
     ;
 
     /**
      * <pre>
-     *场景消息
-     * </pre>
-     *
-     * <code>RoomInformationNtfType = 10701;</code>
-     */
-    public static final int RoomInformationNtfType_VALUE = 10701;
-    /**
-     * <pre>
-     *发包请求
+     *    RoomInformationNtfType = 10701; //场景消息
      * </pre>
      *
      * <code>OutRedEnvelopeReqType = 10702;</code>
@@ -214,6 +270,78 @@ public final class Hbsl {
      * <code>PlayerRankNtfType = 10707;</code>
      */
     public static final int PlayerRankNtfType_VALUE = 10707;
+    /**
+     * <pre>
+     *场景请求
+     * </pre>
+     *
+     * <code>SceneReqType = 10708;</code>
+     */
+    public static final int SceneReqType_VALUE = 10708;
+    /**
+     * <pre>
+     *场景回应
+     * </pre>
+     *
+     * <code>SceneResType = 10709;</code>
+     */
+    public static final int SceneResType_VALUE = 10709;
+    /**
+     * <pre>
+     *红包列表请求
+     * </pre>
+     *
+     * <code>RedEnvelopeListReqType = 10710;</code>
+     */
+    public static final int RedEnvelopeListReqType_VALUE = 10710;
+    /**
+     * <pre>
+     *红包列表回应
+     * </pre>
+     *
+     * <code>RedEnvelopeListResType = 10711;</code>
+     */
+    public static final int RedEnvelopeListResType_VALUE = 10711;
+    /**
+     * <pre>
+     *上个红包的榜单
+     * </pre>
+     *
+     * <code>RedRankNtfType = 10712;</code>
+     */
+    public static final int RedRankNtfType_VALUE = 10712;
+    /**
+     * <pre>
+     *在线玩家请求
+     * </pre>
+     *
+     * <code>OnlinePlayerReqType = 10713;</code>
+     */
+    public static final int OnlinePlayerReqType_VALUE = 10713;
+    /**
+     * <pre>
+     *在线玩家排名回应
+     * </pre>
+     *
+     * <code>OnlinePlayerResType = 10714;</code>
+     */
+    public static final int OnlinePlayerResType_VALUE = 10714;
+    /**
+     * <pre>
+     *更改余额变动
+     * </pre>
+     *
+     * <code>BalanceNtfType = 10715;</code>
+     */
+    public static final int BalanceNtfType_VALUE = 10715;
+    /**
+     * <pre>
+     *红包信息，一秒钟一次，切换的时候也发送
+     * </pre>
+     *
+     * <code>RedEnvelopeNtfType = 10716;</code>
+     */
+    public static final int RedEnvelopeNtfType_VALUE = 10716;
 
 
     public final int getNumber() {
@@ -223,20 +351,28 @@ public final class Hbsl {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static ProtoType valueOf(int value) {
       return forNumber(value);
     }
 
     public static ProtoType forNumber(int value) {
       switch (value) {
-        case 10701: return RoomInformationNtfType;
         case 10702: return OutRedEnvelopeReqType;
         case 10703: return OutRedEnvelopeResType;
         case 10704: return CrabRedEnvelopeReqType;
         case 10705: return CrabRedEnvelopeResType;
         case 10706: return SceneNtfType;
         case 10707: return PlayerRankNtfType;
+        case 10708: return SceneReqType;
+        case 10709: return SceneResType;
+        case 10710: return RedEnvelopeListReqType;
+        case 10711: return RedEnvelopeListResType;
+        case 10712: return RedRankNtfType;
+        case 10713: return OnlinePlayerReqType;
+        case 10714: return OnlinePlayerResType;
+        case 10715: return BalanceNtfType;
+        case 10716: return RedEnvelopeNtfType;
         default: return null;
       }
     }
@@ -263,7 +399,7 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.getDescriptor().getEnumTypes().get(1);
+      return Hbsl.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final ProtoType[] VALUES = values();
@@ -271,7 +407,7 @@ public final class Hbsl {
     public static ProtoType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
@@ -351,6 +487,30 @@ public final class Hbsl {
      * <code>NoTPlaying = 8;</code>
      */
     NoTPlaying(8),
+    /**
+     * <pre>
+     *房间达到最大包
+     * </pre>
+     *
+     * <code>ROOM_MAX = 9;</code>
+     */
+    ROOM_MAX(9),
+    /**
+     * <pre>
+     *个人达到最大包
+     * </pre>
+     *
+     * <code>PLAYER_MAX = 10;</code>
+     */
+    PLAYER_MAX(10),
+    /**
+     * <pre>
+     *测试账号无法领真实玩家包
+     * </pre>
+     *
+     * <code>CANT_CRAB_REAL_RED = 11;</code>
+     */
+    CANT_CRAB_REAL_RED(11),
     ;
 
     /**
@@ -413,6 +573,30 @@ public final class Hbsl {
      * <code>NoTPlaying = 8;</code>
      */
     public static final int NoTPlaying_VALUE = 8;
+    /**
+     * <pre>
+     *房间达到最大包
+     * </pre>
+     *
+     * <code>ROOM_MAX = 9;</code>
+     */
+    public static final int ROOM_MAX_VALUE = 9;
+    /**
+     * <pre>
+     *个人达到最大包
+     * </pre>
+     *
+     * <code>PLAYER_MAX = 10;</code>
+     */
+    public static final int PLAYER_MAX_VALUE = 10;
+    /**
+     * <pre>
+     *测试账号无法领真实玩家包
+     * </pre>
+     *
+     * <code>CANT_CRAB_REAL_RED = 11;</code>
+     */
+    public static final int CANT_CRAB_REAL_RED_VALUE = 11;
 
 
     public final int getNumber() {
@@ -422,7 +606,7 @@ public final class Hbsl {
     /**
      * @deprecated Use {@link #forNumber(int)} instead.
      */
-    @java.lang.Deprecated
+    @Deprecated
     public static ErrorCode valueOf(int value) {
       return forNumber(value);
     }
@@ -437,6 +621,9 @@ public final class Hbsl {
         case 6: return IllegalParam;
         case 7: return CrabFull;
         case 8: return NoTPlaying;
+        case 9: return ROOM_MAX;
+        case 10: return PLAYER_MAX;
+        case 11: return CANT_CRAB_REAL_RED;
         default: return null;
       }
     }
@@ -463,7 +650,7 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.getDescriptor().getEnumTypes().get(2);
+      return Hbsl.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final ErrorCode[] VALUES = values();
@@ -471,7 +658,7 @@ public final class Hbsl {
     public static ErrorCode valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
@@ -486,110 +673,62 @@ public final class Hbsl {
     // @@protoc_insertion_point(enum_scope:com.dafagame.protocol.hbsl.ErrorCode)
   }
 
-  public interface RoomInformationNtfOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.RoomInformationNtf)
+  public interface BalanceNtfOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.BalanceNtf)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
-     *房间场景信息
+     *剩余余额
      * </pre>
      *
-     * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+     * <code>required string balance = 1;</code>
      */
-    boolean hasSceneNtf();
+    boolean hasBalance();
     /**
      * <pre>
-     *房间场景信息
+     *剩余余额
      * </pre>
      *
-     * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+     * <code>required string balance = 1;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.SceneNtf getSceneNtf();
+    String getBalance();
     /**
      * <pre>
-     *房间场景信息
+     *剩余余额
      * </pre>
      *
-     * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+     * <code>required string balance = 1;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder getSceneNtfOrBuilder();
-
-    /**
-     * <pre>
-     *红包排名信息
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
-     */
-    boolean hasRankNtf();
-    /**
-     * <pre>
-     *红包排名信息
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
-     */
-    com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf getRankNtf();
-    /**
-     * <pre>
-     *红包排名信息
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
-     */
-    com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtfOrBuilder getRankNtfOrBuilder();
-
-    /**
-     * <pre>
-     *红包的配置
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
-     */
-    boolean hasConfig();
-    /**
-     * <pre>
-     *红包的配置
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
-     */
-    com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf getConfig();
-    /**
-     * <pre>
-     *红包的配置
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
-     */
-    com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConfOrBuilder getConfigOrBuilder();
+    com.google.protobuf.ByteString
+        getBalanceBytes();
   }
   /**
    * <pre>
-   *第一次场景信息，发送所有的信息
+   *余额变动
    * </pre>
    *
-   * Protobuf type {@code com.dafagame.protocol.hbsl.RoomInformationNtf}
+   * Protobuf type {@code com.dafagame.protocol.hbsl.BalanceNtf}
    */
-  public  static final class RoomInformationNtf extends
+  public  static final class BalanceNtf extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.RoomInformationNtf)
-      RoomInformationNtfOrBuilder {
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.BalanceNtf)
+      BalanceNtfOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use RoomInformationNtf.newBuilder() to construct.
-    private RoomInformationNtf(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use BalanceNtf.newBuilder() to construct.
+    private BalanceNtf(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private RoomInformationNtf() {
+    private BalanceNtf() {
+      balance_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RoomInformationNtf(
+    private BalanceNtf(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -613,42 +752,9 @@ public final class Hbsl {
               break;
             }
             case 10: {
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = sceneNtf_.toBuilder();
-              }
-              sceneNtf_ = input.readMessage(com.dafagame.protocol.hbsl.Hbsl.SceneNtf.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(sceneNtf_);
-                sceneNtf_ = subBuilder.buildPartial();
-              }
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = rankNtf_.toBuilder();
-              }
-              rankNtf_ = input.readMessage(com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(rankNtf_);
-                rankNtf_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000002;
-              break;
-            }
-            case 26: {
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = config_.toBuilder();
-              }
-              config_ = input.readMessage(com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(config_);
-                config_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
+              balance_ = bs;
               break;
             }
           }
@@ -665,114 +771,69 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_BalanceNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_BalanceNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf.class, com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf.Builder.class);
+              BalanceNtf.class, Builder.class);
     }
 
     private int bitField0_;
-    public static final int SCENENTF_FIELD_NUMBER = 1;
-    private com.dafagame.protocol.hbsl.Hbsl.SceneNtf sceneNtf_;
+    public static final int BALANCE_FIELD_NUMBER = 1;
+    private volatile Object balance_;
     /**
      * <pre>
-     *房间场景信息
+     *剩余余额
      * </pre>
      *
-     * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+     * <code>required string balance = 1;</code>
      */
-    public boolean hasSceneNtf() {
+    public boolean hasBalance() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <pre>
-     *房间场景信息
+     *剩余余额
      * </pre>
      *
-     * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+     * <code>required string balance = 1;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.SceneNtf getSceneNtf() {
-      return sceneNtf_ == null ? com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : sceneNtf_;
+    public String getBalance() {
+      Object ref = balance_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          balance_ = s;
+        }
+        return s;
+      }
     }
     /**
      * <pre>
-     *房间场景信息
+     *剩余余额
      * </pre>
      *
-     * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+     * <code>required string balance = 1;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder getSceneNtfOrBuilder() {
-      return sceneNtf_ == null ? com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : sceneNtf_;
-    }
-
-    public static final int RANKNTF_FIELD_NUMBER = 2;
-    private com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf rankNtf_;
-    /**
-     * <pre>
-     *红包排名信息
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
-     */
-    public boolean hasRankNtf() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <pre>
-     *红包排名信息
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
-     */
-    public com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf getRankNtf() {
-      return rankNtf_ == null ? com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.getDefaultInstance() : rankNtf_;
-    }
-    /**
-     * <pre>
-     *红包排名信息
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
-     */
-    public com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtfOrBuilder getRankNtfOrBuilder() {
-      return rankNtf_ == null ? com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.getDefaultInstance() : rankNtf_;
-    }
-
-    public static final int CONFIG_FIELD_NUMBER = 3;
-    private com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf config_;
-    /**
-     * <pre>
-     *红包的配置
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
-     */
-    public boolean hasConfig() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <pre>
-     *红包的配置
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
-     */
-    public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf getConfig() {
-      return config_ == null ? com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.getDefaultInstance() : config_;
-    }
-    /**
-     * <pre>
-     *红包的配置
-     * </pre>
-     *
-     * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
-     */
-    public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConfOrBuilder getConfigOrBuilder() {
-      return config_ == null ? com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.getDefaultInstance() : config_;
+    public com.google.protobuf.ByteString
+        getBalanceBytes() {
+      Object ref = balance_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        balance_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -781,27 +842,7 @@ public final class Hbsl {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasSceneNtf()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasRankNtf()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasConfig()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getSceneNtf().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getRankNtf().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!getConfig().isInitialized()) {
+      if (!hasBalance()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -812,13 +853,637 @@ public final class Hbsl {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, getSceneNtf());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, balance_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, balance_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof BalanceNtf)) {
+        return super.equals(obj);
+      }
+      BalanceNtf other = (BalanceNtf) obj;
+
+      boolean result = true;
+      result = result && (hasBalance() == other.hasBalance());
+      if (hasBalance()) {
+        result = result && getBalance()
+            .equals(other.getBalance());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasBalance()) {
+        hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+        hash = (53 * hash) + getBalance().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static BalanceNtf parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BalanceNtf parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BalanceNtf parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BalanceNtf parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BalanceNtf parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BalanceNtf parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BalanceNtf parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static BalanceNtf parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static BalanceNtf parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static BalanceNtf parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static BalanceNtf parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static BalanceNtf parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(BalanceNtf prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *余额变动
+     * </pre>
+     *
+     * Protobuf type {@code com.dafagame.protocol.hbsl.BalanceNtf}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.BalanceNtf)
+        BalanceNtfOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_BalanceNtf_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_BalanceNtf_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                BalanceNtf.class, Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.BalanceNtf.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        balance_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_BalanceNtf_descriptor;
+      }
+
+      public BalanceNtf getDefaultInstanceForType() {
+        return BalanceNtf.getDefaultInstance();
+      }
+
+      public BalanceNtf build() {
+        BalanceNtf result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public BalanceNtf buildPartial() {
+        BalanceNtf result = new BalanceNtf(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.balance_ = balance_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof BalanceNtf) {
+          return mergeFrom((BalanceNtf)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(BalanceNtf other) {
+        if (other == BalanceNtf.getDefaultInstance()) return this;
+        if (other.hasBalance()) {
+          bitField0_ |= 0x00000001;
+          balance_ = other.balance_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasBalance()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        BalanceNtf parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (BalanceNtf) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private Object balance_ = "";
+      /**
+       * <pre>
+       *剩余余额
+       * </pre>
+       *
+       * <code>required string balance = 1;</code>
+       */
+      public boolean hasBalance() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *剩余余额
+       * </pre>
+       *
+       * <code>required string balance = 1;</code>
+       */
+      public String getBalance() {
+        Object ref = balance_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            balance_ = s;
+          }
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *剩余余额
+       * </pre>
+       *
+       * <code>required string balance = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBalanceBytes() {
+        Object ref = balance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          balance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *剩余余额
+       * </pre>
+       *
+       * <code>required string balance = 1;</code>
+       */
+      public Builder setBalance(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *剩余余额
+       * </pre>
+       *
+       * <code>required string balance = 1;</code>
+       */
+      public Builder clearBalance() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        balance_ = getDefaultInstance().getBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *剩余余额
+       * </pre>
+       *
+       * <code>required string balance = 1;</code>
+       */
+      public Builder setBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.BalanceNtf)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.BalanceNtf)
+    private static final BalanceNtf DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new BalanceNtf();
+    }
+
+    public static BalanceNtf getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @Deprecated public static final com.google.protobuf.Parser<BalanceNtf>
+        PARSER = new com.google.protobuf.AbstractParser<BalanceNtf>() {
+      public BalanceNtf parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BalanceNtf(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BalanceNtf> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<BalanceNtf> getParserForType() {
+      return PARSER;
+    }
+
+    public BalanceNtf getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RedEnvelopeListReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.RedEnvelopeListReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *页数
+     * </pre>
+     *
+     * <code>required int32 page = 1;</code>
+     */
+    boolean hasPage();
+    /**
+     * <pre>
+     *页数
+     * </pre>
+     *
+     * <code>required int32 page = 1;</code>
+     */
+    int getPage();
+
+    /**
+     * <pre>
+     *大小
+     * </pre>
+     *
+     * <code>required int32 pageSize = 2;</code>
+     */
+    boolean hasPageSize();
+    /**
+     * <pre>
+     *大小
+     * </pre>
+     *
+     * <code>required int32 pageSize = 2;</code>
+     */
+    int getPageSize();
+  }
+  /**
+   * <pre>
+   *红包列表请求
+   * </pre>
+   *
+   * Protobuf type {@code com.dafagame.protocol.hbsl.RedEnvelopeListReq}
+   */
+  public  static final class RedEnvelopeListReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.RedEnvelopeListReq)
+      RedEnvelopeListReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RedEnvelopeListReq.newBuilder() to construct.
+    private RedEnvelopeListReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RedEnvelopeListReq() {
+      page_ = 0;
+      pageSize_ = 0;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RedEnvelopeListReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              page_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              pageSize_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              RedEnvelopeListReq.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int PAGE_FIELD_NUMBER = 1;
+    private int page_;
+    /**
+     * <pre>
+     *页数
+     * </pre>
+     *
+     * <code>required int32 page = 1;</code>
+     */
+    public boolean hasPage() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *页数
+     * </pre>
+     *
+     * <code>required int32 page = 1;</code>
+     */
+    public int getPage() {
+      return page_;
+    }
+
+    public static final int PAGESIZE_FIELD_NUMBER = 2;
+    private int pageSize_;
+    /**
+     * <pre>
+     *大小
+     * </pre>
+     *
+     * <code>required int32 pageSize = 2;</code>
+     */
+    public boolean hasPageSize() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *大小
+     * </pre>
+     *
+     * <code>required int32 pageSize = 2;</code>
+     */
+    public int getPageSize() {
+      return pageSize_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasPage()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPageSize()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, page_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, getRankNtf());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, getConfig());
+        output.writeInt32(2, pageSize_);
       }
       unknownFields.writeTo(output);
     }
@@ -830,32 +1495,4582 @@ public final class Hbsl {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getSceneNtf());
+          .computeInt32Size(1, page_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getRankNtf());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getConfig());
+          .computeInt32Size(2, pageSize_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf)) {
+      if (!(obj instanceof RedEnvelopeListReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf other = (com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf) obj;
+      RedEnvelopeListReq other = (RedEnvelopeListReq) obj;
 
       boolean result = true;
+      result = result && (hasPage() == other.hasPage());
+      if (hasPage()) {
+        result = result && (getPage()
+            == other.getPage());
+      }
+      result = result && (hasPageSize() == other.hasPageSize());
+      if (hasPageSize()) {
+        result = result && (getPageSize()
+            == other.getPageSize());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPage()) {
+        hash = (37 * hash) + PAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getPage();
+      }
+      if (hasPageSize()) {
+        hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+        hash = (53 * hash) + getPageSize();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static RedEnvelopeListReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RedEnvelopeListReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RedEnvelopeListReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RedEnvelopeListReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RedEnvelopeListReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RedEnvelopeListReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RedEnvelopeListReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static RedEnvelopeListReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static RedEnvelopeListReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static RedEnvelopeListReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static RedEnvelopeListReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static RedEnvelopeListReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(RedEnvelopeListReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *红包列表请求
+     * </pre>
+     *
+     * Protobuf type {@code com.dafagame.protocol.hbsl.RedEnvelopeListReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.RedEnvelopeListReq)
+        RedEnvelopeListReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                RedEnvelopeListReq.class, Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeListReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        page_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        pageSize_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_descriptor;
+      }
+
+      public RedEnvelopeListReq getDefaultInstanceForType() {
+        return RedEnvelopeListReq.getDefaultInstance();
+      }
+
+      public RedEnvelopeListReq build() {
+        RedEnvelopeListReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public RedEnvelopeListReq buildPartial() {
+        RedEnvelopeListReq result = new RedEnvelopeListReq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.page_ = page_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.pageSize_ = pageSize_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof RedEnvelopeListReq) {
+          return mergeFrom((RedEnvelopeListReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(RedEnvelopeListReq other) {
+        if (other == RedEnvelopeListReq.getDefaultInstance()) return this;
+        if (other.hasPage()) {
+          setPage(other.getPage());
+        }
+        if (other.hasPageSize()) {
+          setPageSize(other.getPageSize());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasPage()) {
+          return false;
+        }
+        if (!hasPageSize()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        RedEnvelopeListReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (RedEnvelopeListReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int page_ ;
+      /**
+       * <pre>
+       *页数
+       * </pre>
+       *
+       * <code>required int32 page = 1;</code>
+       */
+      public boolean hasPage() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *页数
+       * </pre>
+       *
+       * <code>required int32 page = 1;</code>
+       */
+      public int getPage() {
+        return page_;
+      }
+      /**
+       * <pre>
+       *页数
+       * </pre>
+       *
+       * <code>required int32 page = 1;</code>
+       */
+      public Builder setPage(int value) {
+        bitField0_ |= 0x00000001;
+        page_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *页数
+       * </pre>
+       *
+       * <code>required int32 page = 1;</code>
+       */
+      public Builder clearPage() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        page_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int pageSize_ ;
+      /**
+       * <pre>
+       *大小
+       * </pre>
+       *
+       * <code>required int32 pageSize = 2;</code>
+       */
+      public boolean hasPageSize() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *大小
+       * </pre>
+       *
+       * <code>required int32 pageSize = 2;</code>
+       */
+      public int getPageSize() {
+        return pageSize_;
+      }
+      /**
+       * <pre>
+       *大小
+       * </pre>
+       *
+       * <code>required int32 pageSize = 2;</code>
+       */
+      public Builder setPageSize(int value) {
+        bitField0_ |= 0x00000002;
+        pageSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *大小
+       * </pre>
+       *
+       * <code>required int32 pageSize = 2;</code>
+       */
+      public Builder clearPageSize() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        pageSize_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.RedEnvelopeListReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.RedEnvelopeListReq)
+    private static final RedEnvelopeListReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new RedEnvelopeListReq();
+    }
+
+    public static RedEnvelopeListReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @Deprecated public static final com.google.protobuf.Parser<RedEnvelopeListReq>
+        PARSER = new com.google.protobuf.AbstractParser<RedEnvelopeListReq>() {
+      public RedEnvelopeListReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new RedEnvelopeListReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RedEnvelopeListReq> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<RedEnvelopeListReq> getParserForType() {
+      return PARSER;
+    }
+
+    public RedEnvelopeListReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RedEnvelopeListResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.RedEnvelopeListRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *请求成功失败码
+     * </pre>
+     *
+     * <code>required int32 code = 1;</code>
+     */
+    boolean hasCode();
+    /**
+     * <pre>
+     *请求成功失败码
+     * </pre>
+     *
+     * <code>required int32 code = 1;</code>
+     */
+    int getCode();
+
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    java.util.List<BaseRedEnvelope>
+        getRedListList();
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    BaseRedEnvelope getRedList(int index);
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    int getRedListCount();
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    java.util.List<? extends BaseRedEnvelopeOrBuilder>
+        getRedListOrBuilderList();
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    BaseRedEnvelopeOrBuilder getRedListOrBuilder(
+            int index);
+
+    /**
+     * <pre>
+     *自己的第一个红包
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+     */
+    boolean hasFirst();
+    /**
+     * <pre>
+     *自己的第一个红包
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+     */
+    BaseRedEnvelope getFirst();
+    /**
+     * <pre>
+     *自己的第一个红包
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+     */
+    BaseRedEnvelopeOrBuilder getFirstOrBuilder();
+  }
+  /**
+   * <pre>
+   *红包列表回应
+   * </pre>
+   *
+   * Protobuf type {@code com.dafagame.protocol.hbsl.RedEnvelopeListRes}
+   */
+  public  static final class RedEnvelopeListRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.RedEnvelopeListRes)
+      RedEnvelopeListResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RedEnvelopeListRes.newBuilder() to construct.
+    private RedEnvelopeListRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RedEnvelopeListRes() {
+      code_ = 0;
+      redList_ = java.util.Collections.emptyList();
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RedEnvelopeListRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                redList_ = new java.util.ArrayList<BaseRedEnvelope>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              redList_.add(
+                  input.readMessage(BaseRedEnvelope.PARSER, extensionRegistry));
+              break;
+            }
+            case 26: {
+              BaseRedEnvelope.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = first_.toBuilder();
+              }
+              first_ = input.readMessage(BaseRedEnvelope.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(first_);
+                first_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          redList_ = java.util.Collections.unmodifiableList(redList_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              RedEnvelopeListRes.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <pre>
+     *请求成功失败码
+     * </pre>
+     *
+     * <code>required int32 code = 1;</code>
+     */
+    public boolean hasCode() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *请求成功失败码
+     * </pre>
+     *
+     * <code>required int32 code = 1;</code>
+     */
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int REDLIST_FIELD_NUMBER = 2;
+    private java.util.List<BaseRedEnvelope> redList_;
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    public java.util.List<BaseRedEnvelope> getRedListList() {
+      return redList_;
+    }
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    public java.util.List<? extends BaseRedEnvelopeOrBuilder>
+        getRedListOrBuilderList() {
+      return redList_;
+    }
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    public int getRedListCount() {
+      return redList_.size();
+    }
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    public BaseRedEnvelope getRedList(int index) {
+      return redList_.get(index);
+    }
+    /**
+     * <pre>
+     *红包列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+     */
+    public BaseRedEnvelopeOrBuilder getRedListOrBuilder(
+        int index) {
+      return redList_.get(index);
+    }
+
+    public static final int FIRST_FIELD_NUMBER = 3;
+    private BaseRedEnvelope first_;
+    /**
+     * <pre>
+     *自己的第一个红包
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+     */
+    public boolean hasFirst() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *自己的第一个红包
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+     */
+    public BaseRedEnvelope getFirst() {
+      return first_ == null ? BaseRedEnvelope.getDefaultInstance() : first_;
+    }
+    /**
+     * <pre>
+     *自己的第一个红包
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+     */
+    public BaseRedEnvelopeOrBuilder getFirstOrBuilder() {
+      return first_ == null ? BaseRedEnvelope.getDefaultInstance() : first_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getRedListCount(); i++) {
+        if (!getRedList(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasFirst()) {
+        if (!getFirst().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, code_);
+      }
+      for (int i = 0; i < redList_.size(); i++) {
+        output.writeMessage(2, redList_.get(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(3, getFirst());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      for (int i = 0; i < redList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, redList_.get(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getFirst());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof RedEnvelopeListRes)) {
+        return super.equals(obj);
+      }
+      RedEnvelopeListRes other = (RedEnvelopeListRes) obj;
+
+      boolean result = true;
+      result = result && (hasCode() == other.hasCode());
+      if (hasCode()) {
+        result = result && (getCode()
+            == other.getCode());
+      }
+      result = result && getRedListList()
+          .equals(other.getRedListList());
+      result = result && (hasFirst() == other.hasFirst());
+      if (hasFirst()) {
+        result = result && getFirst()
+            .equals(other.getFirst());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCode()) {
+        hash = (37 * hash) + CODE_FIELD_NUMBER;
+        hash = (53 * hash) + getCode();
+      }
+      if (getRedListCount() > 0) {
+        hash = (37 * hash) + REDLIST_FIELD_NUMBER;
+        hash = (53 * hash) + getRedListList().hashCode();
+      }
+      if (hasFirst()) {
+        hash = (37 * hash) + FIRST_FIELD_NUMBER;
+        hash = (53 * hash) + getFirst().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static RedEnvelopeListRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RedEnvelopeListRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RedEnvelopeListRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RedEnvelopeListRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RedEnvelopeListRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RedEnvelopeListRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RedEnvelopeListRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static RedEnvelopeListRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static RedEnvelopeListRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static RedEnvelopeListRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static RedEnvelopeListRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static RedEnvelopeListRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(RedEnvelopeListRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *红包列表回应
+     * </pre>
+     *
+     * Protobuf type {@code com.dafagame.protocol.hbsl.RedEnvelopeListRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.RedEnvelopeListRes)
+        RedEnvelopeListResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                RedEnvelopeListRes.class, Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeListRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRedListFieldBuilder();
+          getFirstFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (redListBuilder_ == null) {
+          redList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          redListBuilder_.clear();
+        }
+        if (firstBuilder_ == null) {
+          first_ = null;
+        } else {
+          firstBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_descriptor;
+      }
+
+      public RedEnvelopeListRes getDefaultInstanceForType() {
+        return RedEnvelopeListRes.getDefaultInstance();
+      }
+
+      public RedEnvelopeListRes build() {
+        RedEnvelopeListRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public RedEnvelopeListRes buildPartial() {
+        RedEnvelopeListRes result = new RedEnvelopeListRes(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.code_ = code_;
+        if (redListBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            redList_ = java.util.Collections.unmodifiableList(redList_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.redList_ = redList_;
+        } else {
+          result.redList_ = redListBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (firstBuilder_ == null) {
+          result.first_ = first_;
+        } else {
+          result.first_ = firstBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof RedEnvelopeListRes) {
+          return mergeFrom((RedEnvelopeListRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(RedEnvelopeListRes other) {
+        if (other == RedEnvelopeListRes.getDefaultInstance()) return this;
+        if (other.hasCode()) {
+          setCode(other.getCode());
+        }
+        if (redListBuilder_ == null) {
+          if (!other.redList_.isEmpty()) {
+            if (redList_.isEmpty()) {
+              redList_ = other.redList_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureRedListIsMutable();
+              redList_.addAll(other.redList_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.redList_.isEmpty()) {
+            if (redListBuilder_.isEmpty()) {
+              redListBuilder_.dispose();
+              redListBuilder_ = null;
+              redList_ = other.redList_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              redListBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRedListFieldBuilder() : null;
+            } else {
+              redListBuilder_.addAllMessages(other.redList_);
+            }
+          }
+        }
+        if (other.hasFirst()) {
+          mergeFirst(other.getFirst());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasCode()) {
+          return false;
+        }
+        for (int i = 0; i < getRedListCount(); i++) {
+          if (!getRedList(i).isInitialized()) {
+            return false;
+          }
+        }
+        if (hasFirst()) {
+          if (!getFirst().isInitialized()) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        RedEnvelopeListRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (RedEnvelopeListRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int code_ ;
+      /**
+       * <pre>
+       *请求成功失败码
+       * </pre>
+       *
+       * <code>required int32 code = 1;</code>
+       */
+      public boolean hasCode() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *请求成功失败码
+       * </pre>
+       *
+       * <code>required int32 code = 1;</code>
+       */
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <pre>
+       *请求成功失败码
+       * </pre>
+       *
+       * <code>required int32 code = 1;</code>
+       */
+      public Builder setCode(int value) {
+        bitField0_ |= 0x00000001;
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *请求成功失败码
+       * </pre>
+       *
+       * <code>required int32 code = 1;</code>
+       */
+      public Builder clearCode() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<BaseRedEnvelope> redList_ =
+        java.util.Collections.emptyList();
+      private void ensureRedListIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          redList_ = new java.util.ArrayList<BaseRedEnvelope>(redList_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          BaseRedEnvelope, BaseRedEnvelope.Builder, BaseRedEnvelopeOrBuilder> redListBuilder_;
+
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public java.util.List<BaseRedEnvelope> getRedListList() {
+        if (redListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(redList_);
+        } else {
+          return redListBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public int getRedListCount() {
+        if (redListBuilder_ == null) {
+          return redList_.size();
+        } else {
+          return redListBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public BaseRedEnvelope getRedList(int index) {
+        if (redListBuilder_ == null) {
+          return redList_.get(index);
+        } else {
+          return redListBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public Builder setRedList(
+          int index, BaseRedEnvelope value) {
+        if (redListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRedListIsMutable();
+          redList_.set(index, value);
+          onChanged();
+        } else {
+          redListBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public Builder setRedList(
+          int index, BaseRedEnvelope.Builder builderForValue) {
+        if (redListBuilder_ == null) {
+          ensureRedListIsMutable();
+          redList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          redListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public Builder addRedList(BaseRedEnvelope value) {
+        if (redListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRedListIsMutable();
+          redList_.add(value);
+          onChanged();
+        } else {
+          redListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public Builder addRedList(
+          int index, BaseRedEnvelope value) {
+        if (redListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRedListIsMutable();
+          redList_.add(index, value);
+          onChanged();
+        } else {
+          redListBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public Builder addRedList(
+          BaseRedEnvelope.Builder builderForValue) {
+        if (redListBuilder_ == null) {
+          ensureRedListIsMutable();
+          redList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          redListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public Builder addRedList(
+          int index, BaseRedEnvelope.Builder builderForValue) {
+        if (redListBuilder_ == null) {
+          ensureRedListIsMutable();
+          redList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          redListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public Builder addAllRedList(
+          Iterable<? extends BaseRedEnvelope> values) {
+        if (redListBuilder_ == null) {
+          ensureRedListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, redList_);
+          onChanged();
+        } else {
+          redListBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public Builder clearRedList() {
+        if (redListBuilder_ == null) {
+          redList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          redListBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public Builder removeRedList(int index) {
+        if (redListBuilder_ == null) {
+          ensureRedListIsMutable();
+          redList_.remove(index);
+          onChanged();
+        } else {
+          redListBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public BaseRedEnvelope.Builder getRedListBuilder(
+          int index) {
+        return getRedListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public BaseRedEnvelopeOrBuilder getRedListOrBuilder(
+          int index) {
+        if (redListBuilder_ == null) {
+          return redList_.get(index);  } else {
+          return redListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public java.util.List<? extends BaseRedEnvelopeOrBuilder>
+           getRedListOrBuilderList() {
+        if (redListBuilder_ != null) {
+          return redListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(redList_);
+        }
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public BaseRedEnvelope.Builder addRedListBuilder() {
+        return getRedListFieldBuilder().addBuilder(
+            BaseRedEnvelope.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public BaseRedEnvelope.Builder addRedListBuilder(
+          int index) {
+        return getRedListFieldBuilder().addBuilder(
+            index, BaseRedEnvelope.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *红包列表
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.BaseRedEnvelope redList = 2;</code>
+       */
+      public java.util.List<BaseRedEnvelope.Builder>
+           getRedListBuilderList() {
+        return getRedListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          BaseRedEnvelope, BaseRedEnvelope.Builder, BaseRedEnvelopeOrBuilder>
+          getRedListFieldBuilder() {
+        if (redListBuilder_ == null) {
+          redListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              BaseRedEnvelope, BaseRedEnvelope.Builder, BaseRedEnvelopeOrBuilder>(
+                  redList_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          redList_ = null;
+        }
+        return redListBuilder_;
+      }
+
+      private BaseRedEnvelope first_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          BaseRedEnvelope, BaseRedEnvelope.Builder, BaseRedEnvelopeOrBuilder> firstBuilder_;
+      /**
+       * <pre>
+       *自己的第一个红包
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+       */
+      public boolean hasFirst() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       *自己的第一个红包
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+       */
+      public BaseRedEnvelope getFirst() {
+        if (firstBuilder_ == null) {
+          return first_ == null ? BaseRedEnvelope.getDefaultInstance() : first_;
+        } else {
+          return firstBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *自己的第一个红包
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+       */
+      public Builder setFirst(BaseRedEnvelope value) {
+        if (firstBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          first_ = value;
+          onChanged();
+        } else {
+          firstBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       *自己的第一个红包
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+       */
+      public Builder setFirst(
+          BaseRedEnvelope.Builder builderForValue) {
+        if (firstBuilder_ == null) {
+          first_ = builderForValue.build();
+          onChanged();
+        } else {
+          firstBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       *自己的第一个红包
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+       */
+      public Builder mergeFirst(BaseRedEnvelope value) {
+        if (firstBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              first_ != null &&
+              first_ != BaseRedEnvelope.getDefaultInstance()) {
+            first_ =
+              BaseRedEnvelope.newBuilder(first_).mergeFrom(value).buildPartial();
+          } else {
+            first_ = value;
+          }
+          onChanged();
+        } else {
+          firstBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       *自己的第一个红包
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+       */
+      public Builder clearFirst() {
+        if (firstBuilder_ == null) {
+          first_ = null;
+          onChanged();
+        } else {
+          firstBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       *自己的第一个红包
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+       */
+      public BaseRedEnvelope.Builder getFirstBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getFirstFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *自己的第一个红包
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+       */
+      public BaseRedEnvelopeOrBuilder getFirstOrBuilder() {
+        if (firstBuilder_ != null) {
+          return firstBuilder_.getMessageOrBuilder();
+        } else {
+          return first_ == null ?
+              BaseRedEnvelope.getDefaultInstance() : first_;
+        }
+      }
+      /**
+       * <pre>
+       *自己的第一个红包
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.BaseRedEnvelope first = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          BaseRedEnvelope, BaseRedEnvelope.Builder, BaseRedEnvelopeOrBuilder>
+          getFirstFieldBuilder() {
+        if (firstBuilder_ == null) {
+          firstBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              BaseRedEnvelope, BaseRedEnvelope.Builder, BaseRedEnvelopeOrBuilder>(
+                  getFirst(),
+                  getParentForChildren(),
+                  isClean());
+          first_ = null;
+        }
+        return firstBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.RedEnvelopeListRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.RedEnvelopeListRes)
+    private static final RedEnvelopeListRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new RedEnvelopeListRes();
+    }
+
+    public static RedEnvelopeListRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @Deprecated public static final com.google.protobuf.Parser<RedEnvelopeListRes>
+        PARSER = new com.google.protobuf.AbstractParser<RedEnvelopeListRes>() {
+      public RedEnvelopeListRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new RedEnvelopeListRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RedEnvelopeListRes> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<RedEnvelopeListRes> getParserForType() {
+      return PARSER;
+    }
+
+    public RedEnvelopeListRes getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BaseRedEnvelopeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.BaseRedEnvelope)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *昵称
+     * </pre>
+     *
+     * <code>required string nickName = 1;</code>
+     */
+    boolean hasNickName();
+    /**
+     * <pre>
+     *昵称
+     * </pre>
+     *
+     * <code>required string nickName = 1;</code>
+     */
+    String getNickName();
+    /**
+     * <pre>
+     *昵称
+     * </pre>
+     *
+     * <code>required string nickName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNickNameBytes();
+
+    /**
+     * <pre>
+     *埋雷时间
+     * </pre>
+     *
+     * <code>required string initTime = 2;</code>
+     */
+    boolean hasInitTime();
+    /**
+     * <pre>
+     *埋雷时间
+     * </pre>
+     *
+     * <code>required string initTime = 2;</code>
+     */
+    String getInitTime();
+    /**
+     * <pre>
+     *埋雷时间
+     * </pre>
+     *
+     * <code>required string initTime = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getInitTimeBytes();
+
+    /**
+     * <pre>
+     *埋雷金额
+     * </pre>
+     *
+     * <code>required string money = 3;</code>
+     */
+    boolean hasMoney();
+    /**
+     * <pre>
+     *埋雷金额
+     * </pre>
+     *
+     * <code>required string money = 3;</code>
+     */
+    String getMoney();
+    /**
+     * <pre>
+     *埋雷金额
+     * </pre>
+     *
+     * <code>required string money = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getMoneyBytes();
+
+    /**
+     * <pre>
+     *雷号
+     * </pre>
+     *
+     * <code>required int32 bombNum = 4;</code>
+     */
+    boolean hasBombNum();
+    /**
+     * <pre>
+     *雷号
+     * </pre>
+     *
+     * <code>required int32 bombNum = 4;</code>
+     */
+    int getBombNum();
+
+    /**
+     * <pre>
+     *红包个数
+     * </pre>
+     *
+     * <code>required int32 multiple = 5;</code>
+     */
+    boolean hasMultiple();
+    /**
+     * <pre>
+     *红包个数
+     * </pre>
+     *
+     * <code>required int32 multiple = 5;</code>
+     */
+    int getMultiple();
+
+    /**
+     * <pre>
+     *红包赔率
+     * </pre>
+     *
+     * <code>required string payMultiple = 6;</code>
+     */
+    boolean hasPayMultiple();
+    /**
+     * <pre>
+     *红包赔率
+     * </pre>
+     *
+     * <code>required string payMultiple = 6;</code>
+     */
+    String getPayMultiple();
+    /**
+     * <pre>
+     *红包赔率
+     * </pre>
+     *
+     * <code>required string payMultiple = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getPayMultipleBytes();
+
+    /**
+     * <pre>
+     *红包排序
+     * </pre>
+     *
+     * <code>required int32 sort = 7;</code>
+     */
+    boolean hasSort();
+    /**
+     * <pre>
+     *红包排序
+     * </pre>
+     *
+     * <code>required int32 sort = 7;</code>
+     */
+    int getSort();
+
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 uid = 8;</code>
+     */
+    boolean hasUid();
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 uid = 8;</code>
+     */
+    int getUid();
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.hbsl.BaseRedEnvelope}
+   */
+  public  static final class BaseRedEnvelope extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.BaseRedEnvelope)
+      BaseRedEnvelopeOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use BaseRedEnvelope.newBuilder() to construct.
+    private BaseRedEnvelope(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BaseRedEnvelope() {
+      nickName_ = "";
+      initTime_ = "";
+      money_ = "";
+      bombNum_ = 0;
+      multiple_ = 0;
+      payMultiple_ = "";
+      sort_ = 0;
+      uid_ = 0;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BaseRedEnvelope(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              nickName_ = bs;
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              initTime_ = bs;
+              break;
+            }
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              money_ = bs;
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              bombNum_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              multiple_ = input.readInt32();
+              break;
+            }
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              payMultiple_ = bs;
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              sort_ = input.readInt32();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              uid_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              BaseRedEnvelope.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int NICKNAME_FIELD_NUMBER = 1;
+    private volatile Object nickName_;
+    /**
+     * <pre>
+     *昵称
+     * </pre>
+     *
+     * <code>required string nickName = 1;</code>
+     */
+    public boolean hasNickName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *昵称
+     * </pre>
+     *
+     * <code>required string nickName = 1;</code>
+     */
+    public String getNickName() {
+      Object ref = nickName_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          nickName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *昵称
+     * </pre>
+     *
+     * <code>required string nickName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNickNameBytes() {
+      Object ref = nickName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        nickName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int INITTIME_FIELD_NUMBER = 2;
+    private volatile Object initTime_;
+    /**
+     * <pre>
+     *埋雷时间
+     * </pre>
+     *
+     * <code>required string initTime = 2;</code>
+     */
+    public boolean hasInitTime() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *埋雷时间
+     * </pre>
+     *
+     * <code>required string initTime = 2;</code>
+     */
+    public String getInitTime() {
+      Object ref = initTime_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          initTime_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *埋雷时间
+     * </pre>
+     *
+     * <code>required string initTime = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getInitTimeBytes() {
+      Object ref = initTime_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        initTime_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MONEY_FIELD_NUMBER = 3;
+    private volatile Object money_;
+    /**
+     * <pre>
+     *埋雷金额
+     * </pre>
+     *
+     * <code>required string money = 3;</code>
+     */
+    public boolean hasMoney() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *埋雷金额
+     * </pre>
+     *
+     * <code>required string money = 3;</code>
+     */
+    public String getMoney() {
+      Object ref = money_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          money_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *埋雷金额
+     * </pre>
+     *
+     * <code>required string money = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMoneyBytes() {
+      Object ref = money_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        money_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int BOMBNUM_FIELD_NUMBER = 4;
+    private int bombNum_;
+    /**
+     * <pre>
+     *雷号
+     * </pre>
+     *
+     * <code>required int32 bombNum = 4;</code>
+     */
+    public boolean hasBombNum() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *雷号
+     * </pre>
+     *
+     * <code>required int32 bombNum = 4;</code>
+     */
+    public int getBombNum() {
+      return bombNum_;
+    }
+
+    public static final int MULTIPLE_FIELD_NUMBER = 5;
+    private int multiple_;
+    /**
+     * <pre>
+     *红包个数
+     * </pre>
+     *
+     * <code>required int32 multiple = 5;</code>
+     */
+    public boolean hasMultiple() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     *红包个数
+     * </pre>
+     *
+     * <code>required int32 multiple = 5;</code>
+     */
+    public int getMultiple() {
+      return multiple_;
+    }
+
+    public static final int PAYMULTIPLE_FIELD_NUMBER = 6;
+    private volatile Object payMultiple_;
+    /**
+     * <pre>
+     *红包赔率
+     * </pre>
+     *
+     * <code>required string payMultiple = 6;</code>
+     */
+    public boolean hasPayMultiple() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     *红包赔率
+     * </pre>
+     *
+     * <code>required string payMultiple = 6;</code>
+     */
+    public String getPayMultiple() {
+      Object ref = payMultiple_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          payMultiple_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *红包赔率
+     * </pre>
+     *
+     * <code>required string payMultiple = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPayMultipleBytes() {
+      Object ref = payMultiple_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        payMultiple_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SORT_FIELD_NUMBER = 7;
+    private int sort_;
+    /**
+     * <pre>
+     *红包排序
+     * </pre>
+     *
+     * <code>required int32 sort = 7;</code>
+     */
+    public boolean hasSort() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     *红包排序
+     * </pre>
+     *
+     * <code>required int32 sort = 7;</code>
+     */
+    public int getSort() {
+      return sort_;
+    }
+
+    public static final int UID_FIELD_NUMBER = 8;
+    private int uid_;
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 uid = 8;</code>
+     */
+    public boolean hasUid() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <pre>
+     *用户id
+     * </pre>
+     *
+     * <code>optional int32 uid = 8;</code>
+     */
+    public int getUid() {
+      return uid_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasNickName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasInitTime()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMoney()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasBombNum()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMultiple()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPayMultiple()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSort()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, nickName_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, initTime_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, money_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, bombNum_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, multiple_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, payMultiple_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt32(7, sort_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(8, uid_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, nickName_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, initTime_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, money_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, bombNum_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, multiple_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, payMultiple_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, sort_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, uid_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof BaseRedEnvelope)) {
+        return super.equals(obj);
+      }
+      BaseRedEnvelope other = (BaseRedEnvelope) obj;
+
+      boolean result = true;
+      result = result && (hasNickName() == other.hasNickName());
+      if (hasNickName()) {
+        result = result && getNickName()
+            .equals(other.getNickName());
+      }
+      result = result && (hasInitTime() == other.hasInitTime());
+      if (hasInitTime()) {
+        result = result && getInitTime()
+            .equals(other.getInitTime());
+      }
+      result = result && (hasMoney() == other.hasMoney());
+      if (hasMoney()) {
+        result = result && getMoney()
+            .equals(other.getMoney());
+      }
+      result = result && (hasBombNum() == other.hasBombNum());
+      if (hasBombNum()) {
+        result = result && (getBombNum()
+            == other.getBombNum());
+      }
+      result = result && (hasMultiple() == other.hasMultiple());
+      if (hasMultiple()) {
+        result = result && (getMultiple()
+            == other.getMultiple());
+      }
+      result = result && (hasPayMultiple() == other.hasPayMultiple());
+      if (hasPayMultiple()) {
+        result = result && getPayMultiple()
+            .equals(other.getPayMultiple());
+      }
+      result = result && (hasSort() == other.hasSort());
+      if (hasSort()) {
+        result = result && (getSort()
+            == other.getSort());
+      }
+      result = result && (hasUid() == other.hasUid());
+      if (hasUid()) {
+        result = result && (getUid()
+            == other.getUid());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasNickName()) {
+        hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getNickName().hashCode();
+      }
+      if (hasInitTime()) {
+        hash = (37 * hash) + INITTIME_FIELD_NUMBER;
+        hash = (53 * hash) + getInitTime().hashCode();
+      }
+      if (hasMoney()) {
+        hash = (37 * hash) + MONEY_FIELD_NUMBER;
+        hash = (53 * hash) + getMoney().hashCode();
+      }
+      if (hasBombNum()) {
+        hash = (37 * hash) + BOMBNUM_FIELD_NUMBER;
+        hash = (53 * hash) + getBombNum();
+      }
+      if (hasMultiple()) {
+        hash = (37 * hash) + MULTIPLE_FIELD_NUMBER;
+        hash = (53 * hash) + getMultiple();
+      }
+      if (hasPayMultiple()) {
+        hash = (37 * hash) + PAYMULTIPLE_FIELD_NUMBER;
+        hash = (53 * hash) + getPayMultiple().hashCode();
+      }
+      if (hasSort()) {
+        hash = (37 * hash) + SORT_FIELD_NUMBER;
+        hash = (53 * hash) + getSort();
+      }
+      if (hasUid()) {
+        hash = (37 * hash) + UID_FIELD_NUMBER;
+        hash = (53 * hash) + getUid();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static BaseRedEnvelope parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BaseRedEnvelope parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BaseRedEnvelope parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BaseRedEnvelope parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BaseRedEnvelope parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BaseRedEnvelope parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BaseRedEnvelope parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static BaseRedEnvelope parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static BaseRedEnvelope parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static BaseRedEnvelope parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static BaseRedEnvelope parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static BaseRedEnvelope parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(BaseRedEnvelope prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.hbsl.BaseRedEnvelope}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.BaseRedEnvelope)
+        BaseRedEnvelopeOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                BaseRedEnvelope.class, Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.BaseRedEnvelope.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        nickName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        initTime_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        money_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        bombNum_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        multiple_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        payMultiple_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
+        sort_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        uid_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_descriptor;
+      }
+
+      public BaseRedEnvelope getDefaultInstanceForType() {
+        return BaseRedEnvelope.getDefaultInstance();
+      }
+
+      public BaseRedEnvelope build() {
+        BaseRedEnvelope result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public BaseRedEnvelope buildPartial() {
+        BaseRedEnvelope result = new BaseRedEnvelope(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.nickName_ = nickName_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.initTime_ = initTime_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.money_ = money_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.bombNum_ = bombNum_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.multiple_ = multiple_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.payMultiple_ = payMultiple_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.sort_ = sort_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.uid_ = uid_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof BaseRedEnvelope) {
+          return mergeFrom((BaseRedEnvelope)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(BaseRedEnvelope other) {
+        if (other == BaseRedEnvelope.getDefaultInstance()) return this;
+        if (other.hasNickName()) {
+          bitField0_ |= 0x00000001;
+          nickName_ = other.nickName_;
+          onChanged();
+        }
+        if (other.hasInitTime()) {
+          bitField0_ |= 0x00000002;
+          initTime_ = other.initTime_;
+          onChanged();
+        }
+        if (other.hasMoney()) {
+          bitField0_ |= 0x00000004;
+          money_ = other.money_;
+          onChanged();
+        }
+        if (other.hasBombNum()) {
+          setBombNum(other.getBombNum());
+        }
+        if (other.hasMultiple()) {
+          setMultiple(other.getMultiple());
+        }
+        if (other.hasPayMultiple()) {
+          bitField0_ |= 0x00000020;
+          payMultiple_ = other.payMultiple_;
+          onChanged();
+        }
+        if (other.hasSort()) {
+          setSort(other.getSort());
+        }
+        if (other.hasUid()) {
+          setUid(other.getUid());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasNickName()) {
+          return false;
+        }
+        if (!hasInitTime()) {
+          return false;
+        }
+        if (!hasMoney()) {
+          return false;
+        }
+        if (!hasBombNum()) {
+          return false;
+        }
+        if (!hasMultiple()) {
+          return false;
+        }
+        if (!hasPayMultiple()) {
+          return false;
+        }
+        if (!hasSort()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        BaseRedEnvelope parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (BaseRedEnvelope) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private Object nickName_ = "";
+      /**
+       * <pre>
+       *昵称
+       * </pre>
+       *
+       * <code>required string nickName = 1;</code>
+       */
+      public boolean hasNickName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *昵称
+       * </pre>
+       *
+       * <code>required string nickName = 1;</code>
+       */
+      public String getNickName() {
+        Object ref = nickName_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            nickName_ = s;
+          }
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *昵称
+       * </pre>
+       *
+       * <code>required string nickName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNickNameBytes() {
+        Object ref = nickName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          nickName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *昵称
+       * </pre>
+       *
+       * <code>required string nickName = 1;</code>
+       */
+      public Builder setNickName(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        nickName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *昵称
+       * </pre>
+       *
+       * <code>required string nickName = 1;</code>
+       */
+      public Builder clearNickName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        nickName_ = getDefaultInstance().getNickName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *昵称
+       * </pre>
+       *
+       * <code>required string nickName = 1;</code>
+       */
+      public Builder setNickNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        nickName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private Object initTime_ = "";
+      /**
+       * <pre>
+       *埋雷时间
+       * </pre>
+       *
+       * <code>required string initTime = 2;</code>
+       */
+      public boolean hasInitTime() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *埋雷时间
+       * </pre>
+       *
+       * <code>required string initTime = 2;</code>
+       */
+      public String getInitTime() {
+        Object ref = initTime_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            initTime_ = s;
+          }
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *埋雷时间
+       * </pre>
+       *
+       * <code>required string initTime = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getInitTimeBytes() {
+        Object ref = initTime_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          initTime_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *埋雷时间
+       * </pre>
+       *
+       * <code>required string initTime = 2;</code>
+       */
+      public Builder setInitTime(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        initTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *埋雷时间
+       * </pre>
+       *
+       * <code>required string initTime = 2;</code>
+       */
+      public Builder clearInitTime() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        initTime_ = getDefaultInstance().getInitTime();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *埋雷时间
+       * </pre>
+       *
+       * <code>required string initTime = 2;</code>
+       */
+      public Builder setInitTimeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        initTime_ = value;
+        onChanged();
+        return this;
+      }
+
+      private Object money_ = "";
+      /**
+       * <pre>
+       *埋雷金额
+       * </pre>
+       *
+       * <code>required string money = 3;</code>
+       */
+      public boolean hasMoney() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       *埋雷金额
+       * </pre>
+       *
+       * <code>required string money = 3;</code>
+       */
+      public String getMoney() {
+        Object ref = money_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            money_ = s;
+          }
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *埋雷金额
+       * </pre>
+       *
+       * <code>required string money = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMoneyBytes() {
+        Object ref = money_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          money_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *埋雷金额
+       * </pre>
+       *
+       * <code>required string money = 3;</code>
+       */
+      public Builder setMoney(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        money_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *埋雷金额
+       * </pre>
+       *
+       * <code>required string money = 3;</code>
+       */
+      public Builder clearMoney() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        money_ = getDefaultInstance().getMoney();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *埋雷金额
+       * </pre>
+       *
+       * <code>required string money = 3;</code>
+       */
+      public Builder setMoneyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        money_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int bombNum_ ;
+      /**
+       * <pre>
+       *雷号
+       * </pre>
+       *
+       * <code>required int32 bombNum = 4;</code>
+       */
+      public boolean hasBombNum() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       *雷号
+       * </pre>
+       *
+       * <code>required int32 bombNum = 4;</code>
+       */
+      public int getBombNum() {
+        return bombNum_;
+      }
+      /**
+       * <pre>
+       *雷号
+       * </pre>
+       *
+       * <code>required int32 bombNum = 4;</code>
+       */
+      public Builder setBombNum(int value) {
+        bitField0_ |= 0x00000008;
+        bombNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *雷号
+       * </pre>
+       *
+       * <code>required int32 bombNum = 4;</code>
+       */
+      public Builder clearBombNum() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        bombNum_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int multiple_ ;
+      /**
+       * <pre>
+       *红包个数
+       * </pre>
+       *
+       * <code>required int32 multiple = 5;</code>
+       */
+      public boolean hasMultiple() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       *红包个数
+       * </pre>
+       *
+       * <code>required int32 multiple = 5;</code>
+       */
+      public int getMultiple() {
+        return multiple_;
+      }
+      /**
+       * <pre>
+       *红包个数
+       * </pre>
+       *
+       * <code>required int32 multiple = 5;</code>
+       */
+      public Builder setMultiple(int value) {
+        bitField0_ |= 0x00000010;
+        multiple_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *红包个数
+       * </pre>
+       *
+       * <code>required int32 multiple = 5;</code>
+       */
+      public Builder clearMultiple() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        multiple_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private Object payMultiple_ = "";
+      /**
+       * <pre>
+       *红包赔率
+       * </pre>
+       *
+       * <code>required string payMultiple = 6;</code>
+       */
+      public boolean hasPayMultiple() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       *红包赔率
+       * </pre>
+       *
+       * <code>required string payMultiple = 6;</code>
+       */
+      public String getPayMultiple() {
+        Object ref = payMultiple_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            payMultiple_ = s;
+          }
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *红包赔率
+       * </pre>
+       *
+       * <code>required string payMultiple = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPayMultipleBytes() {
+        Object ref = payMultiple_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          payMultiple_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *红包赔率
+       * </pre>
+       *
+       * <code>required string payMultiple = 6;</code>
+       */
+      public Builder setPayMultiple(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        payMultiple_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *红包赔率
+       * </pre>
+       *
+       * <code>required string payMultiple = 6;</code>
+       */
+      public Builder clearPayMultiple() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        payMultiple_ = getDefaultInstance().getPayMultiple();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *红包赔率
+       * </pre>
+       *
+       * <code>required string payMultiple = 6;</code>
+       */
+      public Builder setPayMultipleBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        payMultiple_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int sort_ ;
+      /**
+       * <pre>
+       *红包排序
+       * </pre>
+       *
+       * <code>required int32 sort = 7;</code>
+       */
+      public boolean hasSort() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <pre>
+       *红包排序
+       * </pre>
+       *
+       * <code>required int32 sort = 7;</code>
+       */
+      public int getSort() {
+        return sort_;
+      }
+      /**
+       * <pre>
+       *红包排序
+       * </pre>
+       *
+       * <code>required int32 sort = 7;</code>
+       */
+      public Builder setSort(int value) {
+        bitField0_ |= 0x00000040;
+        sort_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *红包排序
+       * </pre>
+       *
+       * <code>required int32 sort = 7;</code>
+       */
+      public Builder clearSort() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        sort_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int uid_ ;
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 uid = 8;</code>
+       */
+      public boolean hasUid() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 uid = 8;</code>
+       */
+      public int getUid() {
+        return uid_;
+      }
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 uid = 8;</code>
+       */
+      public Builder setUid(int value) {
+        bitField0_ |= 0x00000080;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *用户id
+       * </pre>
+       *
+       * <code>optional int32 uid = 8;</code>
+       */
+      public Builder clearUid() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        uid_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.BaseRedEnvelope)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.BaseRedEnvelope)
+    private static final BaseRedEnvelope DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new BaseRedEnvelope();
+    }
+
+    public static BaseRedEnvelope getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @Deprecated public static final com.google.protobuf.Parser<BaseRedEnvelope>
+        PARSER = new com.google.protobuf.AbstractParser<BaseRedEnvelope>() {
+      public BaseRedEnvelope parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BaseRedEnvelope(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BaseRedEnvelope> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<BaseRedEnvelope> getParserForType() {
+      return PARSER;
+    }
+
+    public BaseRedEnvelope getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SceneReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.SceneReq)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * <pre>
+   *发送场景请求
+   * </pre>
+   *
+   * Protobuf type {@code com.dafagame.protocol.hbsl.SceneReq}
+   */
+  public  static final class SceneReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.SceneReq)
+      SceneReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SceneReq.newBuilder() to construct.
+    private SceneReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SceneReq() {
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SceneReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneReq_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              SceneReq.class, Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof SceneReq)) {
+        return super.equals(obj);
+      }
+      SceneReq other = (SceneReq) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static SceneReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static SceneReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static SceneReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static SceneReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static SceneReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static SceneReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static SceneReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static SceneReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static SceneReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static SceneReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static SceneReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static SceneReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(SceneReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *发送场景请求
+     * </pre>
+     *
+     * Protobuf type {@code com.dafagame.protocol.hbsl.SceneReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.SceneReq)
+        SceneReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneReq_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                SceneReq.class, Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.SceneReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneReq_descriptor;
+      }
+
+      public SceneReq getDefaultInstanceForType() {
+        return SceneReq.getDefaultInstance();
+      }
+
+      public SceneReq build() {
+        SceneReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public SceneReq buildPartial() {
+        SceneReq result = new SceneReq(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof SceneReq) {
+          return mergeFrom((SceneReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(SceneReq other) {
+        if (other == SceneReq.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        SceneReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (SceneReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.SceneReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.SceneReq)
+    private static final SceneReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new SceneReq();
+    }
+
+    public static SceneReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @Deprecated public static final com.google.protobuf.Parser<SceneReq>
+        PARSER = new com.google.protobuf.AbstractParser<SceneReq>() {
+      public SceneReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SceneReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SceneReq> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<SceneReq> getParserForType() {
+      return PARSER;
+    }
+
+    public SceneReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SceneResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.SceneRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *错误码
+     * </pre>
+     *
+     * <code>required int32 errCode = 1;</code>
+     */
+    boolean hasErrCode();
+    /**
+     * <pre>
+     *错误码
+     * </pre>
+     *
+     * <code>required int32 errCode = 1;</code>
+     */
+    int getErrCode();
+
+    /**
+     * <pre>
+     *房间场景信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
+     */
+    boolean hasSceneNtf();
+    /**
+     * <pre>
+     *房间场景信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
+     */
+    SceneNtf getSceneNtf();
+    /**
+     * <pre>
+     *房间场景信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
+     */
+    SceneNtfOrBuilder getSceneNtfOrBuilder();
+
+    /**
+     * <pre>
+     *红包排名信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
+     */
+    boolean hasRankNtf();
+    /**
+     * <pre>
+     *红包排名信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
+     */
+    PlayerRankNtf getRankNtf();
+    /**
+     * <pre>
+     *红包排名信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
+     */
+    PlayerRankNtfOrBuilder getRankNtfOrBuilder();
+
+    /**
+     * <pre>
+     *红包的配置
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
+     */
+    boolean hasConfig();
+    /**
+     * <pre>
+     *红包的配置
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
+     */
+    RedEnvelopeConf getConfig();
+    /**
+     * <pre>
+     *红包的配置
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
+     */
+    RedEnvelopeConfOrBuilder getConfigOrBuilder();
+
+    /**
+     * <pre>
+     *之前红包的排名
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+     */
+    boolean hasRedRankNtf();
+    /**
+     * <pre>
+     *之前红包的排名
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+     */
+    RedRankNtf getRedRankNtf();
+    /**
+     * <pre>
+     *之前红包的排名
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+     */
+    RedRankNtfOrBuilder getRedRankNtfOrBuilder();
+
+    /**
+     * <pre>
+     *房间号码
+     * </pre>
+     *
+     * <code>optional string roomNumber = 6;</code>
+     */
+    boolean hasRoomNumber();
+    /**
+     * <pre>
+     *房间号码
+     * </pre>
+     *
+     * <code>optional string roomNumber = 6;</code>
+     */
+    String getRoomNumber();
+    /**
+     * <pre>
+     *房间号码
+     * </pre>
+     *
+     * <code>optional string roomNumber = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getRoomNumberBytes();
+
+    /**
+     * <pre>
+     *当前红包的信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+     */
+    boolean hasRedNtf();
+    /**
+     * <pre>
+     *当前红包的信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+     */
+    RedEnvelopeNtf getRedNtf();
+    /**
+     * <pre>
+     *当前红包的信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+     */
+    RedEnvelopeNtfOrBuilder getRedNtfOrBuilder();
+  }
+  /**
+   * <pre>
+   *第一次场景信息，发送所有的信息
+   * </pre>
+   *
+   * Protobuf type {@code com.dafagame.protocol.hbsl.SceneRes}
+   */
+  public  static final class SceneRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.SceneRes)
+      SceneResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SceneRes.newBuilder() to construct.
+    private SceneRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SceneRes() {
+      errCode_ = 0;
+      roomNumber_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SceneRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              errCode_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              SceneNtf.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = sceneNtf_.toBuilder();
+              }
+              sceneNtf_ = input.readMessage(SceneNtf.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(sceneNtf_);
+                sceneNtf_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+            case 26: {
+              PlayerRankNtf.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = rankNtf_.toBuilder();
+              }
+              rankNtf_ = input.readMessage(PlayerRankNtf.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(rankNtf_);
+                rankNtf_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+            case 34: {
+              RedEnvelopeConf.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = config_.toBuilder();
+              }
+              config_ = input.readMessage(RedEnvelopeConf.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(config_);
+                config_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+            case 42: {
+              RedRankNtf.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = redRankNtf_.toBuilder();
+              }
+              redRankNtf_ = input.readMessage(RedRankNtf.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(redRankNtf_);
+                redRankNtf_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              roomNumber_ = bs;
+              break;
+            }
+            case 58: {
+              RedEnvelopeNtf.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                subBuilder = redNtf_.toBuilder();
+              }
+              redNtf_ = input.readMessage(RedEnvelopeNtf.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(redNtf_);
+                redNtf_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000040;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneRes_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              SceneRes.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ERRCODE_FIELD_NUMBER = 1;
+    private int errCode_;
+    /**
+     * <pre>
+     *错误码
+     * </pre>
+     *
+     * <code>required int32 errCode = 1;</code>
+     */
+    public boolean hasErrCode() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *错误码
+     * </pre>
+     *
+     * <code>required int32 errCode = 1;</code>
+     */
+    public int getErrCode() {
+      return errCode_;
+    }
+
+    public static final int SCENENTF_FIELD_NUMBER = 2;
+    private SceneNtf sceneNtf_;
+    /**
+     * <pre>
+     *房间场景信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
+     */
+    public boolean hasSceneNtf() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *房间场景信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
+     */
+    public SceneNtf getSceneNtf() {
+      return sceneNtf_ == null ? SceneNtf.getDefaultInstance() : sceneNtf_;
+    }
+    /**
+     * <pre>
+     *房间场景信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
+     */
+    public SceneNtfOrBuilder getSceneNtfOrBuilder() {
+      return sceneNtf_ == null ? SceneNtf.getDefaultInstance() : sceneNtf_;
+    }
+
+    public static final int RANKNTF_FIELD_NUMBER = 3;
+    private PlayerRankNtf rankNtf_;
+    /**
+     * <pre>
+     *红包排名信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
+     */
+    public boolean hasRankNtf() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *红包排名信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
+     */
+    public PlayerRankNtf getRankNtf() {
+      return rankNtf_ == null ? PlayerRankNtf.getDefaultInstance() : rankNtf_;
+    }
+    /**
+     * <pre>
+     *红包排名信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
+     */
+    public PlayerRankNtfOrBuilder getRankNtfOrBuilder() {
+      return rankNtf_ == null ? PlayerRankNtf.getDefaultInstance() : rankNtf_;
+    }
+
+    public static final int CONFIG_FIELD_NUMBER = 4;
+    private RedEnvelopeConf config_;
+    /**
+     * <pre>
+     *红包的配置
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
+     */
+    public boolean hasConfig() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *红包的配置
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
+     */
+    public RedEnvelopeConf getConfig() {
+      return config_ == null ? RedEnvelopeConf.getDefaultInstance() : config_;
+    }
+    /**
+     * <pre>
+     *红包的配置
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
+     */
+    public RedEnvelopeConfOrBuilder getConfigOrBuilder() {
+      return config_ == null ? RedEnvelopeConf.getDefaultInstance() : config_;
+    }
+
+    public static final int REDRANKNTF_FIELD_NUMBER = 5;
+    private RedRankNtf redRankNtf_;
+    /**
+     * <pre>
+     *之前红包的排名
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+     */
+    public boolean hasRedRankNtf() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     *之前红包的排名
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+     */
+    public RedRankNtf getRedRankNtf() {
+      return redRankNtf_ == null ? RedRankNtf.getDefaultInstance() : redRankNtf_;
+    }
+    /**
+     * <pre>
+     *之前红包的排名
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+     */
+    public RedRankNtfOrBuilder getRedRankNtfOrBuilder() {
+      return redRankNtf_ == null ? RedRankNtf.getDefaultInstance() : redRankNtf_;
+    }
+
+    public static final int ROOMNUMBER_FIELD_NUMBER = 6;
+    private volatile Object roomNumber_;
+    /**
+     * <pre>
+     *房间号码
+     * </pre>
+     *
+     * <code>optional string roomNumber = 6;</code>
+     */
+    public boolean hasRoomNumber() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     *房间号码
+     * </pre>
+     *
+     * <code>optional string roomNumber = 6;</code>
+     */
+    public String getRoomNumber() {
+      Object ref = roomNumber_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          roomNumber_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *房间号码
+     * </pre>
+     *
+     * <code>optional string roomNumber = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRoomNumberBytes() {
+      Object ref = roomNumber_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        roomNumber_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REDNTF_FIELD_NUMBER = 7;
+    private RedEnvelopeNtf redNtf_;
+    /**
+     * <pre>
+     *当前红包的信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+     */
+    public boolean hasRedNtf() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     *当前红包的信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+     */
+    public RedEnvelopeNtf getRedNtf() {
+      return redNtf_ == null ? RedEnvelopeNtf.getDefaultInstance() : redNtf_;
+    }
+    /**
+     * <pre>
+     *当前红包的信息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+     */
+    public RedEnvelopeNtfOrBuilder getRedNtfOrBuilder() {
+      return redNtf_ == null ? RedEnvelopeNtf.getDefaultInstance() : redNtf_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasErrCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (hasSceneNtf()) {
+        if (!getSceneNtf().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasRankNtf()) {
+        if (!getRankNtf().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasConfig()) {
+        if (!getConfig().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasRedRankNtf()) {
+        if (!getRedRankNtf().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasRedNtf()) {
+        if (!getRedNtf().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, errCode_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, getSceneNtf());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, getRankNtf());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getConfig());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeMessage(5, getRedRankNtf());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, roomNumber_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeMessage(7, getRedNtf());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, errCode_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getSceneNtf());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getRankNtf());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getConfig());
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getRedRankNtf());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, roomNumber_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getRedNtf());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof SceneRes)) {
+        return super.equals(obj);
+      }
+      SceneRes other = (SceneRes) obj;
+
+      boolean result = true;
+      result = result && (hasErrCode() == other.hasErrCode());
+      if (hasErrCode()) {
+        result = result && (getErrCode()
+            == other.getErrCode());
+      }
       result = result && (hasSceneNtf() == other.hasSceneNtf());
       if (hasSceneNtf()) {
         result = result && getSceneNtf()
@@ -871,17 +6086,36 @@ public final class Hbsl {
         result = result && getConfig()
             .equals(other.getConfig());
       }
+      result = result && (hasRedRankNtf() == other.hasRedRankNtf());
+      if (hasRedRankNtf()) {
+        result = result && getRedRankNtf()
+            .equals(other.getRedRankNtf());
+      }
+      result = result && (hasRoomNumber() == other.hasRoomNumber());
+      if (hasRoomNumber()) {
+        result = result && getRoomNumber()
+            .equals(other.getRoomNumber());
+      }
+      result = result && (hasRedNtf() == other.hasRedNtf());
+      if (hasRedNtf()) {
+        result = result && getRedNtf()
+            .equals(other.getRedNtf());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasErrCode()) {
+        hash = (37 * hash) + ERRCODE_FIELD_NUMBER;
+        hash = (53 * hash) + getErrCode();
+      }
       if (hasSceneNtf()) {
         hash = (37 * hash) + SCENENTF_FIELD_NUMBER;
         hash = (53 * hash) + getSceneNtf().hashCode();
@@ -894,74 +6128,86 @@ public final class Hbsl {
         hash = (37 * hash) + CONFIG_FIELD_NUMBER;
         hash = (53 * hash) + getConfig().hashCode();
       }
+      if (hasRedRankNtf()) {
+        hash = (37 * hash) + REDRANKNTF_FIELD_NUMBER;
+        hash = (53 * hash) + getRedRankNtf().hashCode();
+      }
+      if (hasRoomNumber()) {
+        hash = (37 * hash) + ROOMNUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + getRoomNumber().hashCode();
+      }
+      if (hasRedNtf()) {
+        hash = (37 * hash) + REDNTF_FIELD_NUMBER;
+        hash = (53 * hash) + getRedNtf().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(
+    public static SceneRes parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(
+    public static SceneRes parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(
+    public static SceneRes parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(
+    public static SceneRes parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(byte[] data)
+    public static SceneRes parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(
+    public static SceneRes parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(java.io.InputStream input)
+    public static SceneRes parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(
+    public static SceneRes parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseDelimitedFrom(java.io.InputStream input)
+    public static SceneRes parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseDelimitedFrom(
+    public static SceneRes parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(
+    public static SceneRes parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parseFrom(
+    public static SceneRes parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -973,7 +6219,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf prototype) {
+    public static Builder newBuilder(SceneRes prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -981,9 +6227,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -992,31 +6238,31 @@ public final class Hbsl {
      *第一次场景信息，发送所有的信息
      * </pre>
      *
-     * Protobuf type {@code com.dafagame.protocol.hbsl.RoomInformationNtf}
+     * Protobuf type {@code com.dafagame.protocol.hbsl.SceneRes}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.RoomInformationNtf)
-        com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtfOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.SceneRes)
+        SceneResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneRes_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf.class, com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf.Builder.class);
+                SceneRes.class, Builder.class);
       }
 
-      // Construct using com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf.newBuilder()
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.SceneRes.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1026,75 +6272,117 @@ public final class Hbsl {
           getSceneNtfFieldBuilder();
           getRankNtfFieldBuilder();
           getConfigFieldBuilder();
+          getRedRankNtfFieldBuilder();
+          getRedNtfFieldBuilder();
         }
       }
       public Builder clear() {
         super.clear();
+        errCode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (sceneNtfBuilder_ == null) {
           sceneNtf_ = null;
         } else {
           sceneNtfBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (rankNtfBuilder_ == null) {
           rankNtf_ = null;
         } else {
           rankNtfBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (configBuilder_ == null) {
           config_ = null;
         } else {
           configBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (redRankNtfBuilder_ == null) {
+          redRankNtf_ = null;
+        } else {
+          redRankNtfBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        roomNumber_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
+        if (redNtfBuilder_ == null) {
+          redNtf_ = null;
+        } else {
+          redNtfBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneRes_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf.getDefaultInstance();
+      public SceneRes getDefaultInstanceForType() {
+        return SceneRes.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf build() {
-        com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf result = buildPartial();
+      public SceneRes build() {
+        SceneRes result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf result = new com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf(this);
+      public SceneRes buildPartial() {
+        SceneRes result = new SceneRes(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
+        }
+        result.errCode_ = errCode_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
         }
         if (sceneNtfBuilder_ == null) {
           result.sceneNtf_ = sceneNtf_;
         } else {
           result.sceneNtf_ = sceneNtfBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
         }
         if (rankNtfBuilder_ == null) {
           result.rankNtf_ = rankNtf_;
         } else {
           result.rankNtf_ = rankNtfBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
         if (configBuilder_ == null) {
           result.config_ = config_;
         } else {
           result.config_ = configBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (redRankNtfBuilder_ == null) {
+          result.redRankNtf_ = redRankNtf_;
+        } else {
+          result.redRankNtf_ = redRankNtfBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.roomNumber_ = roomNumber_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        if (redNtfBuilder_ == null) {
+          result.redNtf_ = redNtf_;
+        } else {
+          result.redNtf_ = redNtfBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -1106,7 +6394,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -1119,25 +6407,28 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf)other);
+        if (other instanceof SceneRes) {
+          return mergeFrom((SceneRes)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(SceneRes other) {
+        if (other == SceneRes.getDefaultInstance()) return this;
+        if (other.hasErrCode()) {
+          setErrCode(other.getErrCode());
+        }
         if (other.hasSceneNtf()) {
           mergeSceneNtf(other.getSceneNtf());
         }
@@ -1147,29 +6438,50 @@ public final class Hbsl {
         if (other.hasConfig()) {
           mergeConfig(other.getConfig());
         }
+        if (other.hasRedRankNtf()) {
+          mergeRedRankNtf(other.getRedRankNtf());
+        }
+        if (other.hasRoomNumber()) {
+          bitField0_ |= 0x00000020;
+          roomNumber_ = other.roomNumber_;
+          onChanged();
+        }
+        if (other.hasRedNtf()) {
+          mergeRedNtf(other.getRedNtf());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasSceneNtf()) {
+        if (!hasErrCode()) {
           return false;
         }
-        if (!hasRankNtf()) {
-          return false;
+        if (hasSceneNtf()) {
+          if (!getSceneNtf().isInitialized()) {
+            return false;
+          }
         }
-        if (!hasConfig()) {
-          return false;
+        if (hasRankNtf()) {
+          if (!getRankNtf().isInitialized()) {
+            return false;
+          }
         }
-        if (!getSceneNtf().isInitialized()) {
-          return false;
+        if (hasConfig()) {
+          if (!getConfig().isInitialized()) {
+            return false;
+          }
         }
-        if (!getRankNtf().isInitialized()) {
-          return false;
+        if (hasRedRankNtf()) {
+          if (!getRedRankNtf().isInitialized()) {
+            return false;
+          }
         }
-        if (!getConfig().isInitialized()) {
-          return false;
+        if (hasRedNtf()) {
+          if (!getRedNtf().isInitialized()) {
+            return false;
+          }
         }
         return true;
       }
@@ -1178,11 +6490,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf parsedMessage = null;
+        SceneRes parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf) e.getUnfinishedMessage();
+          parsedMessage = (SceneRes) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1193,29 +6505,77 @@ public final class Hbsl {
       }
       private int bitField0_;
 
-      private com.dafagame.protocol.hbsl.Hbsl.SceneNtf sceneNtf_ = null;
+      private int errCode_ ;
+      /**
+       * <pre>
+       *错误码
+       * </pre>
+       *
+       * <code>required int32 errCode = 1;</code>
+       */
+      public boolean hasErrCode() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *错误码
+       * </pre>
+       *
+       * <code>required int32 errCode = 1;</code>
+       */
+      public int getErrCode() {
+        return errCode_;
+      }
+      /**
+       * <pre>
+       *错误码
+       * </pre>
+       *
+       * <code>required int32 errCode = 1;</code>
+       */
+      public Builder setErrCode(int value) {
+        bitField0_ |= 0x00000001;
+        errCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *错误码
+       * </pre>
+       *
+       * <code>required int32 errCode = 1;</code>
+       */
+      public Builder clearErrCode() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        errCode_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private SceneNtf sceneNtf_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.SceneNtf, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder> sceneNtfBuilder_;
+          SceneNtf, SceneNtf.Builder, SceneNtfOrBuilder> sceneNtfBuilder_;
       /**
        * <pre>
        *房间场景信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
        */
       public boolean hasSceneNtf() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <pre>
        *房间场景信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtf getSceneNtf() {
+      public SceneNtf getSceneNtf() {
         if (sceneNtfBuilder_ == null) {
-          return sceneNtf_ == null ? com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : sceneNtf_;
+          return sceneNtf_ == null ? SceneNtf.getDefaultInstance() : sceneNtf_;
         } else {
           return sceneNtfBuilder_.getMessage();
         }
@@ -1225,9 +6585,9 @@ public final class Hbsl {
        *房间场景信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
        */
-      public Builder setSceneNtf(com.dafagame.protocol.hbsl.Hbsl.SceneNtf value) {
+      public Builder setSceneNtf(SceneNtf value) {
         if (sceneNtfBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1237,7 +6597,7 @@ public final class Hbsl {
         } else {
           sceneNtfBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -1245,17 +6605,17 @@ public final class Hbsl {
        *房间场景信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
        */
       public Builder setSceneNtf(
-          com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder builderForValue) {
+          SceneNtf.Builder builderForValue) {
         if (sceneNtfBuilder_ == null) {
           sceneNtf_ = builderForValue.build();
           onChanged();
         } else {
           sceneNtfBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -1263,15 +6623,15 @@ public final class Hbsl {
        *房间场景信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
        */
-      public Builder mergeSceneNtf(com.dafagame.protocol.hbsl.Hbsl.SceneNtf value) {
+      public Builder mergeSceneNtf(SceneNtf value) {
         if (sceneNtfBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
               sceneNtf_ != null &&
-              sceneNtf_ != com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance()) {
+              sceneNtf_ != SceneNtf.getDefaultInstance()) {
             sceneNtf_ =
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.newBuilder(sceneNtf_).mergeFrom(value).buildPartial();
+              SceneNtf.newBuilder(sceneNtf_).mergeFrom(value).buildPartial();
           } else {
             sceneNtf_ = value;
           }
@@ -1279,7 +6639,7 @@ public final class Hbsl {
         } else {
           sceneNtfBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -1287,7 +6647,7 @@ public final class Hbsl {
        *房间场景信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
        */
       public Builder clearSceneNtf() {
         if (sceneNtfBuilder_ == null) {
@@ -1296,7 +6656,7 @@ public final class Hbsl {
         } else {
           sceneNtfBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
@@ -1304,10 +6664,10 @@ public final class Hbsl {
        *房间场景信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder getSceneNtfBuilder() {
-        bitField0_ |= 0x00000001;
+      public SceneNtf.Builder getSceneNtfBuilder() {
+        bitField0_ |= 0x00000002;
         onChanged();
         return getSceneNtfFieldBuilder().getBuilder();
       }
@@ -1316,14 +6676,14 @@ public final class Hbsl {
        *房间场景信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder getSceneNtfOrBuilder() {
+      public SceneNtfOrBuilder getSceneNtfOrBuilder() {
         if (sceneNtfBuilder_ != null) {
           return sceneNtfBuilder_.getMessageOrBuilder();
         } else {
           return sceneNtf_ == null ?
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : sceneNtf_;
+              SceneNtf.getDefaultInstance() : sceneNtf_;
         }
       }
       /**
@@ -1331,14 +6691,14 @@ public final class Hbsl {
        *房间场景信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 1;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf sceneNtf = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.SceneNtf, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder> 
+          SceneNtf, SceneNtf.Builder, SceneNtfOrBuilder>
           getSceneNtfFieldBuilder() {
         if (sceneNtfBuilder_ == null) {
           sceneNtfBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder>(
+              SceneNtf, SceneNtf.Builder, SceneNtfOrBuilder>(
                   getSceneNtf(),
                   getParentForChildren(),
                   isClean());
@@ -1347,29 +6707,29 @@ public final class Hbsl {
         return sceneNtfBuilder_;
       }
 
-      private com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf rankNtf_ = null;
+      private PlayerRankNtf rankNtf_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf, com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtfOrBuilder> rankNtfBuilder_;
+          PlayerRankNtf, PlayerRankNtf.Builder, PlayerRankNtfOrBuilder> rankNtfBuilder_;
       /**
        * <pre>
        *红包排名信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
        */
       public boolean hasRankNtf() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <pre>
        *红包排名信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf getRankNtf() {
+      public PlayerRankNtf getRankNtf() {
         if (rankNtfBuilder_ == null) {
-          return rankNtf_ == null ? com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.getDefaultInstance() : rankNtf_;
+          return rankNtf_ == null ? PlayerRankNtf.getDefaultInstance() : rankNtf_;
         } else {
           return rankNtfBuilder_.getMessage();
         }
@@ -1379,9 +6739,9 @@ public final class Hbsl {
        *红包排名信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
        */
-      public Builder setRankNtf(com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf value) {
+      public Builder setRankNtf(PlayerRankNtf value) {
         if (rankNtfBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1391,7 +6751,7 @@ public final class Hbsl {
         } else {
           rankNtfBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -1399,17 +6759,17 @@ public final class Hbsl {
        *红包排名信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
        */
       public Builder setRankNtf(
-          com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.Builder builderForValue) {
+          PlayerRankNtf.Builder builderForValue) {
         if (rankNtfBuilder_ == null) {
           rankNtf_ = builderForValue.build();
           onChanged();
         } else {
           rankNtfBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -1417,15 +6777,15 @@ public final class Hbsl {
        *红包排名信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
        */
-      public Builder mergeRankNtf(com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf value) {
+      public Builder mergeRankNtf(PlayerRankNtf value) {
         if (rankNtfBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
               rankNtf_ != null &&
-              rankNtf_ != com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.getDefaultInstance()) {
+              rankNtf_ != PlayerRankNtf.getDefaultInstance()) {
             rankNtf_ =
-              com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.newBuilder(rankNtf_).mergeFrom(value).buildPartial();
+              PlayerRankNtf.newBuilder(rankNtf_).mergeFrom(value).buildPartial();
           } else {
             rankNtf_ = value;
           }
@@ -1433,7 +6793,7 @@ public final class Hbsl {
         } else {
           rankNtfBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
@@ -1441,7 +6801,7 @@ public final class Hbsl {
        *红包排名信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
        */
       public Builder clearRankNtf() {
         if (rankNtfBuilder_ == null) {
@@ -1450,7 +6810,7 @@ public final class Hbsl {
         } else {
           rankNtfBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       /**
@@ -1458,10 +6818,10 @@ public final class Hbsl {
        *红包排名信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.Builder getRankNtfBuilder() {
-        bitField0_ |= 0x00000002;
+      public PlayerRankNtf.Builder getRankNtfBuilder() {
+        bitField0_ |= 0x00000004;
         onChanged();
         return getRankNtfFieldBuilder().getBuilder();
       }
@@ -1470,14 +6830,14 @@ public final class Hbsl {
        *红包排名信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtfOrBuilder getRankNtfOrBuilder() {
+      public PlayerRankNtfOrBuilder getRankNtfOrBuilder() {
         if (rankNtfBuilder_ != null) {
           return rankNtfBuilder_.getMessageOrBuilder();
         } else {
           return rankNtf_ == null ?
-              com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.getDefaultInstance() : rankNtf_;
+              PlayerRankNtf.getDefaultInstance() : rankNtf_;
         }
       }
       /**
@@ -1485,14 +6845,14 @@ public final class Hbsl {
        *红包排名信息
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.PlayerRankNtf rankNtf = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf, com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtfOrBuilder> 
+          PlayerRankNtf, PlayerRankNtf.Builder, PlayerRankNtfOrBuilder>
           getRankNtfFieldBuilder() {
         if (rankNtfBuilder_ == null) {
           rankNtfBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf, com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtfOrBuilder>(
+              PlayerRankNtf, PlayerRankNtf.Builder, PlayerRankNtfOrBuilder>(
                   getRankNtf(),
                   getParentForChildren(),
                   isClean());
@@ -1501,29 +6861,29 @@ public final class Hbsl {
         return rankNtfBuilder_;
       }
 
-      private com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf config_ = null;
+      private RedEnvelopeConf config_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.Builder, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConfOrBuilder> configBuilder_;
+          RedEnvelopeConf, RedEnvelopeConf.Builder, RedEnvelopeConfOrBuilder> configBuilder_;
       /**
        * <pre>
        *红包的配置
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
        */
       public boolean hasConfig() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <pre>
        *红包的配置
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf getConfig() {
+      public RedEnvelopeConf getConfig() {
         if (configBuilder_ == null) {
-          return config_ == null ? com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.getDefaultInstance() : config_;
+          return config_ == null ? RedEnvelopeConf.getDefaultInstance() : config_;
         } else {
           return configBuilder_.getMessage();
         }
@@ -1533,9 +6893,9 @@ public final class Hbsl {
        *红包的配置
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
        */
-      public Builder setConfig(com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf value) {
+      public Builder setConfig(RedEnvelopeConf value) {
         if (configBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1545,7 +6905,7 @@ public final class Hbsl {
         } else {
           configBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -1553,17 +6913,17 @@ public final class Hbsl {
        *红包的配置
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
        */
       public Builder setConfig(
-          com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.Builder builderForValue) {
+          RedEnvelopeConf.Builder builderForValue) {
         if (configBuilder_ == null) {
           config_ = builderForValue.build();
           onChanged();
         } else {
           configBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -1571,15 +6931,15 @@ public final class Hbsl {
        *红包的配置
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
        */
-      public Builder mergeConfig(com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf value) {
+      public Builder mergeConfig(RedEnvelopeConf value) {
         if (configBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
               config_ != null &&
-              config_ != com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.getDefaultInstance()) {
+              config_ != RedEnvelopeConf.getDefaultInstance()) {
             config_ =
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.newBuilder(config_).mergeFrom(value).buildPartial();
+              RedEnvelopeConf.newBuilder(config_).mergeFrom(value).buildPartial();
           } else {
             config_ = value;
           }
@@ -1587,7 +6947,7 @@ public final class Hbsl {
         } else {
           configBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -1595,7 +6955,7 @@ public final class Hbsl {
        *红包的配置
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
        */
       public Builder clearConfig() {
         if (configBuilder_ == null) {
@@ -1604,7 +6964,7 @@ public final class Hbsl {
         } else {
           configBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
       /**
@@ -1612,10 +6972,10 @@ public final class Hbsl {
        *红包的配置
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.Builder getConfigBuilder() {
-        bitField0_ |= 0x00000004;
+      public RedEnvelopeConf.Builder getConfigBuilder() {
+        bitField0_ |= 0x00000008;
         onChanged();
         return getConfigFieldBuilder().getBuilder();
       }
@@ -1624,14 +6984,14 @@ public final class Hbsl {
        *红包的配置
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConfOrBuilder getConfigOrBuilder() {
+      public RedEnvelopeConfOrBuilder getConfigOrBuilder() {
         if (configBuilder_ != null) {
           return configBuilder_.getMessageOrBuilder();
         } else {
           return config_ == null ?
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.getDefaultInstance() : config_;
+              RedEnvelopeConf.getDefaultInstance() : config_;
         }
       }
       /**
@@ -1639,20 +6999,428 @@ public final class Hbsl {
        *红包的配置
        * </pre>
        *
-       * <code>required .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 3;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeConf config = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.Builder, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConfOrBuilder> 
+          RedEnvelopeConf, RedEnvelopeConf.Builder, RedEnvelopeConfOrBuilder>
           getConfigFieldBuilder() {
         if (configBuilder_ == null) {
           configBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.Builder, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConfOrBuilder>(
+              RedEnvelopeConf, RedEnvelopeConf.Builder, RedEnvelopeConfOrBuilder>(
                   getConfig(),
                   getParentForChildren(),
                   isClean());
           config_ = null;
         }
         return configBuilder_;
+      }
+
+      private RedRankNtf redRankNtf_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          RedRankNtf, RedRankNtf.Builder, RedRankNtfOrBuilder> redRankNtfBuilder_;
+      /**
+       * <pre>
+       *之前红包的排名
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+       */
+      public boolean hasRedRankNtf() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       *之前红包的排名
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+       */
+      public RedRankNtf getRedRankNtf() {
+        if (redRankNtfBuilder_ == null) {
+          return redRankNtf_ == null ? RedRankNtf.getDefaultInstance() : redRankNtf_;
+        } else {
+          return redRankNtfBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *之前红包的排名
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+       */
+      public Builder setRedRankNtf(RedRankNtf value) {
+        if (redRankNtfBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          redRankNtf_ = value;
+          onChanged();
+        } else {
+          redRankNtfBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       *之前红包的排名
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+       */
+      public Builder setRedRankNtf(
+          RedRankNtf.Builder builderForValue) {
+        if (redRankNtfBuilder_ == null) {
+          redRankNtf_ = builderForValue.build();
+          onChanged();
+        } else {
+          redRankNtfBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       *之前红包的排名
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+       */
+      public Builder mergeRedRankNtf(RedRankNtf value) {
+        if (redRankNtfBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              redRankNtf_ != null &&
+              redRankNtf_ != RedRankNtf.getDefaultInstance()) {
+            redRankNtf_ =
+              RedRankNtf.newBuilder(redRankNtf_).mergeFrom(value).buildPartial();
+          } else {
+            redRankNtf_ = value;
+          }
+          onChanged();
+        } else {
+          redRankNtfBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <pre>
+       *之前红包的排名
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+       */
+      public Builder clearRedRankNtf() {
+        if (redRankNtfBuilder_ == null) {
+          redRankNtf_ = null;
+          onChanged();
+        } else {
+          redRankNtfBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <pre>
+       *之前红包的排名
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+       */
+      public RedRankNtf.Builder getRedRankNtfBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getRedRankNtfFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *之前红包的排名
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+       */
+      public RedRankNtfOrBuilder getRedRankNtfOrBuilder() {
+        if (redRankNtfBuilder_ != null) {
+          return redRankNtfBuilder_.getMessageOrBuilder();
+        } else {
+          return redRankNtf_ == null ?
+              RedRankNtf.getDefaultInstance() : redRankNtf_;
+        }
+      }
+      /**
+       * <pre>
+       *之前红包的排名
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedRankNtf redRankNtf = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          RedRankNtf, RedRankNtf.Builder, RedRankNtfOrBuilder>
+          getRedRankNtfFieldBuilder() {
+        if (redRankNtfBuilder_ == null) {
+          redRankNtfBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              RedRankNtf, RedRankNtf.Builder, RedRankNtfOrBuilder>(
+                  getRedRankNtf(),
+                  getParentForChildren(),
+                  isClean());
+          redRankNtf_ = null;
+        }
+        return redRankNtfBuilder_;
+      }
+
+      private Object roomNumber_ = "";
+      /**
+       * <pre>
+       *房间号码
+       * </pre>
+       *
+       * <code>optional string roomNumber = 6;</code>
+       */
+      public boolean hasRoomNumber() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       *房间号码
+       * </pre>
+       *
+       * <code>optional string roomNumber = 6;</code>
+       */
+      public String getRoomNumber() {
+        Object ref = roomNumber_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            roomNumber_ = s;
+          }
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *房间号码
+       * </pre>
+       *
+       * <code>optional string roomNumber = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRoomNumberBytes() {
+        Object ref = roomNumber_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          roomNumber_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *房间号码
+       * </pre>
+       *
+       * <code>optional string roomNumber = 6;</code>
+       */
+      public Builder setRoomNumber(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        roomNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *房间号码
+       * </pre>
+       *
+       * <code>optional string roomNumber = 6;</code>
+       */
+      public Builder clearRoomNumber() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        roomNumber_ = getDefaultInstance().getRoomNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *房间号码
+       * </pre>
+       *
+       * <code>optional string roomNumber = 6;</code>
+       */
+      public Builder setRoomNumberBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        roomNumber_ = value;
+        onChanged();
+        return this;
+      }
+
+      private RedEnvelopeNtf redNtf_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          RedEnvelopeNtf, RedEnvelopeNtf.Builder, RedEnvelopeNtfOrBuilder> redNtfBuilder_;
+      /**
+       * <pre>
+       *当前红包的信息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+       */
+      public boolean hasRedNtf() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <pre>
+       *当前红包的信息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+       */
+      public RedEnvelopeNtf getRedNtf() {
+        if (redNtfBuilder_ == null) {
+          return redNtf_ == null ? RedEnvelopeNtf.getDefaultInstance() : redNtf_;
+        } else {
+          return redNtfBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *当前红包的信息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+       */
+      public Builder setRedNtf(RedEnvelopeNtf value) {
+        if (redNtfBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          redNtf_ = value;
+          onChanged();
+        } else {
+          redNtfBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <pre>
+       *当前红包的信息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+       */
+      public Builder setRedNtf(
+          RedEnvelopeNtf.Builder builderForValue) {
+        if (redNtfBuilder_ == null) {
+          redNtf_ = builderForValue.build();
+          onChanged();
+        } else {
+          redNtfBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <pre>
+       *当前红包的信息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+       */
+      public Builder mergeRedNtf(RedEnvelopeNtf value) {
+        if (redNtfBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040) &&
+              redNtf_ != null &&
+              redNtf_ != RedEnvelopeNtf.getDefaultInstance()) {
+            redNtf_ =
+              RedEnvelopeNtf.newBuilder(redNtf_).mergeFrom(value).buildPartial();
+          } else {
+            redNtf_ = value;
+          }
+          onChanged();
+        } else {
+          redNtfBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000040;
+        return this;
+      }
+      /**
+       * <pre>
+       *当前红包的信息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+       */
+      public Builder clearRedNtf() {
+        if (redNtfBuilder_ == null) {
+          redNtf_ = null;
+          onChanged();
+        } else {
+          redNtfBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        return this;
+      }
+      /**
+       * <pre>
+       *当前红包的信息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+       */
+      public RedEnvelopeNtf.Builder getRedNtfBuilder() {
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return getRedNtfFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *当前红包的信息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+       */
+      public RedEnvelopeNtfOrBuilder getRedNtfOrBuilder() {
+        if (redNtfBuilder_ != null) {
+          return redNtfBuilder_.getMessageOrBuilder();
+        } else {
+          return redNtf_ == null ?
+              RedEnvelopeNtf.getDefaultInstance() : redNtf_;
+        }
+      }
+      /**
+       * <pre>
+       *当前红包的信息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelopeNtf redNtf = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          RedEnvelopeNtf, RedEnvelopeNtf.Builder, RedEnvelopeNtfOrBuilder>
+          getRedNtfFieldBuilder() {
+        if (redNtfBuilder_ == null) {
+          redNtfBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              RedEnvelopeNtf, RedEnvelopeNtf.Builder, RedEnvelopeNtfOrBuilder>(
+                  getRedNtf(),
+                  getParentForChildren(),
+                  isClean());
+          redNtf_ = null;
+        }
+        return redNtfBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1665,39 +7433,39 @@ public final class Hbsl {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.RoomInformationNtf)
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.SceneRes)
     }
 
-    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.RoomInformationNtf)
-    private static final com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.SceneRes)
+    private static final SceneRes DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf();
+      DEFAULT_INSTANCE = new SceneRes();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf getDefaultInstance() {
+    public static SceneRes getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RoomInformationNtf>
-        PARSER = new com.google.protobuf.AbstractParser<RoomInformationNtf>() {
-      public RoomInformationNtf parsePartialFrom(
+    @Deprecated public static final com.google.protobuf.Parser<SceneRes>
+        PARSER = new com.google.protobuf.AbstractParser<SceneRes>() {
+      public SceneRes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RoomInformationNtf(input, extensionRegistry);
+          return new SceneRes(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<RoomInformationNtf> parser() {
+    public static com.google.protobuf.Parser<SceneRes> parser() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<RoomInformationNtf> getParserForType() {
+    @Override
+    public com.google.protobuf.Parser<SceneRes> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.RoomInformationNtf getDefaultInstanceForType() {
+    public SceneRes getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1714,7 +7482,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
      */
-    java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> 
+    java.util.List<RewardRank>
         getRanksList();
     /**
      * <pre>
@@ -1723,7 +7491,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.RewardRank getRanks(int index);
+    RewardRank getRanks(int index);
     /**
      * <pre>
      *玩家排名信息
@@ -1739,7 +7507,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
      */
-    java.util.List<? extends com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> 
+    java.util.List<? extends RewardRankOrBuilder>
         getRanksOrBuilderList();
     /**
      * <pre>
@@ -1748,8 +7516,8 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder getRanksOrBuilder(
-        int index);
+    RewardRankOrBuilder getRanksOrBuilder(
+            int index);
   }
   /**
    * <pre>
@@ -1771,7 +7539,7 @@ public final class Hbsl {
       ranks_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1801,11 +7569,11 @@ public final class Hbsl {
             }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                ranks_ = new java.util.ArrayList<com.dafagame.protocol.hbsl.Hbsl.RewardRank>();
+                ranks_ = new java.util.ArrayList<RewardRank>();
                 mutable_bitField0_ |= 0x00000001;
               }
               ranks_.add(
-                  input.readMessage(com.dafagame.protocol.hbsl.Hbsl.RewardRank.PARSER, extensionRegistry));
+                  input.readMessage(RewardRank.PARSER, extensionRegistry));
               break;
             }
           }
@@ -1825,18 +7593,18 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.class, com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.Builder.class);
+              PlayerRankNtf.class, Builder.class);
     }
 
     public static final int RANKS_FIELD_NUMBER = 1;
-    private java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> ranks_;
+    private java.util.List<RewardRank> ranks_;
     /**
      * <pre>
      *玩家排名信息
@@ -1844,7 +7612,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
      */
-    public java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> getRanksList() {
+    public java.util.List<RewardRank> getRanksList() {
       return ranks_;
     }
     /**
@@ -1854,7 +7622,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
      */
-    public java.util.List<? extends com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> 
+    public java.util.List<? extends RewardRankOrBuilder>
         getRanksOrBuilderList() {
       return ranks_;
     }
@@ -1875,7 +7643,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.RewardRank getRanks(int index) {
+    public RewardRank getRanks(int index) {
       return ranks_.get(index);
     }
     /**
@@ -1885,7 +7653,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder getRanksOrBuilder(
+    public RewardRankOrBuilder getRanksOrBuilder(
         int index) {
       return ranks_.get(index);
     }
@@ -1928,15 +7696,15 @@ public final class Hbsl {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf)) {
+      if (!(obj instanceof PlayerRankNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf other = (com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf) obj;
+      PlayerRankNtf other = (PlayerRankNtf) obj;
 
       boolean result = true;
       result = result && getRanksList()
@@ -1945,7 +7713,7 @@ public final class Hbsl {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1961,69 +7729,69 @@ public final class Hbsl {
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(
+    public static PlayerRankNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(
+    public static PlayerRankNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(
+    public static PlayerRankNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(
+    public static PlayerRankNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(byte[] data)
+    public static PlayerRankNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(
+    public static PlayerRankNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(java.io.InputStream input)
+    public static PlayerRankNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(
+    public static PlayerRankNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseDelimitedFrom(java.io.InputStream input)
+    public static PlayerRankNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseDelimitedFrom(
+    public static PlayerRankNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(
+    public static PlayerRankNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parseFrom(
+    public static PlayerRankNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2035,7 +7803,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf prototype) {
+    public static Builder newBuilder(PlayerRankNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2043,9 +7811,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2059,17 +7827,17 @@ public final class Hbsl {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.PlayerRankNtf)
-        com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtfOrBuilder {
+        PlayerRankNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.class, com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.Builder.class);
+                PlayerRankNtf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.newBuilder()
@@ -2078,7 +7846,7 @@ public final class Hbsl {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2101,23 +7869,23 @@ public final class Hbsl {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.getDefaultInstance();
+      public PlayerRankNtf getDefaultInstanceForType() {
+        return PlayerRankNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf build() {
-        com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf result = buildPartial();
+      public PlayerRankNtf build() {
+        PlayerRankNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf result = new com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf(this);
+      public PlayerRankNtf buildPartial() {
+        PlayerRankNtf result = new PlayerRankNtf(this);
         int from_bitField0_ = bitField0_;
         if (ranksBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2137,7 +7905,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -2150,25 +7918,25 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf)other);
+        if (other instanceof PlayerRankNtf) {
+          return mergeFrom((PlayerRankNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(PlayerRankNtf other) {
+        if (other == PlayerRankNtf.getDefaultInstance()) return this;
         if (ranksBuilder_ == null) {
           if (!other.ranks_.isEmpty()) {
             if (ranks_.isEmpty()) {
@@ -2213,11 +7981,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf parsedMessage = null;
+        PlayerRankNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf) e.getUnfinishedMessage();
+          parsedMessage = (PlayerRankNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2228,17 +7996,17 @@ public final class Hbsl {
       }
       private int bitField0_;
 
-      private java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> ranks_ =
+      private java.util.List<RewardRank> ranks_ =
         java.util.Collections.emptyList();
       private void ensureRanksIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          ranks_ = new java.util.ArrayList<com.dafagame.protocol.hbsl.Hbsl.RewardRank>(ranks_);
+          ranks_ = new java.util.ArrayList<RewardRank>(ranks_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RewardRank, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder, com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> ranksBuilder_;
+          RewardRank, RewardRank.Builder, RewardRankOrBuilder> ranksBuilder_;
 
       /**
        * <pre>
@@ -2247,7 +8015,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> getRanksList() {
+      public java.util.List<RewardRank> getRanksList() {
         if (ranksBuilder_ == null) {
           return java.util.Collections.unmodifiableList(ranks_);
         } else {
@@ -2275,7 +8043,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank getRanks(int index) {
+      public RewardRank getRanks(int index) {
         if (ranksBuilder_ == null) {
           return ranks_.get(index);
         } else {
@@ -2290,7 +8058,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder setRanks(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RewardRank value) {
+          int index, RewardRank value) {
         if (ranksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2311,7 +8079,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder setRanks(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder builderForValue) {
+          int index, RewardRank.Builder builderForValue) {
         if (ranksBuilder_ == null) {
           ensureRanksIsMutable();
           ranks_.set(index, builderForValue.build());
@@ -2328,7 +8096,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public Builder addRanks(com.dafagame.protocol.hbsl.Hbsl.RewardRank value) {
+      public Builder addRanks(RewardRank value) {
         if (ranksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2349,7 +8117,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder addRanks(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RewardRank value) {
+          int index, RewardRank value) {
         if (ranksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2370,7 +8138,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder addRanks(
-          com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder builderForValue) {
+          RewardRank.Builder builderForValue) {
         if (ranksBuilder_ == null) {
           ensureRanksIsMutable();
           ranks_.add(builderForValue.build());
@@ -2388,7 +8156,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder addRanks(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder builderForValue) {
+          int index, RewardRank.Builder builderForValue) {
         if (ranksBuilder_ == null) {
           ensureRanksIsMutable();
           ranks_.add(index, builderForValue.build());
@@ -2406,7 +8174,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder addAllRanks(
-          java.lang.Iterable<? extends com.dafagame.protocol.hbsl.Hbsl.RewardRank> values) {
+          Iterable<? extends RewardRank> values) {
         if (ranksBuilder_ == null) {
           ensureRanksIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2458,7 +8226,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder getRanksBuilder(
+      public RewardRank.Builder getRanksBuilder(
           int index) {
         return getRanksFieldBuilder().getBuilder(index);
       }
@@ -2469,7 +8237,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder getRanksOrBuilder(
+      public RewardRankOrBuilder getRanksOrBuilder(
           int index) {
         if (ranksBuilder_ == null) {
           return ranks_.get(index);  } else {
@@ -2483,7 +8251,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public java.util.List<? extends com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> 
+      public java.util.List<? extends RewardRankOrBuilder>
            getRanksOrBuilderList() {
         if (ranksBuilder_ != null) {
           return ranksBuilder_.getMessageOrBuilderList();
@@ -2498,9 +8266,9 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder addRanksBuilder() {
+      public RewardRank.Builder addRanksBuilder() {
         return getRanksFieldBuilder().addBuilder(
-            com.dafagame.protocol.hbsl.Hbsl.RewardRank.getDefaultInstance());
+            RewardRank.getDefaultInstance());
       }
       /**
        * <pre>
@@ -2509,10 +8277,10 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder addRanksBuilder(
+      public RewardRank.Builder addRanksBuilder(
           int index) {
         return getRanksFieldBuilder().addBuilder(
-            index, com.dafagame.protocol.hbsl.Hbsl.RewardRank.getDefaultInstance());
+            index, RewardRank.getDefaultInstance());
       }
       /**
        * <pre>
@@ -2521,16 +8289,16 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder> 
+      public java.util.List<RewardRank.Builder>
            getRanksBuilderList() {
         return getRanksFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RewardRank, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder, com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> 
+          RewardRank, RewardRank.Builder, RewardRankOrBuilder>
           getRanksFieldBuilder() {
         if (ranksBuilder_ == null) {
           ranksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.dafagame.protocol.hbsl.Hbsl.RewardRank, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder, com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder>(
+              RewardRank, RewardRank.Builder, RewardRankOrBuilder>(
                   ranks_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -2554,16 +8322,16 @@ public final class Hbsl {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.PlayerRankNtf)
-    private static final com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf DEFAULT_INSTANCE;
+    private static final PlayerRankNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf();
+      DEFAULT_INSTANCE = new PlayerRankNtf();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf getDefaultInstance() {
+    public static PlayerRankNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<PlayerRankNtf>
+    @Deprecated public static final com.google.protobuf.Parser<PlayerRankNtf>
         PARSER = new com.google.protobuf.AbstractParser<PlayerRankNtf>() {
       public PlayerRankNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -2577,12 +8345,12 @@ public final class Hbsl {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<PlayerRankNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.PlayerRankNtf getDefaultInstanceForType() {
+    public PlayerRankNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2594,35 +8362,10 @@ public final class Hbsl {
 
     /**
      * <pre>
-     *当前的红包 （可能是新的红包）
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
-     */
-    boolean hasRedEnvelope();
-    /**
-     * <pre>
-     *当前的红包 （可能是新的红包）
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
-     */
-    com.dafagame.protocol.hbsl.Hbsl.RedEnvelope getRedEnvelope();
-    /**
-     * <pre>
-     *当前的红包 （可能是新的红包）
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
-     */
-    com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeOrBuilder getRedEnvelopeOrBuilder();
-
-    /**
-     * <pre>
      *红包总数
      * </pre>
      *
-     * <code>required int32 total = 2;</code>
+     * <code>required int32 total = 1;</code>
      */
     boolean hasTotal();
     /**
@@ -2630,53 +8373,76 @@ public final class Hbsl {
      *红包总数
      * </pre>
      *
-     * <code>required int32 total = 2;</code>
+     * <code>required int32 total = 1;</code>
      */
     int getTotal();
 
     /**
      * <pre>
-     *当前红包领取排名
+     *在线人数
      * </pre>
      *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+     * <code>required int32 onlineNumber = 2;</code>
      */
-    java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> 
-        getRanksList();
+    boolean hasOnlineNumber();
     /**
      * <pre>
-     *当前红包领取排名
+     *在线人数
      * </pre>
      *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+     * <code>required int32 onlineNumber = 2;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.RewardRank getRanks(int index);
+    int getOnlineNumber();
+
     /**
      * <pre>
-     *当前红包领取排名
+     *玩家红包uid列表
      * </pre>
      *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+     * <code>repeated int32 redUids = 3;</code>
      */
-    int getRanksCount();
+    java.util.List<Integer> getRedUidsList();
     /**
      * <pre>
-     *当前红包领取排名
+     *玩家红包uid列表
      * </pre>
      *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+     * <code>repeated int32 redUids = 3;</code>
      */
-    java.util.List<? extends com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> 
-        getRanksOrBuilderList();
+    int getRedUidsCount();
     /**
      * <pre>
-     *当前红包领取排名
+     *玩家红包uid列表
      * </pre>
      *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+     * <code>repeated int32 redUids = 3;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder getRanksOrBuilder(
-        int index);
+    int getRedUids(int index);
+
+    /**
+     * <pre>
+     *已经已经领取的玩家红包id
+     * </pre>
+     *
+     * <code>repeated int32 crabUids = 4;</code>
+     */
+    java.util.List<Integer> getCrabUidsList();
+    /**
+     * <pre>
+     *已经已经领取的玩家红包id
+     * </pre>
+     *
+     * <code>repeated int32 crabUids = 4;</code>
+     */
+    int getCrabUidsCount();
+    /**
+     * <pre>
+     *已经已经领取的玩家红包id
+     * </pre>
+     *
+     * <code>repeated int32 crabUids = 4;</code>
+     */
+    int getCrabUids(int index);
   }
   /**
    * <pre>
@@ -2696,10 +8462,12 @@ public final class Hbsl {
     }
     private SceneNtf() {
       total_ = 0;
-      ranks_ = java.util.Collections.emptyList();
+      onlineNumber_ = 0;
+      redUids_ = java.util.Collections.emptyList();
+      crabUids_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2727,31 +8495,56 @@ public final class Hbsl {
               }
               break;
             }
-            case 10: {
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                subBuilder = redEnvelope_.toBuilder();
-              }
-              redEnvelope_ = input.readMessage(com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(redEnvelope_);
-                redEnvelope_ = subBuilder.buildPartial();
-              }
+            case 8: {
               bitField0_ |= 0x00000001;
+              total_ = input.readInt32();
               break;
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              total_ = input.readInt32();
+              onlineNumber_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                redUids_ = new java.util.ArrayList<Integer>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              redUids_.add(input.readInt32());
               break;
             }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                ranks_ = new java.util.ArrayList<com.dafagame.protocol.hbsl.Hbsl.RewardRank>();
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
+                redUids_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              ranks_.add(
-                  input.readMessage(com.dafagame.protocol.hbsl.Hbsl.RewardRank.PARSER, extensionRegistry));
+              while (input.getBytesUntilLimit() > 0) {
+                redUids_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 32: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                crabUids_ = new java.util.ArrayList<Integer>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              crabUids_.add(input.readInt32());
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
+                crabUids_ = new java.util.ArrayList<Integer>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                crabUids_.add(input.readInt32());
+              }
+              input.popLimit(limit);
               break;
             }
           }
@@ -2763,7 +8556,10 @@ public final class Hbsl {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          ranks_ = java.util.Collections.unmodifiableList(ranks_);
+          redUids_ = java.util.Collections.unmodifiableList(redUids_);
+        }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          crabUids_ = java.util.Collections.unmodifiableList(crabUids_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2771,19 +8567,1021 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.class, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder.class);
+              SceneNtf.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int TOTAL_FIELD_NUMBER = 1;
+    private int total_;
+    /**
+     * <pre>
+     *红包总数
+     * </pre>
+     *
+     * <code>required int32 total = 1;</code>
+     */
+    public boolean hasTotal() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *红包总数
+     * </pre>
+     *
+     * <code>required int32 total = 1;</code>
+     */
+    public int getTotal() {
+      return total_;
+    }
+
+    public static final int ONLINENUMBER_FIELD_NUMBER = 2;
+    private int onlineNumber_;
+    /**
+     * <pre>
+     *在线人数
+     * </pre>
+     *
+     * <code>required int32 onlineNumber = 2;</code>
+     */
+    public boolean hasOnlineNumber() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *在线人数
+     * </pre>
+     *
+     * <code>required int32 onlineNumber = 2;</code>
+     */
+    public int getOnlineNumber() {
+      return onlineNumber_;
+    }
+
+    public static final int REDUIDS_FIELD_NUMBER = 3;
+    private java.util.List<Integer> redUids_;
+    /**
+     * <pre>
+     *玩家红包uid列表
+     * </pre>
+     *
+     * <code>repeated int32 redUids = 3;</code>
+     */
+    public java.util.List<Integer>
+        getRedUidsList() {
+      return redUids_;
+    }
+    /**
+     * <pre>
+     *玩家红包uid列表
+     * </pre>
+     *
+     * <code>repeated int32 redUids = 3;</code>
+     */
+    public int getRedUidsCount() {
+      return redUids_.size();
+    }
+    /**
+     * <pre>
+     *玩家红包uid列表
+     * </pre>
+     *
+     * <code>repeated int32 redUids = 3;</code>
+     */
+    public int getRedUids(int index) {
+      return redUids_.get(index);
+    }
+
+    public static final int CRABUIDS_FIELD_NUMBER = 4;
+    private java.util.List<Integer> crabUids_;
+    /**
+     * <pre>
+     *已经已经领取的玩家红包id
+     * </pre>
+     *
+     * <code>repeated int32 crabUids = 4;</code>
+     */
+    public java.util.List<Integer>
+        getCrabUidsList() {
+      return crabUids_;
+    }
+    /**
+     * <pre>
+     *已经已经领取的玩家红包id
+     * </pre>
+     *
+     * <code>repeated int32 crabUids = 4;</code>
+     */
+    public int getCrabUidsCount() {
+      return crabUids_.size();
+    }
+    /**
+     * <pre>
+     *已经已经领取的玩家红包id
+     * </pre>
+     *
+     * <code>repeated int32 crabUids = 4;</code>
+     */
+    public int getCrabUids(int index) {
+      return crabUids_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasTotal()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasOnlineNumber()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, total_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, onlineNumber_);
+      }
+      for (int i = 0; i < redUids_.size(); i++) {
+        output.writeInt32(3, redUids_.get(i));
+      }
+      for (int i = 0; i < crabUids_.size(); i++) {
+        output.writeInt32(4, crabUids_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, total_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, onlineNumber_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < redUids_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(redUids_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getRedUidsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < crabUids_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(crabUids_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getCrabUidsList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof SceneNtf)) {
+        return super.equals(obj);
+      }
+      SceneNtf other = (SceneNtf) obj;
+
+      boolean result = true;
+      result = result && (hasTotal() == other.hasTotal());
+      if (hasTotal()) {
+        result = result && (getTotal()
+            == other.getTotal());
+      }
+      result = result && (hasOnlineNumber() == other.hasOnlineNumber());
+      if (hasOnlineNumber()) {
+        result = result && (getOnlineNumber()
+            == other.getOnlineNumber());
+      }
+      result = result && getRedUidsList()
+          .equals(other.getRedUidsList());
+      result = result && getCrabUidsList()
+          .equals(other.getCrabUidsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasTotal()) {
+        hash = (37 * hash) + TOTAL_FIELD_NUMBER;
+        hash = (53 * hash) + getTotal();
+      }
+      if (hasOnlineNumber()) {
+        hash = (37 * hash) + ONLINENUMBER_FIELD_NUMBER;
+        hash = (53 * hash) + getOnlineNumber();
+      }
+      if (getRedUidsCount() > 0) {
+        hash = (37 * hash) + REDUIDS_FIELD_NUMBER;
+        hash = (53 * hash) + getRedUidsList().hashCode();
+      }
+      if (getCrabUidsCount() > 0) {
+        hash = (37 * hash) + CRABUIDS_FIELD_NUMBER;
+        hash = (53 * hash) + getCrabUidsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static SceneNtf parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static SceneNtf parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static SceneNtf parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static SceneNtf parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static SceneNtf parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static SceneNtf parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static SceneNtf parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static SceneNtf parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static SceneNtf parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static SceneNtf parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static SceneNtf parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static SceneNtf parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(SceneNtf prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *红包信息 （当前红包信息，当前红包的） 1s 钟一次
+     * </pre>
+     *
+     * Protobuf type {@code com.dafagame.protocol.hbsl.SceneNtf}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.SceneNtf)
+        SceneNtfOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                SceneNtf.class, Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.SceneNtf.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        total_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onlineNumber_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        redUids_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        crabUids_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_descriptor;
+      }
+
+      public SceneNtf getDefaultInstanceForType() {
+        return SceneNtf.getDefaultInstance();
+      }
+
+      public SceneNtf build() {
+        SceneNtf result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public SceneNtf buildPartial() {
+        SceneNtf result = new SceneNtf(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.total_ = total_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.onlineNumber_ = onlineNumber_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          redUids_ = java.util.Collections.unmodifiableList(redUids_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.redUids_ = redUids_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          crabUids_ = java.util.Collections.unmodifiableList(crabUids_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.crabUids_ = crabUids_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof SceneNtf) {
+          return mergeFrom((SceneNtf)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(SceneNtf other) {
+        if (other == SceneNtf.getDefaultInstance()) return this;
+        if (other.hasTotal()) {
+          setTotal(other.getTotal());
+        }
+        if (other.hasOnlineNumber()) {
+          setOnlineNumber(other.getOnlineNumber());
+        }
+        if (!other.redUids_.isEmpty()) {
+          if (redUids_.isEmpty()) {
+            redUids_ = other.redUids_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureRedUidsIsMutable();
+            redUids_.addAll(other.redUids_);
+          }
+          onChanged();
+        }
+        if (!other.crabUids_.isEmpty()) {
+          if (crabUids_.isEmpty()) {
+            crabUids_ = other.crabUids_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureCrabUidsIsMutable();
+            crabUids_.addAll(other.crabUids_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasTotal()) {
+          return false;
+        }
+        if (!hasOnlineNumber()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        SceneNtf parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (SceneNtf) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int total_ ;
+      /**
+       * <pre>
+       *红包总数
+       * </pre>
+       *
+       * <code>required int32 total = 1;</code>
+       */
+      public boolean hasTotal() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *红包总数
+       * </pre>
+       *
+       * <code>required int32 total = 1;</code>
+       */
+      public int getTotal() {
+        return total_;
+      }
+      /**
+       * <pre>
+       *红包总数
+       * </pre>
+       *
+       * <code>required int32 total = 1;</code>
+       */
+      public Builder setTotal(int value) {
+        bitField0_ |= 0x00000001;
+        total_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *红包总数
+       * </pre>
+       *
+       * <code>required int32 total = 1;</code>
+       */
+      public Builder clearTotal() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        total_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int onlineNumber_ ;
+      /**
+       * <pre>
+       *在线人数
+       * </pre>
+       *
+       * <code>required int32 onlineNumber = 2;</code>
+       */
+      public boolean hasOnlineNumber() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *在线人数
+       * </pre>
+       *
+       * <code>required int32 onlineNumber = 2;</code>
+       */
+      public int getOnlineNumber() {
+        return onlineNumber_;
+      }
+      /**
+       * <pre>
+       *在线人数
+       * </pre>
+       *
+       * <code>required int32 onlineNumber = 2;</code>
+       */
+      public Builder setOnlineNumber(int value) {
+        bitField0_ |= 0x00000002;
+        onlineNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *在线人数
+       * </pre>
+       *
+       * <code>required int32 onlineNumber = 2;</code>
+       */
+      public Builder clearOnlineNumber() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onlineNumber_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<Integer> redUids_ = java.util.Collections.emptyList();
+      private void ensureRedUidsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          redUids_ = new java.util.ArrayList<Integer>(redUids_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <pre>
+       *玩家红包uid列表
+       * </pre>
+       *
+       * <code>repeated int32 redUids = 3;</code>
+       */
+      public java.util.List<Integer>
+          getRedUidsList() {
+        return java.util.Collections.unmodifiableList(redUids_);
+      }
+      /**
+       * <pre>
+       *玩家红包uid列表
+       * </pre>
+       *
+       * <code>repeated int32 redUids = 3;</code>
+       */
+      public int getRedUidsCount() {
+        return redUids_.size();
+      }
+      /**
+       * <pre>
+       *玩家红包uid列表
+       * </pre>
+       *
+       * <code>repeated int32 redUids = 3;</code>
+       */
+      public int getRedUids(int index) {
+        return redUids_.get(index);
+      }
+      /**
+       * <pre>
+       *玩家红包uid列表
+       * </pre>
+       *
+       * <code>repeated int32 redUids = 3;</code>
+       */
+      public Builder setRedUids(
+          int index, int value) {
+        ensureRedUidsIsMutable();
+        redUids_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家红包uid列表
+       * </pre>
+       *
+       * <code>repeated int32 redUids = 3;</code>
+       */
+      public Builder addRedUids(int value) {
+        ensureRedUidsIsMutable();
+        redUids_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家红包uid列表
+       * </pre>
+       *
+       * <code>repeated int32 redUids = 3;</code>
+       */
+      public Builder addAllRedUids(
+          Iterable<? extends Integer> values) {
+        ensureRedUidsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, redUids_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家红包uid列表
+       * </pre>
+       *
+       * <code>repeated int32 redUids = 3;</code>
+       */
+      public Builder clearRedUids() {
+        redUids_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<Integer> crabUids_ = java.util.Collections.emptyList();
+      private void ensureCrabUidsIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          crabUids_ = new java.util.ArrayList<Integer>(crabUids_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <pre>
+       *已经已经领取的玩家红包id
+       * </pre>
+       *
+       * <code>repeated int32 crabUids = 4;</code>
+       */
+      public java.util.List<Integer>
+          getCrabUidsList() {
+        return java.util.Collections.unmodifiableList(crabUids_);
+      }
+      /**
+       * <pre>
+       *已经已经领取的玩家红包id
+       * </pre>
+       *
+       * <code>repeated int32 crabUids = 4;</code>
+       */
+      public int getCrabUidsCount() {
+        return crabUids_.size();
+      }
+      /**
+       * <pre>
+       *已经已经领取的玩家红包id
+       * </pre>
+       *
+       * <code>repeated int32 crabUids = 4;</code>
+       */
+      public int getCrabUids(int index) {
+        return crabUids_.get(index);
+      }
+      /**
+       * <pre>
+       *已经已经领取的玩家红包id
+       * </pre>
+       *
+       * <code>repeated int32 crabUids = 4;</code>
+       */
+      public Builder setCrabUids(
+          int index, int value) {
+        ensureCrabUidsIsMutable();
+        crabUids_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *已经已经领取的玩家红包id
+       * </pre>
+       *
+       * <code>repeated int32 crabUids = 4;</code>
+       */
+      public Builder addCrabUids(int value) {
+        ensureCrabUidsIsMutable();
+        crabUids_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *已经已经领取的玩家红包id
+       * </pre>
+       *
+       * <code>repeated int32 crabUids = 4;</code>
+       */
+      public Builder addAllCrabUids(
+          Iterable<? extends Integer> values) {
+        ensureCrabUidsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, crabUids_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *已经已经领取的玩家红包id
+       * </pre>
+       *
+       * <code>repeated int32 crabUids = 4;</code>
+       */
+      public Builder clearCrabUids() {
+        crabUids_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.SceneNtf)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.SceneNtf)
+    private static final SceneNtf DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new SceneNtf();
+    }
+
+    public static SceneNtf getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @Deprecated public static final com.google.protobuf.Parser<SceneNtf>
+        PARSER = new com.google.protobuf.AbstractParser<SceneNtf>() {
+      public SceneNtf parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SceneNtf(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SceneNtf> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<SceneNtf> getParserForType() {
+      return PARSER;
+    }
+
+    public SceneNtf getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RedEnvelopeNtfOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.RedEnvelopeNtf)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *当前的红包 （可能是新的红包）
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
+     */
+    boolean hasRedEnvelope();
+    /**
+     * <pre>
+     *当前的红包 （可能是新的红包）
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
+     */
+    RedEnvelope getRedEnvelope();
+    /**
+     * <pre>
+     *当前的红包 （可能是新的红包）
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
+     */
+    RedEnvelopeOrBuilder getRedEnvelopeOrBuilder();
+
+    /**
+     * <pre>
+     *下一个红包消息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
+     */
+    boolean hasNext();
+    /**
+     * <pre>
+     *下一个红包消息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
+     */
+    RedEnvelope getNext();
+    /**
+     * <pre>
+     *下一个红包消息
+     * </pre>
+     *
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
+     */
+    RedEnvelopeOrBuilder getNextOrBuilder();
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.hbsl.RedEnvelopeNtf}
+   */
+  public  static final class RedEnvelopeNtf extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.RedEnvelopeNtf)
+      RedEnvelopeNtfOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RedEnvelopeNtf.newBuilder() to construct.
+    private RedEnvelopeNtf(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RedEnvelopeNtf() {
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RedEnvelopeNtf(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              RedEnvelope.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = redEnvelope_.toBuilder();
+              }
+              redEnvelope_ = input.readMessage(RedEnvelope.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(redEnvelope_);
+                redEnvelope_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              RedEnvelope.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = next_.toBuilder();
+              }
+              next_ = input.readMessage(RedEnvelope.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(next_);
+                next_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              RedEnvelopeNtf.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int REDENVELOPE_FIELD_NUMBER = 1;
-    private com.dafagame.protocol.hbsl.Hbsl.RedEnvelope redEnvelope_;
+    private RedEnvelope redEnvelope_;
     /**
      * <pre>
      *当前的红包 （可能是新的红包）
@@ -2801,8 +9599,8 @@ public final class Hbsl {
      *
      * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.RedEnvelope getRedEnvelope() {
-      return redEnvelope_ == null ? com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.getDefaultInstance() : redEnvelope_;
+    public RedEnvelope getRedEnvelope() {
+      return redEnvelope_ == null ? RedEnvelope.getDefaultInstance() : redEnvelope_;
     }
     /**
      * <pre>
@@ -2811,86 +9609,41 @@ public final class Hbsl {
      *
      * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeOrBuilder getRedEnvelopeOrBuilder() {
-      return redEnvelope_ == null ? com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.getDefaultInstance() : redEnvelope_;
+    public RedEnvelopeOrBuilder getRedEnvelopeOrBuilder() {
+      return redEnvelope_ == null ? RedEnvelope.getDefaultInstance() : redEnvelope_;
     }
 
-    public static final int TOTAL_FIELD_NUMBER = 2;
-    private int total_;
+    public static final int NEXT_FIELD_NUMBER = 2;
+    private RedEnvelope next_;
     /**
      * <pre>
-     *红包总数
+     *下一个红包消息
      * </pre>
      *
-     * <code>required int32 total = 2;</code>
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
      */
-    public boolean hasTotal() {
+    public boolean hasNext() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <pre>
-     *红包总数
+     *下一个红包消息
      * </pre>
      *
-     * <code>required int32 total = 2;</code>
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
      */
-    public int getTotal() {
-      return total_;
-    }
-
-    public static final int RANKS_FIELD_NUMBER = 3;
-    private java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> ranks_;
-    /**
-     * <pre>
-     *当前红包领取排名
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
-     */
-    public java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> getRanksList() {
-      return ranks_;
+    public RedEnvelope getNext() {
+      return next_ == null ? RedEnvelope.getDefaultInstance() : next_;
     }
     /**
      * <pre>
-     *当前红包领取排名
+     *下一个红包消息
      * </pre>
      *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+     * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
      */
-    public java.util.List<? extends com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> 
-        getRanksOrBuilderList() {
-      return ranks_;
-    }
-    /**
-     * <pre>
-     *当前红包领取排名
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
-     */
-    public int getRanksCount() {
-      return ranks_.size();
-    }
-    /**
-     * <pre>
-     *当前红包领取排名
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
-     */
-    public com.dafagame.protocol.hbsl.Hbsl.RewardRank getRanks(int index) {
-      return ranks_.get(index);
-    }
-    /**
-     * <pre>
-     *当前红包领取排名
-     * </pre>
-     *
-     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
-     */
-    public com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder getRanksOrBuilder(
-        int index) {
-      return ranks_.get(index);
+    public RedEnvelopeOrBuilder getNextOrBuilder() {
+      return next_ == null ? RedEnvelope.getDefaultInstance() : next_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2899,18 +9652,14 @@ public final class Hbsl {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasTotal()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       if (hasRedEnvelope()) {
         if (!getRedEnvelope().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
       }
-      for (int i = 0; i < getRanksCount(); i++) {
-        if (!getRanks(i).isInitialized()) {
+      if (hasNext()) {
+        if (!getNext().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -2925,10 +9674,7 @@ public final class Hbsl {
         output.writeMessage(1, getRedEnvelope());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, total_);
-      }
-      for (int i = 0; i < ranks_.size(); i++) {
-        output.writeMessage(3, ranks_.get(i));
+        output.writeMessage(2, getNext());
       }
       unknownFields.writeTo(output);
     }
@@ -2944,26 +9690,22 @@ public final class Hbsl {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, total_);
-      }
-      for (int i = 0; i < ranks_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, ranks_.get(i));
+          .computeMessageSize(2, getNext());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.SceneNtf)) {
+      if (!(obj instanceof RedEnvelopeNtf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.SceneNtf other = (com.dafagame.protocol.hbsl.Hbsl.SceneNtf) obj;
+      RedEnvelopeNtf other = (RedEnvelopeNtf) obj;
 
       boolean result = true;
       result = result && (hasRedEnvelope() == other.hasRedEnvelope());
@@ -2971,18 +9713,16 @@ public final class Hbsl {
         result = result && getRedEnvelope()
             .equals(other.getRedEnvelope());
       }
-      result = result && (hasTotal() == other.hasTotal());
-      if (hasTotal()) {
-        result = result && (getTotal()
-            == other.getTotal());
+      result = result && (hasNext() == other.hasNext());
+      if (hasNext()) {
+        result = result && getNext()
+            .equals(other.getNext());
       }
-      result = result && getRanksList()
-          .equals(other.getRanksList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2993,82 +9733,78 @@ public final class Hbsl {
         hash = (37 * hash) + REDENVELOPE_FIELD_NUMBER;
         hash = (53 * hash) + getRedEnvelope().hashCode();
       }
-      if (hasTotal()) {
-        hash = (37 * hash) + TOTAL_FIELD_NUMBER;
-        hash = (53 * hash) + getTotal();
-      }
-      if (getRanksCount() > 0) {
-        hash = (37 * hash) + RANKS_FIELD_NUMBER;
-        hash = (53 * hash) + getRanksList().hashCode();
+      if (hasNext()) {
+        hash = (37 * hash) + NEXT_FIELD_NUMBER;
+        hash = (53 * hash) + getNext().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(
+    public static RedEnvelopeNtf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(
+    public static RedEnvelopeNtf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(
+    public static RedEnvelopeNtf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(
+    public static RedEnvelopeNtf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(byte[] data)
+    public static RedEnvelopeNtf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(
+    public static RedEnvelopeNtf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(java.io.InputStream input)
+    public static RedEnvelopeNtf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(
+    public static RedEnvelopeNtf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseDelimitedFrom(java.io.InputStream input)
+    public static RedEnvelopeNtf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseDelimitedFrom(
+    public static RedEnvelopeNtf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(
+    public static RedEnvelopeNtf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf parseFrom(
+    public static RedEnvelopeNtf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3080,7 +9816,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.SceneNtf prototype) {
+    public static Builder newBuilder(RedEnvelopeNtf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -3088,42 +9824,38 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
     /**
-     * <pre>
-     *红包信息 （当前红包信息，当前红包的） 1s 钟一次
-     * </pre>
-     *
-     * Protobuf type {@code com.dafagame.protocol.hbsl.SceneNtf}
+     * Protobuf type {@code com.dafagame.protocol.hbsl.RedEnvelopeNtf}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.SceneNtf)
-        com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.RedEnvelopeNtf)
+        RedEnvelopeNtfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.SceneNtf.class, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder.class);
+                RedEnvelopeNtf.class, Builder.class);
       }
 
-      // Construct using com.dafagame.protocol.hbsl.Hbsl.SceneNtf.newBuilder()
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeNtf.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3131,7 +9863,7 @@ public final class Hbsl {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getRedEnvelopeFieldBuilder();
-          getRanksFieldBuilder();
+          getNextFieldBuilder();
         }
       }
       public Builder clear() {
@@ -3142,36 +9874,34 @@ public final class Hbsl {
           redEnvelopeBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000001);
-        total_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (ranksBuilder_ == null) {
-          ranks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+        if (nextBuilder_ == null) {
+          next_ = null;
         } else {
-          ranksBuilder_.clear();
+          nextBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_SceneNtf_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtf getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance();
+      public RedEnvelopeNtf getDefaultInstanceForType() {
+        return RedEnvelopeNtf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtf build() {
-        com.dafagame.protocol.hbsl.Hbsl.SceneNtf result = buildPartial();
+      public RedEnvelopeNtf build() {
+        RedEnvelopeNtf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtf buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.SceneNtf result = new com.dafagame.protocol.hbsl.Hbsl.SceneNtf(this);
+      public RedEnvelopeNtf buildPartial() {
+        RedEnvelopeNtf result = new RedEnvelopeNtf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3185,15 +9915,10 @@ public final class Hbsl {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.total_ = total_;
-        if (ranksBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            ranks_ = java.util.Collections.unmodifiableList(ranks_);
-            bitField0_ = (bitField0_ & ~0x00000004);
-          }
-          result.ranks_ = ranks_;
+        if (nextBuilder_ == null) {
+          result.next_ = next_;
         } else {
-          result.ranks_ = ranksBuilder_.build();
+          result.next_ = nextBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -3205,7 +9930,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -3218,56 +9943,30 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.SceneNtf) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.SceneNtf)other);
+        if (other instanceof RedEnvelopeNtf) {
+          return mergeFrom((RedEnvelopeNtf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.SceneNtf other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance()) return this;
+      public Builder mergeFrom(RedEnvelopeNtf other) {
+        if (other == RedEnvelopeNtf.getDefaultInstance()) return this;
         if (other.hasRedEnvelope()) {
           mergeRedEnvelope(other.getRedEnvelope());
         }
-        if (other.hasTotal()) {
-          setTotal(other.getTotal());
-        }
-        if (ranksBuilder_ == null) {
-          if (!other.ranks_.isEmpty()) {
-            if (ranks_.isEmpty()) {
-              ranks_ = other.ranks_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-            } else {
-              ensureRanksIsMutable();
-              ranks_.addAll(other.ranks_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.ranks_.isEmpty()) {
-            if (ranksBuilder_.isEmpty()) {
-              ranksBuilder_.dispose();
-              ranksBuilder_ = null;
-              ranks_ = other.ranks_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-              ranksBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getRanksFieldBuilder() : null;
-            } else {
-              ranksBuilder_.addAllMessages(other.ranks_);
-            }
-          }
+        if (other.hasNext()) {
+          mergeNext(other.getNext());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3275,16 +9974,13 @@ public final class Hbsl {
       }
 
       public final boolean isInitialized() {
-        if (!hasTotal()) {
-          return false;
-        }
         if (hasRedEnvelope()) {
           if (!getRedEnvelope().isInitialized()) {
             return false;
           }
         }
-        for (int i = 0; i < getRanksCount(); i++) {
-          if (!getRanks(i).isInitialized()) {
+        if (hasNext()) {
+          if (!getNext().isInitialized()) {
             return false;
           }
         }
@@ -3295,11 +9991,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.SceneNtf parsedMessage = null;
+        RedEnvelopeNtf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.SceneNtf) e.getUnfinishedMessage();
+          parsedMessage = (RedEnvelopeNtf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3310,9 +10006,9 @@ public final class Hbsl {
       }
       private int bitField0_;
 
-      private com.dafagame.protocol.hbsl.Hbsl.RedEnvelope redEnvelope_ = null;
+      private RedEnvelope redEnvelope_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RedEnvelope, com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.Builder, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeOrBuilder> redEnvelopeBuilder_;
+          RedEnvelope, RedEnvelope.Builder, RedEnvelopeOrBuilder> redEnvelopeBuilder_;
       /**
        * <pre>
        *当前的红包 （可能是新的红包）
@@ -3330,9 +10026,9 @@ public final class Hbsl {
        *
        * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelope getRedEnvelope() {
+      public RedEnvelope getRedEnvelope() {
         if (redEnvelopeBuilder_ == null) {
-          return redEnvelope_ == null ? com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.getDefaultInstance() : redEnvelope_;
+          return redEnvelope_ == null ? RedEnvelope.getDefaultInstance() : redEnvelope_;
         } else {
           return redEnvelopeBuilder_.getMessage();
         }
@@ -3344,7 +10040,7 @@ public final class Hbsl {
        *
        * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
        */
-      public Builder setRedEnvelope(com.dafagame.protocol.hbsl.Hbsl.RedEnvelope value) {
+      public Builder setRedEnvelope(RedEnvelope value) {
         if (redEnvelopeBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3365,7 +10061,7 @@ public final class Hbsl {
        * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
        */
       public Builder setRedEnvelope(
-          com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.Builder builderForValue) {
+          RedEnvelope.Builder builderForValue) {
         if (redEnvelopeBuilder_ == null) {
           redEnvelope_ = builderForValue.build();
           onChanged();
@@ -3382,13 +10078,13 @@ public final class Hbsl {
        *
        * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
        */
-      public Builder mergeRedEnvelope(com.dafagame.protocol.hbsl.Hbsl.RedEnvelope value) {
+      public Builder mergeRedEnvelope(RedEnvelope value) {
         if (redEnvelopeBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
               redEnvelope_ != null &&
-              redEnvelope_ != com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.getDefaultInstance()) {
+              redEnvelope_ != RedEnvelope.getDefaultInstance()) {
             redEnvelope_ =
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.newBuilder(redEnvelope_).mergeFrom(value).buildPartial();
+              RedEnvelope.newBuilder(redEnvelope_).mergeFrom(value).buildPartial();
           } else {
             redEnvelope_ = value;
           }
@@ -3423,7 +10119,7 @@ public final class Hbsl {
        *
        * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.Builder getRedEnvelopeBuilder() {
+      public RedEnvelope.Builder getRedEnvelopeBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getRedEnvelopeFieldBuilder().getBuilder();
@@ -3435,12 +10131,12 @@ public final class Hbsl {
        *
        * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeOrBuilder getRedEnvelopeOrBuilder() {
+      public RedEnvelopeOrBuilder getRedEnvelopeOrBuilder() {
         if (redEnvelopeBuilder_ != null) {
           return redEnvelopeBuilder_.getMessageOrBuilder();
         } else {
           return redEnvelope_ == null ?
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.getDefaultInstance() : redEnvelope_;
+              RedEnvelope.getDefaultInstance() : redEnvelope_;
         }
       }
       /**
@@ -3451,11 +10147,11 @@ public final class Hbsl {
        * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope redEnvelope = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RedEnvelope, com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.Builder, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeOrBuilder> 
+          RedEnvelope, RedEnvelope.Builder, RedEnvelopeOrBuilder>
           getRedEnvelopeFieldBuilder() {
         if (redEnvelopeBuilder_ == null) {
           redEnvelopeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelope, com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.Builder, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeOrBuilder>(
+              RedEnvelope, RedEnvelope.Builder, RedEnvelopeOrBuilder>(
                   getRedEnvelope(),
                   getParentForChildren(),
                   isClean());
@@ -3464,74 +10160,753 @@ public final class Hbsl {
         return redEnvelopeBuilder_;
       }
 
-      private int total_ ;
+      private RedEnvelope next_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          RedEnvelope, RedEnvelope.Builder, RedEnvelopeOrBuilder> nextBuilder_;
       /**
        * <pre>
-       *红包总数
+       *下一个红包消息
        * </pre>
        *
-       * <code>required int32 total = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
        */
-      public boolean hasTotal() {
+      public boolean hasNext() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <pre>
-       *红包总数
+       *下一个红包消息
        * </pre>
        *
-       * <code>required int32 total = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
        */
-      public int getTotal() {
-        return total_;
+      public RedEnvelope getNext() {
+        if (nextBuilder_ == null) {
+          return next_ == null ? RedEnvelope.getDefaultInstance() : next_;
+        } else {
+          return nextBuilder_.getMessage();
+        }
       }
       /**
        * <pre>
-       *红包总数
+       *下一个红包消息
        * </pre>
        *
-       * <code>required int32 total = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
        */
-      public Builder setTotal(int value) {
+      public Builder setNext(RedEnvelope value) {
+        if (nextBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          next_ = value;
+          onChanged();
+        } else {
+          nextBuilder_.setMessage(value);
+        }
         bitField0_ |= 0x00000002;
-        total_ = value;
-        onChanged();
         return this;
       }
       /**
        * <pre>
-       *红包总数
+       *下一个红包消息
        * </pre>
        *
-       * <code>required int32 total = 2;</code>
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
        */
-      public Builder clearTotal() {
+      public Builder setNext(
+          RedEnvelope.Builder builderForValue) {
+        if (nextBuilder_ == null) {
+          next_ = builderForValue.build();
+          onChanged();
+        } else {
+          nextBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       *下一个红包消息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
+       */
+      public Builder mergeNext(RedEnvelope value) {
+        if (nextBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              next_ != null &&
+              next_ != RedEnvelope.getDefaultInstance()) {
+            next_ =
+              RedEnvelope.newBuilder(next_).mergeFrom(value).buildPartial();
+          } else {
+            next_ = value;
+          }
+          onChanged();
+        } else {
+          nextBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000002;
+        return this;
+      }
+      /**
+       * <pre>
+       *下一个红包消息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
+       */
+      public Builder clearNext() {
+        if (nextBuilder_ == null) {
+          next_ = null;
+          onChanged();
+        } else {
+          nextBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000002);
-        total_ = 0;
+        return this;
+      }
+      /**
+       * <pre>
+       *下一个红包消息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
+       */
+      public RedEnvelope.Builder getNextBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getNextFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *下一个红包消息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
+       */
+      public RedEnvelopeOrBuilder getNextOrBuilder() {
+        if (nextBuilder_ != null) {
+          return nextBuilder_.getMessageOrBuilder();
+        } else {
+          return next_ == null ?
+              RedEnvelope.getDefaultInstance() : next_;
+        }
+      }
+      /**
+       * <pre>
+       *下一个红包消息
+       * </pre>
+       *
+       * <code>optional .com.dafagame.protocol.hbsl.RedEnvelope next = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          RedEnvelope, RedEnvelope.Builder, RedEnvelopeOrBuilder>
+          getNextFieldBuilder() {
+        if (nextBuilder_ == null) {
+          nextBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              RedEnvelope, RedEnvelope.Builder, RedEnvelopeOrBuilder>(
+                  getNext(),
+                  getParentForChildren(),
+                  isClean());
+          next_ = null;
+        }
+        return nextBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.RedEnvelopeNtf)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.RedEnvelopeNtf)
+    private static final RedEnvelopeNtf DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new RedEnvelopeNtf();
+    }
+
+    public static RedEnvelopeNtf getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @Deprecated public static final com.google.protobuf.Parser<RedEnvelopeNtf>
+        PARSER = new com.google.protobuf.AbstractParser<RedEnvelopeNtf>() {
+      public RedEnvelopeNtf parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new RedEnvelopeNtf(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RedEnvelopeNtf> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<RedEnvelopeNtf> getParserForType() {
+      return PARSER;
+    }
+
+    public RedEnvelopeNtf getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RedRankNtfOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.RedRankNtf)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    java.util.List<RewardRank>
+        getRanksList();
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    RewardRank getRanks(int index);
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    int getRanksCount();
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    java.util.List<? extends RewardRankOrBuilder>
+        getRanksOrBuilderList();
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    RewardRankOrBuilder getRanksOrBuilder(
+            int index);
+  }
+  /**
+   * <pre>
+   *上个榜单的排名信息
+   * </pre>
+   *
+   * Protobuf type {@code com.dafagame.protocol.hbsl.RedRankNtf}
+   */
+  public  static final class RedRankNtf extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.RedRankNtf)
+      RedRankNtfOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RedRankNtf.newBuilder() to construct.
+    private RedRankNtf(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RedRankNtf() {
+      ranks_ = java.util.Collections.emptyList();
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RedRankNtf(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                ranks_ = new java.util.ArrayList<RewardRank>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              ranks_.add(
+                  input.readMessage(RewardRank.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          ranks_ = java.util.Collections.unmodifiableList(ranks_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedRankNtf_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedRankNtf_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              RedRankNtf.class, Builder.class);
+    }
+
+    public static final int RANKS_FIELD_NUMBER = 1;
+    private java.util.List<RewardRank> ranks_;
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    public java.util.List<RewardRank> getRanksList() {
+      return ranks_;
+    }
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    public java.util.List<? extends RewardRankOrBuilder>
+        getRanksOrBuilderList() {
+      return ranks_;
+    }
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    public int getRanksCount() {
+      return ranks_.size();
+    }
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    public RewardRank getRanks(int index) {
+      return ranks_.get(index);
+    }
+    /**
+     * <pre>
+     *上个榜单信息列表
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
+     */
+    public RewardRankOrBuilder getRanksOrBuilder(
+        int index) {
+      return ranks_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      for (int i = 0; i < getRanksCount(); i++) {
+        if (!getRanks(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < ranks_.size(); i++) {
+        output.writeMessage(1, ranks_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < ranks_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, ranks_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof RedRankNtf)) {
+        return super.equals(obj);
+      }
+      RedRankNtf other = (RedRankNtf) obj;
+
+      boolean result = true;
+      result = result && getRanksList()
+          .equals(other.getRanksList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getRanksCount() > 0) {
+        hash = (37 * hash) + RANKS_FIELD_NUMBER;
+        hash = (53 * hash) + getRanksList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static RedRankNtf parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RedRankNtf parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RedRankNtf parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RedRankNtf parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RedRankNtf parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RedRankNtf parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RedRankNtf parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static RedRankNtf parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static RedRankNtf parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static RedRankNtf parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static RedRankNtf parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static RedRankNtf parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(RedRankNtf prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *上个榜单的排名信息
+     * </pre>
+     *
+     * Protobuf type {@code com.dafagame.protocol.hbsl.RedRankNtf}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.RedRankNtf)
+        RedRankNtfOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedRankNtf_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedRankNtf_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                RedRankNtf.class, Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.RedRankNtf.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRanksFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (ranksBuilder_ == null) {
+          ranks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ranksBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedRankNtf_descriptor;
+      }
+
+      public RedRankNtf getDefaultInstanceForType() {
+        return RedRankNtf.getDefaultInstance();
+      }
+
+      public RedRankNtf build() {
+        RedRankNtf result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public RedRankNtf buildPartial() {
+        RedRankNtf result = new RedRankNtf(this);
+        int from_bitField0_ = bitField0_;
+        if (ranksBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            ranks_ = java.util.Collections.unmodifiableList(ranks_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.ranks_ = ranks_;
+        } else {
+          result.ranks_ = ranksBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof RedRankNtf) {
+          return mergeFrom((RedRankNtf)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(RedRankNtf other) {
+        if (other == RedRankNtf.getDefaultInstance()) return this;
+        if (ranksBuilder_ == null) {
+          if (!other.ranks_.isEmpty()) {
+            if (ranks_.isEmpty()) {
+              ranks_ = other.ranks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureRanksIsMutable();
+              ranks_.addAll(other.ranks_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.ranks_.isEmpty()) {
+            if (ranksBuilder_.isEmpty()) {
+              ranksBuilder_.dispose();
+              ranksBuilder_ = null;
+              ranks_ = other.ranks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              ranksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRanksFieldBuilder() : null;
+            } else {
+              ranksBuilder_.addAllMessages(other.ranks_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
-      private java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> ranks_ =
+      public final boolean isInitialized() {
+        for (int i = 0; i < getRanksCount(); i++) {
+          if (!getRanks(i).isInitialized()) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        RedRankNtf parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (RedRankNtf) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<RewardRank> ranks_ =
         java.util.Collections.emptyList();
       private void ensureRanksIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          ranks_ = new java.util.ArrayList<com.dafagame.protocol.hbsl.Hbsl.RewardRank>(ranks_);
-          bitField0_ |= 0x00000004;
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          ranks_ = new java.util.ArrayList<RewardRank>(ranks_);
+          bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RewardRank, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder, com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> ranksBuilder_;
+          RewardRank, RewardRank.Builder, RewardRankOrBuilder> ranksBuilder_;
 
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank> getRanksList() {
+      public java.util.List<RewardRank> getRanksList() {
         if (ranksBuilder_ == null) {
           return java.util.Collections.unmodifiableList(ranks_);
         } else {
@@ -3540,10 +10915,10 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public int getRanksCount() {
         if (ranksBuilder_ == null) {
@@ -3554,12 +10929,12 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank getRanks(int index) {
+      public RewardRank getRanks(int index) {
         if (ranksBuilder_ == null) {
           return ranks_.get(index);
         } else {
@@ -3568,13 +10943,13 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder setRanks(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RewardRank value) {
+          int index, RewardRank value) {
         if (ranksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3589,13 +10964,13 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder setRanks(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder builderForValue) {
+          int index, RewardRank.Builder builderForValue) {
         if (ranksBuilder_ == null) {
           ensureRanksIsMutable();
           ranks_.set(index, builderForValue.build());
@@ -3607,12 +10982,12 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public Builder addRanks(com.dafagame.protocol.hbsl.Hbsl.RewardRank value) {
+      public Builder addRanks(RewardRank value) {
         if (ranksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3627,13 +11002,13 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder addRanks(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RewardRank value) {
+          int index, RewardRank value) {
         if (ranksBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3648,13 +11023,13 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder addRanks(
-          com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder builderForValue) {
+          RewardRank.Builder builderForValue) {
         if (ranksBuilder_ == null) {
           ensureRanksIsMutable();
           ranks_.add(builderForValue.build());
@@ -3666,13 +11041,13 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder addRanks(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder builderForValue) {
+          int index, RewardRank.Builder builderForValue) {
         if (ranksBuilder_ == null) {
           ensureRanksIsMutable();
           ranks_.add(index, builderForValue.build());
@@ -3684,13 +11059,13 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder addAllRanks(
-          java.lang.Iterable<? extends com.dafagame.protocol.hbsl.Hbsl.RewardRank> values) {
+          Iterable<? extends RewardRank> values) {
         if (ranksBuilder_ == null) {
           ensureRanksIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3703,15 +11078,15 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder clearRanks() {
         if (ranksBuilder_ == null) {
           ranks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
           ranksBuilder_.clear();
@@ -3720,10 +11095,10 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
       public Builder removeRanks(int index) {
         if (ranksBuilder_ == null) {
@@ -3737,23 +11112,23 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder getRanksBuilder(
+      public RewardRank.Builder getRanksBuilder(
           int index) {
         return getRanksFieldBuilder().getBuilder(index);
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder getRanksOrBuilder(
+      public RewardRankOrBuilder getRanksOrBuilder(
           int index) {
         if (ranksBuilder_ == null) {
           return ranks_.get(index);  } else {
@@ -3762,12 +11137,12 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public java.util.List<? extends com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> 
+      public java.util.List<? extends RewardRankOrBuilder>
            getRanksOrBuilderList() {
         if (ranksBuilder_ != null) {
           return ranksBuilder_.getMessageOrBuilderList();
@@ -3777,46 +11152,46 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder addRanksBuilder() {
+      public RewardRank.Builder addRanksBuilder() {
         return getRanksFieldBuilder().addBuilder(
-            com.dafagame.protocol.hbsl.Hbsl.RewardRank.getDefaultInstance());
+            RewardRank.getDefaultInstance());
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder addRanksBuilder(
+      public RewardRank.Builder addRanksBuilder(
           int index) {
         return getRanksFieldBuilder().addBuilder(
-            index, com.dafagame.protocol.hbsl.Hbsl.RewardRank.getDefaultInstance());
+            index, RewardRank.getDefaultInstance());
       }
       /**
        * <pre>
-       *当前红包领取排名
+       *上个榜单信息列表
        * </pre>
        *
-       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 3;</code>
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 1;</code>
        */
-      public java.util.List<com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder> 
+      public java.util.List<RewardRank.Builder>
            getRanksBuilderList() {
         return getRanksFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RewardRank, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder, com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder> 
+          RewardRank, RewardRank.Builder, RewardRankOrBuilder>
           getRanksFieldBuilder() {
         if (ranksBuilder_ == null) {
           ranksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.dafagame.protocol.hbsl.Hbsl.RewardRank, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder, com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder>(
+              RewardRank, RewardRank.Builder, RewardRankOrBuilder>(
                   ranks_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
           ranks_ = null;
@@ -3834,39 +11209,39 @@ public final class Hbsl {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.SceneNtf)
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.RedRankNtf)
     }
 
-    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.SceneNtf)
-    private static final com.dafagame.protocol.hbsl.Hbsl.SceneNtf DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.RedRankNtf)
+    private static final RedRankNtf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.SceneNtf();
+      DEFAULT_INSTANCE = new RedRankNtf();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.SceneNtf getDefaultInstance() {
+    public static RedRankNtf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<SceneNtf>
-        PARSER = new com.google.protobuf.AbstractParser<SceneNtf>() {
-      public SceneNtf parsePartialFrom(
+    @Deprecated public static final com.google.protobuf.Parser<RedRankNtf>
+        PARSER = new com.google.protobuf.AbstractParser<RedRankNtf>() {
+      public RedRankNtf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SceneNtf(input, extensionRegistry);
+          return new RedRankNtf(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<SceneNtf> parser() {
+    public static com.google.protobuf.Parser<RedRankNtf> parser() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<SceneNtf> getParserForType() {
+    @Override
+    public com.google.protobuf.Parser<RedRankNtf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.SceneNtf getDefaultInstanceForType() {
+    public RedRankNtf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3967,7 +11342,7 @@ public final class Hbsl {
       repeated_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4029,14 +11404,14 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq.class, com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq.Builder.class);
+              OutRedEnvelopeReq.class, Builder.class);
     }
 
     private int bitField0_;
@@ -4197,15 +11572,15 @@ public final class Hbsl {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq)) {
+      if (!(obj instanceof OutRedEnvelopeReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq other = (com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq) obj;
+      OutRedEnvelopeReq other = (OutRedEnvelopeReq) obj;
 
       boolean result = true;
       result = result && (hasMoney() == other.hasMoney());
@@ -4232,7 +11607,7 @@ public final class Hbsl {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -4260,69 +11635,69 @@ public final class Hbsl {
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(
+    public static OutRedEnvelopeReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(
+    public static OutRedEnvelopeReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(
+    public static OutRedEnvelopeReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(
+    public static OutRedEnvelopeReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(byte[] data)
+    public static OutRedEnvelopeReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(
+    public static OutRedEnvelopeReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(java.io.InputStream input)
+    public static OutRedEnvelopeReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(
+    public static OutRedEnvelopeReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseDelimitedFrom(java.io.InputStream input)
+    public static OutRedEnvelopeReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseDelimitedFrom(
+    public static OutRedEnvelopeReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(
+    public static OutRedEnvelopeReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parseFrom(
+    public static OutRedEnvelopeReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4334,7 +11709,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq prototype) {
+    public static Builder newBuilder(OutRedEnvelopeReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -4342,9 +11717,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -4358,17 +11733,17 @@ public final class Hbsl {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.OutRedEnvelopeReq)
-        com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReqOrBuilder {
+        OutRedEnvelopeReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq.class, com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq.Builder.class);
+                OutRedEnvelopeReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq.newBuilder()
@@ -4377,7 +11752,7 @@ public final class Hbsl {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -4401,23 +11776,23 @@ public final class Hbsl {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq.getDefaultInstance();
+      public OutRedEnvelopeReq getDefaultInstanceForType() {
+        return OutRedEnvelopeReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq build() {
-        com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq result = buildPartial();
+      public OutRedEnvelopeReq build() {
+        OutRedEnvelopeReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq result = new com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq(this);
+      public OutRedEnvelopeReq buildPartial() {
+        OutRedEnvelopeReq result = new OutRedEnvelopeReq(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4446,7 +11821,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -4459,25 +11834,25 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq)other);
+        if (other instanceof OutRedEnvelopeReq) {
+          return mergeFrom((OutRedEnvelopeReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(OutRedEnvelopeReq other) {
+        if (other == OutRedEnvelopeReq.getDefaultInstance()) return this;
         if (other.hasMoney()) {
           setMoney(other.getMoney());
         }
@@ -4512,11 +11887,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq parsedMessage = null;
+        OutRedEnvelopeReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq) e.getUnfinishedMessage();
+          parsedMessage = (OutRedEnvelopeReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4733,16 +12108,16 @@ public final class Hbsl {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.OutRedEnvelopeReq)
-    private static final com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq DEFAULT_INSTANCE;
+    private static final OutRedEnvelopeReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq();
+      DEFAULT_INSTANCE = new OutRedEnvelopeReq();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq getDefaultInstance() {
+    public static OutRedEnvelopeReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<OutRedEnvelopeReq>
+    @Deprecated public static final com.google.protobuf.Parser<OutRedEnvelopeReq>
         PARSER = new com.google.protobuf.AbstractParser<OutRedEnvelopeReq>() {
       public OutRedEnvelopeReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -4756,12 +12131,12 @@ public final class Hbsl {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<OutRedEnvelopeReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeReq getDefaultInstanceForType() {
+    public OutRedEnvelopeReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4803,7 +12178,7 @@ public final class Hbsl {
      *
      * <code>optional string balance = 2;</code>
      */
-    java.lang.String getBalance();
+    String getBalance();
     /**
      * <pre>
      *获取的金钱
@@ -4813,31 +12188,6 @@ public final class Hbsl {
      */
     com.google.protobuf.ByteString
         getBalanceBytes();
-
-    /**
-     * <pre>
-     *房间场景最新信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-     */
-    boolean hasScene();
-    /**
-     * <pre>
-     *房间场景最新信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-     */
-    com.dafagame.protocol.hbsl.Hbsl.SceneNtf getScene();
-    /**
-     * <pre>
-     *房间场景最新信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-     */
-    com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder getSceneOrBuilder();
   }
   /**
    * <pre>
@@ -4860,7 +12210,7 @@ public final class Hbsl {
       balance_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -4899,19 +12249,6 @@ public final class Hbsl {
               balance_ = bs;
               break;
             }
-            case 26: {
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = scene_.toBuilder();
-              }
-              scene_ = input.readMessage(com.dafagame.protocol.hbsl.Hbsl.SceneNtf.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(scene_);
-                scene_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4926,14 +12263,14 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes.class, com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes.Builder.class);
+              OutRedEnvelopeRes.class, Builder.class);
     }
 
     private int bitField0_;
@@ -4961,7 +12298,7 @@ public final class Hbsl {
     }
 
     public static final int BALANCE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object balance_;
+    private volatile Object balance_;
     /**
      * <pre>
      *获取的金钱
@@ -4979,14 +12316,14 @@ public final class Hbsl {
      *
      * <code>optional string balance = 2;</code>
      */
-    public java.lang.String getBalance() {
-      java.lang.Object ref = balance_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getBalance() {
+      Object ref = balance_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           balance_ = s;
         }
@@ -5002,49 +12339,16 @@ public final class Hbsl {
      */
     public com.google.protobuf.ByteString
         getBalanceBytes() {
-      java.lang.Object ref = balance_;
-      if (ref instanceof java.lang.String) {
+      Object ref = balance_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         balance_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
-    }
-
-    public static final int SCENE_FIELD_NUMBER = 3;
-    private com.dafagame.protocol.hbsl.Hbsl.SceneNtf scene_;
-    /**
-     * <pre>
-     *房间场景最新信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-     */
-    public boolean hasScene() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <pre>
-     *房间场景最新信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-     */
-    public com.dafagame.protocol.hbsl.Hbsl.SceneNtf getScene() {
-      return scene_ == null ? com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : scene_;
-    }
-    /**
-     * <pre>
-     *房间场景最新信息
-     * </pre>
-     *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-     */
-    public com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder getSceneOrBuilder() {
-      return scene_ == null ? com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : scene_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5057,12 +12361,6 @@ public final class Hbsl {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (hasScene()) {
-        if (!getScene().isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -5074,9 +12372,6 @@ public final class Hbsl {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, balance_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, getScene());
       }
       unknownFields.writeTo(output);
     }
@@ -5093,24 +12388,20 @@ public final class Hbsl {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, balance_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getScene());
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes)) {
+      if (!(obj instanceof OutRedEnvelopeRes)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes other = (com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes) obj;
+      OutRedEnvelopeRes other = (OutRedEnvelopeRes) obj;
 
       boolean result = true;
       result = result && (hasCode() == other.hasCode());
@@ -5123,16 +12414,11 @@ public final class Hbsl {
         result = result && getBalance()
             .equals(other.getBalance());
       }
-      result = result && (hasScene() == other.hasScene());
-      if (hasScene()) {
-        result = result && getScene()
-            .equals(other.getScene());
-      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -5147,78 +12433,74 @@ public final class Hbsl {
         hash = (37 * hash) + BALANCE_FIELD_NUMBER;
         hash = (53 * hash) + getBalance().hashCode();
       }
-      if (hasScene()) {
-        hash = (37 * hash) + SCENE_FIELD_NUMBER;
-        hash = (53 * hash) + getScene().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(
+    public static OutRedEnvelopeRes parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(
+    public static OutRedEnvelopeRes parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(
+    public static OutRedEnvelopeRes parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(
+    public static OutRedEnvelopeRes parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(byte[] data)
+    public static OutRedEnvelopeRes parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(
+    public static OutRedEnvelopeRes parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(java.io.InputStream input)
+    public static OutRedEnvelopeRes parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(
+    public static OutRedEnvelopeRes parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseDelimitedFrom(java.io.InputStream input)
+    public static OutRedEnvelopeRes parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseDelimitedFrom(
+    public static OutRedEnvelopeRes parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(
+    public static OutRedEnvelopeRes parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parseFrom(
+    public static OutRedEnvelopeRes parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -5230,7 +12512,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes prototype) {
+    public static Builder newBuilder(OutRedEnvelopeRes prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -5238,9 +12520,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -5254,17 +12536,17 @@ public final class Hbsl {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.OutRedEnvelopeRes)
-        com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeResOrBuilder {
+        OutRedEnvelopeResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes.class, com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes.Builder.class);
+                OutRedEnvelopeRes.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes.newBuilder()
@@ -5273,14 +12555,13 @@ public final class Hbsl {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getSceneFieldBuilder();
         }
       }
       public Builder clear() {
@@ -5289,34 +12570,28 @@ public final class Hbsl {
         bitField0_ = (bitField0_ & ~0x00000001);
         balance_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        if (sceneBuilder_ == null) {
-          scene_ = null;
-        } else {
-          sceneBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes.getDefaultInstance();
+      public OutRedEnvelopeRes getDefaultInstanceForType() {
+        return OutRedEnvelopeRes.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes build() {
-        com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes result = buildPartial();
+      public OutRedEnvelopeRes build() {
+        OutRedEnvelopeRes result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes result = new com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes(this);
+      public OutRedEnvelopeRes buildPartial() {
+        OutRedEnvelopeRes result = new OutRedEnvelopeRes(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5327,14 +12602,6 @@ public final class Hbsl {
           to_bitField0_ |= 0x00000002;
         }
         result.balance_ = balance_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        if (sceneBuilder_ == null) {
-          result.scene_ = scene_;
-        } else {
-          result.scene_ = sceneBuilder_.build();
-        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5345,7 +12612,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -5358,25 +12625,25 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes)other);
+        if (other instanceof OutRedEnvelopeRes) {
+          return mergeFrom((OutRedEnvelopeRes)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes.getDefaultInstance()) return this;
+      public Builder mergeFrom(OutRedEnvelopeRes other) {
+        if (other == OutRedEnvelopeRes.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
@@ -5384,9 +12651,6 @@ public final class Hbsl {
           bitField0_ |= 0x00000002;
           balance_ = other.balance_;
           onChanged();
-        }
-        if (other.hasScene()) {
-          mergeScene(other.getScene());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5397,11 +12661,6 @@ public final class Hbsl {
         if (!hasCode()) {
           return false;
         }
-        if (hasScene()) {
-          if (!getScene().isInitialized()) {
-            return false;
-          }
-        }
         return true;
       }
 
@@ -5409,11 +12668,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes parsedMessage = null;
+        OutRedEnvelopeRes parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes) e.getUnfinishedMessage();
+          parsedMessage = (OutRedEnvelopeRes) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5472,7 +12731,7 @@ public final class Hbsl {
         return this;
       }
 
-      private java.lang.Object balance_ = "";
+      private Object balance_ = "";
       /**
        * <pre>
        *获取的金钱
@@ -5490,18 +12749,18 @@ public final class Hbsl {
        *
        * <code>optional string balance = 2;</code>
        */
-      public java.lang.String getBalance() {
-        java.lang.Object ref = balance_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getBalance() {
+        Object ref = balance_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             balance_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -5513,11 +12772,11 @@ public final class Hbsl {
        */
       public com.google.protobuf.ByteString
           getBalanceBytes() {
-        java.lang.Object ref = balance_;
+        Object ref = balance_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           balance_ = b;
           return b;
         } else {
@@ -5532,7 +12791,7 @@ public final class Hbsl {
        * <code>optional string balance = 2;</code>
        */
       public Builder setBalance(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -5571,160 +12830,6 @@ public final class Hbsl {
         onChanged();
         return this;
       }
-
-      private com.dafagame.protocol.hbsl.Hbsl.SceneNtf scene_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.SceneNtf, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder> sceneBuilder_;
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-       */
-      public boolean hasScene() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-       */
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtf getScene() {
-        if (sceneBuilder_ == null) {
-          return scene_ == null ? com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : scene_;
-        } else {
-          return sceneBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-       */
-      public Builder setScene(com.dafagame.protocol.hbsl.Hbsl.SceneNtf value) {
-        if (sceneBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          scene_ = value;
-          onChanged();
-        } else {
-          sceneBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-       */
-      public Builder setScene(
-          com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder builderForValue) {
-        if (sceneBuilder_ == null) {
-          scene_ = builderForValue.build();
-          onChanged();
-        } else {
-          sceneBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-       */
-      public Builder mergeScene(com.dafagame.protocol.hbsl.Hbsl.SceneNtf value) {
-        if (sceneBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              scene_ != null &&
-              scene_ != com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance()) {
-            scene_ =
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.newBuilder(scene_).mergeFrom(value).buildPartial();
-          } else {
-            scene_ = value;
-          }
-          onChanged();
-        } else {
-          sceneBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-       */
-      public Builder clearScene() {
-        if (sceneBuilder_ == null) {
-          scene_ = null;
-          onChanged();
-        } else {
-          sceneBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-       */
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder getSceneBuilder() {
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return getSceneFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-       */
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder getSceneOrBuilder() {
-        if (sceneBuilder_ != null) {
-          return sceneBuilder_.getMessageOrBuilder();
-        } else {
-          return scene_ == null ?
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : scene_;
-        }
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.SceneNtf, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder> 
-          getSceneFieldBuilder() {
-        if (sceneBuilder_ == null) {
-          sceneBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder>(
-                  getScene(),
-                  getParentForChildren(),
-                  isClean());
-          scene_ = null;
-        }
-        return sceneBuilder_;
-      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -5740,16 +12845,16 @@ public final class Hbsl {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.OutRedEnvelopeRes)
-    private static final com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes DEFAULT_INSTANCE;
+    private static final OutRedEnvelopeRes DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes();
+      DEFAULT_INSTANCE = new OutRedEnvelopeRes();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes getDefaultInstance() {
+    public static OutRedEnvelopeRes getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<OutRedEnvelopeRes>
+    @Deprecated public static final com.google.protobuf.Parser<OutRedEnvelopeRes>
         PARSER = new com.google.protobuf.AbstractParser<OutRedEnvelopeRes>() {
       public OutRedEnvelopeRes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -5763,12 +12868,12 @@ public final class Hbsl {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<OutRedEnvelopeRes> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.OutRedEnvelopeRes getDefaultInstanceForType() {
+    public OutRedEnvelopeRes getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5793,7 +12898,7 @@ public final class Hbsl {
      *
      * <code>required string id = 1;</code>
      */
-    java.lang.String getId();
+    String getId();
     /**
      * <pre>
      *红包id
@@ -5824,7 +12929,7 @@ public final class Hbsl {
       id_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -5872,19 +12977,19 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq.class, com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq.Builder.class);
+              CrabRedEnvelopeReq.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private volatile Object id_;
     /**
      * <pre>
      *红包id
@@ -5902,14 +13007,14 @@ public final class Hbsl {
      *
      * <code>required string id = 1;</code>
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getId() {
+      Object ref = id_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           id_ = s;
         }
@@ -5925,11 +13030,11 @@ public final class Hbsl {
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
+      Object ref = id_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -5972,15 +13077,15 @@ public final class Hbsl {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq)) {
+      if (!(obj instanceof CrabRedEnvelopeReq)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq other = (com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq) obj;
+      CrabRedEnvelopeReq other = (CrabRedEnvelopeReq) obj;
 
       boolean result = true;
       result = result && (hasId() == other.hasId());
@@ -5992,7 +13097,7 @@ public final class Hbsl {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -6008,69 +13113,69 @@ public final class Hbsl {
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(
+    public static CrabRedEnvelopeReq parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(
+    public static CrabRedEnvelopeReq parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(
+    public static CrabRedEnvelopeReq parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(
+    public static CrabRedEnvelopeReq parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(byte[] data)
+    public static CrabRedEnvelopeReq parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(
+    public static CrabRedEnvelopeReq parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(java.io.InputStream input)
+    public static CrabRedEnvelopeReq parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(
+    public static CrabRedEnvelopeReq parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseDelimitedFrom(java.io.InputStream input)
+    public static CrabRedEnvelopeReq parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseDelimitedFrom(
+    public static CrabRedEnvelopeReq parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(
+    public static CrabRedEnvelopeReq parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parseFrom(
+    public static CrabRedEnvelopeReq parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -6082,7 +13187,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq prototype) {
+    public static Builder newBuilder(CrabRedEnvelopeReq prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -6090,9 +13195,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -6106,17 +13211,17 @@ public final class Hbsl {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.CrabRedEnvelopeReq)
-        com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReqOrBuilder {
+        CrabRedEnvelopeReqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq.class, com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq.Builder.class);
+                CrabRedEnvelopeReq.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq.newBuilder()
@@ -6125,7 +13230,7 @@ public final class Hbsl {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -6143,23 +13248,23 @@ public final class Hbsl {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq.getDefaultInstance();
+      public CrabRedEnvelopeReq getDefaultInstanceForType() {
+        return CrabRedEnvelopeReq.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq build() {
-        com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq result = buildPartial();
+      public CrabRedEnvelopeReq build() {
+        CrabRedEnvelopeReq result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq result = new com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq(this);
+      public CrabRedEnvelopeReq buildPartial() {
+        CrabRedEnvelopeReq result = new CrabRedEnvelopeReq(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -6176,7 +13281,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -6189,25 +13294,25 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq)other);
+        if (other instanceof CrabRedEnvelopeReq) {
+          return mergeFrom((CrabRedEnvelopeReq)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq.getDefaultInstance()) return this;
+      public Builder mergeFrom(CrabRedEnvelopeReq other) {
+        if (other == CrabRedEnvelopeReq.getDefaultInstance()) return this;
         if (other.hasId()) {
           bitField0_ |= 0x00000001;
           id_ = other.id_;
@@ -6229,11 +13334,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq parsedMessage = null;
+        CrabRedEnvelopeReq parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq) e.getUnfinishedMessage();
+          parsedMessage = (CrabRedEnvelopeReq) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -6244,7 +13349,7 @@ public final class Hbsl {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private Object id_ = "";
       /**
        * <pre>
        *红包id
@@ -6262,18 +13367,18 @@ public final class Hbsl {
        *
        * <code>required string id = 1;</code>
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getId() {
+        Object ref = id_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             id_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -6285,11 +13390,11 @@ public final class Hbsl {
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
-        java.lang.Object ref = id_;
+        Object ref = id_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           id_ = b;
           return b;
         } else {
@@ -6304,7 +13409,7 @@ public final class Hbsl {
        * <code>required string id = 1;</code>
        */
       public Builder setId(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -6358,16 +13463,16 @@ public final class Hbsl {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.CrabRedEnvelopeReq)
-    private static final com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq DEFAULT_INSTANCE;
+    private static final CrabRedEnvelopeReq DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq();
+      DEFAULT_INSTANCE = new CrabRedEnvelopeReq();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq getDefaultInstance() {
+    public static CrabRedEnvelopeReq getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CrabRedEnvelopeReq>
+    @Deprecated public static final com.google.protobuf.Parser<CrabRedEnvelopeReq>
         PARSER = new com.google.protobuf.AbstractParser<CrabRedEnvelopeReq>() {
       public CrabRedEnvelopeReq parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -6381,12 +13486,12 @@ public final class Hbsl {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<CrabRedEnvelopeReq> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeReq getDefaultInstanceForType() {
+    public CrabRedEnvelopeReq getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6415,7 +13520,7 @@ public final class Hbsl {
 
     /**
      * <pre>
-     *获取的金钱
+     *获取的金钱（没扣服务费）
      * </pre>
      *
      * <code>optional string award = 2;</code>
@@ -6423,15 +13528,15 @@ public final class Hbsl {
     boolean hasAward();
     /**
      * <pre>
-     *获取的金钱
+     *获取的金钱（没扣服务费）
      * </pre>
      *
      * <code>optional string award = 2;</code>
      */
-    java.lang.String getAward();
+    String getAward();
     /**
      * <pre>
-     *获取的金钱
+     *获取的金钱（没扣服务费）
      * </pre>
      *
      * <code>optional string award = 2;</code>
@@ -6454,7 +13559,7 @@ public final class Hbsl {
      *
      * <code>optional string balance = 3;</code>
      */
-    java.lang.String getBalance();
+    String getBalance();
     /**
      * <pre>
      *玩家最新金额
@@ -6497,7 +13602,7 @@ public final class Hbsl {
      *
      * <code>optional string payMoney = 5;</code>
      */
-    java.lang.String getPayMoney();
+    String getPayMoney();
     /**
      * <pre>
      *赔付金额
@@ -6510,28 +13615,29 @@ public final class Hbsl {
 
     /**
      * <pre>
-     *房间场景最新信息
+     *    optional SceneNtf scene = 6;            //房间场景最新信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+     * <code>optional string realAward = 7;</code>
      */
-    boolean hasScene();
+    boolean hasRealAward();
     /**
      * <pre>
-     *房间场景最新信息
+     *    optional SceneNtf scene = 6;            //房间场景最新信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+     * <code>optional string realAward = 7;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.SceneNtf getScene();
+    String getRealAward();
     /**
      * <pre>
-     *房间场景最新信息
+     *    optional SceneNtf scene = 6;            //房间场景最新信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+     * <code>optional string realAward = 7;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder getSceneOrBuilder();
+    com.google.protobuf.ByteString
+        getRealAwardBytes();
   }
   /**
    * <pre>
@@ -6555,9 +13661,10 @@ public final class Hbsl {
       balance_ = "";
       isBomb_ = false;
       payMoney_ = "";
+      realAward_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -6613,17 +13720,10 @@ public final class Hbsl {
               payMoney_ = bs;
               break;
             }
-            case 50: {
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000020) == 0x00000020)) {
-                subBuilder = scene_.toBuilder();
-              }
-              scene_ = input.readMessage(com.dafagame.protocol.hbsl.Hbsl.SceneNtf.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(scene_);
-                scene_ = subBuilder.buildPartial();
-              }
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
+              realAward_ = bs;
               break;
             }
           }
@@ -6640,14 +13740,14 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes.class, com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes.Builder.class);
+              CrabRedEnvelopeRes.class, Builder.class);
     }
 
     private int bitField0_;
@@ -6675,10 +13775,10 @@ public final class Hbsl {
     }
 
     public static final int AWARD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object award_;
+    private volatile Object award_;
     /**
      * <pre>
-     *获取的金钱
+     *获取的金钱（没扣服务费）
      * </pre>
      *
      * <code>optional string award = 2;</code>
@@ -6688,19 +13788,19 @@ public final class Hbsl {
     }
     /**
      * <pre>
-     *获取的金钱
+     *获取的金钱（没扣服务费）
      * </pre>
      *
      * <code>optional string award = 2;</code>
      */
-    public java.lang.String getAward() {
-      java.lang.Object ref = award_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getAward() {
+      Object ref = award_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           award_ = s;
         }
@@ -6709,18 +13809,18 @@ public final class Hbsl {
     }
     /**
      * <pre>
-     *获取的金钱
+     *获取的金钱（没扣服务费）
      * </pre>
      *
      * <code>optional string award = 2;</code>
      */
     public com.google.protobuf.ByteString
         getAwardBytes() {
-      java.lang.Object ref = award_;
-      if (ref instanceof java.lang.String) {
+      Object ref = award_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         award_ = b;
         return b;
       } else {
@@ -6729,7 +13829,7 @@ public final class Hbsl {
     }
 
     public static final int BALANCE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object balance_;
+    private volatile Object balance_;
     /**
      * <pre>
      *玩家最新金额
@@ -6747,14 +13847,14 @@ public final class Hbsl {
      *
      * <code>optional string balance = 3;</code>
      */
-    public java.lang.String getBalance() {
-      java.lang.Object ref = balance_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getBalance() {
+      Object ref = balance_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           balance_ = s;
         }
@@ -6770,11 +13870,11 @@ public final class Hbsl {
      */
     public com.google.protobuf.ByteString
         getBalanceBytes() {
-      java.lang.Object ref = balance_;
-      if (ref instanceof java.lang.String) {
+      Object ref = balance_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         balance_ = b;
         return b;
       } else {
@@ -6806,7 +13906,7 @@ public final class Hbsl {
     }
 
     public static final int PAYMONEY_FIELD_NUMBER = 5;
-    private volatile java.lang.Object payMoney_;
+    private volatile Object payMoney_;
     /**
      * <pre>
      *赔付金额
@@ -6824,14 +13924,14 @@ public final class Hbsl {
      *
      * <code>optional string payMoney = 5;</code>
      */
-    public java.lang.String getPayMoney() {
-      java.lang.Object ref = payMoney_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getPayMoney() {
+      Object ref = payMoney_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           payMoney_ = s;
         }
@@ -6847,11 +13947,11 @@ public final class Hbsl {
      */
     public com.google.protobuf.ByteString
         getPayMoneyBytes() {
-      java.lang.Object ref = payMoney_;
-      if (ref instanceof java.lang.String) {
+      Object ref = payMoney_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         payMoney_ = b;
         return b;
       } else {
@@ -6859,37 +13959,58 @@ public final class Hbsl {
       }
     }
 
-    public static final int SCENE_FIELD_NUMBER = 6;
-    private com.dafagame.protocol.hbsl.Hbsl.SceneNtf scene_;
+    public static final int REALAWARD_FIELD_NUMBER = 7;
+    private volatile Object realAward_;
     /**
      * <pre>
-     *房间场景最新信息
+     *    optional SceneNtf scene = 6;            //房间场景最新信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+     * <code>optional string realAward = 7;</code>
      */
-    public boolean hasScene() {
+    public boolean hasRealAward() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <pre>
-     *房间场景最新信息
+     *    optional SceneNtf scene = 6;            //房间场景最新信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+     * <code>optional string realAward = 7;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.SceneNtf getScene() {
-      return scene_ == null ? com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : scene_;
+    public String getRealAward() {
+      Object ref = realAward_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          realAward_ = s;
+        }
+        return s;
+      }
     }
     /**
      * <pre>
-     *房间场景最新信息
+     *    optional SceneNtf scene = 6;            //房间场景最新信息
      * </pre>
      *
-     * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+     * <code>optional string realAward = 7;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder getSceneOrBuilder() {
-      return scene_ == null ? com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : scene_;
+    public com.google.protobuf.ByteString
+        getRealAwardBytes() {
+      Object ref = realAward_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        realAward_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6901,12 +14022,6 @@ public final class Hbsl {
       if (!hasCode()) {
         memoizedIsInitialized = 0;
         return false;
-      }
-      if (hasScene()) {
-        if (!getScene().isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
       }
       memoizedIsInitialized = 1;
       return true;
@@ -6930,7 +14045,7 @@ public final class Hbsl {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, payMoney_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeMessage(6, getScene());
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, realAward_);
       }
       unknownFields.writeTo(output);
     }
@@ -6958,23 +14073,22 @@ public final class Hbsl {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, payMoney_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getScene());
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, realAward_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes)) {
+      if (!(obj instanceof CrabRedEnvelopeRes)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes other = (com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes) obj;
+      CrabRedEnvelopeRes other = (CrabRedEnvelopeRes) obj;
 
       boolean result = true;
       result = result && (hasCode() == other.hasCode());
@@ -7002,16 +14116,16 @@ public final class Hbsl {
         result = result && getPayMoney()
             .equals(other.getPayMoney());
       }
-      result = result && (hasScene() == other.hasScene());
-      if (hasScene()) {
-        result = result && getScene()
-            .equals(other.getScene());
+      result = result && (hasRealAward() == other.hasRealAward());
+      if (hasRealAward()) {
+        result = result && getRealAward()
+            .equals(other.getRealAward());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -7039,78 +14153,78 @@ public final class Hbsl {
         hash = (37 * hash) + PAYMONEY_FIELD_NUMBER;
         hash = (53 * hash) + getPayMoney().hashCode();
       }
-      if (hasScene()) {
-        hash = (37 * hash) + SCENE_FIELD_NUMBER;
-        hash = (53 * hash) + getScene().hashCode();
+      if (hasRealAward()) {
+        hash = (37 * hash) + REALAWARD_FIELD_NUMBER;
+        hash = (53 * hash) + getRealAward().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(
+    public static CrabRedEnvelopeRes parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(
+    public static CrabRedEnvelopeRes parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(
+    public static CrabRedEnvelopeRes parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(
+    public static CrabRedEnvelopeRes parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(byte[] data)
+    public static CrabRedEnvelopeRes parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(
+    public static CrabRedEnvelopeRes parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(java.io.InputStream input)
+    public static CrabRedEnvelopeRes parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(
+    public static CrabRedEnvelopeRes parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseDelimitedFrom(java.io.InputStream input)
+    public static CrabRedEnvelopeRes parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseDelimitedFrom(
+    public static CrabRedEnvelopeRes parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(
+    public static CrabRedEnvelopeRes parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parseFrom(
+    public static CrabRedEnvelopeRes parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -7122,7 +14236,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes prototype) {
+    public static Builder newBuilder(CrabRedEnvelopeRes prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -7130,9 +14244,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -7146,17 +14260,17 @@ public final class Hbsl {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.CrabRedEnvelopeRes)
-        com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeResOrBuilder {
+        CrabRedEnvelopeResOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes.class, com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes.Builder.class);
+                CrabRedEnvelopeRes.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes.newBuilder()
@@ -7165,14 +14279,13 @@ public final class Hbsl {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getSceneFieldBuilder();
         }
       }
       public Builder clear() {
@@ -7187,34 +14300,30 @@ public final class Hbsl {
         bitField0_ = (bitField0_ & ~0x00000008);
         payMoney_ = "";
         bitField0_ = (bitField0_ & ~0x00000010);
-        if (sceneBuilder_ == null) {
-          scene_ = null;
-        } else {
-          sceneBuilder_.clear();
-        }
+        realAward_ = "";
         bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes.getDefaultInstance();
+      public CrabRedEnvelopeRes getDefaultInstanceForType() {
+        return CrabRedEnvelopeRes.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes build() {
-        com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes result = buildPartial();
+      public CrabRedEnvelopeRes build() {
+        CrabRedEnvelopeRes result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes result = new com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes(this);
+      public CrabRedEnvelopeRes buildPartial() {
+        CrabRedEnvelopeRes result = new CrabRedEnvelopeRes(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -7240,11 +14349,7 @@ public final class Hbsl {
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        if (sceneBuilder_ == null) {
-          result.scene_ = scene_;
-        } else {
-          result.scene_ = sceneBuilder_.build();
-        }
+        result.realAward_ = realAward_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7255,7 +14360,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -7268,25 +14373,25 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes)other);
+        if (other instanceof CrabRedEnvelopeRes) {
+          return mergeFrom((CrabRedEnvelopeRes)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes.getDefaultInstance()) return this;
+      public Builder mergeFrom(CrabRedEnvelopeRes other) {
+        if (other == CrabRedEnvelopeRes.getDefaultInstance()) return this;
         if (other.hasCode()) {
           setCode(other.getCode());
         }
@@ -7308,8 +14413,10 @@ public final class Hbsl {
           payMoney_ = other.payMoney_;
           onChanged();
         }
-        if (other.hasScene()) {
-          mergeScene(other.getScene());
+        if (other.hasRealAward()) {
+          bitField0_ |= 0x00000020;
+          realAward_ = other.realAward_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7320,11 +14427,6 @@ public final class Hbsl {
         if (!hasCode()) {
           return false;
         }
-        if (hasScene()) {
-          if (!getScene().isInitialized()) {
-            return false;
-          }
-        }
         return true;
       }
 
@@ -7332,11 +14434,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes parsedMessage = null;
+        CrabRedEnvelopeRes parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes) e.getUnfinishedMessage();
+          parsedMessage = (CrabRedEnvelopeRes) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -7395,10 +14497,10 @@ public final class Hbsl {
         return this;
       }
 
-      private java.lang.Object award_ = "";
+      private Object award_ = "";
       /**
        * <pre>
-       *获取的金钱
+       *获取的金钱（没扣服务费）
        * </pre>
        *
        * <code>optional string award = 2;</code>
@@ -7408,39 +14510,39 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *获取的金钱
+       *获取的金钱（没扣服务费）
        * </pre>
        *
        * <code>optional string award = 2;</code>
        */
-      public java.lang.String getAward() {
-        java.lang.Object ref = award_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getAward() {
+        Object ref = award_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             award_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
        * <pre>
-       *获取的金钱
+       *获取的金钱（没扣服务费）
        * </pre>
        *
        * <code>optional string award = 2;</code>
        */
       public com.google.protobuf.ByteString
           getAwardBytes() {
-        java.lang.Object ref = award_;
+        Object ref = award_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           award_ = b;
           return b;
         } else {
@@ -7449,13 +14551,13 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *获取的金钱
+       *获取的金钱（没扣服务费）
        * </pre>
        *
        * <code>optional string award = 2;</code>
        */
       public Builder setAward(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -7466,7 +14568,7 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *获取的金钱
+       *获取的金钱（没扣服务费）
        * </pre>
        *
        * <code>optional string award = 2;</code>
@@ -7479,7 +14581,7 @@ public final class Hbsl {
       }
       /**
        * <pre>
-       *获取的金钱
+       *获取的金钱（没扣服务费）
        * </pre>
        *
        * <code>optional string award = 2;</code>
@@ -7495,7 +14597,7 @@ public final class Hbsl {
         return this;
       }
 
-      private java.lang.Object balance_ = "";
+      private Object balance_ = "";
       /**
        * <pre>
        *玩家最新金额
@@ -7513,18 +14615,18 @@ public final class Hbsl {
        *
        * <code>optional string balance = 3;</code>
        */
-      public java.lang.String getBalance() {
-        java.lang.Object ref = balance_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getBalance() {
+        Object ref = balance_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             balance_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -7536,11 +14638,11 @@ public final class Hbsl {
        */
       public com.google.protobuf.ByteString
           getBalanceBytes() {
-        java.lang.Object ref = balance_;
+        Object ref = balance_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           balance_ = b;
           return b;
         } else {
@@ -7555,7 +14657,7 @@ public final class Hbsl {
        * <code>optional string balance = 3;</code>
        */
       public Builder setBalance(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -7643,7 +14745,7 @@ public final class Hbsl {
         return this;
       }
 
-      private java.lang.Object payMoney_ = "";
+      private Object payMoney_ = "";
       /**
        * <pre>
        *赔付金额
@@ -7661,18 +14763,18 @@ public final class Hbsl {
        *
        * <code>optional string payMoney = 5;</code>
        */
-      public java.lang.String getPayMoney() {
-        java.lang.Object ref = payMoney_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getPayMoney() {
+        Object ref = payMoney_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             payMoney_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -7684,11 +14786,11 @@ public final class Hbsl {
        */
       public com.google.protobuf.ByteString
           getPayMoneyBytes() {
-        java.lang.Object ref = payMoney_;
+        Object ref = payMoney_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           payMoney_ = b;
           return b;
         } else {
@@ -7703,7 +14805,7 @@ public final class Hbsl {
        * <code>optional string payMoney = 5;</code>
        */
       public Builder setPayMoney(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -7743,158 +14845,104 @@ public final class Hbsl {
         return this;
       }
 
-      private com.dafagame.protocol.hbsl.Hbsl.SceneNtf scene_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.SceneNtf, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder> sceneBuilder_;
+      private Object realAward_ = "";
       /**
        * <pre>
-       *房间场景最新信息
+       *    optional SceneNtf scene = 6;            //房间场景最新信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+       * <code>optional string realAward = 7;</code>
        */
-      public boolean hasScene() {
+      public boolean hasRealAward() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <pre>
-       *房间场景最新信息
+       *    optional SceneNtf scene = 6;            //房间场景最新信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+       * <code>optional string realAward = 7;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtf getScene() {
-        if (sceneBuilder_ == null) {
-          return scene_ == null ? com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : scene_;
-        } else {
-          return sceneBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
-       */
-      public Builder setScene(com.dafagame.protocol.hbsl.Hbsl.SceneNtf value) {
-        if (sceneBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
+      public String getRealAward() {
+        Object ref = realAward_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            realAward_ = s;
           }
-          scene_ = value;
-          onChanged();
+          return s;
         } else {
-          sceneBuilder_.setMessage(value);
+          return (String) ref;
         }
-        bitField0_ |= 0x00000020;
-        return this;
       }
       /**
        * <pre>
-       *房间场景最新信息
+       *    optional SceneNtf scene = 6;            //房间场景最新信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+       * <code>optional string realAward = 7;</code>
        */
-      public Builder setScene(
-          com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder builderForValue) {
-        if (sceneBuilder_ == null) {
-          scene_ = builderForValue.build();
-          onChanged();
+      public com.google.protobuf.ByteString
+          getRealAwardBytes() {
+        Object ref = realAward_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          realAward_ = b;
+          return b;
         } else {
-          sceneBuilder_.setMessage(builderForValue.build());
+          return (com.google.protobuf.ByteString) ref;
         }
-        bitField0_ |= 0x00000020;
-        return this;
       }
       /**
        * <pre>
-       *房间场景最新信息
+       *    optional SceneNtf scene = 6;            //房间场景最新信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+       * <code>optional string realAward = 7;</code>
        */
-      public Builder mergeScene(com.dafagame.protocol.hbsl.Hbsl.SceneNtf value) {
-        if (sceneBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020) &&
-              scene_ != null &&
-              scene_ != com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance()) {
-            scene_ =
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.newBuilder(scene_).mergeFrom(value).buildPartial();
-          } else {
-            scene_ = value;
-          }
-          onChanged();
-        } else {
-          sceneBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000020;
-        return this;
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
-       */
-      public Builder clearScene() {
-        if (sceneBuilder_ == null) {
-          scene_ = null;
-          onChanged();
-        } else {
-          sceneBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000020);
-        return this;
-      }
-      /**
-       * <pre>
-       *房间场景最新信息
-       * </pre>
-       *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
-       */
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder getSceneBuilder() {
-        bitField0_ |= 0x00000020;
+      public Builder setRealAward(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        realAward_ = value;
         onChanged();
-        return getSceneFieldBuilder().getBuilder();
+        return this;
       }
       /**
        * <pre>
-       *房间场景最新信息
+       *    optional SceneNtf scene = 6;            //房间场景最新信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+       * <code>optional string realAward = 7;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder getSceneOrBuilder() {
-        if (sceneBuilder_ != null) {
-          return sceneBuilder_.getMessageOrBuilder();
-        } else {
-          return scene_ == null ?
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf.getDefaultInstance() : scene_;
-        }
+      public Builder clearRealAward() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        realAward_ = getDefaultInstance().getRealAward();
+        onChanged();
+        return this;
       }
       /**
        * <pre>
-       *房间场景最新信息
+       *    optional SceneNtf scene = 6;            //房间场景最新信息
        * </pre>
        *
-       * <code>optional .com.dafagame.protocol.hbsl.SceneNtf scene = 6;</code>
+       * <code>optional string realAward = 7;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.SceneNtf, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder> 
-          getSceneFieldBuilder() {
-        if (sceneBuilder_ == null) {
-          sceneBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.dafagame.protocol.hbsl.Hbsl.SceneNtf, com.dafagame.protocol.hbsl.Hbsl.SceneNtf.Builder, com.dafagame.protocol.hbsl.Hbsl.SceneNtfOrBuilder>(
-                  getScene(),
-                  getParentForChildren(),
-                  isClean());
-          scene_ = null;
-        }
-        return sceneBuilder_;
+      public Builder setRealAwardBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        realAward_ = value;
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7911,16 +14959,16 @@ public final class Hbsl {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.CrabRedEnvelopeRes)
-    private static final com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes DEFAULT_INSTANCE;
+    private static final CrabRedEnvelopeRes DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes();
+      DEFAULT_INSTANCE = new CrabRedEnvelopeRes();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes getDefaultInstance() {
+    public static CrabRedEnvelopeRes getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<CrabRedEnvelopeRes>
+    @Deprecated public static final com.google.protobuf.Parser<CrabRedEnvelopeRes>
         PARSER = new com.google.protobuf.AbstractParser<CrabRedEnvelopeRes>() {
       public CrabRedEnvelopeRes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -7934,12 +14982,12 @@ public final class Hbsl {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<CrabRedEnvelopeRes> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.CrabRedEnvelopeRes getDefaultInstanceForType() {
+    public CrabRedEnvelopeRes getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7964,7 +15012,7 @@ public final class Hbsl {
      *
      * <code>required string id = 1;</code>
      */
-    java.lang.String getId();
+    String getId();
     /**
      * <pre>
      *红包id
@@ -7977,46 +15025,46 @@ public final class Hbsl {
 
     /**
      * <pre>
-     *剩余时间
+     *    required int32 leftTime = 2;    //剩余时间
      * </pre>
      *
-     * <code>required int32 leftTime = 2;</code>
+     * <code>required int64 createdTime = 2;</code>
      */
-    boolean hasLeftTime();
+    boolean hasCreatedTime();
     /**
      * <pre>
-     *剩余时间
+     *    required int32 leftTime = 2;    //剩余时间
      * </pre>
      *
-     * <code>required int32 leftTime = 2;</code>
+     * <code>required int64 createdTime = 2;</code>
      */
-    int getLeftTime();
+    long getCreatedTime();
 
     /**
      * <pre>
      *剩余金钱
      * </pre>
      *
-     * <code>required string leftMoney = 3;</code>
+     * <code>required string totalMoney = 3;</code>
      */
-    boolean hasLeftMoney();
+    boolean hasTotalMoney();
     /**
      * <pre>
      *剩余金钱
      * </pre>
      *
-     * <code>required string leftMoney = 3;</code>
+     * <code>required string totalMoney = 3;</code>
      */
-    java.lang.String getLeftMoney();
+    String getTotalMoney();
     /**
      * <pre>
      *剩余金钱
      * </pre>
      *
-     * <code>required string leftMoney = 3;</code>
+     * <code>required string totalMoney = 3;</code>
      */
     com.google.protobuf.ByteString
-        getLeftMoneyBytes();
+        getTotalMoneyBytes();
 
     /**
      * <pre>
@@ -8084,7 +15132,7 @@ public final class Hbsl {
      *
      * <code>required string ownerName = 7;</code>
      */
-    java.lang.String getOwnerName();
+    String getOwnerName();
     /**
      * <pre>
      *发包人昵称
@@ -8094,6 +15142,57 @@ public final class Hbsl {
      */
     com.google.protobuf.ByteString
         getOwnerNameBytes();
+
+    /**
+     * <pre>
+     *vip等级
+     * </pre>
+     *
+     * <code>optional int32 grade = 8;</code>
+     */
+    boolean hasGrade();
+    /**
+     * <pre>
+     *vip等级
+     * </pre>
+     *
+     * <code>optional int32 grade = 8;</code>
+     */
+    int getGrade();
+
+    /**
+     * <pre>
+     *头像
+     * </pre>
+     *
+     * <code>optional int32 avatar = 9;</code>
+     */
+    boolean hasAvatar();
+    /**
+     * <pre>
+     *头像
+     * </pre>
+     *
+     * <code>optional int32 avatar = 9;</code>
+     */
+    int getAvatar();
+
+    /**
+     * <pre>
+     *相框id
+     * </pre>
+     *
+     * <code>optional int32 frameId = 10;</code>
+     */
+    boolean hasFrameId();
+    /**
+     * <pre>
+     *相框id
+     * </pre>
+     *
+     * <code>optional int32 frameId = 10;</code>
+     */
+    int getFrameId();
   }
   /**
    * <pre>
@@ -8113,15 +15212,18 @@ public final class Hbsl {
     }
     private RedEnvelope() {
       id_ = "";
-      leftTime_ = 0;
-      leftMoney_ = "";
+      createdTime_ = 0L;
+      totalMoney_ = "";
       multiple_ = 0;
       totalMultiple_ = 0;
       bombNum_ = 0;
       ownerName_ = "";
+      grade_ = 0;
+      avatar_ = 0;
+      frameId_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -8157,13 +15259,13 @@ public final class Hbsl {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              leftTime_ = input.readInt32();
+              createdTime_ = input.readInt64();
               break;
             }
             case 26: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              leftMoney_ = bs;
+              totalMoney_ = bs;
               break;
             }
             case 32: {
@@ -8187,6 +15289,21 @@ public final class Hbsl {
               ownerName_ = bs;
               break;
             }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              grade_ = input.readInt32();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              avatar_ = input.readInt32();
+              break;
+            }
+            case 80: {
+              bitField0_ |= 0x00000200;
+              frameId_ = input.readInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -8201,19 +15318,19 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.class, com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.Builder.class);
+              RedEnvelope.class, Builder.class);
     }
 
     private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    private volatile Object id_;
     /**
      * <pre>
      *红包id
@@ -8231,14 +15348,14 @@ public final class Hbsl {
      *
      * <code>required string id = 1;</code>
      */
-    public java.lang.String getId() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getId() {
+      Object ref = id_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           id_ = s;
         }
@@ -8254,11 +15371,11 @@ public final class Hbsl {
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
-      java.lang.Object ref = id_;
-      if (ref instanceof java.lang.String) {
+      Object ref = id_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         id_ = b;
         return b;
       } else {
@@ -8266,39 +15383,39 @@ public final class Hbsl {
       }
     }
 
-    public static final int LEFTTIME_FIELD_NUMBER = 2;
-    private int leftTime_;
+    public static final int CREATEDTIME_FIELD_NUMBER = 2;
+    private long createdTime_;
     /**
      * <pre>
-     *剩余时间
+     *    required int32 leftTime = 2;    //剩余时间
      * </pre>
      *
-     * <code>required int32 leftTime = 2;</code>
+     * <code>required int64 createdTime = 2;</code>
      */
-    public boolean hasLeftTime() {
+    public boolean hasCreatedTime() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <pre>
-     *剩余时间
+     *    required int32 leftTime = 2;    //剩余时间
      * </pre>
      *
-     * <code>required int32 leftTime = 2;</code>
+     * <code>required int64 createdTime = 2;</code>
      */
-    public int getLeftTime() {
-      return leftTime_;
+    public long getCreatedTime() {
+      return createdTime_;
     }
 
-    public static final int LEFTMONEY_FIELD_NUMBER = 3;
-    private volatile java.lang.Object leftMoney_;
+    public static final int TOTALMONEY_FIELD_NUMBER = 3;
+    private volatile Object totalMoney_;
     /**
      * <pre>
      *剩余金钱
      * </pre>
      *
-     * <code>required string leftMoney = 3;</code>
+     * <code>required string totalMoney = 3;</code>
      */
-    public boolean hasLeftMoney() {
+    public boolean hasTotalMoney() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
@@ -8306,18 +15423,18 @@ public final class Hbsl {
      *剩余金钱
      * </pre>
      *
-     * <code>required string leftMoney = 3;</code>
+     * <code>required string totalMoney = 3;</code>
      */
-    public java.lang.String getLeftMoney() {
-      java.lang.Object ref = leftMoney_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getTotalMoney() {
+      Object ref = totalMoney_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          leftMoney_ = s;
+          totalMoney_ = s;
         }
         return s;
       }
@@ -8327,16 +15444,16 @@ public final class Hbsl {
      *剩余金钱
      * </pre>
      *
-     * <code>required string leftMoney = 3;</code>
+     * <code>required string totalMoney = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getLeftMoneyBytes() {
-      java.lang.Object ref = leftMoney_;
-      if (ref instanceof java.lang.String) {
+        getTotalMoneyBytes() {
+      Object ref = totalMoney_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        leftMoney_ = b;
+                (String) ref);
+        totalMoney_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -8413,7 +15530,7 @@ public final class Hbsl {
     }
 
     public static final int OWNERNAME_FIELD_NUMBER = 7;
-    private volatile java.lang.Object ownerName_;
+    private volatile Object ownerName_;
     /**
      * <pre>
      *发包人昵称
@@ -8431,14 +15548,14 @@ public final class Hbsl {
      *
      * <code>required string ownerName = 7;</code>
      */
-    public java.lang.String getOwnerName() {
-      java.lang.Object ref = ownerName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getOwnerName() {
+      Object ref = ownerName_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           ownerName_ = s;
         }
@@ -8454,16 +15571,85 @@ public final class Hbsl {
      */
     public com.google.protobuf.ByteString
         getOwnerNameBytes() {
-      java.lang.Object ref = ownerName_;
-      if (ref instanceof java.lang.String) {
+      Object ref = ownerName_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         ownerName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
+    }
+
+    public static final int GRADE_FIELD_NUMBER = 8;
+    private int grade_;
+    /**
+     * <pre>
+     *vip等级
+     * </pre>
+     *
+     * <code>optional int32 grade = 8;</code>
+     */
+    public boolean hasGrade() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <pre>
+     *vip等级
+     * </pre>
+     *
+     * <code>optional int32 grade = 8;</code>
+     */
+    public int getGrade() {
+      return grade_;
+    }
+
+    public static final int AVATAR_FIELD_NUMBER = 9;
+    private int avatar_;
+    /**
+     * <pre>
+     *头像
+     * </pre>
+     *
+     * <code>optional int32 avatar = 9;</code>
+     */
+    public boolean hasAvatar() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <pre>
+     *头像
+     * </pre>
+     *
+     * <code>optional int32 avatar = 9;</code>
+     */
+    public int getAvatar() {
+      return avatar_;
+    }
+
+    public static final int FRAMEID_FIELD_NUMBER = 10;
+    private int frameId_;
+    /**
+     * <pre>
+     *相框id
+     * </pre>
+     *
+     * <code>optional int32 frameId = 10;</code>
+     */
+    public boolean hasFrameId() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <pre>
+     *相框id
+     * </pre>
+     *
+     * <code>optional int32 frameId = 10;</code>
+     */
+    public int getFrameId() {
+      return frameId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8476,11 +15662,11 @@ public final class Hbsl {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasLeftTime()) {
+      if (!hasCreatedTime()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasLeftMoney()) {
+      if (!hasTotalMoney()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -8510,10 +15696,10 @@ public final class Hbsl {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, leftTime_);
+        output.writeInt64(2, createdTime_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, leftMoney_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, totalMoney_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, multiple_);
@@ -8526,6 +15712,15 @@ public final class Hbsl {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, ownerName_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(8, grade_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeInt32(9, avatar_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        output.writeInt32(10, frameId_);
       }
       unknownFields.writeTo(output);
     }
@@ -8540,10 +15735,10 @@ public final class Hbsl {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, leftTime_);
+          .computeInt64Size(2, createdTime_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, leftMoney_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, totalMoney_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8560,20 +15755,32 @@ public final class Hbsl {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, ownerName_);
       }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, grade_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, avatar_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(10, frameId_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.RedEnvelope)) {
+      if (!(obj instanceof RedEnvelope)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.RedEnvelope other = (com.dafagame.protocol.hbsl.Hbsl.RedEnvelope) obj;
+      RedEnvelope other = (RedEnvelope) obj;
 
       boolean result = true;
       result = result && (hasId() == other.hasId());
@@ -8581,15 +15788,15 @@ public final class Hbsl {
         result = result && getId()
             .equals(other.getId());
       }
-      result = result && (hasLeftTime() == other.hasLeftTime());
-      if (hasLeftTime()) {
-        result = result && (getLeftTime()
-            == other.getLeftTime());
+      result = result && (hasCreatedTime() == other.hasCreatedTime());
+      if (hasCreatedTime()) {
+        result = result && (getCreatedTime()
+            == other.getCreatedTime());
       }
-      result = result && (hasLeftMoney() == other.hasLeftMoney());
-      if (hasLeftMoney()) {
-        result = result && getLeftMoney()
-            .equals(other.getLeftMoney());
+      result = result && (hasTotalMoney() == other.hasTotalMoney());
+      if (hasTotalMoney()) {
+        result = result && getTotalMoney()
+            .equals(other.getTotalMoney());
       }
       result = result && (hasMultiple() == other.hasMultiple());
       if (hasMultiple()) {
@@ -8611,11 +15818,26 @@ public final class Hbsl {
         result = result && getOwnerName()
             .equals(other.getOwnerName());
       }
+      result = result && (hasGrade() == other.hasGrade());
+      if (hasGrade()) {
+        result = result && (getGrade()
+            == other.getGrade());
+      }
+      result = result && (hasAvatar() == other.hasAvatar());
+      if (hasAvatar()) {
+        result = result && (getAvatar()
+            == other.getAvatar());
+      }
+      result = result && (hasFrameId() == other.hasFrameId());
+      if (hasFrameId()) {
+        result = result && (getFrameId()
+            == other.getFrameId());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -8626,13 +15848,14 @@ public final class Hbsl {
         hash = (37 * hash) + ID_FIELD_NUMBER;
         hash = (53 * hash) + getId().hashCode();
       }
-      if (hasLeftTime()) {
-        hash = (37 * hash) + LEFTTIME_FIELD_NUMBER;
-        hash = (53 * hash) + getLeftTime();
+      if (hasCreatedTime()) {
+        hash = (37 * hash) + CREATEDTIME_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCreatedTime());
       }
-      if (hasLeftMoney()) {
-        hash = (37 * hash) + LEFTMONEY_FIELD_NUMBER;
-        hash = (53 * hash) + getLeftMoney().hashCode();
+      if (hasTotalMoney()) {
+        hash = (37 * hash) + TOTALMONEY_FIELD_NUMBER;
+        hash = (53 * hash) + getTotalMoney().hashCode();
       }
       if (hasMultiple()) {
         hash = (37 * hash) + MULTIPLE_FIELD_NUMBER;
@@ -8650,74 +15873,86 @@ public final class Hbsl {
         hash = (37 * hash) + OWNERNAME_FIELD_NUMBER;
         hash = (53 * hash) + getOwnerName().hashCode();
       }
+      if (hasGrade()) {
+        hash = (37 * hash) + GRADE_FIELD_NUMBER;
+        hash = (53 * hash) + getGrade();
+      }
+      if (hasAvatar()) {
+        hash = (37 * hash) + AVATAR_FIELD_NUMBER;
+        hash = (53 * hash) + getAvatar();
+      }
+      if (hasFrameId()) {
+        hash = (37 * hash) + FRAMEID_FIELD_NUMBER;
+        hash = (53 * hash) + getFrameId();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(
+    public static RedEnvelope parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(
+    public static RedEnvelope parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(
+    public static RedEnvelope parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(
+    public static RedEnvelope parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(byte[] data)
+    public static RedEnvelope parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(
+    public static RedEnvelope parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(java.io.InputStream input)
+    public static RedEnvelope parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(
+    public static RedEnvelope parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseDelimitedFrom(java.io.InputStream input)
+    public static RedEnvelope parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseDelimitedFrom(
+    public static RedEnvelope parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(
+    public static RedEnvelope parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parseFrom(
+    public static RedEnvelope parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -8729,7 +15964,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.RedEnvelope prototype) {
+    public static Builder newBuilder(RedEnvelope prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -8737,9 +15972,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -8753,17 +15988,17 @@ public final class Hbsl {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.RedEnvelope)
-        com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeOrBuilder {
+        RedEnvelopeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.class, com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.Builder.class);
+                RedEnvelope.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.newBuilder()
@@ -8772,7 +16007,7 @@ public final class Hbsl {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -8785,9 +16020,9 @@ public final class Hbsl {
         super.clear();
         id_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        leftTime_ = 0;
+        createdTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
-        leftMoney_ = "";
+        totalMoney_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         multiple_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -8797,28 +16032,34 @@ public final class Hbsl {
         bitField0_ = (bitField0_ & ~0x00000020);
         ownerName_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
+        grade_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        avatar_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        frameId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelope_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelope getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.getDefaultInstance();
+      public RedEnvelope getDefaultInstanceForType() {
+        return RedEnvelope.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelope build() {
-        com.dafagame.protocol.hbsl.Hbsl.RedEnvelope result = buildPartial();
+      public RedEnvelope build() {
+        RedEnvelope result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelope buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.RedEnvelope result = new com.dafagame.protocol.hbsl.Hbsl.RedEnvelope(this);
+      public RedEnvelope buildPartial() {
+        RedEnvelope result = new RedEnvelope(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8828,11 +16069,11 @@ public final class Hbsl {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.leftTime_ = leftTime_;
+        result.createdTime_ = createdTime_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.leftMoney_ = leftMoney_;
+        result.totalMoney_ = totalMoney_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
@@ -8849,6 +16090,18 @@ public final class Hbsl {
           to_bitField0_ |= 0x00000040;
         }
         result.ownerName_ = ownerName_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.grade_ = grade_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.avatar_ = avatar_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.frameId_ = frameId_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -8859,7 +16112,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -8872,36 +16125,36 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.RedEnvelope) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.RedEnvelope)other);
+        if (other instanceof RedEnvelope) {
+          return mergeFrom((RedEnvelope)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.RedEnvelope other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.RedEnvelope.getDefaultInstance()) return this;
+      public Builder mergeFrom(RedEnvelope other) {
+        if (other == RedEnvelope.getDefaultInstance()) return this;
         if (other.hasId()) {
           bitField0_ |= 0x00000001;
           id_ = other.id_;
           onChanged();
         }
-        if (other.hasLeftTime()) {
-          setLeftTime(other.getLeftTime());
+        if (other.hasCreatedTime()) {
+          setCreatedTime(other.getCreatedTime());
         }
-        if (other.hasLeftMoney()) {
+        if (other.hasTotalMoney()) {
           bitField0_ |= 0x00000004;
-          leftMoney_ = other.leftMoney_;
+          totalMoney_ = other.totalMoney_;
           onChanged();
         }
         if (other.hasMultiple()) {
@@ -8918,6 +16171,15 @@ public final class Hbsl {
           ownerName_ = other.ownerName_;
           onChanged();
         }
+        if (other.hasGrade()) {
+          setGrade(other.getGrade());
+        }
+        if (other.hasAvatar()) {
+          setAvatar(other.getAvatar());
+        }
+        if (other.hasFrameId()) {
+          setFrameId(other.getFrameId());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -8927,10 +16189,10 @@ public final class Hbsl {
         if (!hasId()) {
           return false;
         }
-        if (!hasLeftTime()) {
+        if (!hasCreatedTime()) {
           return false;
         }
-        if (!hasLeftMoney()) {
+        if (!hasTotalMoney()) {
           return false;
         }
         if (!hasMultiple()) {
@@ -8952,11 +16214,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.RedEnvelope parsedMessage = null;
+        RedEnvelope parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.RedEnvelope) e.getUnfinishedMessage();
+          parsedMessage = (RedEnvelope) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -8967,7 +16229,7 @@ public final class Hbsl {
       }
       private int bitField0_;
 
-      private java.lang.Object id_ = "";
+      private Object id_ = "";
       /**
        * <pre>
        *红包id
@@ -8985,18 +16247,18 @@ public final class Hbsl {
        *
        * <code>required string id = 1;</code>
        */
-      public java.lang.String getId() {
-        java.lang.Object ref = id_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getId() {
+        Object ref = id_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             id_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -9008,11 +16270,11 @@ public final class Hbsl {
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
-        java.lang.Object ref = id_;
+        Object ref = id_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           id_ = b;
           return b;
         } else {
@@ -9027,7 +16289,7 @@ public final class Hbsl {
        * <code>required string id = 1;</code>
        */
       public Builder setId(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -9067,63 +16329,63 @@ public final class Hbsl {
         return this;
       }
 
-      private int leftTime_ ;
+      private long createdTime_ ;
       /**
        * <pre>
-       *剩余时间
+       *    required int32 leftTime = 2;    //剩余时间
        * </pre>
        *
-       * <code>required int32 leftTime = 2;</code>
+       * <code>required int64 createdTime = 2;</code>
        */
-      public boolean hasLeftTime() {
+      public boolean hasCreatedTime() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <pre>
-       *剩余时间
+       *    required int32 leftTime = 2;    //剩余时间
        * </pre>
        *
-       * <code>required int32 leftTime = 2;</code>
+       * <code>required int64 createdTime = 2;</code>
        */
-      public int getLeftTime() {
-        return leftTime_;
+      public long getCreatedTime() {
+        return createdTime_;
       }
       /**
        * <pre>
-       *剩余时间
+       *    required int32 leftTime = 2;    //剩余时间
        * </pre>
        *
-       * <code>required int32 leftTime = 2;</code>
+       * <code>required int64 createdTime = 2;</code>
        */
-      public Builder setLeftTime(int value) {
+      public Builder setCreatedTime(long value) {
         bitField0_ |= 0x00000002;
-        leftTime_ = value;
+        createdTime_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *剩余时间
+       *    required int32 leftTime = 2;    //剩余时间
        * </pre>
        *
-       * <code>required int32 leftTime = 2;</code>
+       * <code>required int64 createdTime = 2;</code>
        */
-      public Builder clearLeftTime() {
+      public Builder clearCreatedTime() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        leftTime_ = 0;
+        createdTime_ = 0L;
         onChanged();
         return this;
       }
 
-      private java.lang.Object leftMoney_ = "";
+      private Object totalMoney_ = "";
       /**
        * <pre>
        *剩余金钱
        * </pre>
        *
-       * <code>required string leftMoney = 3;</code>
+       * <code>required string totalMoney = 3;</code>
        */
-      public boolean hasLeftMoney() {
+      public boolean hasTotalMoney() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
@@ -9131,20 +16393,20 @@ public final class Hbsl {
        *剩余金钱
        * </pre>
        *
-       * <code>required string leftMoney = 3;</code>
+       * <code>required string totalMoney = 3;</code>
        */
-      public java.lang.String getLeftMoney() {
-        java.lang.Object ref = leftMoney_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getTotalMoney() {
+        Object ref = totalMoney_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
-            leftMoney_ = s;
+            totalMoney_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -9152,16 +16414,16 @@ public final class Hbsl {
        *剩余金钱
        * </pre>
        *
-       * <code>required string leftMoney = 3;</code>
+       * <code>required string totalMoney = 3;</code>
        */
       public com.google.protobuf.ByteString
-          getLeftMoneyBytes() {
-        java.lang.Object ref = leftMoney_;
+          getTotalMoneyBytes() {
+        Object ref = totalMoney_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          leftMoney_ = b;
+                  (String) ref);
+          totalMoney_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -9172,15 +16434,15 @@ public final class Hbsl {
        *剩余金钱
        * </pre>
        *
-       * <code>required string leftMoney = 3;</code>
+       * <code>required string totalMoney = 3;</code>
        */
-      public Builder setLeftMoney(
-          java.lang.String value) {
+      public Builder setTotalMoney(
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        leftMoney_ = value;
+        totalMoney_ = value;
         onChanged();
         return this;
       }
@@ -9189,11 +16451,11 @@ public final class Hbsl {
        *剩余金钱
        * </pre>
        *
-       * <code>required string leftMoney = 3;</code>
+       * <code>required string totalMoney = 3;</code>
        */
-      public Builder clearLeftMoney() {
+      public Builder clearTotalMoney() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        leftMoney_ = getDefaultInstance().getLeftMoney();
+        totalMoney_ = getDefaultInstance().getTotalMoney();
         onChanged();
         return this;
       }
@@ -9202,15 +16464,15 @@ public final class Hbsl {
        *剩余金钱
        * </pre>
        *
-       * <code>required string leftMoney = 3;</code>
+       * <code>required string totalMoney = 3;</code>
        */
-      public Builder setLeftMoneyBytes(
+      public Builder setTotalMoneyBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000004;
-        leftMoney_ = value;
+        totalMoney_ = value;
         onChanged();
         return this;
       }
@@ -9359,7 +16621,7 @@ public final class Hbsl {
         return this;
       }
 
-      private java.lang.Object ownerName_ = "";
+      private Object ownerName_ = "";
       /**
        * <pre>
        *发包人昵称
@@ -9377,18 +16639,18 @@ public final class Hbsl {
        *
        * <code>required string ownerName = 7;</code>
        */
-      public java.lang.String getOwnerName() {
-        java.lang.Object ref = ownerName_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getOwnerName() {
+        Object ref = ownerName_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             ownerName_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -9400,11 +16662,11 @@ public final class Hbsl {
        */
       public com.google.protobuf.ByteString
           getOwnerNameBytes() {
-        java.lang.Object ref = ownerName_;
+        Object ref = ownerName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           ownerName_ = b;
           return b;
         } else {
@@ -9419,7 +16681,7 @@ public final class Hbsl {
        * <code>required string ownerName = 7;</code>
        */
       public Builder setOwnerName(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -9458,6 +16720,150 @@ public final class Hbsl {
         onChanged();
         return this;
       }
+
+      private int grade_ ;
+      /**
+       * <pre>
+       *vip等级
+       * </pre>
+       *
+       * <code>optional int32 grade = 8;</code>
+       */
+      public boolean hasGrade() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <pre>
+       *vip等级
+       * </pre>
+       *
+       * <code>optional int32 grade = 8;</code>
+       */
+      public int getGrade() {
+        return grade_;
+      }
+      /**
+       * <pre>
+       *vip等级
+       * </pre>
+       *
+       * <code>optional int32 grade = 8;</code>
+       */
+      public Builder setGrade(int value) {
+        bitField0_ |= 0x00000080;
+        grade_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *vip等级
+       * </pre>
+       *
+       * <code>optional int32 grade = 8;</code>
+       */
+      public Builder clearGrade() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        grade_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int avatar_ ;
+      /**
+       * <pre>
+       *头像
+       * </pre>
+       *
+       * <code>optional int32 avatar = 9;</code>
+       */
+      public boolean hasAvatar() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <pre>
+       *头像
+       * </pre>
+       *
+       * <code>optional int32 avatar = 9;</code>
+       */
+      public int getAvatar() {
+        return avatar_;
+      }
+      /**
+       * <pre>
+       *头像
+       * </pre>
+       *
+       * <code>optional int32 avatar = 9;</code>
+       */
+      public Builder setAvatar(int value) {
+        bitField0_ |= 0x00000100;
+        avatar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *头像
+       * </pre>
+       *
+       * <code>optional int32 avatar = 9;</code>
+       */
+      public Builder clearAvatar() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        avatar_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int frameId_ ;
+      /**
+       * <pre>
+       *相框id
+       * </pre>
+       *
+       * <code>optional int32 frameId = 10;</code>
+       */
+      public boolean hasFrameId() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <pre>
+       *相框id
+       * </pre>
+       *
+       * <code>optional int32 frameId = 10;</code>
+       */
+      public int getFrameId() {
+        return frameId_;
+      }
+      /**
+       * <pre>
+       *相框id
+       * </pre>
+       *
+       * <code>optional int32 frameId = 10;</code>
+       */
+      public Builder setFrameId(int value) {
+        bitField0_ |= 0x00000200;
+        frameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *相框id
+       * </pre>
+       *
+       * <code>optional int32 frameId = 10;</code>
+       */
+      public Builder clearFrameId() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        frameId_ = 0;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -9473,16 +16879,16 @@ public final class Hbsl {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.RedEnvelope)
-    private static final com.dafagame.protocol.hbsl.Hbsl.RedEnvelope DEFAULT_INSTANCE;
+    private static final RedEnvelope DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.RedEnvelope();
+      DEFAULT_INSTANCE = new RedEnvelope();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelope getDefaultInstance() {
+    public static RedEnvelope getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RedEnvelope>
+    @Deprecated public static final com.google.protobuf.Parser<RedEnvelope>
         PARSER = new com.google.protobuf.AbstractParser<RedEnvelope>() {
       public RedEnvelope parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -9496,12 +16902,12 @@ public final class Hbsl {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RedEnvelope> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.RedEnvelope getDefaultInstanceForType() {
+    public RedEnvelope getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -9543,7 +16949,7 @@ public final class Hbsl {
      *
      * <code>required string nickName = 2;</code>
      */
-    java.lang.String getNickName();
+    String getNickName();
     /**
      * <pre>
      *用户名(昵称)
@@ -9559,7 +16965,7 @@ public final class Hbsl {
      *获取的金钱
      * </pre>
      *
-     * <code>required string award = 3;</code>
+     * <code>optional string award = 3;</code>
      */
     boolean hasAward();
     /**
@@ -9567,15 +16973,15 @@ public final class Hbsl {
      *获取的金钱
      * </pre>
      *
-     * <code>required string award = 3;</code>
+     * <code>optional string award = 3;</code>
      */
-    java.lang.String getAward();
+    String getAward();
     /**
      * <pre>
      *获取的金钱
      * </pre>
      *
-     * <code>required string award = 3;</code>
+     * <code>optional string award = 3;</code>
      */
     com.google.protobuf.ByteString
         getAwardBytes();
@@ -9595,7 +17001,7 @@ public final class Hbsl {
      *
      * <code>optional string time = 4;</code>
      */
-    java.lang.String getTime();
+    String getTime();
     /**
      * <pre>
      *领取时间
@@ -9605,6 +17011,117 @@ public final class Hbsl {
      */
     com.google.protobuf.ByteString
         getTimeBytes();
+
+    /**
+     * <pre>
+     *玩家vip等级
+     * </pre>
+     *
+     * <code>optional int32 grade = 5;</code>
+     */
+    boolean hasGrade();
+    /**
+     * <pre>
+     *玩家vip等级
+     * </pre>
+     *
+     * <code>optional int32 grade = 5;</code>
+     */
+    int getGrade();
+
+    /**
+     * <pre>
+     *玩家头像
+     * </pre>
+     *
+     * <code>optional int32 avatar = 6;</code>
+     */
+    boolean hasAvatar();
+    /**
+     * <pre>
+     *玩家头像
+     * </pre>
+     *
+     * <code>optional int32 avatar = 6;</code>
+     */
+    int getAvatar();
+
+    /**
+     * <pre>
+     *相框id
+     * </pre>
+     *
+     * <code>optional int32 frameId = 7;</code>
+     */
+    boolean hasFrameId();
+    /**
+     * <pre>
+     *相框id
+     * </pre>
+     *
+     * <code>optional int32 frameId = 7;</code>
+     */
+    int getFrameId();
+
+    /**
+     * <pre>
+     *抢红包次数
+     * </pre>
+     *
+     * <code>optional int32 crabTimes = 8;</code>
+     */
+    boolean hasCrabTimes();
+    /**
+     * <pre>
+     *抢红包次数
+     * </pre>
+     *
+     * <code>optional int32 crabTimes = 8;</code>
+     */
+    int getCrabTimes();
+
+    /**
+     * <pre>
+     *踩雷次数
+     * </pre>
+     *
+     * <code>optional int32 bombTimes = 9;</code>
+     */
+    boolean hasBombTimes();
+    /**
+     * <pre>
+     *踩雷次数
+     * </pre>
+     *
+     * <code>optional int32 bombTimes = 9;</code>
+     */
+    int getBombTimes();
+
+    /**
+     * <pre>
+     *账户余额
+     * </pre>
+     *
+     * <code>optional string balance = 10;</code>
+     */
+    boolean hasBalance();
+    /**
+     * <pre>
+     *账户余额
+     * </pre>
+     *
+     * <code>optional string balance = 10;</code>
+     */
+    String getBalance();
+    /**
+     * <pre>
+     *账户余额
+     * </pre>
+     *
+     * <code>optional string balance = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getBalanceBytes();
   }
   /**
    * <pre>
@@ -9627,9 +17144,15 @@ public final class Hbsl {
       nickName_ = "";
       award_ = "";
       time_ = "";
+      grade_ = 0;
+      avatar_ = 0;
+      frameId_ = 0;
+      crabTimes_ = 0;
+      bombTimes_ = 0;
+      balance_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -9680,6 +17203,37 @@ public final class Hbsl {
               time_ = bs;
               break;
             }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              grade_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              avatar_ = input.readInt32();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              frameId_ = input.readInt32();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              crabTimes_ = input.readInt32();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              bombTimes_ = input.readInt32();
+              break;
+            }
+            case 82: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000200;
+              balance_ = bs;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9694,14 +17248,14 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.RewardRank.class, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder.class);
+              RewardRank.class, Builder.class);
     }
 
     private int bitField0_;
@@ -9729,7 +17283,7 @@ public final class Hbsl {
     }
 
     public static final int NICKNAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object nickName_;
+    private volatile Object nickName_;
     /**
      * <pre>
      *用户名(昵称)
@@ -9747,14 +17301,14 @@ public final class Hbsl {
      *
      * <code>required string nickName = 2;</code>
      */
-    public java.lang.String getNickName() {
-      java.lang.Object ref = nickName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getNickName() {
+      Object ref = nickName_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           nickName_ = s;
         }
@@ -9770,11 +17324,11 @@ public final class Hbsl {
      */
     public com.google.protobuf.ByteString
         getNickNameBytes() {
-      java.lang.Object ref = nickName_;
-      if (ref instanceof java.lang.String) {
+      Object ref = nickName_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         nickName_ = b;
         return b;
       } else {
@@ -9783,13 +17337,13 @@ public final class Hbsl {
     }
 
     public static final int AWARD_FIELD_NUMBER = 3;
-    private volatile java.lang.Object award_;
+    private volatile Object award_;
     /**
      * <pre>
      *获取的金钱
      * </pre>
      *
-     * <code>required string award = 3;</code>
+     * <code>optional string award = 3;</code>
      */
     public boolean hasAward() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -9799,16 +17353,16 @@ public final class Hbsl {
      *获取的金钱
      * </pre>
      *
-     * <code>required string award = 3;</code>
+     * <code>optional string award = 3;</code>
      */
-    public java.lang.String getAward() {
-      java.lang.Object ref = award_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getAward() {
+      Object ref = award_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           award_ = s;
         }
@@ -9820,15 +17374,15 @@ public final class Hbsl {
      *获取的金钱
      * </pre>
      *
-     * <code>required string award = 3;</code>
+     * <code>optional string award = 3;</code>
      */
     public com.google.protobuf.ByteString
         getAwardBytes() {
-      java.lang.Object ref = award_;
-      if (ref instanceof java.lang.String) {
+      Object ref = award_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         award_ = b;
         return b;
       } else {
@@ -9837,7 +17391,7 @@ public final class Hbsl {
     }
 
     public static final int TIME_FIELD_NUMBER = 4;
-    private volatile java.lang.Object time_;
+    private volatile Object time_;
     /**
      * <pre>
      *领取时间
@@ -9855,14 +17409,14 @@ public final class Hbsl {
      *
      * <code>optional string time = 4;</code>
      */
-    public java.lang.String getTime() {
-      java.lang.Object ref = time_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getTime() {
+      Object ref = time_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           time_ = s;
         }
@@ -9878,12 +17432,181 @@ public final class Hbsl {
      */
     public com.google.protobuf.ByteString
         getTimeBytes() {
-      java.lang.Object ref = time_;
-      if (ref instanceof java.lang.String) {
+      Object ref = time_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         time_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int GRADE_FIELD_NUMBER = 5;
+    private int grade_;
+    /**
+     * <pre>
+     *玩家vip等级
+     * </pre>
+     *
+     * <code>optional int32 grade = 5;</code>
+     */
+    public boolean hasGrade() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     *玩家vip等级
+     * </pre>
+     *
+     * <code>optional int32 grade = 5;</code>
+     */
+    public int getGrade() {
+      return grade_;
+    }
+
+    public static final int AVATAR_FIELD_NUMBER = 6;
+    private int avatar_;
+    /**
+     * <pre>
+     *玩家头像
+     * </pre>
+     *
+     * <code>optional int32 avatar = 6;</code>
+     */
+    public boolean hasAvatar() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     *玩家头像
+     * </pre>
+     *
+     * <code>optional int32 avatar = 6;</code>
+     */
+    public int getAvatar() {
+      return avatar_;
+    }
+
+    public static final int FRAMEID_FIELD_NUMBER = 7;
+    private int frameId_;
+    /**
+     * <pre>
+     *相框id
+     * </pre>
+     *
+     * <code>optional int32 frameId = 7;</code>
+     */
+    public boolean hasFrameId() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     *相框id
+     * </pre>
+     *
+     * <code>optional int32 frameId = 7;</code>
+     */
+    public int getFrameId() {
+      return frameId_;
+    }
+
+    public static final int CRABTIMES_FIELD_NUMBER = 8;
+    private int crabTimes_;
+    /**
+     * <pre>
+     *抢红包次数
+     * </pre>
+     *
+     * <code>optional int32 crabTimes = 8;</code>
+     */
+    public boolean hasCrabTimes() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <pre>
+     *抢红包次数
+     * </pre>
+     *
+     * <code>optional int32 crabTimes = 8;</code>
+     */
+    public int getCrabTimes() {
+      return crabTimes_;
+    }
+
+    public static final int BOMBTIMES_FIELD_NUMBER = 9;
+    private int bombTimes_;
+    /**
+     * <pre>
+     *踩雷次数
+     * </pre>
+     *
+     * <code>optional int32 bombTimes = 9;</code>
+     */
+    public boolean hasBombTimes() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <pre>
+     *踩雷次数
+     * </pre>
+     *
+     * <code>optional int32 bombTimes = 9;</code>
+     */
+    public int getBombTimes() {
+      return bombTimes_;
+    }
+
+    public static final int BALANCE_FIELD_NUMBER = 10;
+    private volatile Object balance_;
+    /**
+     * <pre>
+     *账户余额
+     * </pre>
+     *
+     * <code>optional string balance = 10;</code>
+     */
+    public boolean hasBalance() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <pre>
+     *账户余额
+     * </pre>
+     *
+     * <code>optional string balance = 10;</code>
+     */
+    public String getBalance() {
+      Object ref = balance_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          balance_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *账户余额
+     * </pre>
+     *
+     * <code>optional string balance = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getBalanceBytes() {
+      Object ref = balance_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        balance_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -9904,10 +17627,6 @@ public final class Hbsl {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasAward()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -9925,6 +17644,24 @@ public final class Hbsl {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, time_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt32(5, grade_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt32(6, avatar_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt32(7, frameId_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(8, crabTimes_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeInt32(9, bombTimes_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, balance_);
       }
       unknownFields.writeTo(output);
     }
@@ -9947,20 +17684,43 @@ public final class Hbsl {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, time_);
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, grade_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, avatar_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, frameId_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, crabTimes_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, bombTimes_);
+      }
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, balance_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.RewardRank)) {
+      if (!(obj instanceof RewardRank)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.RewardRank other = (com.dafagame.protocol.hbsl.Hbsl.RewardRank) obj;
+      RewardRank other = (RewardRank) obj;
 
       boolean result = true;
       result = result && (hasUid() == other.hasUid());
@@ -9983,11 +17743,41 @@ public final class Hbsl {
         result = result && getTime()
             .equals(other.getTime());
       }
+      result = result && (hasGrade() == other.hasGrade());
+      if (hasGrade()) {
+        result = result && (getGrade()
+            == other.getGrade());
+      }
+      result = result && (hasAvatar() == other.hasAvatar());
+      if (hasAvatar()) {
+        result = result && (getAvatar()
+            == other.getAvatar());
+      }
+      result = result && (hasFrameId() == other.hasFrameId());
+      if (hasFrameId()) {
+        result = result && (getFrameId()
+            == other.getFrameId());
+      }
+      result = result && (hasCrabTimes() == other.hasCrabTimes());
+      if (hasCrabTimes()) {
+        result = result && (getCrabTimes()
+            == other.getCrabTimes());
+      }
+      result = result && (hasBombTimes() == other.hasBombTimes());
+      if (hasBombTimes()) {
+        result = result && (getBombTimes()
+            == other.getBombTimes());
+      }
+      result = result && (hasBalance() == other.hasBalance());
+      if (hasBalance()) {
+        result = result && getBalance()
+            .equals(other.getBalance());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -10010,74 +17800,98 @@ public final class Hbsl {
         hash = (37 * hash) + TIME_FIELD_NUMBER;
         hash = (53 * hash) + getTime().hashCode();
       }
+      if (hasGrade()) {
+        hash = (37 * hash) + GRADE_FIELD_NUMBER;
+        hash = (53 * hash) + getGrade();
+      }
+      if (hasAvatar()) {
+        hash = (37 * hash) + AVATAR_FIELD_NUMBER;
+        hash = (53 * hash) + getAvatar();
+      }
+      if (hasFrameId()) {
+        hash = (37 * hash) + FRAMEID_FIELD_NUMBER;
+        hash = (53 * hash) + getFrameId();
+      }
+      if (hasCrabTimes()) {
+        hash = (37 * hash) + CRABTIMES_FIELD_NUMBER;
+        hash = (53 * hash) + getCrabTimes();
+      }
+      if (hasBombTimes()) {
+        hash = (37 * hash) + BOMBTIMES_FIELD_NUMBER;
+        hash = (53 * hash) + getBombTimes();
+      }
+      if (hasBalance()) {
+        hash = (37 * hash) + BALANCE_FIELD_NUMBER;
+        hash = (53 * hash) + getBalance().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(
+    public static RewardRank parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(
+    public static RewardRank parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(
+    public static RewardRank parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(
+    public static RewardRank parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(byte[] data)
+    public static RewardRank parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(
+    public static RewardRank parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(java.io.InputStream input)
+    public static RewardRank parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(
+    public static RewardRank parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseDelimitedFrom(java.io.InputStream input)
+    public static RewardRank parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseDelimitedFrom(
+    public static RewardRank parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(
+    public static RewardRank parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank parseFrom(
+    public static RewardRank parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -10089,7 +17903,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.RewardRank prototype) {
+    public static Builder newBuilder(RewardRank prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -10097,9 +17911,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -10113,17 +17927,17 @@ public final class Hbsl {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.RewardRank)
-        com.dafagame.protocol.hbsl.Hbsl.RewardRankOrBuilder {
+        RewardRankOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.RewardRank.class, com.dafagame.protocol.hbsl.Hbsl.RewardRank.Builder.class);
+                RewardRank.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.hbsl.Hbsl.RewardRank.newBuilder()
@@ -10132,7 +17946,7 @@ public final class Hbsl {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -10151,28 +17965,40 @@ public final class Hbsl {
         bitField0_ = (bitField0_ & ~0x00000004);
         time_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        grade_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        avatar_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        frameId_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        crabTimes_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        bombTimes_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        balance_ = "";
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RewardRank_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.RewardRank.getDefaultInstance();
+      public RewardRank getDefaultInstanceForType() {
+        return RewardRank.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank build() {
-        com.dafagame.protocol.hbsl.Hbsl.RewardRank result = buildPartial();
+      public RewardRank build() {
+        RewardRank result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RewardRank buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.RewardRank result = new com.dafagame.protocol.hbsl.Hbsl.RewardRank(this);
+      public RewardRank buildPartial() {
+        RewardRank result = new RewardRank(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -10191,6 +18017,30 @@ public final class Hbsl {
           to_bitField0_ |= 0x00000008;
         }
         result.time_ = time_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.grade_ = grade_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.avatar_ = avatar_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.frameId_ = frameId_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.crabTimes_ = crabTimes_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.bombTimes_ = bombTimes_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
+        result.balance_ = balance_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10201,7 +18051,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -10214,25 +18064,25 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.RewardRank) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.RewardRank)other);
+        if (other instanceof RewardRank) {
+          return mergeFrom((RewardRank)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.RewardRank other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.RewardRank.getDefaultInstance()) return this;
+      public Builder mergeFrom(RewardRank other) {
+        if (other == RewardRank.getDefaultInstance()) return this;
         if (other.hasUid()) {
           setUid(other.getUid());
         }
@@ -10251,6 +18101,26 @@ public final class Hbsl {
           time_ = other.time_;
           onChanged();
         }
+        if (other.hasGrade()) {
+          setGrade(other.getGrade());
+        }
+        if (other.hasAvatar()) {
+          setAvatar(other.getAvatar());
+        }
+        if (other.hasFrameId()) {
+          setFrameId(other.getFrameId());
+        }
+        if (other.hasCrabTimes()) {
+          setCrabTimes(other.getCrabTimes());
+        }
+        if (other.hasBombTimes()) {
+          setBombTimes(other.getBombTimes());
+        }
+        if (other.hasBalance()) {
+          bitField0_ |= 0x00000200;
+          balance_ = other.balance_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -10263,9 +18133,6 @@ public final class Hbsl {
         if (!hasNickName()) {
           return false;
         }
-        if (!hasAward()) {
-          return false;
-        }
         return true;
       }
 
@@ -10273,11 +18140,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.RewardRank parsedMessage = null;
+        RewardRank parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.RewardRank) e.getUnfinishedMessage();
+          parsedMessage = (RewardRank) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -10336,7 +18203,7 @@ public final class Hbsl {
         return this;
       }
 
-      private java.lang.Object nickName_ = "";
+      private Object nickName_ = "";
       /**
        * <pre>
        *用户名(昵称)
@@ -10354,18 +18221,18 @@ public final class Hbsl {
        *
        * <code>required string nickName = 2;</code>
        */
-      public java.lang.String getNickName() {
-        java.lang.Object ref = nickName_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getNickName() {
+        Object ref = nickName_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             nickName_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -10377,11 +18244,11 @@ public final class Hbsl {
        */
       public com.google.protobuf.ByteString
           getNickNameBytes() {
-        java.lang.Object ref = nickName_;
+        Object ref = nickName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           nickName_ = b;
           return b;
         } else {
@@ -10396,7 +18263,7 @@ public final class Hbsl {
        * <code>required string nickName = 2;</code>
        */
       public Builder setNickName(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -10436,13 +18303,13 @@ public final class Hbsl {
         return this;
       }
 
-      private java.lang.Object award_ = "";
+      private Object award_ = "";
       /**
        * <pre>
        *获取的金钱
        * </pre>
        *
-       * <code>required string award = 3;</code>
+       * <code>optional string award = 3;</code>
        */
       public boolean hasAward() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
@@ -10452,20 +18319,20 @@ public final class Hbsl {
        *获取的金钱
        * </pre>
        *
-       * <code>required string award = 3;</code>
+       * <code>optional string award = 3;</code>
        */
-      public java.lang.String getAward() {
-        java.lang.Object ref = award_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getAward() {
+        Object ref = award_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             award_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -10473,15 +18340,15 @@ public final class Hbsl {
        *获取的金钱
        * </pre>
        *
-       * <code>required string award = 3;</code>
+       * <code>optional string award = 3;</code>
        */
       public com.google.protobuf.ByteString
           getAwardBytes() {
-        java.lang.Object ref = award_;
+        Object ref = award_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           award_ = b;
           return b;
         } else {
@@ -10493,10 +18360,10 @@ public final class Hbsl {
        *获取的金钱
        * </pre>
        *
-       * <code>required string award = 3;</code>
+       * <code>optional string award = 3;</code>
        */
       public Builder setAward(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -10510,7 +18377,7 @@ public final class Hbsl {
        *获取的金钱
        * </pre>
        *
-       * <code>required string award = 3;</code>
+       * <code>optional string award = 3;</code>
        */
       public Builder clearAward() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -10523,7 +18390,7 @@ public final class Hbsl {
        *获取的金钱
        * </pre>
        *
-       * <code>required string award = 3;</code>
+       * <code>optional string award = 3;</code>
        */
       public Builder setAwardBytes(
           com.google.protobuf.ByteString value) {
@@ -10536,7 +18403,7 @@ public final class Hbsl {
         return this;
       }
 
-      private java.lang.Object time_ = "";
+      private Object time_ = "";
       /**
        * <pre>
        *领取时间
@@ -10554,18 +18421,18 @@ public final class Hbsl {
        *
        * <code>optional string time = 4;</code>
        */
-      public java.lang.String getTime() {
-        java.lang.Object ref = time_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getTime() {
+        Object ref = time_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             time_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -10577,11 +18444,11 @@ public final class Hbsl {
        */
       public com.google.protobuf.ByteString
           getTimeBytes() {
-        java.lang.Object ref = time_;
+        Object ref = time_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           time_ = b;
           return b;
         } else {
@@ -10596,7 +18463,7 @@ public final class Hbsl {
        * <code>optional string time = 4;</code>
        */
       public Builder setTime(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -10635,6 +18502,346 @@ public final class Hbsl {
         onChanged();
         return this;
       }
+
+      private int grade_ ;
+      /**
+       * <pre>
+       *玩家vip等级
+       * </pre>
+       *
+       * <code>optional int32 grade = 5;</code>
+       */
+      public boolean hasGrade() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       *玩家vip等级
+       * </pre>
+       *
+       * <code>optional int32 grade = 5;</code>
+       */
+      public int getGrade() {
+        return grade_;
+      }
+      /**
+       * <pre>
+       *玩家vip等级
+       * </pre>
+       *
+       * <code>optional int32 grade = 5;</code>
+       */
+      public Builder setGrade(int value) {
+        bitField0_ |= 0x00000010;
+        grade_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家vip等级
+       * </pre>
+       *
+       * <code>optional int32 grade = 5;</code>
+       */
+      public Builder clearGrade() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        grade_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int avatar_ ;
+      /**
+       * <pre>
+       *玩家头像
+       * </pre>
+       *
+       * <code>optional int32 avatar = 6;</code>
+       */
+      public boolean hasAvatar() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       *玩家头像
+       * </pre>
+       *
+       * <code>optional int32 avatar = 6;</code>
+       */
+      public int getAvatar() {
+        return avatar_;
+      }
+      /**
+       * <pre>
+       *玩家头像
+       * </pre>
+       *
+       * <code>optional int32 avatar = 6;</code>
+       */
+      public Builder setAvatar(int value) {
+        bitField0_ |= 0x00000020;
+        avatar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *玩家头像
+       * </pre>
+       *
+       * <code>optional int32 avatar = 6;</code>
+       */
+      public Builder clearAvatar() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        avatar_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int frameId_ ;
+      /**
+       * <pre>
+       *相框id
+       * </pre>
+       *
+       * <code>optional int32 frameId = 7;</code>
+       */
+      public boolean hasFrameId() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <pre>
+       *相框id
+       * </pre>
+       *
+       * <code>optional int32 frameId = 7;</code>
+       */
+      public int getFrameId() {
+        return frameId_;
+      }
+      /**
+       * <pre>
+       *相框id
+       * </pre>
+       *
+       * <code>optional int32 frameId = 7;</code>
+       */
+      public Builder setFrameId(int value) {
+        bitField0_ |= 0x00000040;
+        frameId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *相框id
+       * </pre>
+       *
+       * <code>optional int32 frameId = 7;</code>
+       */
+      public Builder clearFrameId() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        frameId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int crabTimes_ ;
+      /**
+       * <pre>
+       *抢红包次数
+       * </pre>
+       *
+       * <code>optional int32 crabTimes = 8;</code>
+       */
+      public boolean hasCrabTimes() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <pre>
+       *抢红包次数
+       * </pre>
+       *
+       * <code>optional int32 crabTimes = 8;</code>
+       */
+      public int getCrabTimes() {
+        return crabTimes_;
+      }
+      /**
+       * <pre>
+       *抢红包次数
+       * </pre>
+       *
+       * <code>optional int32 crabTimes = 8;</code>
+       */
+      public Builder setCrabTimes(int value) {
+        bitField0_ |= 0x00000080;
+        crabTimes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *抢红包次数
+       * </pre>
+       *
+       * <code>optional int32 crabTimes = 8;</code>
+       */
+      public Builder clearCrabTimes() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        crabTimes_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int bombTimes_ ;
+      /**
+       * <pre>
+       *踩雷次数
+       * </pre>
+       *
+       * <code>optional int32 bombTimes = 9;</code>
+       */
+      public boolean hasBombTimes() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <pre>
+       *踩雷次数
+       * </pre>
+       *
+       * <code>optional int32 bombTimes = 9;</code>
+       */
+      public int getBombTimes() {
+        return bombTimes_;
+      }
+      /**
+       * <pre>
+       *踩雷次数
+       * </pre>
+       *
+       * <code>optional int32 bombTimes = 9;</code>
+       */
+      public Builder setBombTimes(int value) {
+        bitField0_ |= 0x00000100;
+        bombTimes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *踩雷次数
+       * </pre>
+       *
+       * <code>optional int32 bombTimes = 9;</code>
+       */
+      public Builder clearBombTimes() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        bombTimes_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private Object balance_ = "";
+      /**
+       * <pre>
+       *账户余额
+       * </pre>
+       *
+       * <code>optional string balance = 10;</code>
+       */
+      public boolean hasBalance() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <pre>
+       *账户余额
+       * </pre>
+       *
+       * <code>optional string balance = 10;</code>
+       */
+      public String getBalance() {
+        Object ref = balance_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            balance_ = s;
+          }
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *账户余额
+       * </pre>
+       *
+       * <code>optional string balance = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getBalanceBytes() {
+        Object ref = balance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          balance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *账户余额
+       * </pre>
+       *
+       * <code>optional string balance = 10;</code>
+       */
+      public Builder setBalance(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *账户余额
+       * </pre>
+       *
+       * <code>optional string balance = 10;</code>
+       */
+      public Builder clearBalance() {
+        bitField0_ = (bitField0_ & ~0x00000200);
+        balance_ = getDefaultInstance().getBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *账户余额
+       * </pre>
+       *
+       * <code>optional string balance = 10;</code>
+       */
+      public Builder setBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -10650,16 +18857,16 @@ public final class Hbsl {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.RewardRank)
-    private static final com.dafagame.protocol.hbsl.Hbsl.RewardRank DEFAULT_INSTANCE;
+    private static final RewardRank DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.RewardRank();
+      DEFAULT_INSTANCE = new RewardRank();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RewardRank getDefaultInstance() {
+    public static RewardRank getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RewardRank>
+    @Deprecated public static final com.google.protobuf.Parser<RewardRank>
         PARSER = new com.google.protobuf.AbstractParser<RewardRank>() {
       public RewardRank parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -10673,12 +18880,12 @@ public final class Hbsl {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RewardRank> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.RewardRank getDefaultInstanceForType() {
+    public RewardRank getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -10746,7 +18953,7 @@ public final class Hbsl {
      *
      * <code>repeated int32 bombNumber = 4;</code>
      */
-    java.util.List<java.lang.Integer> getBombNumberList();
+    java.util.List<Integer> getBombNumberList();
     /**
      * <pre>
      *雷数  -1到9 -1 没有 其他为尾数
@@ -10771,7 +18978,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
      */
-    java.util.List<com.dafagame.protocol.hbsl.Hbsl.RedInfo> 
+    java.util.List<RedInfo>
         getInfoListList();
     /**
      * <pre>
@@ -10780,7 +18987,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.RedInfo getInfoList(int index);
+    RedInfo getInfoList(int index);
     /**
      * <pre>
      *红包的模版
@@ -10796,7 +19003,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
      */
-    java.util.List<? extends com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder> 
+    java.util.List<? extends RedInfoOrBuilder>
         getInfoListOrBuilderList();
     /**
      * <pre>
@@ -10805,8 +19012,8 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
      */
-    com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder getInfoListOrBuilder(
-        int index);
+    RedInfoOrBuilder getInfoListOrBuilder(
+            int index);
 
     /**
      * <pre>
@@ -10864,7 +19071,7 @@ public final class Hbsl {
       maxRepeated_ = 0;
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -10909,7 +19116,7 @@ public final class Hbsl {
             }
             case 32: {
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                bombNumber_ = new java.util.ArrayList<java.lang.Integer>();
+                bombNumber_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000008;
               }
               bombNumber_.add(input.readInt32());
@@ -10919,7 +19126,7 @@ public final class Hbsl {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
-                bombNumber_ = new java.util.ArrayList<java.lang.Integer>();
+                bombNumber_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000008;
               }
               while (input.getBytesUntilLimit() > 0) {
@@ -10930,11 +19137,11 @@ public final class Hbsl {
             }
             case 42: {
               if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                infoList_ = new java.util.ArrayList<com.dafagame.protocol.hbsl.Hbsl.RedInfo>();
+                infoList_ = new java.util.ArrayList<RedInfo>();
                 mutable_bitField0_ |= 0x00000010;
               }
               infoList_.add(
-                  input.readMessage(com.dafagame.protocol.hbsl.Hbsl.RedInfo.PARSER, extensionRegistry));
+                  input.readMessage(RedInfo.PARSER, extensionRegistry));
               break;
             }
             case 48: {
@@ -10967,14 +19174,14 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.class, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.Builder.class);
+              RedEnvelopeConf.class, Builder.class);
     }
 
     private int bitField0_;
@@ -11048,7 +19255,7 @@ public final class Hbsl {
     }
 
     public static final int BOMBNUMBER_FIELD_NUMBER = 4;
-    private java.util.List<java.lang.Integer> bombNumber_;
+    private java.util.List<Integer> bombNumber_;
     /**
      * <pre>
      *雷数  -1到9 -1 没有 其他为尾数
@@ -11056,7 +19263,7 @@ public final class Hbsl {
      *
      * <code>repeated int32 bombNumber = 4;</code>
      */
-    public java.util.List<java.lang.Integer>
+    public java.util.List<Integer>
         getBombNumberList() {
       return bombNumber_;
     }
@@ -11082,7 +19289,7 @@ public final class Hbsl {
     }
 
     public static final int INFOLIST_FIELD_NUMBER = 5;
-    private java.util.List<com.dafagame.protocol.hbsl.Hbsl.RedInfo> infoList_;
+    private java.util.List<RedInfo> infoList_;
     /**
      * <pre>
      *红包的模版
@@ -11090,7 +19297,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
      */
-    public java.util.List<com.dafagame.protocol.hbsl.Hbsl.RedInfo> getInfoListList() {
+    public java.util.List<RedInfo> getInfoListList() {
       return infoList_;
     }
     /**
@@ -11100,7 +19307,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
      */
-    public java.util.List<? extends com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder> 
+    public java.util.List<? extends RedInfoOrBuilder>
         getInfoListOrBuilderList() {
       return infoList_;
     }
@@ -11121,7 +19328,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.RedInfo getInfoList(int index) {
+    public RedInfo getInfoList(int index) {
       return infoList_.get(index);
     }
     /**
@@ -11131,7 +19338,7 @@ public final class Hbsl {
      *
      * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
      */
-    public com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder getInfoListOrBuilder(
+    public RedInfoOrBuilder getInfoListOrBuilder(
         int index) {
       return infoList_.get(index);
     }
@@ -11287,15 +19494,15 @@ public final class Hbsl {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf)) {
+      if (!(obj instanceof RedEnvelopeConf)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf other = (com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf) obj;
+      RedEnvelopeConf other = (RedEnvelopeConf) obj;
 
       boolean result = true;
       result = result && (hasMinMoney() == other.hasMinMoney());
@@ -11331,7 +19538,7 @@ public final class Hbsl {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -11371,69 +19578,69 @@ public final class Hbsl {
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(
+    public static RedEnvelopeConf parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(
+    public static RedEnvelopeConf parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(
+    public static RedEnvelopeConf parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(
+    public static RedEnvelopeConf parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(byte[] data)
+    public static RedEnvelopeConf parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(
+    public static RedEnvelopeConf parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(java.io.InputStream input)
+    public static RedEnvelopeConf parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(
+    public static RedEnvelopeConf parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseDelimitedFrom(java.io.InputStream input)
+    public static RedEnvelopeConf parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseDelimitedFrom(
+    public static RedEnvelopeConf parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(
+    public static RedEnvelopeConf parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parseFrom(
+    public static RedEnvelopeConf parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11445,7 +19652,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf prototype) {
+    public static Builder newBuilder(RedEnvelopeConf prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -11453,9 +19660,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -11465,17 +19672,17 @@ public final class Hbsl {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.RedEnvelopeConf)
-        com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConfOrBuilder {
+        RedEnvelopeConfOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.class, com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.Builder.class);
+                RedEnvelopeConf.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.newBuilder()
@@ -11484,7 +19691,7 @@ public final class Hbsl {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -11519,23 +19726,23 @@ public final class Hbsl {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.getDefaultInstance();
+      public RedEnvelopeConf getDefaultInstanceForType() {
+        return RedEnvelopeConf.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf build() {
-        com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf result = buildPartial();
+      public RedEnvelopeConf build() {
+        RedEnvelopeConf result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf result = new com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf(this);
+      public RedEnvelopeConf buildPartial() {
+        RedEnvelopeConf result = new RedEnvelopeConf(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -11582,7 +19789,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -11595,25 +19802,25 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf)other);
+        if (other instanceof RedEnvelopeConf) {
+          return mergeFrom((RedEnvelopeConf)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf.getDefaultInstance()) return this;
+      public Builder mergeFrom(RedEnvelopeConf other) {
+        if (other == RedEnvelopeConf.getDefaultInstance()) return this;
         if (other.hasMinMoney()) {
           setMinMoney(other.getMinMoney());
         }
@@ -11698,11 +19905,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf parsedMessage = null;
+        RedEnvelopeConf parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf) e.getUnfinishedMessage();
+          parsedMessage = (RedEnvelopeConf) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -11857,10 +20064,10 @@ public final class Hbsl {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> bombNumber_ = java.util.Collections.emptyList();
+      private java.util.List<Integer> bombNumber_ = java.util.Collections.emptyList();
       private void ensureBombNumberIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          bombNumber_ = new java.util.ArrayList<java.lang.Integer>(bombNumber_);
+          bombNumber_ = new java.util.ArrayList<Integer>(bombNumber_);
           bitField0_ |= 0x00000008;
          }
       }
@@ -11871,7 +20078,7 @@ public final class Hbsl {
        *
        * <code>repeated int32 bombNumber = 4;</code>
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<Integer>
           getBombNumberList() {
         return java.util.Collections.unmodifiableList(bombNumber_);
       }
@@ -11930,7 +20137,7 @@ public final class Hbsl {
        * <code>repeated int32 bombNumber = 4;</code>
        */
       public Builder addAllBombNumber(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+          Iterable<? extends Integer> values) {
         ensureBombNumberIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, bombNumber_);
@@ -11951,17 +20158,17 @@ public final class Hbsl {
         return this;
       }
 
-      private java.util.List<com.dafagame.protocol.hbsl.Hbsl.RedInfo> infoList_ =
+      private java.util.List<RedInfo> infoList_ =
         java.util.Collections.emptyList();
       private void ensureInfoListIsMutable() {
         if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          infoList_ = new java.util.ArrayList<com.dafagame.protocol.hbsl.Hbsl.RedInfo>(infoList_);
+          infoList_ = new java.util.ArrayList<RedInfo>(infoList_);
           bitField0_ |= 0x00000010;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RedInfo, com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder, com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder> infoListBuilder_;
+          RedInfo, RedInfo.Builder, RedInfoOrBuilder> infoListBuilder_;
 
       /**
        * <pre>
@@ -11970,7 +20177,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
-      public java.util.List<com.dafagame.protocol.hbsl.Hbsl.RedInfo> getInfoListList() {
+      public java.util.List<RedInfo> getInfoListList() {
         if (infoListBuilder_ == null) {
           return java.util.Collections.unmodifiableList(infoList_);
         } else {
@@ -11998,7 +20205,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedInfo getInfoList(int index) {
+      public RedInfo getInfoList(int index) {
         if (infoListBuilder_ == null) {
           return infoList_.get(index);
         } else {
@@ -12013,7 +20220,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
       public Builder setInfoList(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RedInfo value) {
+          int index, RedInfo value) {
         if (infoListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12034,7 +20241,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
       public Builder setInfoList(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder builderForValue) {
+          int index, RedInfo.Builder builderForValue) {
         if (infoListBuilder_ == null) {
           ensureInfoListIsMutable();
           infoList_.set(index, builderForValue.build());
@@ -12051,7 +20258,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
-      public Builder addInfoList(com.dafagame.protocol.hbsl.Hbsl.RedInfo value) {
+      public Builder addInfoList(RedInfo value) {
         if (infoListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12072,7 +20279,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
       public Builder addInfoList(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RedInfo value) {
+          int index, RedInfo value) {
         if (infoListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -12093,7 +20300,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
       public Builder addInfoList(
-          com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder builderForValue) {
+          RedInfo.Builder builderForValue) {
         if (infoListBuilder_ == null) {
           ensureInfoListIsMutable();
           infoList_.add(builderForValue.build());
@@ -12111,7 +20318,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
       public Builder addInfoList(
-          int index, com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder builderForValue) {
+          int index, RedInfo.Builder builderForValue) {
         if (infoListBuilder_ == null) {
           ensureInfoListIsMutable();
           infoList_.add(index, builderForValue.build());
@@ -12129,7 +20336,7 @@ public final class Hbsl {
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
       public Builder addAllInfoList(
-          java.lang.Iterable<? extends com.dafagame.protocol.hbsl.Hbsl.RedInfo> values) {
+          Iterable<? extends RedInfo> values) {
         if (infoListBuilder_ == null) {
           ensureInfoListIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -12181,7 +20388,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder getInfoListBuilder(
+      public RedInfo.Builder getInfoListBuilder(
           int index) {
         return getInfoListFieldBuilder().getBuilder(index);
       }
@@ -12192,7 +20399,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder getInfoListOrBuilder(
+      public RedInfoOrBuilder getInfoListOrBuilder(
           int index) {
         if (infoListBuilder_ == null) {
           return infoList_.get(index);  } else {
@@ -12206,7 +20413,7 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
-      public java.util.List<? extends com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder> 
+      public java.util.List<? extends RedInfoOrBuilder>
            getInfoListOrBuilderList() {
         if (infoListBuilder_ != null) {
           return infoListBuilder_.getMessageOrBuilderList();
@@ -12221,9 +20428,9 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder addInfoListBuilder() {
+      public RedInfo.Builder addInfoListBuilder() {
         return getInfoListFieldBuilder().addBuilder(
-            com.dafagame.protocol.hbsl.Hbsl.RedInfo.getDefaultInstance());
+            RedInfo.getDefaultInstance());
       }
       /**
        * <pre>
@@ -12232,10 +20439,10 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
-      public com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder addInfoListBuilder(
+      public RedInfo.Builder addInfoListBuilder(
           int index) {
         return getInfoListFieldBuilder().addBuilder(
-            index, com.dafagame.protocol.hbsl.Hbsl.RedInfo.getDefaultInstance());
+            index, RedInfo.getDefaultInstance());
       }
       /**
        * <pre>
@@ -12244,16 +20451,16 @@ public final class Hbsl {
        *
        * <code>repeated .com.dafagame.protocol.hbsl.RedInfo infoList = 5;</code>
        */
-      public java.util.List<com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder> 
+      public java.util.List<RedInfo.Builder>
            getInfoListBuilderList() {
         return getInfoListFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.dafagame.protocol.hbsl.Hbsl.RedInfo, com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder, com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder> 
+          RedInfo, RedInfo.Builder, RedInfoOrBuilder>
           getInfoListFieldBuilder() {
         if (infoListBuilder_ == null) {
           infoListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.dafagame.protocol.hbsl.Hbsl.RedInfo, com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder, com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder>(
+              RedInfo, RedInfo.Builder, RedInfoOrBuilder>(
                   infoList_,
                   ((bitField0_ & 0x00000010) == 0x00000010),
                   getParentForChildren(),
@@ -12373,16 +20580,16 @@ public final class Hbsl {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.RedEnvelopeConf)
-    private static final com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf DEFAULT_INSTANCE;
+    private static final RedEnvelopeConf DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf();
+      DEFAULT_INSTANCE = new RedEnvelopeConf();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf getDefaultInstance() {
+    public static RedEnvelopeConf getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RedEnvelopeConf>
+    @Deprecated public static final com.google.protobuf.Parser<RedEnvelopeConf>
         PARSER = new com.google.protobuf.AbstractParser<RedEnvelopeConf>() {
       public RedEnvelopeConf parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -12396,12 +20603,12 @@ public final class Hbsl {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RedEnvelopeConf> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.RedEnvelopeConf getDefaultInstanceForType() {
+    public RedEnvelopeConf getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12443,7 +20650,7 @@ public final class Hbsl {
      *
      * <code>required string multiple = 2;</code>
      */
-    java.lang.String getMultiple();
+    String getMultiple();
     /**
      * <pre>
      *赔付倍数
@@ -12471,7 +20678,7 @@ public final class Hbsl {
       multiple_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -12524,14 +20731,14 @@ public final class Hbsl {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_descriptor;
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_fieldAccessorTable
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.dafagame.protocol.hbsl.Hbsl.RedInfo.class, com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder.class);
+              RedInfo.class, Builder.class);
     }
 
     private int bitField0_;
@@ -12559,7 +20766,7 @@ public final class Hbsl {
     }
 
     public static final int MULTIPLE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object multiple_;
+    private volatile Object multiple_;
     /**
      * <pre>
      *赔付倍数
@@ -12577,14 +20784,14 @@ public final class Hbsl {
      *
      * <code>required string multiple = 2;</code>
      */
-    public java.lang.String getMultiple() {
-      java.lang.Object ref = multiple_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getMultiple() {
+      Object ref = multiple_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
           multiple_ = s;
         }
@@ -12600,11 +20807,11 @@ public final class Hbsl {
      */
     public com.google.protobuf.ByteString
         getMultipleBytes() {
-      java.lang.Object ref = multiple_;
-      if (ref instanceof java.lang.String) {
+      Object ref = multiple_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         multiple_ = b;
         return b;
       } else {
@@ -12658,15 +20865,15 @@ public final class Hbsl {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.dafagame.protocol.hbsl.Hbsl.RedInfo)) {
+      if (!(obj instanceof RedInfo)) {
         return super.equals(obj);
       }
-      com.dafagame.protocol.hbsl.Hbsl.RedInfo other = (com.dafagame.protocol.hbsl.Hbsl.RedInfo) obj;
+      RedInfo other = (RedInfo) obj;
 
       boolean result = true;
       result = result && (hasRepeated() == other.hasRepeated());
@@ -12683,7 +20890,7 @@ public final class Hbsl {
       return result;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -12703,69 +20910,69 @@ public final class Hbsl {
       return hash;
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(
+    public static RedInfo parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(
+    public static RedInfo parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(
+    public static RedInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(
+    public static RedInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(byte[] data)
+    public static RedInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(
+    public static RedInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(java.io.InputStream input)
+    public static RedInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(
+    public static RedInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseDelimitedFrom(java.io.InputStream input)
+    public static RedInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseDelimitedFrom(
+    public static RedInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(
+    public static RedInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo parseFrom(
+    public static RedInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12777,7 +20984,7 @@ public final class Hbsl {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.dafagame.protocol.hbsl.Hbsl.RedInfo prototype) {
+    public static Builder newBuilder(RedInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -12785,9 +20992,9 @@ public final class Hbsl {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -12797,17 +21004,17 @@ public final class Hbsl {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.RedInfo)
-        com.dafagame.protocol.hbsl.Hbsl.RedInfoOrBuilder {
+        RedInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_fieldAccessorTable
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.dafagame.protocol.hbsl.Hbsl.RedInfo.class, com.dafagame.protocol.hbsl.Hbsl.RedInfo.Builder.class);
+                RedInfo.class, Builder.class);
       }
 
       // Construct using com.dafagame.protocol.hbsl.Hbsl.RedInfo.newBuilder()
@@ -12816,7 +21023,7 @@ public final class Hbsl {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -12836,23 +21043,23 @@ public final class Hbsl {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_descriptor;
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_RedInfo_descriptor;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RedInfo getDefaultInstanceForType() {
-        return com.dafagame.protocol.hbsl.Hbsl.RedInfo.getDefaultInstance();
+      public RedInfo getDefaultInstanceForType() {
+        return RedInfo.getDefaultInstance();
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RedInfo build() {
-        com.dafagame.protocol.hbsl.Hbsl.RedInfo result = buildPartial();
+      public RedInfo build() {
+        RedInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.dafagame.protocol.hbsl.Hbsl.RedInfo buildPartial() {
-        com.dafagame.protocol.hbsl.Hbsl.RedInfo result = new com.dafagame.protocol.hbsl.Hbsl.RedInfo(this);
+      public RedInfo buildPartial() {
+        RedInfo result = new RedInfo(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12873,7 +21080,7 @@ public final class Hbsl {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -12886,25 +21093,25 @@ public final class Hbsl {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.dafagame.protocol.hbsl.Hbsl.RedInfo) {
-          return mergeFrom((com.dafagame.protocol.hbsl.Hbsl.RedInfo)other);
+        if (other instanceof RedInfo) {
+          return mergeFrom((RedInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.dafagame.protocol.hbsl.Hbsl.RedInfo other) {
-        if (other == com.dafagame.protocol.hbsl.Hbsl.RedInfo.getDefaultInstance()) return this;
+      public Builder mergeFrom(RedInfo other) {
+        if (other == RedInfo.getDefaultInstance()) return this;
         if (other.hasRepeated()) {
           setRepeated(other.getRepeated());
         }
@@ -12932,11 +21139,11 @@ public final class Hbsl {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.dafagame.protocol.hbsl.Hbsl.RedInfo parsedMessage = null;
+        RedInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.dafagame.protocol.hbsl.Hbsl.RedInfo) e.getUnfinishedMessage();
+          parsedMessage = (RedInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -12995,7 +21202,7 @@ public final class Hbsl {
         return this;
       }
 
-      private java.lang.Object multiple_ = "";
+      private Object multiple_ = "";
       /**
        * <pre>
        *赔付倍数
@@ -13013,18 +21220,18 @@ public final class Hbsl {
        *
        * <code>required string multiple = 2;</code>
        */
-      public java.lang.String getMultiple() {
-        java.lang.Object ref = multiple_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getMultiple() {
+        Object ref = multiple_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           if (bs.isValidUtf8()) {
             multiple_ = s;
           }
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -13036,11 +21243,11 @@ public final class Hbsl {
        */
       public com.google.protobuf.ByteString
           getMultipleBytes() {
-        java.lang.Object ref = multiple_;
+        Object ref = multiple_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           multiple_ = b;
           return b;
         } else {
@@ -13055,7 +21262,7 @@ public final class Hbsl {
        * <code>required string multiple = 2;</code>
        */
       public Builder setMultiple(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -13109,16 +21316,16 @@ public final class Hbsl {
     }
 
     // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.RedInfo)
-    private static final com.dafagame.protocol.hbsl.Hbsl.RedInfo DEFAULT_INSTANCE;
+    private static final RedInfo DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.dafagame.protocol.hbsl.Hbsl.RedInfo();
+      DEFAULT_INSTANCE = new RedInfo();
     }
 
-    public static com.dafagame.protocol.hbsl.Hbsl.RedInfo getDefaultInstance() {
+    public static RedInfo getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<RedInfo>
+    @Deprecated public static final com.google.protobuf.Parser<RedInfo>
         PARSER = new com.google.protobuf.AbstractParser<RedInfo>() {
       public RedInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -13132,22 +21339,1631 @@ public final class Hbsl {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RedInfo> getParserForType() {
       return PARSER;
     }
 
-    public com.dafagame.protocol.hbsl.Hbsl.RedInfo getDefaultInstanceForType() {
+    public RedInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface OnlinePlayerReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.OnlinePlayerReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 page = 1;</code>
+     */
+    boolean hasPage();
+    /**
+     * <code>required int32 page = 1;</code>
+     */
+    int getPage();
+
+    /**
+     * <code>required int32 pageSize = 2;</code>
+     */
+    boolean hasPageSize();
+    /**
+     * <code>required int32 pageSize = 2;</code>
+     */
+    int getPageSize();
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.hbsl.OnlinePlayerReq}
+   */
+  public  static final class OnlinePlayerReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.OnlinePlayerReq)
+      OnlinePlayerReqOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use OnlinePlayerReq.newBuilder() to construct.
+    private OnlinePlayerReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private OnlinePlayerReq() {
+      page_ = 0;
+      pageSize_ = 0;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OnlinePlayerReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              page_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              pageSize_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              OnlinePlayerReq.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int PAGE_FIELD_NUMBER = 1;
+    private int page_;
+    /**
+     * <code>required int32 page = 1;</code>
+     */
+    public boolean hasPage() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 page = 1;</code>
+     */
+    public int getPage() {
+      return page_;
+    }
+
+    public static final int PAGESIZE_FIELD_NUMBER = 2;
+    private int pageSize_;
+    /**
+     * <code>required int32 pageSize = 2;</code>
+     */
+    public boolean hasPageSize() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 pageSize = 2;</code>
+     */
+    public int getPageSize() {
+      return pageSize_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasPage()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPageSize()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, page_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, pageSize_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, page_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, pageSize_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof OnlinePlayerReq)) {
+        return super.equals(obj);
+      }
+      OnlinePlayerReq other = (OnlinePlayerReq) obj;
+
+      boolean result = true;
+      result = result && (hasPage() == other.hasPage());
+      if (hasPage()) {
+        result = result && (getPage()
+            == other.getPage());
+      }
+      result = result && (hasPageSize() == other.hasPageSize());
+      if (hasPageSize()) {
+        result = result && (getPageSize()
+            == other.getPageSize());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPage()) {
+        hash = (37 * hash) + PAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getPage();
+      }
+      if (hasPageSize()) {
+        hash = (37 * hash) + PAGESIZE_FIELD_NUMBER;
+        hash = (53 * hash) + getPageSize();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static OnlinePlayerReq parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static OnlinePlayerReq parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static OnlinePlayerReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static OnlinePlayerReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static OnlinePlayerReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static OnlinePlayerReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static OnlinePlayerReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static OnlinePlayerReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static OnlinePlayerReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static OnlinePlayerReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static OnlinePlayerReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static OnlinePlayerReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(OnlinePlayerReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.hbsl.OnlinePlayerReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.OnlinePlayerReq)
+        OnlinePlayerReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                OnlinePlayerReq.class, Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.OnlinePlayerReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        page_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        pageSize_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_descriptor;
+      }
+
+      public OnlinePlayerReq getDefaultInstanceForType() {
+        return OnlinePlayerReq.getDefaultInstance();
+      }
+
+      public OnlinePlayerReq build() {
+        OnlinePlayerReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public OnlinePlayerReq buildPartial() {
+        OnlinePlayerReq result = new OnlinePlayerReq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.page_ = page_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.pageSize_ = pageSize_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof OnlinePlayerReq) {
+          return mergeFrom((OnlinePlayerReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(OnlinePlayerReq other) {
+        if (other == OnlinePlayerReq.getDefaultInstance()) return this;
+        if (other.hasPage()) {
+          setPage(other.getPage());
+        }
+        if (other.hasPageSize()) {
+          setPageSize(other.getPageSize());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasPage()) {
+          return false;
+        }
+        if (!hasPageSize()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        OnlinePlayerReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (OnlinePlayerReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int page_ ;
+      /**
+       * <code>required int32 page = 1;</code>
+       */
+      public boolean hasPage() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 page = 1;</code>
+       */
+      public int getPage() {
+        return page_;
+      }
+      /**
+       * <code>required int32 page = 1;</code>
+       */
+      public Builder setPage(int value) {
+        bitField0_ |= 0x00000001;
+        page_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 page = 1;</code>
+       */
+      public Builder clearPage() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        page_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int pageSize_ ;
+      /**
+       * <code>required int32 pageSize = 2;</code>
+       */
+      public boolean hasPageSize() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 pageSize = 2;</code>
+       */
+      public int getPageSize() {
+        return pageSize_;
+      }
+      /**
+       * <code>required int32 pageSize = 2;</code>
+       */
+      public Builder setPageSize(int value) {
+        bitField0_ |= 0x00000002;
+        pageSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 pageSize = 2;</code>
+       */
+      public Builder clearPageSize() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        pageSize_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.OnlinePlayerReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.OnlinePlayerReq)
+    private static final OnlinePlayerReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new OnlinePlayerReq();
+    }
+
+    public static OnlinePlayerReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @Deprecated public static final com.google.protobuf.Parser<OnlinePlayerReq>
+        PARSER = new com.google.protobuf.AbstractParser<OnlinePlayerReq>() {
+      public OnlinePlayerReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new OnlinePlayerReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<OnlinePlayerReq> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<OnlinePlayerReq> getParserForType() {
+      return PARSER;
+    }
+
+    public OnlinePlayerReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface OnlinePlayerResOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.dafagame.protocol.hbsl.OnlinePlayerRes)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *错误码
+     * </pre>
+     *
+     * <code>required int32 code = 1;</code>
+     */
+    boolean hasCode();
+    /**
+     * <pre>
+     *错误码
+     * </pre>
+     *
+     * <code>required int32 code = 1;</code>
+     */
+    int getCode();
+
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    java.util.List<RewardRank>
+        getRanksList();
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    RewardRank getRanks(int index);
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    int getRanksCount();
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    java.util.List<? extends RewardRankOrBuilder>
+        getRanksOrBuilderList();
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    RewardRankOrBuilder getRanksOrBuilder(
+            int index);
+  }
+  /**
+   * Protobuf type {@code com.dafagame.protocol.hbsl.OnlinePlayerRes}
+   */
+  public  static final class OnlinePlayerRes extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.dafagame.protocol.hbsl.OnlinePlayerRes)
+      OnlinePlayerResOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use OnlinePlayerRes.newBuilder() to construct.
+    private OnlinePlayerRes(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private OnlinePlayerRes() {
+      code_ = 0;
+      ranks_ = java.util.Collections.emptyList();
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OnlinePlayerRes(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              code_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                ranks_ = new java.util.ArrayList<RewardRank>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              ranks_.add(
+                  input.readMessage(RewardRank.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          ranks_ = java.util.Collections.unmodifiableList(ranks_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              OnlinePlayerRes.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int CODE_FIELD_NUMBER = 1;
+    private int code_;
+    /**
+     * <pre>
+     *错误码
+     * </pre>
+     *
+     * <code>required int32 code = 1;</code>
+     */
+    public boolean hasCode() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *错误码
+     * </pre>
+     *
+     * <code>required int32 code = 1;</code>
+     */
+    public int getCode() {
+      return code_;
+    }
+
+    public static final int RANKS_FIELD_NUMBER = 2;
+    private java.util.List<RewardRank> ranks_;
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    public java.util.List<RewardRank> getRanksList() {
+      return ranks_;
+    }
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    public java.util.List<? extends RewardRankOrBuilder>
+        getRanksOrBuilderList() {
+      return ranks_;
+    }
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    public int getRanksCount() {
+      return ranks_.size();
+    }
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    public RewardRank getRanks(int index) {
+      return ranks_.get(index);
+    }
+    /**
+     * <pre>
+     *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+     * </pre>
+     *
+     * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+     */
+    public RewardRankOrBuilder getRanksOrBuilder(
+        int index) {
+      return ranks_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getRanksCount(); i++) {
+        if (!getRanks(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, code_);
+      }
+      for (int i = 0; i < ranks_.size(); i++) {
+        output.writeMessage(2, ranks_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, code_);
+      }
+      for (int i = 0; i < ranks_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, ranks_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof OnlinePlayerRes)) {
+        return super.equals(obj);
+      }
+      OnlinePlayerRes other = (OnlinePlayerRes) obj;
+
+      boolean result = true;
+      result = result && (hasCode() == other.hasCode());
+      if (hasCode()) {
+        result = result && (getCode()
+            == other.getCode());
+      }
+      result = result && getRanksList()
+          .equals(other.getRanksList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCode()) {
+        hash = (37 * hash) + CODE_FIELD_NUMBER;
+        hash = (53 * hash) + getCode();
+      }
+      if (getRanksCount() > 0) {
+        hash = (37 * hash) + RANKS_FIELD_NUMBER;
+        hash = (53 * hash) + getRanksList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static OnlinePlayerRes parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static OnlinePlayerRes parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static OnlinePlayerRes parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static OnlinePlayerRes parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static OnlinePlayerRes parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static OnlinePlayerRes parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static OnlinePlayerRes parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static OnlinePlayerRes parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static OnlinePlayerRes parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static OnlinePlayerRes parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static OnlinePlayerRes parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static OnlinePlayerRes parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(OnlinePlayerRes prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.dafagame.protocol.hbsl.OnlinePlayerRes}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.dafagame.protocol.hbsl.OnlinePlayerRes)
+        OnlinePlayerResOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                OnlinePlayerRes.class, Builder.class);
+      }
+
+      // Construct using com.dafagame.protocol.hbsl.Hbsl.OnlinePlayerRes.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRanksFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        code_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (ranksBuilder_ == null) {
+          ranks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          ranksBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Hbsl.internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_descriptor;
+      }
+
+      public OnlinePlayerRes getDefaultInstanceForType() {
+        return OnlinePlayerRes.getDefaultInstance();
+      }
+
+      public OnlinePlayerRes build() {
+        OnlinePlayerRes result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public OnlinePlayerRes buildPartial() {
+        OnlinePlayerRes result = new OnlinePlayerRes(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.code_ = code_;
+        if (ranksBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            ranks_ = java.util.Collections.unmodifiableList(ranks_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.ranks_ = ranks_;
+        } else {
+          result.ranks_ = ranksBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof OnlinePlayerRes) {
+          return mergeFrom((OnlinePlayerRes)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(OnlinePlayerRes other) {
+        if (other == OnlinePlayerRes.getDefaultInstance()) return this;
+        if (other.hasCode()) {
+          setCode(other.getCode());
+        }
+        if (ranksBuilder_ == null) {
+          if (!other.ranks_.isEmpty()) {
+            if (ranks_.isEmpty()) {
+              ranks_ = other.ranks_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureRanksIsMutable();
+              ranks_.addAll(other.ranks_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.ranks_.isEmpty()) {
+            if (ranksBuilder_.isEmpty()) {
+              ranksBuilder_.dispose();
+              ranksBuilder_ = null;
+              ranks_ = other.ranks_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              ranksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRanksFieldBuilder() : null;
+            } else {
+              ranksBuilder_.addAllMessages(other.ranks_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasCode()) {
+          return false;
+        }
+        for (int i = 0; i < getRanksCount(); i++) {
+          if (!getRanks(i).isInitialized()) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        OnlinePlayerRes parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (OnlinePlayerRes) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int code_ ;
+      /**
+       * <pre>
+       *错误码
+       * </pre>
+       *
+       * <code>required int32 code = 1;</code>
+       */
+      public boolean hasCode() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *错误码
+       * </pre>
+       *
+       * <code>required int32 code = 1;</code>
+       */
+      public int getCode() {
+        return code_;
+      }
+      /**
+       * <pre>
+       *错误码
+       * </pre>
+       *
+       * <code>required int32 code = 1;</code>
+       */
+      public Builder setCode(int value) {
+        bitField0_ |= 0x00000001;
+        code_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *错误码
+       * </pre>
+       *
+       * <code>required int32 code = 1;</code>
+       */
+      public Builder clearCode() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        code_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<RewardRank> ranks_ =
+        java.util.Collections.emptyList();
+      private void ensureRanksIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          ranks_ = new java.util.ArrayList<RewardRank>(ranks_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          RewardRank, RewardRank.Builder, RewardRankOrBuilder> ranksBuilder_;
+
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public java.util.List<RewardRank> getRanksList() {
+        if (ranksBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(ranks_);
+        } else {
+          return ranksBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public int getRanksCount() {
+        if (ranksBuilder_ == null) {
+          return ranks_.size();
+        } else {
+          return ranksBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public RewardRank getRanks(int index) {
+        if (ranksBuilder_ == null) {
+          return ranks_.get(index);
+        } else {
+          return ranksBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public Builder setRanks(
+          int index, RewardRank value) {
+        if (ranksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRanksIsMutable();
+          ranks_.set(index, value);
+          onChanged();
+        } else {
+          ranksBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public Builder setRanks(
+          int index, RewardRank.Builder builderForValue) {
+        if (ranksBuilder_ == null) {
+          ensureRanksIsMutable();
+          ranks_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          ranksBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public Builder addRanks(RewardRank value) {
+        if (ranksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRanksIsMutable();
+          ranks_.add(value);
+          onChanged();
+        } else {
+          ranksBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public Builder addRanks(
+          int index, RewardRank value) {
+        if (ranksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRanksIsMutable();
+          ranks_.add(index, value);
+          onChanged();
+        } else {
+          ranksBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public Builder addRanks(
+          RewardRank.Builder builderForValue) {
+        if (ranksBuilder_ == null) {
+          ensureRanksIsMutable();
+          ranks_.add(builderForValue.build());
+          onChanged();
+        } else {
+          ranksBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public Builder addRanks(
+          int index, RewardRank.Builder builderForValue) {
+        if (ranksBuilder_ == null) {
+          ensureRanksIsMutable();
+          ranks_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          ranksBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public Builder addAllRanks(
+          Iterable<? extends RewardRank> values) {
+        if (ranksBuilder_ == null) {
+          ensureRanksIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, ranks_);
+          onChanged();
+        } else {
+          ranksBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public Builder clearRanks() {
+        if (ranksBuilder_ == null) {
+          ranks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          ranksBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public Builder removeRanks(int index) {
+        if (ranksBuilder_ == null) {
+          ensureRanksIsMutable();
+          ranks_.remove(index);
+          onChanged();
+        } else {
+          ranksBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public RewardRank.Builder getRanksBuilder(
+          int index) {
+        return getRanksFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public RewardRankOrBuilder getRanksOrBuilder(
+          int index) {
+        if (ranksBuilder_ == null) {
+          return ranks_.get(index);  } else {
+          return ranksBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public java.util.List<? extends RewardRankOrBuilder>
+           getRanksOrBuilderList() {
+        if (ranksBuilder_ != null) {
+          return ranksBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(ranks_);
+        }
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public RewardRank.Builder addRanksBuilder() {
+        return getRanksFieldBuilder().addBuilder(
+            RewardRank.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public RewardRank.Builder addRanksBuilder(
+          int index) {
+        return getRanksFieldBuilder().addBuilder(
+            index, RewardRank.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
+       * </pre>
+       *
+       * <code>repeated .com.dafagame.protocol.hbsl.RewardRank ranks = 2;</code>
+       */
+      public java.util.List<RewardRank.Builder>
+           getRanksBuilderList() {
+        return getRanksFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          RewardRank, RewardRank.Builder, RewardRankOrBuilder>
+          getRanksFieldBuilder() {
+        if (ranksBuilder_ == null) {
+          ranksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              RewardRank, RewardRank.Builder, RewardRankOrBuilder>(
+                  ranks_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          ranks_ = null;
+        }
+        return ranksBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.dafagame.protocol.hbsl.OnlinePlayerRes)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.dafagame.protocol.hbsl.OnlinePlayerRes)
+    private static final OnlinePlayerRes DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new OnlinePlayerRes();
+    }
+
+    public static OnlinePlayerRes getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @Deprecated public static final com.google.protobuf.Parser<OnlinePlayerRes>
+        PARSER = new com.google.protobuf.AbstractParser<OnlinePlayerRes>() {
+      public OnlinePlayerRes parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new OnlinePlayerRes(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<OnlinePlayerRes> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<OnlinePlayerRes> getParserForType() {
+      return PARSER;
+    }
+
+    public OnlinePlayerRes getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_descriptor;
+    internal_static_com_dafagame_protocol_hbsl_BalanceNtf_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_fieldAccessorTable;
+      internal_static_com_dafagame_protocol_hbsl_BalanceNtf_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_hbsl_SceneReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_hbsl_SceneReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_hbsl_SceneRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_hbsl_SceneRes_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor;
   private static final 
@@ -13158,6 +22974,16 @@ public final class Hbsl {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dafagame_protocol_hbsl_SceneNtf_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_hbsl_RedRankNtf_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_hbsl_RedRankNtf_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_descriptor;
   private static final 
@@ -13198,6 +23024,16 @@ public final class Hbsl {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_dafagame_protocol_hbsl_RedInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -13206,48 +23042,77 @@ public final class Hbsl {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\nHbsl.proto\022\032com.dafagame.protocol.hbsl" +
-      "\"\305\001\n\022RoomInformationNtf\0226\n\010sceneNtf\030\001 \002(" +
-      "\0132$.com.dafagame.protocol.hbsl.SceneNtf\022" +
-      ":\n\007rankNtf\030\002 \002(\0132).com.dafagame.protocol" +
-      ".hbsl.PlayerRankNtf\022;\n\006config\030\003 \002(\0132+.co" +
-      "m.dafagame.protocol.hbsl.RedEnvelopeConf" +
-      "\"F\n\rPlayerRankNtf\0225\n\005ranks\030\001 \003(\0132&.com.d" +
-      "afagame.protocol.hbsl.RewardRank\"\216\001\n\010Sce" +
-      "neNtf\022<\n\013redEnvelope\030\001 \001(\0132\'.com.dafagam" +
-      "e.protocol.hbsl.RedEnvelope\022\r\n\005total\030\002 \002",
-      "(\005\0225\n\005ranks\030\003 \003(\0132&.com.dafagame.protoco" +
-      "l.hbsl.RewardRank\"V\n\021OutRedEnvelopeReq\022\r" +
-      "\n\005money\030\001 \002(\005\022\017\n\007tempIdx\030\002 \002(\005\022\017\n\007bombNu" +
-      "m\030\003 \001(\005\022\020\n\010repeated\030\004 \002(\005\"g\n\021OutRedEnvel" +
-      "opeRes\022\014\n\004code\030\001 \002(\005\022\017\n\007balance\030\002 \001(\t\0223\n" +
-      "\005scene\030\003 \001(\0132$.com.dafagame.protocol.hbs" +
-      "l.SceneNtf\" \n\022CrabRedEnvelopeReq\022\n\n\002id\030\001" +
-      " \002(\t\"\231\001\n\022CrabRedEnvelopeRes\022\014\n\004code\030\001 \002(" +
-      "\005\022\r\n\005award\030\002 \001(\t\022\017\n\007balance\030\003 \001(\t\022\016\n\006isB" +
-      "omb\030\004 \001(\010\022\020\n\010payMoney\030\005 \001(\t\0223\n\005scene\030\006 \001",
-      "(\0132$.com.dafagame.protocol.hbsl.SceneNtf" +
-      "\"\213\001\n\013RedEnvelope\022\n\n\002id\030\001 \002(\t\022\020\n\010leftTime" +
-      "\030\002 \002(\005\022\021\n\tleftMoney\030\003 \002(\t\022\020\n\010multiple\030\004 " +
-      "\002(\005\022\025\n\rtotalMultiple\030\005 \002(\005\022\017\n\007bombNum\030\006 " +
-      "\002(\005\022\021\n\townerName\030\007 \002(\t\"H\n\nRewardRank\022\013\n\003" +
-      "uid\030\001 \002(\005\022\020\n\010nickName\030\002 \002(\t\022\r\n\005award\030\003 \002" +
-      "(\t\022\014\n\004time\030\004 \001(\t\"\270\001\n\017RedEnvelopeConf\022\020\n\010" +
-      "minMoney\030\001 \002(\005\022\020\n\010maxMoney\030\002 \002(\005\022\014\n\004step" +
-      "\030\003 \002(\005\022\022\n\nbombNumber\030\004 \003(\005\0225\n\010infoList\030\005" +
-      " \003(\0132#.com.dafagame.protocol.hbsl.RedInf",
-      "o\022\023\n\013minRepeated\030\006 \002(\005\022\023\n\013maxRepeated\030\007 " +
-      "\002(\005\"-\n\007RedInfo\022\020\n\010repeated\030\001 \002(\005\022\020\n\010mult" +
-      "iple\030\002 \002(\t*\024\n\010GameType\022\010\n\004HBSL\020k*\305\001\n\tPro" +
-      "toType\022\033\n\026RoomInformationNtfType\020\315S\022\032\n\025O" +
-      "utRedEnvelopeReqType\020\316S\022\032\n\025OutRedEnvelop" +
-      "eResType\020\317S\022\033\n\026CrabRedEnvelopeReqType\020\320S" +
-      "\022\033\n\026CrabRedEnvelopeResType\020\321S\022\021\n\014SceneNt" +
-      "fType\020\322S\022\026\n\021PlayerRankNtfType\020\323S*v\n\tErro" +
-      "rCode\022\006\n\002OK\020\001\022\n\n\006NotRed\020\002\022\013\n\007ErrorId\020\003\022\013" +
-      "\n\007NoMoney\020\004\022\013\n\007IsOwner\020\005\022\020\n\014IllegalParam",
-      "\020\006\022\014\n\010CrabFull\020\007\022\016\n\nNoTPlaying\020\010"
+      "\"\035\n\nBalanceNtf\022\017\n\007balance\030\001 \002(\t\"4\n\022RedEn" +
+      "velopeListReq\022\014\n\004page\030\001 \002(\005\022\020\n\010pageSize\030" +
+      "\002 \002(\005\"\234\001\n\022RedEnvelopeListRes\022\014\n\004code\030\001 \002" +
+      "(\005\022<\n\007redList\030\002 \003(\0132+.com.dafagame.proto" +
+      "col.hbsl.BaseRedEnvelope\022:\n\005first\030\003 \001(\0132" +
+      "+.com.dafagame.protocol.hbsl.BaseRedEnve" +
+      "lope\"\227\001\n\017BaseRedEnvelope\022\020\n\010nickName\030\001 \002" +
+      "(\t\022\020\n\010initTime\030\002 \002(\t\022\r\n\005money\030\003 \002(\t\022\017\n\007b" +
+      "ombNum\030\004 \002(\005\022\020\n\010multiple\030\005 \002(\005\022\023\n\013payMul",
+      "tiple\030\006 \002(\t\022\014\n\004sort\030\007 \002(\005\022\013\n\003uid\030\010 \001(\005\"\n" +
+      "\n\010SceneReq\"\330\002\n\010SceneRes\022\017\n\007errCode\030\001 \002(\005" +
+      "\0226\n\010sceneNtf\030\002 \001(\0132$.com.dafagame.protoc" +
+      "ol.hbsl.SceneNtf\022:\n\007rankNtf\030\003 \001(\0132).com." +
+      "dafagame.protocol.hbsl.PlayerRankNtf\022;\n\006" +
+      "config\030\004 \001(\0132+.com.dafagame.protocol.hbs" +
+      "l.RedEnvelopeConf\022:\n\nredRankNtf\030\005 \001(\0132&." +
+      "com.dafagame.protocol.hbsl.RedRankNtf\022\022\n" +
+      "\nroomNumber\030\006 \001(\t\022:\n\006redNtf\030\007 \001(\0132*.com." +
+      "dafagame.protocol.hbsl.RedEnvelopeNtf\"F\n",
+      "\rPlayerRankNtf\0225\n\005ranks\030\001 \003(\0132&.com.dafa" +
+      "game.protocol.hbsl.RewardRank\"R\n\010SceneNt" +
+      "f\022\r\n\005total\030\001 \002(\005\022\024\n\014onlineNumber\030\002 \002(\005\022\017" +
+      "\n\007redUids\030\003 \003(\005\022\020\n\010crabUids\030\004 \003(\005\"\205\001\n\016Re" +
+      "dEnvelopeNtf\022<\n\013redEnvelope\030\001 \001(\0132\'.com." +
+      "dafagame.protocol.hbsl.RedEnvelope\0225\n\004ne" +
+      "xt\030\002 \001(\0132\'.com.dafagame.protocol.hbsl.Re" +
+      "dEnvelope\"C\n\nRedRankNtf\0225\n\005ranks\030\001 \003(\0132&" +
+      ".com.dafagame.protocol.hbsl.RewardRank\"V" +
+      "\n\021OutRedEnvelopeReq\022\r\n\005money\030\001 \002(\005\022\017\n\007te",
+      "mpIdx\030\002 \002(\005\022\017\n\007bombNum\030\003 \001(\005\022\020\n\010repeated" +
+      "\030\004 \002(\005\"2\n\021OutRedEnvelopeRes\022\014\n\004code\030\001 \002(" +
+      "\005\022\017\n\007balance\030\002 \001(\t\" \n\022CrabRedEnvelopeReq" +
+      "\022\n\n\002id\030\001 \002(\t\"w\n\022CrabRedEnvelopeRes\022\014\n\004co" +
+      "de\030\001 \002(\005\022\r\n\005award\030\002 \001(\t\022\017\n\007balance\030\003 \001(\t" +
+      "\022\016\n\006isBomb\030\004 \001(\010\022\020\n\010payMoney\030\005 \001(\t\022\021\n\tre" +
+      "alAward\030\007 \001(\t\"\277\001\n\013RedEnvelope\022\n\n\002id\030\001 \002(" +
+      "\t\022\023\n\013createdTime\030\002 \002(\003\022\022\n\ntotalMoney\030\003 \002" +
+      "(\t\022\020\n\010multiple\030\004 \002(\005\022\025\n\rtotalMultiple\030\005 " +
+      "\002(\005\022\017\n\007bombNum\030\006 \002(\005\022\021\n\townerName\030\007 \002(\t\022",
+      "\r\n\005grade\030\010 \001(\005\022\016\n\006avatar\030\t \001(\005\022\017\n\007frameI" +
+      "d\030\n \001(\005\"\257\001\n\nRewardRank\022\013\n\003uid\030\001 \002(\005\022\020\n\010n" +
+      "ickName\030\002 \002(\t\022\r\n\005award\030\003 \001(\t\022\014\n\004time\030\004 \001" +
+      "(\t\022\r\n\005grade\030\005 \001(\005\022\016\n\006avatar\030\006 \001(\005\022\017\n\007fra" +
+      "meId\030\007 \001(\005\022\021\n\tcrabTimes\030\010 \001(\005\022\021\n\tbombTim" +
+      "es\030\t \001(\005\022\017\n\007balance\030\n \001(\t\"\270\001\n\017RedEnvelop" +
+      "eConf\022\020\n\010minMoney\030\001 \002(\005\022\020\n\010maxMoney\030\002 \002(" +
+      "\005\022\014\n\004step\030\003 \002(\005\022\022\n\nbombNumber\030\004 \003(\005\0225\n\010i" +
+      "nfoList\030\005 \003(\0132#.com.dafagame.protocol.hb" +
+      "sl.RedInfo\022\023\n\013minRepeated\030\006 \002(\005\022\023\n\013maxRe",
+      "peated\030\007 \002(\005\"-\n\007RedInfo\022\020\n\010repeated\030\001 \002(" +
+      "\005\022\020\n\010multiple\030\002 \002(\t\"1\n\017OnlinePlayerReq\022\014" +
+      "\n\004page\030\001 \002(\005\022\020\n\010pageSize\030\002 \002(\005\"V\n\017Online" +
+      "PlayerRes\022\014\n\004code\030\001 \002(\005\0225\n\005ranks\030\002 \003(\0132&" +
+      ".com.dafagame.protocol.hbsl.RewardRank*\024" +
+      "\n\010GameType\022\010\n\004HBSL\020k*\377\002\n\tProtoType\022\032\n\025Ou" +
+      "tRedEnvelopeReqType\020\316S\022\032\n\025OutRedEnvelope" +
+      "ResType\020\317S\022\033\n\026CrabRedEnvelopeReqType\020\320S\022" +
+      "\033\n\026CrabRedEnvelopeResType\020\321S\022\021\n\014SceneNtf" +
+      "Type\020\322S\022\026\n\021PlayerRankNtfType\020\323S\022\021\n\014Scene",
+      "ReqType\020\324S\022\021\n\014SceneResType\020\325S\022\033\n\026RedEnve" +
+      "lopeListReqType\020\326S\022\033\n\026RedEnvelopeListRes" +
+      "Type\020\327S\022\023\n\016RedRankNtfType\020\330S\022\030\n\023OnlinePl" +
+      "ayerReqType\020\331S\022\030\n\023OnlinePlayerResType\020\332S" +
+      "\022\023\n\016BalanceNtfType\020\333S\022\027\n\022RedEnvelopeNtfT" +
+      "ype\020\334S*\254\001\n\tErrorCode\022\006\n\002OK\020\001\022\n\n\006NotRed\020\002" +
+      "\022\013\n\007ErrorId\020\003\022\013\n\007NoMoney\020\004\022\013\n\007IsOwner\020\005\022" +
+      "\020\n\014IllegalParam\020\006\022\014\n\010CrabFull\020\007\022\016\n\nNoTPl" +
+      "aying\020\010\022\014\n\010ROOM_MAX\020\t\022\016\n\nPLAYER_MAX\020\n\022\026\n" +
+      "\022CANT_CRAB_REAL_RED\020\013"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -13261,72 +23126,126 @@ public final class Hbsl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_descriptor =
+    internal_static_com_dafagame_protocol_hbsl_BalanceNtf_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_fieldAccessorTable = new
+    internal_static_com_dafagame_protocol_hbsl_BalanceNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_dafagame_protocol_hbsl_RoomInformationNtf_descriptor,
-        new java.lang.String[] { "SceneNtf", "RankNtf", "Config", });
-    internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor =
+        internal_static_com_dafagame_protocol_hbsl_BalanceNtf_descriptor,
+        new String[] { "Balance", });
+    internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListReq_descriptor,
+        new String[] { "Page", "PageSize", });
+    internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_hbsl_RedEnvelopeListRes_descriptor,
+        new String[] { "Code", "RedList", "First", });
+    internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_hbsl_BaseRedEnvelope_descriptor,
+        new String[] { "NickName", "InitTime", "Money", "BombNum", "Multiple", "PayMultiple", "Sort", "Uid", });
+    internal_static_com_dafagame_protocol_hbsl_SceneReq_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_com_dafagame_protocol_hbsl_SceneReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_hbsl_SceneReq_descriptor,
+        new String[] { });
+    internal_static_com_dafagame_protocol_hbsl_SceneRes_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_com_dafagame_protocol_hbsl_SceneRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_hbsl_SceneRes_descriptor,
+        new String[] { "ErrCode", "SceneNtf", "RankNtf", "Config", "RedRankNtf", "RoomNumber", "RedNtf", });
+    internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_PlayerRankNtf_descriptor,
-        new java.lang.String[] { "Ranks", });
+        new String[] { "Ranks", });
     internal_static_com_dafagame_protocol_hbsl_SceneNtf_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_com_dafagame_protocol_hbsl_SceneNtf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_SceneNtf_descriptor,
-        new java.lang.String[] { "RedEnvelope", "Total", "Ranks", });
+        new String[] { "Total", "OnlineNumber", "RedUids", "CrabUids", });
+    internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_hbsl_RedEnvelopeNtf_descriptor,
+        new String[] { "RedEnvelope", "Next", });
+    internal_static_com_dafagame_protocol_hbsl_RedRankNtf_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_com_dafagame_protocol_hbsl_RedRankNtf_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_hbsl_RedRankNtf_descriptor,
+        new String[] { "Ranks", });
     internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeReq_descriptor,
-        new java.lang.String[] { "Money", "TempIdx", "BombNum", "Repeated", });
+        new String[] { "Money", "TempIdx", "BombNum", "Repeated", });
     internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_OutRedEnvelopeRes_descriptor,
-        new java.lang.String[] { "Code", "Balance", "Scene", });
+        new String[] { "Code", "Balance", });
     internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeReq_descriptor,
-        new java.lang.String[] { "Id", });
+        new String[] { "Id", });
     internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_CrabRedEnvelopeRes_descriptor,
-        new java.lang.String[] { "Code", "Award", "Balance", "IsBomb", "PayMoney", "Scene", });
+        new String[] { "Code", "Award", "Balance", "IsBomb", "PayMoney", "RealAward", });
     internal_static_com_dafagame_protocol_hbsl_RedEnvelope_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_com_dafagame_protocol_hbsl_RedEnvelope_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_RedEnvelope_descriptor,
-        new java.lang.String[] { "Id", "LeftTime", "LeftMoney", "Multiple", "TotalMultiple", "BombNum", "OwnerName", });
+        new String[] { "Id", "CreatedTime", "TotalMoney", "Multiple", "TotalMultiple", "BombNum", "OwnerName", "Grade", "Avatar", "FrameId", });
     internal_static_com_dafagame_protocol_hbsl_RewardRank_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_com_dafagame_protocol_hbsl_RewardRank_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_RewardRank_descriptor,
-        new java.lang.String[] { "Uid", "NickName", "Award", "Time", });
+        new String[] { "Uid", "NickName", "Award", "Time", "Grade", "Avatar", "FrameId", "CrabTimes", "BombTimes", "Balance", });
     internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_RedEnvelopeConf_descriptor,
-        new java.lang.String[] { "MinMoney", "MaxMoney", "Step", "BombNumber", "InfoList", "MinRepeated", "MaxRepeated", });
+        new String[] { "MinMoney", "MaxMoney", "Step", "BombNumber", "InfoList", "MinRepeated", "MaxRepeated", });
     internal_static_com_dafagame_protocol_hbsl_RedInfo_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_com_dafagame_protocol_hbsl_RedInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_dafagame_protocol_hbsl_RedInfo_descriptor,
-        new java.lang.String[] { "Repeated", "Multiple", });
+        new String[] { "Repeated", "Multiple", });
+    internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_hbsl_OnlinePlayerReq_descriptor,
+        new String[] { "Page", "PageSize", });
+    internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_dafagame_protocol_hbsl_OnlinePlayerRes_descriptor,
+        new String[] { "Code", "Ranks", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

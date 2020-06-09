@@ -36,6 +36,9 @@ public enum LotteryConfig {
     L1306("5分PK10", "1306", "PK10", false, 5),
     L1305("5分六合彩", "1305", "LHC", false, 5),
 
+    L1414("10分快3", "1414", "K3", false, 10),
+    L1011("10分时时彩", "1011", "SSC", false, 10),
+    L1317("10分PK10", "1317", "PK10", false, 10),
 
     L1418("站长快3", "1418", "K3", true, 1),
     L1419("站长5分快3", "1419", "K3", true, 5),
@@ -44,8 +47,7 @@ public enum LotteryConfig {
     L1019("站长5分时时彩", "1019", "SSC", true, 5),
 
     L1312("站长PK10", "1312", "PK10", true, 1),
-    L1313("站长5分PK10", "1313", "PK10", true, 5)
-    ;
+    L1313("站长5分PK10", "1313", "PK10", true, 5);
     public String name;
     public String code;
     public String type;

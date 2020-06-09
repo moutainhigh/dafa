@@ -1,4 +1,4 @@
-package pers.test.yueBao;
+package pers.dafacloud.testDafa;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
@@ -19,21 +19,20 @@ import pers.utils.listUtils.ListSplit;
 import pers.utils.urlUtils.UrlBuilder;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class YueBaoFront {
     private static ExecutorService executors = Executors.newFixedThreadPool(300);
     private static String host = LotteryConstant.host;
-    private static AtomicInteger count = new AtomicInteger(100000);
     //private static String host = "http://52.76.195.164:8010";
     //private static String host = "http://caishen03.com";
+
+
+    static SqlSession sqlSessionTransaction = SqlSessionFactoryUtils.openSqlSession("dev");
+    static ActivityLogXXMapper activityLogXXMapper = sqlSessionTransaction.getMapper(ActivityLogXXMapper.class);
 
     private static Header[] headers = HttpHeader.custom()
             .contentType("application/x-www-form-urlencoded;charset=UTF-8")
@@ -44,14 +43,17 @@ public class YueBaoFront {
             .headers(headers)
             .context(HttpCookies
                     .custom()
-                    .setBasicClientCookie(host, "JSESSIONID", "C5907DBE3E7848A6E1503E7826186D15")
+                    .setBasicClientCookie(host, "JSESSIONID", "9B788BC4CF576671D57A59BA2BB09953")
                     .getContext());
+
+    private static String rechargeFrontPaymentRecord = host + "/v1/transaction/rechargeFrontPaymentRecord";
 
     public static void verifySafetyPassword() {
         String verifySafetyPassword = host + "/v1/users/verifySafetyPassword";
         String result = DafaRequest.post(httpConfig.url(verifySafetyPassword)
                 .body("verifyType=yueBaoSafetyPassword&safetyPassword=9e888b495b2e23c27d165ac09f79d601"));
         System.out.println(result);
+
     }
 
     @Test(description = "测试")
@@ -70,7 +72,7 @@ public class YueBaoFront {
     @Test(description = "余额批量人工存入")
     public static void test01a() {
         String saveBatchManualRecord = host + "/v1/transaction/saveBatchManualRecord";
-        List<String> list = FileUtil.readFile(YueBaoFront.class.getResourceAsStream("/users/dev2DafaIP2.txt"));
+        List<String> list = FileUtil.readFile(YueBaoFront.class.getResourceAsStream("/users/dev2TestIp.txt"));
         int size = list.size();
         List<String> list0 = new ArrayList<>();
         for (int i = 0; i < size; i++) {
@@ -131,11 +133,19 @@ public class YueBaoFront {
         System.out.println(JsonFormat.formatPrint(result));
     }
 
+
+    @Test(description = "余额宝批量存入")
+    public static void test06() {
+        //String verifySafetyPassword = host + "/v1/users/verifySafetyPassword";
+
+
+    }
+
     /**
      * 余额宝批量存入
      */
     public static void main(String[] args) {
-        List<String> list = FileUtil.readFile(YueBaoFront.class.getResourceAsStream("/users/dev2DafaIP2.txt"));//.subList(0, 100000);
+        List<String> list = FileUtil.readFile(YueBaoFront.class.getResourceAsStream("/users/dev2DafaIP2.txt")).subList(100000, 150000);
         System.out.println(list.size());
         schedule(list);
         //List<String> list = new ArrayList<>(Arrays.asList("dev2td1985,50417171".split(";")));
@@ -144,8 +154,8 @@ public class YueBaoFront {
 
 
     static void schedule(List<String> list) {
-        List<List<String>> list0 = ListSplit.split(list, 600);
-        System.out.println(list0.size());
+        List<List<String>> list0 = ListSplit.split(list, 1000);
+        System.out.println("线程数：" + list0.size());
         CountDownLatch cdl = new CountDownLatch(list0.size());
         for (int i = 0; i < list0.size(); i++) {
             List<String> sub = list0.get(i);
@@ -154,9 +164,11 @@ public class YueBaoFront {
         try {
             cdl.await();
             executors.shutdown();
+            System.out.println("数据执行完成");
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
     }
 
     public static void yueBaoBr(List<String> list, CountDownLatch cdl) {
@@ -167,7 +179,7 @@ public class YueBaoFront {
                     .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
                     .other("x-user-name", userArray[0])
                     .other("x-user-id", userArray[1])
-                    .other("x-tenant-code", "dafa")
+                    .other("x-tenant-code", "test")
                     .other("x-token", "111")
                     .other("x-source-Id", "1")
                     .build();
@@ -187,28 +199,21 @@ public class YueBaoFront {
             //int amount = 200;
             String body = "money=" + amount + "&direction=BR";
             //verifySafetyPassword();
-            String result = "";
             for (int j = 0; j < 10; j++) {
-                //52.76.195.164 52.77.207.64
-                try {
-                    result = DafaRequest.post(httpConfig.url("http://52.77.207.64:8090/v1/balance/transferMoney").body(body));//52.77.207.64
-                    //System.out.println(result);
-                    if (JSONObject.parseObject(result).getInteger("code") != 1) {
-                        System.out.println("重试：i - " + i + " - j:" + j + " - " + userArray[0] + " - " + amount + " - " + result);
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        break;
+                String result = DafaRequest.post(httpConfig.url("http://52.77.207.64:8090/v1/balance/transferMoney").body(body));//52.77.207.64
+                System.out.println(result);
+                if (JSONObject.parseObject(result).getInteger("code") != 1) {
+                    System.out.println("重试：i - " + i + " - j:" + j + " - " + userArray[0] + " - " + amount + " - " + result);
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
+                } else {
+                    break;
                 }
-
             }
-            System.out.println(count.getAndDecrement() + " - " + result);
+
         }
         cdl.countDown();
 

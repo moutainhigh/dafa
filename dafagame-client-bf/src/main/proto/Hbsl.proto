@@ -9,13 +9,22 @@ enum GameType {
 }
 
 enum ProtoType {
-    RoomInformationNtfType = 10701; //场景消息
+//    RoomInformationNtfType = 10701; //场景消息
     OutRedEnvelopeReqType = 10702;  //发包请求
     OutRedEnvelopeResType = 10703;  //发包回应
     CrabRedEnvelopeReqType = 10704; //获取红包请求
     CrabRedEnvelopeResType = 10705; //获取红包回应
     SceneNtfType = 10706;           //房间的信息
     PlayerRankNtfType = 10707;      //玩家排名通知
+    SceneReqType = 10708;           //场景请求
+    SceneResType = 10709;           //场景回应
+    RedEnvelopeListReqType = 10710; //红包列表请求
+    RedEnvelopeListResType = 10711; //红包列表回应
+    RedRankNtfType = 10712;         //上个红包的榜单
+    OnlinePlayerReqType = 10713;    //在线玩家请求
+    OnlinePlayerResType = 10714;    //在线玩家排名回应
+    BalanceNtfType = 10715;         //更改余额变动
+    RedEnvelopeNtfType = 10716;     //红包信息，一秒钟一次，切换的时候也发送
 }
 
 enum ErrorCode {
@@ -27,13 +36,63 @@ enum ErrorCode {
     IllegalParam = 6;      //参数错误
     CrabFull = 7;          //领取达到最大包数
     NoTPlaying = 8;        //没在游戏中
+    ROOM_MAX = 9;          //房间达到最大包
+    PLAYER_MAX = 10;       //个人达到最大包
+    CANT_CRAB_REAL_RED = 11;//测试账号无法领真实玩家包
+}
+
+//余额变动
+message BalanceNtf {
+    required string balance = 1;    //剩余余额
 }
 
 //第一次场景信息，发送所有的信息
-message RoomInformationNtf {
-    required SceneNtf sceneNtf = 1;         //房间场景信息
-    required PlayerRankNtf rankNtf = 2;     //红包排名信息
-    required RedEnvelopeConf config = 3;    //红包的配置
+//message RoomInformationNtf {
+//    required SceneNtf sceneNtf = 1;         //房间场景信息
+//    required PlayerRankNtf rankNtf = 2;     //红包排名信息
+//    required RedEnvelopeConf config = 3;    //红包的配置
+//}
+
+
+//红包列表请求
+message RedEnvelopeListReq {
+    required int32 page = 1;        //页数
+    required int32 pageSize = 2;    //大小
+}
+
+//红包列表回应
+message RedEnvelopeListRes {
+    required int32 code = 1;                //请求成功失败码
+    repeated BaseRedEnvelope redList = 2;   //红包列表
+    optional BaseRedEnvelope first = 3;     //自己的第一个红包
+}
+
+message BaseRedEnvelope {
+    required string nickName = 1;       //昵称
+    required string initTime = 2;       //埋雷时间
+    required string money = 3;          //埋雷金额
+    required int32 bombNum = 4;         //雷号
+    required int32 multiple = 5;        //红包个数
+    required string payMultiple = 6;    //红包赔率
+    required int32 sort = 7;            //红包排序
+    optional int32 uid = 8;             //用户id
+}
+
+
+//发送场景请求
+message SceneReq {
+
+}
+
+//第一次场景信息，发送所有的信息
+message SceneRes {
+    required int32 errCode = 1;             //错误码
+    optional SceneNtf sceneNtf = 2;         //房间场景信息
+    optional PlayerRankNtf rankNtf = 3;     //红包排名信息
+    optional RedEnvelopeConf config = 4;    //红包的配置
+    optional RedRankNtf redRankNtf = 5;     //之前红包的排名
+    optional string roomNumber = 6;         //房间号码
+    optional RedEnvelopeNtf redNtf = 7;     //当前红包的信息
 }
 
 //玩家排名通知 前十名
@@ -43,9 +102,20 @@ message PlayerRankNtf {
 
 //红包信息 （当前红包信息，当前红包的） 1s 钟一次
 message SceneNtf {
+    required int32 total = 1;               //红包总数
+    required int32 onlineNumber = 2;        //在线人数
+    repeated int32 redUids = 3;             //玩家红包uid列表
+    repeated int32 crabUids = 4;            //已经已经领取的玩家红包id
+}
+
+message RedEnvelopeNtf {
     optional RedEnvelope redEnvelope = 1;   //当前的红包 （可能是新的红包）
-    required int32 total = 2;               //红包总数
-    repeated RewardRank ranks = 3;          //当前红包领取排名
+    optional RedEnvelope next = 2;          //下一个红包消息
+}
+
+//上个榜单的排名信息
+message RedRankNtf {
+    repeated RewardRank ranks = 1;          //上个榜单信息列表
 }
 
 //发包请求
@@ -61,7 +131,7 @@ message OutRedEnvelopeRes {
     required int32 code = 1;                //返回成功码
     optional string balance = 2;            //获取的金钱
 
-    optional SceneNtf scene = 3;            //房间场景最新信息
+//    optional SceneNtf scene = 3;            //房间场景最新信息
 }
 
 //获取红包请求
@@ -72,31 +142,42 @@ message CrabRedEnvelopeReq {
 //获取红包回应
 message CrabRedEnvelopeRes {
     required int32 code = 1;                //成功码
-    optional string award = 2;              //获取的金钱
+    optional string award = 2;              //获取的金钱（没扣服务费）
     optional string balance = 3;            //玩家最新金额
     optional bool isBomb = 4;               //是否踩雷
     optional string payMoney = 5;           //赔付金额
 
-    optional SceneNtf scene = 6;            //房间场景最新信息
+//    optional SceneNtf scene = 6;            //房间场景最新信息
+    optional string realAward = 7;          //真实获取金钱（扣掉服务费）
 }
 
 //红包的信息
 message RedEnvelope {
     required string id = 1;         //红包id
-    required int32 leftTime = 2;    //剩余时间
-    required string leftMoney = 3;  //剩余金钱
+//    required int32 leftTime = 2;    //剩余时间
+    required int64 createdTime = 2;  //红包生成时间点
+    required string totalMoney = 3;  //剩余金钱
     required int32 multiple = 4;    //剩余包数
     required int32 totalMultiple = 5;//总包数
     required int32 bombNum = 6;     //雷号
     required string ownerName = 7;  //发包人昵称
+    optional int32 grade = 8;       //vip等级
+    optional int32 avatar = 9;      //头像
+    optional int32 frameId = 10;    //相框id
 }
 
 //房间的还是全平台的 10s刷新一次
 message RewardRank {
     required int32 uid = 1;     //用户id
     required string nickName = 2;//用户名(昵称)
-    required string award = 3;  //获取的金钱
+    optional string award = 3;  //获取的金钱
     optional string time = 4;   //领取时间
+    optional int32 grade = 5;   //玩家vip等级
+    optional int32 avatar = 6;  //玩家头像
+    optional int32 frameId = 7;    //相框id
+    optional int32 crabTimes = 8;  //抢红包次数
+    optional int32 bombTimes = 9;   //踩雷次数
+    optional string balance = 10;   //账户余额
 }
 
 message RedEnvelopeConf {
@@ -112,6 +193,16 @@ message RedEnvelopeConf {
 message RedInfo {
     required int32 repeated = 1;    //包数
     required string multiple = 2;   //赔付倍数
+}
+
+message OnlinePlayerReq {
+    required int32 page = 1;
+    required int32 pageSize = 2;
+}
+
+message OnlinePlayerRes {
+    required int32 code = 1;                //错误码
+    repeated RewardRank ranks = 2;          //在线玩家排名信息（只显示领取的金钱（不扣除服务费和中雷钱数））
 }
 
 //{"redEnvelope": {"min": 20,"max": 40,"playerLimit": 6,"roomLimit": 100,"bombNumbers": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],"repeated": {"min": 1,"max": 3},"infos": [{"repeated": 10,"multiple": "1"},{"repeated": 8,"multiple": "1.25"}, {"repeated": 5,"multiple": "2"}]},"robot": {"banker": {"count": 5,"max": 20,"min": 5},"player": {"count": 5,"max": 20,"min": 5}}}

@@ -16,14 +16,15 @@ import pers.utils.jsonUtils.JsonUtils;
  * 游戏盾
  */
 public class GameDDoS {
-    //http://a12780fabe0e711e98f02061e82846b5-92b7ba572b52a600.elb.ap-east-1.amazonaws.com/v1/security/getGameDomain
-    //测试环境内置域名
-    //private static String HOST = "http://a12780fabe0e711e98f02061e82846b5-92b7ba572b52a600.elb.ap-east-1.amazonaws.com";
+    private static String HOST = "http://137.116.175.108";//第二套alysia站 内置域名
 
+    //测试环境内置域名
     //private static String HOST = "http://pre.uvjgrnzdwj.com";
     //private static String HOST = "https://lqqp.mkjpauuus.com";
+
     //private static String HOST = "http://120.76.134.176";
-    private static String HOST = "http://137.116.175.108";//第二套alysia站
+    //private static String HOST = "http://a12780fabe0e711e98f02061e82846b5-92b7ba572b52a600.elb.ap-east-1.amazonaws.com";//第一套内置域名
+
     //private static String HOST = "https://hlqp.mkjpauuus.com";
     //private static String HOST = "http://120.78.240.236";
     //private static String HOST = "http://39.108.237.12";//lqqp
@@ -47,7 +48,8 @@ public class GameDDoS {
     @Test(description = "GET_GAME_DOMAIN")
     public static void test01() {
         String result = DafaRequest.get(httpConfig.url(GET_GAME_DOMAIN));
-        //System.out.println(JsonFormat.formatPrint(result));
+        System.out.println(JsonFormat.formatPrint(result));
+        System.out.println("dataEncrypt:-------------------------------------------");
         String content = JSONObject.parseObject(result).getJSONObject("data").getString("dataEncrypt");
         //String content = "";
         String decryptResult = AesEncodeUtil.decrypt(content);

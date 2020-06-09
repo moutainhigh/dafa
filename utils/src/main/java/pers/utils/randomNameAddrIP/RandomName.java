@@ -27,7 +27,7 @@ public class RandomName {
         //    System.err.print(iterator.next() + "\n");
         //}
 
-        System.out.println(getRandomJianHan(5));
+        System.out.println(getRandomJianHan(3));
 
     }
     /**方法1*/

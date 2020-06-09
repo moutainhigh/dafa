@@ -31,10 +31,11 @@ public class StartWsProtoClient {
     //private static String url = "ws://game-gate.dafagame-pre.com/v1/game/gameGate";
     //private static String url = "ws://game-gate.dafagame-pro.com/v1/game/gameGate";
 
-    private static final String tenantCode = "jessie";
+    private static final String tenantCode = "alysia";
 
     //app请求地址
-    private static String host = "23.101.14.122";
+    //private static String host = "23.101.14.122";//第一套
+    private static String host = "137.116.175.108";//第二套
     private static String url = String.format("ws://%s:1082/v1/game/gameGate", host);
 
     private static EventLoopGroup group = new NioEventLoopGroup(1);
@@ -51,10 +52,11 @@ public class StartWsProtoClient {
     private String phone;
 
     //构造器
-    private StartWsProtoClient(String phone, int gameCode, String roundType) {
+    private StartWsProtoClient(String phone, int userType, int gameCode, String roundType) {
         this.phone = phone;
         GameHandler gameHandler = GameHandlerFactory.newGameHandler(gameCode);
         gameHandler.setPhone(phone);
+        gameHandler.setUserType(userType);
         gameHandler.setRoundType(roundType);
         URI uri = URI.create(url);
         this.clientHandshaker = new ClientHandshaker(uri);//握手
@@ -171,23 +173,23 @@ public class StartWsProtoClient {
         //new StartWsProtoClient("47876132", 205).start();
 
         //new StartWsProtoClient("88448162", 201).start();
-        List<String> devJessieUsers = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/devJessieUsers.txt"));
-        for (int i = 0; i < 40; i++) {
-            if (i < 10) {
-                new StartWsProtoClient(devJessieUsers.get(i), 201, "101").start();
-            } else if (i < 20) {
-                new StartWsProtoClient(devJessieUsers.get(i), 201, "102").start();
-            } else if (i < 30) {
-                new StartWsProtoClient(devJessieUsers.get(i), 201, "103").start();
-            } else {
-                new StartWsProtoClient(devJessieUsers.get(i), 201, "104").start();
-            }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        //List<String> devJessieUsers = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/devJessieUsers.txt"));
+        //for (int i = 0; i < 40; i++) {
+        //    if (i < 10) {
+        //        new StartWsProtoClient(devJessieUsers.get(i), 201, "101").start();
+        //    } else if (i < 20) {
+        //        new StartWsProtoClient(devJessieUsers.get(i), 201, "102").start();
+        //    } else if (i < 30) {
+        //        new StartWsProtoClient(devJessieUsers.get(i), 201, "103").start();
+        //    } else {
+        //        new StartWsProtoClient(devJessieUsers.get(i), 201, "104").start();
+        //    }
+        //    try {
+        //        Thread.sleep(1000);
+        //    } catch (InterruptedException e) {
+        //        e.printStackTrace();
+        //    }
+        //}
 
         //抢庄牌九
         //new StartWsProtoClient("47876132", 206).start();
@@ -196,7 +198,16 @@ public class StartWsProtoClient {
         //new StartWsProtoClient("47876132", 207).start();
 
         //红包扫雷
-        //new StartWsProtoClient("47876132", 107).start();
+        //new StartWsProtoClient("47876132", 107, "101").start();
+        List<String> dev2alysiaT = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/dev2alysiaT.txt")).subList(0, 20);
+        for (int i = 0; i < dev2alysiaT.size(); i++) {
+            if (i < 10) {
+                new StartWsProtoClient(dev2alysiaT.get(i), 1, 107, "101").start();
+            } else {
+                new StartWsProtoClient(dev2alysiaT.get(i), 2, 107, "101").start();
+            }
+
+        }
         //new StartWsProtoClient("31237108", 107).start();
     }
 
@@ -235,7 +246,7 @@ public class StartWsProtoClient {
         String body = UrlBuilder.custom()
                 .addBuilder("inviteCode", "")
                 .addBuilder("accountNumber", this.phone)
-                .addBuilder("password", DafaGameLogin.getPasswordEncode(random, "duke123")) //"b4e82b683394b50b679dc2b51a79d987"
+                .addBuilder("password", DafaGameLogin.getPasswordEncode(random, "123qwe")) //"b4e82b683394b50b679dc2b51a79d987"
                 .addBuilder("userType", "0") //正式0/测试1/遊客2
                 .addBuilder("random", encodeRandom)
                 //.addBuilder("tenantCode", "demo")

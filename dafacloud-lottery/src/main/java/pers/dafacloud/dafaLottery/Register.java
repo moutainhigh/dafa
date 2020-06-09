@@ -3,7 +3,9 @@ package pers.dafacloud.dafaLottery;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.http.Header;
+import org.testng.annotations.Test;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
@@ -21,19 +23,20 @@ import java.util.concurrent.Executors;
 public class Register {
 
     //private static String register = "http://caishen02.com/v1/users/register";
-    private static String register = "http://52.76.195.164:8010/v1/users/register";
-    //private static String register = "http://52.77.207.64:8010/v1/users/register";
+    //private static String register = "http://52.76.195.164:8010/v1/users/register";//第一套
+    private static String register = "http://52.77.207.64:8010/v1/users/register";//第二套
     private static ExecutorService excutors = Executors.newFixedThreadPool(300);
+    private static String[] inviteCodes = {"69662317", "72562999", "35996704", "03961612", "97291515", "16557652"};
 
     //多线程只能在main方法中运行
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         //List<String> list = new ArrayList<>(Arrays.asList("dev2td0409".split(",")));
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100000; i++) {
             //    //list.add(String.format("adafa%05d", i));
             //    list.add(String.format("dev2td%04d", i));
             //list.add(String.format("dev1tdf%05d", i));
-            list.add(String.format("dev1addf%05d", i));
+            list.add(String.format("yuebao%06d", i));
         }
         //System.out.println(list);
         schedule(list);
@@ -49,17 +52,23 @@ public class Register {
      */
     static void schedule(List<String> list) {
         List<List<String>> list0 = ListSplit.split(list, 1000);
+        CountDownLatch cdl = new CountDownLatch(list0.size());
         for (int i = 0; i < list0.size(); i++) {
             List<String> sub = list0.get(i);
-            //CountDownLatch countDownLatch = new CountDownLatch(list0.size());
-            excutors.execute(() -> registerTask(sub));
+            excutors.execute(() -> registerTask(sub, cdl));
+        }
+        try {
+            cdl.await();
+            excutors.shutdown();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
     /**
      * @param list 注册用户list
      */
-    private static void registerTask(List<String> list) {
+    private static void registerTask(List<String> list, CountDownLatch cdl) {
         for (String username : list) {
             try {
                 register(username);
@@ -68,6 +77,7 @@ public class Register {
                 e.printStackTrace();
             }
         }
+        cdl.countDown();
     }
 
     /**
@@ -76,36 +86,41 @@ public class Register {
     private static void register(String username) {
         String password = DigestUtils.md5Hex(username + DigestUtils.md5Hex("123qwe"));
         String body = UrlBuilder.custom()
-                .addBuilder("inviteCode", "79512723")
+                .addBuilder("inviteCode", inviteCodes[(int) (Math.random() * inviteCodes.length)])
                 .addBuilder("userName", username)
                 .addBuilder("password", password)
                 .fullBody();
-        String ip = RandomIP.getRandomIp();
-        Header[] headers = HttpHeader
-                .custom()
-                //.other("x-forwarded-for", ip)
-                //.other("x-remote-IP", ip)
-                //.other("X-Real-IP", ip)
-                //.other("x-remote-ip", ip)
-                .contentType("application/x-www-form-urlencoded;charset=UTF-8")
-                .other("x-tenant-code", "dafa")
-                .other("x-source-Id", "3")
-                .other("x-client-ip", ip)
-                //.other("x-user-id", "51321300")
-                //.other("x-user-name", "duke01")
-                .build();
         for (int i = 0; i < 10; i++) {
+            String ip = RandomIP.getRandomIp();
+            Header[] headers = HttpHeader
+                    .custom()
+                    //.other("x-forwarded-for", ip)
+                    //.other("x-remote-IP", ip)
+                    //.other("X-Real-IP", ip)
+                    //.other("x-remote-ip", ip)
+                    .contentType("application/x-www-form-urlencoded;charset=UTF-8")
+                    .other("x-tenant-code", "dafa")
+                    .other("x-source-Id", "3")
+                    .other("x-client-ip", ip)
+                    //.other("x-user-id", "51321300")
+                    //.other("x-user-name", "duke01")
+                    .build();
             HttpConfig httpConfig = HttpConfig.custom().body(body).headers(headers).url(register);
             String result = DafaRequest.post(httpConfig);
             if (JSONObject.parseObject(result).getInteger("code") != 1) {
-                System.out.println(i + " -【" + username + "】" + result);
-                if (result.contains("已注册")) {
+                System.out.println("重试" + i + "次 -【" + username + "】" + result);
+                if (result.contains("已被注册")) {
                     break;
                 }
             } else {
                 break;
             }
+
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
-
 }
