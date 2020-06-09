@@ -114,16 +114,16 @@ public class HbslHandler extends GameHandler {
                         break;
                     case Hbsl.ProtoType.RedEnvelopeNtfType_VALUE: //红包信息 （当前红包信息，当前红包的） 1s 钟一次
                         Hbsl.RedEnvelopeNtf redEnvelopeNtf = Hbsl.RedEnvelopeNtf.parseFrom(clientMsg.getData());
-                        System.out.println(StringBuilders.custom()
-                                .add(Hbsl.ProtoType.RedEnvelopeNtfType_VALUE + "红包信息】")
-                                .add("红包id", redEnvelopeNtf.getRedEnvelope().getId())
-                                .add("红包生成时间点", redEnvelopeNtf.getRedEnvelope().getCreatedTime())
-                                .add("剩余金钱", redEnvelopeNtf.getRedEnvelope().getTotalMoney())
-                                .add("剩余包数", redEnvelopeNtf.getRedEnvelope().getMultiple())
-                                .add("总包数", redEnvelopeNtf.getRedEnvelope().getTotalMultiple())
-                                .add("雷号", redEnvelopeNtf.getRedEnvelope().getBombNum())
-                                .add("发包人昵称", redEnvelopeNtf.getRedEnvelope().getOwnerName())
-                                .build());
+                        //System.out.println(StringBuilders.custom()
+                        //        .add(Hbsl.ProtoType.RedEnvelopeNtfType_VALUE + "红包信息】")
+                        //        .add("红包id", redEnvelopeNtf.getRedEnvelope().getId())
+                        //        .add("红包生成时间点", redEnvelopeNtf.getRedEnvelope().getCreatedTime())
+                        //        .add("剩余金钱", redEnvelopeNtf.getRedEnvelope().getTotalMoney())
+                        //        .add("剩余包数", redEnvelopeNtf.getRedEnvelope().getMultiple())
+                        //        .add("总包数", redEnvelopeNtf.getRedEnvelope().getTotalMultiple())
+                        //        .add("雷号", redEnvelopeNtf.getRedEnvelope().getBombNum())
+                        //        .add("发包人昵称", redEnvelopeNtf.getRedEnvelope().getOwnerName())
+                        //        .build());
                         //
                         if (userType == 1)
                             break;
@@ -156,10 +156,10 @@ public class HbslHandler extends GameHandler {
 
                     case Hbsl.ProtoType.SceneNtfType_VALUE: //房间信息
                         Hbsl.SceneNtf sceneNtf = Hbsl.SceneNtf.parseFrom(clientMsg.getData());
-                        System.out.println(StringBuilders.custom()
-                                .add(Hbsl.ProtoType.SceneNtfType_VALUE + "房间信息】")
-                                //.add("当前红包uid", sceneNtf.getRedUids(0))
-                                .build());
+                        //System.out.println(StringBuilders.custom()
+                        //        .add(Hbsl.ProtoType.SceneNtfType_VALUE + "房间信息】")
+                        //        //.add("当前红包uid", sceneNtf.getRedUids(0))
+                        //        .build());
                         redEnvelopeLength = sceneNtf.getRedUidsList().size();
                         redEnvelopeCount = sceneNtf.getRedUidsList().stream().filter((Integer i) -> i == uid).collect(Collectors.toList()).size();
                         break;
@@ -171,7 +171,7 @@ public class HbslHandler extends GameHandler {
     public void sendRedEnvelopeReq(int total, Channel channel) {
         new Thread(() -> {
             try {
-                Thread.sleep((1 + (int) (Math.random() * 3)) * 1000);
+                Thread.sleep((5 + (int) (Math.random() * 5)) * 100);
             } catch (Exception e) {
                 e.printStackTrace();
             }

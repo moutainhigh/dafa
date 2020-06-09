@@ -17,10 +17,11 @@ import java.util.List;
  */
 public class TestCmsUpdateNickName {
 
-    private static String host = "http://pt05.dafacloud-test.com";
+    //private static String host = "http://pt05.dafacloud-test.com";
     //private static String host = "http://pt02.dafacloud-test.com";
+    private static String host = "https://pt2.dafagame-test.com";
 
-    private static String manageUpdateUserNickName = host + "/v1/users/manageUpdateUserNickName";
+    private static String manageUpdateUserNickName = host + "/v1/users/updateUserNickName";
     ///v1/users/getUserInfoForTransaction
 
     public static void main(String[] args) {
@@ -30,9 +31,10 @@ public class TestCmsUpdateNickName {
                 .build();
         HttpCookies httpCookies = HttpCookies
                 .custom()
-                .setBasicClientCookie(host, "JSESSIONID", "D7408153BEAA6C139058604528FB13F5");
+                .setBasicClientCookie(host, "JSESSIONID", "57026315C358E6520F8F38FF1BC51E82");
 
-        List<String> userIds = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafacloud-lottery/src/test/resouces/userId.txt");
+        //List<String> userIds = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafacloud-lottery/src/test/resouces/userId.txt");
+        List<String> userIds = FileUtil.readFile("/Users/duke/Documents/github/dafa/dafagame-client-bf/src/main/resources/usersTxt/dev2alysiaT.txt");
         HttpConfig httpConfig = HttpConfig.custom()
                 .url(manageUpdateUserNickName)
                 .headers(headers)
@@ -40,8 +42,8 @@ public class TestCmsUpdateNickName {
         for (int i = 0; i < userIds.size(); i++) {
             String body = UrlBuilder
                     .custom()
-                    .addBuilder("userId", userIds.get(i))
-                    .addBuilder("nickName", RandomName.getRandomJianHan(5))
+                    .addBuilder("userName", userIds.get(i))
+                    .addBuilder("nickname", "杜克" + RandomName.getRandomJianHan(3))
                     .fullBody();
             String result = DafaRequest.post(httpConfig.body(body));
             System.out.println(result);

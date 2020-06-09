@@ -200,14 +200,18 @@ public class StartWsProtoClient {
         //红包扫雷
         //new StartWsProtoClient("47876132", 107, "101").start();
         List<String> dev2alysiaT = FileUtil.readFile(StartWsProtoClient.class.getResourceAsStream("/usersTxt/dev2alysiaT.txt")).subList(0, 20);
-        for (int i = 0; i < dev2alysiaT.size(); i++) {
-            if (i < 10) {
-                new StartWsProtoClient(dev2alysiaT.get(i), 1, 107, "101").start();
-            } else {
-                new StartWsProtoClient(dev2alysiaT.get(i), 2, 107, "101").start();
-            }
+        //for (int i = 0; i < dev2alysiaT.size(); i++) {
+        //    if (i < 10) {
+        //        new StartWsProtoClient(dev2alysiaT.get(i), 1, 107, "101").start();
+        //    } else {
+        //        new StartWsProtoClient(dev2alysiaT.get(i), 2, 107, "101").start();
+        //    }
+        //}
+        new StartWsProtoClient(dev2alysiaT.get(0), 2, 107, "101").start();
+        new StartWsProtoClient(dev2alysiaT.get(1), 2, 107, "102").start();
+        new StartWsProtoClient(dev2alysiaT.get(2), 2, 107, "103").start();
+        new StartWsProtoClient(dev2alysiaT.get(3), 2, 107, "104").start();
 
-        }
         //new StartWsProtoClient("31237108", 107).start();
     }
 
