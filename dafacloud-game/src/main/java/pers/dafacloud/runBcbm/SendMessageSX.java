@@ -65,19 +65,19 @@ public class SendMessageSX {
                     if (responceMessage.daCount == 0)
                         amount = "100";//400
                     else if (responceMessage.daCount == 1)
-                        amount = "100,100";//800
+                        amount = "100,100,50";//1000
                     else if (responceMessage.daCount == 2)
-                        amount = "100,100,100";//1200
+                        amount = "500,50";//2200
                     else if (responceMessage.daCount == 3)
-                        amount = "500";//2000
+                        amount = "1000,100,100,50";//5000
                     else if (responceMessage.daCount == 4)
-                        amount = "500,100,100";//2800
+                        amount = "1000,1000,1000";//120800
                     else if (responceMessage.daCount == 5)
-                        amount = "1000";//4000
+                        amount = "5000,1000,1000";//28000
                     else if (responceMessage.daCount == 6)
-                        amount = "1000,1000";//8000
+                        amount = "10000";//40000
                     else if (responceMessage.daCount == 7)
-                        amount = "1000,1000,1000";//12000
+                        amount = "10000";//40000
                     else
                         continue;
                     String betconent = String.format(temp, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
