@@ -11,14 +11,21 @@ import java.util.List;
 
 public class FileUtil {
 
-    @Test(description = "读文件")
-    public static void test01() {
-        System.out.println(readFile("/Users/duke/Documents/github/dafa/utils/src/main/resources/test/b.txt"));
-    }
 
-    @Test(description = "写文件")
-    public static void test02() {
-        writeFile("/Users/duke/Documents/github/dafa/utils/src/main/resources/b.txt", "cc");
+    @Test(description = "测试")
+    public static void test01() throws Exception {
+        //找到目标文件
+        File file = new File("/Users/duke/Documents/test.txt");
+        FileInputStream fileInputStream= new FileInputStream(file);
+        BufferedInputStream bufferedInputStream= new BufferedInputStream(fileInputStream);
+        bufferedInputStream.read();
+        int bytesRead = 0;
+        byte[] buffer = new byte[1024];
+        while ((bytesRead = bufferedInputStream.read(buffer)) != -1) {
+            //将读取的字节转为字符串对象
+            String chunk = new String(buffer, 0, bytesRead);
+            System.out.print("11"+chunk);
+        }
     }
 
     /**

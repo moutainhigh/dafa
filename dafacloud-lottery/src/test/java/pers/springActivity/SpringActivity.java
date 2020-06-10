@@ -21,6 +21,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 春节抽奖
+ */
 public class SpringActivity {
     //private static String host = "http://cms.caishen02.com";
     //private static String host = "http://pt.dafacloud-pre.com";

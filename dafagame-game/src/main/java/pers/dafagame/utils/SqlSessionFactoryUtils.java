@@ -11,6 +11,7 @@ import java.io.InputStream;
 public class SqlSessionFactoryUtils {
 
     private static SqlSession devSession;
+    private static SqlSession dev2Session;
     private static SqlSession proTransactionSession;
     private static SqlSession proReportSession;
     private static SqlSession proGameSession;
@@ -60,6 +61,11 @@ public class SqlSessionFactoryUtils {
                         devSession = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
                     }
                     return devSession;
+                case "dev2":
+                    if (dev2Session == null) {
+                        dev2Session = new SqlSessionFactoryBuilder().build(inputStream, name).openSession(true);
+                    }
+                    return dev2Session;
                 default:
                     if (devSession == null) {
                         devSession = new SqlSessionFactoryBuilder().build(inputStream, "dev").openSession(true);

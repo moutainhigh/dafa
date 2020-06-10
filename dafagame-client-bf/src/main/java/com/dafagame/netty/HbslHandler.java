@@ -171,7 +171,7 @@ public class HbslHandler extends GameHandler {
     public void sendRedEnvelopeReq(int total, Channel channel) {
         new Thread(() -> {
             try {
-                Thread.sleep((5 + (int) (Math.random() * 5)) * 100);
+                Thread.sleep((3 + (int) (Math.random() * 4)) * 100);
             } catch (Exception e) {
                 e.printStackTrace();
             }

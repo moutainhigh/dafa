@@ -58,6 +58,7 @@ start(){
     echo "${APP_NAME} is already running. pid=${pid}"
   else
     cd /usr/duke/github/dafagame-client-bf/target/lib
+    rm -rf /usr/duke/dafagamebf.txt
     nohup java -jar ${APP_NAME} "dev"  > /usr/duke/dafagamebf.txt
     echo "${APP_NAME} 启动成功"
   fi

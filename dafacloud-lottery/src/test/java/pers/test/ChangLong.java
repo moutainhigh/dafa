@@ -27,8 +27,6 @@ public class ChangLong {
         map.put("lotteryCode", lotteryCode);
         map.put("tenantCode", tenantCode);
         list = tenantOpenMessageMapper.getOpenNumber(map);
-
-
     }
 
     /**

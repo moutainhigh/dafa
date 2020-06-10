@@ -12,6 +12,7 @@ import pers.utils.listUtils.ListSplit;
 import pers.utils.randomNameAddrIP.RandomIP;
 import pers.utils.urlUtils.UrlBuilder;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -28,9 +29,11 @@ public class TestLastOperationTime {
     public static void main(String[] args) {
         //operationTask();
         //getTokenIpTask();
-
-        getSessionTask();
-
+        //getSessionTask();
+        File file = new File("");
+        if(file.exists()){
+            System.out.println("1");
+        }
     }
 
 
@@ -40,7 +43,7 @@ public class TestLastOperationTime {
     public static void getSessionTask() {
         List<String> tokens = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/token.txt"));//.subList(0,2);
         System.out.println(tokens.size());
-        List<List<String>> tokensList = ListSplit.split(tokens, 200);
+        List<List<String>> tokensList = ListSplit.split(tokens, 1000);
         CountDownLatch cdl = new CountDownLatch(tokensList.size());
         for (int i = 0; i < tokensList.size(); i++) {
             int finalI = i;
@@ -62,13 +65,16 @@ public class TestLastOperationTime {
             try {
                 String JSESSIONID = AESCrossDomainUtil.decrypt(tokens.get(i)).replace("_dafatoken", "");
                 String url = UrlBuilder.custom()
-                        .url("http://192.168.254.111:8010/v1/users/getSession")
-                        .addBuilder("ip", "1.1.1.1")
+                        //.url("http://192.168.254.111:8010/v1/users/getSession")
+                        //.url("http://52.76.195.164:8010/v1/users/getSession")
+                        .url("http://192.168.254.100:8010/v1/users/getSession")
+                        .addBuilder("ip", "13.250.0.161")
                         .addBuilder("JSESSIONID", JSESSIONID)
-                        .addBuilder("url", host)
-                        .addBuilder("api", "zxcz")
+                        .addBuilder("url", "dafacloud-test.com")
+                        .addBuilder("api", "users")
                         .fullUrl();
                 System.out.println(DafaRequest.get(httpConfig.url(url)));
+                //Thread.sleep(200);
             } catch (Exception e) {
                 System.out.println("异常：" + e.getMessage());
             }
@@ -85,7 +91,7 @@ public class TestLastOperationTime {
     public static void operationTask() {
         List<String> tokens = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/token.txt"));
         System.out.println(tokens.size());
-        List<List<String>> tokensList = ListSplit.split(tokens, 200);
+        List<List<String>> tokensList = ListSplit.split(tokens, 1000);
         CountDownLatch cdl = new CountDownLatch(tokensList.size());
         for (int i = 0; i < tokensList.size(); i++) {
             int finalI = i;
@@ -115,6 +121,11 @@ public class TestLastOperationTime {
                     .other("X-Token", tokens.get(i));
             httpConfig.headers(httpHeader0.build());
             System.out.println(DafaRequest.get(httpConfig.url(host + "/v1/balance/queryBalanceFront")));
+            //try {
+            //    Thread.sleep(200);
+            //} catch (InterruptedException e) {
+            //    e.printStackTrace();
+            //}
         }
         cdl.countDown();
     }
@@ -123,7 +134,7 @@ public class TestLastOperationTime {
      * 先登录获取x-token
      */
     public static void getTokenIpTask() {
-        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(0, 2000);
+        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(0, 1000);
         System.out.println(users.size());
         List<List<String>> usersList = ListSplit.split(users, 500);
         CountDownLatch cdl = new CountDownLatch(usersList.size());

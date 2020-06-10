@@ -290,7 +290,7 @@
                     <archive>
                         <manifest>
                             <!--<mainClass>pers.dafacloud.betRun.Betting</mainClass>-->
-                            <mainClass>pers.dafacloud.testDafa.YueBaoFront</mainClass>
+                            <mainClass>pers.dafacloud.testRunMain.YueBaoFront</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
