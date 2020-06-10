@@ -4,6 +4,7 @@
 	<!--
 	and gmt_created &lt; '2020-04-01'
 	and user_type &lt;&gt; 1
+	2020-06-09 15:28:07
 	-->
     <select id="getRecordMultiList" resultType="java.util.Map">
 		select
@@ -29,7 +30,7 @@
 		`gmt_created`,
 		`gmt_modified`
 		from dafagame_game.record_multi_${tableName}
-		where gmt_created &gt; '2020-06-09 15:28:07'
+		where gmt_created &gt; '2020-06-10 15:00:00'
 		and game_code = 107
 
 	</select>

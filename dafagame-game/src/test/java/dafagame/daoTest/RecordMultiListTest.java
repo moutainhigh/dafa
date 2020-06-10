@@ -75,9 +75,9 @@ public class RecordMultiListTest {
                     else
                         sb.append("未中雷").append(";");
                     sb.append(crabObj.getString("k")).append(";");//是否杀率
-                    if (crabObj.getInteger("r") == 0) {
-                        countReal++;
-                    }
+                }
+                if (crabObj.getInteger("r") == 0) {
+                    countReal++;
                 }
             }
             sb.append(countReal).append(";");

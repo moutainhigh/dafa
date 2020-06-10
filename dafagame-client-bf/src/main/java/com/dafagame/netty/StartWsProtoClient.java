@@ -209,12 +209,16 @@ public class StartWsProtoClient {
         //}
         new StartWsProtoClient(dev2alysiaT.get(0), 2, 107, "101").start();
         new StartWsProtoClient(dev2alysiaT.get(1), 2, 107, "101").start();
-        new StartWsProtoClient(dev2alysiaT.get(2), 2, 107, "102").start();
+        new StartWsProtoClient(dev2alysiaT.get(2), 2, 107, "101").start();
         new StartWsProtoClient(dev2alysiaT.get(3), 2, 107, "102").start();
-        new StartWsProtoClient(dev2alysiaT.get(4), 2, 107, "103").start();
-        new StartWsProtoClient(dev2alysiaT.get(5), 2, 107, "103").start();
-        new StartWsProtoClient(dev2alysiaT.get(6), 2, 107, "104").start();
-        new StartWsProtoClient(dev2alysiaT.get(7), 2, 107, "104").start();
+        new StartWsProtoClient(dev2alysiaT.get(4), 2, 107, "102").start();
+        new StartWsProtoClient(dev2alysiaT.get(5), 2, 107, "102").start();
+        new StartWsProtoClient(dev2alysiaT.get(6), 2, 107, "103").start();
+        new StartWsProtoClient(dev2alysiaT.get(7), 2, 107, "103").start();
+        new StartWsProtoClient(dev2alysiaT.get(8), 2, 107, "103").start();
+        new StartWsProtoClient(dev2alysiaT.get(9), 2, 107, "104").start();
+        new StartWsProtoClient(dev2alysiaT.get(10), 2, 107, "104").start();
+        new StartWsProtoClient(dev2alysiaT.get(11), 2, 107, "104").start();
 
         //new StartWsProtoClient("31237108", 107).start();
     }
