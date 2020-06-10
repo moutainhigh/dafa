@@ -23,4 +23,5 @@ public class BetGameContent {
                 ", \"bettingAmount\":[" + bettingAmount  +
                 "]}]}}";
     }
+
 }

@@ -37,7 +37,23 @@ public class Login {
         HttpCookies httpCookies = HttpCookies.custom();
         HttpConfig httpConfig = HttpConfig.custom().url(login).body(body).headers(headers).context(httpCookies.getContext());
         String result = DafaRequest.post(httpConfig);
-        System.out.println(result);
+        System.out.println(username + " - " + result);
+        com.alibaba.fastjson.JSONObject resultObj = com.alibaba.fastjson.JSONObject.parseObject(result);
+        com.alibaba.fastjson.JSONObject dataObj = resultObj.getJSONObject("data");
+        if (result == null || !result.contains("成功"))
+            throw new RuntimeException("登录失败");
+        if (dataObj != null) {
+            String token = dataObj.getString("token");
+            System.out.println(token);
+            HttpHeader httpHeader0 = HttpHeader.custom()
+                    .contentType("application/x-www-form-urlencoded;charset=UTF-8")
+                    .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
+                    .other("x-forwarded-for", ip)
+                    .other("x-remote-IP", ip)
+                    .other("X-Real-IP", ip)
+                    .other("X-Token", token);
+            httpConfig.headers(httpHeader0.build());
+        }
         return httpConfig;
     }
 

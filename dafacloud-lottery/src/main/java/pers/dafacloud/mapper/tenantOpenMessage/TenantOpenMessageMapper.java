@@ -7,4 +7,6 @@ public interface TenantOpenMessageMapper {
 
     List<Map> getOpenNumber(Map map);
 
+    List<Map> getGameOpenNumber();
+
 }

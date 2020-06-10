@@ -231,7 +231,8 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>pers.dafacloud.broadCast8.StartWs</mainClass>
+                            <!--<mainClass>pers.dafacloud.broadCast8.StartWs</mainClass>-->
+                            <mainClass>pers.dafacloud.runBcbm.Testws</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

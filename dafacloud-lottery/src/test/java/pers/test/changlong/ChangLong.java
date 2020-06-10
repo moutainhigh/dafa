@@ -1,4 +1,4 @@
-package pers.test;
+package pers.test.changlong;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -16,6 +16,7 @@ public class ChangLong {
 
     private static SqlSession sqlSession = SqlSessionFactoryUtils.openSqlSession("dev");
     private static TenantOpenMessageMapper tenantOpenMessageMapper = sqlSession.getMapper(TenantOpenMessageMapper.class);
+
 
 
     private static int lotteryCode = 1418;

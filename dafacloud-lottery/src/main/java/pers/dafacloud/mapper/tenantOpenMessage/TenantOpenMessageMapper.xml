@@ -21,4 +21,14 @@
 		order  by  id desc
 		limit 60
 	</select>
+
+	<select id="getGameOpenNumber" resultType="Map">
+		select
+		open_number  openNumber,
+		issue  issue
+		from dafacloud_game.game_open_message
+		where game_code = 2005
+		order by id desc
+		limit 60000
+	</select>
 </mapper>
