@@ -54,15 +54,21 @@ public class SendMessageSX {
                     getToken();
                     Thread.sleep(5000);
                 }
-                if (!responceMessage.isCanBetting() || responceMessage.xiaoCount > 12 || responceMessage.xiaoCount < 5) {
+                //非投注间隔
+                if (!responceMessage.isCanBetting()) {
                     responceMessage.setCanBetting(false);
-                    System.out.println("长龙:" + responceMessage.xiaoCount);
                     Thread.sleep(2000);
                     continue;
                 }
-                System.out.println("长龙:" + responceMessage.xiaoCount);
+                if (responceMessage.xiaoCount > 12 || responceMessage.xiaoCount < 5) {
+                    responceMessage.setCanBetting(false);
+                    System.out.println("长龙2:" + responceMessage.xiaoCount);
+                    Thread.sleep(2000);
+                    continue;
+                }
+                System.out.println("长龙1:" + responceMessage.xiaoCount);
                 //{"proto":700,"gameCode":2005,"data":{"issue":"06110147","bettingPoint":8.5,"betReqInfo":[{"pos":5,"bettingAmount":[100,100]},{"pos":6,"bettingAmount":[100,100]},{"pos":7,"bettingAmount":[100,100]},{"pos":8,"bettingAmount":[100,100]}]}}
-                String temp = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":8,\"bettingAmount\":[%s]},{\"pos\":7,\"bettingAmount\":[%s]},{\"pos\":6,\"bettingAmount\":[%s]},{\"pos\":5,\"bettingAmount\":[%s]}]}}";
+                String temp = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":1,\"bettingAmount\":[%s]},{\"pos\":2,\"bettingAmount\":[%s]},{\"pos\":3,\"bettingAmount\":[%s]},{\"pos\":4,\"bettingAmount\":[%s]}]}}";
                 if (session.isOpen()) {
                     //int amount = 100 * (responceMessage.xiaoCount + 1);
                     String amount;
