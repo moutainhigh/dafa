@@ -29,11 +29,12 @@ public class HbslHandler extends GameHandler {
     private boolean isScenesReq = false;//是否进入场景
 
     private static int redEnvelopeCount = 0;
-    private int redEnvelopeLength;
+    private int redEnvelopeLength;//发包list长度（限制100）
 
     private int uid;
 
-    private String currentRedEnvelopeId;
+    private String currentRedEnvelopeId;//当前红白id
+    private int totalMultiple; //总包数
 
 
     @Override
@@ -125,8 +126,10 @@ public class HbslHandler extends GameHandler {
                         //        .add("发包人昵称", redEnvelopeNtf.getRedEnvelope().getOwnerName())
                         //        .build());
                         //
+                        totalMultiple = redEnvelopeNtf.getRedEnvelope().getTotalMultiple();
                         if (userType == 1)
                             break;
+                        //currentRedEnvelopeId变化了就说明是新包
                         if (StringUtils.isEmpty(currentRedEnvelopeId) || !redEnvelopeNtf.getRedEnvelope().getId().equals(currentRedEnvelopeId)) {
                             currentRedEnvelopeId = redEnvelopeNtf.getRedEnvelope().getId();
                             sendRedEnvelopeReq(redEnvelopeNtf.getRedEnvelope().getTotalMultiple(), channel);
@@ -171,11 +174,23 @@ public class HbslHandler extends GameHandler {
     public void sendRedEnvelopeReq(int total, Channel channel) {
         new Thread(() -> {
             try {
-                Thread.sleep((3 + (int) (Math.random() * 4)) * 100);
+                Thread.sleep((6 + (int) (Math.random() * 6)) * 100);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (total != 0) {
+
+            if (totalMultiple == 8) {
+                if ("39447234".equals(phone) || "38956622".equals(phone) || "33536276".equals(phone) || "93213184".equals(phone))
+                    return;
+            } else if (totalMultiple == 5) {
+                if ("39447234".equals(phone) || "38956622".equals(phone) || "33536276".equals(phone) || "93213184".equals(phone)
+                        || "59617490".equals(phone) || "14043801".equals(phone) || "94095636".equals(phone) || "56171519".equals(phone))
+                    return;
+            }
+
+            int is = (int) (Math.random() * 10);
+
+            if (total != 0 && is < 7) {
                 Hbsl.CrabRedEnvelopeReq crabRedEnvelopeReq =
                         Hbsl.CrabRedEnvelopeReq.newBuilder()
                                 .setId(currentRedEnvelopeId)
@@ -237,5 +252,6 @@ public class HbslHandler extends GameHandler {
     public void handlerAdded(ChannelHandlerContext ctx) {
         this.handshaker.setHandshakeFuture(ctx.newPromise());
     }
+
 
 }

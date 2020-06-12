@@ -224,4 +224,12 @@ public class ChangLong {
     }
 
 
+    @Test(description = "测试")
+    public static void aaa() {
+        for (int i = 0; i < 1000; i++) {
+            int is = (int) (Math.random() * 10);
+            System.out.println(is);
+        }
+    }
+
 }
