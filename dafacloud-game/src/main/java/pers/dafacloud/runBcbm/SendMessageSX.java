@@ -47,16 +47,20 @@ public class SendMessageSX {
 
     void process() {
         try {
+
             for (int i = 0; i < 70000000; i++) {
                 if (!session.isOpen()) {
                     System.out.println("重连");
                     getToken();
                     Thread.sleep(5000);
                 }
-                if (!responceMessage.isCanBetting() || responceMessage.xiaoCount > 12) {
+                if (!responceMessage.isCanBetting() || responceMessage.xiaoCount > 12 || responceMessage.xiaoCount < 5) {
+                    responceMessage.setCanBetting(false);
+                    System.out.println("长龙:" + responceMessage.xiaoCount);
                     Thread.sleep(2000);
                     continue;
                 }
+                System.out.println("长龙:" + responceMessage.xiaoCount);
                 //{"proto":700,"gameCode":2005,"data":{"issue":"06110147","bettingPoint":8.5,"betReqInfo":[{"pos":5,"bettingAmount":[100,100]},{"pos":6,"bettingAmount":[100,100]},{"pos":7,"bettingAmount":[100,100]},{"pos":8,"bettingAmount":[100,100]}]}}
                 String temp = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":8,\"bettingAmount\":[%s]},{\"pos\":7,\"bettingAmount\":[%s]},{\"pos\":6,\"bettingAmount\":[%s]},{\"pos\":5,\"bettingAmount\":[%s]}]}}";
                 if (session.isOpen()) {

@@ -3,6 +3,7 @@ package pers.dafacloud.runBcbm;
 
 import lombok.Getter;
 import lombok.Setter;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import pers.dafacloud.enums.BcbmCodeEmu;
 
@@ -45,6 +46,15 @@ public class ResponceMessage {
             issue = data.get("issue").toString();//奖期
             userRebate = data.get("userRebate").toString();//返点
             canBetting = data.getInt("status") == 1;//当前状态，1投注，2
+            JSONArray ja = data.getJSONArray("trend");
+            for (int i = 0; i < ja.size(); i++) {
+                BcbmCodeEmu bcbmCodeEmu = BcbmCodeEmu.getNameByNum(ja.getString(i));
+                if (bcbmCodeEmu.isBig != 1) {
+                    xiaoCount++;
+                } else {
+                    break;
+                }
+            }
             //System.out.println("初始化 stateTime："+stateTime+"，status："+status);
         } else if ("709".equals(proto)) { //开始下注通知
             canBetting = true;
@@ -55,12 +65,12 @@ public class ResponceMessage {
         } else if ("710".equals(proto)) { //结算通知
             String pokers = data.getString("pokers");
             BcbmCodeEmu bcbmCodeEmu = BcbmCodeEmu.getNameByNum(pokers);
-            System.out.println(issue + ":" + bcbmCodeEmu.name);
             if (bcbmCodeEmu != null && bcbmCodeEmu.isBig != 1) {
                 xiaoCount++;
             } else {
                 xiaoCount = 0;
             }
+            System.out.println(issue + ":" + bcbmCodeEmu.name);
             canBetting = false;
         } else if ("716".equals(proto)) {//结束投注通知
             canBetting = false;
