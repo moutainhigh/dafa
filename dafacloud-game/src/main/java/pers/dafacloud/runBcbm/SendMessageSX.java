@@ -71,7 +71,7 @@ public class SendMessageSX {
                     else if (responceMessage.daCount == 3)
                         amount = "1000,100,100,50";//5000
                     else if (responceMessage.daCount == 4)
-                        amount = "1000,1000,1000";//120800
+                        amount = "1000,1000,1000";//12000
                     else if (responceMessage.daCount == 5)
                         amount = "5000,1000,1000";//28000
                     else if (responceMessage.daCount == 6)

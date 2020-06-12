@@ -47,7 +47,7 @@ public class Bcbm {
                 //    xiaolong[xiao - 3]++;
                 //}
             }
-            //System.out.println(map.get("issue").toString() + " - " + openNumber + (openNumber.length() == 1 ? " " : "") + " - " + bcbmCode.name + " - " + da + " - " + xiao);
+            System.out.println(map.get("issue").toString() + " - " + openNumber + (openNumber.length() == 1 ? " " : "") + " - " + bcbmCode.name + " - " + da + " - " + xiao);
         }
         System.out.println("开大长龙长度：" + Arrays.toString(dalong));
         System.out.println("开小长龙长度：" + Arrays.toString(xiaolong));

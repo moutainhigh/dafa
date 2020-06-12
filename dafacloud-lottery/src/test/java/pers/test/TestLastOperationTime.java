@@ -29,11 +29,7 @@ public class TestLastOperationTime {
     public static void main(String[] args) {
         //operationTask();
         //getTokenIpTask();
-        //getSessionTask();
-        File file = new File("");
-        if(file.exists()){
-            System.out.println("1");
-        }
+        getSessionTask();
     }
 
 
@@ -65,9 +61,9 @@ public class TestLastOperationTime {
             try {
                 String JSESSIONID = AESCrossDomainUtil.decrypt(tokens.get(i)).replace("_dafatoken", "");
                 String url = UrlBuilder.custom()
-                        //.url("http://192.168.254.111:8010/v1/users/getSession")
+                        .url("http://192.168.254.111:8010/v1/users/getSession")
                         //.url("http://52.76.195.164:8010/v1/users/getSession")
-                        .url("http://192.168.254.100:8010/v1/users/getSession")
+                        //.url("http://192.168.254.100:8010/v1/users/getSession")
                         .addBuilder("ip", "13.250.0.161")
                         .addBuilder("JSESSIONID", JSESSIONID)
                         .addBuilder("url", "dafacloud-test.com")
@@ -134,7 +130,7 @@ public class TestLastOperationTime {
      * 先登录获取x-token
      */
     public static void getTokenIpTask() {
-        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(0, 1000);
+        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(0, 50);
         System.out.println(users.size());
         List<List<String>> usersList = ListSplit.split(users, 500);
         CountDownLatch cdl = new CountDownLatch(usersList.size());

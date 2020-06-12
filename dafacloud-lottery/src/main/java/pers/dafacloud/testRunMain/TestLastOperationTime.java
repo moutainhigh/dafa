@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 测试最后操作时间
@@ -25,14 +26,57 @@ public class TestLastOperationTime {
     private static ExecutorService executors = Executors.newFixedThreadPool(1200);
     //private static String host = "http://caishen02.com";
     private static String host = "http://dafacloud-test.com";
+    private static AtomicInteger count = new AtomicInteger(0);
+
 
     public static void main(String[] args) {
-        //getTokenIpTask();
+        getTokenIpTask();
         //operationTask();
         //getSessionTask();
-        getSessionTaskALL();
+        //getSessionTaskALL();
     }
 
+
+
+
+    /**
+     * 使用登录返回的x-token，来做其他操作
+     */
+    public static void getSessionTaskALL() {
+        List<String> tokens = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/token.txt")).subList(0,200);
+        System.out.println(tokens.size());
+        for (int i = 0; i < tokens.size(); i++) {
+            int finalI = i;
+            executors.execute(() -> getSessionALL(tokens.get(finalI)));
+        }
+    }
+
+
+    public static void getSessionALL(String token) {
+        //@RequestParam("ip")String ip,@RequestParam(Constant.JSESSIONID)String jsessionId,@RequestParam("url")String url,@RequestParam("api")String api
+        //String ip = RandomIP.getRandomIp();
+        HttpConfig httpConfig = HttpConfig.custom();
+        try {
+            String JSESSIONID = AESCrossDomainUtil.decrypt(token).replace("_dafatoken", "");
+            String url = UrlBuilder.custom()
+                    .url("http://192.168.254.111:8010/v1/users/getSession")
+                    //.url("http://52.76.195.164:8010/v1/users/getSession")
+                    //.url("http://192.168.254.100:8010/v1/users/getSession")
+                    .addBuilder("ip", "13.250.0.161")
+                    .addBuilder("JSESSIONID", JSESSIONID)
+                    .addBuilder("url", "dafacloud-test.com")
+                    .addBuilder("api", "users")
+                    .fullUrl();
+            for (int j = 0; j < 1000000000; j++) {
+                count.incrementAndGet();
+                System.out.println(count+" - "+DafaRequest.get(httpConfig.url(url)));
+
+            }
+            //Thread.sleep(200);
+        } catch (Exception e) {
+            System.out.println("异常：" + e.getMessage());
+        }
+    }
 
     /**
      * 使用登录返回的x-token，来做其他操作
@@ -51,42 +95,6 @@ public class TestLastOperationTime {
             executors.shutdown();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-    }
-
-    /**
-     * 使用登录返回的x-token，来做其他操作
-     */
-    public static void getSessionTaskALL() {
-        List<String> tokens = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/token.txt")).subList(0,50);
-        System.out.println(tokens.size());
-        for (int i = 0; i < tokens.size(); i++) {
-            int finalI = i;
-            executors.execute(() -> getSessionALL(tokens.get(finalI)));
-        }
-    }
-
-    public static void getSessionALL(String token) {
-        //@RequestParam("ip")String ip,@RequestParam(Constant.JSESSIONID)String jsessionId,@RequestParam("url")String url,@RequestParam("api")String api
-        //String ip = RandomIP.getRandomIp();
-        HttpConfig httpConfig = HttpConfig.custom();
-        try {
-            String JSESSIONID = AESCrossDomainUtil.decrypt(token).replace("_dafatoken", "");
-            String url = UrlBuilder.custom()
-                    //.url("http://192.168.254.111:8010/v1/users/getSession")
-                    .url("http://52.76.195.164:8010/v1/users/getSession")
-                    //.url("http://192.168.254.100:8010/v1/users/getSession")
-                    .addBuilder("ip", "13.250.0.161")
-                    .addBuilder("JSESSIONID", JSESSIONID)
-                    .addBuilder("url", "dafacloud-test.com")
-                    .addBuilder("api", "users")
-                    .fullUrl();
-            for (int j = 0; j < 1000000000; j++) {
-                System.out.println(DafaRequest.get(httpConfig.url(url)));
-            }
-            //Thread.sleep(200);
-        } catch (Exception e) {
-            System.out.println("异常：" + e.getMessage());
         }
     }
 
@@ -167,7 +175,7 @@ public class TestLastOperationTime {
      * 先登录获取x-token
      */
     public static void getTokenIpTask() {
-        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(0, 1000);
+        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(0, 500);
         System.out.println(users.size());
         List<List<String>> usersList = ListSplit.split(users, 500);
         CountDownLatch cdl = new CountDownLatch(usersList.size());
@@ -218,7 +226,8 @@ public class TestLastOperationTime {
             }
             if (dataObj != null) {
                 String token = dataObj.getString("token");
-                System.out.println(token);
+                String JSESSIONID = AESCrossDomainUtil.decrypt(token).replace("_dafatoken", "");
+                System.out.println(JSESSIONID);
             }
         }
         cdl.countDown();

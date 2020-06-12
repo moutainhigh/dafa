@@ -195,7 +195,6 @@ public class HbslHandler extends GameHandler {
         }
         new Thread(() -> {
             for (; ; ) {
-
                 if (redEnvelopeCount < 6 && redEnvelopeLength < 100) {
                     Hbsl.OutRedEnvelopeReq outRedEnvelopeReq = Hbsl.OutRedEnvelopeReq
                             .newBuilder()

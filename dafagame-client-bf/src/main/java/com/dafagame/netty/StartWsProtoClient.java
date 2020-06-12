@@ -207,22 +207,22 @@ public class StartWsProtoClient {
         //        new StartWsProtoClient(dev2alysiaT.get(i), 2, 107, "101").start();
         //    }
         //}
-        new StartWsProtoClient(dev2alysiaT.get(0), 2, 107, "101").start();
-        new StartWsProtoClient(dev2alysiaT.get(1), 2, 107, "101").start();
-        new StartWsProtoClient(dev2alysiaT.get(2), 2, 107, "101").start();
-        new StartWsProtoClient(dev2alysiaT.get(3), 2, 107, "101").start();
-        new StartWsProtoClient(dev2alysiaT.get(4), 2, 107, "102").start();
-        new StartWsProtoClient(dev2alysiaT.get(5), 2, 107, "102").start();
-        new StartWsProtoClient(dev2alysiaT.get(6), 2, 107, "102").start();
-        new StartWsProtoClient(dev2alysiaT.get(7), 2, 107, "102").start();
-        new StartWsProtoClient(dev2alysiaT.get(8), 2, 107, "103").start();
-        new StartWsProtoClient(dev2alysiaT.get(9), 2, 107, "103").start();
-        new StartWsProtoClient(dev2alysiaT.get(10), 2, 107, "103").start();
-        new StartWsProtoClient(dev2alysiaT.get(11), 2, 107, "103").start();
-        new StartWsProtoClient(dev2alysiaT.get(12), 2, 107, "104").start();
-        new StartWsProtoClient(dev2alysiaT.get(13), 2, 107, "104").start();
-        new StartWsProtoClient(dev2alysiaT.get(14), 2, 107, "104").start();
-        new StartWsProtoClient(dev2alysiaT.get(15), 2, 107, "104").start();
+        new StartWsProtoClient(dev2alysiaT.get(0), 1, 107, "101").start();
+        new StartWsProtoClient(dev2alysiaT.get(1), 1, 107, "101").start();
+        new StartWsProtoClient(dev2alysiaT.get(2), 1, 107, "101").start();
+        new StartWsProtoClient(dev2alysiaT.get(3), 1, 107, "101").start();
+        new StartWsProtoClient(dev2alysiaT.get(4), 1, 107, "102").start();
+        new StartWsProtoClient(dev2alysiaT.get(5), 1, 107, "102").start();
+        new StartWsProtoClient(dev2alysiaT.get(6), 1, 107, "102").start();
+        new StartWsProtoClient(dev2alysiaT.get(7), 1, 107, "102").start();
+        new StartWsProtoClient(dev2alysiaT.get(8), 1, 107, "103").start();
+        new StartWsProtoClient(dev2alysiaT.get(9), 1, 107, "103").start();
+        new StartWsProtoClient(dev2alysiaT.get(10), 1, 107, "103").start();
+        new StartWsProtoClient(dev2alysiaT.get(11), 1, 107, "103").start();
+        new StartWsProtoClient(dev2alysiaT.get(12), 1, 107, "104").start();
+        new StartWsProtoClient(dev2alysiaT.get(13), 1, 107, "104").start();
+        new StartWsProtoClient(dev2alysiaT.get(14), 1, 107, "104").start();
+        new StartWsProtoClient(dev2alysiaT.get(15), 1, 107, "104").start();
 
         //new StartWsProtoClient("31237108", 107).start();
     }
