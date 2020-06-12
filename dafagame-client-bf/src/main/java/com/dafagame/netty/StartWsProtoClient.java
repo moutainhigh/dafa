@@ -208,32 +208,56 @@ public class StartWsProtoClient {
         //    }
         //}
         new StartWsProtoClient(dev2alysiaT.get(0), 2, 107, "101").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(1), 2, 107, "101").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(2), 2, 107, "101").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(3), 2, 107, "101").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(4), 2, 107, "101").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(5), 2, 107, "101").start();
+        Thread.sleep(200);
 
         new StartWsProtoClient(dev2alysiaT.get(6), 2, 107, "102").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(7), 2, 107, "102").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(8), 2, 107, "102").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(9), 2, 107, "102").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(10), 2, 107, "102").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(11), 2, 107, "102").start();
+        Thread.sleep(200);
 
         new StartWsProtoClient(dev2alysiaT.get(12), 2, 107, "103").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(13), 2, 107, "103").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(14), 2, 107, "103").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(15), 2, 107, "103").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(16), 2, 107, "103").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(17), 2, 107, "103").start();
+        Thread.sleep(200);
 
         new StartWsProtoClient(dev2alysiaT.get(18), 2, 107, "104").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(19), 2, 107, "104").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(20), 2, 107, "104").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(21), 2, 107, "104").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(22), 2, 107, "104").start();
+        Thread.sleep(200);
         new StartWsProtoClient(dev2alysiaT.get(23), 2, 107, "104").start();
+        Thread.sleep(200);
 
         //new StartWsProtoClient("31237108", 107).start();
     }
