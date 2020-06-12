@@ -92,7 +92,7 @@ public class SendMessageSX {
                     } else {
                         continue;
                     }
-                    dzAmount = amount + "," + amount;
+                    dzAmount = (amount + "," + amount);
                     String betconent = String.format(temp, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, dzAmount);
                     System.out.println(betconent);
                     session.getAsyncRemote().sendText(betconent);
