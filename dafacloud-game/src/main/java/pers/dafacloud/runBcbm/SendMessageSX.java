@@ -60,7 +60,7 @@ public class SendMessageSX {
                     Thread.sleep(2000);
                     continue;
                 }
-                if (responceMessage.xiaoCount > 12 || responceMessage.xiaoCount < 5) {
+                if (responceMessage.xiaoCount > 12 || responceMessage.xiaoCount < 4) {
                     responceMessage.setCanBetting(false);
                     System.out.println("长龙2:" + responceMessage.xiaoCount);
                     Thread.sleep(2000);
@@ -80,7 +80,7 @@ public class SendMessageSX {
                     } else if (responceMessage.xiaoCount == 6) {
                         amount = "500,100,100,100,100";//3600
                     } else if (responceMessage.xiaoCount == 7) {
-                        amount = "1000";//4000
+                        amount = "1000,100";//4000
                     } else if (responceMessage.xiaoCount == 8) {
                         amount = "1000,500";//6000
                     } else if (responceMessage.xiaoCount == 9) {
