@@ -196,9 +196,13 @@ public class HbslHandler extends GameHandler {
         new Thread(() -> {
             for (; ; ) {
                 if (redEnvelopeCount < 6 && redEnvelopeLength < 100) {
+                    int amount = ("101").equals(roundType) ? 10
+                            : ("102").equals(roundType) ? 36
+                            : ("103").equals(roundType) ? 80
+                            : ("104").equals(roundType) ? 160 : 10;
                     Hbsl.OutRedEnvelopeReq outRedEnvelopeReq = Hbsl.OutRedEnvelopeReq
                             .newBuilder()
-                            .setMoney(10)
+                            .setMoney(amount)
                             .setTempIdx(0)
                             .setRepeated(1)
                             .setBombNum(6)
