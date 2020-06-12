@@ -72,25 +72,27 @@ public class SendMessageSX {
                 if (session.isOpen()) {
                     //int amount = 100 * (responceMessage.xiaoCount + 1);
                     String amount;
-                    if (responceMessage.xiaoCount == 5)
+                    String dzAmount;
+                    if (responceMessage.xiaoCount == 5) {
                         amount = "500";//2000
-                    else if (responceMessage.xiaoCount == 6)
+                    } else if (responceMessage.xiaoCount == 6) {
                         amount = "500,100,100";//2800
-                    else if (responceMessage.xiaoCount == 7)
+                    } else if (responceMessage.xiaoCount == 7) {
                         amount = "500,100,100,100,100";//3600
-                    else if (responceMessage.xiaoCount == 8)
+                    } else if (responceMessage.xiaoCount == 8) {
                         amount = "1000";//4000
-                    else if (responceMessage.xiaoCount == 9)
+                    } else if (responceMessage.xiaoCount == 9) {
                         amount = "1000,500";//6000
-                    else if (responceMessage.xiaoCount == 10)
+                    } else if (responceMessage.xiaoCount == 10) {
                         amount = "1000,1000";//8000
-                    else if (responceMessage.xiaoCount == 11)
+                    } else if (responceMessage.xiaoCount == 11) {
                         amount = "1000,1000,1000";//12000
-                    else if (responceMessage.xiaoCount == 12)
+                    } else if (responceMessage.xiaoCount == 12) {
                         amount = "5000";//20000
-                    else
+                    } else
                         continue;
-                    String betconent = String.format(temp, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
+                    dzAmount = amount + "," + amount;
+                    String betconent = String.format(temp, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, dzAmount);
                     System.out.println(betconent);
                     session.getAsyncRemote().sendText(betconent);
                     responceMessage.setCanBetting(false);
