@@ -23,7 +23,7 @@ public class ResponceMessage {
     @Setter
     private boolean canBetting;
     @Getter
-    int daCount = 0;
+    int xiaoCount = 0;
 
     public ResponceMessage(String username) {
         this.username = username;
@@ -56,10 +56,10 @@ public class ResponceMessage {
             String pokers = data.getString("pokers");
             BcbmCodeEmu bcbmCodeEmu = BcbmCodeEmu.getNameByNum(pokers);
             System.out.println(issue + ":" + bcbmCodeEmu.name);
-            if (bcbmCodeEmu != null && bcbmCodeEmu.isBig == 1) {
-                daCount++;
+            if (bcbmCodeEmu != null && bcbmCodeEmu.isBig != 1) {
+                xiaoCount++;
             } else {
-                daCount = 0;
+                xiaoCount = 0;
             }
             canBetting = false;
         } else if ("716".equals(proto)) {//结束投注通知

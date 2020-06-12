@@ -53,31 +53,31 @@ public class SendMessageSX {
                     getToken();
                     Thread.sleep(5000);
                 }
-                if (!responceMessage.isCanBetting() || responceMessage.daCount > 7) {
+                if (!responceMessage.isCanBetting() || responceMessage.xiaoCount > 12) {
                     Thread.sleep(2000);
                     continue;
                 }
                 //{"proto":700,"gameCode":2005,"data":{"issue":"06110147","bettingPoint":8.5,"betReqInfo":[{"pos":5,"bettingAmount":[100,100]},{"pos":6,"bettingAmount":[100,100]},{"pos":7,"bettingAmount":[100,100]},{"pos":8,"bettingAmount":[100,100]}]}}
                 String temp = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":8,\"bettingAmount\":[%s]},{\"pos\":7,\"bettingAmount\":[%s]},{\"pos\":6,\"bettingAmount\":[%s]},{\"pos\":5,\"bettingAmount\":[%s]}]}}";
                 if (session.isOpen()) {
-                    //int amount = 100 * (responceMessage.daCount + 1);
+                    //int amount = 100 * (responceMessage.xiaoCount + 1);
                     String amount;
-                    if (responceMessage.daCount == 0)
-                        amount = "100";//400
-                    else if (responceMessage.daCount == 1)
-                        amount = "100,100,50";//1000
-                    else if (responceMessage.daCount == 2)
-                        amount = "500,50";//2200
-                    else if (responceMessage.daCount == 3)
-                        amount = "1000,100,100,50";//5000
-                    else if (responceMessage.daCount == 4)
+                    if (responceMessage.xiaoCount == 5)
+                        amount = "500";//2000
+                    else if (responceMessage.xiaoCount == 6)
+                        amount = "500,100,100";//2800
+                    else if (responceMessage.xiaoCount == 7)
+                        amount = "500,100,100,100,100";//3600
+                    else if (responceMessage.xiaoCount == 8)
+                        amount = "1000";//4000
+                    else if (responceMessage.xiaoCount == 9)
+                        amount = "1000,500";//6000
+                    else if (responceMessage.xiaoCount == 10)
+                        amount = "1000,1000";//8000
+                    else if (responceMessage.xiaoCount == 11)
                         amount = "1000,1000,1000";//12000
-                    else if (responceMessage.daCount == 5)
-                        amount = "5000,1000,1000";//28000
-                    else if (responceMessage.daCount == 6)
-                        amount = "10000";//40000
-                    else if (responceMessage.daCount == 7)
-                        amount = "10000";//40000
+                    else if (responceMessage.xiaoCount == 12)
+                        amount = "5000";//20000
                     else
                         continue;
                     String betconent = String.format(temp, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
@@ -90,6 +90,10 @@ public class SendMessageSX {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void function01() {
+
     }
 }
 
