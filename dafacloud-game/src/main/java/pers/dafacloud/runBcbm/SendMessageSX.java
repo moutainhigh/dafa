@@ -62,7 +62,7 @@ public class SendMessageSX {
                     Thread.sleep(2000);
                     continue;
                 }
-                if (responceMessage.xiaoCount > 12 || responceMessage.xiaoCount < 4) {
+                if (responceMessage.xiaoCount > 17 || responceMessage.xiaoCount < 4) {
                     responceMessage.setCanBetting(false);
                     System.out.println("长龙2:" + responceMessage.xiaoCount);
                     Thread.sleep(2000);
