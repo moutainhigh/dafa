@@ -1,5 +1,7 @@
 package pers.dafacloud.runBcbm;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import pers.dafacloud.dafacloudUtils.Login;
 import pers.utils.httpclientUtils.HttpConfig;
 
@@ -69,26 +71,44 @@ public class SendMessageSX {
                 System.out.println("长龙1:" + responceMessage.xiaoCount);
                 //{"proto":700,"gameCode":2005,"data":{"issue":"06110147","bettingPoint":8.5,"betReqInfo":[{"pos":5,"bettingAmount":[100,100]},{"pos":6,"bettingAmount":[100,100]},{"pos":7,"bettingAmount":[100,100]},{"pos":8,"bettingAmount":[100,100]}]}}
                 String temp = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":1,\"bettingAmount\":[%s]},{\"pos\":2,\"bettingAmount\":[%s]},{\"pos\":3,\"bettingAmount\":[%s]},{\"pos\":4,\"bettingAmount\":[%s]}]}}";
+
+                //JSONArray jsonArray = new JSONArray();
+                //JSONObject jsonObject = new JSONObject();
+                //jsonObject.put("pos",1);
+                //jsonObject.put("bettingAmount","");
+
                 if (session.isOpen()) {
                     //int amount = 100 * (responceMessage.xiaoCount + 1);
                     String amount;
                     String dzAmount;
                     if (responceMessage.xiaoCount == 4) {
-                        amount = "500";//2000
+                        amount = "500";//2500
                     } else if (responceMessage.xiaoCount == 5) {
-                        amount = "500,100,100";//2800
+                        amount = "500";//2500
                     } else if (responceMessage.xiaoCount == 6) {
-                        amount = "500,100,100,100,100";//3600
+                        amount = "1000";//5000
                     } else if (responceMessage.xiaoCount == 7) {
-                        amount = "1000,100";//4000
+                        amount = "1000";//5000
                     } else if (responceMessage.xiaoCount == 8) {
-                        amount = "1000,500";//6000
+                        amount = "1000,500";//7500
                     } else if (responceMessage.xiaoCount == 9) {
-                        amount = "1000,1000";//8000
+                        amount = "1000,500";//7500
                     } else if (responceMessage.xiaoCount == 10) {
-                        amount = "1000,1000,1000";//12000
+                        amount = "1000,1000";//10000
                     } else if (responceMessage.xiaoCount == 11) {
-                        amount = "5000";//20000
+                        amount = "1000,1000";//10000
+                    } else if (responceMessage.xiaoCount == 12) {
+                        amount = "1000,1000,500";//12500
+                    } else if (responceMessage.xiaoCount == 13) {
+                        amount = "1000,1000,500";//12500
+                    } else if (responceMessage.xiaoCount == 14) {
+                        amount = "1000,1000,1000";//15000
+                    } else if (responceMessage.xiaoCount == 15) {
+                        amount = "1000,1000,1000";//15000
+                    } else if (responceMessage.xiaoCount == 16) {
+                        amount = "1000,1000,1000,500";//17500
+                    } else if (responceMessage.xiaoCount == 17) {
+                        amount = "1000,1000,1000,500";//175000
                     } else {
                         continue;
                     }

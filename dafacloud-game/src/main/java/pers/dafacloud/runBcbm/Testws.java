@@ -27,7 +27,7 @@ public class Testws {
         map.put(2005, 1);//奔驰宝马
         map.put(2006, 0);//骰宝
         //List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/users.txt"));
-        List<String> user = new ArrayList<>(Arrays.asList("duke02", "duke003"));
+        List<String> user = new ArrayList<>(Arrays.asList("dukeabc", "duke003"));
         int index = 0;
         for (Integer key : map.keySet()) {
             if (map.get(key) > 0) {
