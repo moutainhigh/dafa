@@ -24,10 +24,11 @@ public class Testws {
         map.put(2002, 0);//红黑
         map.put(2003, 0);//龙虎
         map.put(2004, 0);//百家乐
-        map.put(2005, 1);//奔驰宝马
+        map.put(2005, 2);//奔驰宝马
         map.put(2006, 0);//骰宝
         //List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/users.txt"));
-        List<String> user = new ArrayList<>(Arrays.asList("dukeabc", "duke003"));
+        //List<String> user = new ArrayList<>(Arrays.asList("dukeabc", "duke003"));
+        List<String> user = new ArrayList<>(Arrays.asList("dukep001", "dukep002"));
         int index = 0;
         for (Integer key : map.keySet()) {
             if (map.get(key) > 0) {
@@ -42,7 +43,8 @@ public class Testws {
             String userName = list.get(i);
             System.out.println(userName);
             HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);//登录
-            String wsUrl = String.format("ws://%s:4147/gameServer/?TOKEN=tokenvalue&gameId=%s", new URL(host).getHost(), gameCode);
+            //String wsUrl = String.format("ws://%s:4147/gameServer/?TOKEN=tokenvalue&gameId=%s", new URL(host).getHost(), gameCode);
+            String wsUrl = String.format("ws://%s/gameServer/?TOKEN=tokenvalue&gameId=%s", new URL(host).getHost(), gameCode);
             SendMessageSX sendMessageSX = new SendMessageSX(wsUrl, userName, 2003, httpConfig);
             excutors.execute(sendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
             try {

@@ -1,7 +1,5 @@
 package pers.dafacloud.runBcbm;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 import pers.dafacloud.dafacloudUtils.Login;
 import pers.utils.httpclientUtils.HttpConfig;
 
@@ -62,15 +60,16 @@ public class SendMessageSX {
                     Thread.sleep(2000);
                     continue;
                 }
-                if (responceMessage.xiaoCount > 17 || responceMessage.xiaoCount < 4) {
-                    responceMessage.setCanBetting(false);
-                    System.out.println("长龙2:" + responceMessage.xiaoCount);
-                    Thread.sleep(2000);
-                    continue;
-                }
+                //if (responceMessage.xiaoCount > 17 || responceMessage.xiaoCount < 4) {
+                //    responceMessage.setCanBetting(false);
+                //    System.out.println("长龙2:" + responceMessage.xiaoCount);
+                //    Thread.sleep(2000);
+                //    continue;
+                //}
                 System.out.println("长龙1:" + responceMessage.xiaoCount);
                 //{"proto":700,"gameCode":2005,"data":{"issue":"06110147","bettingPoint":8.5,"betReqInfo":[{"pos":5,"bettingAmount":[100,100]},{"pos":6,"bettingAmount":[100,100]},{"pos":7,"bettingAmount":[100,100]},{"pos":8,"bettingAmount":[100,100]}]}}
-                String temp = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":1,\"bettingAmount\":[%s]},{\"pos\":2,\"bettingAmount\":[%s]},{\"pos\":3,\"bettingAmount\":[%s]},{\"pos\":4,\"bettingAmount\":[%s]}]}}";
+                String tempD = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":1,\"bettingAmount\":[%s]},{\"pos\":2,\"bettingAmount\":[%s]},{\"pos\":3,\"bettingAmount\":[%s]},{\"pos\":4,\"bettingAmount\":[%s]}]}}";
+                String tempX = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":5,\"bettingAmount\":[%s]},{\"pos\":6,\"bettingAmount\":[%s]},{\"pos\":7,\"bettingAmount\":[%s]},{\"pos\":8,\"bettingAmount\":[%s]}]}}";
 
                 //JSONArray jsonArray = new JSONArray();
                 //JSONObject jsonObject = new JSONObject();
@@ -81,39 +80,46 @@ public class SendMessageSX {
                     //int amount = 100 * (responceMessage.xiaoCount + 1);
                     String amount;
                     String dzAmount;
-                    if (responceMessage.xiaoCount == 4) {
-                        amount = "500";//2500
-                    } else if (responceMessage.xiaoCount == 5) {
-                        amount = "500";//2500
-                    } else if (responceMessage.xiaoCount == 6) {
-                        amount = "1000";//5000
-                    } else if (responceMessage.xiaoCount == 7) {
-                        amount = "1000";//5000
-                    } else if (responceMessage.xiaoCount == 8) {
-                        amount = "1000,500";//7500
-                    } else if (responceMessage.xiaoCount == 9) {
-                        amount = "1000,500";//7500
-                    } else if (responceMessage.xiaoCount == 10) {
-                        amount = "1000,1000";//10000
-                    } else if (responceMessage.xiaoCount == 11) {
-                        amount = "1000,1000";//10000
-                    } else if (responceMessage.xiaoCount == 12) {
-                        amount = "1000,1000,500";//12500
-                    } else if (responceMessage.xiaoCount == 13) {
-                        amount = "1000,1000,500";//12500
-                    } else if (responceMessage.xiaoCount == 14) {
-                        amount = "1000,1000,1000";//15000
-                    } else if (responceMessage.xiaoCount == 15) {
-                        amount = "1000,1000,1000";//15000
-                    } else if (responceMessage.xiaoCount == 16) {
-                        amount = "1000,1000,1000,500";//17500
-                    } else if (responceMessage.xiaoCount == 17) {
-                        amount = "1000,1000,1000,500";//175000
+                    //if (responceMessage.xiaoCount == 4) {
+                    //    amount = "500";//2500
+                    //} else if (responceMessage.xiaoCount == 5) {
+                    //    amount = "500";//2500
+                    //} else if (responceMessage.xiaoCount == 6) {
+                    //    amount = "1000";//5000
+                    //} else if (responceMessage.xiaoCount == 7) {
+                    //    amount = "1000";//5000
+                    //} else if (responceMessage.xiaoCount == 8) {
+                    //    amount = "1000,500";//7500
+                    //} else if (responceMessage.xiaoCount == 9) {
+                    //    amount = "1000,500";//7500
+                    //} else if (responceMessage.xiaoCount == 10) {
+                    //    amount = "1000,1000";//10000
+                    //} else if (responceMessage.xiaoCount == 11) {
+                    //    amount = "1000,1000";//10000
+                    //} else if (responceMessage.xiaoCount == 12) {
+                    //    amount = "1000,1000,500";//12500
+                    //} else if (responceMessage.xiaoCount == 13) {
+                    //    amount = "1000,1000,500";//12500
+                    //} else if (responceMessage.xiaoCount == 14) {
+                    //    amount = "1000,1000,1000";//15000
+                    //} else if (responceMessage.xiaoCount == 15) {
+                    //    amount = "1000,1000,1000";//15000
+                    //} else if (responceMessage.xiaoCount == 16) {
+                    //    amount = "1000,1000,1000,500";//17500
+                    //} else if (responceMessage.xiaoCount == 17) {
+                    //    amount = "1000,1000,1000,500";//175000
+                    //} else {
+                    //    continue;
+                    //}
+                    String betconent;
+                    if ("dukep001".equals(username)) {
+                        amount = "500";
+                        betconent = String.format(tempD, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
                     } else {
-                        continue;
+                        amount = "500";
+                        betconent = String.format(tempX, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
                     }
-                    dzAmount = (amount + "," + amount);
-                    String betconent = String.format(temp, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, dzAmount);
+                    //dzAmount = (amount + "," + amount);
                     System.out.println(betconent);
                     session.getAsyncRemote().sendText(betconent);
                     responceMessage.setCanBetting(false);

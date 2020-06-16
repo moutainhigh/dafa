@@ -29,6 +29,6 @@
 		from dafacloud_game.game_open_message
 		where game_code = 2005
 		order by id desc
-		limit 12000
+		limit 60000
 	</select>
 </mapper>
