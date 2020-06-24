@@ -3,7 +3,8 @@ package pers.dafacloud.dafacloudUtils;
 public interface Constants {
 
     //String host ="http://dafacloud-test.com";
-    String host = "http://caishen02.com";
+    //String host = "http://caishen02.com";
+    String host = "http://m.caishen02.com";
     //String host = "http://caishen03.com";
     //String host = "http://52.76.195.164";//第一套
     //String host = "http://52.77.207.64";//第二套

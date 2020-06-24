@@ -43,8 +43,8 @@ public class Testws {
             String userName = list.get(i);
             System.out.println(userName);
             HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);//登录
-            //String wsUrl = String.format("ws://%s:4147/gameServer/?TOKEN=tokenvalue&gameId=%s", new URL(host).getHost(), gameCode);
-            String wsUrl = String.format("ws://52.76.195.164:8200/gameServer/?TOKEN=tokenvalue&gameId=%s", gameCode);
+            String wsUrl = String.format("ws://%s/gameServer/?TOKEN=tokenvalue&gameId=%s", new URL(host).getHost(), gameCode);
+            //String wsUrl = String.format("ws://52.76.195.164:8200/gameServer/?TOKEN=tokenvalue&gameId=%s", gameCode);
             SendMessageSX sendMessageSX = new SendMessageSX(wsUrl, userName, 2003, httpConfig);
             excutors.execute(sendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
             try {

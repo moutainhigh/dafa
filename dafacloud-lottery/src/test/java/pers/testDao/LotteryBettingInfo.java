@@ -68,6 +68,7 @@ public class LotteryBettingInfo {
         LotteryBettingInfoMapper lotteryBettingInfoMapper2 = sqlSessionTransaction2.getMapper(LotteryBettingInfoMapper.class);
 
         List<String> tenantCodes = FileUtil.readFile(LotteryBettingInfo.class.getResourceAsStream("/tenantCode.txt"));
+        System.out.println("数据量：" + tenantCodes.size());
         for (int i = 0; i < tenantCodes.size(); i++) {
             String tenantCode = tenantCodes.get(i);
             System.out.println(tenantCode + " - " + date + " 当前: " + i);
@@ -114,7 +115,7 @@ public class LotteryBettingInfo {
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-02"));
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-01"));
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-17"));
-        excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-06-15"));
+        excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-06-24"));
 
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-31"));
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-30"));

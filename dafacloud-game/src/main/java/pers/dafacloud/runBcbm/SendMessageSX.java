@@ -112,9 +112,10 @@ public class SendMessageSX {
                     //    continue;
                     //}
                     String betconent;
-                    if ("dukep001".equals(username)) {
-                        amount = "500";
-                        betconent = String.format(tempD, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
+                    if ("dafai0001".equals(username)) {
+                        amount = "1000,1000";
+                        dzAmount="1000,1000,1000,1000";
+                        betconent = String.format(tempD, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, dzAmount);
                     } else {
                         amount = "500";
                         betconent = String.format(tempX, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
