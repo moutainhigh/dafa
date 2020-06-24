@@ -12,7 +12,8 @@ import pers.utils.urlUtils.UrlBuilder;
 
 public class TestCmsManualOpenLottery {
 
-    private static String host = "http://pt02.dafacloud-test.com";
+    //private static String host = "http://pt02.dafacloud-test.com";
+    private static String host = "http://pt.dafacloud-pre.com";
 
     private static Header[] headers = HttpHeader.custom()
             .contentType("application/x-www-form-urlencoded;charset=UTF-8")
@@ -23,7 +24,8 @@ public class TestCmsManualOpenLottery {
             .headers(headers)
             .context(HttpCookies
                     .custom()
-                    .setBasicClientCookie(host, "JSESSIONID", "1BEB4CC3B89B4EC2AE98FD114C228BA8")
+                    .setBasicClientCookie(host, "JSESSIONID", "28711F0BFBEA47D861DBCC2A2E9CE008") //pre
+                    //.setBasicClientCookie(host, "JSESSIONID", "17B5B3382B5318F028222539CA19B887") //pt02
                     .getContext());
 
     @Test(description = "手动开奖")
@@ -33,7 +35,7 @@ public class TestCmsManualOpenLottery {
         String body = UrlBuilder.custom()
                 .addBuilder("lotteryCode", LotteryAttribute.getLotteryCodebyName(lotteryName))
                 .addBuilder("lotteryName", lotteryName)
-                .addBuilder("issue", "20200525030")
+                .addBuilder("issue", "20200618047")
                 .addBuilder("openNumber", "10,09,08,07,06,05,04,03,02,01")
                 .addBuilder("remark", "测试环境测试")
                 .fullBody();
@@ -58,13 +60,12 @@ public class TestCmsManualOpenLottery {
         String body = UrlBuilder.custom()
                 .addBuilder("lotteryCode", lotteryCode)
                 .addBuilder("lotteryName", lotteryName)
-                .addBuilder("issue", "20200601037")
-                .addBuilder("validateIssue", "20200601037")
-                .addBuilder("openNumber", "01,02,03,04,05,06,07,08,09,10")
-                .addBuilder("validateOpenNumber", "01,02,03,04,05,06,07,08,09,10")
+                .addBuilder("issue", "20200618110")
+                .addBuilder("validateIssue", "20200618110")
+                .addBuilder("openNumber", "04,01,03,02,05,06,07,08,09,10")
+                .addBuilder("validateOpenNumber", "04,01,03,02,05,06,07,08,09,10")
                 .addBuilder("reAward", "true")
                 .addBuilder("reStat", "true")
-
                 .addBuilder("remark", "测试环境测试")
                 .fullBody();
         String result = DafaRequest.post(httpConfig.url(updateOpenNumber).body(body));

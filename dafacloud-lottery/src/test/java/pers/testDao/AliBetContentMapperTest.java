@@ -33,7 +33,7 @@ public class AliBetContentMapperTest {
             map = new HashMap();
             map.put("content", betContent);
             map.put("contentType", 2);//1 随机类型，2 有去重复
-            map.put("lotteryCode", "1317");
+            map.put("lotteryCode", "1319");
             list.add(map);
         }
         System.out.println(list.size());

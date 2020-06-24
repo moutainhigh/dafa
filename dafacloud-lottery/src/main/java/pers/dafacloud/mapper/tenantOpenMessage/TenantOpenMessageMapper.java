@@ -7,6 +7,8 @@ public interface TenantOpenMessageMapper {
 
     List<Map> getOpenNumber(Map map);
 
+    List<Map> getLotteryOpenNumber();
+
     List<Map> getGameOpenNumber();
 
 }

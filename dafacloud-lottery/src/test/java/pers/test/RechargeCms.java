@@ -28,7 +28,7 @@ public class RechargeCms {
     SELECT *
             -- count(1)
     FROM summary_payment_record
-    where  created_date = '2020-05-29'
+    where created_date = '2020-05-29'
     and state = 0
     ORDER BY gmt_created
     desc limit 100;
@@ -37,8 +37,8 @@ public class RechargeCms {
         List<String> recordList = FileUtil.readFile(RechargeCms.class.getResourceAsStream("/test/a.txt"));
 
         System.out.println(recordList.size());
-        String[] managments = {"duke", "alysia", "duck", "jessie", "ading"};
-        List<List<String>> l = ListSplit.split(recordList, 10000);
+        String[] managments = {"duke", "alysia", "duck", "jessie", "ading","duke1","duke2","duke3","duke4","duke5","duke6"};
+        List<List<String>> l = ListSplit.split(recordList, 5000);
 
         String loginBody;
         for (int i = 0; i < managments.length; i++) {
@@ -85,14 +85,5 @@ public class RechargeCms {
 
         }
 
-    }
-
-
-    @Test(description = "测试")
-    public static void test01() {
-        //6aa7fc8b5de21a87fa591938872266cd
-        //fbfc6bd70ba32f7e4ebfb7bab66dac1f
-        System.out.println();
-        System.out.println(DigestUtils.md5Hex("123456duke"));
     }
 }

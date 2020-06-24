@@ -7,11 +7,7 @@
 	${} 是字符串拼接指令，如果入参为普通数据类型{}内部只能写value
 -->
 <mapper namespace="pers.dafacloud.mapper.tenantOpenMessage.TenantOpenMessageMapper">
-    <!--
-        id : sql id;
-        parameterType:入参的数据类型
-        resultType:返回结果数据类型
-     -->
+
     <select id="getOpenNumber" parameterType="Map" resultType="Map">
 		select
 		open_number  openNumber
@@ -24,10 +20,25 @@
 
 	<select id="getGameOpenNumber" resultType="Map">
 		select
-		open_number  openNumber,
+		open_number openNumber,
+		DATE_FORMAT(gmt_created,'%Y-%m-%d %H:%i:%s') gmtCreated,
 		issue  issue
 		from dafacloud_game.game_open_message
 		where game_code = 2005
+-- 		and DATE_FORMAT(gmt_created,'%Y-%m-%d') = '2020-06-23'
+		and gmt_created > '2020-06-22 12:30:00'
+		order by id desc
+		limit 10000
+	</select>
+
+	<select id="getLotteryOpenNumber" resultType="Map">
+		select
+		open_number openNumber,
+		DATE_FORMAT(gmt_created,'%Y-%m-%d %H:%i:%s') gmtCreated,
+		issue  issue
+		from dafacloud_lottery.lottery_open_message
+		where lottery_code = 1008
+-- 		and DATE_FORMAT(gmt_created,'%Y-%m-%d') = '2020-06-22'
 		order by id desc
 		limit 60000
 	</select>

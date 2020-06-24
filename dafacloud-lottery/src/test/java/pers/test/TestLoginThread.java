@@ -30,7 +30,7 @@ public class TestLoginThread {
     public static void main(String[] args) throws InterruptedException {
         List<String> users = FileUtil.readFile(TestLoginThread.class.getResourceAsStream("/users/dev1DafaIP.txt"));
         CountDownLatch cdl = new CountDownLatch(1000);
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 1; i++) {
             int finalI = i;
             execute.execute(() -> {
                 login0(users.get(finalI).split(","));

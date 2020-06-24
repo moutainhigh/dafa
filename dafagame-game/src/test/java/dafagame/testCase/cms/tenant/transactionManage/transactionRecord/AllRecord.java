@@ -40,8 +40,8 @@ public class AllRecord {
             Log.info(ja.get(i).toString());
 
         }
-
-
     }
+
+
 
 }

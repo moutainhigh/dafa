@@ -1,66 +1,44 @@
 package pers.utils.dafaRequest;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
-import org.apache.http.client.CookieStore;
 import org.apache.http.client.protocol.HttpClientContext;
-import org.apache.http.impl.client.BasicCookieStore;
-import org.apache.http.impl.cookie.BasicClientCookie;
 import pers.utils.httpclientUtils.HttpConfig;
+import pers.utils.httpclientUtils.HttpCookies;
 import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.httpclientUtils.Request;
 import pers.utils.logUtils.Log;
 import pers.utils.propertiesUtils.PropertiesUtil;
 
-import java.net.URL;
-
 public class DafaRequest {
 
-    private static HttpConfig httpConfig = HttpConfig.custom();
     private static HttpClientContext context = new HttpClientContext();
-    private static CookieStore cookieStore = new BasicCookieStore();
-    private static BasicClientCookie cookie;
-    private static Header[] headers;
-    private static String cookieJSESSIONID = PropertiesUtil.getProperty("cookieJSESSIONID");
+    //private static String cookieJSESSIONID = PropertiesUtil.getProperty("cookieJSESSIONID");
     private static String headerSessionId = PropertiesUtil.getProperty("headerSessionId");
-    /**
-     * 棋牌系统
-     * http://pt.dafagame-test.com:83  后台
-     * http://duke.dafagame-test.com:86 前台duke站
-     * http://dafagame-test.com 测试站
-     * http://cocodev.dafagame-test.com
-     * http://cindy.dafagame-test.com
-     * http://pt.dafagame-test.com
-     */
     //默认值
-    private static String host = PropertiesUtil.getProperty("host");//"http://cindy.dafagame-test.com";
+    private static String host = PropertiesUtil.getProperty("host");//
     private static String hostCoCos = PropertiesUtil.getProperty("hostCoCos");//0
     private static String hostCms = PropertiesUtil.getProperty("hostCms");//1
 
+    private static Header[] headers = HttpHeader.custom()
+            .contentType("application/x-www-form-urlencoded;charset=UTF-8")
+            .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
+            .other("X-Token", "YBU39umqNCFEeEpicVnVhD28PbfujiLM0JwYWnKQVpkVIqDmvBClz/hmR27Sw14I")
+            .other("Session-Id", headerSessionId) //棋牌系统前台使用
+            //.other("x-tenant-code", "")
+            //.other("x-user-name", "")
+            //.other("x-source-Id", "1")
+            //.other("x-user-id", "")
+            //.other("x-client-ip", "")
+            //.other("x-url", "")
+            .build();
 
-    static {
-        //初始化含cookie的context，
-        cookie = new BasicClientCookie("JSESSIONID", cookieJSESSIONID); //JSESSIONID
-        cookie.setVersion(0);
-        try {
-            if (StringUtils.isNotEmpty(host))
-                cookie.setDomain(new URL(host).getHost());//设置范围
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        cookie.setPath("/");
-        cookieStore.addCookie(cookie);
-        context.setCookieStore(cookieStore);
-        //初始化请求头
-        headers = HttpHeader.custom()
-                .contentType("application/x-www-form-urlencoded;charset=UTF-8")
-                .userAgent("Mozilla/5.0")
-                .other("Session-Id", headerSessionId) //棋牌系统前台使用
-                //.other("Tenant-Code","cindy")
-                .build();
-        httpConfig.headers(headers);
-    }
+    private static HttpConfig httpConfig = HttpConfig.custom()
+            .headers(headers)
+            .context(HttpCookies
+                    .custom()
+                    .setBasicClientCookie(host, "JSESSIONID", "C5907DBE3E7848A6E1503E7826186D15")
+                    .getContext());
 
     /**
      * get===============================================================================================================
@@ -97,10 +75,10 @@ public class DafaRequest {
 
             } else {
                 if (env == 0) {
-                    cookie.setDomain(new URL(hostCoCos).getHost());//设置范围
+                    //cookie.setDomain(new URL(hostCoCos).getHost());//设置范围
                     result = Request.get(httpConfig.url(hostCoCos + url.replace(" ", "%20")).context(context));
                 } else {
-                    cookie.setDomain(new URL(hostCms).getHost());//设置范围
+                    //cookie.setDomain(new URL(hostCms).getHost());//设置范围
                     result = Request.get(httpConfig.url(hostCms + url.replace(" ", "%20")).context(context));
                 }
             }
@@ -139,11 +117,11 @@ public class DafaRequest {
      * @param cookies
      */
     public static String get(String url, String cookies) {
-        cookie.setValue(cookies);
+        //cookie.setValue(cookies);
         String result;
         try {
             if (url.contains("http")) {
-                cookie.setDomain(new URL(url).getHost());
+                //cookie.setDomain(new URL(url).getHost());
                 result = Request.get(httpConfig.url(url.replace(" ", "%20")).context(context));
             } else {
                 result = Request.get(httpConfig.url(host + url.replace(" ", "%20")).context(context));
@@ -199,10 +177,10 @@ public class DafaRequest {
                 result = Request.post(httpConfig.url(url).body(body).context(context));
             } else {
                 if (env == 0) {
-                    cookie.setDomain(new URL(hostCoCos).getHost());//设置范围
+                    //cookie.setDomain(new URL(hostCoCos).getHost());//设置范围
                     result = Request.post(httpConfig.url(hostCoCos + url).body(body).context(context));
                 } else {
-                    cookie.setDomain(new URL(hostCms).getHost());//设置范围
+                    //cookie.setDomain(new URL(hostCms).getHost());//设置范围
                     result = Request.post(httpConfig.url(hostCms + url).body(body).context(context));
                 }
             }
@@ -239,11 +217,11 @@ public class DafaRequest {
      * @param cookieValue
      */
     public static String post(String url, String body, String cookieValue) {
-        cookie.setValue(cookieValue);
+        //cookie.setValue(cookieValue);
         String result;
         try {
             if (url.contains("http")) {
-                cookie.setDomain(new URL(url).getHost());
+                //cookie.setDomain(new URL(url).getHost());
                 result = Request.post(httpConfig.url(url).body(body).context(context).headers(headers));
             } else {
                 result = Request.post(httpConfig.url(host + url).body(body).context(context));
@@ -288,10 +266,10 @@ public class DafaRequest {
 
             } else {
                 if (env == 0) {
-                    cookie.setDomain(new URL(hostCoCos).getHost());//设置范围
+                    //cookie.setDomain(new URL(hostCoCos).getHost());//设置范围
                     result = Request.post(httpConfig.url(host + url).context(context).httpEntity(httpEntity).headers(headers));
                 } else {
-                    cookie.setDomain(new URL(hostCms).getHost());//设置范围
+                    //cookie.setDomain(new URL(hostCms).getHost());//设置范围
                     result = Request.post(httpConfig.url(hostCms + url).context(context).httpEntity(httpEntity).headers(headers));
                 }
             }

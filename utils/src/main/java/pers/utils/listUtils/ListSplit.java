@@ -12,7 +12,7 @@ public class ListSplit {
     public static <T> List<List<T>> split(List<T> resList, int count) {
         if (resList == null || count < 1)
             return null;
-        List<List<T>> ret = new ArrayList<List<T>>();
+        List<List<T>> ret = new ArrayList<>();
         int size = resList.size();
         if (size <= count) { // 数据量不足count指定的大小  
             ret.add(resList);
@@ -21,7 +21,7 @@ public class ListSplit {
             int last = size % count;
             // 前面pre个集合，每个大小都是count个元素  
             for (int i = 0; i < pre; i++) {
-                List<T> itemList = new ArrayList<T>();
+                List<T> itemList = new ArrayList<>();
                 for (int j = 0; j < count; j++) {
                     itemList.add(resList.get(i * count + j));
                 }
@@ -29,7 +29,7 @@ public class ListSplit {
             }
             // last的进行处理  
             if (last > 0) {
-                List<T> itemList = new ArrayList<T>();
+                List<T> itemList = new ArrayList<>();
                 for (int i = 0; i < last; i++) {
                     itemList.add(resList.get(pre * count + i));
                 }
@@ -40,6 +40,29 @@ public class ListSplit {
     }
 
 
+    /**
+     * @param list n
+     * @return list
+     */
+    public static <T> List<List<T>> averageAssign(List<T> list, int n) {
+        List<List<T>> result = new ArrayList<>();
+        int remaider = list.size() % n;  //(先计算出余数)
+        int number = list.size() / n;  //然后是商
+        int offset = 0;//偏移量
+        for (int i = 0; i < n; i++) {
+            List<T> value;
+            if (remaider > 0) {
+                value = list.subList(i * number + offset, (i + 1) * number + offset + 1);
+                remaider--;
+                offset++;
+            } else {
+                value = list.subList(i * number + offset, (i + 1) * number + offset);
+            }
+            result.add(value);
+        }
+        return result;
+    }
+
     @Test(description = "测试")
     public static void test01() {
         List<Integer> integers = new ArrayList<>();
@@ -48,7 +71,7 @@ public class ListSplit {
         integers.add(3);
         integers.add(4);
         integers.add(5);
-        List<List<Integer>> lists = split(integers, 3);
+        List<List<Integer>> lists = averageAssign(integers, 6);
         System.out.println(lists);
     }
 }

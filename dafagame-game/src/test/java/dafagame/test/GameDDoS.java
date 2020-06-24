@@ -17,8 +17,8 @@ import pers.utils.jsonUtils.JsonUtils;
  */
 public class GameDDoS {
     //private static String HOST = "http://a12780fabe0e711e98f02061e82846b5-92b7ba572b52a600.elb.ap-east-1.amazonaws.com";//第一套内置域名
-    //private static String HOST = "http://137.116.175.108";//第二套alysia站 内置域名
-    private static String HOST = "http://pre.uvjgrnzdwj.com";//pre
+    private static String HOST = "http://137.116.175.108";//第二套alysia站 内置域名
+    //private static String HOST = "http://pre.uvjgrnzdwj.com";//pre
 
     //测试环境内置域名
     //private static String HOST = "http://pre.uvjgrnzdwj.com";
@@ -30,9 +30,6 @@ public class GameDDoS {
     //private static String HOST = "http://120.78.240.236";
     //private static String HOST = "http://39.108.237.12";//lqqp
 
-
-
-
     private final static String GET_GAME_DOMAIN = HOST + "/v1/security/getGameDomain";
 
     //private static String frontInitData = HOST + "/v1/management/tenant/frontInitData?clientVersion=1.3.1.28.0.1";
@@ -43,7 +40,7 @@ public class GameDDoS {
             .contentType("application/x-www-form-urlencoded;charset=UTF-8")
             .userAgent("Mozilla/5.0")
             .other("Source-Id", "1")
-            .other("Tenant-Code", "dalaoa")
+            .other("Tenant-Code", "alysia")
             .build();
     static HttpConfig httpConfig = HttpConfig
             .custom()
@@ -59,8 +56,13 @@ public class GameDDoS {
         //String content = "";
         String decryptResult = AesEncodeUtil.decrypt(content);
         System.out.println(JsonFormat.formatPrint(decryptResult));
+    }
 
-
+    @Test(description = "frontInitData")
+    public static void test02() {
+        String result = DafaRequest.get(httpConfig.url(frontInitData));
+        System.out.println(result);
+        System.out.println(JsonFormat.formatPrint(result));
     }
 
     public static void main(String[] args) {

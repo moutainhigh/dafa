@@ -156,7 +156,6 @@ public class HttpConfig {
 //		map.put(Utils.ENTITY_MULTIPART, filePaths);
 //		map.put(Utils.ENTITY_MULTIPART+".name", inputName);
 //		map.put(Utils.ENTITY_MULTIPART+".rmCharset", forceRemoveContentTypeChraset);
-
         Map<String, Object> m = maps.get();
         if (m == null || m == null) {
             m = new HashMap<String, Object>();
@@ -197,7 +196,12 @@ public class HttpConfig {
     }
 
     public HttpConfig url(String url) {
-        this.url = url;
+        if (url.contains("http")) {
+            this.url = url;
+        } else {
+            this.url = "http://" + url;
+        }
+
         return this;
     }
 
@@ -242,8 +246,8 @@ public class HttpConfig {
     }
 
     /**
-     * @param out	输出流对象
-     * @return	返回当前对象
+     * @param out 输出流对象
+     * @return 返回当前对象
      */
     public HttpConfig out(OutputStream out) {
         outs.set(out);

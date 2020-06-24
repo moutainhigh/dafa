@@ -20,19 +20,17 @@ public class PropertiesUtil {
     /**
      * 默认属性集合（文件在Constants中配置）
      */
-    protected static Properties defaultProp = null;
+    protected static Properties defaultProp;
     /**
      * 所有读取过的属性集合
      * 文件名 - 属性集合
      */
-    protected static Map<String, Properties> allProps = new HashMap<String, Properties>();
+    protected static Map<String, Properties> allProps = new HashMap<>();
 
     // 初始化默认的属性集合
     static {
-        if (defaultProp == null) {
-            defaultProp = loadProperties("dafa.properties");
-            allProps.put("config.properties", defaultProp);
-        }
+        defaultProp = loadProperties("dafa.properties");
+        allProps.put("config.properties", defaultProp);
     }
 
     /**

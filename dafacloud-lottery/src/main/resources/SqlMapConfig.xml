@@ -25,7 +25,7 @@
                 -->
             </dataSource>
         </environment>
-        <environment id="lotteryAttribute">
+        <environment id="lottery">
             <!-- 配置JDBC事务控制，由mybatis进行管理 -->
             <transactionManager type="JDBC"/>
             <!-- 配置数据源，采用mybatis连接池 -->

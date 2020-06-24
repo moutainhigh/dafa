@@ -21,6 +21,8 @@ public class Bcbm {
     private static BigDecimal TWO = new BigDecimal("2");
     private static BigDecimal FOUR = new BigDecimal("4");
     private static BigDecimal betAmount = new BigDecimal("500");
+    private static final int minFlowBet = 3;
+    private static final int maxFlowBet = 5;
 
     public static BigDecimal getAmount(int xiaoCount) {
         int amount = 0;
@@ -66,15 +68,8 @@ public class Bcbm {
         return new BigDecimal(amount);
     }
 
-    public static BigDecimal getAmount0(int xiao) {
-        int amount = 0;
-        if (xiao >=1  && xiao < 2) {
-            amount = 400 + (xiao - 5) * 50;
-        }
-        return new BigDecimal(amount);
-    }
 
-    @Test(description = "直投大小车标统计")
+    @Test(description = "只投大小车标盈利统计")
     public static void test01b() {
         List<Map> mapList = tenantOpenMessageMapper.getGameOpenNumber();
         for (Map map : mapList) {
@@ -95,24 +90,20 @@ public class Bcbm {
     }
 
 
-    @Test(description = "计算")
-    public static void testjisuan() {
-        //    2000 2000 beetingAmount
-
-
-    }
-
-    //获取投注金额
-    public static BigDecimal getAmountDa(int da) {
-        //int[] amount = {10, 70, 400, 2200, 12000};
-        int[] amount = {400, 2200};
-        if (da < 0 || da > amount.length - 1) {
+    //获取投注金额，下注小车标
+    private static BigDecimal getAmountDa(int da) {
+        int[] amount = {10, 70, 400, 2200, 12000};
+        //int[] amount = {400, 2200};
+        if (da > amount.length) {
             return BigDecimal.ZERO;
         }
-        return new BigDecimal(amount[da]);
+        if (da < minFlowBet || da > maxFlowBet) {
+            return BigDecimal.ZERO;
+        }
+        return new BigDecimal(amount[da - minFlowBet]);
     }
 
-    @Test(description = "大车标长龙")
+    @Test(description = "大车标长龙，下注小车标")
     public static void testda() {
         List<Map> mapList = tenantOpenMessageMapper.getGameOpenNumber();
         int xiao = 0;
@@ -125,22 +116,23 @@ public class Bcbm {
                 System.out.println("================开奖号码错误======================");
                 continue;
             }
-            BigDecimal baseBonus = new BigDecimal(bcbmCode.bonus * 0.985);
-            BigDecimal bettingAmount = getAmountDa(da - 3).multiply(FOUR);
+            BigDecimal baseBonus = new BigDecimal(bcbmCode.bonus).multiply(new BigDecimal(0.985));
+            BigDecimal bettingAmount = getAmountDa(da).multiply(FOUR);
             BigDecimal bonus = BigDecimal.ZERO;
             if (bcbmCode.isBig == 1) {
-                if (da >= 3) {
+                if (da >= minFlowBet && da <= maxFlowBet) {
                     ben = ben.subtract(bettingAmount);
                     isBonus = "未中奖";
                 } else {
                     isBonus = "未下注";
                 }
-
                 xiao = 0;
                 da++;
             }
+            //0小（da=0），1大（da=1）
+            //
             if (bcbmCode.isBig == 0) {
-                if (da >= 3 && da < 10) {
+                if (da >= minFlowBet && da <= maxFlowBet) {
                     bonus = bettingAmount.divide(FOUR).multiply(baseBonus);
                     //金额/5*奖金
                     //中奖加钱 投注*赔率-投注
@@ -157,13 +149,21 @@ public class Bcbm {
         }
     }
 
-    @Test(description = "小车标长龙")
+    //下注大车标
+    public static BigDecimal getAmount0(int xiao) {
+        int amount = 0;
+        if (xiao >= 1 && xiao < 2) {
+            amount = 400 + (xiao - 5) * 50;
+        }
+        return new BigDecimal(amount);
+    }
+
+    @Test(description = "小车标长龙，下注大车标")
     public static void testxiao() {
         List<Map> mapList = tenantOpenMessageMapper.getGameOpenNumber();
         int xiao = 0;
         int da = 0;
-
-        String isBonus = "";
+        String isBonus = ""; //中奖 未中奖 未下注
         //BigDecimal current = new BigDecimal(0);
         for (Map map : mapList) {
             String openNumber = map.get("openNumber").toString();
@@ -172,11 +172,11 @@ public class Bcbm {
                 System.out.println("================开奖号码错误======================");
                 continue;
             }
-            BigDecimal baseBonus = new BigDecimal(bcbmCode.bonus * 0.985);
+            BigDecimal baseBonus = new BigDecimal(bcbmCode.bonus).multiply(new BigDecimal(0.985));
             BigDecimal bettingAmount = getAmount0(xiao).multiply(FIVE);
             BigDecimal bonus = BigDecimal.ZERO;
             if (bcbmCode.isBig == 1) {
-                if (xiao >= 1 && xiao < 2) {
+                if (xiao >= minFlowBet && xiao < maxFlowBet) {
                     if (bcbmCode == BcbmCodeEmu.b_dz) {//中大众
                         //bettingAmount = bettingAmount.divide(new BigDecimal(5)) * 2;
                         bonus = bettingAmount.divide(FIVE).multiply(baseBonus).multiply(TWO);
@@ -209,46 +209,68 @@ public class Bcbm {
 
 
     public static void main(String[] args) {
-        List<Map> mapList = tenantOpenMessageMapper.getGameOpenNumber();
+        //List<Map> mapList = tenantOpenMessageMapper.getGameOpenNumber();
+        List<String> mapList = FileUtil.readFile("/Users/duke/Downloads/宝马.txt");
         System.out.println("总数据量：" + mapList.size());
-        int[] dalong = new int[50];
-        int[] xiaolong = new int[50];
-        int xiao = 0;
-        int da = 0;
-        int[] count = new int[8];
-        for (Map map : mapList) {
-            String openNumber = map.get("openNumber").toString();
-            BcbmCodeEmu bcbmCode = BcbmCodeEmu.getNameByNum(openNumber);
+        int[] dalong = new int[50]; //小车标长龙
+        int[] xiaolong = new int[50]; //大车标长龙
+        int[] count = new int[8];//8个车标出现次数统计
+        int xiaoCountTemp = 0;
+        int daCountTemp = 0;
+        //for (Map map : mapList) {
+        for (String map : mapList) {
+            //String openNumber = map.get("openNumber").toString();
+            //BcbmCodeEmu bcbmCode = BcbmCodeEmu.getNameByNum(openNumber);
+            String openNumber = map.split(",")[1];
+            BcbmCodeEmu bcbmCode = BcbmCodeEmu.getBcbmBynameN(openNumber);
             if (bcbmCode == null) {
                 System.out.println("================开奖号码错误======================");
                 continue;
             }
             count[bcbmCode.ordinal()]++;
             if (bcbmCode.isBig == 1) {
-                xiao = 0;
-                da++;
-                dalong[da - 1]++;
-                //if (da > 3) {
-                //    dalong[da - 3]++;
-                //}
+                daCountTemp++;
+                //dalong[daCountTemp - 1]++;
+                if (xiaoCountTemp != 0)
+                    xiaolong[xiaoCountTemp - 1]++;
+                xiaoCountTemp = 0;
             }
             if (bcbmCode.isBig == 0) {
-                da = 0;
-                xiao++;
-                xiaolong[xiao - 1]++;
-                //if (xiao > 3) {
-                //    xiaolong[xiao - 3]++;
-                //}
+                xiaoCountTemp++;
+                //xiaolong[xiaoCountTemp - 1]++;
+                if (daCountTemp != 0)
+                    dalong[daCountTemp - 1]++;
+                daCountTemp = 0;
             }
-            //System.out.println(map.get("issue").toString() + " - " + openNumber + (openNumber.length() == 1 ? " " : "") + " - " + bcbmCode.name + " - " + da + " - " + xiao);
+            //System.out.println(map.get("gmtCreated").toString() + " - " + map.get("issue").toString() + " - " + openNumber + (openNumber.length() == 1 ? " " : "") + " - " + bcbmCode.name + " - " + daCountTemp + " - " + xiaoCountTemp);
         }
-        System.out.println("开大长龙长度：" + Arrays.toString(dalong));
-        System.out.println("开小长龙长度：" + Arrays.toString(xiaolong));
-        //System.out.println(Arrays.toString(count));
+        System.out.println("开大长龙长度：" + print(dalong));
+        System.out.println("开小长龙长度：" + print(xiaolong));
+
         BcbmCodeEmu[] bcbmCodeEmus = BcbmCodeEmu.values();
         for (int i = 0; i < bcbmCodeEmus.length; i++) {
             System.out.print(bcbmCodeEmus[i].name + ":" + count[i] + ", ");
         }
+    }
+
+    public static String print(int[] data) {
+        StringBuilder sb = new StringBuilder();
+        boolean flag = true;
+        for (int i = 0; i < data.length; i++) {
+            if (flag && data[data.length - i - 1] == 0) {
+                continue;
+            }
+            if (flag)
+                flag = false;
+            sb.insert(0, (data.length - i) + ":" + data[data.length - i - 1] + ", ");
+        }
+        return sb.substring(0, sb.length() - 2);
+    }
+
+    @Test(description = "测试")
+    public static void abcdefg() {
+        System.out.println(print(new int[]{100, 20, 0, 0, 9, 8, 7, 0, 0, 1, 0, 0, 0}));
+
 
     }
 

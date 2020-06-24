@@ -4,11 +4,8 @@ import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.http.Header;
-import org.apache.ibatis.session.SqlSession;
 import org.testng.annotations.Test;
 import pers.dafacloud.constant.LotteryConstant;
-import pers.dafacloud.mapper.activityLogXX.ActivityLogXXMapper;
-import pers.dafacloud.utils.SqlSessionFactoryUtils;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.fileUtils.FileUtil;
 import pers.utils.httpclientUtils.HttpConfig;
@@ -19,25 +16,21 @@ import pers.utils.listUtils.ListSplit;
 import pers.utils.urlUtils.UrlBuilder;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class YueBaoFront {
     private static ExecutorService executors = Executors.newFixedThreadPool(300);
     private static String host = LotteryConstant.host;
     private static AtomicInteger count = new AtomicInteger(100000);
-    //private static String host = "http://52.76.195.164:8010";
-    //private static String host = "http://caishen03.com";
 
     private static Header[] headers = HttpHeader.custom()
             .contentType("application/x-www-form-urlencoded;charset=UTF-8")
             .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
+            .other("X-Token", "YBU39umqNCFEeEpicVnVhD28PbfujiLM0JwYWnKQVpkVIqDmvBClz/hmR27Sw14I")
             .build();
 
     private static HttpConfig httpConfig = HttpConfig.custom()
@@ -50,8 +43,9 @@ public class YueBaoFront {
     public static void verifySafetyPassword() {
         String verifySafetyPassword = host + "/v1/users/verifySafetyPassword";
         String result = DafaRequest.post(httpConfig.url(verifySafetyPassword)
-                .body("verifyType=yueBaoSafetyPassword&safetyPassword=9e888b495b2e23c27d165ac09f79d601"));
-        System.out.println(result);
+                //.body("verifyType=yueBaoSafetyPassword&safetyPassword=9e888b495b2e23c27d165ac09f79d601"));
+                .body("verifyType=yueBaoSafetyPassword&safetyPassword=c1fe5c98fd1e72f7a8783f0e7a2ae0b5"));//100200
+        System.out.println("verifySafetyPassword：" + result);
     }
 
     @Test(description = "测试")
@@ -89,8 +83,6 @@ public class YueBaoFront {
                 System.out.println(DafaRequest.post(httpConfig.url(saveBatchManualRecord).body(body)));
             }
         }
-
-
     }
 
     @Test(description = "测试")
@@ -113,7 +105,7 @@ public class YueBaoFront {
         System.out.println(JsonFormat.formatPrint(result));
     }
 
-    @Test(description = "转入")
+    @Test(description = "转入余额宝")
     public static void test04() {
         String transferMoney = host + "/v1/balance/transferMoney";
         String body = "money=100&direction=BR";
@@ -122,9 +114,9 @@ public class YueBaoFront {
         System.out.println(JsonFormat.formatPrint(result));
     }
 
-    @Test(description = "转出")
+    @Test(description = "转出余额宝")
     public static void test05() {
-        String transferMoney = host + "/v1/balance/transferMoney"; //
+        String transferMoney = host + "/v1/balance/transferMoney";
         String body = "money=10&direction=BC";
         verifySafetyPassword();
         String result = DafaRequest.post(httpConfig.url(transferMoney).body(body));
