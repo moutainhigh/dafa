@@ -16,15 +16,15 @@ public class FileUtil {
     public static void test01() throws Exception {
         //找到目标文件
         File file = new File("/Users/duke/Documents/test.txt");
-        FileInputStream fileInputStream= new FileInputStream(file);
-        BufferedInputStream bufferedInputStream= new BufferedInputStream(fileInputStream);
+        FileInputStream fileInputStream = new FileInputStream(file);
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
         bufferedInputStream.read();
         int bytesRead = 0;
         byte[] buffer = new byte[1024];
         while ((bytesRead = bufferedInputStream.read(buffer)) != -1) {
             //将读取的字节转为字符串对象
             String chunk = new String(buffer, 0, bytesRead);
-            System.out.print("11"+chunk);
+            System.out.print("11" + chunk);
         }
     }
 
@@ -84,9 +84,32 @@ public class FileUtil {
         return sb.toString();
     }
 
+    public static String readFileRetrunString(String filePath) {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("readFile:找不到文件");
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        try {
+            InputStreamReader reader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
+            BufferedReader br = new BufferedReader(reader);
+            String line;
+            while ((line = br.readLine()) != null) { //可以剔除空行,但不能剔除空格的行
+                sb.append(line);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return sb.toString();
+    }
+
 
     /**
-     * 写文件,入参是字符串
+     * 写文件,入参是字符串,默认追加写入
+     *
+     * @param path    文件路径
+     * @param content 文件内容
      */
     public static void writeFile(String path, String content) {
         try {
@@ -100,7 +123,9 @@ public class FileUtil {
     }
 
     /**
-     * 写文件，入参List<String>,
+     * @param path     文件路径
+     * @param content  List<String>文件内容
+     * @param isAppend 是否追加
      */
     public static void writeFile(String path, List<String> content, boolean isAppend) {
         File file = new File(path);
@@ -123,14 +148,16 @@ public class FileUtil {
     }
 
     /**
-     * 写文件，入参List<String>,
+     * @param path     文件路径
+     * @param content  String文件内容
+     * @param isAppend 是否追加
      */
     public static void writeFile(String path, String content, boolean isAppend) {
         File file = new File(path);
-        if (!file.exists()) {
-            System.out.println("writeFile:找不到文件" + path);
-            return;
-        }
+        //if (!file.exists()) {
+        //    System.out.println("writeFile:找不到文件" + path);
+        //    return;
+        //}
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(file, isAppend);//true表示追加
             fileOutputStream.write(content.getBytes());

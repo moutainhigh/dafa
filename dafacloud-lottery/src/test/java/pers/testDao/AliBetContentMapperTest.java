@@ -9,16 +9,34 @@ import java.util.*;
 
 public class AliBetContentMapperTest {
     private static SqlSession aliSqlSession = SqlSessionFactoryUtils.openSqlSession("ali");
+    private static SqlSession proSqlSession = SqlSessionFactoryUtils.openSqlSession("betting");
     private static AliBetContentMapper aliBetContentMapper = aliSqlSession.getMapper(AliBetContentMapper.class);
+    private static AliBetContentMapper proSqlSessionMapper = proSqlSession.getMapper(AliBetContentMapper.class);
 
     public static void main(String[] args) {
         //getBetContent(); //测试读
-        insertBetContent(); //本地文件读取文件 -> 写入库
+        //insertBetContent(); //本地文件读取文件 -> 写入库
         //insertBetContentType(); //按条件 生产注单内容
+        proToAli();
     }
 
     public static void getBetContent() {
-        System.out.println(aliBetContentMapper.getBetContentMapper(1, "1419").size());
+        //System.out.println(aliBetContentMapper.getBetContentMapper(1, "1419").size());
+
+
+    }
+
+
+    public static void proToAli() {
+        String lotteryType = "KL8";
+        int i = aliBetContentMapper.getAliCount(2, lotteryType);
+        if (i > 0) {
+            System.out.println("数据量：" + i);
+            return;
+        }
+        List<Map> list = proSqlSessionMapper.getBetContentMapperPro(lotteryType, "1308");
+        System.out.println("inset数据量:" + list.size());
+        aliBetContentMapper.insertBetContent(list);
     }
 
     /**
@@ -33,7 +51,7 @@ public class AliBetContentMapperTest {
             map = new HashMap();
             map.put("content", betContent);
             map.put("contentType", 2);//1 随机类型，2 有去重复
-            map.put("lotteryCode", "1319");
+            map.put("lotteryCode", "1000");
             list.add(map);
         }
         System.out.println(list.size());

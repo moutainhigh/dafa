@@ -11,21 +11,40 @@
 		select
 		  content
 		from dafa_cloud.bet_content
-		where  content_type =${contentType}
-		and lottery_code = ${lotteryCode}
+		where  content_type = #{contentType}
+		and lottery_type = #{lotteryType}
+	</select>
+
+    <select id="getBetContentMapperPro" resultType="java.util.Map">
+		SELECT DISTINCT
+        CONCAT(CONCAT(right(play_detail_code,3)),'`',betting_number,'`',betting_amount,'`',betting_count,'`',graduation_count,'`',betting_unit) content,
+        2 AS contentType,
+        #{lotteryType} AS lotteryType
+        FROM betting_orders_info_yct
+        WHERE lottery_code = #{lotteryCodeFrom}
+        and is_single = 0
+        ORDER BY id desc
+        limit 10000;
+	</select>
+
+    <select id="getAliCount" resultType="java.lang.Integer">
+		SELECT count(1)
+        FROM dafa_cloud.bet_content
+        WHERE lottery_type = #{lotteryType}
+        and content_type =#{contentType};
 	</select>
 
     <insert id="insertBetContent" parameterType="java.util.List" keyProperty="id">
         insert into dafa_cloud.bet_content(
         content,
         content_type,
-        lottery_code
+        lottery_type
         ) values
         <foreach collection="list" item="item" index="index" separator=",">
             (
             #{item.content},
             #{item.contentType},
-            #{item.lotteryCode}
+            #{item.lotteryType}
             )
         </foreach>
     </insert>

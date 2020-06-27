@@ -4,7 +4,7 @@ public interface Constants {
 
     //String host ="http://dafacloud-test.com";
     //String host = "http://caishen02.com";
-    String host = "http://m.caishen02.com";
+    //String host = "http://m.caishen02.com";
     //String host = "http://caishen03.com";
     //String host = "http://52.76.195.164";//第一套
     //String host = "http://52.77.207.64";//第二套
@@ -12,6 +12,7 @@ public interface Constants {
     //String host = "http://pt05.dafacloud-test.com";
     //String host = "http://caishen03.com";
     //String host = "http://dafacloud-pre.com";
+    String host = "http://m.dafacloud-pre.com";
     //String host = "http://caishen01.com";
     //String host =  "http://dfcdn31.com";
     //String host = "http://dafacloud-master.com";

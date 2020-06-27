@@ -2,99 +2,65 @@ package pers.dafacloud.dafaLottery;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.apache.http.Header;
-import org.apache.http.client.CookieStore;
-import org.apache.http.client.protocol.HttpClientContext;
-import org.apache.http.impl.client.BasicCookieStore;
-import org.apache.http.impl.cookie.BasicClientCookie;
+import pers.utils.fileUtils.FileUtil;
 
-import pers.dafacloud.constant.LotteryConstant;
-import pers.utils.dafaRequest.DafaRequest;
-import pers.utils.httpclientUtils.HttpConfig;
-import pers.utils.httpclientUtils.HttpHeader;
-import pers.utils.randomNameAddrIP.RandomIP;
-import pers.utils.timeUtils.TimeUtil;
-import pers.utils.urlUtils.UrlBuilder;
-
-import java.net.URL;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 public class LotteryIssuePublic {
 
-    private static String host = LotteryConstant.host;
-    private static String openTime = "/v1/lottery/openTime";
+    //private static String host = LotteryConstant.host;
+    //private static String openTime = "/v1/lottery/openTime";
+    private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+    private static DateTimeFormatter formatterDate = DateTimeFormatter.ofPattern("yyyyMMdd");
+    private static DateTimeFormatter formatterDateY = DateTimeFormatter.ofPattern("yyyy");
 
-    /**
-     * 获取官方彩开奖计划
-     */
-    private static JSONArray getLotteryOpenPlan(int lotteryCode, HttpConfig httpConfig) {
-        if (httpConfig == null) {
+    private static JSONObject openTimeJson = JSONObject.fromObject(FileUtil.readFileRetrunString(LotteryIssuePublic.class.getResourceAsStream("/openTime/all.json")));
+
+    public static String getPublicIssue(String lotteryCode) {
+        LocalTime tNow = LocalTime.parse(LocalTime.now().format(formatter));
+        if ("1202".equals(lotteryCode)) {//排列3
+            long day = ChronoUnit.DAYS.between(LocalDate.parse("2020-06-26"), LocalDate.now()) + (tNow.isAfter(LocalTime.parse("21:00:00")) ? 128 + 1 : 128);
+            return LocalDate.now().format(formatterDateY) + day;
+        }
+        if ("1201".equals(lotteryCode)) {//福彩3
+            long day = ChronoUnit.DAYS.between(LocalDate.parse("2020-06-26"), LocalDate.now()) + (tNow.isAfter(LocalTime.parse("21:00:00")) ? 129 + 1 : 129);
+            return LocalDate.now().format(formatterDateY) + day;
+        }
+
+        if (openTimeJson.get(lotteryCode) == null) {
             return null;
         }
-        String url = UrlBuilder.custom()
-                .url(openTime)
-                .addBuilder("lotteryCode", lotteryCode)
-                .fullUrl();
-        httpConfig.url(url);
-        String result0 = DafaRequest.get(httpConfig);
-        return JSONObject.fromObject(result0).getJSONArray("data");
-    }
+        //JSONArray datas = JSONArray.fromObject(FileUtil.readFileRetrunString("/Users/duke/Documents/github/dafa/dafacloud-web-api/src/main/resources/a.json"));
+        JSONArray datas = openTimeJson.getJSONArray(lotteryCode);
 
-
-    /**
-     * 获取官方彩期号
-     */
-    public static String getPublicCurrentIssue(int lotteryCode, HttpConfig httpConfig) throws Exception {
-        JSONArray ja = getLotteryOpenPlan(lotteryCode, httpConfig);
-
-        LocalDateTime localDateTime = LocalDateTime.now();
-        int hourNow = localDateTime.getHour();
-        int minuteNow = localDateTime.getMinute();
-
-        String currentIssue = "";
-        for (int i = 0; i < ja.size(); i++) {
-            JSONObject lotteryOpen = ja.getJSONObject(i);
-            String startTime = lotteryOpen.getString("startTime").split(" ")[1];
-            String endTime = lotteryOpen.getString("endTime").split(" ")[1];
-            if (TimeUtil.isEffectiveDate(String.format("%s:%s:00", hourNow, minuteNow), startTime, endTime)) {
-                currentIssue = lotteryOpen.getString("issue");
+        for (int i = 0; i < datas.size(); i++) {
+            JSONObject data = datas.getJSONObject(i);
+            String startTime = data.getString("startTime").substring(11);
+            String endTime = data.getString("endTime").substring(11);
+            if (tNow.isAfter(LocalTime.parse(startTime)) && tNow.isBefore(LocalTime.parse(endTime))) {
+                if ("1302".equals(lotteryCode) || "1315".equals(lotteryCode)) { //北京快乐8 北京28
+                    long day = ChronoUnit.DAYS.between(LocalDate.parse("2020-06-27"), LocalDate.now()) * 179 + 1005178 + data.getInt("issue");
+                    return String.format("%s", day);
+                } else {
+                    return LocalDate.now().format(formatterDate) + data.getString("issue");
+                }
             }
         }
-        return currentIssue;
+        return LocalDate.now().format(formatterDate) + "001";
     }
 
     /**
      * 测试
      */
-    public static void main(String[] args) throws Exception {
-        int lotteryCode = 1309;
-        String ip = RandomIP.getRandomIp();
-        Header[] headers = HttpHeader.custom()
-                .contentType("application/x-www-form-urlencoded;charset=UTF-8")
-                .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
-                .other("x-forwarded-for", ip)
-                .other("x-remote-IP", ip)
-                .other("X-Real-IP", ip)
-                //.other("x-tenant-code", "dafa")
-                //.other("x-source-Id", "3")
-                //.other("x-user-id", "50000511")
-                //.other("x-user-name", "dafai0001 ")
-                //.other("x-client-ip", "118.143.214.129")
-                //.other("x-url", "dafacloud.com")
-                .build();
-
-        CookieStore cookieStore = new BasicCookieStore();
-        BasicClientCookie basicClientCookie = new BasicClientCookie("JSESSIONID", "A06D618351A0114C1EAEBCA9BB4D7137");
-        basicClientCookie.setDomain(new URL(host).getHost());
-        basicClientCookie.setPath("/");
-        cookieStore.addCookie(basicClientCookie);
-        HttpClientContext context = new HttpClientContext();
-        context.setCookieStore(cookieStore);
-
-        HttpConfig httpConfig = HttpConfig.custom().headers(headers).context(context);
-
-        String issue = LotteryIssuePublic.getPublicCurrentIssue(lotteryCode, httpConfig);
-        System.out.println(issue);
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            long start = System.currentTimeMillis();
+            System.out.println(getPublicIssue("1309"));
+            System.out.println("it consumes " + (System.currentTimeMillis() - start) + "ms");
+        }
 
     }
 }

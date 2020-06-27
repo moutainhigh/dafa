@@ -16,8 +16,8 @@ public class BetContentServer {
     private BetContentMapper betContentMapper;
 
     @MyDataSource(DataSourceType.dev1)
-    public List<String> getBetContentList(int contentType, String lotteryCode) {
-        return betContentMapper.getBetContentList(contentType, lotteryCode);
+    public List<String> getBetContentList(int contentType, String lotteryType) {
+        return betContentMapper.getBetContentList(contentType, lotteryType);
     }
 
     @MyDataSource(DataSourceType.dev1)

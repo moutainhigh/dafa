@@ -69,7 +69,9 @@ public class SendMessageSX {
                 System.out.println("长龙1:" + responceMessage.xiaoCount);
                 //{"proto":700,"gameCode":2005,"data":{"issue":"06110147","bettingPoint":8.5,"betReqInfo":[{"pos":5,"bettingAmount":[100,100]},{"pos":6,"bettingAmount":[100,100]},{"pos":7,"bettingAmount":[100,100]},{"pos":8,"bettingAmount":[100,100]}]}}
                 String tempD = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":1,\"bettingAmount\":[%s]},{\"pos\":2,\"bettingAmount\":[%s]},{\"pos\":3,\"bettingAmount\":[%s]},{\"pos\":4,\"bettingAmount\":[%s]}]}}";
+                //String tempX = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":5,\"bettingAmount\":[%s]},{\"pos\":6,\"bettingAmount\":[%s]},{\"pos\":7,\"bettingAmount\":[%s]},{\"pos\":8,\"bettingAmount\":[%s]}]}}";
                 String tempX = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":5,\"bettingAmount\":[%s]},{\"pos\":6,\"bettingAmount\":[%s]},{\"pos\":7,\"bettingAmount\":[%s]},{\"pos\":8,\"bettingAmount\":[%s]}]}}";
+                String tempDX = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":1,\"bettingAmount\":[%s]},{\"pos\":2,\"bettingAmount\":[%s]},{\"pos\":3,\"bettingAmount\":[%s]},{\"pos\":4,\"bettingAmount\":[%s]},{\"pos\":5,\"bettingAmount\":[%s]},{\"pos\":6,\"bettingAmount\":[%s]},{\"pos\":7,\"bettingAmount\":[%s]},{\"pos\":8,\"bettingAmount\":[%s]}]}}";
 
                 //JSONArray jsonArray = new JSONArray();
                 //JSONObject jsonObject = new JSONObject();
@@ -112,10 +114,12 @@ public class SendMessageSX {
                     //    continue;
                     //}
                     String betconent;
-                    if ("dafai0001".equals(username)) {
-                        amount = "1000,1000";
-                        dzAmount="1000,1000,1000,1000";
-                        betconent = String.format(tempD, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, dzAmount);
+                    if ("dukepre002".equals(username)) {
+                        amount = "1000,1000,500";
+                        dzAmount = "1000,1000,1000,1000";
+                        String xiao = "10000,10000,5000";
+                        betconent = String.format(tempD, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
+                        //betconent = String.format(tempDX, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount, xiao, xiao, xiao, xiao);
                     } else {
                         amount = "500";
                         betconent = String.format(tempX, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);

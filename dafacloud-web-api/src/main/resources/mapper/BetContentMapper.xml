@@ -8,20 +8,20 @@
 		  content
 		from dafa_cloud.bet_content
 		where  content_type = #{contentType}
-		and lottery_code = #{lotteryCode}
+		and lottery_type = #{lotteryType}
 	</select>
 
     <insert id="insertBetContent" parameterType="java.util.List" keyProperty="id">
         insert into dafa_cloud.bet_content(
         content,
         content_type,
-        lottery_code
+        lottery_type
         ) values
         <foreach collection="list" item="item" index="index" separator=",">
             (
             #{item.content},
             #{item.contentType},
-            #{item.lotteryCode}
+            #{item.lotteryType}
             )
         </foreach>
     </insert>

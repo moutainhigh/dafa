@@ -1,0 +1,415 @@
+[
+  {
+    "lotteryCode": "1000",
+    "issue": "001",
+    "startTime": "2018-08-17 00:08:00",
+    "endTime": "2018-08-16 00:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "002",
+    "startTime": "2018-08-17 00:28:00",
+    "endTime": "2018-08-16 00:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "003",
+    "startTime": "2018-08-17 00:48:00",
+    "endTime": "2018-08-16 01:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "004",
+    "startTime": "2018-08-17 01:08:00",
+    "endTime": "2018-08-16 01:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "005",
+    "startTime": "2018-08-17 01:28:00",
+    "endTime": "2018-08-16 01:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "006",
+    "startTime": "2018-08-17 01:48:00",
+    "endTime": "2018-08-16 02:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "007",
+    "startTime": "2018-08-17 02:08:00",
+    "endTime": "2018-08-16 02:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "008",
+    "startTime": "2018-08-17 02:28:00",
+    "endTime": "2018-08-16 02:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "009",
+    "startTime": "2018-08-17 02:48:00",
+    "endTime": "2018-08-16 03:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "010",
+    "startTime": "2018-08-17 03:08:00",
+    "endTime": "2018-08-16 07:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "011",
+    "startTime": "2018-08-17 07:28:00",
+    "endTime": "2018-08-16 07:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "012",
+    "startTime": "2018-08-17 07:48:00",
+    "endTime": "2018-08-16 08:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "013",
+    "startTime": "2018-08-17 08:08:00",
+    "endTime": "2018-08-16 08:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "014",
+    "startTime": "2018-08-17 08:28:00",
+    "endTime": "2018-08-16 08:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "015",
+    "startTime": "2018-08-17 08:48:00",
+    "endTime": "2018-08-16 09:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "016",
+    "startTime": "2018-08-17 09:08:00",
+    "endTime": "2018-08-16 09:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "017",
+    "startTime": "2018-08-17 09:28:00",
+    "endTime": "2018-08-16 09:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "018",
+    "startTime": "2018-08-17 09:48:00",
+    "endTime": "2018-08-16 10:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "019",
+    "startTime": "2018-08-17 10:08:00",
+    "endTime": "2018-08-16 10:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "020",
+    "startTime": "2018-08-17 10:28:00",
+    "endTime": "2018-08-16 10:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "021",
+    "startTime": "2018-08-17 10:48:00",
+    "endTime": "2018-08-16 11:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "022",
+    "startTime": "2018-08-17 11:08:00",
+    "endTime": "2018-08-16 11:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "023",
+    "startTime": "2018-08-17 11:28:00",
+    "endTime": "2018-08-16 11:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "024",
+    "startTime": "2018-08-17 11:48:00",
+    "endTime": "2018-08-16 12:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "025",
+    "startTime": "2018-08-17 12:08:00",
+    "endTime": "2018-08-16 12:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "026",
+    "startTime": "2018-08-17 12:28:00",
+    "endTime": "2018-08-16 12:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "027",
+    "startTime": "2018-08-17 12:48:00",
+    "endTime": "2018-08-16 13:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "028",
+    "startTime": "2018-08-17 13:08:00",
+    "endTime": "2018-08-16 13:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "029",
+    "startTime": "2018-08-17 13:28:00",
+    "endTime": "2018-08-16 13:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "030",
+    "startTime": "2018-08-17 13:48:00",
+    "endTime": "2018-08-16 14:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "031",
+    "startTime": "2018-08-17 14:08:00",
+    "endTime": "2018-08-16 14:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "032",
+    "startTime": "2018-08-17 14:28:00",
+    "endTime": "2018-08-16 14:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "033",
+    "startTime": "2018-08-17 14:48:00",
+    "endTime": "2018-08-16 15:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "034",
+    "startTime": "2018-08-17 15:08:00",
+    "endTime": "2018-08-16 15:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "035",
+    "startTime": "2018-08-17 15:28:00",
+    "endTime": "2018-08-16 15:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "036",
+    "startTime": "2018-08-17 15:48:00",
+    "endTime": "2018-08-16 16:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "037",
+    "startTime": "2018-08-17 16:08:00",
+    "endTime": "2018-08-16 16:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "038",
+    "startTime": "2018-08-17 16:28:00",
+    "endTime": "2018-08-16 16:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "039",
+    "startTime": "2018-08-17 16:48:00",
+    "endTime": "2018-08-16 17:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "040",
+    "startTime": "2018-08-17 17:08:00",
+    "endTime": "2018-08-16 17:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "041",
+    "startTime": "2018-08-17 17:28:00",
+    "endTime": "2018-08-16 17:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "042",
+    "startTime": "2018-08-17 17:48:00",
+    "endTime": "2018-08-16 18:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "043",
+    "startTime": "2018-08-17 18:08:00",
+    "endTime": "2018-08-16 18:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "044",
+    "startTime": "2018-08-17 18:28:00",
+    "endTime": "2018-08-16 18:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "045",
+    "startTime": "2018-08-17 18:48:00",
+    "endTime": "2018-08-16 19:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "046",
+    "startTime": "2018-08-17 19:08:00",
+    "endTime": "2018-08-16 19:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "047",
+    "startTime": "2018-08-17 19:28:00",
+    "endTime": "2018-08-16 19:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "048",
+    "startTime": "2018-08-17 19:48:00",
+    "endTime": "2018-08-16 20:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "049",
+    "startTime": "2018-08-17 20:08:00",
+    "endTime": "2018-08-16 20:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "050",
+    "startTime": "2018-08-17 20:28:00",
+    "endTime": "2018-08-16 20:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "051",
+    "startTime": "2018-08-17 20:48:00",
+    "endTime": "2018-08-16 21:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "052",
+    "startTime": "2018-08-17 21:08:00",
+    "endTime": "2018-08-16 21:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "053",
+    "startTime": "2018-08-17 21:28:00",
+    "endTime": "2018-08-16 21:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "054",
+    "startTime": "2018-08-17 21:48:00",
+    "endTime": "2018-08-16 22:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "055",
+    "startTime": "2018-08-17 22:08:00",
+    "endTime": "2018-08-16 22:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "056",
+    "startTime": "2018-08-17 22:28:00",
+    "endTime": "2018-08-16 22:48:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "057",
+    "startTime": "2018-08-17 22:48:00",
+    "endTime": "2018-08-16 23:08:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "058",
+    "startTime": "2018-08-17 23:08:00",
+    "endTime": "2018-08-16 23:28:00",
+    "createTime": null
+  },
+  {
+    "lotteryCode": "1000",
+    "issue": "059",
+    "startTime": "2018-08-17 23:28:00",
+    "endTime": "2018-08-16 23:48:00",
+    "createTime": null
+  }
+]
