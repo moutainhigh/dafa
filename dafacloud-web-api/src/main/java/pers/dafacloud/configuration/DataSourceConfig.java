@@ -27,8 +27,20 @@ public class DataSourceConfig {
     @Value("${spring.datasource.dev1.driver-class-name}")
     private String datasourceDev1DriverClassName;
 
-    /*--------------------local-----------------------*/
+    /*--------------------betting-----------------------*/
+    @Value("${spring.datasource.betting.jdbc-url}")
+    private String datasourceBettingUrl;
 
+    @Value("${spring.datasource.betting.username}")
+    private String datasourceBettingUsername;
+
+    @Value("${spring.datasource.betting.password}")
+    private String datasourceBettingPassword;
+
+    @Value("${spring.datasource.betting.driver-class-name}")
+    private String datasourceBettingDriverClassName;
+
+    /*--------------------local-----------------------*/
     @Value("${spring.datasource.local.jdbc-url}")
     private String datasourceLocalUrl;
 
@@ -95,6 +107,26 @@ public class DataSourceConfig {
         dataSource.setUsername(datasourceLocalUsername);
         dataSource.setPassword(datasourceLocalPassword);
         dataSource.setDriverClassName(datasourceLocalDriverClassName);
+        dataSource.setInitialSize(datasourceInitialSize);
+        dataSource.setMinIdle(datasourceMinIdle);
+        dataSource.setMaxActive(datasourceMaxActive);
+        dataSource.setMaxWait(datasourceMaxWait);
+        dataSource.setTimeBetweenEvictionRunsMillis(datasourceTimeBetweenEvictionRunsMillis);
+        dataSource.setMinEvictableIdleTimeMillis(datasourceMinEvictableIdleTimeMillis);
+        dataSource.setValidationQuery(datasourceValidationQuery);
+        dataSource.setPoolPreparedStatements(datasourcePoolPreparedStatements);
+        return dataSource;
+    }
+
+    @Bean(name = "bettingSource")
+    //@ConfigurationProperties(prefix = "datasource.betting")
+    public DataSource bettingDataSource() {
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setUrl(datasourceBettingUrl);
+        dataSource.setUsername(datasourceBettingUsername);
+        dataSource.setPassword(datasourceBettingPassword);
+        dataSource.setDriverClassName(datasourceBettingDriverClassName);
+
         dataSource.setInitialSize(datasourceInitialSize);
         dataSource.setMinIdle(datasourceMinIdle);
         dataSource.setMaxActive(datasourceMaxActive);

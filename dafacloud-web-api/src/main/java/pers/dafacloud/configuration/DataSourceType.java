@@ -10,4 +10,6 @@ public class DataSourceType {
 
     public static final String local = "local";
 
+    public static final String bettingSource = "bettingSource";
+
 }

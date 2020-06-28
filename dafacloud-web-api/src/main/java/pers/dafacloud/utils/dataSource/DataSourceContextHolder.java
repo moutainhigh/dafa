@@ -15,6 +15,10 @@ public class DataSourceContextHolder {
         local.set(DataSourceType.dev1);
         //log.info("数据库切换到dev1库...");
     }
+    public static void setBetting() {
+        local.set(DataSourceType.bettingSource);
+        //log.info("数据库切换到betting库...");
+    }
     public static void setLocal() {
         local.set(DataSourceType.local);
         //log.info("数据库切换到local库...");

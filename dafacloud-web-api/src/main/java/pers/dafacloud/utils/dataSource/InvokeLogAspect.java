@@ -32,9 +32,10 @@ public class InvokeLogAspect {
         Method method = sign.getMethod();
         MyDataSource annotation = method.getAnnotation(MyDataSource.class);
         //判断不为空并且为读库
-        if (!StringUtils.isEmpty(annotation.value()) &&
-                annotation.value().equals(DataSourceType.dev1)) {
+        if (!StringUtils.isEmpty(annotation.value()) && annotation.value().equals(DataSourceType.dev1)) {
             DataSourceContextHolder.setDev1();
+        } else if (!StringUtils.isEmpty(annotation.value()) && annotation.value().equals(DataSourceType.bettingSource)) {
+            DataSourceContextHolder.setBetting();
         } else {
             DataSourceContextHolder.setLocal();
         }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.dafacloud.mapper.ExportBetContentMapper">
+    <select id="getBetContent" resultType="java.util.Map">
+		select
+		    id id
+            ,tenant_code tenantCode
+            ,user_id userId
+            ,user_name userName
+            ,record_code recordCode
+            ,lottery_code lotteryCode
+            ,play_detail_code playDetailCode
+            ,issue issue
+            ,betting_number bettingNumber
+            ,betting_amount bettingAmount
+            ,return_amount returnAmount
+            ,betting_count bettingCount
+            ,graduation_count graduationCount
+            ,is_single isSingle
+            ,betting_state bettingState
+            ,betting_type bettingType
+            ,betting_point bettingPoint
+            ,betting_unit bettingUnit
+            ,betting_orders_id bettingOrdersId
+            ,open_num openNum
+            ,source_id sourceId
+            ,is_test isTest
+            ,created_date createdDate
+            ,gmt_created gmtCreated
+            ,gmt_modified gmtModified
+		from betting_orders_info_${tableName}
+		where created_date = #{date}
+		and is_test = 0
+		and lottery_code = 1407
+		and betting_state in (1,2)
+		and id > #{maxId}
+		order by id asc limit 10;
+	</select>
+</mapper>

@@ -1,5 +1,7 @@
 package pers.dafacloud.runBcbm;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import pers.dafacloud.dafacloudUtils.Login;
 import pers.utils.httpclientUtils.HttpConfig;
 
@@ -7,6 +9,7 @@ import javax.websocket.ContainerProvider;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
 import java.net.URI;
+import java.util.Collections;
 
 public class SendMessageSX {
     private String url;
@@ -73,11 +76,6 @@ public class SendMessageSX {
                 String tempX = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":5,\"bettingAmount\":[%s]},{\"pos\":6,\"bettingAmount\":[%s]},{\"pos\":7,\"bettingAmount\":[%s]},{\"pos\":8,\"bettingAmount\":[%s]}]}}";
                 String tempDX = "{\"proto\":700,\"gameCode\":2005,\"data\":{\"issue\":\"%s\",\"bettingPoint\":%s,\"betReqInfo\":[{\"pos\":1,\"bettingAmount\":[%s]},{\"pos\":2,\"bettingAmount\":[%s]},{\"pos\":3,\"bettingAmount\":[%s]},{\"pos\":4,\"bettingAmount\":[%s]},{\"pos\":5,\"bettingAmount\":[%s]},{\"pos\":6,\"bettingAmount\":[%s]},{\"pos\":7,\"bettingAmount\":[%s]},{\"pos\":8,\"bettingAmount\":[%s]}]}}";
 
-                //JSONArray jsonArray = new JSONArray();
-                //JSONObject jsonObject = new JSONObject();
-                //jsonObject.put("pos",1);
-                //jsonObject.put("bettingAmount","");
-
                 if (session.isOpen()) {
                     //int amount = 100 * (responceMessage.xiaoCount + 1);
                     String amount;
@@ -114,17 +112,17 @@ public class SendMessageSX {
                     //    continue;
                     //}
                     String betconent;
-                    if ("dukepre002".equals(username)) {
+                    if ("dafai0002".equals(username)) {
                         amount = "1000,1000,500";
                         dzAmount = "1000,1000,1000,1000";
                         String xiao = "10000,10000,5000";
-                        betconent = String.format(tempD, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
+                        //betconent = String.format(tempD, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
+                        betconent = getBetCon();
                         //betconent = String.format(tempDX, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount, xiao, xiao, xiao, xiao);
                     } else {
                         amount = "500";
                         betconent = String.format(tempX, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
                     }
-                    //dzAmount = (amount + "," + amount);
                     System.out.println(betconent);
                     session.getAsyncRemote().sendText(betconent);
                     responceMessage.setCanBetting(false);
@@ -136,8 +134,29 @@ public class SendMessageSX {
         }
     }
 
-    public static void function01() {
-
+    private String getBetCon() {
+        JSONObject betCon = new JSONObject(true);
+        JSONObject data = new JSONObject(true);
+        JSONArray betReqInfo = new JSONArray();
+        String[] poss = {"1;10000,10000", "2;10000,10000", "3;10000,10000", "4;10000,10000"};
+        for (String pos : poss) {
+            String[] posa = pos.split(";");
+            JSONObject jsonObject = new JSONObject(true);
+            jsonObject.put("pos", Integer.parseInt(posa[0]));
+            JSONArray amountArray = new JSONArray();
+            for (String amount : posa[1].split(",")) {
+                amountArray.add(Integer.parseInt(amount));
+            }
+            jsonObject.put("bettingAmount", amountArray);
+            betReqInfo.add(jsonObject);
+        }
+        betCon.put("proto", 700);
+        betCon.put("gameCode", 2005);
+        data.put("issue", responceMessage.getIssue());
+        data.put("bettingPoint", Double.parseDouble(responceMessage.getUserRebate()));
+        data.put("betReqInfo", betReqInfo);
+        betCon.put("data", data);
+        return betCon.toString();
     }
 }
 

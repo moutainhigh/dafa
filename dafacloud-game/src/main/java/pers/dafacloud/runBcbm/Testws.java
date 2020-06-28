@@ -16,19 +16,14 @@ public class Testws {
 
     private static String host = Constants.host;
 
-    private static ExecutorService excutors = Executors.newFixedThreadPool(300);
+    private static ExecutorService executors = Executors.newFixedThreadPool(50);
 
     public static void main(String[] args) throws Exception {
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(2001, 0);//牛牛
-        map.put(2002, 0);//红黑
-        map.put(2003, 0);//龙虎
-        map.put(2004, 0);//百家乐
-        map.put(2005, 1);//奔驰宝马
-        map.put(2006, 0);//骰宝
+        map.put(2005, 2);//奔驰宝马
         //List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/users.txt"));
         //List<String> user = new ArrayList<>(Arrays.asList("dukeabc", "duke003"));
-        List<String> user = new ArrayList<>(Arrays.asList("dukepre002", "dukep002"));
+        List<String> user = new ArrayList<>(Arrays.asList("dafai0002", "dafai0003"));
         int index = 0;
         for (Integer key : map.keySet()) {
             if (map.get(key) > 0) {
@@ -42,11 +37,10 @@ public class Testws {
         for (int i = 0; i < count; i++) {
             String userName = list.get(i);
             System.out.println(userName);
-            HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);//登录
+            HttpConfig httpConfig = Login.loginReturnHttpConfig(userName);
             String wsUrl = String.format("ws://%s/gameServer/?TOKEN=tokenvalue&gameId=%s", new URL(host).getHost(), gameCode);
-            //String wsUrl = String.format("ws://52.76.195.164:8200/gameServer/?TOKEN=tokenvalue&gameId=%s", gameCode);
             SendMessageSX sendMessageSX = new SendMessageSX(wsUrl, userName, 2003, httpConfig);
-            excutors.execute(sendMessageSX::process);//等价于excutors.execute(() -> sendMessageSX.process());
+            executors.execute(sendMessageSX::process);
             try {
                 Thread.sleep(4 * 1000);
             } catch (Exception e) {

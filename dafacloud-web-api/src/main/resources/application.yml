@@ -11,6 +11,12 @@ spring:
       jdbc-url: jdbc:mysql://localhost:3306/dafa-cloud?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
       driver-class-name: com.mysql.cj.jdbc.Driver
       type: com.alibaba.druid.pool.DruidDataSource
+    betting:
+      username: us31jw9
+      password: KzrdFtgXILlE
+      jdbc-url: jdbc:mysql://18.139.94.243:8312/dafacloud_betting?serverTimezone=UTC&characterEncoding=UTF-8&useSSL=false
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      type: com.alibaba.druid.pool.DruidDataSource
     dev1:
       username: root
       password: 9Tqo666r(Z(h@qrtE

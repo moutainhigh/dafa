@@ -27,6 +27,10 @@ public class RoutingDataSouceImpl extends AbstractRoutingDataSource {
     @Qualifier("local")
     private DataSource localDataSource;
 
+    @Autowired
+    @Qualifier("bettingSource")
+    private DataSource bettingDataSource;
+
     @Override
     public void afterPropertiesSet() {
         log.info("设置数据集和默认的数据源");
@@ -36,6 +40,7 @@ public class RoutingDataSouceImpl extends AbstractRoutingDataSource {
         Map<Object, Object> targetDataSources = new HashMap<>();
         targetDataSources.put(DataSourceType.local,localDataSource);
         targetDataSources.put(DataSourceType.dev1, dev1DataSource);
+        targetDataSources.put(DataSourceType.bettingSource, bettingDataSource);
         this.setTargetDataSources(targetDataSources);
         //即将targetDataSources中的DataSource加载到resolvedDataSources
         super.afterPropertiesSet();
