@@ -2,18 +2,22 @@ package pers.dafacloud.server;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.dafacloud.bean.HttpConfigHandle;
-import pers.dafacloud.enums.TestApiResultEnum;
 import pers.dafacloud.entity.ApiManage;
 import pers.dafacloud.entity.TestApiResult;
+import pers.dafacloud.enums.TestApiResultEnum;
 import pers.dafacloud.utils.Response;
+import pers.utils.dafaCloud.DafaCloudLogin;
 import pers.utils.httpclientUtils.HttpConfig;
+import pers.utils.urlUtils.UrlBuilder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,8 +37,8 @@ public class TestRequestApiServer0 {
      * 单用例测试
      */
     public Response testApiOne(int id, String host, String cookie) {
-        String httpHost = host.contains("http") ? host : String.format("%s%s", "http://",
-                host.replace("/", "").replace("?", ""));
+        String httpHost = host.contains("http") ?
+                host : String.format("%s%s", "http://", host.replace("/", "").replace("?", ""));
 
         ApiManage apiManage = apiManageServer.getApiById(id);
         if (StringUtils.isEmpty(cookie) && !apiManage.getPath().endsWith("login")) {
@@ -46,7 +50,7 @@ public class TestRequestApiServer0 {
                 .setHttpConfig(HttpConfig.custom())
                 .setHttpHost(httpHost)
                 .setCookie(cookie);
-        httpConfigHandle.setXTkoen(cookie);
+        httpConfigHandle.setXToken(cookie);
         return taskRequest(apiManage, httpConfigHandle);
     }
 
@@ -87,9 +91,11 @@ public class TestRequestApiServer0 {
             if (StringUtils.isNotEmpty(apiManage.getDependentApi())) {
                 JSONArray dependentApiJa = JSONArray.fromObject(apiManage.getDependentApi());
                 StringBuilder sb = new StringBuilder();
+                List<String> deValueList = new ArrayList<>();
                 for (int i = 0; i < dependentApiJa.size(); i++) { //多个依赖接口
-                    JSONArray dependentApiJa0 = dependentApiJa.getJSONArray(i);//dependentApiJa 0/id 1/rule
+                    JSONArray dependentApiJa0 = dependentApiJa.getJSONArray(i);
                     int deId = dependentApiJa0.getInt(0);
+                    String ruleString = dependentApiJa0.getString(1);
                     ApiManage apiManageDependent = apiManageServer.getApiById(deId);
                     deResult = httpConfigHandle
                             .setRequestMethod(apiManageDependent.getMethod())
@@ -100,39 +106,67 @@ public class TestRequestApiServer0 {
                     if (JSONObject.fromObject(deResult).getInt("code") != 1)
                         throw new Exception("依赖接口异常");
 
-                    if (StringUtils.isNotEmpty(dependentApiJa0.getString(1))) {//有提取规则
+                    if (StringUtils.isNotEmpty(ruleString)) {//有提取规则
                         //提取依赖数据
-                        // GET  : listName,1 stateName,2 stateValue,3 id （orderList,betNum,双,id）
-                        // GET  : orderList,id
+                        // GET  : listName#stateName1,stateValue1;stateName2,stateValue2#id,name
+                        // GET  : orderList#id,name
                         // POST : 1 getName
-                        String[] getRule = dependentApiJa0.getString(1).split(",");
+                        //{"msg":"数据正确","code":1,"data":{"token":"xxxx"}}
+                        //{"msg":"获取成功","code":1,"data":[{"id":"1403"}]}
+                        //{"msg":"数据正确","code":1,"data":{"rows":[{"a":"1"},{"a":"1"}]}}
+                        String[] getRule = ruleString.split("#");
 
-                        JSONObject deResultoJo = JSONObject.fromObject(deResult);
-                        int ruleLength = getRule.length;
-                        if (ruleLength == 4 || ruleLength == 2) { //GET : 取 list
-                            JSONArray deResultoJa = deResultoJo.getJSONObject("data").getJSONArray(getRule[0]);
-                            if (deResultoJa.size() == 0) {
-                                throw new Exception("依赖接口List空");//有提取规则却提取空
-                            }
-                            if (ruleLength == 4) {
-                                for (int j = 0; j < deResultoJa.size(); j++) {
-                                    JSONObject liistJo = deResultoJa.getJSONObject(j);
-                                    if (getRule[2].equals(liistJo.getString(getRule[1]))) {
-                                        deValue = liistJo.getString(getRule[3]);
-                                        break;
+                        JSONObject deResultJo = JSONObject.fromObject(deResult);
+                        Object data = deResultJo.get("data");
+                        if (getRule.length == 3) {
+                            String ruleListName = getRule[0];//listName
+                            JSONArray deResultList = getJSONArray(data, ruleListName);
+                            String[] ruleFilterArray = getRule[1].split(";"); //stateName1,stateValue1;stateName2,stateValue2
+                            for (int j = 0; j < deResultList.size(); j++) {//遍历请求结果
+                                boolean isNeed = true;
+                                JSONObject listObj = deResultList.getJSONObject(j);
+                                for (String s : ruleFilterArray) {
+                                    String[] ruleFilterOne = s.split(",");//stateName1,stateValue1
+                                    if (!ruleFilterOne[1].equals(listObj.getString(ruleFilterOne[0]))) {
+                                        isNeed = false;//这条数据不是需要
                                     }
                                 }
-                            } else {
-                                deValue = deResultoJa.getJSONObject(0).getString(getRule[1]);
+                                if (isNeed) {//满足条件的数据才提取
+                                    String[] need = getRule[2].split(",");//id,name
+                                    for (String s0 : need) {
+                                        deValue = listObj.getString(s0);
+                                        if (StringUtils.isEmpty(deValue)) {
+                                            logger.info("deValue is null " + deValue + ",提取字段" + s0);
+                                            continue;
+                                        }
+                                        deValueList.add(deValue);
+                                    }
+                                }
                             }
-                        } else if (ruleLength == 1) {// POST : 取 code
-                            deValue = deResultoJo.getJSONObject("data").getString(getRule[0]);
+                        } else if (getRule.length == 2) {
+                            JSONArray deResultoJa = getJSONArray(data, getRule[0]);
+                            String[] need0 = getRule[1].split(",");
+                            JSONObject jsonObject0 = deResultoJa.getJSONObject(0);
+                            for (String s : need0) {
+                                deValue = jsonObject0.getString(s);//orderList#id
+                                if (StringUtils.isEmpty(deValue)) {
+                                    logger.info("deValue is null " + deValue);
+                                    continue;
+                                }
+                                deValueList.add(deValue);
+                            }
+                        } else if (getRule.length == 1) {
+                            deValue = deResultJo.getJSONObject("data").getString(getRule[0]);
+                            deValueList.add(deValue);
                         }
-                        sb.append(returnResultHandle(StringUtils.isEmpty(deValue) ? deResult : deValue, httpConfigHandle.getRequestPath(), httpConfigHandle.getRequestParameters()))
+
+                        sb.append(returnResultHandle(deValueList.isEmpty() ? deResult : deValueList.toString(), httpConfigHandle.getRequestPath(), httpConfigHandle.getRequestParameters()))
                                 .append("\n");
                         //替换参数
-                        if (StringUtils.isNotEmpty(deValue)) {
-                            apiManage.setRequestParameters(apiManage.getRequestParameters().replace(String.format("{data%s}", i + 1), deValue));
+                        if (!deValueList.isEmpty()) {
+                            for (int j = 0; j < deValueList.size(); j++) {
+                                apiManage.setRequestParameters(apiManage.getRequestParameters().replace(String.format("{data%s}", j + 1), deValueList.get(j)));
+                            }
                         } else {
                             throw new Exception("依赖提取结果空");//有提取规则却提取空
                         }
@@ -182,6 +216,7 @@ public class TestRequestApiServer0 {
                 testApiResult.setAssertContent("响应code = 1 ");
             }
             testApiResult.setTestResult(returnResultHandle(result, httpConfigHandle.getRequestPath(), httpConfigHandle.getRequestParameters()));
+
             testApiResultServer.addTestApiResult(testApiResult);
             return com.alibaba.fastjson.JSONObject.parseObject(result, Response.class);
         } catch (Exception e) {
@@ -190,6 +225,20 @@ public class TestRequestApiServer0 {
             testApiResultServer.addTestApiResult(testApiResult);
             return Response.fail("请求异常：" + e.getMessage());
         }
+    }
+
+    private JSONArray getJSONArray(Object data, String rule) throws Exception {
+        JSONArray deResultJa;
+        if (data instanceof JSONArray) {
+            //{"code":1,"msg":"获取成功","data":[{"id":"1403"}]}
+            deResultJa = JSONArray.fromObject(data);
+        } else {
+            deResultJa = JSONObject.fromObject(data).getJSONArray(rule);
+        }
+        if (deResultJa.size() == 0) {
+            throw new Exception("依赖接口List空");//有提取规则却提取空
+        }
+        return deResultJa;
     }
 
     /**
@@ -210,34 +259,37 @@ public class TestRequestApiServer0 {
         return String.format("【%s】\n【%s】\n【%s】\n【%s】", StringUtils.isEmpty(result) ? "--" : result, path, StringUtils.isEmpty(reqParametersString) ? "--" : reqParametersString, e);
     }
 
-    public Response apiManageBatchTest(String host, String cookie, String testBatch, String groupsApi, String owner) throws Exception {
-        if (StringUtils.isEmpty(host))
-            return Response.error("host不能为空");
-        if (StringUtils.isEmpty(cookie))
-            return Response.error("cookie不能为空");
-        if (StringUtils.isEmpty(testBatch))
-            return Response.error("批量执行不能缺少执行批次，执行批次用来统计批量运行测试结果");
-        if (StringUtils.isEmpty(groupsApi))
-            return Response.error("缺少参数用例分组");
-        if (StringUtils.isEmpty(owner))
-            return Response.error("缺少参数用例owner");
+    public Response apiManageBatchTest(String hostCms, String hostFront, String frontUsername) {
+        if (StringUtils.isEmpty(hostCms))
+            return Response.error("后台域名不能为空");
+        if (StringUtils.isEmpty(hostFront))
+            return Response.error("前台域名不能为空");
+        //if (StringUtils.isEmpty(testBatch))
+        //    return Response.error("批量执行不能缺少执行批次，执行批次用来统计批量运行测试结果");
+        //if (StringUtils.isEmpty(groupsApi))
+        //    return Response.error("缺少参数用例分组");
+        //if (StringUtils.isEmpty(owner))
+        //    return Response.error("缺少参数用例owner");
 
-        String host0 = host.contains("http") ? host : String.format("%s%s", "http://",
-                host.replace("/", "").replace("?", ""));
+        String hostCms0 = hostCms.contains("http") ? hostCms : String.format("%s%s", "http://",
+                hostCms.replace("/", "").replace("?", ""));
 
-        logger.info("groupsApi:" + groupsApi);
+        String hostFront0 = hostFront.contains("http") ? hostFront : String.format("%s%s", "http://",
+                hostFront.replace("/", "").replace("?", ""));
 
-        List<ApiManage> apiManages = apiManageServer.getBatchTestApiList(groupsApi, owner);
+        //logger.info("groupsApi:" + groupsApi);
+
+        List<ApiManage> apiManages = apiManageServer.getBatchTestApiList("sys", "duke");
 
         if (apiManages.size() == 0)
             return Response.fail("获取执行用例数：0");
 
-        //logger.info("批量执行用例数量：" + apiManages.size());
-
+        logger.info("批量执行用例数量：" + apiManages.size());
         executes.execute(() -> {
             try {
-                task(host0, cookie, testBatch, apiManages);
+                task(hostCms0, hostFront0, frontUsername, apiManages);
             } catch (Exception e) {
+                logger.info(e.toString());
                 e.printStackTrace();
             }
         });
@@ -247,18 +299,69 @@ public class TestRequestApiServer0 {
     /**
      * 批量运行task
      */
-    private void task(String httpHost, String cookie, String testBatch, List<ApiManage> apiManages) throws Exception {
-        HttpConfigHandle httpConfigHandle = HttpConfigHandle.custom();
-        //设置HttpConfig，httpHost，cookie
-        httpConfigHandle
+    private void task(String hostCms, String hostFront, String frontUsername, List<ApiManage> apiManages) throws Exception {
+        String testBatch = RandomStringUtils.randomAlphanumeric(10);
+//--------------------------------------front HttpConfigHandle----------------------------------------------------------
+        HttpConfigHandle httpConfigHandleFront = HttpConfigHandle.custom();
+        httpConfigHandleFront.setHttpConfig(HttpConfig.custom())
+                .setHttpHost(hostFront)
+                .setFrontUsername(frontUsername);
+//--------------------------------------cms HttpConfigHandle----------------------------------------------------------
+        HttpConfigHandle httpConfigHandleCms = HttpConfigHandle.custom();
+        httpConfigHandleCms
                 .setHttpConfig(HttpConfig.custom())
-                .setHttpHost(httpHost)
-                .setCookie(cookie);
+                .setHttpHost(hostCms);
+//------------------------------------------------------------------------------------------------
         for (int i = 0; i < apiManages.size(); i++) {
             ApiManage apiManage = apiManages.get(i);
-            //apiManageTask(apiManage, url, cookie, testBatch, httpConfig);
-            taskRequest(apiManage, httpConfigHandle, testBatch);
+            if (apiManage.getCmsFront() == 1) {
+                taskRequest(apiManage, httpConfigHandleFront, testBatch);
+            } else if (apiManage.getCmsFront() == 2) {
+                taskRequest(apiManage, httpConfigHandleCms, testBatch);
+            }
+            if (apiManage.getPath().contains("rechargeFrontPaymentRecord") || apiManage.getPath().contains("saveFrontWithdrawRecord")) {//充值接口
+                Thread.sleep(6000);
+            }
+            if (httpConfigHandleFront.isStop() || httpConfigHandleCms.isStop()) {
+                break;
+            }
+            if (apiManage.getPath().endsWith("users/login")) {
+                httpConfigHandleCms.setFrontUsername(httpConfigHandleFront.getFrontUsername());
+            }
         }
     }
+
+    public boolean loginFront(HttpConfigHandle httpConfigHandleFront, String host, String testBatch, String username) {
+        JSONObject passwordJson = DafaCloudLogin.getPassword(username, "123qwe");
+        String body = UrlBuilder.custom().addBuilder("userName", username)
+                .addBuilder("password", passwordJson.getString("password"))
+                .addBuilder("random", passwordJson.getString("random")).fullBody();
+        httpConfigHandleFront.setRequestPath("/v1/users/login");
+        httpConfigHandleFront.setRequestMethod(2);
+        httpConfigHandleFront.getHttpConfig().body(body);
+        String result = httpConfigHandleFront.doRequest();
+        TestApiResult testApiResult = new TestApiResult();
+        testApiResult.setHost(host);
+        testApiResult.setApiName("登录前台");
+        testApiResult.setApiPath("/v1/users/login");
+        testApiResult.setApiMethod(2);
+        testApiResult.setCmsFront(1);
+        testApiResult.setTestExecutor("sys");
+        testApiResult.setTestBatch(testBatch);
+        testApiResult.setTestResult(result);
+        if (!result.contains("成功")) {
+            logger.info("登录失败");
+            testApiResult.setIsPass(TestApiResultEnum.FAIL.getCode());
+            testApiResultServer.addTestApiResult(testApiResult);
+            return false;
+        } else {
+            httpConfigHandleFront.setXToken(JSONObject.fromObject(result).getJSONObject("data").getString("token"));
+            testApiResult.setIsPass(TestApiResultEnum.SUCCESS.getCode());
+            testApiResultServer.addTestApiResult(testApiResult);
+            return true;
+        }
+
+    }
+
 
 }

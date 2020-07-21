@@ -121,6 +121,7 @@ public class SendMessageSX {
                         //betconent = String.format(tempDX, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount, xiao, xiao, xiao, xiao);
                     } else {
                         amount = "500";
+                        //amount = "10000,10000,10000,10000";
                         betconent = String.format(tempX, responceMessage.getIssue(), responceMessage.getUserRebate(), amount, amount, amount, amount);
                     }
                     System.out.println(betconent);
@@ -138,7 +139,9 @@ public class SendMessageSX {
         JSONObject betCon = new JSONObject(true);
         JSONObject data = new JSONObject(true);
         JSONArray betReqInfo = new JSONArray();
-        String[] poss = {"1;10000,10000", "2;10000,10000", "3;10000,10000", "4;10000,10000"};
+        //String[] poss = {"1;10000,10000", "2;10000,10000", "3;10000,10000", "4;10000,10000"};
+        //String[] poss = {"1;5000,1000,1000,1000", "2;10000", "3;5000,1000,1000,1000", "4;10000"};
+        String[] poss = {"1;1000", "2;1000", "3;1000,1000", "4;1000,1000"};
         for (String pos : poss) {
             String[] posa = pos.split(";");
             JSONObject jsonObject = new JSONObject(true);

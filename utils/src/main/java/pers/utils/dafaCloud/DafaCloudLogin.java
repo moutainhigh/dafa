@@ -1,5 +1,6 @@
 package pers.utils.dafaCloud;
 
+import net.sf.json.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.impl.cookie.BasicClientCookie;
 
@@ -24,6 +25,20 @@ public class DafaCloudLogin {
         String encode = Base64.getEncoder().encodeToString(random.getBytes());
         String body = String.format("userName=%s&password=%s&random=%s", userName, passwordCode, encode);
         return body;
+    }
+
+    public static JSONObject getPassword(String userName, String password) {
+        //随机码
+        String random = "dafacloud_" + Math.random();
+        //md5加密后的密码
+        String passwordCode = DigestUtils.md5Hex(DigestUtils.md5Hex(userName + DigestUtils.md5Hex(password)) + random);
+        //随机
+        String encode = Base64.getEncoder().encodeToString(random.getBytes());
+        //String body = String.format("userName=%s&password=%s&random=%s", userName, passwordCode, encode);
+        JSONObject passwordJson = new JSONObject();
+        passwordJson.put("password", passwordCode);
+        passwordJson.put("random", encode);
+        return passwordJson;
     }
 
     /**

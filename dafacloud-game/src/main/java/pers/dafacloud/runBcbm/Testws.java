@@ -23,6 +23,7 @@ public class Testws {
         map.put(2005, 2);//奔驰宝马
         //List<String> user = FileUtil.readFile(StartWs.class.getResourceAsStream("/users.txt"));
         //List<String> user = new ArrayList<>(Arrays.asList("dukeabc", "duke003"));
+        //List<String> user = new ArrayList<>(Arrays.asList("autodf00001", "autodf00002"));
         List<String> user = new ArrayList<>(Arrays.asList("dafai0002", "dafai0003"));
         int index = 0;
         for (Integer key : map.keySet()) {

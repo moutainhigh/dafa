@@ -22,14 +22,14 @@ import java.util.concurrent.Executors;
  * 测试最后操作时间
  */
 public class TestLastOperationTime {
-    private static ExecutorService executors = Executors.newFixedThreadPool(300);
+    private static ExecutorService executors = Executors.newFixedThreadPool(1000);
     //private static String host = "http://caishen02.com";
     private static String host = "http://dafacloud-test.com";
 
     public static void main(String[] args) {
+        getTokenIpTask();
         //operationTask();
-        //getTokenIpTask();
-        getSessionTask();
+        //getSessionTask();
     }
 
 
@@ -39,7 +39,7 @@ public class TestLastOperationTime {
     public static void getSessionTask() {
         List<String> tokens = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/token.txt"));//.subList(0,2);
         System.out.println(tokens.size());
-        List<List<String>> tokensList = ListSplit.split(tokens, 1000);
+        List<List<String>> tokensList = ListSplit.split(tokens, 2);
         CountDownLatch cdl = new CountDownLatch(tokensList.size());
         for (int i = 0; i < tokensList.size(); i++) {
             int finalI = i;
@@ -60,16 +60,19 @@ public class TestLastOperationTime {
         for (int i = 0; i < tokens.size(); i++) {
             try {
                 String JSESSIONID = AESCrossDomainUtil.decrypt(tokens.get(i)).replace("_dafatoken", "");
-                String url = UrlBuilder.custom()
-                        .url("http://192.168.254.111:8010/v1/users/getSession")
-                        //.url("http://52.76.195.164:8010/v1/users/getSession")
-                        //.url("http://192.168.254.100:8010/v1/users/getSession")
-                        .addBuilder("ip", "13.250.0.161")
-                        .addBuilder("JSESSIONID", JSESSIONID)
-                        .addBuilder("url", "dafacloud-test.com")
-                        .addBuilder("api", "users")
-                        .fullUrl();
-                System.out.println(DafaRequest.get(httpConfig.url(url)));
+                System.out.println(JSESSIONID);
+                //String url = UrlBuilder.custom()
+                //        .url("http://192.168.254.100:8010/v1/users/getSession")
+                //        //.url("http://52.76.195.164:8010/v1/users/getSession")
+                //        //.url("http://192.168.254.100:8010/v1/users/getSession")
+                //        .addBuilder("ip", "13.250.0.161")
+                //        .addBuilder("JSESSIONID", JSESSIONID)
+                //        .addBuilder("url", "dafacloud-test.com")
+                //        .addBuilder("api", "users")
+                //        .fullUrl();
+                //for (int j = 0; j < 1000000000; j++) {
+                //    System.out.println(DafaRequest.get(httpConfig.url(url)));
+                //}
                 //Thread.sleep(200);
             } catch (Exception e) {
                 System.out.println("异常：" + e.getMessage());
@@ -130,9 +133,9 @@ public class TestLastOperationTime {
      * 先登录获取x-token
      */
     public static void getTokenIpTask() {
-        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(0, 50);
+        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(0, 300);
         System.out.println(users.size());
-        List<List<String>> usersList = ListSplit.split(users, 500);
+        List<List<String>> usersList = ListSplit.split(users, 1000);
         CountDownLatch cdl = new CountDownLatch(usersList.size());
         for (int i = 0; i < usersList.size(); i++) {
             int finalI = i;
@@ -158,9 +161,9 @@ public class TestLastOperationTime {
                     //.other("x-remote-IP", ip)
                     //.other("X-Real-IP", ip)
                     //.other("X-Real-IP", ip)
-                    .other("x-user-name", userA[0])
                     .other("x-user-id", userA[1])
-                    .other("x-tenant-code", "test")
+                    .other("x-user-name", userA[0])
+                    .other("x-tenant-code", "dafa")
                     .other("x-url", "0.0.0.0:8082")
                     .other("x-source-id", "1")
                     .other("x-domain", "http://0.0.0.0:8082")
@@ -169,10 +172,11 @@ public class TestLastOperationTime {
             String body = Login.getLoginBody(userA[0], "123qwe");
             HttpCookies httpCookies = HttpCookies.custom();
             //手动设置cookie
+            //52.77.207.64
             //httpCookies.getCookieStore().addCookie(DafaCloudLogin.productCookie("63550DAE2429C93A798049352B63AD1C",host));
             HttpConfig httpConfig = HttpConfig.custom().url("http://52.76.195.164:8010/v1/users/login").body(body).headers(httpHeader.build()).context(httpCookies.getContext());
             String result = DafaRequest.post(httpConfig);
-            //System.out.println(username + " - " + result);
+            //System.out.println(userA[0] + " - " + result);
             JSONObject resultObj = JSONObject.parseObject(result);
             JSONObject dataObj = resultObj.getJSONObject("data");
             if (result == null || !result.contains("成功")) {

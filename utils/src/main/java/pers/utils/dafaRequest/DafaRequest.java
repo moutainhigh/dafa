@@ -12,19 +12,17 @@ import pers.utils.propertiesUtils.PropertiesUtil;
 
 public class DafaRequest {
 
-    private static HttpClientContext context = new HttpClientContext();
-    //private static String cookieJSESSIONID = PropertiesUtil.getProperty("cookieJSESSIONID");
-    private static String headerSessionId = PropertiesUtil.getProperty("headerSessionId");
+    //private static String headerSessionId = PropertiesUtil.getProperty("headerSessionId");
     //默认值
-    private static String host = PropertiesUtil.getProperty("host");//
+    private static String host = PropertiesUtil.getProperty("host");
     private static String hostCoCos = PropertiesUtil.getProperty("hostCoCos");//0
     private static String hostCms = PropertiesUtil.getProperty("hostCms");//1
 
     private static Header[] headers = HttpHeader.custom()
             .contentType("application/x-www-form-urlencoded;charset=UTF-8")
             .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
-            .other("X-Token", "YBU39umqNCFEeEpicVnVhD28PbfujiLM0JwYWnKQVpkVIqDmvBClz/hmR27Sw14I")
-            .other("Session-Id", headerSessionId) //棋牌系统前台使用
+            //.other("X-Token", "")
+            //.other("Session-Id", headerSessionId) //棋牌系统前台使用
             //.other("x-tenant-code", "")
             //.other("x-user-name", "")
             //.other("x-source-Id", "1")
@@ -37,7 +35,7 @@ public class DafaRequest {
             .headers(headers)
             .context(HttpCookies
                     .custom()
-                    .setBasicClientCookie(host, "JSESSIONID", "C5907DBE3E7848A6E1503E7826186D15")
+                    .setBasicClientCookie("http://pt05.dafacloud-test.com", "JSESSIONID", "27129997D56C38B4146B66E551970E44")
                     .getContext());
 
     /**
@@ -50,9 +48,9 @@ public class DafaRequest {
         String result;
         try {
             if (url.contains("http")) {
-                result = Request.get(httpConfig.url(url.replace(" ", "%20")).context(context));//replaceAll 替换掉url中的空格
+                result = Request.get(httpConfig.url(url.replace(" ", "%20")));//replaceAll 替换掉url中的空格
             } else {
-                result = Request.get(httpConfig.url(host + url.replace(" ", "%20")).context(context));
+                result = Request.get(httpConfig.url(host + url.replace(" ", "%20")));
             }
             //Log.info(String.format("get请求结果返回:%s",result));
             return result;
@@ -63,7 +61,6 @@ public class DafaRequest {
     }
 
 
-
     /**
      *
      */
@@ -71,15 +68,15 @@ public class DafaRequest {
         String result;
         try {
             if (url.contains("http")) {
-                result = Request.get(httpConfig.url(url.replace(" ", "%20")).context(context));//replaceAll 替换掉url中的空格
+                result = Request.get(httpConfig.url(url.replace(" ", "%20")));//replaceAll 替换掉url中的空格
 
             } else {
                 if (env == 0) {
                     //cookie.setDomain(new URL(hostCoCos).getHost());//设置范围
-                    result = Request.get(httpConfig.url(hostCoCos + url.replace(" ", "%20")).context(context));
+                    result = Request.get(httpConfig.url(hostCoCos + url.replace(" ", "%20")));
                 } else {
                     //cookie.setDomain(new URL(hostCms).getHost());//设置范围
-                    result = Request.get(httpConfig.url(hostCms + url.replace(" ", "%20")).context(context));
+                    result = Request.get(httpConfig.url(hostCms + url.replace(" ", "%20")));
                 }
             }
             //Log.info(String.format("get请求结果返回:%s",result));
@@ -96,10 +93,10 @@ public class DafaRequest {
         httpConfig.headers(headers);
         try {
             if (url.contains("http")) {
-                result = Request.get(httpConfig.url(url.replace(" ", "%20")).context(context));//replaceAll 替换掉url中的空格
+                result = Request.get(httpConfig.url(url.replace(" ", "%20")));//replaceAll 替换掉url中的空格
 
             } else {
-                result = Request.get(httpConfig.url(host + url.replace(" ", "%20")).context(context));
+                result = Request.get(httpConfig.url(host + url.replace(" ", "%20")));
             }
             //Log.info(String.format("get请求结果返回:%s",result));
             return result;
@@ -122,9 +119,9 @@ public class DafaRequest {
         try {
             if (url.contains("http")) {
                 //cookie.setDomain(new URL(url).getHost());
-                result = Request.get(httpConfig.url(url.replace(" ", "%20")).context(context));
+                result = Request.get(httpConfig.url(url.replace(" ", "%20")));
             } else {
-                result = Request.get(httpConfig.url(host + url.replace(" ", "%20")).context(context));
+                result = Request.get(httpConfig.url(host + url.replace(" ", "%20")));
             }
             //Log.info(String.format("get请求结果返回:%s",result));
             return result;
@@ -159,9 +156,9 @@ public class DafaRequest {
         String result;
         try {
             if (url.contains("http")) {
-                result = Request.post(httpConfig.url(url).body(body).context(context));
+                result = Request.post(httpConfig.url(url).body(body));
             } else {
-                result = Request.post(httpConfig.url(host + url).body(body).context(context));
+                result = Request.post(httpConfig.url(host + url).body(body));
             }
             //Log.info(String.format("post请求结果返回:%s",result));
             return result;
@@ -174,14 +171,14 @@ public class DafaRequest {
         String result;
         try {
             if (url.contains("http")) {
-                result = Request.post(httpConfig.url(url).body(body).context(context));
+                result = Request.post(httpConfig.url(url).body(body));
             } else {
                 if (env == 0) {
                     //cookie.setDomain(new URL(hostCoCos).getHost());//设置范围
-                    result = Request.post(httpConfig.url(hostCoCos + url).body(body).context(context));
+                    result = Request.post(httpConfig.url(hostCoCos + url).body(body));
                 } else {
                     //cookie.setDomain(new URL(hostCms).getHost());//设置范围
-                    result = Request.post(httpConfig.url(hostCms + url).body(body).context(context));
+                    result = Request.post(httpConfig.url(hostCms + url).body(body));
                 }
             }
             //Log.info(String.format("post请求结果返回:%s",result));
@@ -199,9 +196,9 @@ public class DafaRequest {
         String result;
         try {
             if (url.contains("http")) {
-                result = Request.post(httpConfig.url(url).body(body).context(context).headers(httpHeader));
+                result = Request.post(httpConfig.url(url).body(body).headers(httpHeader));
             } else {
-                result = Request.post(httpConfig.url(host + url).body(body).context(context).headers(httpHeader));
+                result = Request.post(httpConfig.url(host + url).body(body).headers(httpHeader));
             }
             //Log.info(String.format("post请求结果返回:%s",result));
             return result;
@@ -222,9 +219,9 @@ public class DafaRequest {
         try {
             if (url.contains("http")) {
                 //cookie.setDomain(new URL(url).getHost());
-                result = Request.post(httpConfig.url(url).body(body).context(context).headers(headers));
+                result = Request.post(httpConfig.url(url).body(body).headers(headers));
             } else {
-                result = Request.post(httpConfig.url(host + url).body(body).context(context));
+                result = Request.post(httpConfig.url(host + url).body(body));
             }
             //Log.info(String.format("post请求结果返回:%s",result));
             return result;
@@ -262,15 +259,15 @@ public class DafaRequest {
         String result;
         try {
             if (url.contains("http")) {
-                result = Request.post(httpConfig.url(url).context(context).headers(headers).httpEntity(httpEntity).headers(headers));
+                result = Request.post(httpConfig.url(url).headers(headers).httpEntity(httpEntity).headers(headers));
 
             } else {
                 if (env == 0) {
                     //cookie.setDomain(new URL(hostCoCos).getHost());//设置范围
-                    result = Request.post(httpConfig.url(host + url).context(context).httpEntity(httpEntity).headers(headers));
+                    result = Request.post(httpConfig.url(host + url).httpEntity(httpEntity).headers(headers));
                 } else {
                     //cookie.setDomain(new URL(hostCms).getHost());//设置范围
-                    result = Request.post(httpConfig.url(hostCms + url).context(context).httpEntity(httpEntity).headers(headers));
+                    result = Request.post(httpConfig.url(hostCms + url).httpEntity(httpEntity).headers(headers));
                 }
             }
             //Log.info(String.format("post请求结果返回:%s",result));

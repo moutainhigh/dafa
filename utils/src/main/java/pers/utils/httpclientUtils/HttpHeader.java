@@ -167,8 +167,8 @@ public class HttpHeader {
 
 	/**
 	 * 请求的与实体对应的MIME信息
-	 * 例如：Content-Type: application/x-www-form-urlencoded
-	 * 
+	 * 例如：Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+	 * application/json
 	 * @param contentType content-type
 	 * @return 返回当前对象
 	 */

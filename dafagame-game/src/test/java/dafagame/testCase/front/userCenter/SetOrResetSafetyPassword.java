@@ -42,4 +42,5 @@ public class SetOrResetSafetyPassword {
         JSONObject jsonResult = JSONObject.fromObject(result);
         AssertUtil.assertCode(jsonResult.getInt("code")==1,phone+","+result);
     }
+
 }

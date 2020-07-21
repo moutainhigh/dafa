@@ -3,6 +3,8 @@ package pers.dafacloud.dafaLottery;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 获取自营彩的 下注期号
@@ -31,23 +33,30 @@ public class LotteryIssuePrivate {
         return currentIssue;
     }
 
-    public static void main(String[] args) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-        long start = System.currentTimeMillis();
-        //System.out.println(getCurrentIssue(1));
+    public static List<String> getChaseIssueList(int n) {
         LocalDateTime localDateTime = LocalDateTime.now();
-
-        //LocalTime tNow = LocalTime.parse(LocalTime.now().format(formatter));
-        //LocalTime tNow = LocalTime.now();
         int year = localDateTime.getYear();
         int month = localDateTime.getMonthValue();
         int day = localDateTime.getDayOfMonth();
         int hour = localDateTime.getHour();
         int minute = localDateTime.getMinute();
         //当前期数
-        int current = (hour * 60 + minute) / 1 + 1;
-        String currentIssue = String.format("%s%02d%02d%04d", year, month, day, current);
-        System.out.println("it consumes " + (System.currentTimeMillis() - start) + "ms");
+        int current = (hour * 60 + minute) / n + 1;
+        List<String> issueList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            String currentIssue;
+            if (n == 1) //1分系列是
+                currentIssue = String.format("%s%02d%02d%04d", year, month, day, current + i + 1);
+            else //3，5分系列
+                currentIssue = String.format("%s%02d%02d%03d", year, month, day, current + i + 1);
+
+            issueList.add(currentIssue);
+        }
+        return issueList;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getChaseIssueList(1));
     }
 
 

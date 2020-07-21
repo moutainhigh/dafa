@@ -3,6 +3,7 @@ package pers.dafacloud.dafaLottery;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.http.Header;
 import org.testng.annotations.Test;
@@ -122,5 +123,12 @@ public class Register {
                 e.printStackTrace();
             }
         }
+    }
+
+    @Test(description = "测试")
+    public static void test01() {
+        String username = String.format("auto%05d", (int) (Math.random() * 100000));
+        System.out.println(username);
+        System.out.println( );
     }
 }

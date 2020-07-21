@@ -15,7 +15,7 @@ public class ExportDataController {
     ExportBetContentServer exportBetContentServer;
 
     @GetMapping("/exportData")
-    public Response exportData(String host, String cookie) {
+    public Response exportData() {
         System.out.println(exportBetContentServer.getBetContent("dafa", "2020-06-29", "0"));
         return Response.success("成功");
     }

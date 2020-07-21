@@ -2,8 +2,6 @@ package pers.dafacloud.controller;
 
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,8 +19,6 @@ import java.util.List;
 @RequestMapping("/v1")
 public class ApiManageController {
 
-    Logger logger = LoggerFactory.getLogger(getClass());
-
     @Autowired
     ApiManageServer apiManageServer;
 
@@ -30,18 +26,18 @@ public class ApiManageController {
     TestRequestApiServer0 testRequestApiServer;
 
     @GetMapping("/apiManageBatchTest")
-    public Response queryApiBatchTest(String host, String cookie, String testBatch, String groupsApi, String owner) throws Exception {
-        return testRequestApiServer.apiManageBatchTest(host, cookie, testBatch, groupsApi, owner);
+    public Response queryApiBatchTest(String hostCms, String hostFront, String frontUserName) throws Exception {
+        return testRequestApiServer.apiManageBatchTest(hostCms, hostFront, frontUserName);
     }
 
     @PostMapping("/testRequestApi")
-    public Response testRequestApi(int id, String host, String cookie, HttpServletRequest request) throws Exception {
+    public Response testRequestApi(int id, String host, String cookie, HttpServletRequest request) {
         request.getCookies();
         if (StringUtils.isEmpty(cookie)) {
             if (request.getCookies() != null) {
                 for (javax.servlet.http.Cookie requestCookie0 : request.getCookies()) {
                     if ("JSESSIONID".equals(requestCookie0.getName())) {
-                        cookie = requestCookie0.getValue(); //c_sessionId
+                        cookie = requestCookie0.getValue();
                     }
                 }
             }

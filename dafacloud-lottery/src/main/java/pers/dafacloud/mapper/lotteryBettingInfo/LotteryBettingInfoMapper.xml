@@ -74,8 +74,38 @@
 		from betting_orders_info_${tableName}
 		where created_date = #{date}
 		and is_test = 0
-		and lottery_code = 1412
+		and lottery_code = 1304
 		and betting_state in (1,2)
+		and issue in ('202006291282',
+            '202006291281',
+            '202006291280',
+            '202006291279',
+            '202006291278',
+            '202006291277',
+            '202006291276',
+            '202006291275',
+            '202006291274',
+            '202006291272',
+            '202006291271',
+            '202006291270',
+            '202006281217',
+            '202006281216',
+            '202006281215',
+            '202006281214',
+            '202006281213',
+            '202006281212',
+            '202006281211',
+            '202006281210',
+            '202006281209',
+            '202006281206',
+            '202006281205',
+            '202006281204',
+            '202006281203',
+            '202006281202',
+            '202006281201',
+            '202006281200',
+            '202006281199',
+            '202006281198')
 		and id > #{maxId}
 		order by id asc limit 10000;
 	</select>
@@ -92,7 +122,7 @@
 	</select>
 
     <insert id="insertLotteryBetingInfo" parameterType="java.util.List" keyProperty="id">
-        insert into dafacloud_betting.betting_orders_info_shalv060(
+        insert into dafacloud_betting.betting_orders_info_shalv061(
         tenant_code
         ,user_id
         ,user_name
