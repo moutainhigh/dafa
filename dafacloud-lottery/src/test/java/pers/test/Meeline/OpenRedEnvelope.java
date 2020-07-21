@@ -1,5 +1,6 @@
 package pers.test.Meeline;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.Header;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
@@ -19,6 +20,7 @@ public class OpenRedEnvelope {
                 .build();
 
         String snatchRedEnvelope = host + "/api/v1/transfer/snatchRedEnvelope";
+
         String body0 = UrlBuilder.custom()
                 .addBuilder("recordId","HB290252645111190032")
                 .addBuilder("r","7281h577856e")
@@ -39,7 +41,8 @@ public class OpenRedEnvelope {
     }
 
     public static void main(String[] args) {
-        open();
+        //open();
+        System.out.println(DigestUtils.md5Hex("auto09135" + DigestUtils.md5Hex("123qwe")));
     }
 
 

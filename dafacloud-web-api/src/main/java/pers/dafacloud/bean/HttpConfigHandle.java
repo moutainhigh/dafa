@@ -234,6 +234,13 @@ public class HttpConfigHandle {
                         break;
                     }
                 }
+                if(requestPath.contains("updateUserLoginPassword")){//修改密码
+                    if ("password".equals(paraName)) {
+                        urlBuilder.addBuilder("password", DigestUtils.md5Hex(frontUsername + DigestUtils.md5Hex("123qwe")));
+                        continue;
+                    }
+
+                }
             }
             urlBuilder.addBuilder(requestParametersArray0.getString(0), requestParametersArray0.getString(1));
         }
