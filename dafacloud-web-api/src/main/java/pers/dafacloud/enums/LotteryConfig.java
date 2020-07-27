@@ -67,7 +67,9 @@ public enum LotteryConfig {
     L1319("10分快乐8", "1319", "KL8", false, true, 10),
 
     L1418("站长快3", "1418", "K3", true, true, 1),
+    L1420("站长3分快3", "1420", "K3", true, true, 3),
     L1419("站长5分快3", "1419", "K3", true, true, 5),
+    L1421("站长10分快3", "1421", "K3", true, true, 10),
 
     L1018("站长时时彩", "1018", "SSC", true, true, 1),
     L1019("站长5分时时彩", "1019", "SSC", true, true, 5),

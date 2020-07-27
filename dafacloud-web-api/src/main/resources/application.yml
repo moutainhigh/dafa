@@ -1,5 +1,9 @@
 server:
   port: 8090
+  servlet:
+    session:
+      timeout: PT24H
+      persistent: true
 
 #测试 serverTimezone=UTC jdbc:mysql://192.168.79.67:3306/dafa-cloud?serverTimezone=UTC
 spring:
@@ -65,3 +69,14 @@ mybatis-plus:
 #   pers.dafacloud.mapper: debug
 #    com.dafacloud.management.managementapi.mapping: debug
 
+##jwt配置
+audience:
+  # 代表这个JWT的接收对象,存入audience
+  clientId: 098f6bcd4621d373cade4e832627b4f6
+  # 密钥, 经过Base64加密, 可自行替换
+  base64Secret: MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=
+  # JWT的签发主体，存入issuer
+  name: restapiuser
+  # 过期时间，时间戳，毫秒
+#  expiresSecond: 172800
+  expiresSecond: 60000

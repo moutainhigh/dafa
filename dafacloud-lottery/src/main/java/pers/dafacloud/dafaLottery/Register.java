@@ -24,8 +24,8 @@ import java.util.concurrent.Executors;
 public class Register {
 
     //private static String register = "http://caishen02.com/v1/users/register";
-    //private static String register = "http://52.76.195.164:8010/v1/users/register";//第一套
-    private static String register = "http://52.77.207.64:8010/v1/users/register";//第二套
+    private static String register = "http://52.76.195.164:8010/v1/users/register";//第一套
+    //private static String register = "http://52.77.207.64:8010/v1/users/register";//第二套
     private static ExecutorService excutors = Executors.newFixedThreadPool(300);
     private static String[] inviteCodes = {"69662317", "72562999", "35996704", "03961612", "97291515", "16557652"};
 

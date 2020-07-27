@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.dafacloud.mapper.UserMapper">
+
+    <select id="findByUsername" parameterType="pers.dafacloud.entity.User"
+            resultType="pers.dafacloud.entity.User" flushCache="true" useCache="true">
+        select
+         user_id userId
+        ,user_name username
+        ,password
+        from users
+        where user_name = #{username}
+    </select>
+
+    <select id="findUserById" parameterType="pers.dafacloud.entity.User" resultType="pers.dafacloud.entity.User"
+            flushCache="true" useCache="true">
+       select
+         user_id userId
+        ,user_name username
+        ,password
+        from users
+        where user_id = #{userId}
+    </select>
+
+    <insert id="addUser" parameterType="pers.dafacloud.entity.User" keyProperty="id">
+		insert into users(
+         user_name
+        ,password
+		)values (
+			 #{username}
+            ,#{password}
+		)
+	</insert>
+
+    <delete id="updateUserPassword" parameterType="int">
+        update users set password = #{password} where user_name = #{username}
+    </delete>
+
+
+</mapper>

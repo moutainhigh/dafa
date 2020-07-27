@@ -158,7 +158,7 @@
             <scope>test</scope>
         </dependency>
 
-
+        <!-- 反射 -->
         <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
@@ -175,7 +175,18 @@
                 <!--</exclusion>-->
             <!--</exclusions>-->
         <!--</dependency>-->
+        <!-- token登录认证 -->
+        <!--<dependency>-->
+            <!--<groupId>com.auth0</groupId>-->
+            <!--<artifactId>java-jwt</artifactId>-->
+            <!--<version>3.4.0</version>-->
+        <!--</dependency>-->
 
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
 
     </dependencies>
 

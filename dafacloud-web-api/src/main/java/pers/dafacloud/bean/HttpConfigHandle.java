@@ -31,7 +31,7 @@ public class HttpConfigHandle {
     @Setter
     @Getter
     String frontUsername = "";
-    String registerUsername;
+    private String registerUsername;
 
     @Getter
     private String httpHost;
@@ -196,7 +196,6 @@ public class HttpConfigHandle {
                         break;
                     }
                 }
-
                 //首次设置安全密码
                 if (requestPath.contains("setSafetyPassword")) {
                     if (StringUtils.isEmpty(frontUsername)) {

@@ -13,9 +13,7 @@ import pers.dafacloud.entity.ApiManage;
 import pers.dafacloud.entity.TestApiResult;
 import pers.dafacloud.enums.TestApiResultEnum;
 import pers.dafacloud.utils.Response;
-import pers.utils.dafaCloud.DafaCloudLogin;
 import pers.utils.httpclientUtils.HttpConfig;
-import pers.utils.urlUtils.UrlBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -279,7 +277,7 @@ public class TestRequestApiServer0 {
 
         //logger.info("groupsApi:" + groupsApi);
 
-        List<ApiManage> apiManages = apiManageServer.getBatchTestApiList("sys", "duke");
+        List<ApiManage> apiManages = apiManageServer.getBatchTestApiList("sys", "dafa");
 
         if (apiManages.size() == 0)
             return Response.fail("获取执行用例数：0");
@@ -330,38 +328,4 @@ public class TestRequestApiServer0 {
             }
         }
     }
-
-    public boolean loginFront(HttpConfigHandle httpConfigHandleFront, String host, String testBatch, String username) {
-        JSONObject passwordJson = DafaCloudLogin.getPassword(username, "123qwe");
-        String body = UrlBuilder.custom().addBuilder("userName", username)
-                .addBuilder("password", passwordJson.getString("password"))
-                .addBuilder("random", passwordJson.getString("random")).fullBody();
-        httpConfigHandleFront.setRequestPath("/v1/users/login");
-        httpConfigHandleFront.setRequestMethod(2);
-        httpConfigHandleFront.getHttpConfig().body(body);
-        String result = httpConfigHandleFront.doRequest();
-        TestApiResult testApiResult = new TestApiResult();
-        testApiResult.setHost(host);
-        testApiResult.setApiName("登录前台");
-        testApiResult.setApiPath("/v1/users/login");
-        testApiResult.setApiMethod(2);
-        testApiResult.setCmsFront(1);
-        testApiResult.setTestExecutor("sys");
-        testApiResult.setTestBatch(testBatch);
-        testApiResult.setTestResult(result);
-        if (!result.contains("成功")) {
-            logger.info("登录失败");
-            testApiResult.setIsPass(TestApiResultEnum.FAIL.getCode());
-            testApiResultServer.addTestApiResult(testApiResult);
-            return false;
-        } else {
-            httpConfigHandleFront.setXToken(JSONObject.fromObject(result).getJSONObject("data").getString("token"));
-            testApiResult.setIsPass(TestApiResultEnum.SUCCESS.getCode());
-            testApiResultServer.addTestApiResult(testApiResult);
-            return true;
-        }
-
-    }
-
-
 }
