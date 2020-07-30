@@ -34,7 +34,7 @@ public class TestRequestApiServer0 {
     /**
      * 单用例测试
      */
-    public Response testApiOne(int id, String host, String cookie) {
+    public Response testApiOne(int id, String host, String cookie, String sessionUser) {
         String httpHost = host.contains("http") ?
                 host : String.format("%s%s", "http://", host.replace("/", "").replace("?", ""));
 
@@ -49,27 +49,28 @@ public class TestRequestApiServer0 {
                 .setHttpHost(httpHost)
                 .setCookie(cookie);
         httpConfigHandle.setXToken(cookie);
-        return taskRequest(apiManage, httpConfigHandle);
+        return taskRequest(apiManage, httpConfigHandle, sessionUser);
     }
 
     /**
      * 单用例测试
      */
-    private Response taskRequest(ApiManage apiManage, HttpConfigHandle httpConfigHandle) {
-        return taskRequest(apiManage, httpConfigHandle, "");
+    private Response taskRequest(ApiManage apiManage, HttpConfigHandle httpConfigHandle, String sessionUser) {
+        return taskRequest(apiManage, httpConfigHandle, "", sessionUser);
     }
 
     /**
      * 批量用例测试
      */
-    private Response taskRequest(ApiManage apiManage, HttpConfigHandle httpConfigHandle, String testBatch) {
+    private Response taskRequest(ApiManage apiManage, HttpConfigHandle httpConfigHandle, String testBatch, String sessionUser) {
         TestApiResult testApiResult = new TestApiResult();
         testApiResult.setHost(httpConfigHandle.getHttpHost());
         testApiResult.setApiName(apiManage.getApiName());
         testApiResult.setApiPath(apiManage.getPath());
         testApiResult.setApiMethod(apiManage.getMethod());
         testApiResult.setCmsFront(apiManage.getCmsFront());
-        testApiResult.setTestExecutor(apiManage.getOwner());
+        //testApiResult.setTestExecutor(apiManage.getOwner());
+        testApiResult.setTestExecutor(sessionUser);
         testApiResult.setTestBatch(testBatch);
 
         try {
@@ -257,7 +258,7 @@ public class TestRequestApiServer0 {
         return String.format("【%s】\n【%s】\n【%s】\n【%s】", StringUtils.isEmpty(result) ? "--" : result, path, StringUtils.isEmpty(reqParametersString) ? "--" : reqParametersString, e);
     }
 
-    public Response apiManageBatchTest(String hostCms, String hostFront, String frontUsername) {
+    public Response apiManageBatchTest(String hostCms, String hostFront, String frontUsername,String sessionUser) {
         if (StringUtils.isEmpty(hostCms))
             return Response.error("后台域名不能为空");
         if (StringUtils.isEmpty(hostFront))
@@ -285,7 +286,7 @@ public class TestRequestApiServer0 {
         logger.info("批量执行用例数量：" + apiManages.size());
         executes.execute(() -> {
             try {
-                task(hostCms0, hostFront0, frontUsername, apiManages);
+                task(hostCms0, hostFront0, frontUsername, apiManages,sessionUser);
             } catch (Exception e) {
                 logger.info(e.toString());
                 e.printStackTrace();
@@ -297,7 +298,7 @@ public class TestRequestApiServer0 {
     /**
      * 批量运行task
      */
-    private void task(String hostCms, String hostFront, String frontUsername, List<ApiManage> apiManages) throws Exception {
+    private void task(String hostCms, String hostFront, String frontUsername, List<ApiManage> apiManages,String sessionUser) throws Exception {
         String testBatch = RandomStringUtils.randomAlphanumeric(10);
 //--------------------------------------front HttpConfigHandle----------------------------------------------------------
         HttpConfigHandle httpConfigHandleFront = HttpConfigHandle.custom();
@@ -313,7 +314,7 @@ public class TestRequestApiServer0 {
         for (int i = 0; i < apiManages.size(); i++) {
             ApiManage apiManage = apiManages.get(i);
             if (apiManage.getCmsFront() == 1) {
-                taskRequest(apiManage, httpConfigHandleFront, testBatch);
+                taskRequest(apiManage, httpConfigHandleFront, testBatch,sessionUser);
             } else if (apiManage.getCmsFront() == 2) {
                 taskRequest(apiManage, httpConfigHandleCms, testBatch);
             }

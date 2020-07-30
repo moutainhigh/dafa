@@ -53,6 +53,7 @@ public class LoginHanderInterceptor implements HandlerInterceptor {
         if (userInfo == null) {
             response.setCharacterEncoding("UTF-8");
             response.setContentType("application/json; charset=utf-8");
+            response.setStatus(200);
             JSONObject jsonObject = new JSONObject(true);
             jsonObject.put("code", 0);
             jsonObject.put("data", null);

@@ -4,12 +4,19 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pers.dafacloud.mapper.UserMapper">
 
+    <resultMap id="BaseResultMap" type="java.util.HashMap">
+        <result column="created_date" property="created_date" javaType="java.util.Date" jdbcType="BIGINT"/>
+    </resultMap>
+
     <select id="findByUsername" parameterType="pers.dafacloud.entity.User"
             resultType="pers.dafacloud.entity.User" flushCache="true" useCache="true">
         select
          user_id userId
         ,user_name username
         ,password
+        ,role_id roleId
+        ,is_test isTest
+        ,remark
         from users
         where user_name = #{username}
     </select>
@@ -20,6 +27,9 @@
          user_id userId
         ,user_name username
         ,password
+        ,role_id roleId
+        ,is_test isTest
+        ,remark
         from users
         where user_id = #{userId}
     </select>
@@ -28,15 +38,55 @@
 		insert into users(
          user_name
         ,password
+        ,role_id
+        ,is_test
 		)values (
 			 #{username}
             ,#{password}
+            ,#{roleId}
+            ,#{isTest}
 		)
 	</insert>
 
-    <delete id="updateUserPassword" parameterType="int">
-        update users set password = #{password} where user_name = #{username}
+    <insert id="resetPassword" parameterType="java.lang.String" keyProperty="id">
+		update users set password = #{password} where user_id=#{userId}
+	</insert>
+
+    <delete id="updateUserPassword" parameterType="java.lang.String">
+        update users set password = #{password} where user_id = #{userId}
     </delete>
 
+    <select id="findMenuRole" parameterType="java.lang.String"
+            resultType="java.lang.String" flushCache="true" useCache="true">
+        select
+         menu_detail menuDetail
+        from menu_role
+        where id = #{roleId}
+    </select>
+
+    <select id="getOwnerOpt" parameterType="java.lang.String" resultType="java.util.Map" flushCache="true"
+            useCache="true">
+        select
+         user_name username
+        from users
+        where is_test = 1
+    </select>
+
+    <select id="getUserList" parameterType="java.lang.String" resultType="java.util.Map" flushCache="true"
+            useCache="true" resultMap="BaseResultMap">
+        SELECT
+        a.user_id userId,
+        a.user_name username,
+        a.is_test isTest,
+        CONCAT(b.id,',',b.decription) decription,
+        date_format(a.created_date, '%Y-%m-%d %H:%i:%s') createdDate
+        FROM
+        users a LEFT JOIN menu_role b on a.role_id = b.id
+        <where>
+            <if test="username != null and username!='' ">
+                AND a.user_name = #{username}
+            </if>
+        </where>
+    </select>
 
 </mapper>

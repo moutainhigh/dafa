@@ -46,13 +46,18 @@ public class ApiManageServer {
     }
 
     @MyDataSource(DataSourceType.dev1)
+    public int deleteApi(int id) {
+        return apiManageMapper.deleteApi(id);
+    }
+
+    @MyDataSource(DataSourceType.dev1)
     public int addApi(ApiManage apiManage) {
         return apiManageMapper.addApi(apiManage);
     }
 
     @MyDataSource(DataSourceType.dev1)
-    public int cloneApi(int id) {
-        return apiManageMapper.cloneApi(id);
+    public int cloneApi(int id, String sessionUser) {
+        return apiManageMapper.cloneApi(id, sessionUser);
     }
 
 }

@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pers.dafacloud.mapper.ApiManageMapper">
+    <!--        and owner = #{owner}  like CONCAT(CONCAT('%',#{apiGroups}),'%') -->
     <select id="getBatchTestApiList" resultType="pers.dafacloud.entity.ApiManage" flushCache="true"
             useCache="true">
         select
@@ -27,8 +28,7 @@
         ,assert_content assertContent
 
         from api_manage
-        where api_groups like CONCAT(CONCAT('%',#{apiGroups}),'%')
-        and owner = #{owner}
+        where api_groups = #{apiGroups}
         order by sort asc,id desc
     </select>
 
@@ -209,7 +209,7 @@
         )
 	</insert>
 
-    <insert id="cloneApi" parameterType="java.lang.Integer" keyProperty="id">
+    <insert id="cloneApi" keyProperty="id">
 		INSERT api_manage (
                 api_name
                 ,description
@@ -239,7 +239,7 @@
                 ,project
                 ,project_module
                 ,sort
-                ,owner
+                ,#{sessionUser}
                 ,assert_response
                 ,dependent_api
                 ,response_comments

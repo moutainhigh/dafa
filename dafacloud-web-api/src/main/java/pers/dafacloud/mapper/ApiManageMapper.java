@@ -18,7 +18,7 @@ public interface ApiManageMapper {
     /**
      * 克隆api
      */
-    int cloneApi(int id);
+    int cloneApi(@Param("id") int id, @Param("sessionUser") String sessionUser);
 
     /**
      * 删除api接口
@@ -43,7 +43,7 @@ public interface ApiManageMapper {
 
     /**
      * 批量测试
-     * */
+     */
     List<ApiManage> getBatchTestApiList(@Param("apiGroups") String apiGroups, @Param("owner") String owner);
 
     /**

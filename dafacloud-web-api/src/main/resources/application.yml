@@ -2,7 +2,7 @@ server:
   port: 8090
   servlet:
     session:
-      timeout: PT24H
+      timeout: PT6H
       persistent: true
 
 #测试 serverTimezone=UTC jdbc:mysql://192.168.79.67:3306/dafa-cloud?serverTimezone=UTC

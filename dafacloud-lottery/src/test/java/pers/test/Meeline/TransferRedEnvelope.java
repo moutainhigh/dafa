@@ -51,13 +51,13 @@ public class TransferRedEnvelope {
                 .addBuilder("messageTypeId", "3")
                 .addBuilder("status", "0")
                 .addBuilder("userIds", "")
-                .addBuilder("message", "{\"num\":1000,\"type\":2,\"amount\":\"1004\",\"wishingRemark\":\"\"}")
+                .addBuilder("message", "{\"num\":1000,\"type\":2,\"amount\":\"1000\",\"wishingRemark\":\"\"}")
                 //.addBuilder("message", "{\"num\":10,\"type\":2,\"amount\":\"100\",\"wishingRemark\":\"\"}")
                 .fullBody();
         Header[] httpHeader = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
                 .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
-                .other("X-Token", "e3DR213ZayXIdrxiOLTj/Y0IJn3v+2pRRpZbadpKC7HT7DaZZQa1zq8huUpbw7Jx")
+                .other("X-Token", "KtF9LaxnAhGWiP0Fh4JOx0hpioqoNf38UDdI3HQDOC8YxuSoXhz1/d3327b1ZLp3")
                 .build();
         HttpConfig httpConfig = HttpConfig.custom()
                 .headers(httpHeader)
