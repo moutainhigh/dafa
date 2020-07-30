@@ -17,7 +17,7 @@ public class Login {
 
     //private static String host = LotteryConstant.host;
     //private static String host = BettingRunning.host;
-    private static String host = Betting.host0;
+    public static String host = Betting.host0;
     private static String loginUrl = host + "/v1/users/login";
     private static ExecutorService execute = Executors.newFixedThreadPool(300);
 

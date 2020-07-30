@@ -65,6 +65,7 @@ public class Betting {
         this.isFilePoint = isFilePoint;
         this.ev = EV.getEV(host);
         host0 = host;
+        Login.host = host;
         List<Map> users = null;
         List<Map> usersTenant = null;
 
@@ -118,7 +119,7 @@ public class Betting {
                     }
                 }
             }
-            if(!betContentMap.containsKey(lotteryConfig.type))
+            if (!betContentMap.containsKey(lotteryConfig.type))
                 betContentMap.put(lotteryConfig.type, betting.betContentServer.getBetContentList(betContentType, lotteryConfig.type));
             //betContentMap.put(lotteryConfig.code, FileUtil.readFile("/aa"));
             bettingLoop(userSub, lotteryObj.getBettingStepTime(), lotteryConfig, threadStepTimeMill);
