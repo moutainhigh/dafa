@@ -32,7 +32,7 @@ public class RunBettingLotteryController {
         if (!Betting.isStop) {
             return Response.fail("程序正在运行，请先停止");
         }
-        Betting.isStop = false;
+
         String host = reqMap.get("host").toString();
         if (StringUtils.isEmpty(host)) {
             return Response.fail("host空");
@@ -76,6 +76,7 @@ public class RunBettingLotteryController {
 
             lotteryObjList.add(new LotteryObj(lotteryCode, userCount, bettingStepTime));
         }
+        Betting.isStop = false;
         new Thread(() -> new Betting(host, urlTenantCode, betContentType, lotteryObjList, false, threadStepTimeMill)).start();
         return Response.success("执行中");
     }
