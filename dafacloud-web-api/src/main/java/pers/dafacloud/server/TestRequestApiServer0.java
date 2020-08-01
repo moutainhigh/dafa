@@ -258,7 +258,7 @@ public class TestRequestApiServer0 {
         return String.format("【%s】\n【%s】\n【%s】\n【%s】", StringUtils.isEmpty(result) ? "--" : result, path, StringUtils.isEmpty(reqParametersString) ? "--" : reqParametersString, e);
     }
 
-    public Response apiManageBatchTest(String hostCms, String hostFront, String frontUsername,String sessionUser) {
+    public Response apiManageBatchTest(String hostCms, String hostFront, String frontUsername, String sessionUser) {
         if (StringUtils.isEmpty(hostCms))
             return Response.error("后台域名不能为空");
         if (StringUtils.isEmpty(hostFront))
@@ -286,7 +286,7 @@ public class TestRequestApiServer0 {
         logger.info("批量执行用例数量：" + apiManages.size());
         executes.execute(() -> {
             try {
-                task(hostCms0, hostFront0, frontUsername, apiManages,sessionUser);
+                task(hostCms0, hostFront0, frontUsername, apiManages, sessionUser);
             } catch (Exception e) {
                 logger.info(e.toString());
                 e.printStackTrace();
@@ -298,7 +298,7 @@ public class TestRequestApiServer0 {
     /**
      * 批量运行task
      */
-    private void task(String hostCms, String hostFront, String frontUsername, List<ApiManage> apiManages,String sessionUser) throws Exception {
+    private void task(String hostCms, String hostFront, String frontUsername, List<ApiManage> apiManages, String sessionUser) throws Exception {
         String testBatch = RandomStringUtils.randomAlphanumeric(10);
 //--------------------------------------front HttpConfigHandle----------------------------------------------------------
         HttpConfigHandle httpConfigHandleFront = HttpConfigHandle.custom();
@@ -314,9 +314,9 @@ public class TestRequestApiServer0 {
         for (int i = 0; i < apiManages.size(); i++) {
             ApiManage apiManage = apiManages.get(i);
             if (apiManage.getCmsFront() == 1) {
-                taskRequest(apiManage, httpConfigHandleFront, testBatch,sessionUser);
+                taskRequest(apiManage, httpConfigHandleFront, testBatch, sessionUser);
             } else if (apiManage.getCmsFront() == 2) {
-                taskRequest(apiManage, httpConfigHandleCms, testBatch);
+                taskRequest(apiManage, httpConfigHandleCms, testBatch, sessionUser);
             }
             if (apiManage.getPath().contains("rechargeFrontPaymentRecord") || apiManage.getPath().contains("saveFrontWithdrawRecord")) {//充值接口
                 Thread.sleep(6000);
