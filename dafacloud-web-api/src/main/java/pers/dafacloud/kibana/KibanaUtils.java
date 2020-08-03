@@ -3,6 +3,7 @@ package pers.dafacloud.kibana;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.http.Header;
+import pers.dafacloud.utils.BaseException;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
@@ -18,7 +19,7 @@ public class KibanaUtils {
      * @param env        查询的环境
      * @return JSONArray hits
      */
-    public static JSONArray queryKibana(String search, long startTimes, long endTimes, String env) {
+    public static JSONArray queryKibana(String search, long startTimes, long endTimes, String env) throws BaseException {
         String url = "https://52.74.25.157/_plugin/kibana/elasticsearch/_msearch";
         //long startTime = TimeUtil.getMillSecond(startTimes);
         //long endTime = TimeUtil.getMillSecond(endTimes);
@@ -37,14 +38,16 @@ public class KibanaUtils {
                 //.referer("https://search-dafacloud-jkbqcehoqjsdmjfxlet6u7fb4m.ap-southeast-1.es.amazonaws.com/_plugin/kibana/app/kibana")
                 .build();
 
-        String result = DafaRequest.post(HttpConfig.custom().headers(headers).body(body).url(url));
         JSONArray responses;
         try {
+            String result = DafaRequest.post(HttpConfig.custom().headers(headers).body(body).url(url));
             responses = JSONObject.fromObject(result).getJSONArray("responses");
         } catch (Exception e) {
             System.out.println("responses 返回数据解析json 失败");
-            e.printStackTrace();
-            return null;
+            if (e.getMessage().contains("timed out")) {
+                throw new BaseException(1, "请求超时");
+            }
+            throw new BaseException(2, "数据解析json 失败");
         }
         JSONObject one = responses.getJSONObject(0);
         //System.out.println(one.getString("took"));

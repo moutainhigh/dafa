@@ -245,9 +245,6 @@ public class DafaRequest {
             //Log.info(String.format("post请求结果返回:%s",result));
             return result;
         } catch (Exception e) {
-            //e.printStackTrace();
-            //System.out.println(httpConfig.url());
-            //System.out.println(httpConfig.body());
             return e.getMessage();
         }
     }

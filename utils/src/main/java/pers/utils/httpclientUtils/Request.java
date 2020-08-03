@@ -72,7 +72,7 @@ public class Request {
         }
     }
 
-    private static void create(HttpConfig config) throws HttpProcessException {
+    private static void create(HttpConfig config)  {
         if (config.client() == null) {//如果为空，设为默认client对象
             if (config.url().toLowerCase().startsWith("https://")) {
                 config.client(client4HTTPS);
@@ -102,7 +102,6 @@ public class Request {
      * @throws HttpProcessException http处理异常
      */
     public static String get(HttpConfig config) throws HttpProcessException {
-        //System.out.println(config.url());
         return send(config.method(HttpMethods.GET));
     }
 

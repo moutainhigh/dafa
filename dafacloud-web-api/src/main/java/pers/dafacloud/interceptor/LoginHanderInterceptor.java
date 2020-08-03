@@ -48,6 +48,7 @@ public class LoginHanderInterceptor implements HandlerInterceptor {
         //    response.getWriter().write(jsonObject.toString());
         //    return false;
         //}
+
         HttpSession session = request.getSession();
         Object userInfo = session.getAttribute("user");
         if (userInfo == null) {

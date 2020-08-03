@@ -5,6 +5,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pers.dafacloud.utils.BaseException;
 
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
@@ -12,7 +13,7 @@ import java.time.ZoneOffset;
 public class IPLimit {
     private static Logger logger = LoggerFactory.getLogger(IPLimit.class);
 
-    public static JSONObject queryLimitIPCms(String host, String timeType, String queryType) {
+    public static JSONObject queryLimitIPCms(String host, String timeType, String queryType) throws BaseException {
         LocalDateTime dt = LocalDateTime.now();
         long startTime;
         if ("1".equals(timeType)) {
@@ -39,15 +40,13 @@ public class IPLimit {
         }
 
         JSONArray hits = KibanaUtils.queryKibana(search, startTime, endTime, ev);
-        if (hits == null) {
-            return null;
-        }
 
         JSONObject returnJson = new JSONObject();
         JSONArray returnJasonArray = new JSONArray();
         System.out.println("IP数据量：" + hits.size());
-        returnJson.put("total", hits.size());
-        for (int i = 0; i < hits.size(); i++) {
+        int total = hits.size();
+        returnJson.put("total", total > 500 ? 500 : total);
+        for (int i = 0; i < total; i++) {
             if (i >= 500) {
                 break;
             }
@@ -61,7 +60,7 @@ public class IPLimit {
                 returnJson0.put("ip", detail.getString("ip"));
                 returnJson0.put("url", detail.getString("url"));
                 returnJasonArray.add(returnJson0);
-            } else{
+            } else {
                 String datetime = source.getString("endTime");
                 JSONObject detail = source.getJSONObject("header");
                 JSONObject returnJson0 = new JSONObject();
@@ -77,6 +76,6 @@ public class IPLimit {
     }
 
     public static void main(String[] args) {
-        queryLimitIPCms("aicp.acp68.com", "1", "0");
+        //queryLimitIPCms("aicp.acp68.com", "1", "0");
     }
 }
