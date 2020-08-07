@@ -3,6 +3,16 @@ package pers.dafacloud.kibana;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.http.Header;
+import org.apache.http.HttpHost;
+import org.apache.http.auth.AUTH;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
+import org.apache.http.client.protocol.HttpClientContext;
+import org.apache.http.impl.auth.BasicScheme;
+import org.apache.http.impl.client.BasicAuthCache;
+import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.message.BasicHeader;
 import pers.dafacloud.utils.BaseException;
 import pers.utils.dafaRequest.DafaRequest;
 import pers.utils.httpclientUtils.HttpConfig;
@@ -38,9 +48,31 @@ public class KibanaUtils {
                 //.referer("https://search-dafacloud-jkbqcehoqjsdmjfxlet6u7fb4m.ap-southeast-1.es.amazonaws.com/_plugin/kibana/app/kibana")
                 .build();
 
+        HttpConfig httpConfig = HttpConfig.custom().headers(headers).body(body).url(url);
+        //
+        /*HttpHost proxy = new HttpHost("13.250.0.161", 943, "http");//dafa windows主机
+        BasicScheme proxyAuth = new BasicScheme();
+        // Make client believe the challenge came form a proxy
+        try {
+            proxyAuth.processChallenge(new BasicHeader(AUTH.PROXY_AUTH, "BASIC realm=default"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        BasicAuthCache authCache = new BasicAuthCache();
+        authCache.put(proxy, proxyAuth);
+        CredentialsProvider credsProvider = new BasicCredentialsProvider();
+        credsProvider.setCredentials(
+                new AuthScope(proxy),
+                new UsernamePasswordCredentials("duke", "duke"));
+        HttpClientContext context = HttpClientContext.create();
+        context.setAuthCache(authCache);
+        context.setCredentialsProvider(credsProvider);
+        httpConfig.context(context);*/
+
         JSONArray responses;
         try {
-            String result = DafaRequest.post(HttpConfig.custom().headers(headers).body(body).url(url));
+            String result = DafaRequest.post(httpConfig);
+            System.out.println(result);
             responses = JSONObject.fromObject(result).getJSONArray("responses");
         } catch (Exception e) {
             System.out.println("responses 返回数据解析json 失败");

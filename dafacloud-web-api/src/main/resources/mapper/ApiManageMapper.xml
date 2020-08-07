@@ -3,6 +3,39 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pers.dafacloud.mapper.ApiManageMapper">
+    <sql id="sqlGetApiList">
+        from api_manage
+        <where>
+            <if test="id != null and id!=''">
+                AND id = #{id}
+            </if>
+            <if test="apiName!=null and apiName!=''">
+                AND api_name like CONCAT(CONCAT('%',#{apiName}),'%')
+            </if>
+            <if test="path!=null and path!=''">
+                AND path like CONCAT(CONCAT('%',#{path}),'%')
+            </if>
+            <if test="owner!=null and owner!='' ">
+                AND owner = #{owner}
+            </if>
+            <if test="projectModule!=null and projectModule!=''">
+                AND project_module = #{projectModule}
+            </if>
+            <if test="cmsFront!=null and cmsFront != '' and cmsFront!=-1">
+                AND cms_front = #{cmsFront}
+            </if>
+            <if test="project!=null and project!='' and project!=-1 ">
+                AND project = #{project}
+            </if>
+            <if test="apiGroups!=null and apiGroups!='' ">
+                AND api_groups like CONCAT(CONCAT('%',#{apiGroups}),'%')
+            </if>
+            <if test="sort!=null and sort!=''">
+                AND sort like CONCAT(CONCAT(#{sort}),'%')
+            </if>
+        </where>
+    </sql>
+
     <!--        and owner = #{owner}  like CONCAT(CONCAT('%',#{apiGroups}),'%') -->
     <select id="getBatchTestApiList" resultType="pers.dafacloud.entity.ApiManage" flushCache="true"
             useCache="true">
@@ -54,34 +87,7 @@
 
         ,assert_type assertType
         ,assert_content assertContent
-
-        from api_manage
-        <where>
-            <if test="apiName!=null and apiName!=''">
-                AND api_name like CONCAT(CONCAT('%',#{apiName}),'%')
-            </if>
-            <if test="path!=null and path!=''">
-                AND path like CONCAT(CONCAT('%',#{path}),'%')
-            </if>
-            <if test="owner!=null and owner!='' ">
-                AND owner = #{owner}
-            </if>
-            <if test="projectModule!=null and projectModule!=''">
-                AND project_module = #{projectModule}
-            </if>
-            <if test="cmsFront!=null and cmsFront != '' and cmsFront!=-1">
-                AND cms_front = #{cmsFront}
-            </if>
-            <if test="project!=null and project!='' and project!=-1 ">
-                AND project = #{project}
-            </if>
-            <if test="apiGroups!=null and apiGroups!='' ">
-                AND api_groups like CONCAT(CONCAT('%',#{apiGroups}),'%')
-            </if>
-            <if test="sort!=null and sort!=''">
-                AND sort like CONCAT(CONCAT(#{sort}),'%')
-            </if>
-        </where>
+        <include refid="sqlGetApiList"/>
         order by sort asc,id desc
         limit #{pageNum},#{pageSize}
     </select>
@@ -89,33 +95,8 @@
 
     <select id="getApiListCount" parameterType="pers.dafacloud.entity.ApiManage" resultType="java.lang.Integer"
             flushCache="true" useCache="true">
-        select count(1) from api_manage
-        <where>
-            <if test="apiName!=null and apiName!=''">
-                AND api_name like CONCAT(CONCAT('%',#{apiName}),'%')
-            </if>
-            <if test="path!=null and path!=''">
-                AND path like CONCAT(CONCAT('%',#{path}),'%')
-            </if>
-            <if test="owner!=null and owner!='' ">
-                AND owner = #{owner}
-            </if>
-            <if test="projectModule!=null and projectModule!=''">
-                AND project_module = #{projectModule}
-            </if>
-            <if test="cmsFront!=null and cmsFront != '' and cmsFront!=-1">
-                AND cms_front = #{cmsFront}
-            </if>
-            <if test="project!=null and project!='' and project!=-1 ">
-                AND project = #{project}
-            </if>
-            <if test="apiGroups!=null and apiGroups!='' ">
-                AND api_groups like CONCAT(CONCAT('%',#{apiGroups}),'%')
-            </if>
-            <if test="sort!=null and sort!=''">
-                AND sort like CONCAT(CONCAT(#{sort}),'%')
-            </if>
-        </where>
+        select count(1)
+        <include refid="sqlGetApiList"/>
     </select>
 
     <select id="getApiById" parameterType="java.lang.Integer" resultType="pers.dafacloud.entity.ApiManage"
@@ -139,7 +120,6 @@
             ,api_groups apiGroups
             ,assert_type assertType
             ,assert_content assertContent
-
         FROM
             api_manage
         WHERE

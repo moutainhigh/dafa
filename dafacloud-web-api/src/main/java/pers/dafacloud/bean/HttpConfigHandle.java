@@ -21,6 +21,8 @@ import pers.utils.urlUtils.UrlBuilder;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HttpConfigHandle {
     @Getter
@@ -30,7 +32,7 @@ public class HttpConfigHandle {
 
     @Setter
     @Getter
-    String frontUsername = "";
+    private String frontUsername = "";
     private String registerUsername;
 
     @Getter
@@ -132,15 +134,15 @@ public class HttpConfigHandle {
         JSONArray requestParametersJa;//二维数组
         try {
             requestParametersJa = JSONArray.fromObject(requestParameters
-                    .replace("{today}", LocalDate.now().toString())
-                    .replace("{today-1}", LocalDate.now().plusDays(-1).toString())
-                    .replace("{today+1}", LocalDate.now().plusDays(1).toString())
-                    .replace("{todayM}", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00")))
-                    .replace("{todayM+1}", LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00")))
-                    .replace("{todayM-1}", LocalDateTime.now().plusDays(-1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00")))
-                    .replace("{bankCard}", BankCardNumberGenerator.getInstance().generate())
-                    .replace("{issue}", LotteryIssuePrivate.getCurrentIssue(1))
-                    .replace("{userName}", frontUsername)
+                    //.replace("{today}", LocalDate.now().toString())
+                    //.replace("{today-1}", LocalDate.now().plusDays(-1).toString())
+                    //.replace("{today+1}", LocalDate.now().plusDays(1).toString())
+                    //.replace("{todayM}", LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00")))
+                    //.replace("{todayM+1}", LocalDateTime.now().plusDays(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00")))
+                    //.replace("{todayM-1}", LocalDateTime.now().plusDays(-1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00")))
+                    //.replace("{bankCard}", BankCardNumberGenerator.getInstance().generate())
+                    //.replace("{issue}", LotteryIssuePrivate.getCurrentIssue(1))
+                    //.replace("{userName}", frontUsername)
                     //.replace("{safetyPassword}", DigestUtils.md5Hex(frontUsername + DigestUtils.md5Hex("100200")))
                     .replace(" ", "%20"));
         } catch (Exception e) {
@@ -233,7 +235,7 @@ public class HttpConfigHandle {
                         break;
                     }
                 }
-                if(requestPath.contains("updateUserLoginPassword")){//修改密码
+                if (requestPath.contains("updateUserLoginPassword")) {//修改密码
                     if ("password".equals(paraName)) {
                         urlBuilder.addBuilder("password", DigestUtils.md5Hex(frontUsername + DigestUtils.md5Hex("123qwe")));
                         continue;
@@ -241,12 +243,12 @@ public class HttpConfigHandle {
 
                 }
             }
-            urlBuilder.addBuilder(requestParametersArray0.getString(0), requestParametersArray0.getString(1));
+            urlBuilder.addBuilder(paraName, regexPara(paraValue));
         }
         String urlBuilder0 = isGet ? urlBuilder.url(httpHost + requestPath).fullUrl() : urlBuilder.fullBody();
         this.requestParameters = urlBuilder0;
         if (isGet)
-            httpConfig.url(urlBuilder0);
+            httpConfig.url(urlBuilder0.replace(" ", "%20"));
         else
             httpConfig.body(urlBuilder0);
         return this;
@@ -279,4 +281,88 @@ public class HttpConfigHandle {
         }
         return result;
     }
+
+    private String regexPara(String sourceString) {
+        Pattern pattern = Pattern.compile("\\$\\{([^}]*)\\}");
+        //Pattern pattern = Pattern.compile("\\$\\{(.*?)\\}");
+        Matcher matcher = pattern.matcher(sourceString);
+        if (!matcher.find()) {
+            return sourceString;
+        }
+        String match = matcher.group();
+        String value = match.replaceAll("\\$", "").replaceAll("\\{", "").replaceAll("}", "");
+        String[] values = value.split(",");
+        String values0 = values[0];
+        String returnValue = "";
+        if (values.length == 2) {
+            int values1 = Integer.parseInt(values[1]);
+            if ("today".equals(values0)) {
+                returnValue = LocalDate.now().plusDays(values1).toString();
+            } else if ("todayM".equals(values0)) {
+                returnValue = LocalDateTime.now().plusDays(values1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00"));
+            } else if ("issue".equals(values0)) {
+                returnValue = LotteryIssuePrivate.getCurrentIssue(values1);
+            } else if ("data".equals(values0)) {
+                returnValue = String.valueOf(Integer.parseInt(values0) + values1);
+            }
+        } else if (values.length == 1) {
+            if ("today".equals(values0)) {
+                returnValue = LocalDate.now().toString();
+            } else if ("todayM".equals(values0)) {
+                returnValue = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd 00:00:00"));
+            } else if ("bankCard".equals(values0)) {
+                returnValue = BankCardNumberGenerator.getInstance().generate();
+            } else if ("issue".equals(values0)) {
+                returnValue = LotteryIssuePrivate.getCurrentIssue(1);
+            } else if ("username".equals(values0.toLowerCase())) {
+                returnValue = this.frontUsername;
+            } else if ("safetyPassword".equals(values0)) {
+                returnValue = DigestUtils.md5Hex(this.frontUsername + DigestUtils.md5Hex("100200"));
+            }
+        }
+        if (StringUtils.isNotEmpty(returnValue)) {
+            return sourceString.replaceFirst("\\$\\{" + value + "}", returnValue);
+        }
+        return match;
+    }
+
+    public static String regexDepData(String sourceString, String devalue) {
+        Pattern pattern = Pattern.compile("\\$\\{([^}]*)\\}");//Pattern pattern = Pattern.compile("\\$\\{(.*?)\\}");
+        Matcher matcher = pattern.matcher(sourceString);
+        //if (!matcher.find()) {
+        //    return sourceString;
+        //}
+        while (matcher.find()){
+            String match = matcher.group();
+            String value = match.replaceAll("\\$", "").replaceAll("\\{", "").replaceAll("}", "");
+            String[] values = value.split(",");
+            String values0 = values[0];
+            if (values.length == 2) {
+                int values1 = Integer.parseInt(values[1]);
+                if ("data".equals(values0)) {
+                    return sourceString.replaceFirst("\\$\\{" + value + "}", String.valueOf(Integer.parseInt(devalue) + values1));
+                }
+            } else if (values.length == 1) {
+                if ("data".equals(values0)) {
+                    return sourceString.replaceFirst("\\$\\{" + value + "}", devalue);
+                }
+            }
+        }
+        return sourceString;
+    }
+
+    public static void main(String[] args) {
+        //System.out.println(regexPara("${issue,1}"));
+        //System.out.println(regexPara("${data,1}"));
+        System.out.println(regexDepData("aaaaaa${data}bbbb", "haha"));
+        //String s = "\\$\\{data,1}"; //"\\$\\{data,1}"
+        //System.out.println("aaaaaa${data,1}bbbb".replaceAll(s, "11"));
+        //function01("${data,1}");
+    }
+
+    public static void function01(String s) {
+        //String s = "\\$\\{data,1}"; //"\\$\\{data,1}"
+        System.out.println("aaaaaa${data}bbbb".replaceAll(s, "11"));
+    }
+
 }

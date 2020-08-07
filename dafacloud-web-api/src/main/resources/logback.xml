@@ -5,6 +5,7 @@
     <property name="LOG_HOME" value="../logs"/>
     <!--定义服务名称-->
     <property name="SERVER_NAME" value="web-api-server"/>
+    <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />
     <!-- 定义日志文件名称 -->
     <!--<property name="appName" value="dafaTest"></property>-->
     <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
@@ -39,10 +40,29 @@
         </filter>
     </appender>
 
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${LOG_HOME}/web-api/error/error.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <maxFileSize>100MB</maxFileSize>
+            <MaxHistory>7</MaxHistory>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
     <!-- 控制台输出级别 -->
     <root level="info">
         <appender-ref ref="STDOUT"/>
-        <!--<appender-ref ref="ERROR_FILE" />-->
+        <appender-ref ref="ERROR_FILE" />
         <appender-ref ref="INFO_FILE"/>
     </root>
 </configuration> 

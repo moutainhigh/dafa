@@ -9,7 +9,8 @@ import java.util.List;
 @ToString
 public class TestApiResult {
 
-    private int id;
+    private String id;
+    private String apiId;
 
     private String host;
 
@@ -32,6 +33,7 @@ public class TestApiResult {
     private String dependentResult2;
 
     private String testExecutor;
+    private String apiOwner;
 
     private String testBatch;
 

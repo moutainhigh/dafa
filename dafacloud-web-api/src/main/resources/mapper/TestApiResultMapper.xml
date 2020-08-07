@@ -7,6 +7,7 @@
             resultType="pers.dafacloud.entity.TestApiResult" flushCache="true" useCache="true">
         select
         id id
+        ,api_id apiId
         ,host host
         ,api_name apiName
         ,api_path apiPath
@@ -17,6 +18,7 @@
         ,is_pass isPass
         ,cms_front cmsFront
         ,test_executor testExecutor
+        ,api_owner apiOwner
         ,test_batch testBatch
         ,assert_content assertContent
         ,insertTime insertTime
@@ -79,7 +81,8 @@
 
     <insert id="addTestApiResult" parameterType="pers.dafacloud.entity.TestApiResult" keyProperty="id">
 		insert into test_api_result(
-         api_name
+		 api_id
+        ,api_name
         ,api_path
         ,api_method
         ,test_result
@@ -88,11 +91,13 @@
         ,is_pass
         ,cms_front
         ,test_executor
+        ,api_owner
         ,test_batch
         ,host
         ,assert_content
 		)values (
-			#{apiName}
+		    #{apiId}
+			,#{apiName}
             ,#{apiPath}
             ,#{apiMethod}
             ,#{testResult}
@@ -101,6 +106,7 @@
             ,#{isPass}
             ,#{cmsFront}
             ,#{testExecutor}
+            ,#{apiOwner}
             ,#{testBatch}
             ,#{host}
             ,#{assertContent}

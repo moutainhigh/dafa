@@ -1,30 +1,24 @@
 package pers.utils.httpclientUtils;
 
 import org.apache.http.*;
-import org.apache.http.client.CookieStore;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.*;
-import org.apache.http.client.protocol.HttpClientContext;
-import org.apache.http.conn.HttpClientConnectionManager;
-import org.apache.http.cookie.Cookie;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.BasicCookieStore;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.impl.cookie.BasicClientCookie;
+import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
+import pers.utils.httpclientUtils.SSLClientCustom.SSLProtocolVersion;
 import pers.utils.httpclientUtils.common.Utils;
 import pers.utils.httpclientUtils.exception.HttpProcessException;
-import pers.utils.httpclientUtils.SSLClientCustom.SSLProtocolVersion;
-import pers.utils.logUtils.Log;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class Request {
 
@@ -41,7 +35,21 @@ public class Request {
 
         try {
             //设置代理IP、端口、协议（请分别替换）
-            /*HttpHost proxy = new HttpHost("192.168.8.30", 8080, "http");//dafa windows主机
+            //HttpHost proxy = new HttpHost("192.168.8.30", 8080, "http");//dafa windows主机
+            HttpHost proxy = new HttpHost("13.250.0.161", 943);//dafa windows主机
+            //BasicScheme proxyAuth = new BasicScheme();
+            // Make client believe the challenge came form a proxy
+            //proxyAuth.processChallenge(new BasicHeader(AUTH.PROXY_AUTH, "BASIC realm=default"));
+            //BasicAuthCache authCache = new BasicAuthCache();
+            //authCache.put(proxy, proxyAuth);
+            CredentialsProvider credsProvider = new BasicCredentialsProvider();
+            credsProvider.setCredentials(
+                    new AuthScope(proxy),
+                    new UsernamePasswordCredentials("duke", "duke"));
+            //HttpClientContext context = HttpClientContext.create();
+            //context.setAuthCache(authCache);
+            //context.setCredentialsProvider(credsProvider);
+
             //HttpHost proxy = new HttpHost("127.0.0.1", 9876, "http");
             //把代理设置到请求配置*/
             defaultRequestConfig = RequestConfig.custom()
@@ -54,13 +62,16 @@ public class Request {
                     .pool(1000, 800)
                     //.setDefaultCookieStore(new BasicCookieStore())
                     .setDefaultRequestConfig(defaultRequestConfig)
+                    //.setDefaultCredentialsProvider(credsProvider)
                     .build();
 
             //httpClientBuilder.setDefaultCookieStore(config.cookieStore());
             client4HTTPS = HttpClientCustom.custom()
+
                     .sslpv(SSLProtocolVersion.TLSv1_2)
                     .ssl()
                     .setDefaultRequestConfig(defaultRequestConfig)
+                    //.setDefaultCredentialsProvider(credsProvider)
                     .build();
 
             httpConfig.headers(HttpHeader.custom()

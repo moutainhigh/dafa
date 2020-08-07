@@ -23,7 +23,7 @@ public class IPLimit {
         }
         long endTime = dt.toInstant(ZoneOffset.of("+8")).toEpochMilli();
         String search;
-        String ev = "";
+        String ev;
         if ("0".equals(queryType)) {
             search = String.format("detail:*IP未绑定* AND detail:*%s* AND server-name:*zuul-cms*", host);
             ev = "master-info*";
@@ -75,7 +75,7 @@ public class IPLimit {
         return returnJson;
     }
 
-    public static void main(String[] args) {
-        //queryLimitIPCms("aicp.acp68.com", "1", "0");
+    public static void main(String[] args)  throws Exception{
+        queryLimitIPCms("aicp.acp68.com", "1", "1");
     }
 }

@@ -48,7 +48,6 @@ public class LoginHanderInterceptor implements HandlerInterceptor {
         //    response.getWriter().write(jsonObject.toString());
         //    return false;
         //}
-
         HttpSession session = request.getSession();
         Object userInfo = session.getAttribute("user");
         if (userInfo == null) {
@@ -56,7 +55,7 @@ public class LoginHanderInterceptor implements HandlerInterceptor {
             response.setContentType("application/json; charset=utf-8");
             response.setStatus(200);
             JSONObject jsonObject = new JSONObject(true);
-            jsonObject.put("code", 0);
+            jsonObject.put("code", 99);
             jsonObject.put("data", null);
             jsonObject.put("msg", "由于您长时间未操作，已自动退出，需要重新登录");
             response.getWriter().write(jsonObject.toString());

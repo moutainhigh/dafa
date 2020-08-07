@@ -28,7 +28,7 @@ public class LoginController {
 
 
     @PostMapping("/login")
-    public Response login(String username, String password, HttpServletRequest request) {
+            public Response login(String username, String password, HttpServletRequest request) {
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
             return Response.returnData("账号或密码不能为空", -1, null);
         }
@@ -47,9 +47,18 @@ public class LoginController {
         if (userMap.containsKey(user.getUserId())) {
             HttpSession httpSession0 = userMap.remove(user.getUserId());
             if (!httpSession0.getId().equals(httpSession.getId())) {
+                try {
+                    httpSession0.invalidate();
+                } catch (Exception e) {
+                    System.out.println("历史session已经过期");
+                }
+
+
                 //System.out.println("2:"+httpSession0.getId());
-                httpSession0.removeAttribute("user");
-                httpSession0.invalidate();
+                //Object userInfo = httpSession0.getAttribute("user");
+                //if (userInfo != null) {
+                //    httpSession0.invalidate();//原session失效
+                //}
             }
         }
         httpSession.setAttribute("user", user);
@@ -141,7 +150,7 @@ public class LoginController {
         }
 
         User user0 = userService.findByUsername(username);
-        if(user0!=null){
+        if (user0 != null) {
             return Response.fail("用户已存在");
         }
         User user = new User();

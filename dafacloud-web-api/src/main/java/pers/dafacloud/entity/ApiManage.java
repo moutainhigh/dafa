@@ -6,7 +6,7 @@ import lombok.ToString;
 @Data
 @ToString
 public class ApiManage {
-    private int id;
+    private String id;
     private String apiName; //接口名称
 
     private String description;//接口描述

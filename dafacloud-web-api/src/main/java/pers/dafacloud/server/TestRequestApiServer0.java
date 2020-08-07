@@ -64,12 +64,13 @@ public class TestRequestApiServer0 {
      */
     private Response taskRequest(ApiManage apiManage, HttpConfigHandle httpConfigHandle, String testBatch, String sessionUser) {
         TestApiResult testApiResult = new TestApiResult();
-        testApiResult.setHost(httpConfigHandle.getHttpHost());
+        testApiResult.setApiId(apiManage.getId());
+        testApiResult.setHost(httpConfigHandle.getHttpHost().replaceAll("http://", ""));
         testApiResult.setApiName(apiManage.getApiName());
         testApiResult.setApiPath(apiManage.getPath());
         testApiResult.setApiMethod(apiManage.getMethod());
         testApiResult.setCmsFront(apiManage.getCmsFront());
-        //testApiResult.setTestExecutor(apiManage.getOwner());
+        testApiResult.setApiOwner(apiManage.getOwner());
         testApiResult.setTestExecutor(sessionUser);
         testApiResult.setTestBatch(testBatch);
 
@@ -80,6 +81,7 @@ public class TestRequestApiServer0 {
             testApiResult.setIsPass(TestApiResultEnum.ERROR.getCode());
             testApiResult.setTestResult("设置header异常：" + e.getMessage());
             testApiResultServer.addTestApiResult(testApiResult);
+            logger.error("设置header异常：", e);
             return Response.fail("设置header异常：" + e.getMessage());
         }
 
@@ -164,7 +166,9 @@ public class TestRequestApiServer0 {
                         //替换参数
                         if (!deValueList.isEmpty()) {
                             for (int j = 0; j < deValueList.size(); j++) {
-                                apiManage.setRequestParameters(apiManage.getRequestParameters().replace(String.format("{data%s}", j + 1), deValueList.get(j)));
+                                apiManage.setRequestParameters(
+                                        //apiManage.getRequestParameters().replaceFirst(String.format("{data%s}", j + 1), deValueList.get(j)));
+                                        HttpConfigHandle.regexDepData(apiManage.getRequestParameters(), deValueList.get(j)));
                             }
                         } else {
                             throw new Exception("依赖提取结果空");//有提取规则却提取空
@@ -174,6 +178,7 @@ public class TestRequestApiServer0 {
                 testApiResult.setDependentResult1(sb.toString());
             }
         } catch (Exception e) {
+            logger.error("依赖接口错误", e);
             if (e.getMessage().contains("空"))
                 testApiResult.setIsPass(TestApiResultEnum.DE_NO_DATA.getCode());
             else
@@ -222,6 +227,7 @@ public class TestRequestApiServer0 {
             testApiResult.setIsPass(TestApiResultEnum.ERROR.getCode());
             testApiResult.setTestResult(returnResultHandle(result, httpConfigHandle.getRequestPath(), httpConfigHandle.getRequestParameters(), e.getMessage()));
             testApiResultServer.addTestApiResult(testApiResult);
+            logger.error("请求异常：", e);
             return Response.fail("请求异常：" + e.getMessage());
         }
     }
@@ -288,8 +294,7 @@ public class TestRequestApiServer0 {
             try {
                 task(hostCms0, hostFront0, frontUsername, apiManages, sessionUser);
             } catch (Exception e) {
-                logger.info(e.toString());
-                e.printStackTrace();
+                logger.error("执行异常",e);
             }
         });
         return Response.success("用例执行中,批量执行用例数量：" + apiManages.size());
@@ -329,4 +334,6 @@ public class TestRequestApiServer0 {
             }
         }
     }
+
+
 }
