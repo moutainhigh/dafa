@@ -115,7 +115,7 @@ public class LotteryBettingInfo {
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-02"));
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-01"));
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-04-17"));
-        excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-06-29"));
+        excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-08-13"));
 
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-31"));
         //excutors.execute(() -> getInsetLotteryBettingInfoLoop("2020-03-30"));

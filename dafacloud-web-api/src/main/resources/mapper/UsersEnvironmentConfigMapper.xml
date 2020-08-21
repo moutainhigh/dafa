@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.dafacloud.mapper.UsersEnvironmentConfigMapper">
+    <sql id="selectCloumns">
+        SELECT
+            id,
+            ev_name evName,
+            ev_host evHost,
+            ev_type evType,
+            ev_cookie  evCookie,
+            ev_state evState,
+            user_name username,
+            remark
+        from users_environment_config
+    </sql>
+
+    <select id="getUsersEnvironmentConfigList" parameterType="java.lang.String"
+            resultType="pers.dafacloud.entity.UsersEnvironmentConfig" flushCache="true"
+            useCache="true">
+        <include refid="selectCloumns"/>
+        where user_name = #{username}
+    </select>
+
+    <select id="getUsersEnvironmentConfigListCount" parameterType="java.lang.String"
+            resultType="java.lang.Integer" flushCache="true"
+            useCache="true">
+        select count(1) from users_environment_config where user_name = #{username}
+    </select>
+
+
+    <select id="getUserParametersActivitedList"
+            resultType="pers.dafacloud.entity.UsersEnvironmentConfig" flushCache="true"
+            useCache="true">
+        <include refid="selectCloumns"/>
+        where ev_state = 1
+    </select>
+
+    <insert id="addUsersEnvironmentConfig" parameterType="pers.dafacloud.entity.UsersEnvironmentConfig"
+            keyProperty="id">
+		insert into users_environment_config(
+            ev_name,
+            ev_host,
+            ev_type,
+            ev_cookie,
+            ev_state,
+            user_name,
+            remark
+		)values (
+			 #{evName}
+            ,#{evHost}
+            ,#{evType}
+            ,#{evCookie}
+            ,#{evState}
+            ,#{username}
+            ,#{remark}
+		)
+	</insert>
+
+    <update id="updateUsersEnvironmentConfig" parameterType="pers.dafacloud.entity.UsersEnvironmentConfig">
+        update users_environment_config set
+        ev_name = #{evName}
+        ,ev_host = #{evHost}
+        ,ev_type = #{evType}
+        ,ev_cookie = #{evCookie}
+        ,ev_state = #{evState}
+        ,user_name = #{username}
+        ,remark = #{remark}
+        where id = #{id}
+    </update>
+
+    <update id="updateUsersEnvironmentConfigState" parameterType="pers.dafacloud.entity.UsersEnvironmentConfig">
+        update users_environment_config set
+          ev_state = #{evState}
+        where id = #{id}
+    </update>
+
+    <update id="resetUsersEnvironmentConfigState" parameterType="pers.dafacloud.entity.UsersEnvironmentConfig">
+        update users_environment_config set
+          ev_state = 0
+        where ev_name = #{evName} and user_name = #{username}
+    </update>
+
+    <delete id="deleteUsersEnvironmentConfig" parameterType="java.lang.String">
+        delete
+        from users_environment_config
+        where id = #{id}
+    </delete>
+
+    <select id="getUsersEnvironmentConfigById" parameterType="java.lang.String"
+            resultType="pers.dafacloud.entity.UsersEnvironmentConfig" flushCache="true"
+            useCache="true">
+        SELECT
+            id,
+            ev_name evName,
+            ev_host evHost,
+            ev_type evType,
+            ev_cookie evCookie,
+            ev_state evState,
+            user_name username,
+            remark
+        from users_environment_config
+        where id = #{id}
+    </select>
+
+</mapper>

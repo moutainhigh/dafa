@@ -209,20 +209,20 @@ public class Bcbm {
 
 
     public static void main(String[] args) {
-        //List<Map> mapList = tenantOpenMessageMapper.getGameOpenNumber();
-        List<String> mapList = FileUtil.readFile("/Users/duke/Downloads/宝马.txt");
+        List<Map> mapList = tenantOpenMessageMapper.getGameOpenNumber();
+        //List<String> mapList = FileUtil.readFile("/Users/duke/Downloads/宝马.txt");
         System.out.println("总数据量：" + mapList.size());
         int[] dalong = new int[50]; //小车标长龙
         int[] xiaolong = new int[50]; //大车标长龙
         int[] count = new int[8];//8个车标出现次数统计
         int xiaoCountTemp = 0;
         int daCountTemp = 0;
-        //for (Map map : mapList) {
-        for (String map : mapList) {
-            //String openNumber = map.get("openNumber").toString();
-            //BcbmCodeEmu bcbmCode = BcbmCodeEmu.getNameByNum(openNumber);
-            String openNumber = map.split(",")[1];
-            BcbmCodeEmu bcbmCode = BcbmCodeEmu.getBcbmBynameN(openNumber);
+        for (Map map : mapList) {
+        //for (String map : mapList) {
+            String openNumber = map.get("openNumber").toString();
+            BcbmCodeEmu bcbmCode = BcbmCodeEmu.getNameByNum(openNumber);
+            //String openNumber = map.split(",")[1];
+            //BcbmCodeEmu bcbmCode = BcbmCodeEmu.getBcbmBynameN(openNumber);
             if (bcbmCode == null) {
                 System.out.println("================开奖号码错误======================");
                 continue;
@@ -242,7 +242,7 @@ public class Bcbm {
                     dalong[daCountTemp - 1]++;
                 daCountTemp = 0;
             }
-            //System.out.println(map.get("gmtCreated").toString() + " - " + map.get("issue").toString() + " - " + openNumber + (openNumber.length() == 1 ? " " : "") + " - " + bcbmCode.name + " - " + daCountTemp + " - " + xiaoCountTemp);
+            System.out.println(map.get("gmtCreated").toString() + " - " + map.get("issue").toString() + " - " + openNumber + (openNumber.length() == 1 ? " " : "") + " - " + bcbmCode.name + " - " + daCountTemp + " - " + xiaoCountTemp);
         }
         System.out.println("开大长龙长度：" + print(dalong));
         System.out.println("开小长龙长度：" + print(xiaolong));

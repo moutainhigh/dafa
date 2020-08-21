@@ -9,8 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.dafacloud.bean.HttpConfigHandle;
+import pers.dafacloud.bean.UserParametersMap;
 import pers.dafacloud.entity.ApiManage;
 import pers.dafacloud.entity.TestApiResult;
+import pers.dafacloud.entity.UsersEnvironmentConfig;
 import pers.dafacloud.enums.TestApiResultEnum;
 import pers.dafacloud.utils.Response;
 import pers.utils.httpclientUtils.HttpConfig;
@@ -35,18 +37,74 @@ public class TestRequestApiServer0 {
      * 单用例测试
      */
     public Response testApiOne(int id, String host, String cookie, String sessionUser) {
-        String httpHost = host.contains("http") ?
-                host : String.format("%s%s", "http://", host.replace("/", "").replace("?", ""));
-
-        ApiManage apiManage = apiManageServer.getApiById(id);
-        if (StringUtils.isEmpty(cookie) && !apiManage.getPath().endsWith("login")) {
-            return Response.fail("请设置cookie");
+        if (StringUtils.isNotEmpty(host)) {
+            host = host.contains("http") ?
+                    host : String.format("%s%s", "http://", host.replace("/", "").replace("?", ""));
         }
+        ApiManage apiManage = apiManageServer.getApiById(id);
+        //if (StringUtils.isEmpty(cookie) && !apiManage.getPath().endsWith("login")) {
+        //    if (apiManage.getCmsFront() == 2) {
+        //        if (!UserParametersMap.map.containsKey(sessionUser + "_cmsCookie")) {
+        //            return Response.fail("请设置cmsCookie");
+        //        } else {
+        //            cookie = UserParametersMap.map.get(sessionUser + "_cmsCookie");
+        //        }
+        //    } else if (apiManage.getCmsFront() == 1) {
+        //        if (!UserParametersMap.map.containsKey(sessionUser + "_xToken")) {
+        //            return Response.fail("请设置xToken");
+        //        } else {
+        //            cookie = UserParametersMap.map.get(sessionUser + "_xToken");
+        //        }
+        //    }
+        //}
+        if (StringUtils.isEmpty(host) || StringUtils.isEmpty(cookie)) {
+            if (apiManage.getCmsFront() == 2) {
+                if (!UserParametersMap.evMap.containsKey(sessionUser + "_cms")) {
+                    return Response.fail("请配置后台Cookie");
+                } else {
+                    UsersEnvironmentConfig usersEnvironmentConfig = UserParametersMap.evMap.get(sessionUser + "_cms");
+                    if (StringUtils.isEmpty(cookie)) {
+                        cookie = usersEnvironmentConfig.getEvCookie();
+                        if (StringUtils.isEmpty(cookie)) {
+                            return Response.fail("请配置后台Cookie");
+                        }
+                    }
+                    if (StringUtils.isEmpty(host)) {
+                        host = usersEnvironmentConfig.getEvHost();
+                        if (StringUtils.isEmpty(host)) {
+                            return Response.fail("请配置后台域名");
+                        }
+                    }
+
+                }
+            } else if (apiManage.getCmsFront() == 1) {
+                if (!UserParametersMap.evMap.containsKey(sessionUser + "_front")) {
+                    return Response.fail("请配置前台Cookie");
+                } else {
+                    UsersEnvironmentConfig usersEnvironmentConfig = UserParametersMap.evMap.get(sessionUser + "_front");
+                    if (StringUtils.isEmpty(cookie)) {
+                        cookie = usersEnvironmentConfig.getEvCookie();
+                        if (StringUtils.isEmpty(cookie)) {
+                            return Response.fail("请配置前台Cookie");
+                        }
+                    }
+                    if (StringUtils.isEmpty(host)) {
+                        host = usersEnvironmentConfig.getEvHost();
+                        if (StringUtils.isEmpty(host)) {
+                            return Response.fail("请配置前台域名");
+                        }
+                    }
+
+                }
+            }
+        }
+
+
         HttpConfigHandle httpConfigHandle = HttpConfigHandle.custom();
         //设置HttpConfig，httpHost，cookie
         httpConfigHandle
                 .setHttpConfig(HttpConfig.custom())
-                .setHttpHost(httpHost)
+                .setHttpHost(host)
                 .setCookie(cookie);
         httpConfigHandle.setXToken(cookie);
         return taskRequest(apiManage, httpConfigHandle, sessionUser);
@@ -294,7 +352,7 @@ public class TestRequestApiServer0 {
             try {
                 task(hostCms0, hostFront0, frontUsername, apiManages, sessionUser);
             } catch (Exception e) {
-                logger.error("执行异常",e);
+                logger.error("执行异常", e);
             }
         });
         return Response.success("用例执行中,批量执行用例数量：" + apiManages.size());

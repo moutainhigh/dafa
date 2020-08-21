@@ -30,6 +30,14 @@
 		order by id desc
 		limit 10000
 	</select>
+	<!--
+	SELECT t.issue,t.open_number,t.gmt_created FROM
+(SELECT issue,open_number,gmt_created
+FROM lottery_open_message
+where lottery_code = 1407
+ORDER BY gmt_created desc
+limit 60000) t ORDER BY t.gmt_created asc
+	-->
 
 	<select id="getLotteryOpenNumber" resultType="Map">
 		select
@@ -37,7 +45,7 @@
 		DATE_FORMAT(gmt_created,'%Y-%m-%d %H:%i:%s') gmtCreated,
 		issue  issue
 		from dafacloud_lottery.lottery_open_message
-		where lottery_code = 1008
+		where lottery_code = 1407
 -- 		and DATE_FORMAT(gmt_created,'%Y-%m-%d') = '2020-06-22'
 		order by id desc
 		limit 60000

@@ -21,46 +21,6 @@ public class ApiManageController {
     @Autowired
     ApiManageServer apiManageServer;
 
-    @Autowired
-    TestRequestApiServer0 testRequestApiServer;
-
-    @GetMapping("/apiManageBatchTest")
-    public Response queryApiBatchTest(String hostCms, String hostFront, String frontUserName, HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        User userInfo;
-        try {
-            userInfo = (User) session.getAttribute("user");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Response.fail("获取用户信息失败");
-        }
-        return testRequestApiServer.apiManageBatchTest(hostCms, hostFront, frontUserName, userInfo.getUsername());
-    }
-
-    @PostMapping("/testRequestApi")
-    public Response testRequestApi(int id, String host, String cookie, HttpServletRequest request) {
-        request.getCookies();
-        if (StringUtils.isEmpty(cookie)) {
-            if (request.getCookies() != null) {
-                for (javax.servlet.http.Cookie requestCookie0 : request.getCookies()) {
-                    if ("JSESSIONID".equals(requestCookie0.getName())) {
-                        cookie = requestCookie0.getValue();
-                    }
-                }
-            }
-        }
-        HttpSession session = request.getSession();
-        User userInfo;
-        try {
-            userInfo = (User) session.getAttribute("user");
-        } catch (Exception e) {
-            e.printStackTrace();
-            return Response.fail("获取用户信息失败");
-        }
-        return testRequestApiServer.testApiOne(id, host, cookie, userInfo.getUsername());
-    }
-
-
     @GetMapping("/getApiList")
     public Response getApiList(ApiManage apiManage) {
         apiManage.setPageNum((apiManage.getPageNum() - 1) * apiManage.getPageSize());

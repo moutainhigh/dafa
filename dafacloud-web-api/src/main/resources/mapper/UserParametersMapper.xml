@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.dafacloud.mapper.UserParametersMapper">
+
+    <insert id="addUserParameters" parameterType="pers.dafacloud.entity.UserParameters" keyProperty="id">
+		insert into user_parameters(
+         parameter_name
+        ,parameter_value
+        ,parameter_type
+        ,user_name
+        ,remark
+		)values (
+			 #{parameterName}
+            ,#{parameterValue}
+            ,#{parameterType}
+            ,#{username}
+            ,#{remark}
+		)
+	</insert>
+
+    <update id="updateUserParameters" parameterType="pers.dafacloud.entity.UserParameters">
+        update user_parameters set
+        parameter_name = #{parameterName}
+        ,parameter_value = #{parameterValue}
+        ,parameter_type = #{parameterType}
+        ,user_name = #{username}
+        ,remark = #{remark}
+        where id = #{id}
+    </update>
+
+    <select id="getUserParametersAllList" parameterType="java.lang.String"
+            resultType="pers.dafacloud.entity.UserParameters" flushCache="true"
+            useCache="true">
+        SELECT
+        id,
+        user_name username,
+        parameter_name parameterName,
+        parameter_value parameterValue,
+        parameter_type parameterType,
+        remark
+        from user_parameters
+    </select>
+
+    <select id="getUserParametersList" parameterType="java.lang.String"
+            resultType="pers.dafacloud.entity.UserParameters" flushCache="true"
+            useCache="true">
+        SELECT
+        id,
+        user_name username,
+        parameter_name parameterName,
+        parameter_value parameterValue,
+        parameter_type parameterType,
+        remark
+        from user_parameters
+        where parameter_type = 1
+        UNION ALL
+        SELECT
+        id,
+        user_name username,
+        parameter_name parameterName,
+        parameter_value parameterValue,
+        parameter_type parameterType,
+        remark
+        from user_parameters
+        where user_name = #{username} and  parameter_type != 1
+    </select>
+
+    <select id="getUserParametersCount" parameterType="java.lang.String"
+            resultType="java.lang.Integer" flushCache="true"
+            useCache="true">
+        SELECT count(1)
+        from user_parameters
+        where user_name = #{username} or parameter_type = 1
+    </select>
+    <delete id="deleteUserParameters" parameterType="java.lang.String">
+        delete
+        from user_parameters
+        where id = #{id}
+    </delete>
+
+    <select id="getUserParametersById" parameterType="java.lang.String"
+            resultType="pers.dafacloud.entity.UserParameters" flushCache="true"
+            useCache="true">
+        SELECT
+        id,
+        user_name username,
+        parameter_name parameterName,
+        parameter_value parameterValue,
+        parameter_type parameterType,
+        remark
+        from user_parameters
+        where id = #{id}
+    </select>
+
+    <!--<select id="getUserParametersListByUsername" parameterType="java.lang.String"-->
+    <!--resultType="pers.dafacloud.entity.UserParameters" flushCache="true"-->
+    <!--useCache="true">-->
+    <!--SELECT-->
+    <!--id,-->
+    <!--parameter_name parameterName,-->
+    <!--parameter_value parameterValue,-->
+    <!--remark-->
+    <!--from user_parameters-->
+    <!--where user_name = #{username}-->
+    <!--</select>-->
+
+</mapper>
