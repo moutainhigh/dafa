@@ -29,13 +29,13 @@ public class KibanaData {
      * @return JSONArray hits
      */
     public static JSONArray queryKibana(String search, String startTimes, String endTimes, String env) {
-        String url = "https://search-dafacloud-jkbqcehoqjsdmjfxlet6u7fb4m.ap-southeast-1.es.amazonaws.com/_plugin/kibana/elasticsearch/_msearch";
+        String url = "https://52.74.25.157/_plugin/kibana/elasticsearch/_msearch";
         long startTime = TimeUtil.getMillSecond(startTimes);
         long endTime = TimeUtil.getMillSecond(endTimes);
         String indexEv = env;
         //查询条件
         String query = String.format("header:'a02916'");
-        String body0 = "{\"index\":\"{indexEv}\",\"ignore_unavailable\":true,\"timeout\":100000,\"preference\":1564455142933}\n{\"version\":true,\"size\":9000,\"sort\":[{\"@timestamp\":{\"order\":\"desc\",\"unmapped_type\":\"boolean\"}}],\"_source\":{\"excludes\":[]},\"aggs\":{\"2\":{\"date_histogram\":{\"field\":\"@timestamp\",\"interval\":\"10m\",\"time_zone\":\"Asia/Shanghai\",\"min_doc_count\":1}}},\"stored_fields\":[\"*\"],\"script_fields\":{},\"docvalue_fields\":[\"@timestamp\"],\"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"{query}\",\"analyze_wildcard\":true,\"default_field\":\"*\"}},{\"range\":{\"@timestamp\":{\"gte\":{startTime},\"lte\":{endTime},\"format\":\"epoch_millis\"}}}],\"filter\":[],\"should\":[],\"must_not\":[]}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}\n";
+        String body0 = "{\"index\":\"{indexEv}\",\"ignore_unavailable\":true,\"timeout\":100000,\"preference\":1564455142933}\n{\"version\":true,\"size\":1000,\"sort\":[{\"@timestamp\":{\"order\":\"desc\",\"unmapped_type\":\"boolean\"}}],\"_source\":{\"excludes\":[]},\"aggs\":{\"2\":{\"date_histogram\":{\"field\":\"@timestamp\",\"interval\":\"10m\",\"time_zone\":\"Asia/Shanghai\",\"min_doc_count\":1}}},\"stored_fields\":[\"*\"],\"script_fields\":{},\"docvalue_fields\":[\"@timestamp\"],\"query\":{\"bool\":{\"must\":[{\"query_string\":{\"query\":\"{query}\",\"analyze_wildcard\":true,\"default_field\":\"*\"}},{\"range\":{\"@timestamp\":{\"gte\":{startTime},\"lte\":{endTime},\"format\":\"epoch_millis\"}}}],\"filter\":[],\"should\":[],\"must_not\":[]}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"fragment_size\":2147483647}}\n";
         String body = body0
                 .replace("{indexEv}", indexEv)
                 .replace("{query}", search)
@@ -109,9 +109,10 @@ public class KibanaData {
     @Test(description = "统计接口时间差（毫秒）")
     public static void test01a() {
         //header:*xcw6662* AND url:*getMessageListWeb*
-        String search = "url:'meeLineLogin' AND header:'zcaiw'";//url:*userAgentReport* AND header:*9999165*
-        String startTime = "2019-12-20 00:00:00";
-        String endTime = "2019-12-20 23:00:00";
+        //String search = "url:'meeLineLogin' AND header:'zcaiw'";//url:*userAgentReport* AND header:*9999165*
+        String search = "url:*openResult* AND header:*159.138.134.188*";
+        String startTime = "2020-08-23 22:00:00";
+        String endTime = "2020-08-23 23:00:00";
         String env = "master-access-*";
         JSONArray hits = queryKibana(search, startTime, endTime, env);
         if (hits.size() != 0) {

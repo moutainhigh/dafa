@@ -48,6 +48,6 @@ limit 60000) t ORDER BY t.gmt_created asc
 		where lottery_code = 1407
 -- 		and DATE_FORMAT(gmt_created,'%Y-%m-%d') = '2020-06-22'
 		order by id desc
-		limit 60000
+		limit 6000
 	</select>
 </mapper>

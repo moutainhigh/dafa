@@ -27,8 +27,8 @@ public class TestLastOperationTime {
     //private static String host = "http://dafacloud-test.com";
 
     public static void main(String[] args) {
-        //getTokenIpTask();
-        operationTask();
+        getTokenIpTask();
+        //operationTask();
         //getSessionTask();
     }
 
@@ -133,7 +133,7 @@ public class TestLastOperationTime {
      * 先登录获取x-token
      */
     public static void getTokenIpTask() {
-        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(0, 300);
+        List<String> users = FileUtil.readFile(TestLastOperationTime.class.getResourceAsStream("/test/test01.txt")).subList(1000, 2000);
         System.out.println(users.size());
         List<List<String>> usersList = ListSplit.split(users, 1000);
         CountDownLatch cdl = new CountDownLatch(usersList.size());
@@ -160,15 +160,16 @@ public class TestLastOperationTime {
                     .other("x-remote-IP", ip)
                     .other("X-Real-IP", ip)
                     .other("X-Real-IP", ip)
-                    .other("x-user-id", userA[1])
-                    .other("x-user-name", userA[0])
+                    .other("x-user-id", userA[0])
+                    .other("x-user-name", userA[1])
                     .other("x-tenant-code", "dafa")
+                    .other("x-user-agent", "1")
                     .other("x-url", "0.0.0.0:8082")
                     .other("x-source-id", "1")
                     .other("x-domain", "http://0.0.0.0:8082")
                     .other("x-token", "96db9951ccef4f66ab869ed70f55e0f0")
                     .other("x-client-ip", ip);
-            String body = Login.getLoginBody(userA[0], "123qwe");
+            String body = Login.getLoginBody(userA[1], "123qwe");
             HttpCookies httpCookies = HttpCookies.custom();
             //手动设置cookie
             //52.77.207.64
