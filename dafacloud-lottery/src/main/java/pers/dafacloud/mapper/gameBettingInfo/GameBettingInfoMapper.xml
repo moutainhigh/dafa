@@ -37,8 +37,9 @@
 		,gmt_created gmtCreated
 		,gmt_modified gmtModified
 		from dafacloud_game.game_orders_info_${tableName}
-		where  game_code = 2004
-        and gmt_created > '2020-05-05'
+		where  game_code = 2005
+		and betting_amount > 500
+        and gmt_created > '2020-08-28'
 	</select>
 
     <!--统计幸运飞艇凌晨出撤单的其实 statementType="STATEMENT" -->
@@ -65,27 +66,58 @@
         ,gmt_modified
         ) values
         <foreach collection="list" item="item" index="index" separator=",">
-        (
-         #{item.tenantCode}
-        ,#{item.userId}
-        ,#{item.roomNumber}
-        ,#{item.recordCode}
-        ,#{item.gameCode}
-        ,#{item.playDetailCode}
-        ,#{item.issue}
-        ,#{item.bettingNumber}
-        ,#{item.bettingAmount}
-        ,#{item.returnAmount}
-        ,#{item.bettingState}
-        ,#{item.bettingPoint}
-        ,#{item.gameOrdersId}
-        ,#{item.openNum}
-        ,#{item.sourceId}
-        ,#{item.isTest}
-        ,#{item.createdDate}
-        ,#{item.gmtCreated}
-        ,#{item.gmtModified}
-        )
+            (
+            #{item.tenantCode}
+            ,#{item.userId}
+            ,#{item.roomNumber}
+            ,#{item.recordCode}
+            ,#{item.gameCode}
+            ,#{item.playDetailCode}
+            ,#{item.issue}
+            ,#{item.bettingNumber}
+            ,#{item.bettingAmount}
+            ,#{item.returnAmount}
+            ,#{item.bettingState}
+            ,#{item.bettingPoint}
+            ,#{item.gameOrdersId}
+            ,#{item.openNum}
+            ,#{item.sourceId}
+            ,#{item.isTest}
+            ,#{item.createdDate}
+            ,#{item.gmtCreated}
+            ,#{item.gmtModified}
+            )
+        </foreach>
+    </insert>
+
+    <select id="getGameOpenNum" resultType="java.util.Map">
+		select
+		id,
+		issue,
+		game_code,
+		open_number,
+		gmt_created
+		from dafacloud_game.game_open_message
+		where  game_code = 2003
+		and id > ${maxId}
+		and gmt_created >= '2020-08-31'
+		and gmt_created <![CDATA[ <= ]]> '2020-09-12'
+		limit 10000
+	</select>
+    <insert id="insertGameOpenNum" parameterType="java.util.List" keyProperty="id">
+        insert into game_longhu(
+        issue,
+        game_code,
+        open_number,
+        gmt_created
+        ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.issue}
+            ,#{item.game_code}
+            ,#{item.open_number}
+            ,#{item.gmt_created}
+            )
         </foreach>
     </insert>
 </mapper>

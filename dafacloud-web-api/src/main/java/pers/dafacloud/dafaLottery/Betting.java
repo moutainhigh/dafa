@@ -14,6 +14,7 @@ import pers.utils.httpclientUtils.HttpConfig;
 import pers.utils.httpclientUtils.HttpHeader;
 import pers.utils.jsonUtils.JsonArrayBuilder;
 import pers.utils.jsonUtils.JsonObjectBuilder;
+import pers.utils.randomNameAddrIP.RandomIP;
 import pers.utils.urlUtils.UrlBuilder;
 
 import javax.annotation.PostConstruct;
@@ -169,7 +170,7 @@ public class Betting {
                     .other("x-tenant-code", usersMap.get("tenant_code").toString())
                     .other("x-user-name", usersMap.get("user_name").toString())
                     .other("x-source-Id", "1")
-                    //.other("x-client-ip", RandomIP.getRandomIp())
+                    .other("x-client-ip", RandomIP.getRandomIp())
                     .build();
             httpConfig = HttpConfig.custom()
                     .url(addBettingUrl)

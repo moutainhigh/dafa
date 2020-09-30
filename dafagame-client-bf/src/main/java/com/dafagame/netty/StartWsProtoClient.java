@@ -84,7 +84,7 @@ public class StartWsProtoClient {
                     if (this.clientHandshaker.isSuccess()) {
                         Gate.GateReq gateReq = Gate.GateReq.newBuilder().setLoginReq(
                                 Gate.LoginReq.newBuilder()
-                                        .setSessionId(getLoginSession()) // sessionId
+                                        .setSessionId("fb80a5b5e19940cdbf33d5fc1eed071a") // getLoginSession()
                                         .setUrl("120.25.177.43") //自定义ip
                                         .setSourceId("2")
                                         .setTenantCode(tenantCode)
@@ -207,59 +207,62 @@ public class StartWsProtoClient {
         //        new StartWsProtoClient(dev2alysiaT.get(i), 2, 107, "101").start();
         //    }
         //}
-        new StartWsProtoClient(dev2alysiaT.get(0), 2, 107, "101").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(1), 2, 107, "101").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(2), 2, 107, "101").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(3), 2, 107, "101").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(4), 2, 107, "101").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(5), 2, 107, "101").start();
-        Thread.sleep(200);
-
-        new StartWsProtoClient(dev2alysiaT.get(6), 2, 107, "102").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(7), 2, 107, "102").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(8), 2, 107, "102").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(9), 2, 107, "102").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(10), 2, 107, "102").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(11), 2, 107, "102").start();
-        Thread.sleep(200);
-
-        new StartWsProtoClient(dev2alysiaT.get(12), 2, 107, "103").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(13), 2, 107, "103").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(14), 2, 107, "103").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(15), 2, 107, "103").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(16), 2, 107, "103").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(17), 2, 107, "103").start();
-        Thread.sleep(200);
-
-        new StartWsProtoClient(dev2alysiaT.get(18), 2, 107, "104").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(19), 2, 107, "104").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(20), 2, 107, "104").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(21), 2, 107, "104").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(22), 2, 107, "104").start();
-        Thread.sleep(200);
-        new StartWsProtoClient(dev2alysiaT.get(23), 2, 107, "104").start();
-        Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(0), 2, 107, "101").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(1), 2, 107, "101").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(2), 2, 107, "101").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(3), 2, 107, "101").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(4), 2, 107, "101").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(5), 2, 107, "101").start();
+        //Thread.sleep(200);
+        //
+        //new StartWsProtoClient(dev2alysiaT.get(6), 2, 107, "102").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(7), 2, 107, "102").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(8), 2, 107, "102").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(9), 2, 107, "102").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(10), 2, 107, "102").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(11), 2, 107, "102").start();
+        //Thread.sleep(200);
+        //
+        //new StartWsProtoClient(dev2alysiaT.get(12), 2, 107, "103").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(13), 2, 107, "103").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(14), 2, 107, "103").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(15), 2, 107, "103").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(16), 2, 107, "103").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(17), 2, 107, "103").start();
+        //Thread.sleep(200);
+        //
+        //new StartWsProtoClient(dev2alysiaT.get(18), 2, 107, "104").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(19), 2, 107, "104").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(20), 2, 107, "104").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(21), 2, 107, "104").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(22), 2, 107, "104").start();
+        //Thread.sleep(200);
+        //new StartWsProtoClient(dev2alysiaT.get(23), 2, 107, "104").start();
+        //Thread.sleep(200);
 
         //new StartWsProtoClient("31237108", 107).start();
+
+        new StartWsProtoClient("68531032", 2, 209, "101").start();
+
     }
 
     private static class GameHandlerFactory {
@@ -281,8 +284,8 @@ public class StartWsProtoClient {
                     return new EbgHandler();
                 case 206:
                     return new QzpjHandler();
-                case 207:
-                    return new QzsgHandler();
+                case 209:
+                    return new SshlHandler();
             }
             return null;
         }
@@ -313,7 +316,8 @@ public class StartWsProtoClient {
         System.out.println(body);
         HttpConfig httpConfig = HttpConfig
                 .custom().headers(headers)
-                .url("http://" + host + "/v1/users/login")
+                //.url("http://" + host + "/v1/users/login")
+                .url("http://a838a400eea44468f8505b0c55518267-667d845bfac931ec.elb.ap-east-1.amazonaws.com/v1/users/login")
                 .body(body);
         //this.gameHandler.setHttpConfig(httpConfig);
         String result = DafaRequest.post(httpConfig);
@@ -323,4 +327,6 @@ public class StartWsProtoClient {
             throw new RuntimeException("sessionId返回异常:" + sessionId);
         return sessionId;
     }
+
+
 }

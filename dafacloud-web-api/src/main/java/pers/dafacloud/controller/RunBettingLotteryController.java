@@ -1,17 +1,20 @@
 package pers.dafacloud.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.dafacloud.dafaLottery.Betting;
 import pers.dafacloud.dafaLottery.LotteryObj;
+import pers.dafacloud.entity.User;
 import pers.dafacloud.server.BetContentServer;
 import pers.dafacloud.server.BetUsersServer;
 import pers.dafacloud.utils.Response;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +22,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/v1")
 public class RunBettingLotteryController {
+    private static Logger logger = LoggerFactory.getLogger(RunBettingLotteryController.class);
 
     @Autowired
     BetUsersServer betUsersServer;
@@ -28,7 +32,16 @@ public class RunBettingLotteryController {
     //String host, String urlTenantCode, int betContentType, String[][] runLottery, int threadStepTimeMill
 
     @PostMapping("/runBettingLottery")
-    public Response runBettingLottery(@RequestParam Map<String, Object> reqMap) {
+    public Response runBettingLottery(@RequestParam Map<String, Object> reqMap, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User userInfo;
+        try {
+            userInfo = (User) session.getAttribute("user");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.fail("获取用户信息失败");
+        }
+
         if (!Betting.isStop) {
             return Response.fail("程序正在运行，请先停止");
         }
@@ -77,6 +90,7 @@ public class RunBettingLotteryController {
             lotteryObjList.add(new LotteryObj(lotteryCode, userCount, bettingStepTime));
         }
         Betting.isStop = false;
+        logger.info(userInfo.getUsername() + "执行下注成功");
         new Thread(() -> new Betting(host, urlTenantCode, betContentType, lotteryObjList, false, threadStepTimeMill)).start();
         return Response.success("执行中");
     }
@@ -117,12 +131,20 @@ public class RunBettingLotteryController {
     }
 
     @PostMapping("/stopRun")
-    public Response stop() {
-        //System.out.println(Betting.isStop);
+    public Response stop(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User userInfo;
+        try {
+            userInfo = (User) session.getAttribute("user");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.fail("获取用户信息失败");
+        }
         if (Betting.isStop) {
             return Response.success("没有在运行");
         } else {
             Betting.isStop = true;
+            logger.info(userInfo.getUsername() + "执行停止下注成功");
             return Response.success("停止运行");
         }
     }

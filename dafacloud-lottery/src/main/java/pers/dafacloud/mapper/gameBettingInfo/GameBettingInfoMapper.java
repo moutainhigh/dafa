@@ -12,4 +12,9 @@ public interface GameBettingInfoMapper {
 
     int insertGameBetingInfo(List<Map> list);
 
+
+    List<Map> getGameOpenNum(@Param("maxId") String maxId);
+
+    int insertGameOpenNum(List<Map> list);
+
 }

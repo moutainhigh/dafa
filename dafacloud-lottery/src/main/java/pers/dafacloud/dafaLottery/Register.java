@@ -33,11 +33,11 @@ public class Register {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         //List<String> list = new ArrayList<>(Arrays.asList("dev2td0409".split(",")));
-        for (int i = 2; i < 52; i++) {
+        for (int i = 3000; i < 6000; i++) {
             //    //list.add(String.format("adafa%05d", i));
             //    list.add(String.format("dev2td%04d", i));
             //list.add(String.format("dev1tdf%05d", i));
-            list.add(String.format("dev1dafab%06d", i));
+            list.add(String.format("dev1testa%03d", i));
         }
         //System.out.println(list);
         schedule(list);
@@ -73,7 +73,7 @@ public class Register {
         for (String username : list) {
             try {
                 register(username);
-                Thread.sleep(5000);
+                //Thread.sleep(5000);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -88,13 +88,13 @@ public class Register {
         String password = DigestUtils.md5Hex(username + DigestUtils.md5Hex("123qwe"));
         String body = UrlBuilder.custom()
                 //.addBuilder("inviteCode", inviteCodes[(int) (Math.random() * inviteCodes.length)])
-                .addBuilder("inviteCode", "19497245")
+                .addBuilder("inviteCode", "95473629")
                 .addBuilder("userName", username)
                 .addBuilder("password", password)
                 .fullBody();
         for (int i = 0; i < 1; i++) {
-            //String ip = RandomIP.getRandomIp();
-            String ip = "127.9.9.2";
+            String ip = RandomIP.getRandomIp();
+            //String ip = "127.9.9.2";
             Header[] headers = HttpHeader
                     .custom()
                     .other("x-forwarded-for", ip)
@@ -102,7 +102,7 @@ public class Register {
                     .other("X-Real-IP", ip)
                     .other("x-remote-ip", ip)
                     .contentType("application/x-www-form-urlencoded;charset=UTF-8")
-                    .other("x-tenant-code", "dafa")
+                    .other("x-tenant-code", "test")
                     .other("x-source-Id", "3")
                     .other("x-client-ip", ip)
                     //.other("x-user-id", "51321300")
@@ -112,10 +112,10 @@ public class Register {
             String result = DafaRequest.post(httpConfig);
             System.out.println(result);
             if (JSONObject.parseObject(result).getInteger("code") != 1) {
-                System.out.println("重试" + i + "次 -【" + username + "】" + result);
                 if (result.contains("已被注册")) {
                     break;
                 }
+                System.out.println("重试" + i + "次 -【" + username + "】" + result);
             } else {
                 break;
             }

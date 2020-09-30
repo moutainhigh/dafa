@@ -20,7 +20,7 @@ public class K3 {
     private static BigDecimal FOUR = new BigDecimal("4");
     private static BigDecimal betAmount = new BigDecimal("500");
     private static BigDecimal rebate = new BigDecimal("0.985");
-    private static final int minFlowBet = 8;//最小跟注
+    private static final int minFlowBet = 6;//最小跟注
     private static final int maxFlowBet = 14;
 
     //下注金额
@@ -38,7 +38,7 @@ public class K3 {
     //下注金额终端
     private static BigDecimal getAmount0(int count) {
         int[] amount = {5, 12, 27, 70, 150};
-        if (count < 0 || count>= amount.length) {
+        if (count < 0 || count >= amount.length) {
             return BigDecimal.ZERO;
         }
         return new BigDecimal(amount[count]);
@@ -112,6 +112,7 @@ public class K3 {
                     + " - " + xiaoCountTemp);
         }
     }
+
     @Test(description = "下注终端")
     public static void testda2() {
         List<String> mapList = FileUtil.readFile("/Users/duke/Documents/下注测试/1407.txt");
@@ -180,6 +181,8 @@ public class K3 {
         }
     }
 
+
+
     @Test(description = "下注")
     public static void testda() {
         //List<Map> mapList = tenantOpenMessageMapper.getLotteryOpenNumber();
@@ -246,6 +249,7 @@ public class K3 {
     @Test(description = "总和大小单双 长龙统计")
     public static void testChanglong() {
         List<Map> mapList = tenantOpenMessageMapper.getLotteryOpenNumber();
+        //List<String> mapList = FileUtil.readFile("/Users/duke/Documents/下注测试/1407.txt");
         System.out.println("总数据量：" + mapList.size());
         int[] dalong = new int[50]; //小长龙
         int[] xiaolong = new int[50]; //大长龙
@@ -257,6 +261,7 @@ public class K3 {
         int danCountTemp = 0;
         int shuangCountTemp = 0;
         for (Map map : mapList) {
+        //for (String openNumbers : mapList) {
             String openNumbers = map.get("openNumber").toString();
             String[] openNumber = openNumbers.split(",");
             int total = 0;
@@ -293,6 +298,7 @@ public class K3 {
             }
 
             System.out.println(map.get("gmtCreated").toString() + " - " + map.get("issue").toString() + " - " + openNumbers + " - " + total + " - " + daCountTemp + " - " + xiaoCountTemp + " - " + daCountTemp + " - " + shuangCountTemp);
+            //System.out.println(openNumbers + " - " + total + " - " + daCountTemp + " - " + xiaoCountTemp + " - " + daCountTemp + " - " + shuangCountTemp);
         }
         StringBuilder sbDalong = new StringBuilder("开大长龙长度：");
         for (int i = 0; i < dalong.length; i++) {
@@ -330,6 +336,15 @@ public class K3 {
         System.out.println(sbShuanglong.substring(0, sbShuanglong.length() - 2));
 
     }
+//开大长龙长度：1:2654, 2:1352, 3:661, 4:327, 5:177, 6:101, 7:52, 8:22, 9:7, 10:6, 11:1, 12:1
+//开小长龙长度：1:2729, 2:1307, 3:644, 4:291, 5:218, 6:87, 7:45, 8:22, 9:8, 10:7, 11:1, 12:1
+//开单长龙长度：1:2723, 2:1267, 3:637, 4:339, 5:157, 6:90, 7:44, 8:22, 9:14, 10:9, 11:3
+//开双长龙长度：1:2597, 2:1286, 3:699, 4:337, 5:192, 6:98, 7:36, 8:28, 9:15, 10:6, 11:3, 12:5, 13:3
+
+//327-(661-327)+ 177- (327-177)+101-(177-101)+52-(101-52)+22-(52-22)+7-(22-7)+6-(7-6)+1-(6-1)+1-(1-1)+0-(1-0) =33
+//3:661, 4:327, 5:177, 6:101, 7:52, 8:22, 9:7, 10:6, 11:1, 12:1
+//-661+327+177+101+52+22+7+6+1+1 = 33
+//1284
 
 
 }

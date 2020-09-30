@@ -231,7 +231,7 @@ public class HttpConfigHandle {
                 if (isLogin) {
                     if ("managerName".equals(paraName)) {
                         urlBuilder.addBuilder("managerName", paraValue)
-                                .addBuilder("password", DigestUtils.md5Hex(paraValue + DigestUtils.md5Hex("123456")));
+                                .addBuilder("password", DigestUtils.md5Hex(paraValue + DigestUtils.md5Hex("123qwe")));
                         break;
                     }
                 }

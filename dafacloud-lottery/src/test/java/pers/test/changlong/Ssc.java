@@ -16,8 +16,8 @@ public class Ssc {
     private static BigDecimal ben = new BigDecimal("10000000");
     private static BigDecimal TWO = new BigDecimal("2");
     private static BigDecimal rebate = new BigDecimal("0.985");
-    private static final int minFlowBet = 5;
-    private static final int maxFlowBet = 14;
+    private static final int minFlowBet = 8;
+    private static final int maxFlowBet = 16;
 
     private static BigDecimal getAmount(int count) {
         int[] amount = {5, 12, 27, 70, 150, 327, 700, 1500, 3200};
@@ -32,10 +32,76 @@ public class Ssc {
         return new BigDecimal(amount[count - minFlowBet]);
     }
 
+
+
+    @Test(description = "下注顺龙")
+    public static void testshunLong() {
+        List<String> mapList = FileUtil.readFile("/Users/duke/Documents/下注测试/1008openNum.txt");
+        System.out.println("总数据量：" + mapList.size());
+        int daCountTemp = 0;
+        int xiaoCountTemp = 0;
+        int preleng = 0;
+        String isBonus = "";
+        for (String num : mapList) {
+            String[] openNumber = num.split(",");
+            int total = 0;
+            for (String s : openNumber) {
+                total += Integer.parseInt(s);
+            }
+            //下注金额
+            BigDecimal bettingAmount = BigDecimal.ZERO;
+            BigDecimal bonus = BigDecimal.ZERO;
+            int openNum = total;
+            //boolean isTrue = total % 2 == 1; //单双
+            boolean isTrue = total > 22; //大小
+            //boolean isTrue = Integer.parseInt(openNumber[0]) >= 5;
+            if (isTrue) {
+                isBonus = "未下注";
+                if (daCountTemp > 2) {//这一期大，且上一期也是大，
+                    bettingAmount = new BigDecimal("100");
+                    bonus = bettingAmount.multiply(TWO).multiply(rebate);//中奖金额：下注*2*返点
+                    ben = ben.add(bonus).subtract(bettingAmount);
+                    isBonus = "中奖  ";
+                }
+                if(xiaoCountTemp > 2){//这一期大，且上一期小，大于5期，
+                    bettingAmount = new BigDecimal("100");
+                    ben = ben.subtract(bettingAmount);
+                    isBonus = "未中奖  ";
+                }
+                xiaoCountTemp = 0;
+                daCountTemp++;
+            } else {
+                isBonus = "未下注";
+                if (xiaoCountTemp > 2) {//这一期大，且上一期也是大，
+                    bettingAmount = new BigDecimal("100");
+                    bonus = bettingAmount.multiply(TWO).multiply(rebate);//中奖金额：下注*2*返点
+                    ben = ben.add(bonus).subtract(bettingAmount);
+                    isBonus = "中奖  ";
+                }
+                if(daCountTemp > 2){//这一期大，且上一期小，大于5期，
+                    bettingAmount = new BigDecimal("100");
+                    ben = ben.subtract(bettingAmount);
+                    isBonus = "未中奖  ";
+                }
+                daCountTemp = 0;
+                xiaoCountTemp++;
+            }
+            System.out.println(ben.setScale(0, BigDecimal.ROUND_HALF_UP)
+                    + " - " + bettingAmount.setScale(0, BigDecimal.ROUND_HALF_UP)
+                    + " - " + bonus.setScale(0, BigDecimal.ROUND_HALF_UP)
+                    + " - " + Integer.parseInt(openNumber[0])
+                    + " - " + isBonus
+                    //+ " - " + map.get("issue").toString()
+                    + " - " + daCountTemp
+                    + " - " + xiaoCountTemp);
+        }
+    }
+
+
     @Test(description = "下注")
     public static void testda() {
         //List<Map> mapList = tenantOpenMessageMapper.getLotteryOpenNumber();
-        List<String> mapList = FileUtil.readFile("/Users/duke/Documents/1008openNum.txt");
+        List<String> mapList = FileUtil.readFile("/Users/duke/Documents/下注测试/1008openNum.txt");
         System.out.println("总数据量：" + mapList.size());
         int daCountTemp = 0;
         int xiaoCountTemp = 0;
@@ -51,9 +117,9 @@ public class Ssc {
             }
             BigDecimal bettingAmount = getAmount(daCountTemp > 0 ? daCountTemp : xiaoCountTemp);
             BigDecimal bonus = BigDecimal.ZERO;
-
-            //if (total > 22 ) {
-            if (Integer.parseInt(openNumber[4]) % 2 == 1) {
+            //boolean is = Integer.parseInt(openNumber[4]) % 2 == 1;
+            boolean is = total > 22;
+            if (is) {
                 if (xiaoCountTemp >= minFlowBet && xiaoCountTemp <= maxFlowBet) {
                     bonus = bettingAmount.multiply(TWO).multiply(rebate);
                     ben = ben.add(bonus).subtract(bettingAmount);
@@ -126,7 +192,8 @@ public class Ssc {
             for (String s : openNumber) {
                 total += Integer.parseInt(s);
             }
-            if (total > 22) { //大
+            total = Integer.parseInt(openNumber[2]);
+            if (total > 4) { //大
                 xiaoCountTemp = 0;
                 daCountTemp++;
                 dalong[daCountTemp - 1]++;

@@ -19,24 +19,39 @@ import java.util.concurrent.Executors;
 
 public class TestLoginThread {
 
-    private static String host = "http://52.76.195.164:8010";
+    //private static String host = "http://52.76.195.164:8010";
+    private static String host = "http://52.77.207.64:8010";
     private static String loginUrl = host + "/v1/users/login";
     static List<String> list = Collections.synchronizedList(new ArrayList<>());
     private static ExecutorService execute = Executors.newFixedThreadPool(300);
 
     /**
-     * 登录100w次，返回token是否有重复
+     *
      */
-    public static void main(String[] args) throws InterruptedException {
-        List<String> users = FileUtil.readFile(TestLoginThread.class.getResourceAsStream("/users/dev1DafaIP.txt"));
-        CountDownLatch cdl = new CountDownLatch(1000);
+    public static void main(String[] args) {
+        List<String> users = FileUtil.readFile("/Users/duke/Documents/dafaUsers/dev2Dafa.txt").subList(0, 1999);
+        for (int j = 0; j < 10000; j++) {
+            for (int i = 0; i < users.size(); i++) {
+                String[] userArray = users.get(i).split(",");
+                login(userArray[0], userArray[1]);
+            }
+
+        }
+    }
+
+    public static void function01(List<String> users) {
+        CountDownLatch cdl = new CountDownLatch(1500);
         for (int i = 0; i < 1; i++) {
             int finalI = i;
             execute.execute(() -> {
                 login0(users.get(finalI).split(","));
                 cdl.countDown();
             });
-            Thread.sleep(100);
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         try {
             cdl.await();
@@ -53,7 +68,7 @@ public class TestLoginThread {
         login(users[0], users[1]);
     }
 
-    public static void login(String username, String userId) {
+    public static void login(String userId, String username) {
         String ip = RandomIP.getRandomIp();
         HttpHeader httpHeader = HttpHeader.custom()
                 .contentType("application/x-www-form-urlencoded;charset=UTF-8")
@@ -66,11 +81,12 @@ public class TestLoginThread {
                 .other("x-user-id", userId)
                 .other("x-user-name", username)
                 .other("x-client-ip", ip)
+                .other("x-user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36")
                 .other("x-url", "caishen02.com");
         String body = Login.getLoginBody(username, "123qwe");
         HttpCookies httpCookies = HttpCookies.custom();
         HttpConfig httpConfig = HttpConfig.custom().url(loginUrl).body(body).headers(httpHeader.build()).context(httpCookies.getContext());
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 1; i++) {
             String result = DafaRequest.post(httpConfig);
             System.out.println(result);
             try {

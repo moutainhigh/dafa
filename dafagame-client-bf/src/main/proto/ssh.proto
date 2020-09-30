@@ -1,0 +1,173 @@
+syntax="proto2";
+
+package com.dafagame.proto;
+
+option java_outer_classname="SshGameProto";
+
+//手牌类型,
+enum Kind {
+    highCard=1;//乌龙
+    pair=2; //对子
+    twoPairs=3;//两对
+    set=4;//三条
+    straight=5;//顺子
+    flush=6;//同花
+    fullHouse=7;//葫芦
+    fourCards=8;//铁支
+    straightFlush=9;//同花顺
+}
+
+//特殊牌型
+enum SpecialKind {
+    threeFlush=10;//三同花
+    threeStraight=11;//三顺子
+    sixPairsAndOne=12;//六对半
+    fivePairsAndSet=13;//五对三条
+    fourSets=14;//四套三条
+    sameColor=15;//凑一色
+    allSmall=16;//全小
+    allBig=17;//全大
+    threeDivide=18;//三分天下
+    threeStraightFlush=19;//三同花顺
+    twelveRoyal=20;//十二皇族
+    dragon=21;//一条龙
+    royalDragon=22;//至尊青龙
+}
+
+enum RoomStatus{
+    idle=1;
+    match = 2;
+    playing = 3;
+    lottery=4; //结算
+    finish=5;//游戏结束还未转入空闲
+}
+
+
+//玩家动作枚举
+enum ProtoType {
+    StartMatchReqType       =2091;//开始匹配请求
+    StartMatchResType       =2092;//开始匹配请求回应
+
+    PlayerJoinType          =2093;//广播玩家加入
+    PlayerExitType          =2094;//匹配时玩家退出通知
+
+    StartGameType           =2095;//玩家手牌,收到手牌即开始游戏
+    EndGameType            = 2098;
+
+    FinishMoveReqType       =2096; //摆牌结束 (发送玩家手牌至服务器)
+    FinishMoveResType       =2097; //摆牌结束回应 1v4
+
+
+    //场景消息
+    SceneReqType            =2099;//进入场景动画
+    SceneResType            =20910;
+}
+
+enum ErrorCode {
+    Ok=1;
+    unknown_error=9;
+
+}
+
+//每一手牌描述信息
+message HandCard{
+    optional int32 order=1;//1,2,3分别代表第一墩，第二墩，第三墩
+    required int32 kind=2; //Kind
+    required string indexes=3;//手牌组成的下标序列以逗号隔开
+}
+
+//摆牌策略
+message Strategy{
+    required HandCard first=1;
+    required HandCard second=2;
+    required HandCard third=3;
+    optional int32 specialKind=4;//如果使用特殊牌型，此处填上对应的特殊牌型SpecialKind
+}
+
+//后台发给前台玩家手牌信息，含所有手牌及三种摆牌
+message StartGame{
+    required string   indexes=1;//手牌组成的下标序列,所有手牌
+    optional Strategy strategyOne=2;
+    optional Strategy strategyTwo=3;
+    optional Strategy strategyThree=4;
+    optional int32 time = 5;   //到下阶段的时间
+    optional int32 startPlayer = 6; //随机开始发牌的玩家
+    optional string inning = 7; //局号
+}
+
+message EndGame{
+        //自己水数
+        //每个玩家输赢金额 手牌
+        //打枪 数据
+        repeated GameResult info = 1;
+}
+
+
+message GameResult{
+        repeated int32 base = 1; //基础水数
+        repeated int32 addition = 2; //额外水数
+        optional int32 total = 3;//总水数
+        repeated int32 shot = 4; //对谁打抢
+        repeated int32 shoted = 5;  //被谁打
+        optional string balance = 6; //当前余额
+        optional string win = 7; //当局输赢金额
+        optional bool shotAll = 8; //全垒打
+        optional string tax = 9;//服务费
+        optional Strategy strategy=10;
+        optional int32 seatId=11;
+}
+
+
+message StartMatchReq{
+}
+
+message StartMatchRes{
+        required ErrorCode code=1;
+        optional double baseChip = 2;           //底注
+        repeated SshPlayer others = 4;        //其他玩家
+        optional int64  optTime = 6;            //剩余时间
+        optional string roomNumber = 7;         //房号
+        optional string inning = 8;             //局号
+        optional RoomStatus roomStatus = 9;         //房间状态
+        optional string roundType = 12;          //场次类型
+        optional SshPlayer own = 14;            //自己
+}
+
+
+message SceneReq{
+}
+
+message SceneRes{
+        required ErrorCode code=1;
+}
+
+message FinishMoveReq{
+     optional int32 choose = 1; //推荐策略选择
+     optional Strategy strategy = 2;
+     optional string   indexes=3;//手牌组成的下标序列,所有手牌
+}
+
+message FinishMoveRes{
+    required ErrorCode code=1;
+    repeated int32 seatId = 2;
+}
+
+message PlayerJoin{
+    optional SshPlayer player=1;
+}
+
+message PlayerExit{
+    optional int32 seatId = 1;
+}
+
+message SshPlayer{
+        optional int32 seatId = 1;          //座位
+        optional int32 grade = 2;           //vip
+        optional string nickName = 3;       //昵称
+        optional int32 avatar = 4;          //头像
+        optional string balance = 5;        //余额
+        optional bool isFinish = 6;   //是否摆牌结束
+        optional int32 frame = 7;           //相框
+        repeated Strategy  strategy = 8;
+}
+

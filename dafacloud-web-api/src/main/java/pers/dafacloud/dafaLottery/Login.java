@@ -42,10 +42,10 @@ public class Login {
         HttpConfig httpConfig = HttpConfig.custom().url(loginUrl).body(body).headers(httpHeader.build()).context(httpCookies.getContext());
         String result = DafaRequest.post(httpConfig);
         System.out.println(username + " - " + result);
-        JSONObject resultObj = JSONObject.parseObject(result);
-        JSONObject dataObj = resultObj.getJSONObject("data");
         if (result == null || !result.contains("成功"))
             throw new RuntimeException("登录失败");
+        JSONObject resultObj = JSONObject.parseObject(result);
+        JSONObject dataObj = resultObj.getJSONObject("data");
         if (dataObj != null) {
             String token = dataObj.getString("token");
             HttpHeader httpHeader0 = HttpHeader.custom()

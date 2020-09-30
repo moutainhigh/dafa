@@ -1,5 +1,7 @@
 package pers.dafacloud.mapper.lotteryOpenMessage;
 
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -20,6 +22,37 @@ public interface LotteryOpenMessageMapper {
     List<Map> queryLotteryOpenMessage();
 
 
-    @Select("select issue issue,open_number openNumber from game_open_message where game_code = 2005 ORDER BY gmt_created desc limit 40000;")
+    @Select("select issue issue,open_number openNumber " +
+            "from game_open_message " +
+            "where game_code = 2005 " +
+            "ORDER BY gmt_created " +
+            "desc limit 40000;")
     List<Map> queryGameOpenMessage();
+
+
+    @Select("select id,issue,open_number,gmt_created " +
+            "from lottery_open_message " +
+            "where lottery_code = 1300 " +
+            "and id > #{maxId} " +
+            "limit 10000;")
+    List<Map> getLotteryOpenMessage(@Param("maxId") String maxId);
+
+    @Insert({"<script>  insert into lottery_1300lhc(\n" +
+            "        issue,\n" +
+            "        lottery_code,\n" +
+            "        open_number,\n" +
+            "        gmt_created\n" +
+            "        ) values\n" +
+            "        <foreach collection=\"list\" item=\"item\" index=\"index\" separator=\",\">\n" +
+            "            (\n" +
+            "            #{item.issue}\n" +
+            "            ,#{item.lottery_code}\n" +
+            "            ,#{item.open_number}\n" +
+            "            ,#{item.gmt_created}\n" +
+            "            )\n" +
+            "        </foreach>  </script>"})
+    int insertLotteryOpenMessage(List<Map> list);
+
+
+
 }
