@@ -2,7 +2,8 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <statusListener class="ch.qos.logback.core.status.NopStatusListener"/> <!--将状态信息监听器设置为无操作监听器。-->
     <!-- 定义日志的根目录/logs/log  ../logs(上上级目录)-->
-    <property name="LOG_HOME" value="../logs"/>
+    <!--<property name="LOG_HOME" value="../logs"/>-->
+    <property name="LOG_HOME" value="/usr/duke/github/logs"/>
     <!--定义服务名称-->
     <property name="SERVER_NAME" value="web-api-server"/>
     <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />
