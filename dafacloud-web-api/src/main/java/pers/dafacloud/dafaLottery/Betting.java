@@ -177,7 +177,6 @@ public class Betting {
                     .headers(headers);
         } else {
             httpConfig = Login.loginReturnHttpConfig(usersMap.get("user_name").toString());//登录
-
         }
         String rebate;
         if (isFilePoint) {
@@ -203,7 +202,7 @@ public class Betting {
             String result = DafaRequest.post(httpConfig.url(addBettingUrl).body(betContent));//下注请求
             try {
                 if (JSONObject.parseObject(result).getInteger("code") != 1)
-                    System.out.println(betContent);
+                    System.out.println(usersMap.get("user_name").toString() +" - "+ betContent);
             } catch (Exception e) {
                 System.out.println("json error:" + result);
             }
