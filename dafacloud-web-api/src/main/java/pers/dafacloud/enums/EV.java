@@ -3,7 +3,7 @@ package pers.dafacloud.enums;
 public enum EV {
 
     DEV1_IP("dev1Dafa","dev1","dev1Tenant", "52.76.195.164", "", "/users/dev1DafaIP.txt", "/usersTenant/dev1DafaIP.txt", true),
-    DEV2_IP("dev2Dafa","dev1","dev2Tenant", "52.77.207.64", "", "/users/dev2DafaIP.txt", "/users/dev2DafaIPTenant.txt", true),
+    DEV2_IP("dev2Dafa","dev2","dev2Tenant", "52.77.207.64", "", "/users/dev2DafaIP.txt", "/users/dev2DafaIPTenant.txt", true),
     DEV1("dev1Dafa","dev1","", "caishen02", "/users/dev1Dafa.txt", "", "", false),
     DEV2("dev2Dafa","dev2","", "caishen03", "/users/dev2Dafa.txt", "", "", false),
     PRE("preDafa","pre","", "dafacloud-pre", "/users/preDafa.txt", "", "/users/preTenantDafa.txt", false),

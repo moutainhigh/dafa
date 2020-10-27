@@ -59,6 +59,7 @@ public class RunPrizes {
 
     public static void main(String[] args) {
         //getPrize("dafai0001","50000511");
+        //getPrize("dukedftest01","60961044");
         //getPrize("wheel2","60960961");
         runBetting();
     }

@@ -82,7 +82,7 @@ public class K3sl {
             resultList.add(result);
             System.out.println(result);
         }
-        FileUtil.writeFile("/Users/duke/Documents/下注测试/1407Result2.txt", resultList, true);
+        FileUtil.writeFile("/Users/duke/Documents/下注测试/1407Result0.txt", resultList, true);
         System.out.println(totalBettingAmount.setScale(0, BigDecimal.ROUND_HALF_UP));
     }
 }

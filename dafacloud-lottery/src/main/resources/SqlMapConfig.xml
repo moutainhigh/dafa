@@ -87,6 +87,15 @@
                 <property name="password" value="BGsJpwOYb2wt" />
             </dataSource>
         </environment>
+        <environment id="activity">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://18.139.94.243:8317/dafacloud_activity?useSSL=false&amp;characterEncoding=utf8" />
+                <property name="username" value="u8qu1w9" />
+                <property name="password" value="SkT2y4iVtG5F" />
+            </dataSource>
+        </environment>
         <environment id="ali">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">

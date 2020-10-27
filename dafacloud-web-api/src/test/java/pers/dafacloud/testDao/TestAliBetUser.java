@@ -49,7 +49,8 @@ public class TestAliBetUser {
 
     @Test()
     public void test02() {
-        List<String> list = FileUtil.readFile(TestAliBetUser.class.getResourceAsStream("/users/a.txt"));
+        //List<String> list = FileUtil.readFile(TestAliBetUser.class.getResourceAsStream("/users/a.txt"));
+        List<String> list = FileUtil.readFile("/Users/duke/Documents/dafaUsers/dev2dfa0000.txt");
         List<Map> mapListUser = new ArrayList<>();
         for (String s : list) {
             String[] sa = s.split(",");
@@ -57,8 +58,8 @@ public class TestAliBetUser {
             map.put("tenantCode", sa[0]);
             map.put("userName", sa[1]);
             map.put("userId", sa[2]);
-            map.put("evCode", "dev1");//dev1,dev2,pre,pro
-            map.put("userType", "2");//userType 1平台 ，2站长彩（要单独区分）
+            map.put("evCode", "dev2");//dev1,dev2,pre,pro
+            map.put("userType", "3");//userType 1平台 ，2站长彩（要单独区分）
             mapListUser.add(map);
         }
         System.out.println(betUsersServer.insertBetUsers(mapListUser));

@@ -19,8 +19,8 @@ import java.util.concurrent.Executors;
 
 public class TestLoginThread {
 
-    //private static String host = "http://52.76.195.164:8010";
-    private static String host = "http://52.77.207.64:8010";
+    private static String host = "http://52.76.195.164:8010";
+    //private static String host = "http://52.77.207.64:8010";
     private static String loginUrl = host + "/v1/users/login";
     static List<String> list = Collections.synchronizedList(new ArrayList<>());
     private static ExecutorService execute = Executors.newFixedThreadPool(300);
@@ -29,7 +29,7 @@ public class TestLoginThread {
      *
      */
     public static void main(String[] args) {
-        List<String> users = FileUtil.readFile("/Users/duke/Documents/dafaUsers/dev2Dafa.txt").subList(0, 1999);
+        List<String> users = FileUtil.readFile("/Users/duke/Documents/dafaUsers/dev1Dafa.txt").subList(0, 1999);
         for (int j = 0; j < 10000; j++) {
             for (int i = 0; i < users.size(); i++) {
                 String[] userArray = users.get(i).split(",");
